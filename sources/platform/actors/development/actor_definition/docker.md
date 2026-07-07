@@ -1,12 +1,8 @@
 ---
 title: Dockerfile
-description: Learn about the available Docker images you can use as a base for your Apify Actors. Choose the right base image based on your Actor's requirements and the programming language you're using.
+description: Learn about Docker base images for Apify Actors and how to choose the right image based on your Actor's requirements and programming language.
 slug: /actors/development/actor-definition/dockerfile
-sidebar_position: 7
----
-
-**Learn about the available Docker images you can use as a base for your Apify Actors. Choose the right base image based on your Actor's requirements and the programming language you're using.**
-
+sidebar_position: 8
 ---
 
 When developing an [Actor](/sources/platform/actors/index.mdx) on the Apify platform, you can choose from a variety of pre-built Docker images to serve as the base for your Actor. These base images come with pre-installed dependencies and tools, making it easier to set up your development environment and ensuring consistent behavior across different environments.
@@ -204,7 +200,7 @@ This means the system expects the source code to be in `main.js` by default. If 
 
 :::tip Optimization tips
 
-You can check out various optimization tips for Dockerfile in our [Performance](../performance.md) documentation.
+You can check out various optimization tips for Dockerfile in the [Performance](../performance.md) documentation.
 
 :::
 

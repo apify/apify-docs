@@ -6,21 +6,22 @@ sidebar_position: 9.3
 slug: /storage/key-value-store
 ---
 
-**Store anything from Actor or task run results, JSON documents, or images. Learn how to access and manage key-value stores from Apify Console or via API.**
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-
----
 
 The key-value store is simple storage that can be used for storing any kind of data. It can be JSON or HTML documents, zip files, images, or strings. The data are stored along with their [MIME content type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types).
 
 Each Actor run is assigned its own key-value store when it is created. The store contains the Actor's input, and, if necessary, other data such as its output.
 
-Key-value stores are mutable–you can both add entries and delete them.
+Key-value stores are mutable - you can both add entries and delete them.
 
-> Named key-value stores are retained indefinitely. <br/>
-> Unnamed key-value stores expire after 7 days unless otherwise specified.<br/> > [Learn more](/platform/storage/usage#named-and-unnamed-storages)
+:::info Retention period
+
+Named key-value stores are retained indefinitely. Unnamed key-value stores expire after 7 days unless otherwise specified. [Learn more](/platform/storage#named-and-unnamed-storages)
+
+:::
+
+![Key-value store graphic](./images/key-value-overview.svg)
 
 ## Basic usage
 
@@ -37,7 +38,7 @@ In [Apify Console](https://console.apify.com), you can view your key-value store
 
 ![Key-value stores in app](./images/key-value-stores-app.png)
 
-To view a key-value store's content, click on its **Store ID**. Under the **Actions** menu, you can rename your store (which extends its [retention period](/platform/storage/usage#named-and-unnamed-storages)) and grant [access rights](../collaboration/index.md) using the **Share** button.
+To view a key-value store's content, click on its **Store ID**. Under the **Actions** menu, you can rename your store (which extends its [retention period](/platform/storage#named-and-unnamed-storages)) and grant [access rights](../collaboration/index.md) using the **Share** button.
 Click on the **API** button to view and test a store's [API endpoints](/api/v2/storage-key-value-stores).
 
 ![Key-value stores detail](./images/key-value-stores-detail-header.png)
@@ -56,7 +57,7 @@ At the bottom of the page, you can work with records in your key-value store:
 
 The [Apify API](/api/v2/storage-key-value-stores) enables you programmatic access to your key-value stores using [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
 
-If you are accessing your datasets using the `username~store-name` [store ID format](./index.md), you will need to use your secret API token. You can find the token (and your user ID) on the [Integrations](https://console.apify.com/account#/integrations) tab of **Settings** page of your Apify account.
+If you are accessing your key-value stores using the `username~store-name` [store ID format](./index.md), you will need to use your secret API token. You can find the token (and your user ID) on the [API & Integrations](https://console.apify.com/settings/integrations) tab of **Settings** page of your Apify account.
 
 :::tip Authentication
 
@@ -182,7 +183,11 @@ await exampleStore.setValue('some-key', null);
 await Actor.exit();
 ```
 
-> Note that JSON is automatically parsed to a JavaScript object, text data returned as a string and other data is returned as binary buffer.
+:::note Automatic parsing
+
+JSON is automatically parsed to a JavaScript object, text data is returned as a string, and other data is returned as a binary buffer.
+
+:::
 
 ```js
 import { Actor } from 'apify';
@@ -240,7 +245,11 @@ async def main():
         await example_store.set_value('some-key', None)
 ```
 
-> Note that JSON is automatically parsed to a Python dictionary, text data returned as a string and other data is returned as binary buffer.
+:::note Automatic parsing
+
+JSON is automatically parsed to a Python dictionary, text data is returned as a string, and other data is returned as a binary buffer.
+
+:::
 
 ```python
 from apify import Actor
@@ -261,9 +270,9 @@ Check out the [Python SDK documentation](/sdk/python/docs/concepts/storages#work
 
 Previously, when using the [Store record](/api/v2/key-value-store-record-put) endpoint, every record was automatically compressed with Gzip before being uploaded. However, this process has been updated. _Now, records are stored exactly as you upload them._ This change means that it is up to you whether the record is stored compressed or uncompressed.
 
-You can compress a record and use the [Content-Encoding request header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Encoding) to let our platform know which compression it uses. We recommend compressing large key-value records to save storage space and network traffic.
+You can compress a record and use the [Content-Encoding request header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Encoding) to let the platform know which compression it uses. We recommend compressing large key-value records to save storage space and network traffic.
 
-_Using the [JavaScript SDK](/sdk/js/reference/class/KeyValueStore#setValue) or our [JavaScript API client](/api/client/js/reference/class/KeyValueStoreClient#setRecord) automatically compresses your files._ We advise utilizing the JavaScript API client for data compression prior to server upload and decompression upon retrieval, minimizing storage costs.
+_Using the [JavaScript SDK](/sdk/js/reference/class/KeyValueStore#setValue) or the [JavaScript API client](/api/client/js/reference/class/KeyValueStoreClient#setRecord) automatically compresses your files._ We advise utilizing the JavaScript API client for data compression prior to server upload and decompression upon retrieval, minimizing storage costs.
 
 ## Share
 
@@ -329,7 +338,7 @@ other_store_client = apify_client.key_value_store('jane-doe/old-store')
 
 The same applies for the [Apify API](#apify-api) - you can use [the same endpoints](#apify-api) as you would normally do.
 
-Check out the [Storage overview](/platform/storage/usage#sharing-storages-between-runs) for details on sharing storages between runs.
+Check out the [Storage overview](/platform/storage#share-storages-between-runs) for details on sharing storages between runs.
 
 ## Data consistency
 
@@ -337,4 +346,4 @@ Key-value storage uses the [AWS S3](https://aws.amazon.com/s3/) service. Accordi
 
 ## Limits
 
-- The maximum length for a key in a key-value store is 63 characters.
+- The maximum length for a key in a key-value store is 256 characters. Keys may only contain the following characters: `a-zA-Z0-9!-_.'()`.

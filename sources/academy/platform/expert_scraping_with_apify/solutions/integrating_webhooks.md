@@ -180,16 +180,16 @@ Actor detail https://console.apify.com/actors/Yk1bieximsduYDydP
 Success: Actor was deployed to Apify cloud and built there.
 ```
 
-The URLs tell us that our Actor's ID is `Yk1bieximsduYDydP`. With this `actorId`, and our `token`, which is retrievable through **Settings > Integrations** on the Apify Console, we can construct a link which will call the Actor:
+The URLs tell us that our Actor's ID is `Yk1bieximsduYDydP`. With this `actorId`, and our `token`, which is retrievable through **Settings > API & Integrations** in Apify Console, we can construct a link which will call the Actor:
 
 ```text
-https://api.apify.com/v2/acts/Yk1bieximsduYDydP/runs?token=YOUR_TOKEN_HERE
+https://api.apify.com/v2/actors/Yk1bieximsduYDydP/runs?token=YOUR_TOKEN_HERE
 ```
 
 We can also use our username and the name of the Actor like this:
 
 ```text
-https://api.apify.com/v2/acts/USERNAME~filter-actor/runs?token=YOUR_TOKEN_HERE
+https://api.apify.com/v2/actors/USERNAME~filter-actor/runs?token=YOUR_TOKEN_HERE
 ```
 
 Whichever one you choose is totally up to your preference.

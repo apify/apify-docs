@@ -1,0 +1,17 @@
+RequestIdInvalidErrorDetail:
+  allOf:
+    - $ref: ../ErrorDetail.yaml
+    - type: object
+      properties:
+        type:
+          const: request-id-invalid
+
+RequestIdInvalidError:
+  type: object
+  properties:
+    error:
+      $ref: "#/RequestIdInvalidErrorDetail"
+  example:
+    error:
+      type: request-id-invalid
+      message: Request ID does not correspond to uniqueKey

@@ -10,7 +10,7 @@ properties:
     type: string
     examples: [WkzbQMuFYuamGv3YF]
   name:
-    type: string
+    type: [string, "null"]
     examples: [d7b9MDYsbtX5L7XAj]
   userId:
     type: [string, "null"]
@@ -45,6 +45,14 @@ properties:
     format: uri
     description: A public link to access keys of the key-value store directly.
     examples: [https://api.apify.com/v2/key-value-stores/WkzbQMuFYuamGv3YF/keys?signature=abc123]
+  recordsPublicUrl:
+    type: string
+    format: uri
+    description: A public link to access records of the key-value store directly.
+    examples: [https://api.apify.com/v2/key-value-stores/WkzbQMuFYuamGv3YF/records]
+  schema:
+    type: [object, "null"]
+    description: Optional JSON schema describing the keys stored in the key-value store.
   urlSigningSecretKey:
     type: [string, "null"]
     description: A secret key for generating signed public URLs. It is only provided to clients with WRITE permission for the key-value store.

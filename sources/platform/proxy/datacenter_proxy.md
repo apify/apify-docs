@@ -8,20 +8,16 @@ slug: /proxy/datacenter-proxy
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-**Learn how to reduce blocking when web scraping using IP address rotation. See proxy parameters and learn to implement Apify Proxy in an application.**
-
----
-
 Datacenter proxies are a cheap, fast and stable way to mask your identity online. When you access a website using a datacenter proxy, the site can only see the proxy center's credentials, not yours.
 
-Datacenter proxies allow you to mask and [rotate](./usage.md#ip-address-rotation) your IP address during web scraping and automation jobs, reducing the possibility of them being [blocked](/academy/anti-scraping/techniques#access-denied). For each [HTTP/S request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods), the proxy takes the list of all available IP addresses and selects the one used the longest time ago for the specific hostname.
+Datacenter proxies allow you to mask and [rotate](./index.md#ip-address-rotation) your IP address during web scraping and automation jobs, reducing the possibility of them being [blocked](/academy/anti-scraping/techniques#access-denied). For each [HTTP/S request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods), the proxy takes the list of all available IP addresses and selects the one used the longest time ago for the specific hostname.
 
-You can refer to our [blog post](https://blog.apify.com/datacenter-proxies-when-to-use-them-and-how-to-make-the-most-of-them/) for tips on how to make the most out of datacenter proxies.
+You can refer to the [blog post](https://blog.apify.com/datacenter-proxies-when-to-use-them-and-how-to-make-the-most-of-them/) for tips on how to make the most out of datacenter proxies.
 
 ## Features
 
 * Periodic health checks of proxies in the pool so requests are not forwarded via dead proxies.
-* Intelligent rotation of IP addresses so target hosts are accessed via proxies that have accessed them the longest time ago, to reduce the chance of blocking.
+* Intelligent rotation of IP addresses so target hosts are accessed via proxies from a random subset that have accessed them the longest time ago, to reduce the chance of blocking.
 * Periodically checks whether proxies are banned by selected target websites. If they are, stops forwarding traffic to them to get the proxies unbanned as soon as possible.
 * Ensures proxies are located in specific countries using IP geolocation.
 * Allows selection of groups of proxy servers with specific characteristics.
@@ -37,13 +33,13 @@ When using Apify's datacenter proxies, you can either select a proxy group, or t
 
 Each user has access to a selected number of proxy servers from a shared pool. These servers are spread into groups (called proxy groups). Each group shares a common feature (location, provider, speed, etc.).
 
-For a full list of plans and number of allocated proxy servers for each plan, see our [pricing](https://apify.com/pricing). To get access to more servers, you can upgrade your plan in the [subscription settings](https://console.apify.com/billing/subscription);
+For a full list of plans and number of allocated proxy servers for each plan, see the [pricing page](https://apify.com/pricing). To get access to more servers, you can upgrade your plan in the [subscription settings](https://console.apify.com/billing/subscription);
 
 ### Dedicated proxy groups
 
 When you purchase access to dedicated proxy groups, they are assigned to you, and only you can use them. You gain access to a range of static IP addresses from these groups.
 
-This feature is also useful if you have your own pool of proxy servers and still want to benefit from the features of Apify Proxy (like [IP address rotation](./usage.md#ip-address-rotation), [persistent sessions](#session-persistence), and health checking). If you do not have your own pool, the [customer support](https://apify.com/contact) team can set up a dedicated group for you based on your needs and requirements.
+This feature is also useful if you have your own pool of proxy servers and still want to benefit from the features of Apify Proxy (like [IP address rotation](./index.md#ip-address-rotation), [persistent sessions](#session-persistence), and health checking). If you do not have your own pool, the [customer support](https://apify.com/contact) team can set up a dedicated group for you based on your needs and requirements.
 
 Prices for dedicated proxy servers are mainly based on the number of proxy servers, their type, and location. [Contact us](https://apify.com/contact) for more information.
 
@@ -51,11 +47,11 @@ Prices for dedicated proxy servers are mainly based on the number of proxy serve
 
 By default, each proxied HTTP request is potentially sent via a different target proxy server, which adds overhead and could be potentially problematic for websites which save cookies based on IP address.
 
-If you want to pick an IP address and pass all subsequent connections via that same IP address, you can use the `session` [parameter](./usage.md#sessions).
+If you want to pick an IP address and pass all subsequent connections via that same IP address, you can use the `session` [parameter](./index.md#sessions).
 
 ### Username parameters {#username-parameters}
 
-The `username` field enables you to pass various [parameters](./usage.md#connection-settings), such as groups, session and country, for your proxy connection.
+The `username` field enables you to pass various [parameters](./index.md#connection-settings), such as groups, session and country, for your proxy connection.
 
 **This parameter is optional**. By default, the proxy uses all available proxy servers from all groups you have access to.
 
@@ -87,7 +83,6 @@ await Actor.exit();
 ```
 
 </TabItem>
-
 
 <TabItem value="CheerioCrawler" label="CheerioCrawler">
 
@@ -139,7 +134,6 @@ if __name__ == '__main__':
 
 </TabItem>
 
-
 <TabItem value="gotScraping()" label="gotScraping()">
 
 ```javascript
@@ -177,9 +171,9 @@ await Actor.exit();
 
 ## Session persistence
 
-When you use datacenter proxy with the `session` [parameter](./usage.md#sessions) set in the `username` [field](#username-parameters), a single IP is assigned to the `session ID` provided after you make the first request.
+When you use datacenter proxy with the `session` [parameter](./index.md#sessions) set in the `username` [field](#username-parameters), a single IP is assigned to the `session ID` provided after you make the first request.
 
-**Session IDs represent IP addresses. Therefore, you can manage the IP addresses you use by managing sessions.** [[More info](./usage.md#sessions)]
+**Session IDs represent IP addresses. Therefore, you can manage the IP addresses you use by managing sessions.** [[More info](./index.md#sessions)]
 
 This IP/session ID combination is persisted and expires 26 hours later. Each additional request resets the expiration time to 26 hours.
 
@@ -190,8 +184,7 @@ If you use the session at least once a day, it will never expire, with two possi
 
 If the session is discarded due to the reasons above, it is assigned a new IP address.
 
-To learn more about [sessions](./usage.md#sessions) and [IP address rotation](./usage.md#ip-address-rotation), see the [proxy overview page](./index.md).
-
+To learn more about [sessions](./index.md#sessions) and [IP address rotation](./index.md#ip-address-rotation), see the [proxy overview page](./index.md).
 
 ### Examples using sessions
 
@@ -223,7 +216,6 @@ await Actor.exit();
 ```
 
 </TabItem>
-
 
 <TabItem value="CheerioCrawler" label="CheerioCrawler">
 
@@ -280,7 +272,6 @@ if __name__ == '__main__':
 
 </TabItem>
 
-
 <TabItem value="gotScraping()" label="gotScraping()">
 
 ```javascript
@@ -316,11 +307,13 @@ await Actor.exit();
 
 ## Examples using standard libraries and languages
 
-You can find your proxy password on the [Proxy page](https://console.apify.com/proxy) of the Apify Console.
+You can find your proxy password on the [Proxy page](https://console.apify.com/proxy) of Apify Console.
 
-> The `username` field is **not** your Apify username.<br/>
-> Instead, you specify proxy settings (e.g. `groups-BUYPROXIES94952`, `session-123`).<br/>
-> Use `auto` for default settings.
+:::note Username field
+
+Use the `username` field to specify your proxy settings (for example, `groups-BUYPROXIES94952`, `session-123`), or set it to `auto` for default settings. It isn't your Apify username.
+
+:::
 
 For examples using [PHP](https://www.php.net/), you need to have the [cURL](https://www.php.net/manual/en/book.curl.php) extension enabled in your PHP installation. See [installation instructions](https://www.php.net/manual/en/curl.installation.php) for more information.
 
@@ -350,7 +343,6 @@ console.log(data);
 
 </TabItem>
 
-
 <TabItem value="Python 3" label="Python 3">
 
 ```python
@@ -377,7 +369,6 @@ print(opener.open("http://proxy.apify.com/?format=json").read())
 
 </TabItem>
 
-
 <TabItem value="Python 2" label="Python 2">
 
 ```python
@@ -401,7 +392,6 @@ print(opener.open("http://proxy.apify.com/?format=json").read())
 
 </TabItem>
 
-
 <TabItem value="PHP" label="PHP">
 
 ```php
@@ -420,13 +410,11 @@ if ($response) echo $response;
 
 </TabItem>
 
-
 <TabItem value="PHP (Guzzle)" label="PHP (Guzzle)">
 
 ```php
 <?php
 require 'vendor/autoload.php';
-
 
 $client = new \GuzzleHttp\Client([
     // Replace <YOUR_PROXY_PASSWORD> below with your password

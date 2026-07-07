@@ -1,10 +1,9 @@
 ---
 title: State persistence
 description: Learn how to maintain an Actor's state to prevent data loss during unexpected restarts. Includes code examples for handling server migrations.
+sidebar_position: 9
 slug: /actors/development/builds-and-runs/state-persistence
 ---
-
-**Learn how to maintain an Actor's state to prevent data loss during unexpected restarts. Includes code examples for handling server migrations.**
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

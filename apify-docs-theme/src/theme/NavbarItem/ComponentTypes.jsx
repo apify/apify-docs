@@ -15,25 +15,13 @@ import React from 'react';
 // const stable = versions[0];
 const stable = '1';
 
-function DocNavbarItem({
-    docId,
-    label: staticLabel,
-    docsPluginId,
-    ...props
-}) {
+function DocNavbarItem({ docId, label: staticLabel, docsPluginId, ...props }) {
     const doc = useLayoutDoc(docId, docsPluginId);
     // Draft items are not displayed in the navbar.
     if (doc === null) {
         return null;
     }
-    return (
-        <DefaultNavbarItem
-            exact
-            {...props}
-            label={staticLabel ?? doc.id}
-            to={doc.path}
-        />
-    );
+    return <DefaultNavbarItem exact {...props} label={staticLabel ?? doc.id} to={doc.path} />;
 }
 
 function ApiNavbarItem(ctx) {
@@ -48,14 +36,7 @@ function ApiNavbarItem(ctx) {
     const { siteConfig } = useDocusaurusContext();
 
     if (siteConfig.presets[0][1].docs.disableVersioning || version.version === stable) {
-        return (
-            <DefaultNavbarItem
-                exact
-                {...ctx}
-                label={ctx.label}
-                to={`reference/${ctx.to}`}
-            />
-        );
+        return <DefaultNavbarItem exact {...ctx} label={ctx.label} to={`reference/${ctx.to}`} />;
     }
 
     // skip changelog button for older versions

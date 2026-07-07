@@ -1,18 +1,17 @@
 ---
 title: n8n integration
-description: Connect Apify with n8n to automate workflows by running Actors, extracting data, and responding to Actor or task events.
+description: Connect Apify with n8n to automate workflows by running Actors, extracting structured data, and reacting to Actor or task run events in real time.
 sidebar_label: n8n
-sidebar_position: 7
 slug: /integrations/n8n
 ---
 
-**Connect Apify with n8n to automate workflows by running Actors, extracting structured data, and responding to Actor or task events.**
-
----
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
 [n8n](https://n8n.io/) is an open source, fair-code licensed tool for workflow automation. With the [Apify integration for n8n](https://github.com/apify/n8n-nodes-apify), you can connect Apify Actors and storage to hundreds of services You can run scrapers, extract data, and trigger workflows based on Actor or task events.
 
 In this guide, you'll learn how to install the Apify node, set up authentication, and incorporate it into your n8n workflows as either a trigger or an action.
+
+<ThirdPartyDisclaimer />
 
 ## Prerequisites
 
@@ -124,7 +123,7 @@ Actions allow you to perform operations like running an Actor within a workflow.
     - **Wait for finish**: Whether to wait for the run to finish before continuing. If true, the node will wait for the run to complete (successfully or not) before moving to the next node
     ![Apify Node](../../images/n8n-run-actor-example.png)
 1. Add another Apify operation called **Get Dataset Items**.
-    - Set **Dataset ID** parameter as **defaultDatasetId** value received from the previous **Run Actor** node. This will give you the output of the Actor run
+    - Set **Dataset ID** parameter as **defaultDatasetId** value received from the previous **Run Actor** node. This will give you the items from the Actor run's default dataset
     ![Apify Node](../../images/n8n-get-dataset-items-example.png)
 1. Add any subsequent nodes (e.g. Google Sheets) to process or store the output
 1. Save and execute the workflow
@@ -136,7 +135,6 @@ You can run Apify operations, retrieve the results, and use AI to process, analy
 
   ![Apify Node](../../images/n8n-ai-tool-example.png)
 
-
 1. Create a new workflow.
 1. **Add a trigger**:  Search for and select **Chat Trigger**.
 1. **Add the AI Agent node**:  Click **Add Node**, search for **AI Agent**, and select it.
@@ -146,7 +144,7 @@ You can run Apify operations, retrieve the results, and use AI to process, analy
     - **Tools**: Search for **Apify**, select **Apify Tool**, and click  **Add to Workflow**. Choose any available operation and configure it.
 1. **Run the workflow**: Save it, then provide a prompt instructing the Agent to use the Apify tool with the operations you configured earlier.
 
-:::note
+:::note Let AI fill in parameters
 
   Let the AI model define the parameters in your node when possible. Click the _sparkle_ icon next to a parameter to have the AI fill it in for you.
 

@@ -14,7 +14,7 @@ import Exercises from '../scraping_basics/_exercises.mdx';
 
 ---
 
-A browser is the most complete tool for navigating websites. Scrapers are like automated browsers—and sometimes, they actually are automated browsers. The key difference? There's no user to decide where to go or eyes to see what's displayed. Everything has to be pre-programmed.
+A browser is the most complete tool for navigating websites. Scrapers are like automated browsers - and sometimes, they actually are automated browsers. The key difference? There's no user to decide where to go or eyes to see what's displayed. Everything has to be pre-programmed.
 
 All modern browsers provide developer tools, or _DevTools_, for website developers to debug their work. We'll use them to understand how websites are structured and identify the behavior our scraper needs to mimic. Here's the typical workflow for creating a scraper:
 
@@ -28,7 +28,7 @@ Now let's spend some time figuring out what the detective work in step 1 is abou
 
 Google Chrome is currently the most popular browser, and many others use the same core. That's why we'll focus on [Chrome DevTools](https://developer.chrome.com/docs/devtools) here. However, the steps are similar in other browsers, as Safari has its [Web Inspector](https://developer.apple.com/documentation/safari-developer-tools/web-inspector) and Firefox also has [DevTools](https://firefox-source-docs.mozilla.org/devtools-user/).
 
-Now let's peek behind the scenes of a real-world website—say, Wikipedia. We'll open Google Chrome and visit [wikipedia.org](https://www.wikipedia.org/). Then, let's press **F12**, or right-click anywhere on the page and select **Inspect**.
+Now let's peek behind the scenes of a real-world website - say, Wikipedia. We'll open Google Chrome and visit [wikipedia.org](https://www.wikipedia.org/). Then, let's press **F12**, or right-click anywhere on the page and select **Inspect**.
 
 ![Wikipedia with Chrome DevTools open](../scraping_basics/images/devtools-wikipedia.png)
 
@@ -51,7 +51,7 @@ Think of [HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML) elements as
 </article>
 ```
 
-HTML, a markup language, describes how everything on a page is organized, how elements relate to each other, and what they mean. It doesn't define how elements should look—that's where [CSS](https://developer.mozilla.org/en-US/docs/Learn/CSS) comes in. CSS is like the velvet covering the frame. Using styles, we can select elements and assign rules that tell the browser how they should appear. For instance, we can style all elements with `heading` in their `class` attribute to make the text blue and uppercase.
+HTML, a markup language, describes how everything on a page is organized, how elements relate to each other, and what they mean. It doesn't define how elements should look - that's where [CSS](https://developer.mozilla.org/en-US/docs/Learn/CSS) comes in. CSS is like the velvet covering the frame. Using styles, we can select elements and assign rules that tell the browser how they should appear. For instance, we can style all elements with `heading` in their `class` attribute to make the text blue and uppercase.
 
 ```css
 .heading {
@@ -62,7 +62,7 @@ HTML, a markup language, describes how everything on a page is organized, how el
 
 While HTML and CSS describe what the browser should display, JavaScript adds interaction to the page. In DevTools, the **Console** tab allows ad-hoc experimenting with JavaScript.
 
-If you don't see it, press <kbd>ESC</kbd> to toggle the Console. Running commands in the Console lets us manipulate the loaded page—we’ll try this shortly.
+If you don't see it, press <kbd>ESC</kbd> to toggle the Console. Running commands in the Console lets us manipulate the loaded page - we’ll try this shortly.
 
 ![Console in Chrome DevTools](../scraping_basics/images/devtools-console.png)
 
@@ -136,9 +136,9 @@ When we change elements in the Console, those changes reflect immediately on the
 
 ![Changing textContent in Chrome DevTools Console](../scraping_basics/images/devtools-console-textcontent.png)
 
-But don't worry—we haven't hacked Wikipedia. The change only happens in our browser. If we reload the page, the change will disappear. This, however, is an easy way to craft a screenshot with fake content. That's why screenshots shouldn't be trusted as evidence.
+But don't worry - we haven't hacked Wikipedia. The change only happens in our browser. If we reload the page, the change will disappear. This, however, is an easy way to craft a screenshot with fake content. That's why screenshots shouldn't be trusted as evidence.
 
-We're not here for playing around with elements, though—we want to create a scraper for an e-commerce website to watch prices. In the next lesson, we'll examine the website and use CSS selectors to locate HTML elements containing the data we need.
+We're not here for playing around with elements, though - we want to create a scraper for an e-commerce website to watch prices. In the next lesson, we'll examine the website and use CSS selectors to locate HTML elements containing the data we need.
 
 ---
 

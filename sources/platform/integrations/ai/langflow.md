@@ -2,23 +2,14 @@
 title: Langflow integration
 sidebar_label: Langflow
 description: Learn how to integrate Apify with Langflow low-code tool to build powerful AI agents and workflows that can use any API, model, or database.
-sidebar_position: 6
 slug: /integrations/langflow
 ---
 
-**Learn how to integrate Apify with Langflow to run complex AI agent workflows.**
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
----
+[Langflow](https://www.langflow.org/) is a low-code, visual tool that enables developers to build powerful AI agents and workflows that can use any API, models, or databases. For more information, visit the [Langflow documentation](https://docs.langflow.org/).
 
-## What is Langflow
-
-[Langflow](https://www.langflow.org/) is a low-code, visual tool that enables developers to build powerful AI agents and workflows that can use any API, models, or databases.
-
-:::note Explore Langflow
-
-For more information on Langflow, visit its [documentation](https://docs.langflow.org/).
-
-:::
+<ThirdPartyDisclaimer />
 
 ## How to use Apify with Langflow
 

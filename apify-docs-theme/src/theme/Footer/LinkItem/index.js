@@ -6,13 +6,7 @@ import IconExternalLink from '@theme/Icon/ExternalLink';
 import React from 'react';
 
 export default function FooterLinkItem({ item }) {
-    const {
-        to,
-        href,
-        label,
-        prependBaseUrlToHref,
-        ...props
-    } = item;
+    const { to, href, label, prependBaseUrlToHref, ...props } = item;
     const toUrl = useBaseUrl(to);
     const normalizedHref = useBaseUrl(href, { forcePrependBaseUrl: true });
     const { siteConfig } = useDocusaurusContext();
@@ -27,12 +21,13 @@ export default function FooterLinkItem({ item }) {
             className="footer__link-item"
             {...(href
                 ? {
-                    href: prependBaseUrlToHref ? normalizedHref : href,
-                }
+                      href: prependBaseUrlToHref ? normalizedHref : href,
+                  }
                 : {
-                    to: toUrl,
-                })}
-            {...props}>
+                      to: toUrl,
+                  })}
+            {...props}
+        >
             {label}
             {href && !isInternalUrl(href) && <IconExternalLink />}
         </Link>

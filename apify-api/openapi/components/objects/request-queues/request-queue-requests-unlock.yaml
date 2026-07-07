@@ -1,0 +1,102 @@
+commonErrors: &commonErrors
+  "400":
+    $ref: ../../responses/BadRequest.yaml
+  "401":
+    $ref: ../../responses/Unauthorized.yaml
+  "403":
+    $ref: ../../responses/Forbidden.yaml
+  "404":
+    $ref: ../../responses/NotFound.yaml
+  "405":
+    $ref: ../../responses/MethodNotAllowed.yaml
+  "429":
+    $ref: ../../responses/TooManyRequests.yaml
+
+sharedTagById: &sharedTagById
+  tags:
+    - Storage/Request queues/Requests locks
+
+sharedTagDefault: &sharedTagDefault
+  tags:
+    - Default request queue
+
+sharedTagLastRun: &sharedTagLastRun
+  tags:
+    - Last Actor run's default request queue
+
+sharedTagTaskLastRun: &sharedTagTaskLastRun
+  tags:
+    - Last Actor task run's default request queue
+
+sharedPost: &sharedPost
+  responses:
+    "200":
+      description: Number of requests that were unlocked
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/request-queues/UnlockRequestsResponse.yaml
+    <<: *commonErrors
+  deprecated: false
+
+postById:
+  <<: [*sharedPost, *sharedTagById]
+  summary: Unlock requests
+  description: |
+    Unlocks requests in the queue that are currently locked by the client.
+
+    * If the client is within an Actor run, it unlocks all requests locked by that specific run plus all requests locked by the same clientKey.
+    * If the client is outside of an Actor run, it unlocks all requests locked using the same clientKey.
+  operationId: requestQueue_requests_unlock_post
+  parameters:
+    - $ref: "../../parameters/requestQueueParameters.yaml#/queueId"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
+  x-js-parent: RequestQueueClient
+  x-js-name: unlockRequests
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/RequestQueueClient#unlockRequests
+  x-py-parent: RequestQueueClientAsync
+  x-py-name: unlock_requests
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/RequestQueueClientAsync#unlock_requests
+
+postDefault:
+  <<: [*sharedPost, *sharedTagDefault]
+  summary: Unlock requests in default request queue
+  description: |
+    Unlocks requests in the default request queue of the Actor run that are currently locked by the client.
+
+    This endpoint is a shortcut for getting the run's `defaultRequestQueueId` and then using the
+    [Unlock requests](/api/v2/request-queue-requests-unlock-post) endpoint.
+  operationId: actorRun_requestQueue_requests_unlock_post
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
+
+postLastRun:
+  <<: [*sharedPost, *sharedTagLastRun]
+  summary: Unlock requests in last run's default request queue
+  description: |
+    Unlocks requests in the default request queue of the last Actor run that are currently locked by the client.
+
+    This endpoint is a shortcut for getting the last run's `defaultRequestQueueId` and then using the
+    [Unlock requests](/api/v2/request-queue-requests-unlock-post) endpoint.
+  operationId: act_runs_last_requestQueue_requests_unlock_post
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
+
+postTaskLastRun:
+  <<: [*sharedPost, *sharedTagTaskLastRun]
+  summary: Unlock requests in last task run's default request queue
+  description: |
+    Unlocks requests in the default request queue of the last Actor task run that are currently locked by the client.
+
+    This endpoint is a shortcut for getting the last task run's `defaultRequestQueueId` and then using the
+    [Unlock requests](/api/v2/request-queue-requests-unlock-post) endpoint.
+  operationId: actorTask_runs_last_requestQueue_requests_unlock_post
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"

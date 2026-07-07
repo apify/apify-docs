@@ -78,9 +78,9 @@ Note that an error can happen only in a few pages out of a thousand and look com
 Snapshots can tell you if:
 
 - A website has changed its layout. This can also mean A/B testing or different content for different locations.
-- You have been blocked—you open a [CAPTCHA](https://en.wikipedia.org/wiki/CAPTCHA) or an **Access Denied** page.
-- Data load later dynamically—the page is empty.
-- The page was redirected—the content is different.
+- You have been blocked - you open a [CAPTCHA](https://en.wikipedia.org/wiki/CAPTCHA) or an **Access Denied** page.
+- Data load later dynamically - the page is empty.
+- The page was redirected - the content is different.
 
 You can learn how to take snapshots in Puppeteer or Playwright in [this short lesson](../../webscraping/puppeteer_playwright/page/page_methods.md)
 
@@ -123,7 +123,7 @@ Logging and snapshotting are great tools but once you reach a certain run size, 
 
 ## With the Apify SDK {#with-the-apify-sdk}
 
-This example extends our snapshot solution above by creating a [named dataset](/platform/storage/usage#named-and-unnamed-storages) (named datasets have infinite retention), where we will accumulate error reports. Those reports will explain what happened and will link to a saved snapshot, so we can do a quick visual check.
+This example extends our snapshot solution above by creating a [named dataset](/platform/storage#named-and-unnamed-storages) (named datasets have infinite retention), where we will accumulate error reports. Those reports will explain what happened and will link to a saved snapshot, so we can do a quick visual check.
 
 ```js
 import { Actor } from 'apify';

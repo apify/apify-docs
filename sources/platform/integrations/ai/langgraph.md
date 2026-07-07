@@ -1,24 +1,15 @@
 ---
 title: 🦜🔘➡️ LangGraph integration
 sidebar_label: LangGraph
-description: Learn how to build AI Agents with Apify and LangGraph 🦜🔘➡️.
-sidebar_position: 8
+description: Learn how to build stateful multi-agent AI workflows with LangGraph and Apify Actors to search, extract, and analyze real-time web data at scale.
 slug: /integrations/langgraph
 ---
 
-**Learn how to build AI Agents with Apify and LangGraph.**
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
----
+[LangGraph](https://www.langchain.com/langgraph) is a framework for constructing stateful, multi-agent applications with large language models (LLMs). It allows developers to build complex AI agent workflows that can leverage tools, APIs, and databases. For more details, check out the [LangGraph documentation](https://langchain-ai.github.io/langgraph/).
 
-## What is LangGraph
-
-[LangGraph](https://www.langchain.com/langgraph) is a framework designed for constructing stateful, multi-agent applications with Large Language Models (LLMs), allowing developers to build complex AI agent workflows that can leverage tools, APIs, and databases.
-
-:::note Explore LangGraph
-
-For more in-depth details on LangGraph, check out its [official documentation](https://langchain-ai.github.io/langgraph/).
-
-:::
+<ThirdPartyDisclaimer />
 
 ## How to use Apify with LangGraph
 
@@ -121,7 +112,6 @@ The OpenAI TikTok profile is titled "OpenAI (@openai) Official." Here are some k
 ...
 
 ```
-
 
 If you want to test the whole example, you can simply create a new file, `langgraph_integration.py`, and copy the whole code into it.
 

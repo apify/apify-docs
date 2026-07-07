@@ -1,12 +1,8 @@
 ---
 title: Source code
-description: Learn about the Actor's source code placement and its structure.
+description: Learn how to organize and structure your Actor source code, including directory placement conventions, programming language choice, and Dockerfile setup.
 slug: /actors/development/actor-definition/source-code
-sidebar_position: 6
----
-
-**Learn about the Actor's source code placement and its structure.**
-
+sidebar_position: 2
 ---
 
 The Apify Actor's source code placement is defined by its [Dockerfile](./docker.md). If you have created the Actor from one of Apify's [templates](https://apify.com/templates) then it's by convention placed in the `/src` directory.
@@ -80,7 +76,6 @@ This `Dockerfile` does the following tasks:
 :::note Optimized build cache
 
 By copying the `package.json` and `package-lock.json` files and installing dependencies before the rest of the source code, you can take advantage of Docker's caching mechanism. This approach ensures that dependencies are only reinstalled when the `package.json` or `package-lock.json` files change, significantly reducing build times. Since the installation of dependencies is often the most time-consuming part of the build process, this optimization can lead to substantial performance improvements, especially for larger projects with many dependencies.
-
 
 :::
 

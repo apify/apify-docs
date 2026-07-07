@@ -15,7 +15,7 @@ Puppeteer is a JavaScript program that's used to control the browser and by cont
 
 _Robot browsers can be detected in numerous ways.. But there are no ways to tell if a specific mouse click was made by a user or a robot._
 
-Ok, so both Web Scraper and Puppeteer Scraper use Puppeteer to give commands to Chrome. Where's the difference? It's called the execution environment.
+Okay, so both Web Scraper and Puppeteer Scraper use Puppeteer to give commands to Chrome. Where's the difference? It's called the execution environment.
 
 ## Execution environment
 
@@ -28,7 +28,7 @@ _This does not mean that you can't execute in-browser code with Puppeteer Scrape
 
 ## Practical differences
 
-Ok, cool, different environments, but how does that help you scrape stuff? Actually, quite a lot. Some things you just can't do from within the browser, but you can do them with Puppeteer. We will not attempt to create an exhaustive list, but rather show you some very useful features that we use every day in our scraping.
+Okay, cool, different environments, but how does that help you scrape stuff? Actually, quite a lot. Some things you just can't do from within the browser, but you can do them with Puppeteer. We will not attempt to create an exhaustive list, but rather show you some very useful features that we use every day in our scraping.
 
 ## Evaluating in-browser code
 
@@ -45,7 +45,7 @@ The `context.page.evaluate()` call executes the provided function in the browser
 
 _See the_ `page.evaluate()` _[documentation](https://pptr.dev/#?product=Puppeteer&show=api-pageevaluatepagefunction-args) for info on how to pass variables from Node.js to browser._
 
-With the help of Apify SDK, we can even inject jQuery into the browser. You can use the `Pre goto function` input option to manipulate the page's environment before it loads.
+With the help of the Apify SDK, we can even inject jQuery into the browser. You can use the `Pre goto function` input option to manipulate the page's environment before it loads.
 
 ```js
 async function preGotoFunction({ request, page, Apify }) {

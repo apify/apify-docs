@@ -33,7 +33,7 @@ To run, or **call**, an Actor/task, you will need a few things:
 
 - The name or ID of the Actor/task. The name looks like `username~actorName` or `username~taskName`. The ID can be retrieved on the **Settings** page of the Actor/task.
 
-- Your [API token](/platform/integrations), which you can find on the **Integrations** page in [Apify Console](https://console.apify.com/account?tab=integrations) (do not share it with anyone!).
+- Your [API token](/platform/integrations), which you can find on the **API & Integrations** page in [Apify Console](https://console.apify.com/settings/integrations) (do not share it with anyone!).
 
 - Possibly an input, which is passed in JSON format as the request's **body**.
 
@@ -42,7 +42,7 @@ To run, or **call**, an Actor/task, you will need a few things:
 The URL of [POST request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST) to run an Actor looks like this:
 
 ```cURL
-https://api.apify.com/v2/acts/ACTOR_NAME_OR_ID/runs?token=YOUR_TOKEN
+https://api.apify.com/v2/actors/ACTOR_NAME_OR_ID/runs?token=YOUR_TOKEN
 ```
 
 For tasks, we can switch the path from **acts** to **actor-tasks** and keep the rest the same:
@@ -51,14 +51,14 @@ For tasks, we can switch the path from **acts** to **actor-tasks** and keep the 
 https://api.apify.com/v2/actor-tasks/TASK_NAME_OR_ID/runs?token=YOUR_TOKEN
 ```
 
-If we send a correct POST request to one of these endpoints, the actor/actor-task will start just as if we had pressed the **Start** button on the Actor's page in the [Apify Console](https://console.apify.com).
+If we send a correct POST request to one of these endpoints, the Actor or task will start just as if we had pressed the **Start** button on the Actor's page in the [Apify Console](https://console.apify.com).
 
 ### Additional settings {#additional-settings}
 
 We can also add settings for the Actor (which will override the default settings) as additional query parameters. For example, if we wanted to change how much memory the Actor's run should be allocated and which build to run, we could add the `memory` and `build` parameters separated by `&`.
 
 ```cURL
-https://api.apify.com/v2/acts/ACTOR_NAME_OR_ID/runs?token=YOUR_TOKEN&memory=8192&build=beta
+https://api.apify.com/v2/actors/ACTOR_NAME_OR_ID/runs?token=YOUR_TOKEN&memory=8192&build=beta
 ```
 
 This works in almost exactly the same way for both Actors and tasks; however, for tasks, there is no reason to specify a [`build`](/platform/actors/development/builds-and-runs/builds) parameter, as a task already has only one specific Actor build which cannot be changed with query parameters.
@@ -74,7 +74,7 @@ Good Actors have reasonable defaults for most input fields, so if you want to ru
 Via API, let's quickly try to run [Web Scraper](https://apify.com/apify/web-scraper), which is the most popular Actor on Apify Store at the moment. The full input with all possible fields is [pretty long and ugly](https://apify.com/apify/web-scraper?section=example-run), so we will not show it here. Because it has default values for most fields, we can provide a JSON input containing only the fields we'd like to customize. We will send a POST request to the endpoint below and add the JSON as the **body** of the request:
 
 ```cURL
-https://api.apify.com/v2/acts/apify~web-scraper/runs?token=YOUR_TOKEN
+https://api.apify.com/v2/actors/apify~web-scraper/runs?token=YOUR_TOKEN
 ```
 
 Here is how it looks in [Postman](https://www.postman.com/):
@@ -158,13 +158,13 @@ Here is a Node.js example of calling a task via the API and logging the dataset 
 import got from 'got';
 
 // Specify your API token
-// (find it at https://console.apify.com/account#/integrations)
+// (find it at https://console.apify.com/settings/integrations)
 const myToken = '<YOUR_APIFY_TOKEN>';
 
 // Start apify/google-search-scraper Actor
 // and pass some queries into the JSON body
 const response = await got({
-    url: `https://api.apify.com/v2/acts/apify~google-search-scraper/run-sync-get-dataset-items?token=${myToken}`,
+    url: `https://api.apify.com/v2/actors/apify~google-search-scraper/run-sync-get-dataset-items?token=${myToken}`,
     method: 'POST',
     json: {
         queries: 'web scraping\nweb crawling',
@@ -198,7 +198,7 @@ For runs longer than 5 minutes, the process consists of three steps:
 
 ### Wait for the run to finish {#wait-for-the-run-to-finish}
 
-There may be cases where we need to run the Actor and go away. But in any kind of integration, we are usually interested in its output. We have three basic options for how to wait for the actor/task to finish.
+There may be cases where we need to run the Actor and go away. But in any kind of integration, we are usually interested in its output. We have three basic options for how to wait for the Actor or task to finish.
 
 - [`waitForFinish` parameter](#waitforfinish-parameter)
 - [Webhooks](#webhooks)
@@ -209,7 +209,7 @@ There may be cases where we need to run the Actor and go away. But in any kind o
 This solution is quite similar to the synchronous flow. To make the POST request wait, add the `waitForFinish` parameter. It can have a value from `0` to `60`, which is the maximum time in seconds to wait (the max value for `waitForFinish` is 1 minute). Knowing this, we can extend the example URL like this:
 
 ```cURL
-https://api.apify.com/v2/acts/apify~web-scraper/runs?token=YOUR_TOKEN&waitForFinish=60
+https://api.apify.com/v2/actors/apify~web-scraper/runs?token=YOUR_TOKEN&waitForFinish=60
 ```
 
 You can also use the `waitForFinish` parameter with the [**GET Run** endpoint](/api/v2/actor-run-get) to implement a smarter [polling](#polling) system.
@@ -239,7 +239,7 @@ When we run the Actor with the [usual API call](#run-an-actor-or-task) shown abo
 Replace the `RUN_ID` in the following URL with the ID you extracted earlier:
 
 ```cURL
-https://api.apify.com/v2/acts/ACTOR_NAME_OR_ID/runs/RUN_ID
+https://api.apify.com/v2/actors/ACTOR_NAME_OR_ID/runs/RUN_ID
 ```
 
 Once a status of `SUCCEEDED` or `FAILED` has been received, we know the run has finished and can cancel the interval and finally [collect the data](#collect-the-data).

@@ -1,0 +1,40 @@
+type: object
+required:
+  - method
+  - clientIp
+  - countryCode
+  - bodyLength
+properties:
+  method:
+    type: string
+    description: HTTP method of the request.
+    example: GET
+  clientIp:
+    type: [string, "null"]
+    description: IP address of the client.
+    example: 1.2.3.4
+  countryCode:
+    type: [string, "null"]
+    description: Two-letter country code resolved from the client IP address.
+    example: US
+  bodyLength:
+    type: integer
+    description: Length of the request body in bytes.
+    example: 0
+  headers:
+    type: object
+    description: |
+      Request headers. Omitted when `skipHeaders=true`.
+    additionalProperties:
+      oneOf:
+        - type: string
+        - type: array
+          items:
+            type: string
+  rawHeaders:
+    type: array
+    description: |
+      Raw request headers as a flat list of alternating name/value strings.
+      Included only when `rawHeaders=true`.
+    items:
+      type: string

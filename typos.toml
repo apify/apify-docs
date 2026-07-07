@@ -28,6 +28,8 @@ pVJtoTelgYUq4qJOt = "pVJtoTelgYUq4qJOt"
 ZmVlZGJhY2s6MTA1NTQwMzA4MzM2ODM5NV8yMzg2MDgyOTg1MTIyNDUx = "ZmVlZGJhY2s6MTA1NTQwMzA4MzM2ODM5NV8yMzg2MDgyOTg1MTIyNDUx"
 # Git hash
 9ba8df137936 = "9ba8df137936"
+# Dataset ID example
+cqxkhXcn2SCjTpeCz = "cqxkhXcn2SCjTpeCz"
 
 # Add project-specific words that should not be treated as typos
 [default.extend-words]

@@ -1,24 +1,15 @@
 ---
 title: Mastra MCP integration
 sidebar_label: Mastra
-description: Learn how to build AI Agents with Mastra via Apify Actors MCP server
-sidebar_position: 11
+description: Learn how to build AI agents with Mastra and the Apify Actors MCP server to access web scraping and automation tools from any LLM you choose.
 slug: /integrations/mastra
 ---
 
-**Learn how to build AI agents with Mastra and Apify Actors MCP server.**
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
----
+[Mastra](https://mastra.ai) is an open-source TypeScript framework for building AI applications efficiently. It provides essential tools like agents, workflows, retrieval-augmented generation (RAG), integrations, and evaluations. It supports any LLM (e.g. GPT-4, Claude, Gemini), and you can run it locally or deploy it to a serverless cloud like [Apify](https://apify.com). For more information, check out the [Mastra documentation](https://mastra.ai/docs).
 
-## What is Mastra
-
-[Mastra](https://mastra.ai) is an open-source TypeScript framework for building AI applications efficiently. It provides essential tools like agents, workflows, retrieval-augmented generation (RAG), integrations, and evaluations. Supporting any LLM (e.g., GPT-4, Claude, Gemini). You can run it locally or deploy it to a serverless cloud like [Apify](https://apify.com).
-
-:::note Explore Mastra
-
-Check out the [Mastra docs](https://mastra.ai/docs) for more information.
-
-:::
+<ThirdPartyDisclaimer />
 
 ## What is MCP server
 
@@ -47,6 +38,7 @@ First, import all required packages:
 import { Agent } from '@mastra/core/agent';
 import { MastraMCPClient } from '@mastra/mcp';
 import { openai } from '@ai-sdk/openai';
+
 // For Anthropic use
 // import { anthropic } from '@ai-sdk/anthropic';
 ```
@@ -66,7 +58,7 @@ Instantiate the Mastra MCP client:
 const mcpClient = new MastraMCPClient({
     name: 'apify-client',
     server: {
-        url: new URL('https://mcp.apify.com/sse'),
+        url: new URL('https://mcp.apify.com'),
         requestInit: {
             headers: { Authorization: `Bearer ${process.env.APIFY_TOKEN}` }
         },
@@ -172,7 +164,7 @@ process.env.OPENAI_API_KEY = "your-openai-api-key";
 const mcpClient = new MastraMCPClient({
     name: 'apify-client',
     server: {
-        url: new URL('https://mcp.apify.com/sse'),
+        url: new URL('https://mcp.apify.com'),
         requestInit: {
             headers: { Authorization: `Bearer ${process.env.APIFY_TOKEN}` }
         },

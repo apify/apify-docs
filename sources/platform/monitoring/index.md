@@ -1,13 +1,9 @@
 ---
 title: Monitoring
-description: Learn how to continuously make sure that your Actors and tasks perform as expected and retrieve correct results. Receive alerts when your jobs or their metrics are not as you expect.
+description: Learn how to make sure your Actors and tasks perform as expected and retrieve correct results. Get alerts when jobs or their metrics fall short.
 sidebar_position: 12
 category: guides
 slug: /monitoring
----
-
-**Learn how to continuously make sure that your Actors and tasks perform as expected and retrieve correct results. Receive alerts when your jobs or their metrics are not as you expect.**
-
 ---
 
 The web is continuously evolving, and so are the websites you interact with. If you implement Apify Actors or the data they provide into your daily workflows, you need to make sure that everything runs as expected.
@@ -47,7 +43,7 @@ When you set up an alert, you have four choices for how you want the metrics to 
 
 2. **Alert, when the metric is higher than** - This type of alert is checked both during the run and after the run finishes. During the run, we do periodic checks (approximately every 5 minutes) so that we can notify you as soon as possible if the metric is higher than the value you set. After the run finishes, we do a final check to make sure that the metric does not go over the limit in the last few minutes of the run.
 
-3. **Alert, when run status is one of following** - This type of alert is checked only after the run finishes. It makes possible to track the status of your finished runs and send an alert if the run finishes in a state you do not expect. If your Actor runs very often and suddenly starts failing, you will receive a single alert after the first failed run in 1 minute, and then aggregated alert every 15 minutes.
+3. **Alert, when run status is one of following** - This type of alert is checked only after the run finishes. It makes possible to track the status of your finished runs and send an alert if the run finishes in a state you do not expect. If your Actor runs very often and suddenly starts failing, you will receive a single alert after the first failed run in 1 minute, and then aggregated alert every 20 minutes.
 
 4. **Alert for dataset field statistics** - If you have a [dataset schema](../actors/development/actor_definition/dataset_schema/validation.md) set up, then you can use the field statistics to set up an alert. You can use field statistics for example to track if some field is filled in all records, if some numeric value is too low/high (for example when tracking the price of a product over multiple sources), if the number of items in an array is too low/high (for example alert on Instagram Actor if post has a lot of comments) and many other tasks like these.
 
@@ -61,9 +57,9 @@ When you set up an alert, you have four choices for how you want the metrics to 
 
 You can get notified by email, Slack, or in Apify Console. If you use Slack, we suggest using Slack notifications instead of email because they are more reliable, and you can also get notified quicker.
 
-1. **Email** - You can set up one or more emails to receive alert notifications. To do that, you just have to separate them by commas. You can also disable email notifications if you don't want to receive them.
-2. **Slack** - To set up Slack notifications, you first need to connect your Slack workspace to Apify. To do that, go to your [account integration settings](https://console.apify.com/account/integrations) and click on the **+ Add** button in the Slack section. Once you have your workspace connected, you can choose the workspace when setting up alert notifications and then pick a channel to which you want the notifications to be delivered.
-3. **In Console** - You can also get notified in Apify Console. This is useful if you access Apify Console often, and you do not need to be notified as soon as possible.
+- **Email** - You can set up one or more emails to receive alert notifications. To do that, you just have to separate them by commas. You can also disable email notifications if you don't want to receive them.
+- **Slack** - To set up Slack notifications, you first need to connect your Slack workspace to Apify. To do that, go to your [account integration settings](https://console.apify.com/settings/integrations) and click on the **+ Add** button in the Slack section. Once you have your workspace connected, you can choose the workspace when setting up alert notifications and then pick a channel to which you want the notifications to be delivered.
+- **In Console** - You can also get notified in Apify Console. This is useful if you access Apify Console often, and you do not need to be notified as soon as possible.
 
 ![Notifications configurations](./images/notifications.png)
 
@@ -71,12 +67,12 @@ You can get notified by email, Slack, or in Apify Console. If you use Slack, we 
 
 The email and Slack alert notifications both contain the same information. You will receive a notification with the following information:
 
-1. **Alert name**
-2. **Condition** - The condition that was violated.
-3. **Value** - The value of the metric violating the condition and triggering the alert.
-4. **Run ID** - The ID of the run that triggered the alert, which links directly to the run detail in Apify Console.
-5. **Actor** - The full name of the Actor that triggered the alert which links to the Actor detail in Apify Console.
-6. **Task** - If the monitoring alert was set up for a task, then this field will contain the name of the task which links to the task detail in Apify Console.
+- **Alert name**
+- **Condition** - The condition that was violated.
+- **Value** - The value of the metric violating the condition and triggering the alert.
+- **Run ID** - The ID of the run that triggered the alert, which links directly to the run detail in Apify Console.
+- **Actor** - The full name of the Actor that triggered the alert which links to the Actor detail in Apify Console.
+- **Task** - If the monitoring alert was set up for a task, then this field will contain the name of the task which links to the task detail in Apify Console.
 
 ![Email notification](./images/email-notification.png)
 

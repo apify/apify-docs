@@ -7,73 +7,31 @@ get:
     retrieve and manage the last run of given Actor or any of its default storages.
     All the endpoints require an authentication token.
 
-    The endpoints accept the same HTTP methods and query parameters as
-    the respective storage endpoints.
     The base path represents the last Actor run object is:
 
-    `/v2/acts/{actorId}/runs/last{?token,status}`
+    `/v2/actors/{actorId}/runs/last{?token,status,origin}`
 
     Using the `status` query parameter you can ensure to only get a run with a certain status
-    (e.g. `status=SUCCEEDED`). The output of this endpoint and other query parameters
-    are the same as in the [Run object](#/reference/actors/run-object) endpoint.
+    (e.g. `status=SUCCEEDED`). Similarly, the `origin` query parameter filters runs by the means
+    by which they were started (e.g. `origin=API`). The output of this endpoint and other query
+    parameters are the same as in the [Run object](#/reference/actors/run-object) endpoint.
 
-    In order to access the default storages of the last Actor run, i.e. log, key-value store, dataset and request queue,
-    use the following endpoints:
+    ##### Convenience endpoints for last Actor run
 
-    * `/v2/acts/{actorId}/runs/last/log{?token,status}`
-    * `/v2/acts/{actorId}/runs/last/key-value-store{?token,status}`
-    * `/v2/acts/{actorId}/runs/last/dataset{?token,status}`
-    * `/v2/acts/{actorId}/runs/last/request-queue{?token,status}`
+    * [Dataset](/api/v2/last-actor-runs-default-dataset)
 
-    These API endpoints have the same usage as the equivalent storage endpoints.
-    For example,
-    `/v2/acts/{actorId}/runs/last/key-value-store` has the same HTTP method and parameters as the
-    [Key-value store object](#/reference/key-value-stores/store-object) endpoint.
+    * [Key-value store](/api/v2/last-actor-runs-default-key-value-store)
 
-    Additionally, each of the above API endpoints supports all sub-endpoints
-    of the original one:
+    * [Request queue](/api/v2/last-actor-runs-default-request-queue)
 
-    #### Key-value store
+    * [Log](/api/v2/last-actor-runs-log)
 
-    * `/v2/acts/{actorId}/runs/last/key-value-store/keys{?token,status}` [Key collection](#/reference/key-value-stores/key-collection)
-    * `/v2/acts/{actorId}/runs/last/key-value-store/records/{recordKey}{?token,status}` [Record](#/reference/key-value-stores/record)
-
-    #### Dataset
-
-    * `/v2/acts/{actorId}/runs/last/dataset/items{?token,status}` [Item collection](#/reference/datasets/item-collection)
-
-    #### Request queue
-
-    * `/v2/acts/{actorId}/runs/last/request-queue/requests{?token,status}` [Request collection](#/reference/request-queues/request-collection)
-    * `/v2/acts/{actorId}/runs/last/request-queue/requests/{requestId}{?token,status}` [Request collection](#/reference/request-queues/request)
-    * `/v2/acts/{actorId}/runs/last/request-queue/head{?token,status}` [Queue head](#/reference/request-queues/queue-head)
-
-    For example, to download data from a dataset of the last succeeded Actor run in XML format,
-    send HTTP GET request to the following URL:
-
-    ```
-    https://api.apify.com/v2/acts/{actorId}/runs/last/dataset/items?token={yourApiToken}&format=xml&status=SUCCEEDED
-    ```
-
-    In order to save new items to the dataset, send HTTP POST request with JSON payload to the same URL.
   operationId: act_runs_last_get
   parameters:
-    - name: actorId
-      in: path
-      description: Actor ID or a tilde-separated owner's username and Actor name.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: janedoe~my-actor
-    - name: status
-      in: query
-      description: Filter for the run status.
-      style: form
-      explode: true
-      schema:
-        type: string
-        example: SUCCEEDED
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
+    - $ref: "../../components/parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../components/parameters/lastRunParameters.yaml#/origin"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/waitForFinishRun"
   responses:
     "200":
       description: ""
@@ -84,14 +42,16 @@ get:
             $ref: ../../components/schemas/actor-runs/RunResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
     "404":
-      description: Not found - the requested resource was not found.
-      content:
-        application/json:
-          schema:
-            oneOf:
-              - $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorNotFoundError"
-              - $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorRunNotFoundError"
+      $ref: ../../components/responses/NotFound.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/last-run-object-and-its-storages/get-last-run

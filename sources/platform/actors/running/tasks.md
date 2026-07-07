@@ -1,13 +1,9 @@
 ---
 title: Actor tasks
-description: Create and save reusable configurations of Apify Actors tailored to specific use cases.
+description: Create and save reusable configurations of Apify Actors for specific use cases, then run them on a schedule, via the API, or from the console.
 sidebar_position: 7.2
 slug: /actors/running/tasks
 sidebar_label: Tasks
----
-
-**Create and save reusable configurations of Apify Actors tailored to specific use cases.**
-
 ---
 
 Actor tasks let you create multiple reusable configurations of a single Actor, adapted for specific use cases. For example, you can create one [_Web Scraper_](https://apify.com/apify/web-scraper) configuration (task) that scrapes the latest reviews from [IMDb](https://www.imdb.com/), another that scrapes nike.com for the latest sneakers, and a third that scrapes your competitor's e-shop. You can then use and reuse these configurations directly from [Apify Console](https://console.apify.com/actors/tasks), [Schedules](../../schedules.md), or [API](/api/v2/actor-task-runs-post).
@@ -16,7 +12,7 @@ You can find all your tasks in the [Apify Console](https://console.apify.com/act
 
 ## Create
 
-To create a task, open any Actor from [Apify Store](https://console.apify.com/store) or your list of [Actors](https://console.apify.com/actors) in Apify Console. At the top-right section of the page, click the **Create task** button.
+To create a task, open any Actor from [Apify Store](https://console.apify.com/store) or your list of [Actors](https://console.apify.com/actors) in Apify Console. At the top-right section of the page, click the **Save as a new task** button.
 
 ![Create a new Apify task](./images/tasks/tasks-create-task.png)
 

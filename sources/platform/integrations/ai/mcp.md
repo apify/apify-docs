@@ -1,8 +1,7 @@
 ---
 title: Apify MCP server
-sidebar_label: MCP
+sidebar_label: MCP server
 description: Learn how to use the Apify MCP server to integrate Apify's library of Actors into your AI agents or large language model-based applications.
-sidebar_position: 1
 slug: /integrations/mcp
 toc_max_heading_level: 4
 ---
@@ -11,20 +10,29 @@ toc_max_heading_level: 4
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
 The Apify's MCP server ([mcp.apify.com](https://mcp.apify.com)) allows AI applications and agents to interact with the Apify platform
-using [Model Context Protocol](https://modelcontextprotocol.io/docs/getting-started/intro). The server enables AI agents to
+using [Model Context Protocol](https://modelcontextprotocol.io/docs/getting-started/intro) (MCP). The MCP server enables AI agents to
 discover and run Actors from [Apify Store](https://apify.com/store), access storages and results,
 and enables AI coding assistants to access Apify documentation and tutorials.
 
 ![Apify MCP server](../../images/apify_mcp_server.png)
+
+<ThirdPartyDisclaimer />
+
+:::info Apify MCP server vs MCP connectors
+
+This page covers the Apify MCP server, which exposes Apify Actors as tools to outside AI clients. If you are building an Actor that needs to call third-party MCP servers (such as Notion or Slack) on a user's behalf, see [MCP connectors](/platform/integrations/mcp-connectors) instead.
+
+:::
 
 ## Prerequisites
 
 Before connecting your AI to Apify, you'll need three things:
 
 - _An Apify account_ - Sign up for an Apify account, if you don't have one.
-- _Apify API token_ - Get your API token from the **Integrations** section in [Apify Console](https://console.apify.com/account#/integrations). This token authorizes the MCP server to run Actors on your behalf. Make sure to keep it secure.
+- _Apify API token_ - Get your API token from the **API & Integrations** section in [Apify Console](https://console.apify.com/settings/integrations). This token authorizes the MCP server to run Actors on your behalf. Make sure to keep it secure.
 - _MCP client_ - An AI agent or client that supports Model Context Protocol (MCP) This could be Anthropic's Claude for Desktop, a VS Code extension with MCP support, or any application that implements the MCP specification. The [official MCP documentation](https://modelcontextprotocol.io/clients) maintains a list of compatible clients.
 
 ## Quick start
@@ -81,7 +89,7 @@ You can also use your Apify token directly, instead of OAuth, by setting the `Au
 }
 ```
 
-Replace `<APIFY_TOKEN>` with your actual Apify API token from the [Integrations section](https://console.apify.com/account#/integrations).
+Replace `<APIFY_TOKEN>` with your actual Apify API token from the [API & Integrations section](https://console.apify.com/settings/integrations).
 
 </TabItem>
 </Tabs>
@@ -143,7 +151,7 @@ To add Apify MCP server to Cursor manually:
     }
     ```
 
-    Replace `<APIFY_TOKEN>` with your actual Apify API token from the [Integrations section](https://console.apify.com/account#/integrations).
+    Replace `<APIFY_TOKEN>` with your actual Apify API token from the [API & Integrations section](https://console.apify.com/settings/integrations).
 
     </TabItem>
     </Tabs>
@@ -197,7 +205,7 @@ VS Code supports MCP through GitHub Copilot's agent mode (requires Copilot subsc
     }
     ```
 
-    Replace `<APIFY_TOKEN>` with your actual Apify API token from the [Integrations section](https://console.apify.com/account#/integrations).
+    Replace `<APIFY_TOKEN>` with your actual Apify API token from the [API & Integrations section](https://console.apify.com/settings/integrations).
 
     </TabItem>
     </Tabs>
@@ -205,33 +213,36 @@ VS Code supports MCP through GitHub Copilot's agent mode (requires Copilot subsc
 </TabItem>
 <TabItem value="claude-desktop" label="Claude Desktop">
 
-:::tip One-click installation
+[Add a custom connector](https://support.claude.com/en/articles/11175166) in Claude Desktop and use `https://mcp.apify.com` as the server URL. On first connection, your browser opens to sign in to Apify and authorize the connection.
 
-Download and run the [Apify MCP server `.mcpb` file](https://github.com/apify/actors-mcp-server/releases/latest/download/apify-mcp-server.mcpb) for one-click installation.
+You can also search for "Apify" in the connector directory and install it directly.
 
-:::
+For detailed setup options and troubleshooting, see the [Claude Desktop integration guide](/platform/integrations/claude-desktop).
 
-To manually configure Apify's MCP server for Claude Desktop:
+</TabItem>
+<TabItem value="apify-cli" label="Apify CLI">
 
-1. Open Claude Desktop settings.
-1. Navigate to the **Developer** section.
-1. Add the following to the configuration file:
+Use the Apify CLI to add the Apify MCP server to a supported local client:
 
-```json
-{
-  "mcpServers": {
-    "actors-mcp-server": {
-      "command": "npx",
-      "args": ["-y", "@apify/actors-mcp-server"],
-      "env": {
-        "APIFY_TOKEN": "<APIFY_TOKEN>"
-      }
-    }
-  }
-}
+```bash
+apify mcp install cursor
 ```
 
-Replace `<APIFY_TOKEN>` with your actual Apify API token from the [Integrations section](https://console.apify.com/account#/integrations).
+Available clients are: `claude-code`, `cursor`, `vscode`, `vscode-insiders`, `codex`, `kiro`, and `antigravity`.
+
+The command creates or updates a user-level MCP server entry named `apify`. For Cursor, Kiro, and Antigravity, it writes to the client's MCP config file. For Claude Code, VS Code, VS Code Insiders, and Codex CLI, it uses the client's own install command.
+
+By default, the command uses the API token saved by `apify login`. To use a different token or Apify account than the one configured in the Apify CLI, pass `--token <APIFY_TOKEN>`:
+
+```bash
+apify mcp install cursor --token <APIFY_TOKEN>
+```
+
+Use `--tools` to expose only selected tools or Actors:
+
+```bash
+apify mcp install vscode --tools search-actors,apify/rag-web-browser
+```
 
 </TabItem>
 </Tabs>
@@ -279,6 +290,21 @@ Use the UI configurator `https://mcp.apify.com/` to select your tools visually, 
 
 :::
 
+### Anonymous access
+
+The Apify MCP server accepts requests without an API token when the `tools` query parameter contains only tools enabled for unauthenticated use. These tools cover Actor discovery and documentation lookup:
+
+- `search-actors`
+- `fetch-actor-details`
+- `search-apify-docs`
+- `fetch-apify-docs`
+
+For example, the following URL connects without authentication:
+
+`https://mcp.apify.com?tools=search-actors,fetch-actor-details,search-apify-docs,fetch-apify-docs`
+
+If the `tools` parameter includes any other tool, or you connect to the default endpoint, the server requires an API token. Running Actors and accessing storage or run data always requires authentication.
+
 ### Available tools
 
 | Tool name | Category | Enabled by default | Description |
@@ -303,7 +329,6 @@ Use the UI configurator `https://mcp.apify.com/` to select your tools visually, 
 | `add-actor`* | experimental | ❔ | Add an Actor as a new tool for the user to call |
 | `get-actor-output`* | - | ✅ | Retrieve the output from an Actor call which is not included in the output preview of the Actor tool. |
 
-
 :::note Retrieving full output
 
 The `get-actor-output` tool is automatically included with any Actor-related tool, such as `call-actor`, `add-actor`, or specific Actor tools like `apify-slash-rag-web-browser`. When you call an Actor, you receive an output preview. Depending on the output format and length, the preview may contain the complete output or only a limited version to avoid overwhelming the LLM. To retrieve the full output, use the `get-actor-output` tool with the `datasetId` from the Actor call. This tool supports limit, offset, and field filtering.
@@ -318,7 +343,6 @@ It can search Apify Store for relevant Actors using the `search-actors` tool, in
 This dynamic discovery means your AI can adapt to new tasks without manual configuration.
 Each discovered Actor becomes immediately available for future use in the conversation.
 
-
 :::note Dynamic tool discovery
 
 When you use the `actors` tool category, clients that support dynamic tool discovery (such as Claude.ai web and VS Code) will automatically receive the `add-actor` tool instead of `call-actor` for enhanced Actor discovery capabilities.
@@ -326,47 +350,14 @@ For a detailed overview of client support for dynamic discovery, see the [MCP cl
 
 :::
 
-## Agentic payments with Skyfire
+## Agentic payments
 
-The Apify MCP server integrates with [Skyfire](https://www.skyfire.xyz/) to enable _agentic payments_. This allows AI agents to autonomously pay for Actor runs without requiring an Apify API token. Instead of authenticating with an Apify token, the agent uses Skyfire _PAY tokens_ to cover billing for each tool call.
+Agentic payments allow AI agents to autonomously pay for Actor runs without requiring an Apify API token. The Apify MCP server supports two payment methods:
 
-### Prerequisites
+- [x402 protocol](/platform/integrations/x402) - Direct on-chain payments using USDC on the [Base](https://www.base.org/) blockchain via the open [x402](https://www.x402.org/) standard.
+- [Skyfire](/platform/integrations/skyfire) - Managed payment tokens through the [Skyfire](https://www.skyfire.xyz/) payment platform.
 
-- _Skyfire account_ - Sign up for a [Skyfire account](https://www.skyfire.xyz/) and fund your wallet.
-- _MCP client with multi-server support_ - An MCP client that supports multiple servers, such as Claude Desktop or VS Code.
-
-### Setup
-
-Configure both the Skyfire MCP server and the Apify MCP server in your client. Enable payment mode by adding the `payment=skyfire` query parameter to the Apify server URL:
-
-```json
-{
-  "mcpServers": {
-    "skyfire": {
-      "url": "https://api.skyfire.xyz/mcp/sse",
-      "headers": {
-        "skyfire-api-key": "<YOUR_SKYFIRE_API_KEY>"
-      }
-    },
-    "apify": {
-      "url": "https://mcp.apify.com?payment=skyfire"
-    }
-  }
-}
-```
-
-Replace `<YOUR_SKYFIRE_API_KEY>` with your API key from your [Skyfire dashboard](https://www.skyfire.xyz/).
-
-### How it works
-
-When Skyfire payment mode is enabled, the agent handles the full payment flow autonomously:
-
-1. The agent discovers relevant Actors via `search-actors` or `fetch-actor-details` (these remain free).
-1. Before executing an Actor, the agent creates a PAY token using the `create-pay-token` tool from the Skyfire MCP server (minimum $5.00 USD).
-1. The agent passes the PAY token in the `skyfire-pay-id` input property when calling the Actor tool.
-1. The Actor returns results as usual. Unused funds on the token remain available for future runs or return upon expiration.
-
-To learn more, see the [Skyfire integration documentation](/platform/integrations/skyfire) and the [Agentic Payments with Skyfire](https://blog.apify.com/agentic-payments-skyfire/) blog post.
+For setup instructions and details, see the individual integration pages.
 
 ## Telemetry
 
@@ -431,9 +422,15 @@ documentation queries. If you exceed this limit, you'll receive a `429` response
 <!-- markdownlint-disable MD001 -->
 ## Troubleshooting
 
+:::tip Claude Desktop issues
+
+For Claude Desktop-specific troubleshooting (tools not loading, connection errors, corrupted cache), see [Claude Desktop troubleshooting](/platform/integrations/claude-desktop#troubleshooting).
+
+:::
+
 ##### Authentication errors
 
-- _Check your API token_: Verify that your Apify API token is correct. You can find it in the **Integrations** section of the [Apify Console](https://console.apify.com/account#/integrations). Without a valid token, the server cannot start Actor runs.
+- _Check your API token_: Verify that your Apify API token is correct. You can find it in the **API & Integrations** section of the [Apify Console](https://console.apify.com/settings/integrations). Without a valid token, the server cannot start Actor runs.
 - _Set environment variable for local development_: When running the MCP server locally, ensure you have set the `APIFY_TOKEN` environment variable.
 
 ##### Local environment setup
@@ -454,7 +451,7 @@ If you find this project useful, please star it on [GitHub](https://github.com/a
 
 To learn more about MCP and Apify integration:
 
-- [Model Context Protocol specification](https://modelcontextprotocol.io) - Learn about the open standard on the official MCP website – understanding the protocol can help you build custom agents.
+- [Model Context Protocol specification](https://modelcontextprotocol.io) - Learn about the open standard on the official MCP website - understanding the protocol can help you build custom agents.
 - [How to use MCP with Apify Actors](https://blog.apify.com/how-to-use-mcp/) - Learn how to expose over thousands of Apify Actors to AI agents with Claude and LangGraph, and configure MCP clients and servers.
 - [Video tutorial](https://www.youtube.com/watch?v=BKu8H91uCTg) - Integrate thousands of Apify Actors and Agents with Claude.
 - [Apify Tester MCP Client](https://apify.com/jiri.spilka/tester-mcp-client) - A specialized client Actor that you can run to simulate an AI agent in your browser. Useful for testing your setup with a chat UI.

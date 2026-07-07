@@ -120,7 +120,7 @@ const themeConfig = {
                     },
                     {
                         label: 'MCP CLI',
-                        href: 'https://github.com/apify/mcp-cli',
+                        href: 'https://github.com/apify/mcpc',
                     },
                     {
                         label: 'Actor whitepaper',
@@ -135,13 +135,6 @@ const themeConfig = {
                         href: 'https://github.com/apify',
                     },
                 ],
-            },
-            {
-                href: 'https://discord.com/invite/jyEM2PRvMU',
-                label: 'Discord',
-                title: 'Chat on Discord',
-                position: 'right',
-                className: 'icon',
             },
         ],
     },
@@ -234,6 +227,12 @@ const themeConfig = {
                         target: '_self',
                         rel: 'dofollow',
                     },
+                    {
+                        label: 'llms.txt',
+                        href: `${absoluteUrl}/llms.txt`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
                 ],
             },
             {
@@ -285,6 +284,34 @@ const themeConfig = {
         async: true,
         defer: true,
     },
+    announcementBar: process.env.APIFY_DOCS_ABSOLUTE_URL
+        ? (() => {
+              const parsedUrl = new URL(process.env.APIFY_DOCS_ABSOLUTE_URL);
+
+              const { hostname } = parsedUrl;
+
+              if (!hostname.includes('pr-') && !hostname.includes('preview')) {
+                  return undefined;
+              }
+
+              const prNumber = hostname.split('.')[0]?.split('-')[1];
+
+              if (!prNumber) {
+                  return undefined;
+              }
+
+              // TODO: once we support multiple preview deployments, we should pass in the repository name as an env variable
+              const githubUrl = `https://github.com/apify/apify-docs/pull/${prNumber}`;
+
+              return {
+                  id: 'apify-docs-preview-banner',
+                  content: `You are visiting <a href="${githubUrl}" target="_blank" rel="noopener noreferrer">a preview build for PR ${prNumber}</a> of the Apify Docs.`,
+                  backgroundColor: '#B80F0A',
+                  textColor: '#FFFFFF',
+                  isCloseable: false,
+              };
+          })()
+        : undefined,
 };
 
 const plugins = [
@@ -302,9 +329,7 @@ const plugins = [
                 return {
                     resolveLoader: {
                         alias: {
-                            'roa-loader': require.resolve(
-                                `${__dirname}/roa-loader/`,
-                            ),
+                            'roa-loader': require.resolve(`${__dirname}/roa-loader/`),
                         },
                     },
                 };

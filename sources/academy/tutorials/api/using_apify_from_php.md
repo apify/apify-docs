@@ -10,7 +10,7 @@ Apify does not have an official PHP client (yet), so we are going to use [guzzle
 
 ## Before you start
 
-Make sure you have an Apify account and API token. You will find the token in the [Integrations](https://console.apify.com/account#/integrations) section in Apify Console.
+Make sure you have an Apify account and API token. You will find the token in the [API & Integrations](https://console.apify.com/settings/integrations) section in Apify Console.
 
 If you don't already have guzzle installed in your project (or just want to try out the code examples), run `composer require guzzlehttp/guzzle` to install it in the current directory.
 
@@ -83,7 +83,7 @@ You should see information about the run, including its ID and the ID of its def
 
 ## Getting the results from dataset
 
-Actors usually store their output in a default dataset. The [Actor runs endpoint](/api/v2/actor-runs) lets you get overall info about an Actor run's default dataset.
+An Actor usually stores its results in a default dataset created separately for each run. The [Actor runs endpoint](/api/v2/actor-runs) lets you get overall info about an Actor run's default dataset.
 
 ```php
 // Replace <RUN_ID> with the run ID you from earlier
@@ -258,7 +258,7 @@ $response = $client->get("https://api.apify.com/v2/browser-info");
 echo $response->getBody();
 ```
 
-[See the proxy docs](/platform/proxy/usage) for more details on using specific proxies.
+[See the proxy docs](/platform/proxy) for more details on using specific proxies.
 
 ## Feedback
 

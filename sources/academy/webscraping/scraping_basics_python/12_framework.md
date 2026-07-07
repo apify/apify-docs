@@ -28,7 +28,7 @@ In this lesson, we'll address all of the above issues while keeping the code con
 
 :::info Why Crawlee and not Scrapy
 
-From the two main open-source options for Python, [Scrapy](https://scrapy.org/) and [Crawlee](https://crawlee.dev/python/), we chose the latter—not just because we're the company financing its development.
+From the two main open-source options for Python, [Scrapy](https://scrapy.org/) and [Crawlee](https://crawlee.dev/python/), we chose the latter - not just because we're the company financing its development.
 
 We genuinely believe beginners to scraping will like it more, since it allows to create a scraper with less code and less time spent reading docs. Scrapy's long history ensures it's battle-tested, but it also means its code relies on technologies that aren't really necessary today. Crawlee, on the other hand, builds on modern Python features like asyncio and type hints.
 
@@ -206,11 +206,11 @@ async def main():
 
 :::note Fragile code
 
-The code above assumes the `.select_one()` call doesn't return `None`. If your editor checks types, it might even warn that `text` is not a known attribute of `None`. This isn't robust and could break, but in our program, that's fine. We expect the elements to be there, and if they're not, we'd rather the scraper break quickly—it's a sign something's wrong and needs fixing.
+The code above assumes the `.select_one()` call doesn't return `None`. If your editor checks types, it might even warn that `text` is not a known attribute of `None`. This isn't robust and could break, but in our program, that's fine. We expect the elements to be there, and if they're not, we'd rather the scraper break quickly - it's a sign something's wrong and needs fixing.
 
 :::
 
-Now for the price. We're not doing anything new here—just copy-paste the code from our old scraper. The only change will be in the selector.
+Now for the price. We're not doing anything new here - just copy-paste the code from our old scraper. The only change will be in the selector.
 
 The only change will be in the selector. In `oldmain.py`, we look for `.price` within a `product_soup` object representing a product card. Here, we're looking for `.price` within the entire product detail page. It's better to be more specific so we don't accidentally match another price on the same page:
 
@@ -295,7 +295,7 @@ if __name__ == '__main__':
 
 If we run this scraper, we should get the same data for the 24 products as before. Crawlee has saved us a lot of effort by managing downloading, parsing, and parallelization. The code is also cleaner, with two separate and labeled handlers.
 
-Crawlee doesn't do much to help with locating and extracting the data—that part of the code remains almost the same, framework or not. This is because the detective work of finding and extracting the right data is the core value of custom scrapers. With Crawlee, we can focus on just that while letting the framework take care of everything else.
+Crawlee doesn't do much to help with locating and extracting the data - that part of the code remains almost the same, framework or not. This is because the detective work of finding and extracting the right data is the core value of custom scrapers. With Crawlee, we can focus on just that while letting the framework take care of everything else.
 
 ## Saving data
 
@@ -468,13 +468,13 @@ If you export the dataset as JSON, it should look something like this:
   <CodeBlock language="py">{CrawleeF1DriversExercise.code}</CodeBlock>
 </details>
 
-### Use Crawlee to find the ratings of the most popular Netflix films
+### Use Crawlee to find the user scores of popular Netflix titles
 
-The [Global Top 10](https://www.netflix.com/tudum/top10) page has a table listing the most popular Netflix films worldwide. Scrape the first 5 movie names from this page, then search for each movie on [IMDb](https://www.imdb.com/). Assume the first search result is correct and retrieve the film's rating. Each item you push to Crawlee's default dataset should include the following data:
+The [Global Top 10](https://www.netflix.com/tudum/top10) page has tables listing popular Netflix titles worldwide. Scrape the first 5 title names from this page, then search for each title on [TMDb](https://www.themoviedb.org/). Assume the first search result is correct and retrieve the title's user score. Each item you push to Crawlee's default dataset should include the following data:
 
-- URL of the film's IMDb page
+- URL of the title's TMDb page
 - Title
-- Rating
+- User score
 
 If you export the dataset as JSON, it should look something like this:
 
@@ -482,20 +482,25 @@ If you export the dataset as JSON, it should look something like this:
 ```json
 [
   {
-    "url": "https://www.imdb.com/title/tt32368345/?ref_=fn_tt_tt_1",
-    "title": "The Merry Gentlemen",
-    "rating": "5.0/10"
+    "url": "https://www.themoviedb.org/movie/1290417-thrash",
+    "title": "Thrash",
+    "user_score": "59%"
   },
   {
-    "url": "https://www.imdb.com/title/tt32359447/?ref_=fn_tt_tt_1",
-    "title": "Hot Frosty",
-    "rating": "5.4/10"
+    "url": "https://www.themoviedb.org/movie/1629369-the-truth-and-tragedy-of-moriah-wilson",
+    "title": "The Truth and Tragedy of Moriah Wilson",
+    "user_score": "71%"
+  },
+  {
+    "url": "https://www.themoviedb.org/movie/1234731-anaconda",
+    "title": "Anaconda",
+    "user_score": "59%"
   },
   ...
 ]
 ```
 
-To scrape IMDb data, you'll need to construct a `Request` object with the appropriate search URL for each movie title. The following code snippet gives you an idea of how to do this:
+To scrape TMDb data, you need to construct a `Request` object with the appropriate search URL for each title name. The following code snippet gives you an idea of how to do this:
 
 ```py
 from urllib.parse import quote_plus
@@ -508,8 +513,8 @@ async def main():
         requests = []
         for name_cell in context.soup.select(...):
             name = name_cell.text.strip()
-            imdb_search_url = f"https://www.imdb.com/find/?q={quote_plus(name)}&s=tt&ttype=ft"
-            requests.append(Request.from_url(imdb_search_url, label="..."))
+            tmdb_search_url = f"https://www.themoviedb.org/search?query={quote_plus(name)}"
+            requests.append(Request.from_url(tmdb_search_url, label="..."))
         await context.add_requests(requests)
 
     ...
@@ -517,7 +522,7 @@ async def main():
 
 :::tip Need a nudge?
 
-When navigating to the first IMDb search result, you might find it helpful to know that `context.enqueue_links()` accepts a `limit` keyword argument, letting you specify the max number of HTTP requests to enqueue.
+When navigating to the first TMDb search result, you might find it helpful to know that `context.enqueue_links()` accepts a `limit` keyword argument, letting you specify the max number of HTTP requests to enqueue.
 
 :::
 

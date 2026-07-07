@@ -89,9 +89,14 @@ export default function SdkSection({
                         <ThemedImage
                             height={24}
                             width={24}
-                            sources={{ dark: useBaseUrl(`/img/${lowerCaseLanguage}-40x40.svg`), light: useBaseUrl(`/img/${lowerCaseLanguage}-40x40.svg`) }}
+                            sources={{
+                                dark: useBaseUrl(`/img/${lowerCaseLanguage}-40x40.svg`),
+                                light: useBaseUrl(`/img/${lowerCaseLanguage}-40x40.svg`),
+                            }}
                         />
-                        <Heading type="titleXl" style={{ verticalAlign: 'center' }}>{title}</Heading>
+                        <Heading type="titleXl" style={{ verticalAlign: 'center' }}>
+                            {title}
+                        </Heading>
                     </div>
                     <Text size="large" color={theme.color.neutral.textMuted}>
                         {description}
@@ -107,17 +112,17 @@ export default function SdkSection({
                     Star
                 </GitHubButton>
                 <div className="SdkSectionActionButtons">
-                    <StyledButton hideExternalIcon color='success' to={gettingStartedUrl}>Get started</StyledButton>
-                    <ActionLink hideExternalIcon to={referenceUrl} >View reference</ActionLink>
+                    <StyledButton hideExternalIcon color="success" to={gettingStartedUrl}>
+                        Get started
+                    </StyledButton>
+                    <ActionLink hideExternalIcon to={referenceUrl}>
+                        View reference
+                    </ActionLink>
                 </div>
             </div>
             <div className="SdkSectionCodeExamples">
-                <CodeBlock language="bash">
-                    {installCodeSnippet}
-                </CodeBlock>
-                <CodeBlock language={lowerCaseLanguage}>
-                    {exampleCodeSnippet}
-                </CodeBlock>
+                <CodeBlock language="bash">{installCodeSnippet}</CodeBlock>
+                <CodeBlock language={lowerCaseLanguage}>{exampleCodeSnippet}</CodeBlock>
             </div>
         </StyledSdkSection>
     );

@@ -1,13 +1,9 @@
 ---
 title: Billing
-description: The Billings page is the central place for all information regarding your invoices, billing information regarding current usage, historical usage, subscriptions & limits.
+description: View invoices, track current billing cycle usage, manage subscriptions and limits, and review historical usage from the Billings page in Console.
 sidebar_position: 3
 category: platform
 slug: /console/billing
----
-
-**The Billings page is the central place for all information regarding your invoices, billing information regarding usage in the current billing cycle, historical usage, subscriptions & limits.**
-
 ---
 
 ## Current period
@@ -38,7 +34,7 @@ Below the bar chart, there is a table titled **Usage by Actors**. This table pre
 
 ## Subscription
 
-The **Subscriptions** tab offers a central location to manage various aspects of your subscription plan. Here, you can access details about your current plan and explore options to upgrade to a different one.
+The **Subscription** tab offers a central location to manage various aspects of your subscription plan. Here, you can access details about your current plan and explore options to upgrade to a different one.
 
 :::info Unused credits
 
@@ -80,7 +76,7 @@ You can adjust the platform usage limits and enable overage, allowing you to con
 
 :::caution Immediate overage invoicing
 
-If your overage platform usage reaches _200$_ before your next billing cycle, you will be invoiced for the overage charges immediately. Otherwise, the overage charges will be added to your next subscription invoice.
+If your overage platform usage reaches the threshold for your plan before your next billing cycle, you will be invoiced for the overage charges immediately. Otherwise, the overage charges will be added to your next subscription invoice. The threshold is $50 on the Starter plan and $200 on higher plans.
 
 :::
 

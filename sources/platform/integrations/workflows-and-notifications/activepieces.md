@@ -1,14 +1,11 @@
 ---
 title: Activepieces integration
-description: Connect Apify Actors with Activepieces using the Apify piece to automate workflows with run events, data queries, and task actions.
+description: Connect Apify Actors with Activepieces to build automated flows that trigger on run events, retrieve data from storage, and start Actors from any trigger.
 sidebar_label: Activepieces
-sidebar_position: 7
 slug: /integrations/activepieces
 ---
 
-**Connect Apify Actors with Activepieces using the Apify piece to automate workflows with run events, data queries, and task actions.**
-
----
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
 [Activepieces](https://www.activepieces.com) is an open-source automation platform that lets you build workflows to connect apps and automate tasks without writing code. With the Apify piece, you can connect your Apify Actors and tasks to other services, build data pipelines, and react to scraping results in real time.
 
@@ -25,6 +22,8 @@ An Activepieces flow consists of three key parts:
 - One or more _actions_ that execute when the flow runs
 
 The Apify piece lets you trigger flows when an Actor or task run finishes, start Actor or task runs from any other trigger, or retrieve data from datasets and key-value stores.
+
+<ThirdPartyDisclaimer />
 
 ## Prerequisites
 

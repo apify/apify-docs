@@ -6,19 +6,20 @@ sidebar_position: 9.4
 slug: /storage/request-queue
 ---
 
-**Queue URLs for an Actor to visit in its run. Learn how to share your queues between Actor runs. Access and manage request queues from Apify Console or via API.**
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-
----
 
 Request queues enable you to enqueue and retrieve requests such as URLs with an [HTTP method](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) and other parameters. They prove essential not only in web crawling scenarios but also in any situation requiring the management of a large number of URLs and the addition of new links.
 
 The storage system for request queues accommodates both breadth-first and depth-first crawling strategies, along with the inclusion of custom data attributes. This system enables you to check if certain URLs have already been encountered, add new URLs to the queue, and retrieve the next set of URLs for processing.
 
-> Named request queues are retained indefinitely. <br/>
-> Unnamed request queues expire after 7 days unless otherwise specified.<br/> > [Learn more](/platform/storage/usage#named-and-unnamed-storages)
+:::info Retention period
+
+Named request queues are retained indefinitely. Unnamed request queues expire after 7 days unless otherwise specified. [Learn more](/platform/storage#named-and-unnamed-storages)
+
+:::
+
+![Request queue graphic](./images/request-queue-overview.svg)
 
 ## Basic usage
 
@@ -37,7 +38,7 @@ In the [Apify Console](https://console.apify.com), you can view your request que
 
 To view a request queue, click on its **Queue ID**.
 Under the **Actions** menu, you can rename your queue's name (and, in turn, its
-[retention period](/platform/storage/usage#named-and-unnamed-storages)) and [access rights](../collaboration/index.md) using the **Share** button.
+[retention period](/platform/storage#named-and-unnamed-storages)) and [access rights](../collaboration/index.md) using the **Share** button.
 Click on the **API** button to view and test a queue's [API endpoints](/api/v2/storage-request-queues).
 
 ![Request queues detail](./images/request-queue-detail.png)
@@ -46,9 +47,13 @@ Click on the **API** button to view and test a queue's [API endpoints](/api/v2/s
 
 The [Apify API](/api/v2/storage-request-queues) allows you programmatic access to your request queues using [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
 
-If you are accessing your datasets using the `username~store-name` [store ID format](./index.md), you will need to use your secret API token. You can find the token (and your user ID) on the [Integrations](https://console.apify.com/account#/integrations) page of your Apify account.
+If you are accessing your request queues using the `username~store-name` [store ID format](./index.md), you will need to use your secret API token. You can find the token (and your user ID) on the [API & Integrations](https://console.apify.com/settings/integrations) page of your Apify account.
 
-> When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](../integrations/programming/api.md#authentication)).
+:::tip Pass tokens in the Authorization header
+
+When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. [More info](../integrations/programming/api.md#authentication).
+
+:::
 
 To get a list of your request queues, send a GET request to the [Get list of request queues](/api/v2/request-queues-get) endpoint.
 
@@ -101,9 +106,13 @@ Example payload:
 }
 ```
 
-> When adding or updating requests, you can optionally provide a `clientKey` parameter to your request. It must be a string between 1 and 32 characters in length. This identifier is used to determine whether the queue was accessed by [multiple clients](#sharing). If `clientKey` is not provided, the system considers this API call to come from a new client. See the `hadMultipleClients` field returned by the [`Get head`](/api/v2/request-queue-head-get) operation for details. <br/>
->
-> Example: `client-abc`
+:::note `clientKey` parameter
+
+When adding or updating requests, you can optionally provide a `clientKey` parameter to your request. It must be a string between 1 and 32 characters in length. This identifier is used to determine whether the queue was accessed by [multiple clients](#sharing). If `clientKey` is not provided, the system considers this API call to come from a new client. See the `hadMultipleClients` field returned by the [`Get head`](/api/v2/request-queue-head-get) operation for details.
+
+Example: `client-abc`
+
+:::
 
 For further details and a breakdown of each storage API endpoint, refer to the [API documentation](/api/v2/storage-key-value-stores).
 
@@ -618,7 +627,7 @@ other_queue_client = apify_client.request_queue('jane-doe/old-queue')
 
 The same applies for the [Apify API](#apify-api) - you can use [the same endpoints](#apify-api) as you would normally do.
 
-Check out the [Storage overview](/platform/storage/usage#sharing-storages-between-runs) for details on sharing storages between runs.
+Check out the [Storage overview](/platform/storage#share-storages-between-runs) for details on sharing storages between runs.
 
 ## Limits
 
@@ -632,6 +641,10 @@ CRUD ([add](/api/v2/request-queue-requests-post),
 [update](/api/v2/request-queue-request-put),
 [delete](/api/v2/request-queue-request-delete))
 operation requests are limited to _400 requests per second_ per request queue. This helps protect Apify servers from being overloaded.
+
+Request-lock operations ([prolong a lock](/api/v2/request-queue-request-lock-put) and [delete a lock](/api/v2/request-queue-request-lock-delete)) are also limited to _400 requests per second_ per request queue.
+
+Batch operations ([add](/api/v2/request-queue-requests-batch-post) and [delete](/api/v2/request-queue-requests-batch-delete)) and the [list and lock head](/api/v2/request-queue-head-lock-post) endpoint are limited to _40 requests per second_ per request queue.
 
 All other request queue API [endpoints](/api/v2/storage-request-queues) are limited to _60 requests per second_ per request queue.
 

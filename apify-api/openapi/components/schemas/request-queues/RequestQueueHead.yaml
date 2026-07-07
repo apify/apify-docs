@@ -8,18 +8,11 @@ required:
   - items
 properties:
   limit:
-    type: integer
-    description: The maximum number of requests returned.
-    examples: [1000]
+    $ref: ./SharedProperties.yaml#/HeadLimit
   queueModifiedAt:
-    type: string
-    format: date-time
-    description: The timestamp when the request queue was last modified.
-    examples: ["2018-03-14T23:00:00.000Z"]
+    $ref: ./SharedProperties.yaml#/QueueModifiedAt
   hadMultipleClients:
-    type: boolean
-    description: Whether the request queue has been accessed by multiple different clients.
-    examples: [false]
+    $ref: ./SharedProperties.yaml#/HadMultipleClients
   items:
     type: array
     items:

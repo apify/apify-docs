@@ -1,14 +1,11 @@
 ---
 title: Haystack integration
 sidebar_label: Haystack
-description: Learn how to integrate Apify with Haystack to work with web data in the Haystack ecosystem.
-sidebar_position: 4
+description: Learn how to integrate Apify with Haystack to crawl websites, compute text embeddings, and build retrieval-augmented generation pipelines with ease.
 slug: /integrations/haystack
 ---
 
-**Learn how to integrate Apify with Haystack to work with web data in the Haystack ecosystem.**
-
----
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
 [Haystack](https://haystack.deepset.ai/) is an open source framework for building production-ready LLM applications, agents, advanced retrieval-augmented generative pipelines, and state-of-the-art search systems that work intelligently over large document collections. For more information on Haystack, visit its [documentation](https://docs.haystack.deepset.ai/docs/intro).
 
@@ -37,7 +34,7 @@ from haystack.utils.auth import Secret
 from apify_haystack import ApifyDatasetFromActorCall
 ```
 
-Find your [Apify API token](https://console.apify.com/account/integrations) and [OpenAI API key](https://platform.openai.com/account/api-keys) and initialize these into environment variable:
+Find your [Apify API token](https://console.apify.com/settings/integrations) and [OpenAI API key](https://platform.openai.com/account/api-keys) and initialize these into environment variable:
 
 ```python
 import os
@@ -179,6 +176,7 @@ for doc in results["retriever"]["documents"]:
 
 To run it, you can use the following command: `python apify_integration.py`
 
+<ThirdPartyDisclaimer />
 
 ## Resources
 

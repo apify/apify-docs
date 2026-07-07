@@ -1,14 +1,12 @@
 ---
 title: Bubble integration
-description: Learn how to integrate your Apify Actors with Bubble for automated workflows and notifications.
+description: Connect Apify Actors to your Bubble application using the Apify plugin to run web scraping jobs and display extracted data in your no-code app.
 sidebar_label: Bubble
-sidebar_position: 7
 slug: /integrations/bubble
 ---
 
-**Learn how to integrate your Apify Actors with Bubble for automated workflows and notifications.**
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
----
 [Bubble](https://bubble.io/) is a no-code platform that allows you to build web applications without writing code. With the [Apify integration for Bubble](https://bubble.io/plugin/apify-1749639212621x698168698147962900), you can easily connect your Apify Actors to your Bubble applications to automate workflows and display scraped data.
 
 :::tip Explore the live demo
@@ -16,6 +14,8 @@ slug: /integrations/bubble
 Open the demo Bubble app to check out the integration end-to-end before building your own: [apify-28595.bubbleapps.io](https://apify-28595.bubbleapps.io)
 
 :::
+
+<ThirdPartyDisclaimer />
 
 ## Get started
 
@@ -62,7 +62,6 @@ When configuring Apify actions in a workflow (check out screenshot below), set t
 - `Current User's apify_api_token`
   - ![Current User's API token](../images/bubble/data_select_user_api_key.png)
 
-
 ## Use the integration
 
 Once the plugin is configured, you can start building automated workflows.
@@ -86,7 +85,6 @@ Apify's Bubble plugin exposes two ways to interact with Apify:
 Each Apify plugin action and data call input in Bubble includes inline documentation describing what the parameter is for and the expected format. If you're unsure, check the field's help text in the Bubble editor.
 
 :::
-
 
 ### Dynamic values in inputs and data calls
 
@@ -114,7 +112,6 @@ Dynamic values are available across Apify plugin fields. Use Bubble's **Insert d
 When inserting dynamic data, Bubble replaces the selected text. Place your cursor exactly where you want the expression in the JSON; avoid selecting the entire field.
 
 :::
-
 
 ## Run Apify plugin actions from Bubble events
 
@@ -155,7 +152,6 @@ Find IDs directly in Apify Console. Each resource page shows the ID in the API p
   - Example URL: `https://console.apify.com/actors/<actor_id>/integrations/<webhook_id>`
 
 You can also discover IDs via the plugin responses and data calls (e.g., **List User Datasets**, **List Actor Runs**), which return objects with `id` fields you can pass into other actions/data calls.
-
 
 ## Display Apify data in your application
 
@@ -284,7 +280,7 @@ Ensure your API token is correctly set in the action (preferably as `Current Use
 
 ### Missing Actors or Tasks
 
-If your Actor or Task doesn't appear in list responses, run it at least once in the Apify Console so it becomes discoverable.
+If your Actor or Task doesn't appear in list responses, run it at least once in Apify Console so it becomes discoverable.
 
 ### Timeout errors
 
@@ -294,5 +290,4 @@ Bubble workflows have execution time limits. For long‑running Actors, set the 
 
 Check that your JSON input is valid when providing **Input overrides** and that dynamic expressions resolve to valid JSON values. Verify the structure of the dataset output when displaying it in your app.
 
-
-If you have any questions or need help, feel free to reach out to us on our [developer community on Discord](https://discord.com/invite/jyEM2PRvMU).
+If you have any questions or need help, feel free to reach out on the [Apify developer community on Discord](https://discord.com/invite/jyEM2PRvMU).

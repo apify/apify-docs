@@ -1,13 +1,9 @@
 ---
-title: Standby mode
-description: Use an Actor as a real-time API server.
+title: Actor Standby mode
+description: Use Actor Standby mode to keep an Actor ready in the background and serve real-time HTTP requests without waiting for a cold start each time.
 sidebar_position: 7.3
 slug: /actors/running/standby
 sidebar_label: Standby mode
----
-
-**Use Actors in lightweight Standby mode for fast API responses.**
-
 ---
 
 Traditional Actors are designed to run a single job and then stop. They're mostly intended for batch jobs, such as when you need to perform a large scrape or data processing task.
@@ -50,7 +46,7 @@ This approach can be useful if you cannot modify the request headers.
     https://rag-web-browser.apify.actor/search?query=apify&token=my_apify_token
     ```
 
-:::tip
+:::tip Scoped tokens
 You can use [scoped tokens](/platform/integrations/api#limited-permissions) to send standby requests. This is useful for allowing third-party services to interact with your Actor without granting access to your entire account.
 
 However, [restricting what an Actor can access](/platform/integrations/api#restricted-access-restrict-what-actors-can-access-using-the-scope-of-this-actor) using a scoped token is not supported when running in Standby mode.

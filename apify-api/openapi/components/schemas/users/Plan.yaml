@@ -1,25 +1,6 @@
 title: Plan
 required:
-  - id
-  - description
-  - isEnabled
-  - monthlyBasePriceUsd
-  - monthlyUsageCreditsUsd
-  - usageDiscountPercent
-  - enabledPlatformFeatures
-  - maxMonthlyUsageUsd
-  - maxActorMemoryGbytes
-  - maxMonthlyActorComputeUnits
-  - maxMonthlyResidentialProxyGbytes
-  - maxMonthlyProxySerps
-  - maxMonthlyExternalDataTransferGbytes
-  - maxActorCount
-  - maxActorTaskCount
-  - dataRetentionDays
   - availableProxyGroups
-  - teamAccountSeatCount
-  - supportLevel
-  - availableAddOns
 type: object
 properties:
   id:
@@ -43,14 +24,13 @@ properties:
   enabledPlatformFeatures:
     type: array
     items:
-      type: array
-      items: {}
+      type: string
     example:
-      - - ACTORS
-      - - STORAGE
-      - - PROXY_SERPS
-      - - SCHEDULER
-      - - WEBHOOKS
+      - ACTORS
+      - STORAGE
+      - PROXY_SERPS
+      - SCHEDULER
+      - WEBHOOKS
   maxMonthlyUsageUsd:
     type: number
     examples: [9999]
@@ -91,3 +71,19 @@ properties:
     items:
       type: string
     examples: [[]]
+  tier:
+    type: string
+    examples: [FREE]
+  apiRateLimitBoosts:
+    type: integer
+    examples: [0]
+  maxScheduleCount:
+    type: integer
+    examples: [100]
+  maxConcurrentActorRuns:
+    type: integer
+    examples: [25]
+  planPricing:
+    type: object
+    description: Pricing details for this plan.
+    additionalProperties: true

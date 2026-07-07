@@ -40,7 +40,6 @@ Actors on Apify Store can be public or private:
 You can monetize your Actors using three different pricing models:
 
 - Pay for usage: charge based on how much the Actor is used.
-- Pay per result: the price is based on the number of results produced, with the first few free.
 - Pay per event: the price is based on specific events triggered by the Actor.
 - Monthly billing: set a fixed monthly rental rate for using the Actor.
 
@@ -97,9 +96,19 @@ A high number of monthly users indicates widespread trust and effective performa
 
 Each Actor has an **Issues** tab in Apify Console and on the web. Here, users can open an issue (ticket) and engage in discussions with the Actor's creator, platform admins, and other users. The tab is ideal for asking questions, requesting new features, or providing feedback.
 
-Since the **Issues** tab is public, the level of activity — or lack thereof — can be observed by potential users and may serve as an indicator of the Actor's reliability. A well-maintained Issues tab with prompt responses suggests an active and dependable Actor.
+Since the **Issues** tab is public, the level of activity - or lack thereof - can be observed by potential users and may serve as an indicator of the Actor's reliability. A well-maintained Issues tab with prompt responses suggests an active and dependable Actor.
 
 Learn more about how to handle the [Issues tab](/academy/actor-marketing-playbook/interact-with-users/issues-tab)
+
+## How Apify Store search works
+
+Search ranking evaluates parameters similar to those in the [Actor quality score](/platform/actors/publishing/quality-score). As a result, the two correlate strongly: Actors with higher quality scores tend to rank higher in [Apify Store](https://apify.com/store) search and the [Apify MCP server](/platform/integrations/mcp) `search-actors` tool, though no specific position is guaranteed.
+
+To improve your Actor's visibility in search, focus on improving its quality score. For what the score measures and how to influence each category, see [Actor quality score](/platform/actors/publishing/quality-score).
+
+### Search in Apify Console is personalized
+
+In [Apify Console](https://console.apify.com), search results are personalized for each user. As a result, the same query can return different Actors than in [Apify Store](https://apify.com/store). Quality score still correlates with ranking, but the order is adjusted per user.
 
 ## Resources
 

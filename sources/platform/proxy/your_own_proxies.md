@@ -1,19 +1,15 @@
 ---
 title: Using your own proxies
-description: Learn how to use your own proxies while using the Apify platform.
+description: Add your own proxy URLs to Actor runs in Apify Console or configure them in the Apify SDK using the proxy configuration API for JavaScript and Python.
 sidebar_position: 10.5
 slug: /proxy/using-your-own-proxies
 ---
 
-**Learn how to use your own proxies while using the Apify platform.**
-
----
-
-In addition to our proxies, you can use your own both in Apify Console and SDK.
+In addition to Apify Proxy, you can use your own proxies both in Apify Console and the SDK.
 
 ## Custom proxies in console
 
-To use your own proxies with Apify Console, in your Actor's **Input and options** tab, scroll down and open the **Proxy and browser configuration** section. Enter your proxy URLs, and you're good to go.
+To use your own proxies with Apify Console, in your Actor's **Input** tab, scroll down and open the **Proxy and browser configuration** section (available for Actors whose input schema defines it). Enter your proxy URLs, and you're good to go.
 
 ![Using custom proxy in Apify Console](../images/proxy-custom.png)
 

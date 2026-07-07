@@ -7,66 +7,31 @@ get:
     retrieve and manage the last run of given actor task or any of its default storages.
     All the endpoints require an authentication token.
 
-    The endpoints accept the same HTTP methods and query parameters as
-    the respective storage endpoints.
     The base path represents the last actor task run object is:
 
-    `/v2/actor-tasks/{actorTaskId}/runs/last{?token,status}`
+    `/v2/actor-tasks/{actorTaskId}/runs/last{?token,status,origin}`
 
     Using the `status` query parameter you can ensure to only get a run with a certain status
-    (e.g. `status=SUCCEEDED`). The output of this endpoint and other query parameters
-    are the same as in the [Run object](/api/v2/actor-run-get) endpoint.
+    (e.g. `status=SUCCEEDED`). Similarly, the `origin` query parameter filters runs by the means
+    by which they were started (e.g. `origin=API`). The output of this endpoint and other query
+    parameters are the same as in the [Run object](/api/v2/actor-run-get) endpoint.
 
-    In order to access the default storages of the last actor task run, i.e. log, key-value store, dataset and request queue,
-    use the following endpoints:
+    ##### Convenience endpoints for last Actor task run
 
-    * `/v2/actor-tasks/{actorTaskId}/runs/last/log{?token,status}`
-    * `/v2/actor-tasks/{actorTaskId}/runs/last/key-value-store{?token,status}`
-    * `/v2/actor-tasks/{actorTaskId}/runs/last/dataset{?token,status}`
-    * `/v2/actor-tasks/{actorTaskId}/runs/last/request-queue{?token,status}`
+    * [Dataset](/api/v2/last-actor-task-runs-default-dataset)
 
-    These API endpoints have the same usage as the equivalent storage endpoints.
-    For example,
-    `/v2/actor-tasks/{actorTaskId}/runs/last/key-value-store` has the same HTTP method and parameters as the
-    [Key-value store object](/api/v2/storage-key-value-stores) endpoint.
+    * [Key-value store](/api/v2/last-actor-task-runs-default-key-value-store)
 
-    Additionally, each of the above API endpoints supports all sub-endpoints
-    of the original one:
+    * [Request queue](/api/v2/last-actor-task-runs-default-request-queue)
 
-    ##### Storage endpoints
+    * [Log](/api/v2/last-actor-task-runs-log)
 
-    * [Dataset - introduction](/api/v2/storage-datasets)
-
-    * [Key-value store - introduction](/api/v2/storage-key-value-stores)
-
-    * [Request queue - introduction](/api/v2/storage-request-queues)
-
-    For example, to download data from a dataset of the last succeeded actor task run in XML format,
-    send HTTP GET request to the following URL:
-
-    ```
-    https://api.apify.com/v2/actor-tasks/{actorTaskId}/runs/last/dataset/items?token={yourApiToken}&format=xml&status=SUCCEEDED
-    ```
-
-    In order to save new items to the dataset, send HTTP POST request with JSON payload to the same URL.
   operationId: actorTask_runs_last_get
   parameters:
-    - name: actorTaskId
-      in: path
-      description: Task ID or a tilde-separated owner's username and Actor task name.
-      required: true
-      style: simple
-      schema:
-        type: string
-        example: janedoe~my-task
-    - name: status
-      in: query
-      description: Filter for the run status.
-      style: form
-      explode: true
-      schema:
-        type: string
-        example: SUCCEEDED
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorTaskId"
+    - $ref: "../../components/parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../components/parameters/lastRunParameters.yaml#/origin"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/waitForFinishRun"
   responses:
     "200":
       description: ""
@@ -82,6 +47,16 @@ get:
                 $ref: ../../components/schemas/actor-runs/Run.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      $ref: ../../components/responses/NotFound.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-tasks/last-run-object-and-its-storages

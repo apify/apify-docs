@@ -1,12 +1,8 @@
 ---
 title: Input and output
-description: Configure your Actor's input parameters using Apify Console, locally or via API. Access parameters in key-value stores from your Actor's code.
+description: Learn how Actors receive input and where they store their output, including the Actor output object and how to access run results from Apify Console or the API.
 sidebar_position: 2
 slug: /actors/running/input-and-output
----
-
-**Configure your Actor's input parameters using Apify Console, locally or via API. Access parameters in key-value stores from your Actor's code.**
-
 ---
 
 ## Input
@@ -47,16 +43,18 @@ If the Actor is configured by developer to use [dynamic memory](../development/a
 
 ## Output
 
-While the input object provides a way to instruct Actors, an Actor can also generate an output, usually stored in its default [Dataset](../../storage/dataset), but some additional files might be stored in its [Key-value store](../../storage/key-value-store). Always read the Actor's README to learn more about its output.
+An Actor can produce results in several places. Structured, tabular results are usually stored in the run's default (or additional) [Dataset](../../storage/dataset), while files and other unstructured data go to its [Key-value store](../../storage/key-value-store). Always read the Actor's README to learn what an Actor produces and where it stores it. For more details about storages, visit the [Storage](../../storage/index.md) section.
 
-For more details about storages, visit the [Storage](../../storage/index.md) section.
+To describe where its results are and how to reach them, an Actor can define an [output schema](/platform/actors/development/actor-definition/output-schema). The platform uses this schema to automatically generate the Actor _output object_ - an immutable JSON object whose properties link to the run's results. The output object is defined solely by the output schema, not by the Actor's code, and the API returns it as the run's `output` property immediately when the run starts, without waiting for the run to finish or for the results to be produced. This makes it useful for previewing results, generating API examples, and building integrations.
 
-You can quickly access the Actor's output from the run detail page:
+The output object is separate from the storages that hold the data: its properties point to results wherever they live, whether that's the dataset, the key-value store, or a URL exposed by the running Actor.
+
+You can quickly access the Actor's results from the run detail page:
 
 ![Actor output](./images/input_and_output/actor-output.png)
 
-And to access all the data associated with the run, see the **Storage** tab, where you can explore the Actor's default [Dataset](../../storage/dataset), [Key-value store](../../storage/key-value-store), and [Request queue](../../storage/request-queue):
+To access all the data associated with the run, open the **Storage** tab, where you can explore the run's default [Dataset](../../storage/dataset), [Key-value store](../../storage/key-value-store), and [Request queue](../../storage/request-queue):
 
 ![Actor output](./images/input_and_output/actor-storage.png)
 
-You can also use [API](https://docs.apify.com/api/v2) to retrieve the output. To learn more about this, read the [Run an Actor or task and retrieve data via API](/academy/api/run-actor-and-retrieve-data-via-api) tutorial.
+You can also use the [API](https://docs.apify.com/api/v2) to retrieve the results. To learn more, read the [Run an Actor or task and retrieve data via API](/academy/api/run-actor-and-retrieve-data-via-api) tutorial.

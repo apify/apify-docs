@@ -12,13 +12,19 @@
 }
 
 @media (min-width: 768px) {
-    .section { max-width: 738px; }
+    .section {
+        max-width: 738px;
+    }
 }
 
 @media (min-width: 1024px) {
-    .section { max-width: 896px; }
+    .section {
+        max-width: 896px;
+    }
 }
 
 @media (min-width: 1440px) {
-    .section { max-width: 1200px; }
+    .section {
+        max-width: 1200px;
+    }
 }

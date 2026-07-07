@@ -1,10 +1,11 @@
 ---
 title: Gumloop integration
-description: Learn how to integrate your Apify Actors with Gumloop.
+description: Connect Apify Actors to Gumloop to retrieve data for AI-powered workflows using native MCP nodes for Instagram, Google Maps, TikTok, and YouTube.
 sidebar_label: Gumloop
-sidebar_position: 3
 slug: /integrations/gumloop
 ---
+
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
 With the Gumloop Apify integration you can retrieve key data for your AI-powered workflows in a flash.
 
@@ -12,6 +13,8 @@ Gumloop supports two types of integrations with Apify:
 
 - Direct integrations with Apify Actors through MCP nodes, where you can prompt the data you need (Recommended)
 - General Apify integration using the Apify task runner node
+
+<ThirdPartyDisclaimer />
 
 ## Direct integrations with Apify Actors (recommended)
 
@@ -50,9 +53,9 @@ To use the Apify integration in Gumloop, you need an Apify account, a Gumloop ac
 
 1. _Get your Apify API Key_
 
-    To get started, navigate to [**Settings > Integrations**](https://console.apify.com/settings/integrations) in Apify Console and copy your API token.
+    To get started, navigate to [**Settings > API & Integrations**](https://console.apify.com/settings/integrations) in Apify Console and copy your API token.
 
-    ![Apify Settings > Integrations with API token](images/generate_apify_token.png)
+    ![Apify Settings > API & Integrations with API token](images/generate_apify_token.png)
 
 1. _Add Apify credentials to Gumloop_
 

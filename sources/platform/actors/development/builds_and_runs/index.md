@@ -1,12 +1,8 @@
 ---
 title: Builds and runs
 sidebar_position: 7
-description: Learn about Actor builds and runs, their lifecycle, versioning, and other properties.
+description: Learn about Actor builds and runs, including how Docker images are created, how runs are executed, and their lifecycle on the Apify platform.
 slug: /actors/development/builds-and-runs
----
-
-**Learn about Actor builds and runs, their lifecycle, versioning, and other properties.**
-
 ---
 
 Actor **builds** and **runs** are fundamental concepts within the Apify platform. Understanding them is crucial for effective use of the platform.

@@ -12,3 +12,6 @@ properties:
   computeUnits:
     type: number
     examples: [0.0126994444444444]
+  imageSizeBytes:
+    type: [integer, "null"]
+    examples: [975770223]

@@ -1,0 +1,28 @@
+X-Apify-Pagination-Offset:
+  description: The offset of the first item in the current page.
+  content:
+    text/plain:
+      schema:
+        type: string
+      example: "0"
+X-Apify-Pagination-Limit:
+  description: The maximum number of items returned per page.
+  content:
+    text/plain:
+      schema:
+        type: string
+      example: "100"
+X-Apify-Pagination-Count:
+  description: The number of items returned in the current page.
+  content:
+    text/plain:
+      schema:
+        type: string
+      example: "100"
+X-Apify-Pagination-Total:
+  description: The total number of items in the dataset.
+  content:
+    text/plain:
+      schema:
+        type: string
+      example: "10204"
