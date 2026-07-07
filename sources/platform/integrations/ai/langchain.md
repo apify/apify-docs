@@ -320,8 +320,8 @@ For Actors without a dedicated tool, use `ApifyActorsTool`. Construct it with th
 ```python
 from langchain_apify import ApifyActorsTool
 
-tool = ApifyActorsTool("apify/rag-web-browser")
-result = tool.invoke({"run_input": {"query": "latest AI news", "maxResults": 3}})
+tool = ApifyActorsTool("apify/google-trends-scraper")
+result = tool.invoke({"run_input": {"searchTerms": ["web scraping", "data extraction"]}})
 ```
 
 ## Resources
