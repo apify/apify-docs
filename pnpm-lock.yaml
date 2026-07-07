@@ -270,9 +270,6 @@ importers:
       docusaurus-theme-openapi-docs:
         specifier: ^4.6.0
         version: 4.7.1(b6b781a68dc7c26fd2b92b97b6cb29d1)
-      github-buttons:
-        specifier: ^2.28.0
-        version: 2.32.0
       postcss-preset-env:
         specifier: ^11.0.0
         version: 11.2.1(postcss@8.5.14)
@@ -5787,9 +5784,6 @@ packages:
   get-symbol-description@1.1.0:
     resolution: {integrity: sha512-w9UMqWwJxHNOvoNzSJ2oPF5wvYcvP7jUvYzhp67yEhTi17ZDBBC1z9pTdGuzjD+EFIqLSYRweZjqfiPzQ06Ebg==}
     engines: {node: '>= 0.4'}
-
-  github-buttons@2.32.0:
-    resolution: {integrity: sha512-DbKam2n7JGbccpbAoQ7UHhxH2XYlumCakTM4Ln7v8A9TzMaaEgKV6S7A+Suyx3EVBE1DPEqA6QSgyCoGJamymg==}
 
   github-slugger@1.5.0:
     resolution: {integrity: sha512-wIh+gKBI9Nshz2o46B0B3f5k/W+WI9ZAv6y5Dn5WJ5SK1t0TnDimB4WE5rmTD05ZAIn8HALCZVmCsvj0w0v0lw==}
@@ -16422,8 +16416,6 @@ snapshots:
       call-bound: 1.0.4
       es-errors: 1.3.0
       get-intrinsic: 1.3.0
-
-  github-buttons@2.32.0: {}
 
   github-slugger@1.5.0: {}
 

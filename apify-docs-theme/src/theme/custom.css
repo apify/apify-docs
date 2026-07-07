@@ -22,42 +22,23 @@ html[data-theme='dark'] {
 
     --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.1);
     --docsearch-text-color: var(--color-neutral-text-muted);
+
+    /* TRON colors - map legacy names to the dark palette injected in Root.jsx */
+    --color-Neutral_Text: var(--color-neutral-text);
+    --color-Neutral_TextMuted: var(--color-neutral-text-muted);
+    --color-Neutral_Border: var(--color-neutral-border);
+    --color-Neutral_Hover: var(--color-neutral-hover);
+    --color-Neutral_Background: var(--color-neutral-background);
+    --color-Neutral_BackgroundMuted: var(--color-neutral-background-muted);
+    --color-Neutral_ChipBackground: var(--color-neutral-chip-background);
+    --color-Neutral_ChipBackgroundActive: var(--color-neutral-chip-background-active);
+    --color-Neutral_SeparatorSubtle: var(--color-neutral-separator-subtle);
+    --color-Primary_ChipText: var(--color-primary-chip-text);
+    --color-Primary_ChipBackground: var(--color-primary-chip-background);
+    --color-Primary_TextInteractive: var(--color-primary-text-interactive);
 }
 
 :root {
-    /*
-     * Light-mode color tokens. The ui-library light token set is not injected
-     * (its palette shifts from the current design and its card hover color is
-     * broken - identical to the card background), so light values are pinned
-     * here. Dark mode gets its tokens from cssColorsVariablesBrandDark,
-     * injected in Root.jsx, which overrides these.
-     */
-    --color-neutral-background: #ffffff;
-    --color-neutral-background-muted: #f9f9fa;
-    --color-neutral-background-subtle: #f4f4f5;
-    --color-neutral-border: #d2d3d6;
-    --color-neutral-card-background: #ffffff;
-    --color-neutral-card-background-hover: #f1f2f7;
-    --color-neutral-chip-background: #e4e5e6;
-    --color-neutral-chip-background-active: #c9cbcf;
-    --color-neutral-field-border: #c9cbcf;
-    --color-neutral-hover: #edeeef;
-    --color-neutral-icon: #4f5257;
-    --color-neutral-overflow: #e4e5e6;
-    --color-neutral-separator-subtle: #e4e5e6;
-    --color-neutral-text: #1f2123;
-    --color-neutral-text-muted: #3d3f43;
-    --color-neutral-text-on-primary: #ffffff;
-    --color-neutral-text-placeholder: #a9acb1;
-    --color-neutral-text-subtle: #6d7178;
-    --color-primary-action: #246dff;
-    --color-primary-action-hover: #4788ff;
-    --color-primary-black-action: #242528;
-    --color-primary-black-action-hover: #292b2e;
-    --color-primary-chip-background: #e0ebff;
-    --color-primary-chip-text: #0043ca;
-    --color-primary-text-interactive: #246dff;
-
     /* use default system font based on https://devhints.io/css-system-font-stack */
     --ifm-font-family-base:
         -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
@@ -68,7 +49,6 @@ html[data-theme='dark'] {
     --ifm-list-item-margin: 0.4rem !important;
     --ifm-list-left-padding: 3.2rem !important;
     --ifm-font-weight-semibold: 600;
-    --ifm-background-color: var(--color-neutral-background);
     --ifm-font-color-base: #242736;
 
     --ifm-navbar-sidebar-width: 100vw;
@@ -121,22 +101,113 @@ html[data-theme='dark'] {
     --ifm-h5-font-size: 1.4rem;
     --ifm-h6-font-size: 1.2rem;
 
-    /* Override package's identical light-mode card hover color */
-    --color-neutral-card-background-hover: var(--color-neutral-hover);
+    /*
+     * Light-mode color tokens, kept identical to the original (pre-dark-mode)
+     * values. Do NOT replace these with the ui-library light token set - its
+     * palette shifts from the current design. Dark mode gets its tokens from
+     * cssColorsVariablesBrandDark, injected in Root.jsx.
+     */
 
     /* TRON colors */
-    --color-Neutral_Text: var(--color-neutral-text);
-    --color-Neutral_TextMuted: var(--color-neutral-text-muted);
-    --color-Neutral_Border: var(--color-neutral-border);
-    --color-Neutral_Hover: var(--color-neutral-hover);
-    --color-Neutral_Background: var(--color-neutral-background);
-    --color-Neutral_BackgroundMuted: var(--color-neutral-background-muted);
-    --color-Neutral_ChipBackground: var(--color-neutral-chip-background);
-    --color-Neutral_ChipBackgroundActive: var(--color-neutral-chip-background-active);
-    --color-Neutral_SeparatorSubtle: var(--color-neutral-separator-subtle);
-    --color-Primary_ChipText: var(--color-primary-chip-text);
-    --color-Primary_ChipBackground: var(--color-primary-chip-background);
-    --color-Primary_TextInteractive: var(--color-primary-text-interactive);
+    --color-Neutral_Text: #242836;
+    --color-Neutral_TextMuted: #3f475d;
+    --color-Neutral_Border: #d0d5e9;
+    --color-Neutral_Hover: #f3f4fa;
+    --color-Neutral_Background: #ffffff;
+    --color-Neutral_BackgroundMuted: #f8f9fc;
+    --color-Neutral_ChipBackground: #e0e3f2;
+    --color-Neutral_ChipBackgroundActive: #c1c6dd;
+    --color-Neutral_SeparatorSubtle: #e0e3f2;
+    --color-Primary_ChipText: #1a57da;
+    --color-Primary_ChipBackground: #e1eaff;
+    --color-Primary_TextInteractive: #3970d7;
+
+    /* EXPERIMENT: tokens for shared components */
+    --color-neutral-text: #242836;
+    --color-neutral-text-muted: #3f475d;
+    --color-neutral-text-subtle: #6c7590;
+    --color-neutral-text-disabled: #c0c6de;
+    --color-neutral-text-on-primary: #ffffff;
+    --color-neutral-icon-on-primary: #ffffff;
+    --color-neutral-background: #ffffff;
+    --color-neutral-background-muted: #f8f9fc;
+    --color-neutral-background-subtle: #f3f4fa;
+    --color-neutral-background-white: #ffffff;
+    --color-neutral-card-background: #ffffff;
+    --color-neutral-card-background-hover: #f0f1f4;
+    --color-neutral-border: #d0d5e9;
+    --color-neutral-separator-subtle: #e0e3f2;
+    --color-neutral-hover: #eef0f8;
+    --color-neutral-disabled: #f3f4fa;
+    --color-neutral-overflow: #e0e3f2;
+    --color-neutral-icon: #555d76;
+    --color-neutral-icon-subtle: #8a93ae;
+    --color-neutral-icon-disabled: #b0b8d1;
+    --color-neutral-field-border: #c0c6de;
+    --color-neutral-action-secondary: #d0d5e9;
+    --color-neutral-action-secondary-hover: #e0e3f2;
+    --color-neutral-action-secondary-active: #c0c6de;
+    --color-neutral-chip-background: #e0e3f2;
+    --color-neutral-chip-background-hover: #d0d5e9;
+    --color-neutral-chip-background-active: #c0c6de;
+    --color-neutral-chip-background-disabled: #d0d5e9;
+    --color-neutral-large-tooltip-background: #ffffff;
+    --color-neutral-large-tooltip-border: #e0e3f2;
+    --color-neutral-small-tooltip-background: #191b22;
+    --color-neutral-small-tooltip-border: #242836;
+    --color-neutral-overlay: #191b2280;
+    --color-neutral-field-background: #f8f9fc;
+    --color-neutral-text-placeholder: #969eb8;
+    --color-primary-text: #1672eb;
+    --color-primary-text-interactive: #1672eb;
+    --color-primary-icon: #1672eb;
+    --color-primary-action: #1672eb;
+    --color-primary-action-hover: #5290f9;
+    --color-primary-action-active: #1a57da;
+    --color-primary-black-action: #272d3e;
+    --color-primary-black-action-hover: #2b3143;
+    --color-primary-black-action-active: #0a0b0f;
+    --color-primary-field-border-active: #1672eb;
+    --color-primary-chip-background: #e1eaff;
+    --color-primary-chip-background-hover: #d8e2ff;
+    --color-primary-chip-text: #1a57da;
+    --color-primary-shadow-active: #b2c6ff;
+    --color-success-text: #008a27;
+    --color-success-icon: #008a27;
+    --color-success-background-subtle: #e4f5e5;
+    --color-success-background-subtle-hover: #cfe9d1;
+    --color-success-background-subtle-active: #80da8d;
+    --color-success-border: #00ab46;
+    --color-success-border-subtle: #80da8d;
+    --color-success-action: #008a27;
+    --color-success-action-hover: #00ab46;
+    --color-success-action-active: #086e08;
+    --color-success-chip-background: #daefdc;
+    --color-success-chip-background-hover: #cfe9d1;
+    --color-success-chip-text: #086e08;
+    --color-warning-text: #a96600;
+    --color-warning-icon: #f5b315;
+    --color-warning-background-subtle: #f9f0db;
+    --color-warning-border-subtle: #f5b315;
+    --color-warning-field-border: #f5b315;
+    --color-warning-chip-background: #f7e8c4;
+    --color-warning-chip-background-hover: #f7dfb1;
+    --color-warning-chip-text: #8c4e02;
+    --color-danger-text: #e3231d;
+    --color-danger-icon: #e3231d;
+    --color-danger-background-subtle: #fff0ec;
+    --color-danger-background-subtle-hover: #fedad1;
+    --color-danger-background-subtle-active: #ffb39f;
+    --color-danger-border: #fa4d37;
+    --color-danger-border-subtle: #ffb39f;
+    --color-danger-field-border: #fa4d37;
+    --color-danger-action: #e3231d;
+    --color-danger-action-hover: #fa4d37;
+    --color-danger-action-active: #bb0401;
+    --color-danger-chip-background: #ffe3dc;
+    --color-danger-chip-background-hover: #fedad1;
+    --color-danger-chip-text: #bb0401;
+    --button-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 100%);
 }
 
 @font-face {
@@ -320,8 +391,11 @@ footer .col {
 
 .navbar__sub {
     padding: 0.8rem var(--ifm-spacing-horizontal);
-    background: var(--color-neutral-background-muted);
     height: 58px;
+}
+
+html[data-theme='dark'] .navbar__sub {
+    background: var(--color-neutral-background-muted);
 }
 
 .navbar__container {
@@ -465,7 +539,7 @@ aside .icon svg[class*='iconExternalLink'] {
     margin-right: 1.6rem;
     padding-right: 2rem;
     position: relative;
-    border-right: 1px solid var(--color-neutral-border);
+    border-right: 1px solid var(--color-Neutral_SeparatorSubtle);
     justify-content: center;
 }
 

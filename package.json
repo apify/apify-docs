@@ -85,7 +85,6 @@
         "docusaurus-plugin-image-zoom": "^3.0.1",
         "docusaurus-plugin-openapi-docs": "^4.6.0",
         "docusaurus-theme-openapi-docs": "^4.6.0",
-        "github-buttons": "^2.28.0",
         "postcss-preset-env": "^11.0.0",
         "prism-react-renderer": "^2.4.0",
         "prop-types": "^15.8.1",
