@@ -25,7 +25,7 @@ A single module, **Extract using E-commerce Scraping Tool**, powers six operatio
 | **Sellers** | Seller / store profile data, including reputation and contact details, from seller profile URLs. |
 | **Search Engine** | Product, review, or seller results pulled from Google Shopping-style results, localized by country/region/city. |
 | **Food Delivery** | Products and reviews from food-delivery marketplaces (Instacart, DoorDash), localized by delivery address. |
-| **Influencers** | Posts and (optionally) the products featured by influencers, from influencer storefront URLs. |
+| **Influencer storefronts** | Posts and (optionally) the products featured by influencers, from influencer storefront URLs. |
 
 To use this module, you need an [Apify account](https://console.apify.com/sign-up) and either an OAuth connection (recommended) or an [API token](https://docs.apify.com/platform/integrations/api#api-token). Running the Actor consumes Apify platform usage on your account. Once connected, you can pipe results straight into pricing dashboards, repricing tools, CRMs, sheets, or any other system in your Make scenario.
 
@@ -33,7 +33,7 @@ To use this module, you need an [Apify account](https://console.apify.com/sign-u
 
 1. Create an account at [console.apify.com](https://console.apify.com/). You can sign up using your email, Gmail, or GitHub account.
 
-    ![Apify sign-up page](images/e-commerce/apify-sign-up-page.png)
+    ![Apify sign-up page](images/e-commerce/apify-sign-up-page.webp)
 
 1. To connect your Apify account to Make, you can use an OAuth connection (recommended) or an Apify API token. To get the token, head to the **Settings > API & Integrations** tab at [console.apify.com/settings/integrations](https://console.apify.com/settings/integrations).
 
@@ -46,7 +46,7 @@ To use this module, you need an [Apify account](https://console.apify.com/sign-u
 
 1. In Make, click **Add** to open the **Create a connection** dialog, select the **Apify API Token** connection type, paste the token into the **API token** field, name your connection, and click **Save**.
 
-    ![Make API token field](images/e-commerce/apify-token-for-module-e-commerce.png)
+    ![Make API token field](images/e-commerce/apify-token-for-module-e-commerce.webp)
 
 Once connected, you can build workflows to automate e-commerce data extraction (competitor price tracking, catalog comparisons, review mining, seller analysis) and pipe the results into your applications.
 
@@ -414,7 +414,7 @@ For each delivery product, you will extract:
 ]
 ```
 
-### Influencers
+### Influencer storefronts
 
 Map the social-commerce side of e-commerce by looking at influencer storefront pages (such as Amazon Influencer storefronts) in influencer mode. Provide one or more **influencer URLs** and optionally also pull the promoted products inside each post.
 
@@ -432,7 +432,7 @@ For each influencer post, you will extract:
 - **Engagement signals**: likes, comments, and views where available.
 - **Promoted products** (when product scraping is enabled): the URLs of the products tagged inside the post, returned as a `productUrls` list, with `itemsCount` giving the number of tagged products.
 
-```json title="Influencers bundle (shortened)"
+```json title="Influencer storefronts bundle (shortened)"
 [
     {
         "influencerUrl": "https://www.example.com/shop/example-creator",
@@ -448,7 +448,7 @@ For each influencer post, you will extract:
 ]
 ```
 
-## Example scenario: extract products to Google Sheets
+## Example scenario: Extract products to Google Sheets
 
 This example runs the Actor in **Product Details** mode and writes each product to a spreadsheet.
 
@@ -456,7 +456,7 @@ This example runs the Actor in **Product Details** mode and writes each product 
 
 Add the module to your scenario as the first step. Choose the **Product Details** operation type and provide a data source (for example, one or more **Product detail URLs** or a **Keyword for search**). Set **Total maximum products** to keep the run within your Make plan's synchronous timeout.
 
-![Example input configuration for the Extract using E-commerce Scraping Tool module](images/e-commerce/apify-example-input.png)
+![Example input configuration for the Extract using E-commerce Scraping Tool module](images/e-commerce/apify-example-input.webp)
 
 ### Step 2: Add the Google Sheets "Add a Row" module
 
@@ -466,7 +466,7 @@ Add the Google Sheets **Add a Row** (or **Bulk Add Rows**) module after the Extr
 
 Run the scenario. The Extract module outputs one bundle per product, and Google Sheets adds a row for each.
 
-![Successful run showing the extracted product bundles returned by the module](images/e-commerce/apify-result-e-commerce.png)
+![Successful run showing the extracted product bundles returned by the module](images/e-commerce/apify-result-e-commerce.webp)
 
 ## Tips and best practices
 
