@@ -14,7 +14,7 @@ New to building Actors? Start with [Get started](/get-started) to create your fi
 
 Any code that can run inside of a Docker container can be turned into an Apify [Actor](../index.mdx). This gives you freedom in choosing your technical stack, including programming language and technologies.
 
-But to fully benefit from running on top of the Apify platform, we recommend you choose either JavaScript/Node.js or Python, where Apify provides first-level support regarding its SDK, API clients, and learning materials.
+But to fully benefit from running on top of the Apify platform, we recommend you choose either JavaScript/Node.js or Python, where Apify provides first-level support: the Apify SDK for [JavaScript](/sdk/js/docs/overview) and [Python](/sdk/python/docs/overview) or API clients for [JavaScript](/api/client/js/docs) and [Python](/api/client/python/docs).
 
 For these languages, you can also [choose from many code templates](https://apify.com/templates) that help you to kickstart your project quickly.
 
