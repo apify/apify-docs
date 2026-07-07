@@ -104,6 +104,54 @@ The great thing about building an input schema is that it will automatically val
 
 For our case, we've made the **numbers** field required, as it is crucial to our Actor's run.
 
+## Reference the schema in actor.json {#reference-in-actor-json}
+
+Once you've created your `input_schema.json` file, you need to reference it from your Actor's configuration file `.actor/actor.json`. You have two options.
+
+### Option 1: Path reference (recommended)
+
+In `.actor/actor.json`, add the `input` field pointing to your schema file:
+
+```json title=".actor/actor.json"
+{
+    "actorSpecification": 1,
+    "name": "my-actor",
+    "version": "1.0",
+    "input": "./input_schema.json"
+}
+```
+
+### Option 2: Inline schema
+
+Alternatively, you can embed the entire input schema directly in `actor.json`:
+
+```json title=".actor/actor.json"
+{
+    "actorSpecification": 1,
+    "name": "my-actor",
+    "version": "1.0",
+    "input": {
+        "title": "Adding Actor input",
+        "type": "object",
+        "schemaVersion": 1,
+        "properties": {
+            "numbers": {
+                "title": "Number list",
+                "type": "array",
+                "editor": "json"
+            }
+        },
+        "required": ["numbers"]
+    }
+}
+```
+
+:::note Auto-discovery is deprecated
+
+For backwards compatibility, if the `input` field is omitted, the system looks for an `INPUT_SCHEMA.json` file either in the `.actor` directory or the Actor's top-level directory — but note that this functionality is deprecated and might be removed in the future. Always explicitly reference your input schema in `actor.json` via the `input` field to ensure forward compatibility.
+
+:::
+
 ## Final thoughts {#final-thoughts}
 
 Here is what the input schema we wrote will render on the platform:
