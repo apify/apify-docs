@@ -28,7 +28,7 @@ get:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/timeout"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/memory"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/maxItems"
-    # XXX: do we support maxTotalChargeUsd for task runs?
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/maxTotalChargeUsd"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/build"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/webhooks"
     - $ref: "../../components/parameters/datasetParameters.yaml#/format"
