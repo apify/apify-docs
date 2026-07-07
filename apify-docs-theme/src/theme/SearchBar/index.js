@@ -25,7 +25,6 @@ function matchesCurrentInstance(href, baseUrl) {
             href.startsWith('/proxy') ||
             href.startsWith('/account') ||
             href.startsWith('/integrations') ||
-            href.startsWith('/limits') ||
             href.startsWith('/security')
         );
     }
