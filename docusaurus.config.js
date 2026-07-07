@@ -120,7 +120,7 @@ module.exports = {
                     showLastUpdateTime: false,
                     editUrl: 'https://github.com/apify/apify-docs/edit/master/',
                     path: './sources/platform',
-                    routeBasePath: 'platform',
+                    routeBasePath: '/',
                     sidebarPath: require.resolve('./sources/platform/sidebars.js'),
                     rehypePlugins: [externalLinkProcessor],
                 },

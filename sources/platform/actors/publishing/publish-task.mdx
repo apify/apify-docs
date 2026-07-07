@@ -5,7 +5,7 @@ slug: /actors/publishing/publish-task
 sidebar_position: 2
 ---
 
-[Actor tasks](/platform/actors/running/tasks) are shareable, pre-configured inputs for your Actors. [Publishing a task](#publish-your-tasks) creates a public landing page that shows what the Actor does, what inputs it uses, and what output to expect. Public tasks also appear in your Actor's **Examples** tab, which helps users discover your Actor through search engines and AI agents. For monetized Actors, this can lead to more page views, more runs, and more revenue.
+[Actor tasks](/actors/running/tasks) are shareable, pre-configured inputs for your Actors. [Publishing a task](#publish-your-tasks) creates a public landing page that shows what the Actor does, what inputs it uses, and what output to expect. Public tasks also appear in your Actor's **Examples** tab, which helps users discover your Actor through search engines and AI agents. For monetized Actors, this can lead to more page views, more runs, and more revenue.
 
 You can create up to 50 tasks per Actor.
 
@@ -14,8 +14,8 @@ You can create up to 50 tasks per Actor.
 Before you publish a task, make sure you have:
 
 - A [published Actor](./publish.mdx) that you own or maintain.
-- A [saved task](/platform/actors/running/tasks) with a complete input configuration.
-- An [input schema](/platform/actors/development/actor-definition/input-schema) and at least one [dataset schema view](/platform/actors/development/actor-definition/dataset-schema) defined on the Actor.
+- A [saved task](/actors/running/tasks) with a complete input configuration.
+- An [input schema](/actors/development/actor-definition/input-schema) and at least one [dataset schema view](/actors/development/actor-definition/dataset-schema) defined on the Actor.
 
 ## What tasks to publish
 
@@ -111,7 +111,7 @@ Use this section to:
 
 :::info Secret fields are protected automatically
 
-All input fields with `"isSecret": true` in the Actor's [input schema](/platform/actors/development/actor-definition/input-schema) are automatically masked and never shown on the landing page. Before publishing, confirm sensitive fields are marked as secret.
+All input fields with `"isSecret": true` in the Actor's [input schema](/actors/development/actor-definition/input-schema) are automatically masked and never shown on the landing page. Before publishing, confirm sensitive fields are marked as secret.
 
 :::
 
@@ -121,7 +121,7 @@ The Dataset schema section selects which view of the Actor's dataset is rendered
 
 ![Dataset schema view selection.](./images/public-tasks/task-dataset-schema.webp)
 
-For more on configuring views, see [Dataset schema](/platform/actors/development/actor-definition/dataset-schema).
+For more on configuring views, see [Dataset schema](/actors/development/actor-definition/dataset-schema).
 
 ## Task landing page
 

@@ -89,10 +89,10 @@ export default function Home() {
                             />
                         </div>
                         <div className={styles.bannerContentActions}>
-                            <ActionCard title="What is an Actor" to="/platform/actors" />
-                            <ActionCard title="Run an existing Actor" to="/platform/actors/running" />
-                            <ActionCard title="Develop your own Actor" to="/platform/actors/development" />
-                            <ActionCard title="Publish and monetize your Actor" to="/platform/actors/publishing" />
+                            <ActionCard title="What is an Actor" to="/actors" />
+                            <ActionCard title="Run an existing Actor" to="/actors/running" />
+                            <ActionCard title="Develop your own Actor" to="/actors/development" />
+                            <ActionCard title="Publish and monetize your Actor" to="/actors/publishing" />
                         </div>
                         <ThemedImage
                             className={styles.bannerContentImageAfter}
@@ -112,55 +112,55 @@ export default function Home() {
                             icon={<Actors />}
                             title="Actors"
                             description="Develop, run, and share web scraping and automation tools in the cloud."
-                            to="/platform/actors"
+                            to="/actors"
                         />
                         <CardWithIcon
                             icon={<Storage />}
                             title="Storage"
                             description="Store files and results of your web scraping jobs, and export it to various formats."
-                            to="/platform/storage"
+                            to="/storage"
                         />
                         <CardWithIcon
                             icon={<Proxy />}
                             title="Proxy"
                             description="Avoid blocking by smartly rotating datacenter and residential IP addresses."
-                            to="/platform/proxy"
+                            to="/proxy"
                         />
                         <CardWithIcon
                             icon={<Schedules />}
                             title="Schedules"
                             description="Automatically start Actors and saved tasks at specific times."
-                            to="/platform/schedules"
+                            to="/actors/running/schedules"
                         />
                         <CardWithIcon
                             icon={<Integrations />}
                             title="Integrations"
                             description="Connect Actors with your favorite web apps and cloud services."
-                            to="/platform/integrations"
+                            to="/integrations"
                         />
                         <CardWithIcon
                             icon={<Monitoring />}
                             title="Monitoring"
                             description="Check the performance of your Actors, validate data quality, and receive alerts."
-                            to="/platform/monitoring"
+                            to="/actors/running/monitoring"
                         />
                         <CardWithIcon
                             icon={<Collaboration />}
                             title="Collaboration"
                             description="Share Actors with other people, manage your organizations and permissions."
-                            to="/platform/collaboration"
+                            to="/account/collaboration"
                         />
                         <CardWithIcon
                             icon={<Security />}
                             title="Security"
                             description="Learn about Apify platform security and data protection."
-                            to="/platform/security"
+                            to="/security"
                         />
                         <CardWithIcon
                             icon={<MCP />}
                             title="MCP"
                             description="Discover and use Actors with AI agents and LLMs via Apify MCP server."
-                            to="/platform/integrations/mcp"
+                            to="/integrations/mcp"
                         />
                     </div>
                 </div>

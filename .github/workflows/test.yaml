@@ -138,14 +138,14 @@ jobs:
                     assert_no_redirect "http://localhost:8080" --request-target '/\evil.com/'
                     assert_no_redirect "http://localhost:8080" --request-target '///\evil.com/'
                     # Normal trailing-slash redirect must still work
-                    assert_status "http://localhost:8080/platform/proxy/datacenter-proxy/" "302"
+                    assert_status "http://localhost:8080/proxy/datacenter-proxy/" "302"
 
                     echo "🧪 Checking Nginx responses... (apify-docs)"
                     assert_header "http://localhost:8080/" "Content-Type" "text/html"
                     assert_header "http://localhost:8080/" "Content-Type" "text/markdown" -H "Accept: text/markdown"
-                    assert_header "http://localhost:8080/platform/proxy/datacenter-proxy" "Content-Type" "text/html"
-                    assert_header "http://localhost:8080/platform/proxy/datacenter-proxy.md" "Content-Type" "text/markdown"
-                    assert_header "http://localhost:8080/platform/proxy/datacenter-proxy" "Content-Type" "text/markdown" -H "Accept: text/markdown"
+                    assert_header "http://localhost:8080/proxy/datacenter-proxy" "Content-Type" "text/html"
+                    assert_header "http://localhost:8080/proxy/datacenter-proxy.md" "Content-Type" "text/markdown"
+                    assert_header "http://localhost:8080/proxy/datacenter-proxy" "Content-Type" "text/markdown" -H "Accept: text/markdown"
                     assert_header "http://localhost:8080/img/docs-og.png" "Content-Type" "image/png"
                     assert_header "http://localhost:8080/img/javascript-40x40.svg" "Content-Type" "image/svg"
                     assert_header "http://localhost:8080/llms.txt" "Content-Type" "text/markdown"
@@ -172,7 +172,7 @@ jobs:
                     assert_html_md_alternate "http://localhost:8080/api/v2/dataset-get" "https://docs.apify.com/api/v2/dataset-get.md"
                     assert_html_md_alternate "http://localhost:8080/academy/tutorials" "https://docs.apify.com/academy/tutorials.md"
                     # Sanity check: a regular (non-excluded) page also has the alternate.
-                    assert_html_md_alternate "http://localhost:8080/platform/proxy/datacenter-proxy" "https://docs.apify.com/platform/proxy/datacenter-proxy.md"
+                    assert_html_md_alternate "http://localhost:8080/proxy/datacenter-proxy" "https://docs.apify.com/proxy/datacenter-proxy.md"
 
                     echo "🧪 Checking Nginx responses... (apify-sdk-js)"
                     assert_final_content_type "http://localhost:8080/sdk/js" "text/html"

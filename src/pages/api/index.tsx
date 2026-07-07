@@ -114,7 +114,7 @@ export default function Api() {
                     heading="Apify API documentation"
                     description={
                         <>
-                            Learn how to use the <Link to="/platform">Apify platform</Link> programmatically.
+                            Learn how to use the <Link to="/">Apify platform</Link> programmatically.
                         </>
                     }
                 />
