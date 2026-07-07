@@ -484,7 +484,7 @@ See the [Storage overview](/storage#share-storages-between-runs) for details on 
 
 ## Limits
 
-- Data storage formats that use tabulation (like HTML, CSV, and EXCEL) are limited to a maximum of _3000_ columns. Data exceeding this limit will not be retrieved.
+- Data storage formats that use tabulation (like HTML, CSV, and Excel) are limited to a maximum of _2000_ columns. Data exceeding this limit will not be retrieved.
 
 - The `pushData()`method is constrained by the receiving API's size limit. It accepts objects with JSON size under _9MB_. While individual objects within an array must not exceed _9MB_, the overall size has no restriction.
 

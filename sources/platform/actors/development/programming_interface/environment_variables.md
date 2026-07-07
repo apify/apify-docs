@@ -43,7 +43,7 @@ Variables prefixed with `ACTOR_` are defined by the [Actor specification](https:
 | `ACTOR_INPUT_KEY` | Key of the record in the default key-value store that holds the [Actor input](/actors/running/input-and-output#input). |
 | `ACTOR_STORAGES_JSON` | JSON-encoded unique identifiers of storages associated with the current Actor run, e.g. `{ "keyValueStores": { "default": "<id>" }, "datasets": { "default": "<id>" }, "requestQueues": { "default": "<id>" } }`. |
 | `ACTOR_MEMORY_MBYTES` | Size of memory allocated for the Actor run, in megabytes. Can be used to optimize memory usage or finetuning of low-level external libraries. |
-| `ACTOR_MAX_TOTAL_CHARGE_USD` | For pay-per-event Actors, the user-set limit on run cost. Do not exceed this limit. |
+| `ACTOR_MAX_TOTAL_CHARGE_USD` | For all pricing models, the user-set limit on total run cost. Do not exceed this limit. |
 | `ACTOR_PERMISSION_LEVEL` | [Permission level](../../running/permissions.md) the Actor is run under (`LIMITED_PERMISSIONS` or `FULL_PERMISSIONS`). This determines what resources in the user’s account the Actor can access. |
 | `ACTOR_RESTART_ON_ERROR` | If **1**, the Actor run will be restarted if it fails. |
 | `ACTOR_STARTED_AT` | Date when the Actor was started. |
