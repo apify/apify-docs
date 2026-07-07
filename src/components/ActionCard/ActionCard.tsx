@@ -5,21 +5,17 @@ import styled from 'styled-components';
 import { HorizontalTile, theme } from '@apify/ui-library';
 
 import ArrowRight20 from '../../pages/img/arrow-right-20.svg';
+import { cardHoverStyles } from '../cardHoverStyles';
 import { Heading } from '../Heading';
 import { Text } from '../Text';
 import styles from './styles.module.css';
 
 const StyledHorizontalTile = styled(HorizontalTile)`
     height: 100%;
-    background-color: var(--color-neutral-card-background);
-    border-color: var(--color-neutral-border);
+    ${cardHoverStyles}
+
     & > * {
         display: inherit;
-    }
-
-    &:hover {
-        background-color: var(--color-neutral-card-background-hover);
-        border-color: var(--color-neutral-border);
     }
 `;
 

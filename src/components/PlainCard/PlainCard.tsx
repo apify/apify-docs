@@ -4,18 +4,13 @@ import styled from 'styled-components';
 
 import { theme, VerticalTile } from '@apify/ui-library';
 
+import { cardHoverStyles } from '../cardHoverStyles';
 import { Heading } from '../Heading';
 import { Text } from '../Text';
 import styles from './styles.module.css';
 
 const StyledVerticalTile = styled(VerticalTile)`
-    background-color: var(--color-neutral-card-background);
-    border-color: var(--color-neutral-border);
-
-    &:hover {
-        background-color: var(--color-neutral-card-background-hover);
-        border-color: var(--color-neutral-border);
-    }
+    ${cardHoverStyles}
 `;
 
 interface PlainCardProps {

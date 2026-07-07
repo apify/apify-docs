@@ -22,20 +22,6 @@ html[data-theme='dark'] {
 
     --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.1);
     --docsearch-text-color: var(--color-neutral-text-muted);
-
-    /* TRON colors */
-    --color-Neutral_Text: var(--color-neutral-text);
-    --color-Neutral_TextMuted: var(--color-neutral-text-muted);
-    --color-Neutral_Border: var(--color-neutral-border);
-    --color-Neutral_Hover: var(--color-neutral-hover);
-    --color-Neutral_Background: var(--color-neutral-background);
-    --color-Neutral_BackgroundMuted: var(--color-neutral-background-muted);
-    --color-Neutral_ChipBackground: var(--color-neutral-chip-background);
-    --color-Neutral_ChipBackgroundActive: var(--color-neutral-chip-background-active);
-    --color-Neutral_SeparatorSubtle: var(--color-neutral-separator-subtle);
-    --color-Primary_ChipText: var(--color-primary-chip-text);
-    --color-Primary_ChipBackground: var(--color-primary-chip-background);
-    --color-Primary_TextInteractive: var(--color-primary-text-interactive);
 }
 
 :root {
