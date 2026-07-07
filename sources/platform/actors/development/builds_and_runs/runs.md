@@ -18,7 +18,7 @@ You can start an Actor in several ways:
 
 ## Input and environment variables
 
-The run receives input via the `INPUT` record of its default [key-value store](../../../storage/key_value_store.md). Environment variables are also passed to the run. For more information about environment variables check the [Environment variables](../programming_interface/environment_variables.md) section.
+The run receives input via the `INPUT` record of its default [key-value store](/storage/key-value-store). Environment variables are also passed to the run. For more information about environment variables check the [Environment variables](../programming_interface/environment_variables.md) section.
 
 ## Run duration and timeout
 

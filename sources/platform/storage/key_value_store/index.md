@@ -21,7 +21,7 @@ Named key-value stores are retained indefinitely. Unnamed key-value stores expir
 
 :::
 
-![Key-value store graphic](./images/key-value-overview.svg)
+![Key-value store graphic](../images/key-value-overview.svg)
 
 ## Basic usage
 
@@ -36,12 +36,12 @@ You can access key-value stores through several methods
 
 In [Apify Console](https://console.apify.com), you can view your key-value stores in the [Storage](https://console.apify.com/storage) section under the [Key-value stores](https://console.apify.com/storage?tab=keyValueStores) tab.
 
-![Key-value stores in app](./images/key-value-stores-app.png)
+![Key-value stores in app](../images/key-value-stores-app.png)
 
 To view a key-value store's content, click on its **Store ID**. Under the **Actions** menu, you can rename your store (which extends its [retention period](/storage#named-and-unnamed-storages)) and grant [access rights](/account/collaboration) using the **Share** button.
 Click on the **API** button to view and test a store's [API endpoints](/api/v2/storage-key-value-stores).
 
-![Key-value stores detail](./images/key-value-stores-detail-header.png)
+![Key-value stores detail](../images/key-value-stores-detail-header.png)
 
 At the bottom of the page, you can work with records in your key-value store:
 
@@ -51,17 +51,17 @@ At the bottom of the page, you can work with records in your key-value store:
 - Copy shareable links to records.
 - Delete records.
 
-![Key-value stores detail](./images/key-value-stores-detail-records.png)
+![Key-value stores detail](../images/key-value-stores-detail-records.png)
 
 ### Apify API
 
 The [Apify API](/api/v2/storage-key-value-stores) enables you programmatic access to your key-value stores using [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
 
-If you are accessing your key-value stores using the `username~store-name` [store ID format](./index.md), you will need to use your secret API token. You can find the token (and your user ID) on the [API & Integrations](https://console.apify.com/settings/integrations) tab of **Settings** page of your Apify account.
+If you are accessing your key-value stores using the `username~store-name` [store ID format](../index.md), you will need to use your secret API token. You can find the token (and your user ID) on the [API & Integrations](https://console.apify.com/settings/integrations) tab of **Settings** page of your Apify account.
 
 :::tip Authentication
 
-When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. For more information, refer to the [API integration](../integrations/programming/api.md#authentication) documentation.
+When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. For more information, refer to the [API integration](../../integrations/programming/api.md#authentication) documentation.
 
 :::
 
@@ -142,11 +142,11 @@ Check out the [Python API client documentation](/api/client/python/reference/cla
 
 #### JavaScript SDK
 
-When working with a JavaScript [Actor](../actors/index.mdx), the [JavaScript SDK](/sdk/js/docs/guides/result-storage#key-value-store) is an essential tool, especially for key-value store management. The primary class for this purpose is the [`KeyValueStore`](/sdk/js/reference/class/KeyValueStore). This class allows you to decide whether your data will be stored locally or in the Apify cloud. For data manipulation, it offers the [`getValue()`](/sdk/js/reference/class/KeyValueStore#getValue) and [`setValue()`](/sdk/js/reference/class/KeyValueStore#setValue) methods to retrieve and assign values, respectively.
+When working with a JavaScript [Actor](../../actors/index.mdx), the [JavaScript SDK](/sdk/js/docs/guides/result-storage#key-value-store) is an essential tool, especially for key-value store management. The primary class for this purpose is the [`KeyValueStore`](/sdk/js/reference/class/KeyValueStore). This class allows you to decide whether your data will be stored locally or in the Apify cloud. For data manipulation, it offers the [`getValue()`](/sdk/js/reference/class/KeyValueStore#getValue) and [`setValue()`](/sdk/js/reference/class/KeyValueStore#setValue) methods to retrieve and assign values, respectively.
 
 Additionally, you can iterate over the keys in your store using the [`forEachKey()`](/sdk/js/reference/class/KeyValueStore#forEachKey) method.
 
-Every Actor run is linked to a default key-value store that is automatically created for that specific run. If you're running your Actors and opt to store data locally, you can easily supply the [input](../actors/running/input_and_output.md) by placing an _INPUT.json_ file in the corresponding directory of the default key-value store. This method ensures that your Actor has all the necessary data readily available for its execution.
+Every Actor run is linked to a default key-value store that is automatically created for that specific run. If you're running your Actors and opt to store data locally, you can easily supply the [input](../../actors/running/input_and_output.md) by placing an _INPUT.json_ file in the corresponding directory of the default key-value store. This method ensures that your Actor has all the necessary data readily available for its execution.
 
 You can find _INPUT.json_ and other key-value store files in the location below.
 
@@ -206,15 +206,15 @@ await Actor.setValue('OUTPUT', imageBuffer, { contentType: 'image/jpeg' });
 await Actor.exit();
 ```
 
-The `Actor.getInput()` method is not only a shortcut to `Actor.getValue('INPUT')`; it is also compatible with [`Actor.metamorph()`](../actors/development/programming_interface/metamorph.md). This is because a metamorphed Actor run's input is stored in the _INPUT-METAMORPH-1_ key instead of _INPUT_, which hosts the original input.
+The `Actor.getInput()` method is not only a shortcut to `Actor.getValue('INPUT')`; it is also compatible with [`Actor.metamorph()`](../../actors/development/programming_interface/metamorph.md). This is because a metamorphed Actor run's input is stored in the _INPUT-METAMORPH-1_ key instead of _INPUT_, which hosts the original input.
 
 Check out the [JavaScript SDK documentation](/sdk/js/docs/guides/result-storage#key-value-store) and the `KeyValueStore` class's [API reference](/sdk/js/reference/class/KeyValueStore) for details on managing your key-value stores with the JavaScript SDK.
 
 #### Python SDK
 
-For Python [Actor](../actors/index.mdx), the [Python SDK](/sdk/python/docs/concepts/storages#working-with-key-value-stores) is essential. The key-value store is represented by a [`KeyValueStore`](/sdk/python/reference/class/KeyValueStore) class. You can use this class to specify whether your data is stored locally or in the Apify cloud. For further data manipulation it offers [`get_value()`](/sdk/python/reference/class/KeyValueStore#get_value) and [`set_value()`](/sdk/python/reference/class/KeyValueStore#set_value) methods to retrieve and assign values, respectively.
+For Python [Actor](../../actors/index.mdx), the [Python SDK](/sdk/python/docs/concepts/storages#working-with-key-value-stores) is essential. The key-value store is represented by a [`KeyValueStore`](/sdk/python/reference/class/KeyValueStore) class. You can use this class to specify whether your data is stored locally or in the Apify cloud. For further data manipulation it offers [`get_value()`](/sdk/python/reference/class/KeyValueStore#get_value) and [`set_value()`](/sdk/python/reference/class/KeyValueStore#set_value) methods to retrieve and assign values, respectively.
 
-Every Actor run is linked to a default key-value store that is automatically created for that specific run. If you're running your Actors and opt to store data locally, you can easily supply the [input](../actors/running/input_and_output.md) by placing an _INPUT.json_ file in the corresponding directory of the default key-value store. This method ensures that your Actor has all the necessary data readily available for its execution.
+Every Actor run is linked to a default key-value store that is automatically created for that specific run. If you're running your Actors and opt to store data locally, you can easily supply the [input](../../actors/running/input_and_output.md) by placing an _INPUT.json_ file in the corresponding directory of the default key-value store. This method ensures that your Actor has all the necessary data readily available for its execution.
 
 You can find _INPUT.json_ and other key-value store files in the location below.
 
@@ -262,7 +262,7 @@ async def main():
         await Actor.set_value(key='OUTPUT', value=image_buffer, content_type='image/jpeg')
 ```
 
-The `Actor.get_input()` method is not only a shortcut to `Actor.get_value('INPUT')`; it is also compatible with [`Actor.metamorph()`](../actors/development/programming_interface/metamorph.md). This is because a metamorphed Actor run's input is stored in the _INPUT-METAMORPH-1_ key instead of _INPUT_, which hosts the original input.
+The `Actor.get_input()` method is not only a shortcut to `Actor.get_value('INPUT')`; it is also compatible with [`Actor.metamorph()`](../../actors/development/programming_interface/metamorph.md). This is because a metamorphed Actor run's input is stored in the _INPUT-METAMORPH-1_ key instead of _INPUT_, which hosts the original input.
 
 Check out the [Python SDK documentation](/sdk/python/docs/concepts/storages#working-with-key-value-stores) and the `KeyValueStore` class's [API reference](/sdk/python/reference/class/KeyValueStore) for details on managing your key-value stores with the Python SDK.
 
@@ -284,7 +284,7 @@ For one-off sharing of specific records when access is restricted, you can gener
 
 ### Share key-value stores between runs
 
-You can access a key-value store from any [Actor](../actors/index.mdx) or [task](../actors/running/tasks.md) run as long as you know its _name_ or _ID_.
+You can access a key-value store from any [Actor](../../actors/index.mdx) or [task](../../actors/running/tasks.md) run as long as you know its _name_ or _ID_.
 
 To access a key-value store from another run using the [Apify SDK](/sdk), open it using the same method as you would do with any other store.
 
