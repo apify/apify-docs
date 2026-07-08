@@ -125,7 +125,8 @@ lastRunByActor:
   operationId: actor_runs_last_metamorph_post
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
     - $ref: "../../parameters/runAndBuildParameters.yaml#/targetActorId"
     - *buildQueryParameter
 
@@ -143,6 +144,7 @@ lastRunByActorTask:
   operationId: actorTask_runs_last_metamorph_post
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
     - $ref: "../../parameters/runAndBuildParameters.yaml#/targetActorId"
     - *buildQueryParameter

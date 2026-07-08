@@ -9,6 +9,15 @@ The Actor quality score is a metric that evaluates your Actor's performance acro
 
 ---
 
+## Quality score and search ranking
+
+Search ranking evaluates parameters similar to those in the quality score. As a result, the two correlate strongly across Apify search surfaces:
+
+- _Apify Store search_ at [apify.com/store](https://apify.com/store).
+- The _Apify MCP server_ `search-actors` tool used by external AI agents. See [Apify MCP server](/integrations/mcp).
+
+Actors with higher quality scores tend to rank higher on both surfaces, though no specific position is guaranteed. Search in Apify Console is personalized to each individual user, so the same query can return different Actors than the public Store - quality score still correlates with ranking, the order is just adjusted per user. See [How Apify Store search works](/academy/actor-marketing-playbook/store-basics/how-store-works#how-apify-store-search-works) for the publisher-facing guidance.
+
 ## How to view your score
 
 Navigate to **Console > Insights > Actor quality**, and then select your Actor.
@@ -44,9 +53,9 @@ These are the quality categories:
 
 ### Reliability
 
-Reliability measures your Actor's operational stability and consistency. A reliable Actor maintains high run success rates and passes automated quality assurance tests. Poor reliability significantly impacts your quality score. For more information on testing requirements, see [Automated Testing](https://docs.apify.com/platform/actors/publishing/test).
+Reliability measures your Actor's operational stability and consistency. A reliable Actor maintains high run success rates and passes automated quality assurance tests. Poor reliability significantly impacts your quality score. For more information on testing requirements, see [Automated Testing](https://docs.apify.com/actors/publishing/test).
 
-Implementing an [input schema](https://docs.apify.com/platform/actors/development/actor-definition/input-schema) helps prevent runtime failures by validating user input before execution begins, reducing errors caused by invalid or malformed inputs.
+Implementing an [input schema](https://docs.apify.com/actors/development/actor-definition/input-schema) helps prevent runtime failures by validating user input before execution begins, reducing errors caused by invalid or malformed inputs.
 
 ### Popularity
 
@@ -62,7 +71,7 @@ Ease of use evaluates how quickly users can understand and successfully run your
 
 ### Pricing transparency
 
-Pricing transparency evaluates how clearly users can understand and predict the costs of running your Actor. Transparent pricing models help users make informed decisions and budget accordingly. The [Pay per event (PPE)](https://docs.apify.com/platform/actors/publishing/monetize/pay-per-event) monetization model provides predictable, event-based pricing that makes costs explicit and easier to estimate.
+Pricing transparency evaluates how clearly users can understand and predict the costs of running your Actor. Transparent pricing models help users make informed decisions and budget accordingly. The [Pay per event (PPE)](https://docs.apify.com/actors/publishing/monetize/pay-per-event) monetization model provides predictable, event-based pricing that makes costs explicit and easier to estimate.
 
 Consider offering discounts for Bronze, Silver, and Gold subscription tiers. These incentives reward committed platform users and can increase your Actor's adoption among engaged customers.
 
@@ -80,4 +89,4 @@ Developers with a proven track record of publishing successful Actors receive re
 
 ### Congruency
 
-Congruency measures the consistency and coherence across your Actor's components. A well-designed Actor maintains alignment between its title, description, documentation, and schemas. Ensure that your [input schema](https://docs.apify.com/platform/actors/development/actor-definition/input-schema), [dataset schema](https://docs.apify.com/platform/actors/development/actor-definition/dataset-schema), [key-value store schema](https://docs.apify.com/platform/actors/development/actor-definition/key-value-store-schema), and README documentation all reflect consistent terminology and accurately describe the Actor's behavior. This coherence reduces user confusion and improves the overall experience.
+Congruency measures the consistency and coherence across your Actor's components. A well-designed Actor maintains alignment between its title, description, documentation, and schemas. Ensure that your [input schema](https://docs.apify.com/actors/development/actor-definition/input-schema), [dataset schema](https://docs.apify.com/actors/development/actor-definition/dataset-schema), [key-value store schema](https://docs.apify.com/actors/development/actor-definition/key-value-store-schema), and README documentation all reflect consistent terminology and accurately describe the Actor's behavior. This coherence reduces user confusion and improves the overall experience.

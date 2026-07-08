@@ -84,7 +84,8 @@ listLastRun:
   operationId: actor_runs_last_keyValueStore_records_get
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
     - $ref: "../../parameters/keyValueStoreParameters.yaml#/collectionRecords"
     - $ref: "../../parameters/keyValueStoreParameters.yaml#/prefixRecords"
     - $ref: "../../parameters/storageParameters.yaml#/signature"
@@ -100,7 +101,8 @@ listTaskLastRun:
   operationId: actorTask_runs_last_keyValueStore_records_get
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
     - $ref: "../../parameters/keyValueStoreParameters.yaml#/collectionRecords"
     - $ref: "../../parameters/keyValueStoreParameters.yaml#/prefixRecords"
     - $ref: "../../parameters/storageParameters.yaml#/signature"

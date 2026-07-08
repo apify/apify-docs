@@ -7,7 +7,7 @@ slug: /integrations/actors
 
 **Actor-to-Actor integrations** connect Apify Actors with other Actors or tasks _on the platform itself_, letting you build multi-step workflows without leaving Apify. This is different from the third-party integrations covered elsewhere in this section - instead of routing data out to Make, n8n, or a warehouse, you chain Actors so the output of one becomes the trigger for another.
 
-Any [integration-ready Actor](/platform/integrations/actors/integration-ready-actors) can act as the target of an Actor-to-Actor integration, so the catalog keeps growing as new Actors are published.
+Any [integration-ready Actor](/integrations/actors/integration-ready-actors) can act as the target of an Actor-to-Actor integration, so the catalog keeps growing as new Actors are published.
 
 :::note Browse the catalog
 
@@ -28,7 +28,7 @@ To connect an Actor with another Actor or task:
 
 On the setup screen, configure:
 
-- **Start when** - Events that trigger the integrated Actor. These match webhook [event types](/platform/integrations/webhooks/events) (`run succeeded`, `build failed`, and so on).
+- **Start when** - Events that trigger the integrated Actor. These match webhook [event types](/integrations/webhooks/events) (`run succeeded`, `build failed`, and so on).
 - **Actor input** - The input usually has two parts: static fields whose value doesn't change between runs (for example, a database connection string or table name) and dynamic fields specific to the triggering run (for example, a dataset ID). Static fields go in as-is. Dynamic fields are pulled from the implicit `payload` field (the default for most integration-ready Actors) or set with variables. The **Available variables** button in the input panel lists the variables you can interpolate.
 - **Available variables** - The same variables as in webhooks. The most common is `{{resource}}`, which holds the Run object in the shape returned by the [API](/api/v2/actor-run-get), or the Build object for build event types. Variables support dot notation, `{{resource.defaultDatasetId}}` and `{{resource.defaultKeyValueStoreId}}` cover most cases.
 
@@ -56,6 +56,6 @@ The UI keeps variables enclosed in strings, which means the payload template is 
 
 ## Next steps
 
-- [Develop integration-ready Actors](/platform/integrations/actors/integration-ready-actors) - design your own Actor to be used as an integration target.
-- [Integrating Actors via API](/platform/integrations/actors/integrating-actors-via-api) - set up the same integrations programmatically with the Apify API.
+- [Develop integration-ready Actors](/integrations/actors/integration-ready-actors) - design your own Actor to be used as an integration target.
+- [Integrating Actors via API](/integrations/actors/integrating-actors-via-api) - set up the same integrations programmatically with the Apify API.
 - [Connecting scrapers with Apify integrations](https://blog.apify.com/connecting-scrapers-apify-integration/) - a complete walkthrough on the Apify blog.

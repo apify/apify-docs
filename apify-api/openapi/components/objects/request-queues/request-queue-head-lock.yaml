@@ -88,7 +88,8 @@ postLastRun:
   operationId: actor_runs_last_requestQueue_head_lock_post
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
     - $ref: "../../parameters/requestQueueParameters.yaml#/lockSecs"
     - $ref: "../../parameters/requestQueueParameters.yaml#/headLockLimit"
     - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
@@ -107,7 +108,8 @@ postTaskLastRun:
   operationId: actorTask_runs_last_requestQueue_head_lock_post
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
     - $ref: "../../parameters/requestQueueParameters.yaml#/lockSecs"
     - $ref: "../../parameters/requestQueueParameters.yaml#/headLockLimit"
     - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"

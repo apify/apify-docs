@@ -307,7 +307,8 @@ listLastRun:
   operationId: actor_runs_last_dataset_items_get
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
     - $ref: "../../parameters/datasetParameters.yaml#/format"
     - $ref: "../../parameters/datasetParameters.yaml#/clean"
     - $ref: "../../parameters/paginationParameters.yaml#/offset"
@@ -344,7 +345,8 @@ listTaskLastRun:
   operationId: actorTask_runs_last_dataset_items_get
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
     - $ref: "../../parameters/datasetParameters.yaml#/format"
     - $ref: "../../parameters/datasetParameters.yaml#/clean"
     - $ref: "../../parameters/paginationParameters.yaml#/offset"
@@ -426,6 +428,10 @@ sharedPost: &sharedPost
             anyOf:
               - $ref: ../../schemas/datasets/PutItemResponseError.yaml
               - $ref: ../../schemas/common/ErrorResponse.yaml
+    "413":
+      $ref: ../../responses/PayloadTooLarge.yaml
+    "415":
+      $ref: ../../responses/UnsupportedMediaType.yaml
   deprecated: false
 
 postById:
@@ -478,7 +484,8 @@ postLastRun:
   operationId: actor_runs_last_dataset_items_post
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
 
 postTaskLastRun:
   <<: [*sharedPost, *sharedTagTaskLastRun]
@@ -492,4 +499,5 @@ postTaskLastRun:
   operationId: actorTask_runs_last_dataset_items_post
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"

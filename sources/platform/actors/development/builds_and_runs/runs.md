@@ -13,7 +13,7 @@ You can start an Actor in several ways:
 
 - Manually from the [Apify Console](https://console.apify.com/actors) UI
 - Via the [Apify API](/api/v2/actor-runs-post)
-- Using the [Scheduler](../../../schedules.md) provided by the Apify platform
+- Using the [Scheduler](/actors/running/schedules) provided by the Apify platform
 - By one of the available [integrations](../../../integrations/index.mdx)
 
 ## Input and environment variables

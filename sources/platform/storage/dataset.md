@@ -15,15 +15,17 @@ Typically, datasets comprise results from web scraping, crawling, and data proce
 
 :::info Retention period
 
-Named datasets are retained indefinitely. Unnamed datasets expire after 7 days unless otherwise specified. [Learn more](/platform/storage/usage#named-and-unnamed-storages)
+Named datasets are retained indefinitely. Unnamed datasets expire after 7 days unless otherwise specified. [Learn more](/storage#named-and-unnamed-storages)
 
 :::
 
 Dataset storage is _append-only_ - data can only be added and cannot be modified or deleted once stored.
 
+![Dataset graphic](./images/datasets-overview.png)
+
 ## Dataset schema
 
-Actors can define a [dataset schema](/platform/actors/development/actor-definition/dataset-schema) that describes the structure of each dataset item and controls how data appears in the Output tab. The schema has two components:
+Actors can define a [dataset schema](/actors/development/actor-definition/dataset-schema) that describes the structure of each dataset item and controls how data appears in the Output tab. The schema has two components:
 
 - `fields` - JSON Schema describing each item's structure, enabling validation and providing metadata for AI agents
 - `views` - Display configurations that control field ordering, formatting, and presentation in the Console
@@ -51,7 +53,7 @@ To view or download a dataset:
 1. Browse the data in **Table** or **JSON** view.
 1. Click **Export** to download the data in your preferred format.
 
-Utilize the **Actions** menu to modify the dataset's name, which also affects its [retention period](/platform/storage/usage#data-retention), and to adjust [access rights](../collaboration/index.md). The **API** button allows you to explore and test the dataset's [API endpoints](/api/v2/storage-datasets).
+Utilize the **Actions** menu to modify the dataset's name, which also affects its [retention period](/storage#data-retention), and to adjust [access rights](/account/collaboration). The **API** button allows you to explore and test the dataset's [API endpoints](/api/v2/storage-datasets).
 
 ![Datasets detail view](./images/datasets-detail.png)
 
@@ -416,11 +418,11 @@ By default, the whole result is wrapped in an `<items/>` element, while each pag
 
 ## Share
 
-You can grant [access rights](../collaboration/index.md) to your dataset through the **Share** button under the **Actions** menu. For more details, check the [full list of permissions](../collaboration/list_of_permissions.md).
+You can grant [access rights](/account/collaboration) to your dataset through the **Share** button under the **Actions** menu. For more details, check the [full list of permissions](/account/collaboration/list-of-permissions).
 
-You can also share datasets by link using their ID or name, depending on your account or resource-level general access setting. Learn how link-based access works in [General resource access](/platform/collaboration/general-resource-access).
+You can also share datasets by link using their ID or name, depending on your account or resource-level general access setting. Learn how link-based access works in [General resource access](/account/collaboration/general-resource-access).
 
-For one-off sharing of specific records when access is restricted, you can generate time-limited pre-signed URLs. See [Sharing restricted resources with pre-signed URLs](/platform/collaboration/general-resource-access#pre-signed-urls).
+For one-off sharing of specific records when access is restricted, you can generate time-limited pre-signed URLs. See [Sharing restricted resources with pre-signed URLs](/account/collaboration/general-resource-access#pre-signed-urls).
 
 ### Share datasets between runs
 
@@ -478,11 +480,11 @@ other_dataset_client = apify_client.dataset('jane-doe/old-dataset')
 
 The same applies for the [Apify API](#apify-api) - you can use [the same endpoints](#apify-api) as you would normally do.
 
-See the [Storage overview](/platform/storage/usage#sharing-storages-between-runs) for details on sharing storages between runs.
+See the [Storage overview](/storage#share-storages-between-runs) for details on sharing storages between runs.
 
 ## Limits
 
-- Data storage formats that use tabulation (like HTML, CSV, and EXCEL) are limited to a maximum of _3000_ columns. Data exceeding this limit will not be retrieved.
+- Data storage formats that use tabulation (like HTML, CSV, and Excel) are limited to a maximum of _2000_ columns. Data exceeding this limit will not be retrieved.
 
 - The `pushData()`method is constrained by the receiving API's size limit. It accepts objects with JSON size under _9MB_. While individual objects within an array must not exceed _9MB_, the overall size has no restriction.
 

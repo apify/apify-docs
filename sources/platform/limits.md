@@ -35,14 +35,15 @@ The tables below demonstrate the Apify platform's default resource limits. For A
         </tr>
         <tr>
             <td>Run maximum memory</td>
-            <td>8,192&nbsp;MB</td>
+            <td>16,384&nbsp;MB</td>
             <td colspan="3">32,768&nbsp;MB</td>
         </tr>
         <tr>
             <td>Maximum combined memory of all running jobs</td>
-            <td>8,192&nbsp;MB</td>
-            <td>32,768&nbsp;MB</td>
-            <td colspan="2">131,072&nbsp;MB</td>
+            <td>16,384&nbsp;MB</td>
+            <td>65,536&nbsp;MB</td>
+            <td>262,144&nbsp;MB</td>
+            <td>524,288&nbsp;MB</td>
         </tr>
         <tr>
             <td>Build timeout</td>
@@ -127,7 +128,7 @@ The tables below demonstrate the Apify platform's default resource limits. For A
 
 ## Usage limit
 
-To protect you from accidental overspending, the Apify platform introduces usage limits based on your billing plan. For details, see [Limits](./console/billing.md#limits).
+To protect you from accidental overspending, the Apify platform introduces usage limits based on your billing plan. For details, see [Limits](/account/billing#limits).
 
 ## Increase limits
 

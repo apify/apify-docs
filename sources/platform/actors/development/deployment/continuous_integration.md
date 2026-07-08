@@ -6,8 +6,6 @@ slug: /actors/development/deployment/continuous-integration
 sidebar_position: 2
 ---
 
-**Learn how to set up automated builds, deploys, and testing for your Actors.**
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -166,8 +164,8 @@ For a more complete Bitbucket setup with automated tests, see the [Bitbucket CI 
 
 ## Use the Apify GitHub integration {#github-integration}
 
-Apify Console includes a built-in [GitHub integration](/platform/integrations/github) that links an Actor directly to a GitHub repository. When you connect a repository, Apify automatically rebuilds the Actor on every push - no workflow files or webhook configuration needed.
+Apify Console includes a built-in [GitHub integration](/integrations/github) that links an Actor directly to a GitHub repository. When you connect a repository, Apify automatically rebuilds the Actor on every push - no workflow files or webhook configuration needed.
 
 This is the quickest way to get automated builds running, but it's less flexible than the GitHub Actions approach. It doesn't support running tests before building, managing multiple version tags from different branches, or customizing the build pipeline.
 
-To set it up, see the [GitHub integration](/platform/integrations/github) documentation.
+To set it up, see the [GitHub integration](/integrations/github) documentation.

@@ -84,7 +84,7 @@ Manus will call `search-actors` to find [Google Search Scraper](https://apify.co
 
 ## Configure tools
 
-After connecting, the Apify MCP server exposes a default set of tools for Actor discovery (`search-actors`, `fetch-actor-details`, `call-actor`, `get-actor-output`), web browsing (`apify/rag-web-browser`), and documentation search (`search-apify-docs`, `fetch-apify-docs`). See the [full tool reference](/platform/integrations/mcp#available-tools) for the complete list.
+After connecting, the Apify MCP server exposes a default set of tools for Actor discovery (`search-actors`, `fetch-actor-details`, `call-actor`, `get-actor-output`), web browsing (`apify/rag-web-browser`), and documentation search (`search-apify-docs`, `fetch-apify-docs`). See the [full tool reference](/integrations/mcp#available-tools) for the complete list.
 
 To control which tools are available, append a `tools=` query parameter to the server URL:
 
@@ -186,8 +186,8 @@ If the OAuth prompt fails or you can't complete the login flow, you can connect 
 
 ## Related integrations
 
-- [ChatGPT integration](/platform/integrations/chatgpt) - Connect the Apify MCP server to ChatGPT
-- [MCP server integration](/platform/integrations/mcp) - Use the Apify MCP server with Claude Desktop, VS Code, and other clients
+- [ChatGPT integration](/integrations/chatgpt) - Connect the Apify MCP server to ChatGPT
+- [MCP server integration](/integrations/mcp) - Use the Apify MCP server with Claude Desktop, VS Code, and other clients
 
 ## Resources
 

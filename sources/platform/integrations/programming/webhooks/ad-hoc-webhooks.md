@@ -4,8 +4,6 @@ description: Set up one-time webhooks for Actor runs initiated through the Apify
 slug: /integrations/webhooks/ad-hoc-webhooks
 ---
 
-**Set up one-time webhooks for Actor runs initiated through the Apify API or from the Actor's code. Trigger events when the run reaches a specific state.**
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
