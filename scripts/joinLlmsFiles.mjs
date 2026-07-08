@@ -13,8 +13,8 @@ const CURATED_FILE = path.resolve('scripts/llms-external-curated.txt');
 // Do NOT add these to the plugin's `excludeRoutes` in docusaurus.config.js -
 // that would also drop the generated .md file from the build output.
 const LLMS_INDEX_EXCLUDE_PATTERNS = [
-    // API: drop deprecated actor-scoped act-* duplicates (their canonical pages live under
-    // actor-build*/actor-run*; these legacy slugs 301-redirect there)
+    // API: legacy act-* slugs no longer exist as pages (all 301-redirect to their renamed
+    // actor-*/actors-* equivalents), so this pattern is a safety net only
     '/api/v2/act-*',
     // API: drop individual CRUD endpoint pages (keep Introduction pages)
     '/api/v2/actor-get',
@@ -32,7 +32,6 @@ const LLMS_INDEX_EXCLUDE_PATTERNS = [
     '/api/v2/actor-build-log-get',
     '/api/v2/actor-build-openapi-json-get',
     '/api/v2/actor-builds-get',
-    '/api/v2/actor-builds-post',
     '/api/v2/actor-run-*',
     '/api/v2/actor-runs-*',
     '/api/v2/actor-task-*',
@@ -40,6 +39,8 @@ const LLMS_INDEX_EXCLUDE_PATTERNS = [
     '/api/v2/actor-tasks-post',
     '/api/v2/actors-get',
     '/api/v2/actors-post',
+    '/api/v2/actors-run*',
+    '/api/v2/actors-build*',
     '/api/v2/dataset-*',
     '/api/v2/datasets-*',
     '/api/v2/key-value-store-*',

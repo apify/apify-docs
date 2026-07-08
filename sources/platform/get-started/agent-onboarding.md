@@ -88,7 +88,7 @@ The pattern is the same across every integration method: pick an Actor, send inp
 
 :::caution Cost controls
 
-When an agent calls Actors automatically, set run limits to prevent surprise bills. Pass these as query parameters on the [run Actor endpoint](/api/v2/actor-runs-post):
+When an agent calls Actors automatically, set run limits to prevent surprise bills. Pass these as query parameters on the [run Actor endpoint](/api/v2/actors-runs-post):
 
 - `memory` (MB) - power of 2, minimum 128. Lower memory means lower cost per second.
 - `timeout` (seconds) - cap how long a single run can last.
@@ -256,12 +256,12 @@ For HTTP-native integrations or languages without a dedicated client. Base URL: 
 | :--- | :--- | :--- |
 | [Search Actors in Store](/api/v2/store-get) | `GET` | `/v2/store` |
 | [Get Actor details](/api/v2/actor-get) | `GET` | `/v2/acts/{actorId}` |
-| [Run an Actor](/api/v2/actor-runs-post) | `POST` | `/v2/acts/{actorId}/runs` |
+| [Run an Actor](/api/v2/actors-runs-post) | `POST` | `/v2/acts/{actorId}/runs` |
 | [Run Actor (sync, get results)](/api/v2/actor-run-sync-get-dataset-items-post) | `POST` | `/v2/acts/{actorId}/run-sync-get-dataset-items` |
 | [Get run status](/api/v2/actor-run-get) | `GET` | `/v2/actor-runs/{runId}` |
 | [Get dataset items](/api/v2/dataset-items-get) | `GET` | `/v2/datasets/{datasetId}/items` |
 
-The sync endpoint ([`run-sync-get-dataset-items`](/api/v2/actor-run-sync-get-dataset-items-post)) runs an Actor and returns results in a single request (waits up to 5 minutes). Use [async endpoints](/api/v2/actor-runs-post) for longer runs.
+The sync endpoint ([`run-sync-get-dataset-items`](/api/v2/actor-run-sync-get-dataset-items-post)) runs an Actor and returns results in a single request (waits up to 5 minutes). Use [async endpoints](/api/v2/actors-runs-post) for longer runs.
 
 For runs that take longer than the sync timeout, prefer [webhooks](/integrations/webhooks) over polling - Apify will POST a notification to your URL when the run finishes, avoiding wasted requests.
 

@@ -99,7 +99,7 @@ byActorRunId:
     `INPUT-METAMORPH-1` key in the same default key-value store.
 
     For more information, see the [Actor docs](https://docs.apify.com/platform/actors/development/programming-interface/metamorph).
-  operationId: act_run_metamorph_post
+  operationId: actors_run_metamorph_post
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
     - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"

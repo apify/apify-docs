@@ -61,7 +61,7 @@ byActorRunId:
 
     Only runs that are starting or running are aborted. For runs with status
     `FINISHED`, `FAILED`, `ABORTING` and `TIMED-OUT` this call does nothing.
-  operationId: act_run_abort_post
+  operationId: actors_run_abort_post
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
     - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"

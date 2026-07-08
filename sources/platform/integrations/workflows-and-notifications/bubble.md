@@ -252,8 +252,8 @@ The Apify plugin provides two main types of operations:
 - [List User Tasks](https://docs.apify.com/api/v2/actor-tasks-get)
 - [Scrape Single URL As File As Data](https://docs.apify.com/api/v2/actor-run-sync-get-dataset-items-post)
 - [Scrape Single URL As Json As Data](https://docs.apify.com/api/v2/actor-run-sync-get-dataset-items-post)
-- [List Actor Runs](https://docs.apify.com/api/v2/actor-runs-get)
-- [List Specific Actor Runs](https://docs.apify.com/api/v2/actor-runs-get)
+- [List Actor Runs](https://docs.apify.com/api/v2/actors-runs-get)
+- [List Specific Actor Runs](https://docs.apify.com/api/v2/actors-runs-get)
 - [List Webhooks](https://docs.apify.com/api/v2/webhooks-get)
 
 **Actions** (workflow steps):
@@ -263,7 +263,7 @@ The Apify plugin provides two main types of operations:
 - [Get Record As Text](https://docs.apify.com/api/v2/key-value-store-record-get)
 - [Scrape Single URL As File As Action](https://docs.apify.com/api/v2/actor-run-sync-get-dataset-items-post)
 - [Scrape Single URL As Json As Action](https://docs.apify.com/api/v2/actor-run-sync-get-dataset-items-post)
-- [Run Actor](https://docs.apify.com/api/v2/actor-runs-post)
+- [Run Actor](https://docs.apify.com/api/v2/actors-runs-post)
 - [Run Actor Task](https://docs.apify.com/api/v2/actor-task-runs-post)
 - [Create Webhook](https://docs.apify.com/api/v2/webhooks-post)
 - [Delete Webhook](https://docs.apify.com/api/v2/webhook-delete)
