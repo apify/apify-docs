@@ -26,7 +26,9 @@ function GitButtonInner({ href, ariaLabel }: GitButtonProps) {
             scrolling="no"
             width={170}
             height={30}
-            title="GitHub"
+            title={ariaLabel}
+            loading="lazy"
+            referrerPolicy="no-referrer"
             style={{ position: 'relative', colorScheme: 'normal' }}
         />
     );

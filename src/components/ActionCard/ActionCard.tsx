@@ -52,7 +52,7 @@ export default function ActionCard({ title, description, to, width, iconSrc, tit
                 </div>
             }
             isClickable
-            action={<ArrowRight20 strokeWidth={1.5} style={{ color: 'var(--color-neutral-icon)' }} />}
+            action={<ArrowRight20 style={{ color: 'var(--color-neutral-icon)' }} />}
         />
     );
 
