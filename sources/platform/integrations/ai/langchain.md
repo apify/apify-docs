@@ -26,7 +26,7 @@ The `langchain-apify` package is currently available for Python only.
 Before we start with the integration, we need to install all dependencies:
 
 ```bash
-pip install langchain langchain-openai langchain-apify
+pip install langchain-openai langchain-apify
 ```
 
 After successful installation of all dependencies, we can start writing code.
@@ -36,9 +36,9 @@ First, import all required packages:
 ```python
 import os
 
-from langchain.indexes import VectorstoreIndexCreator
 from langchain_apify import ApifyWrapper
 from langchain_core.documents import Document
+from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.vectorstores import InMemoryVectorStore
 from langchain_openai import ChatOpenAI
 from langchain_openai.embeddings import OpenAIEmbeddings
@@ -57,7 +57,7 @@ Note that if you already have some results in an Apify dataset, you can load the
 
 ```python
 apify = ApifyWrapper()
-llm = ChatOpenAI(model="gpt-5-mini")
+llm = ChatOpenAI(model="gpt-5.4-mini")
 
 loader = apify.call_actor(
     actor_id="apify/website-content-crawler",
@@ -77,20 +77,26 @@ The Actor call may take some time as it crawls the LangChain documentation websi
 Initialize the vector index from the crawled documents:
 
 ```python
-index = VectorstoreIndexCreator(
-    vectorstore_cls=InMemoryVectorStore,
-    embedding=OpenAIEmbeddings()
-).from_loaders([loader])
+vector_store = InMemoryVectorStore.from_documents(loader.load(), OpenAIEmbeddings())
+retriever = vector_store.as_retriever()
+
+prompt = ChatPromptTemplate.from_template(
+    "Answer the question using only the context below.\n\n"
+    "Context:\n{context}\n\nQuestion: {question}"
+)
 ```
 
 And finally, query the vector index:
 
 ```python
 query = "What is LangChain?"
-result = index.query_with_sources(query, llm=llm)
+docs = retriever.invoke(query)
+context = "\n\n".join(doc.page_content for doc in docs)
+answer = (prompt | llm).invoke({"context": context, "question": query}).content
+sources = ", ".join({doc.metadata["source"] for doc in docs})
 
-print("answer:", result["answer"])
-print("source:", result["sources"])
+print("answer:", answer)
+print("source:", sources)
 ```
 
 If you want to test the whole example, you can simply create a new file, `langchain_integration.py`, and copy the whole code into it.
@@ -98,9 +104,9 @@ If you want to test the whole example, you can simply create a new file, `langch
 ```python
 import os
 
-from langchain.indexes import VectorstoreIndexCreator
 from langchain_apify import ApifyWrapper
 from langchain_core.documents import Document
+from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.vectorstores import InMemoryVectorStore
 from langchain_openai import ChatOpenAI
 from langchain_openai.embeddings import OpenAIEmbeddings
@@ -109,7 +115,7 @@ os.environ["OPENAI_API_KEY"] = "Your OpenAI API key"
 os.environ["APIFY_TOKEN"] = "Your Apify API token"
 
 apify = ApifyWrapper()
-llm = ChatOpenAI(model="gpt-5-mini")
+llm = ChatOpenAI(model="gpt-5.4-mini")
 
 print("Call website content crawler ...")
 loader = apify.call_actor(
@@ -118,15 +124,21 @@ loader = apify.call_actor(
     dataset_mapping_function=lambda item: Document(page_content=item["text"] or "", metadata={"source": item["url"]}),
 )
 print("Compute embeddings...")
-index = VectorstoreIndexCreator(
-    vectorstore_cls=InMemoryVectorStore,
-    embedding=OpenAIEmbeddings()
-).from_loaders([loader])
-query = "What is LangChain?"
-result = index.query_with_sources(query, llm=llm)
+vector_store = InMemoryVectorStore.from_documents(loader.load(), OpenAIEmbeddings())
+retriever = vector_store.as_retriever()
 
-print("answer:", result["answer"])
-print("source:", result["sources"])
+prompt = ChatPromptTemplate.from_template(
+    "Answer the question using only the context below.\n\n"
+    "Context:\n{context}\n\nQuestion: {question}"
+)
+query = "What is LangChain?"
+docs = retriever.invoke(query)
+context = "\n\n".join(doc.page_content for doc in docs)
+answer = (prompt | llm).invoke({"context": context, "question": query}).content
+sources = ", ".join({doc.metadata["source"] for doc in docs})
+
+print("answer:", answer)
+print("source:", sources)
 ```
 
 To run it, you can use the following command: `python langchain_integration.py`
@@ -247,7 +259,7 @@ from langgraph.prebuilt import create_react_agent
 os.environ["OPENAI_API_KEY"] = "Your OpenAI API key"
 os.environ["APIFY_TOKEN"] = "Your Apify API token"
 
-model = ChatOpenAI(model="gpt-5-mini")
+model = ChatOpenAI(model="gpt-5.4-mini")
 tools = [tool_cls() for tool_cls in APIFY_SEARCH_TOOLS]
 agent = create_react_agent(model, tools)
 
