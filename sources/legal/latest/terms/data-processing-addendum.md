@@ -277,7 +277,7 @@ Apify shall implement appropriate technical and organizational measures in accor
 (c) the ability to restore the availability and access to personal data in a timely manner in the event of a physical or technical incident;
 (d) a process for regularly testing, accessing and evaluating the effectiveness of technical and organizational measures for ensuring the security of the Processing.
 
-For more details that describe Apify’s current security-related information, please see our [Trust Center](trust.apify.com).
+For more details that describe Apify’s current security-related information, please see our [Trust Center](https://trust.apify.com).
 
 ## Schedule E: List of Apify Subprocessors
 
