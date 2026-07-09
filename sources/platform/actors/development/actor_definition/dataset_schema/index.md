@@ -35,6 +35,17 @@ A dataset schema has two components:
 }
 ```
 
+### The two `fields` keys
+
+The schema uses two different keys named `fields`. They live in different places and do different jobs — populate both.
+
+| Location | Type | Purpose |
+| --- | --- | --- |
+| Top-level `fields` | [JSON Schema](https://json-schema.org/) object keyed by field name (under `properties`) | Describes each item's structure. Drives server-side validation, MCP schema discovery for AI agents, and the documented API contract. |
+| `views.<viewId>.transformation.fields` | Flat array of field name strings | Selects which columns appear in the Console Output tab and their order. Display-only. |
+
+A common mistake is to populate only `views.overview.transformation.fields` and leave the top-level `fields` empty. Console still renders the selected columns, but validation and the MCP / API schema have nothing to work from. The example under [Schema components](#schema-components) above shows both keys populated together; see [Fields](#fields) below for the full field-metadata example.
+
 ## File structure
 
 Place the dataset schema in the `.actor` folder in your Actor's root directory. You can organize it in two ways:
