@@ -28,7 +28,7 @@ The Services are intended for business use only and are not designed, marketed, 
 
 1.2. "**Customer**"; "you" means a counterparty to the Agreement visiting or using the Website or Services.
 
-1.3. "**Customer Data**" means any of your content processed through the Services by you or by us on your behalf; Customer Data excludes data processed by us under our Privacy Policy, including but not limited to Usage Data.
+1.3. "**Customer Data**" means any of your content processed through the Services by you or by us on your behalf; Customer Data excludes data processed by us under our Privacy Policy and Usage Data.
 
 1.4. "**Fee(s)**" means price for the Services agreed in an Order or displayed in the Platform, including but not limited to Platform Fee, Development Fee, Professional Services Fee, and Overages, as specified by the Agreement.
 
