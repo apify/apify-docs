@@ -5,7 +5,6 @@ required:
   - name
   - username
   - stats
-  - currentPricingInfo
 type: object
 properties:
   id:
@@ -34,7 +33,7 @@ properties:
       - MARKETING
       - LEAD_GENERATION
   notice:
-    type: string
+    type: [string, "null"]
   pictureUrl:
     type: [string, "null"]
     format: uri
