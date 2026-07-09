@@ -445,9 +445,18 @@ postById:
     For more information about dataset schema validation, see [Dataset schema](https://docs.apify.com/platform/actors/development/actor-definition/dataset-schema/validation).
 
     **IMPORTANT:** The limit of request payload size for the dataset is 5 MB. If the array exceeds the size, you'll need to split it into a number of smaller arrays.
+
+    To save bandwidth and speed up your upload, you can send the request payload compressed and set the `Content-Encoding` header accordingly.
+
+    Below is a list of supported `Content-Encoding` types.
+
+    * Brotli: `Content-Encoding: br`
+    * Gzip: `Content-Encoding: gzip`
+    * Deflate: `Content-Encoding: deflate`
   operationId: dataset_items_post
   parameters:
     - $ref: "../../parameters/datasetParameters.yaml#/datasetId"
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/Content-Encoding"
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/datasets/item-collection/put-items
     - https://docs.apify.com/api/v2#/reference/datasets/put-items
@@ -468,9 +477,17 @@ postDefault:
     This endpoint is a shortcut that resolves the run's `defaultDatasetId` and proxies to the
     [Store items](/api/v2/dataset-items-post) endpoint.
 
+    To save bandwidth and speed up your upload, you can send the request payload compressed and set the `Content-Encoding` header accordingly.
+
+    Below is a list of supported `Content-Encoding` types.
+
+    * Brotli: `Content-Encoding: br`
+    * Gzip: `Content-Encoding: gzip`
+    * Deflate: `Content-Encoding: deflate`
   operationId: actorRun_dataset_items_post
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/Content-Encoding"
 
 postLastRun:
   <<: [*sharedPost, *sharedTagLastRun]
@@ -481,11 +498,19 @@ postLastRun:
     This endpoint is a shortcut that resolves the last run's `defaultDatasetId` and proxies to the
     [Store items](/api/v2/dataset-items-post) endpoint.
 
+    To save bandwidth and speed up your upload, you can send the request payload compressed and set the `Content-Encoding` header accordingly.
+
+    Below is a list of supported `Content-Encoding` types.
+
+    * Brotli: `Content-Encoding: br`
+    * Gzip: `Content-Encoding: gzip`
+    * Deflate: `Content-Encoding: deflate`
   operationId: act_runs_last_dataset_items_post
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
     - $ref: "../../parameters/lastRunParameters.yaml#/status"
     - $ref: "../../parameters/lastRunParameters.yaml#/origin"
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/Content-Encoding"
 
 postTaskLastRun:
   <<: [*sharedPost, *sharedTagTaskLastRun]
@@ -496,8 +521,16 @@ postTaskLastRun:
     This endpoint is a shortcut that resolves the last task run's `defaultDatasetId` and proxies to the
     [Store items](/api/v2/dataset-items-post) endpoint.
 
+    To save bandwidth and speed up your upload, you can send the request payload compressed and set the `Content-Encoding` header accordingly.
+
+    Below is a list of supported `Content-Encoding` types.
+
+    * Brotli: `Content-Encoding: br`
+    * Gzip: `Content-Encoding: gzip`
+    * Deflate: `Content-Encoding: deflate`
   operationId: actorTask_runs_last_dataset_items_post
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
     - $ref: "../../parameters/lastRunParameters.yaml#/status"
     - $ref: "../../parameters/lastRunParameters.yaml#/origin"
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/Content-Encoding"
