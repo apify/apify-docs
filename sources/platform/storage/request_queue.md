@@ -159,10 +159,10 @@ Every Actor run is automatically linked with a default request queue, initiated 
 If you are storing your data locally, you can find your request queue at the following location.
 
 ```text
-{APIFY_LOCAL_STORAGE_DIR}/request_queues/{QUEUE_ID}/{ID}.json
+{CRAWLEE_STORAGE_DIR}/request_queues/{QUEUE_ID}/{ID}.json
 ```
 
-The default request queue's ID is _default_. Each request in the queue is stored as a separate JSON file, where `{ID}` is a request ID.
+The default request queue's ID is _default_. Each request in the queue is stored as a separate JSON file, where `{ID}` is a request ID. See [Key-value store](/platform/storage/key-value-store#javascript-sdk) for the `CRAWLEE_STORAGE_DIR` environment variable that controls this path when you run the Actor outside `apify run`.
 
 To open a request queue, use the [`Actor.openRequestQueue()`](/sdk/js/reference/class/Actor#openRequestQueue) method.
 

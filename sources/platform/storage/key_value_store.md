@@ -151,10 +151,20 @@ Every Actor run is linked to a default key-value store that is automatically cre
 You can find _INPUT.json_ and other key-value store files in the location below.
 
 ```text
-{APIFY_LOCAL_STORAGE_DIR}/key_value_stores/{STORE_ID}/{KEY}.{EXT}
+{CRAWLEE_STORAGE_DIR}/key_value_stores/{STORE_ID}/{KEY}.{EXT}
 ```
 
 The default key-value store's ID is _default_. The `{KEY}` is the record's _key_ and `{EXT}` corresponds to the record value's MIME content type.
+
+:::info Local storage directory
+
+When you run an Actor locally through `apify run`, the CLI sets `CRAWLEE_STORAGE_DIR=./storage` in the Actor's process. If you launch your entry point directly (for example, `tsx src/main.ts` or `node dist/main.js`), you need to set the variable yourself — otherwise the SDK falls back to the platform client and fails with `ApifyApiError: Authentication token was not provided` when it tries to reach `api.apify.com`. Setting `APIFY_IS_AT_HOME=0` on its own is not enough; the SDK still needs `CRAWLEE_STORAGE_DIR` to know where the file-backed storage lives.
+
+```bash
+CRAWLEE_STORAGE_DIR=./storage tsx src/main.ts
+```
+
+:::
 
 To manage your key-value stores, you can use the following methods. See the `KeyValueStore` class's [API reference](/sdk/js/reference/class/KeyValueStore) for the full list.
 

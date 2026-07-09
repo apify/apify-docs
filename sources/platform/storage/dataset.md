@@ -192,10 +192,10 @@ Additionally the SDK offers other methods like [`getData()`](/sdk/js/reference/c
 If you have chosen to store your dataset locally, you can find it in the location below.
 
 ```text
-{APIFY_LOCAL_STORAGE_DIR}/datasets/{DATASET_ID}/{INDEX}.json
+{CRAWLEE_STORAGE_DIR}/datasets/{DATASET_ID}/{INDEX}.json
 ```
 
-`DATASET_ID` refers to the dataset's _name_ or _ID_. The default dataset will be stored in the _default_ directory.
+`DATASET_ID` refers to the dataset's _name_ or _ID_. The default dataset will be stored in the _default_ directory. See [Key-value store](/platform/storage/key-value-store#javascript-sdk) for the `CRAWLEE_STORAGE_DIR` environment variable that controls this path when you run the Actor outside `apify run`.
 
 To add data to the default dataset, you can use the example below:
 
