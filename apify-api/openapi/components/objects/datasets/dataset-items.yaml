@@ -93,6 +93,8 @@ sharedGet: &sharedGet
           example: <items><item><foo>bar</foo></item><item><foo2>bar2</foo2></item></items>
     "400":
       $ref: ../../responses/BadRequest.yaml
+    "402":
+      $ref: ../../responses/PaymentRequired.yaml
   deprecated: false
 
 listById:

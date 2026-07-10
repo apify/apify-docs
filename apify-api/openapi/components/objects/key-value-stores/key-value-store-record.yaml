@@ -31,6 +31,8 @@ sharedTagTaskLastRun: &sharedTagTaskLastRun
 sharedGet: &sharedGet
   responses:
     <<: *commonErrors
+    "402":
+      $ref: ../../responses/PaymentRequired.yaml
     "200":
       description: ""
       headers: {}
