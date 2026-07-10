@@ -59,12 +59,7 @@ export default function DropdownNavbarItemDesktop({ items, position, className, 
             </NavbarNavLink>
             <ul className="dropdown__menu">
                 {items.map((childItemProps, i) => (
-                    <NavbarItem
-                        isDropdownItem
-                        activeClassName="dropdown__link--active"
-                        {...childItemProps}
-                        key={i}
-                    />
+                    <NavbarItem isDropdownItem activeClassName="dropdown__link--active" {...childItemProps} key={i} />
                 ))}
             </ul>
         </div>
