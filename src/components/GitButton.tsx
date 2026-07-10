@@ -20,10 +20,13 @@ const starCache = new Map<string, Promise<number | null>>();
 
 function fetchStars(repo: string): Promise<number | null> {
     if (!starCache.has(repo)) {
-        starCache.set(repo, fetch(`https://api.github.com/repos/${repo}`)
-            .then(async (response) => (response.ok ? response.json() : null))
-            .then((data) => (typeof data?.stargazers_count === 'number' ? data.stargazers_count : null))
-            .catch(() => null));
+        starCache.set(
+            repo,
+            fetch(`https://api.github.com/repos/${repo}`)
+                .then(async (response) => (response.ok ? response.json() : null))
+                .then((data) => (typeof data?.stargazers_count === 'number' ? data.stargazers_count : null))
+                .catch(() => null),
+        );
     }
     return starCache.get(repo)!;
 }
