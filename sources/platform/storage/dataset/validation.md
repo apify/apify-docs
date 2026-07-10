@@ -1,8 +1,8 @@
 ---
 title: Dataset validation
 description: Specify the dataset schema within your Actors to add monitoring and validation at the field level, ensuring data quality and consistency across runs.
-sidebar_position: 1
-slug: /actors/development/actor-definition/dataset-schema/validation
+sidebar_position: 2
+slug: /storage/dataset-schema/validation
 ---
 
 import Tabs from '@theme/Tabs';
@@ -80,7 +80,7 @@ Dataset schema needs to be a valid JSON schema draft-07, so the `$schema` line i
 
 ## Dataset validation
 
-When you define a schema of your default dataset, the schema is then always used when you insert data into the dataset to perform validation (we use [AJV](https://ajv.js.org/)).
+When you define a schema of your default dataset, the schema is then always used when you insert data into the dataset to perform validation with [AJV](https://ajv.js.org/).
 
 If the validation succeeds, nothing changes from the current behavior, data is stored and an empty response with status code `201` is returned.
 
@@ -236,7 +236,7 @@ You can also use [conversion tools](https://www.liquid-technologies.com/online-j
 
 ## Dataset field statistics
 
-When you configure the dataset fields schema, we generate a field list and measure the following statistics:
+When you configure the dataset fields schema, Apify generates a field list and measures the following statistics:
 
 - **Null count:** how many items in the dataset have the field set to null
 - **Empty count:** how many items in the dataset are `undefined` , meaning that for example empty string is not considered empty

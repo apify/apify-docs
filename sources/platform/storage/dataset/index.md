@@ -21,11 +21,11 @@ Named datasets are retained indefinitely. Unnamed datasets expire after 7 days u
 
 Dataset storage is _append-only_ - data can only be added and cannot be modified or deleted once stored.
 
-![Dataset graphic](./images/datasets-overview.png)
+![Dataset graphic](../images/datasets-overview.png)
 
 ## Dataset schema
 
-Actors can define a [dataset schema](/actors/development/actor-definition/dataset-schema) that describes the structure of each dataset item and controls how data appears in the Output tab. The schema has two components:
+Actors can define a [dataset schema](/storage/dataset-schema) that describes the structure of each dataset item and controls how data appears in the Output tab. The schema has two components:
 
 - `fields` - JSON Schema describing each item's structure, enabling validation and providing metadata for AI agents
 - `views` - Display configurations that control field ordering, formatting, and presentation in the Console
@@ -45,7 +45,7 @@ You can access your datasets in several ways:
 
 In [Apify Console](https://console.apify.com), you can view your datasets in the [Storage](https://console.apify.com/storage) section under the [Datasets](https://console.apify.com/storage?tab=datasets) tab.
 
-![Datasets in app](./images/datasets-app.png)
+![Datasets in app](../images/datasets-app.png)
 
 To view or download a dataset:
 
@@ -55,17 +55,17 @@ To view or download a dataset:
 
 Utilize the **Actions** menu to modify the dataset's name, which also affects its [retention period](/storage#data-retention), and to adjust [access rights](/account/collaboration). The **API** button allows you to explore and test the dataset's [API endpoints](/api/v2/storage-datasets).
 
-![Datasets detail view](./images/datasets-detail.png)
+![Datasets detail view](../images/datasets-detail.png)
 
 ### Apify API
 
 The [Apify API](/api/v2/storage-datasets) enables you programmatic access to your datasets using [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
 
-If you are accessing your datasets using the `username~store-name` [store ID format](./index.md), you will need to use your secret API token. You can find the token (and your user ID) on the [API & Integrations](https://console.apify.com/settings/integrations) tab of **Settings** page of your Apify account.
+If you are accessing your datasets using the `username~store-name` [store ID format](../index.md), you will need to use your secret API token. You can find the token (and your user ID) on the [API & Integrations](https://console.apify.com/settings/integrations) tab of **Settings** page of your Apify account.
 
 :::tip Pass tokens in the Authorization header
 
-When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. [More info](../integrations/programming/api.md#authentication).
+When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. [More info](../../integrations/programming/api.md#authentication).
 
 :::
 
@@ -185,7 +185,7 @@ Check out the [Python API client documentation](/api/client/python/reference/cla
 
 #### JavaScript SDK
 
-When working with a JavaScript [Actor](../actors/index.mdx), the [JavaScript SDK](/sdk/js/docs/guides/result-storage#dataset) is an essential tool, especially for dataset management. It simplifies the tasks of storing and retrieving data, seamlessly integrating with the Actor's workflow. Key features of the SDK include the ability to append data, retrieve what is stored, and manage dataset properties effectively. Central to this functionality is the [`Dataset`](/sdk/js/reference/class/Dataset) class. This class allows you to determine where your data is stored - locally or in the Apify cloud. To add data to your chosen datasets, use the [`pushData()`](/sdk/js/reference/class/Dataset#pushData) method.
+When working with a JavaScript [Actor](../../actors/index.mdx), the [JavaScript SDK](/sdk/js/docs/guides/result-storage#dataset) is an essential tool, especially for dataset management. It simplifies the tasks of storing and retrieving data, seamlessly integrating with the Actor's workflow. Key features of the SDK include the ability to append data, retrieve what is stored, and manage dataset properties effectively. Central to this functionality is the [`Dataset`](/sdk/js/reference/class/Dataset) class. This class allows you to determine where your data is stored - locally or in the Apify cloud. To add data to your chosen datasets, use the [`pushData()`](/sdk/js/reference/class/Dataset#pushData) method.
 
 Additionally the SDK offers other methods like [`getData()`](/sdk/js/reference/class/Dataset#getData), [`map()`](/sdk/js/reference/class/Dataset#map), and [`reduce()`](/sdk/js/reference/class/Dataset#reduce). For practical applications of these methods, refer to the [example](/sdk/js/docs/examples/map-and-reduce) section.
 
@@ -263,7 +263,7 @@ Check out the [JavaScript SDK documentation](/sdk/js/docs/guides/result-storage#
 
 #### Python SDK
 
-For Python [Actors](../actors/index.mdx), the [Python SDK](/sdk/python/docs/concepts/storages#working-with-datasets) is essential. The dataset is represented by a [`Dataset`](/sdk/python/reference/class/Dataset) class. You can use this class to specify whether your data is stored locally or in the Apify cloud and push data to the datasets of your choice using the [`push_data()`](/sdk/python/reference/class/Dataset#push_data) method. For further data manipulation you could also use other methods such as [`get_data()`](/sdk/python/reference/class/Dataset#get_data), [`map()`](/sdk/python/reference/class/Dataset#map) and [`reduce()`](/sdk/python/reference/class/Dataset#reduce).
+For Python [Actors](../../actors/index.mdx), the [Python SDK](/sdk/python/docs/concepts/storages#working-with-datasets) is essential. The dataset is represented by a [`Dataset`](/sdk/python/reference/class/Dataset) class. You can use this class to specify whether your data is stored locally or in the Apify cloud and push data to the datasets of your choice using the [`push_data()`](/sdk/python/reference/class/Dataset#push_data) method. For further data manipulation you could also use other methods such as [`get_data()`](/sdk/python/reference/class/Dataset#get_data), [`map()`](/sdk/python/reference/class/Dataset#map) and [`reduce()`](/sdk/python/reference/class/Dataset#reduce).
 
 For datasets stored locally, the data is located at the following path:
 
@@ -426,7 +426,7 @@ For one-off sharing of specific records when access is restricted, you can gener
 
 ### Share datasets between runs
 
-You can access a dataset from any [Actor](../actors/index.mdx) or [task](../actors/running/tasks.md) run as long as you know its _name_ or _ID_.
+You can access a dataset from any [Actor](../../actors/index.mdx) or [task](../../actors/running/tasks.md) run as long as you know its _name_ or _ID_.
 
 To access a dataset from another run using the [Apify SDK](/sdk), open it using the same method as you would with any other dataset.
 
