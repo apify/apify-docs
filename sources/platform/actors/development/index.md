@@ -23,6 +23,11 @@ import CardGrid from "@site/src/components/CardGrid";
 
 <CardGrid>
     <Card
+        title="Quick start"
+        to="/actors/development/quick-start"
+        desc="Create your first Actor in minutes — locally with the CLI, in the web IDE, or with AI assistance."
+    />
+    <Card
         title="Actor definition"
         to="/actors/development/actor-definition"
         desc="Learn how to turn your arbitrary code into an Actor simply by adding an Actor definition directory."
