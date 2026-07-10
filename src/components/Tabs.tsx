@@ -41,7 +41,7 @@ export default function Tabs({ items }: TabsProps) {
             <TabsWrapper>
                 {items.map(({ title }, index) => (
                     <Heading
-                        key={title?.toLocaleString()}
+                        key={index}
                         type="titleS"
                         className={clsx('TabItem', activeTab === index && 'TabItem-active')}
                         onClick={() => setActiveTab(index)}

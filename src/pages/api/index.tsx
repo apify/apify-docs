@@ -284,6 +284,323 @@ dataset_items = apify_client.dataset(actor_call['defaultDatasetId']).list_items(
                                     </SectionWrapper>
                                 ),
                             },
+                            {
+                                title: (
+                                    <TabTitleWrapper>
+                                        <ThemedImage
+                                            height={16}
+                                            width={16}
+                                            sources={{
+                                                dark: useBaseUrl('/img/go-40x40.svg'),
+                                                light: useBaseUrl('/img/go-40x40.svg'),
+                                            }}
+                                        />
+                                        Go
+                                    </TabTitleWrapper>
+                                ),
+                                content: (
+                                    <SectionWrapper
+                                        heading="Go API client"
+                                        headingAs="h3"
+                                        description={
+                                            <div className="Description">
+                                                For Go applications. This client is experimental.
+                                                <GitButton
+                                                    href="https://github.com/apify/apify-client-go"
+                                                    data-size="large"
+                                                    data-show-count="true"
+                                                >
+                                                    Star
+                                                </GitButton>
+                                                <div className="DescriptionLinks">
+                                                    <Button
+                                                        color="success"
+                                                        hideExternalIcon
+                                                        to="https://github.com/apify/apify-client-go"
+                                                    >
+                                                        View on GitHub
+                                                    </Button>
+                                                </div>
+                                            </div>
+                                        }
+                                    >
+                                        <ClientCodeWrapper>
+                                            <CodeBlock language="bash">go get github.com/apify/apify-client-go</CodeBlock>
+                                            <CodeBlock language="go">{`package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    apify "github.com/apify/apify-client-go"
+)
+
+func main() {
+    client := apify.NewClient("MY-APIFY-TOKEN")
+    ctx := context.Background()
+
+    // Start an Actor and wait for it to finish.
+    waitSecs := int64(120)
+    run, err := client.Actor("john-doe/my-cool-actor").Call(ctx, nil, apify.ActorStartOptions{}, &waitSecs)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    // Fetch results from the run's default dataset.
+    page, err := client.Dataset(run.DefaultDatasetID).ListItems(ctx, apify.DatasetListItemsOptions{})
+    if err != nil {
+        log.Fatal(err)
+    }
+    fmt.Printf("Got %d items\\n", page.Count)
+}`}</CodeBlock>
+                                        </ClientCodeWrapper>
+                                    </SectionWrapper>
+                                ),
+                            },
+                            {
+                                title: (
+                                    <TabTitleWrapper>
+                                        <ThemedImage
+                                            height={16}
+                                            width={16}
+                                            sources={{
+                                                dark: useBaseUrl('/img/php-40x40.svg'),
+                                                light: useBaseUrl('/img/php-40x40.svg'),
+                                            }}
+                                        />
+                                        PHP
+                                    </TabTitleWrapper>
+                                ),
+                                content: (
+                                    <SectionWrapper
+                                        heading="PHP API client"
+                                        headingAs="h3"
+                                        description={
+                                            <div className="Description">
+                                                For PHP applications. This client is experimental.
+                                                <GitButton
+                                                    href="https://github.com/apify/apify-client-php"
+                                                    data-size="large"
+                                                    data-show-count="true"
+                                                >
+                                                    Star
+                                                </GitButton>
+                                                <div className="DescriptionLinks">
+                                                    <Button
+                                                        color="success"
+                                                        hideExternalIcon
+                                                        to="https://github.com/apify/apify-client-php"
+                                                    >
+                                                        View on GitHub
+                                                    </Button>
+                                                </div>
+                                            </div>
+                                        }
+                                    >
+                                        <ClientCodeWrapper>
+                                            <CodeBlock language="bash">composer require apify/apify-client</CodeBlock>
+                                            <CodeBlock language="php">{`<?php
+
+$client = new ApifyClient('MY-APIFY-TOKEN');
+
+// Start an Actor and wait for it to finish
+$run = $client->actor('john-doe/my-cool-actor')->call();
+
+// Fetch results from the run's default dataset
+$items = $client->dataset($run->getDefaultDatasetId())->listItems();
+echo 'Item count: ' . $items->getCount() . PHP_EOL;`}</CodeBlock>
+                                        </ClientCodeWrapper>
+                                    </SectionWrapper>
+                                ),
+                            },
+                            {
+                                title: (
+                                    <TabTitleWrapper>
+                                        <ThemedImage
+                                            height={16}
+                                            width={16}
+                                            sources={{
+                                                dark: useBaseUrl('/img/java-40x40.svg'),
+                                                light: useBaseUrl('/img/java-40x40.svg'),
+                                            }}
+                                        />
+                                        Java
+                                    </TabTitleWrapper>
+                                ),
+                                content: (
+                                    <SectionWrapper
+                                        heading="Java API client"
+                                        headingAs="h3"
+                                        description={
+                                            <div className="Description">
+                                                For Java applications. This client is experimental.
+                                                <GitButton
+                                                    href="https://github.com/apify/apify-client-java"
+                                                    data-size="large"
+                                                    data-show-count="true"
+                                                >
+                                                    Star
+                                                </GitButton>
+                                                <div className="DescriptionLinks">
+                                                    <Button
+                                                        color="success"
+                                                        hideExternalIcon
+                                                        to="https://github.com/apify/apify-client-java"
+                                                    >
+                                                        View on GitHub
+                                                    </Button>
+                                                </div>
+                                            </div>
+                                        }
+                                    >
+                                        <ClientCodeWrapper>
+                                            <CodeBlock language="xml" title="Maven">{`<dependency>
+  <groupId>com.apify</groupId>
+  <artifactId>apify-client</artifactId>
+  <version>0.1.1</version>
+</dependency>`}</CodeBlock>
+                                            <CodeBlock language="java">{`ApifyClient client = ApifyClient.create("MY-APIFY-TOKEN");
+
+// Start an Actor and wait for it to finish (120-second timeout)
+ActorRun run = client.actor("john-doe/my-cool-actor")
+    .call(null, new ActorStartOptions(), 120L);
+
+// Fetch results from the run's default dataset
+PaginationList<JsonNode> items = client.dataset(run.getDefaultDatasetId())
+    .listItems(new DatasetListItemsOptions());
+System.out.println("Item count: " + items.getCount());`}</CodeBlock>
+                                        </ClientCodeWrapper>
+                                    </SectionWrapper>
+                                ),
+                            },
+                            {
+                                title: (
+                                    <TabTitleWrapper>
+                                        <ThemedImage
+                                            height={16}
+                                            width={16}
+                                            sources={{
+                                                dark: useBaseUrl('/img/dotnet-40x40.svg'),
+                                                light: useBaseUrl('/img/dotnet-40x40.svg'),
+                                            }}
+                                        />
+                                        .NET
+                                    </TabTitleWrapper>
+                                ),
+                                content: (
+                                    <SectionWrapper
+                                        heading=".NET API client"
+                                        headingAs="h3"
+                                        description={
+                                            <div className="Description">
+                                                For .NET applications. This client is experimental.
+                                                <GitButton
+                                                    href="https://github.com/apify/apify-client-dotnet"
+                                                    data-size="large"
+                                                    data-show-count="true"
+                                                >
+                                                    Star
+                                                </GitButton>
+                                                <div className="DescriptionLinks">
+                                                    <Button
+                                                        color="success"
+                                                        hideExternalIcon
+                                                        to="https://github.com/apify/apify-client-dotnet"
+                                                    >
+                                                        View on GitHub
+                                                    </Button>
+                                                </div>
+                                            </div>
+                                        }
+                                    >
+                                        <ClientCodeWrapper>
+                                            <CodeBlock language="bash">dotnet add package Apify.Client</CodeBlock>
+                                            <CodeBlock language="csharp">{`using Apify.Client;
+
+var client = new ApifyClient("MY-APIFY-TOKEN");
+
+// Start an Actor and wait for it to finish
+var run = await client.Actor("john-doe/my-cool-actor").CallAsync();
+
+// Fetch results from the run's default dataset
+var items = await client.Dataset(run.DefaultDatasetId!).ListItemsAsync();
+Console.WriteLine($"Item count: {items.Count}");`}</CodeBlock>
+                                        </ClientCodeWrapper>
+                                    </SectionWrapper>
+                                ),
+                            },
+                            {
+                                title: (
+                                    <TabTitleWrapper>
+                                        <ThemedImage
+                                            height={16}
+                                            width={16}
+                                            sources={{
+                                                dark: useBaseUrl('/img/rust-40x40.svg'),
+                                                light: useBaseUrl('/img/rust-40x40.svg'),
+                                            }}
+                                        />
+                                        Rust
+                                    </TabTitleWrapper>
+                                ),
+                                content: (
+                                    <SectionWrapper
+                                        heading="Rust API client"
+                                        headingAs="h3"
+                                        description={
+                                            <div className="Description">
+                                                For Rust applications. This client is experimental.
+                                                <GitButton
+                                                    href="https://github.com/apify/apify-client-rust"
+                                                    data-size="large"
+                                                    data-show-count="true"
+                                                >
+                                                    Star
+                                                </GitButton>
+                                                <div className="DescriptionLinks">
+                                                    <Button
+                                                        color="success"
+                                                        hideExternalIcon
+                                                        to="https://github.com/apify/apify-client-rust"
+                                                    >
+                                                        View on GitHub
+                                                    </Button>
+                                                </div>
+                                            </div>
+                                        }
+                                    >
+                                        <ClientCodeWrapper>
+                                            <CodeBlock language="toml" title="Cargo.toml">{`[dependencies]
+apify-client = "0.5"
+tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
+serde_json = "1"`}</CodeBlock>
+                                            <CodeBlock language="rust">{`use apify_client::ApifyClient;
+
+#[tokio::main]
+async fn main() -> Result<(), Box<dyn std::error::Error>> {
+    let client = ApifyClient::new("MY-APIFY-TOKEN");
+
+    // Start an Actor and wait for it to finish
+    let run = client
+        .actor("john-doe/my-cool-actor")
+        .call::<serde_json::Value>(None, Default::default(), None)
+        .await?;
+
+    // Read items from the run's default dataset
+    if let Some(dataset_id) = &run.default_dataset_id {
+        let items = client
+            .dataset(dataset_id)
+            .list_items::<serde_json::Value>(Default::default())
+            .await?;
+        println!("Got {} items", items.items.len());
+    }
+    Ok(())
+}`}</CodeBlock>
+                                        </ClientCodeWrapper>
+                                    </SectionWrapper>
+                                ),
+                            },
                         ]}
                     />
                 </Section>
