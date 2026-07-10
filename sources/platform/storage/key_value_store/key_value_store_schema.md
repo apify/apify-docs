@@ -150,11 +150,11 @@ This defines two collections for the default key-value store: `documents` for te
 
 Once the schema is defined, tabs for each collection appear in the **Storage** tab of the Actor's run:
 
-![Storages tab in Run](images/kv-store-schema-example-run.png)
+![Storages tab in Run](images/kv-store-schema-example-run.webp)
 
 The tabs also appear in the storage detail view:
 
-![Storage detail](images/kv-store-schema-example-storage.png)
+![Storage detail](images/kv-store-schema-example-storage.webp)
 
 ### List keys by collection via the API
 
