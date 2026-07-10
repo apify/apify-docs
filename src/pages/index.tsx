@@ -42,6 +42,11 @@ const StyledBanner = styled(Banner)`
     width: 100%;
     padding: 40px 16px 24px 16px;
 
+    /* dark only - in light the Banner keeps its own gray panel background */
+    html[data-theme='dark'] & {
+        background-color: var(--color-neutral-card-background);
+    }
+
     @media (min-width: ${theme.layout.tablet}) {
         width: 738px;
         padding: 40px;
