@@ -287,7 +287,7 @@ Check out the [Python SDK documentation](/sdk/python/docs/concepts/storages#work
 Request queue is a storage type built with scraping in mind, enabling developers to write scraping logic efficiently and scalably.
 The Apify tooling, including [Crawlee](https://crawlee.dev/), [Apify SDK for JavaScript](https://docs.apify.com/sdk/js/), and [Apify SDK for Python](https://docs.apify.com/sdk/python/), incorporates all these features, enabling users to leverage them effortlessly without extra configuration.
 
-In the following section, we will discuss each of the main features in depth.
+The following sections cover each of the main features in depth.
 
 ### Persistence and retention
 

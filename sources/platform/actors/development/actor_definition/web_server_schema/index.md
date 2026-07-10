@@ -90,7 +90,7 @@ Follow the standard [OpenAPI 3.x format](https://spec.openapis.org/oas/latest.ht
 
 ## Build and deploy
 
-The build process validates `webServerSchema`, similar to other Actor schemas like [input schema](/actors/development/actor-definition/input-schema) and [dataset schema](/actors/development/actor-definition/dataset-schema). If the spec is malformed, the build fails with a validation error.
+The build process validates `webServerSchema`, similar to other Actor schemas like [input schema](/actors/development/actor-definition/input-schema) and [dataset schema](/storage/dataset-schema). If the spec is malformed, the build fails with a validation error.
 
 Once deployed, the **Standby** tab appears automatically on the Actor's detail page when you enable [standby mode](/actors/development/programming-interface/standby). It renders your spec with [Swagger UI](https://swagger.io/tools/swagger-ui/) and handles authentication automatically - Actor users can send requests without configuring API tokens.
 

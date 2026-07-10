@@ -68,14 +68,6 @@ const themeConfig = {
                 rel: 'dofollow',
             },
             {
-                label: 'Limits',
-                href: `${absoluteUrl}/limits`,
-                activeBasePath: 'limits',
-                position: 'left',
-                target: '_self',
-                rel: 'dofollow',
-            },
-            {
                 label: 'Security',
                 href: `${absoluteUrl}/security`,
                 activeBasePath: 'security',
@@ -130,6 +122,36 @@ const themeConfig = {
                     {
                         label: 'CLI',
                         href: `${absoluteUrl}/cli/docs`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                    {
+                        label: 'Experimental client for Rust',
+                        href: `https://github.com/apify/apify-client-rust`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                    {
+                        label: 'Experimental client for Go',
+                        href: `https://github.com/apify/apify-client-go`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                    {
+                        label: 'Experimental client for PHP',
+                        href: `https://github.com/apify/apify-client-php`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                    {
+                        label: 'Experimental client for Java',
+                        href: `https://github.com/apify/apify-client-java`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                    {
+                        label: 'Experimental client for .NET',
+                        href: `https://github.com/apify/apify-client-dotnet`,
                         target: '_self',
                         rel: 'dofollow',
                     },

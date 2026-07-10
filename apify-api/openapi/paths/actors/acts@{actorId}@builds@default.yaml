@@ -25,6 +25,9 @@ get:
             $ref: ../../components/schemas/actor-builds/BuildResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      # Although the endpoint does not require a token, the API still validates any token that is supplied and returns 401 for an invalid one.
+      $ref: ../../components/responses/Unauthorized.yaml
     "403":
       # It should be 404, but is 403 for backwards compatibility. https://github.com/apify/apify-core/pull/17414
       $ref: ../../components/responses/Forbidden.yaml

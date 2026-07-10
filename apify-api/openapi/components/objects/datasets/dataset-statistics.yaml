@@ -10,6 +10,8 @@ sharedGet: &sharedGet
       $ref: ../../responses/BadRequest.yaml
     "401":
       $ref: ../../responses/Unauthorized.yaml
+    "402":
+      $ref: ../../responses/PaymentRequired.yaml
     "403":
       $ref: ../../responses/Forbidden.yaml
     "404":

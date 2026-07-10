@@ -1,11 +1,17 @@
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import styled from 'styled-components';
 
 import { theme, VerticalTile } from '@apify/ui-library';
 
+import { cardHoverStyles } from '../cardHoverStyles';
 import { Heading } from '../Heading';
 import { Text } from '../Text';
 import styles from './styles.module.css';
+
+const StyledVerticalTile = styled(VerticalTile)`
+    ${cardHoverStyles}
+`;
 
 interface PlainCardProps {
     icon: React.ReactNode;
@@ -20,7 +26,7 @@ export default function PlainCard({ icon, title, description, to, width }: Plain
     const external = to.startsWith('http');
 
     const Tile = (
-        <VerticalTile
+        <StyledVerticalTile
             style={{ height: '100%' }}
             content={
                 <div className={styles.plainCardContent}>
