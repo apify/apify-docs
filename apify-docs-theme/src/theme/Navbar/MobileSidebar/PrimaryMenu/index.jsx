@@ -20,7 +20,8 @@ export default function NavbarMobilePrimaryMenu() {
         options: { subNavbar },
     } = usePluginData('@apify/docs-theme');
     const location = useLocation();
-    const showSubNavbar = subNavbar && (!subNavbar?.pathRegex || isRegexpStringMatch(subNavbar.pathRegex, location.pathname));
+    const showSubNavbar =
+        subNavbar && (!subNavbar?.pathRegex || isRegexpStringMatch(subNavbar.pathRegex, location.pathname));
     return (
         <>
             {showSubNavbar ? (
