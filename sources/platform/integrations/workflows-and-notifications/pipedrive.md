@@ -86,7 +86,7 @@ Review a summary of the configuration, then save it and optionally run the enric
 
 :::caution Organizations need a website
 
-Contact enrichment starts from an organization's website URL. Organizations without a website are skipped, and the review step lists how many will be skipped.
+Contact enrichment starts from an organization's website URL. The app skips organizations without a website, and the review step lists how many it will skip.
 
 :::
 
