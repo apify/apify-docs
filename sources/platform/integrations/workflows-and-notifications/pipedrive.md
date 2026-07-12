@@ -117,7 +117,7 @@ You can review past runs in the enrichment history from the organization list mo
 - The app skips organizations without a website URL, because contact enrichment starts from the organization's website.
 - The number of leads per organization must be between 1 and 100.
 - A configuration needs at least one fully configured field mapping before you can save it.
-- Enrichment runs asynchronously, so results are written back to Pipedrive only after the run finishes.
+- Enrichment runs asynchronously, so the app writes results back to Pipedrive only after the run finishes.
 - You cannot currently choose any other Actor for running enrichments.
 
 ## Troubleshooting
