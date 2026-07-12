@@ -106,7 +106,7 @@ Enrichment runs are asynchronous. The run starts in the background, and the resu
 Each run reports its status and a summary of what changed:
 
 - **Statuses**: a run shows as **Processing** while it works, then **Done** or **Failed**.
-- **Results summary**: items (contacts + organizations) added, updated, skipped, and failed.
+- **Results summary**: items (contacts and organizations) added, updated, skipped, and failed.
 
 You can review past runs in the enrichment history from the organization list modal, and open a single run to see its configuration, results, and enrichment data.
 
