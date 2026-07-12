@@ -63,9 +63,9 @@ Configure what the enrichment collects:
 - **Departments**: which company departments to target.
 - **Social media profiles**: which profiles to collect.
 - **Deduplication mode**: how existing Pipedrive values are handled. You have to choose one of:
-    - **Overwrite existing data**
-    - **Auto-fill only empty fields**
-    - **Skip existing records**
+  - **Overwrite existing data**
+  - **Auto-fill only empty fields**
+  - **Skip existing records**
 - **Automatically enrich new organizations**: when enabled, the app automatically enriches newly added organizations using this configuration.
 
 For more details you can read the [Contact Details Scraper](https://apify.com/vdrmota/contact-info-scraper) Actor documentation.
