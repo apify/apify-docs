@@ -1,70 +1,67 @@
 ---
 title: List of permissions
-description: Learn about the access rights you can grant to other users. See a list of all access options for Apify resources such as Actors, Actor runs/tasks and storage.
+description: Learn about the access rights you can grant to other users. See all access options for Apify resources such as Actors, tasks, storage, and schedules.
 sidebar_position: 12.2
 slug: /account/collaboration/list-of-permissions
 ---
 
 This document contains all the access options that can be granted to resources on the Apify platform.
 
-## Actors
-
-To learn about Apify Actors, check out the [documentation](/actors).
-
-### Actor
+## Actor
 
 | Permission           | Description                                                |
 |----------------------|------------------------------------------------------------|
 | Read                 | View Actor settings, source code and builds.               |
 | Write                | Edit Actor settings and source code, and delete the Actor. |
 | Run                  | Run any of an Actor's builds.                              |
-| View runs            | View a list of Actor runs and their details.               |
+| Build                | Build the Actor.                                           |
 | Manage access rights | Manage Actor access rights.                                |
 
-### Actor task
+To learn about Apify Actors, see the [documentation](/actors).
+
+## Actor task
 
 | Permission           | Description                                                |
 |----------------------|------------------------------------------------------------|
 | Read                 | View task configuration.                                   |
 | Write                | Edit task configuration and settings, and delete the task. |
-| View runs            | View a list of Actor task runs and their details.          |
 | Manage access rights | Manage Actor task access rights.                           |
 
 To learn about Actor tasks, see the [documentation](/actors/running/tasks).
 
 ## Storage
 
-For more information about Storage, see its [documentation](/storage).
+| Permission           | Description                                                      |
+|----------------------|------------------------------------------------------------------|
+| Read                 | View storage information and its data.                           |
+| Write                | Edit storage settings, push data to it, and remove data from it. |
+| Manage access rights | Manage storage access rights.                                    |
 
-### Dataset
+To learn about storage, see the [documentation](/storage).
 
-| Permission           | Description                                                     |
-|----------------------|-----------------------------------------------------------------|
-| Read                 | View dataset information and its data.                          |
-| Write                | Edit dataset settings, push data to it, and remove the dataset. |
-| Manage access rights | Manage dataset access rights.                                   |
+## Schedule
 
-To learn about dataset storage, see its [documentation](/storage/dataset).
+| Permission | Description                                                        |
+|------------|--------------------------------------------------------------------|
+| Read       | View schedule configuration.                                       |
+| Write      | Edit schedule configuration and settings, and delete the schedule. |
 
-### Key-value-store
+To learn about schedules, see the [documentation](/actors/running/schedules).
 
-| Permission           | Description                                                                                       |
-|----------------------|---------------------------------------------------------------------------------------------------|
-| Read                 | View key-value store details and records.                                                         |
-| Write                | Edit key-value store settings, add, update or remove its records, and delete the key-value store. |
-| Manage access rights | Manage key-value store access rights.                                                             |
+## Organization
 
-To learn about key-value stores, see the [documentation](/storage/key-value-store).
+Permissions that can be granted to members of organizations. To learn about the organization account, see its [documentation](/account/collaboration/organization).
 
-### Request queue
-
-| Permission           | Description                                                                                    |
-|----------------------|------------------------------------------------------------------------------------------------|
-| Read                 | View request queue details and records.                                                        |
-| Write                | Edit request queue settings, add, update, or remove its records, and delete the request queue. |
-| Manage access rights | Manage request queue access rights.                                                            |
-
-To learn about request queue storage, see the [documentation](/storage/request-queue).
+| Permission           | Description                                                                 |
+|----------------------|-----------------------------------------------------------------------------|
+| Manage organization  | Change the organization's settings.                                         |
+| Manage access tokens | Manage the organization's access tokens, i.e. API token and proxy password. |
+| Update email         | Update the organization's contact email.                                    |
+| Update profile       | Make changes to the organization's profile information.                     |
+| Manage billing       | Update the type of subscription, billing details and payment methods.       |
+| View invoices        | See the organization's invoices.                                            |
+| View payouts         | See the organization's payouts.                                             |
+| View monetization    | See the organization's monetization details.                                |
 
 ## Proxy
 
@@ -74,16 +71,18 @@ To learn about request queue storage, see the [documentation](/storage/request-q
 
 To learn about Apify Proxy, see its [documentation](/proxy).
 
-## User permissions
+## Actor issue
 
-Permissions that can be granted to members of organizations. To learn about the organization account, see its [documentation](/account/collaboration/organization).
+| Permission    | Description                                             |
+|---------------|---------------------------------------------------------|
+| Read          | View an Actor's issues and their details.               |
+| Write         | Create and edit Actor issues.                           |
+| Update status | Change an issue's status, for example open or close it. |
 
-| Permission          | Description                                                           |
-|---------------------|-----------------------------------------------------------------------|
-| Manage access keys  | Manage account access keys, i.e. API token and proxy password.        |
-| Update subscription | Update the type of subscription, billing details and payment methods. |
-| Update profile      | Make changes in profile information.                                  |
-| Update email        | Update the contact email for the account.                             |
-| Reset password      | Reset the account's password.                                         |
-| View invoices       | See the account's invoices.                                           |
-| Manage organization | Change the organization's settings.                                   |
+## Actor issue comment
+
+| Permission     | Description                    |
+|----------------|--------------------------------|
+| Read comment   | View comments on Actor issues. |
+| Write comment  | Add comments to Actor issues.  |
+| Update comment | Edit comments on Actor issues. |
