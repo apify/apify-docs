@@ -62,7 +62,7 @@ Configure what the enrichment collects:
 - **Leads per organization**: how many contacts to find per organization, from 1 to 100.
 - **Departments**: which company departments to target.
 - **Social media profiles**: which profiles to collect.
-- **Deduplication mode**: how existing Pipedrive values are handled. You have to choose one of:
+- **Deduplication mode**: how the app handles existing Pipedrive values. Choose one of:
   - **Overwrite existing data**
   - **Auto-fill only empty fields**
   - **Skip existing records**
