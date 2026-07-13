@@ -83,7 +83,7 @@ By copying the `package.json` and `package-lock.json` files and installing depen
 
 The Dockerfile above uses `--omit=dev`, which strips `typescript`. If your `build` script invokes `tsc`, the image build fails with `tsc: not found`. Three fixes:
 
-- **Multi-stage build** (smallest runtime image) — installs devDeps in a builder stage, copies the compiled output into a slim runtime stage. Most complex Dockerfile.
+- **Multi-stage build** (smallest runtime image)—installs devDeps in a builder stage, copies the compiled output into a slim runtime stage. Most complex Dockerfile.
   <details><summary>Example</summary>
 
   ```dockerfile
@@ -102,7 +102,7 @@ The Dockerfile above uses `--omit=dev`, which strips `typescript`. If your `buil
 
   </details>
 
-- **Drop `--omit=dev`** (simplest Dockerfile, largest runtime image) — installs everything, including linters and type declarations, into the single-stage image.
+- **Drop `--omit=dev`** (simplest Dockerfile, largest runtime image)—installs everything, including linters and type declarations, into the single-stage image.
   <details><summary>Example</summary>
 
   ```dockerfile
@@ -116,7 +116,7 @@ The Dockerfile above uses `--omit=dev`, which strips `typescript`. If your `buil
 
   </details>
 
-- **Move `typescript` to `dependencies`** — keeps the single-stage Dockerfile but adds ~30 MB to the runtime image (`typescript` ~23 MB + `tsx` + esbuild ~10 MB). Runtime never uses these, so the space is wasted.
+- **Move `typescript` to `dependencies`**—keeps the single-stage Dockerfile but bloats the runtime image with the TypeScript compiler and its tooling. Runtime never uses these, so the extra size is wasted.
   <details><summary>Example</summary>
 
   ```json
