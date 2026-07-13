@@ -81,7 +81,11 @@ By copying the `package.json` and `package-lock.json` files and installing depen
 
 :::warning TypeScript Actors
 
-The Dockerfile above uses `--omit=dev`, which strips `typescript`. If your `build` script invokes `tsc`, the image build fails with `sh: tsc: not found` even though the code compiles locally. Use a multi-stage build (see the [`ts-empty` template's Dockerfile](https://github.com/apify/actor-templates/blob/master/templates/ts-empty/Dockerfile)) or drop `--omit=dev` from the single-stage install.
+The Dockerfile above uses `--omit=dev`, which strips `typescript`. If your `build` script invokes `tsc`, the image build fails with `tsc: not found`. Three fixes:
+
+- Use a multi-stage build: install with `--include=dev` in a builder stage, then copy the compiled output into a slim runtime stage.
+- Drop `--omit=dev` from the single-stage install.
+- Move `typescript` (and `tsx`, if used) from `devDependencies` to `dependencies`.
 
 :::
 
