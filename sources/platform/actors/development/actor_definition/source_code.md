@@ -79,29 +79,9 @@ By copying the `package.json` and `package-lock.json` files and installing depen
 
 :::
 
-:::warning TypeScript Actors and `npm install --omit=dev`
+:::warning TypeScript Actors
 
-If your Actor is written in TypeScript and its `package.json` `build` script invokes `tsc` (the TypeScript compiler), the JavaScript template's Dockerfile above will break the build inside the Docker image. `--omit=dev` drops `devDependencies` — including `typescript` — so `tsc` is not on `PATH` when the build script runs, and the whole image build fails with `sh: tsc: not found`.
-
-For TypeScript projects, either:
-
-1. Run the build **before** the production install (recommended — smaller final image):
-
-    ```dockerfile
-    FROM apify/actor-node:24 AS build
-    COPY --chown=myuser:myuser package*.json ./
-    RUN npm ci --include=dev
-    COPY --chown=myuser:myuser . ./
-    RUN npm run build
-    RUN npm prune --omit=dev
-
-    FROM apify/actor-node:24
-    COPY --from=build --chown=myuser:myuser /home/myuser ./
-    ```
-
-2. Or drop `--omit=dev` from the single-stage install and rely on `npm run build` succeeding because devDependencies are present.
-
-Symptoms of this trap: the remote build fails during the `RUN npm run build` step with `tsc: not found` (or `Cannot find module 'typescript'`) even though the code compiles locally. Every retry burns a build cycle, so it's worth catching in the Dockerfile itself.
+The Dockerfile above uses `--omit=dev`, which strips `typescript`. If your `build` script invokes `tsc`, the image build fails with `sh: tsc: not found` even though the code compiles locally. Use a multi-stage build (see the [`ts-empty` template's Dockerfile](https://github.com/apify/actor-templates/blob/master/templates/ts-empty/Dockerfile)) or drop `--omit=dev` from the single-stage install.
 
 :::
 
