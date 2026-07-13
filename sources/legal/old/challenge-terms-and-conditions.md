@@ -15,7 +15,7 @@ Effective date: November 3, 2025
 
 Apify Technologies s.r.o., a company registered in the Czech Republic, with its registered office at Vodičkova 704/36, 110 00 Prague 1, Czech Republic, Company ID No.: 04788290 ("**Apify**", "**we**", "**us**") offers you (also referred to as "**participant**") the opportunity to enroll in the "Apify \$1M Challenge" ("**Challenge**"), which is subject to the following "Apify 1M Challenge Terms and Conditions" ("**Challenge Terms**").
 
-As part of the Challenge requires publishing Actors in Apify Store, the Challenge is further governed by [Apify Store Publishing Terms and Conditions](store-publishing-terms-and-conditions.md) ("**Store Publishing Terms**"), which are incorporated herein by reference. In case of a conflict, these Challenge Terms shall prevail.
+As part of the Challenge requires publishing Actors in Apify Store, the Challenge is further governed by [Apify Store Publishing Terms and Conditions](../latest/terms/store-publishing-terms-and-conditions.md) ("**Store Publishing Terms**"), which are incorporated herein by reference. In case of a conflict, these Challenge Terms shall prevail.
 
 Terms starting with a capital letter used in these Challenge Terms have the meaning defined either here or in Store Publishing Terms.
 
