@@ -23,29 +23,32 @@ This guide covers setup in VS Code.
 
 - [An Apify account](https://console.apify.com/sign-up) - sign up for free if you don't have one.
 - [VS Code](https://code.visualstudio.com/) version 1.120 or newer, with the [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extension installed and signed in with Copilot access.
-- [Git](https://git-scm.com/) - to clone the plugin repository.
 
 ## Install the plugin
 
-The plugin is distributed as a repository you clone into your workspace. Copilot discovers it from the workspace folder.
+Install the plugin directly from its GitHub repository - there's no need to clone it.
 
-1. Clone the plugin repository:
+1. Copy the plugin repository URL:
 
-    ```bash
-    git clone https://github.com/apify/apify-github-copilot-plugin apify-copilot
+    ```text
+    https://github.com/apify/apify-github-copilot-plugin
     ```
 
-1. Open the cloned `apify-copilot` folder in VS Code. The Explorer shows an `apify` folder containing `agents`, `skills`, `.mcp.json`, and `plugin.json`.
+1. In VS Code, open the Command Palette (`Ctrl+Shift+P`, or `Cmd+Shift+P` on macOS) and run **Chat: Install Plugin from Source**.
 
-    ![VS Code Explorer showing the apify plugin folder with agents, skills, .mcp.json, and plugin.json](images/github-copilot/folder-structure.webp)
+    ![VS Code Command Palette with the Chat: Install Plugin from Source command selected](images/github-copilot/install-plugin-command.webp)
 
-1. Open **Settings** and search for `plugin`. Under **Chat: Plugin Locations**, select **Add Item**, set the item to `apify` (the plugin folder), and set its value to `true`. Make sure **Chat: Plugins** is also enabled.
+1. Paste the repository URL into the input field and press Enter.
 
-    ![VS Code Settings showing Chat: Plugin Locations with the apify entry set to true](images/github-copilot/enable-plugin-setting.webp)
+    ![VS Code input field with the Apify plugin repository URL pasted in](images/github-copilot/install-plugin-url.webp)
 
-1. Reload VS Code. Open the Command Palette (`Ctrl+Shift+P`, or `Cmd+Shift+P` on macOS), run **Developer: Reload Window**, or restart the editor.
+1. In the trust dialog, review the source and select **Trust**.
 
-    ![VS Code Command Palette with the Developer: Reload Window command selected](images/github-copilot/reload-window.webp)
+    ![VS Code dialog asking whether to trust plugins from the Apify repository](images/github-copilot/install-plugin-trust.webp)
+
+1. VS Code installs the plugin and opens the **Plugin: apify** panel, which shows **Disable** and **Uninstall** actions. You can reopen it anytime from the Command Palette (`Ctrl+Shift+P`, or `Cmd+Shift+P` on macOS) with **Chat: Plugins**, which lists your installed agent plugins.
+
+    ![VS Code Plugin: apify panel open over the Agent Plugins list, showing the installed Apify plugin](images/github-copilot/plugin-installed.webp)
 
 1. Open Copilot Chat, open the mode picker, and select the **apify** agent.
 
@@ -53,21 +56,23 @@ The plugin is distributed as a repository you clone into your workspace. Copilot
 
 ## Connect the Apify MCP server
 
-The plugin registers the Apify MCP server (`https://mcp.apify.com/`) through `.mcp.json`. Read-only tools like searching the Store and fetching Actor details work without signing in, but you need to authenticate to run Actors and access your account data.
+The plugin bundles the Apify MCP server (`https://mcp.apify.com/`) - its configuration ships in the plugin's `.mcp.json`, so you don't add it manually. Read-only tools like searching the Store and fetching Actor details work without signing in, but you need to authenticate to run Actors and access your account data.
 
-1. Open `apify/.mcp.json`. A **Start** action appears above the `apify-mcp-server` entry. Select it to start the server.
+1. Confirm the **Apify MCP Server** tool is enabled for the `apify` agent. Open the tools picker in Copilot Chat and check that **Apify MCP Server** is selected.
 
-    ![apify/.mcp.json with the Start action above the apify-mcp-server entry](images/github-copilot/mcp-start.webp)
+    ![Configure Tools dialog with Apify MCP Server enabled for the apify agent](images/github-copilot/configure-tools.webp)
 
-1. VS Code prompts that the MCP server wants to authenticate to `console-backend.apify.com`. Select **Allow**.
+1. Open the plugin's `.mcp.json`. A **Start** action appears above the `apify-mcp-server` entry - select it to start the server.
 
-1. VS Code asks to open the Apify authorization page in your browser. Select **Open**.
+    ![Bundled .mcp.json with the Start action above the apify-mcp-server entry](images/github-copilot/mcp-start.webp)
 
-1. Complete the Apify OAuth flow in the browser: select an existing connection or create a new one, then review the permissions and confirm access.
+1. VS Code prompts that the MCP server wants to authenticate to `console-backend.apify.com`. Select **Allow**, complete the Apify OAuth flow in your browser, and choose the account to connect.
 
-1. Back in VS Code, the `apify-mcp-server` entry shows **Running**.
+    ![VS Code dialog asking to allow the apify-mcp-server to authenticate to console-backend.apify.com](images/github-copilot/mcp-oauth-allow.webp)
 
-    ![apify/.mcp.json showing the apify-mcp-server as Running with Stop and Restart actions](images/github-copilot/mcp-connected.webp)
+1. The `apify-mcp-server` entry shows **Running** and exposes its tools.
+
+    ![Bundled .mcp.json showing the apify-mcp-server as Running with Stop and Restart actions](images/github-copilot/mcp-running.webp)
 
 :::tip Session persistence
 
@@ -82,6 +87,10 @@ Select the **apify** agent and describe what you want in natural language. The a
 > "Use Apify to find a good Actor for scraping Google Maps places. Show me the best option, its input requirements, pricing model, and what kind of dataset output it returns. Do not run the Actor yet."
 
 The agent searches Apify Store, fetches the top Actor's details through the Apify MCP server, and summarizes its inputs, pricing, and output - all without running the Actor.
+
+To check what's available, ask the agent to list its Apify tools.
+
+![Copilot Chat listing the available Apify MCP tools](images/github-copilot/verify-tools.webp)
 
 ## Bundled skills
 
@@ -119,11 +128,11 @@ The `apify` agent uses the transport that fits the task, and each one authentica
 
 ### The `apify` agent doesn't appear in the picker
 
-Confirm that **Chat: Plugin Locations** has an `apify` entry set to `true`, that **Chat: Plugins** is enabled, and that you reloaded the window after changing the settings. Plugin support requires VS Code 1.120 or newer.
+Confirm that the plugin is installed and trusted (rerun **Chat: Install Plugin from Source** if needed), that **Chat: Plugins** is enabled in Settings, and that you reloaded the window after installing. Plugin support requires VS Code 1.120 or newer.
 
-### The Apify MCP server isn't listed or won't start
+### The Apify MCP server won't start
 
-Open `apify/.mcp.json` and select the **Start** action above the `apify-mcp-server` entry. If the action is missing, update VS Code to 1.120 or newer and confirm the plugin is enabled.
+Open the plugin's `.mcp.json` and select the **Start** action above the `apify-mcp-server` entry, then complete the **Allow** prompt and account selection. Check the **Output** panel (**MCP: apify-mcp-server**) - a successful start ends with a line about the discovered tools. Confirm the **Apify MCP Server** tool is enabled for the `apify` agent in the tools picker.
 
 ### Browser doesn't open, or OAuth fails
 
@@ -142,7 +151,7 @@ Start from the **apify** agent. It is the single entry point that detects the av
 ## Limitations
 
 - Copilot plugin support is a preview feature in VS Code, so its settings and behavior may change between releases.
-- The plugin is installed by cloning its repository into your workspace; it isn't published to a plugin marketplace yet.
+- The plugin is installed from its GitHub repository URL; it isn't published to a plugin marketplace yet.
 - Long-running Actors may exceed the time a single tool call waits for completion. Reduce the scope or split the work across multiple prompts.
 - Each Actor run consumes Apify platform usage from your plan in addition to any Copilot usage. See [Billing](/platform/console/billing) for details.
 - Skills that edit files in your project (Actor development, actorization, SDK integration) make local changes - review them before deploying or committing.
