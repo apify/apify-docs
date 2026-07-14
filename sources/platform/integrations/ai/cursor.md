@@ -29,19 +29,19 @@ This guide covers installation from the Cursor plugin marketplace.
 
 1. Open **Cursor** > **Preferences** > **Cursor Settings**.
 
-2. Select **Plugins**.
+1. Select **Plugins**.
 
     ![Cursor Settings with the Plugins section selected](./images/cursor/01-plugins.webp)
 
-3. Search for **Apify**.
+1. Search for **Apify**.
 
-4. Select the **Apify Cursor plugin** from the results.
+1. Select the **Apify Cursor plugin** from the results.
 
     ![Cursor plugin marketplace search results with the Apify Cursor plugin card](./images/cursor/02-apify-plugin-search.webp)
 
-5. Click **Get**.
+1. Click **Get**.
 
-6. Choose an install scope. Select **This project** to enable the plugin only in the current project, or **All projects** to enable it for every project under your account.
+1. Choose an install scope. Select **This project** to enable the plugin only in the current project, or **All projects** to enable it for every project under your account.
 
 ## Authenticate to Apify
 
