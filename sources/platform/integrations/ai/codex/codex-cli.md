@@ -11,7 +11,7 @@ import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integrati
 
 The [Apify plugin for Codex](https://github.com/apify/apify-codex-plugin) connects Codex to Apify's library of [Actors](https://apify.com/store) and bundles:
 
-- The [Apify MCP server](/platform/integrations/mcp) for searching the Store, running Actors, and retrieving datasets through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro).
+- The [Apify MCP server](/integrations/mcp) for searching the Store, running Actors, and retrieving datasets through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro).
 - Five built-in skills for common workflows (see [Bundled skills](#bundled-skills) below).
 
 This guide covers installation in the Codex CLI.
@@ -57,12 +57,6 @@ The plugin bundles the Apify MCP server. Read-only tools like searching the Stor
 
 1. Review the permissions and click **Allow access**.
 
-    :::caution Dynamic registration warning
-
-    The OAuth page shows a warning that the application was registered dynamically and wasn't verified by Apify. This is expected for the current plugin release - the plugin uses dynamic OAuth client registration. Make sure you trust this installation before allowing access.
-
-    :::
-
 1. Back in the terminal, the `apify` MCP server is connected and ready to use in any new chat.
 
 :::tip Session persistence
@@ -75,7 +69,7 @@ The connection stays authenticated for future sessions. You can revoke access at
 
 In any new Codex CLI chat, describe what you want in natural language. Because this bundle exposes the MCP tools and skills directly, be explicit about the workflow you want.
 
-> "Use Apify to find a good Actor for scraping Google Maps places. Show me the best option, its input requirements, pricing model, and what kind of dataset output it returns. Do not run the Actor yet."
+> Use Apify to find a good Actor for scraping Google Maps places. Show me the best option, its input requirements, pricing model, and what kind of dataset output it returns. Do not run the Actor yet.
 
 Codex searches Apify Store and fetches the top Actor's details through the `apify` MCP server.
 
@@ -99,15 +93,15 @@ Example prompts that route to specific skills:
 
 _Ultimate scraper:_
 
-> "Find 10 highly rated coffee shops in Seattle with name, address, rating, phone, and website."
+> Find 10 highly rated coffee shops in Seattle with name, address, rating, phone, and website.
 
 _Actor development:_
 
-> "Create an Apify Actor that accepts a `startUrl` and `maxPages` input, crawls the site, and stores each page title and URL."
+> Create an Apify Actor that accepts a `startUrl` and `maxPages` input, crawls the site, and stores each page title and URL.
 
 _SDK integration:_
 
-> "Add Apify to this project. The Node.js API route should run an Actor and return dataset items as JSON."
+> Add Apify to this project. The Node.js API route should run an Actor and return dataset items as JSON.
 
 ## Troubleshooting
 
@@ -132,13 +126,13 @@ export APIFY_TOKEN=<YOUR_API_TOKEN>
 ## Limitations
 
 - Long-running Actors may exceed the time a single tool call waits for completion. Reduce the scope or split the work across multiple prompts.
-- Each Actor run consumes Apify platform usage from your plan in addition to any Codex usage. See [Billing](/platform/console/billing) for details.
+- Each Actor run consumes Apify platform usage from your plan in addition to any Codex usage. See [Billing](/account/billing) for details.
 - Skills that edit files in your project (Actor development, actorization, SDK integration) make local changes - review them before deploying or committing.
 
 ## Related integrations
 
-- [MCP server integration](/platform/integrations/mcp) - Use the Apify MCP server with other clients
-- [ChatGPT integration](/platform/integrations/chatgpt) - Connect the Apify MCP server to ChatGPT
+- [MCP server integration](/integrations/mcp) - Use the Apify MCP server with other clients
+- [ChatGPT integration](/integrations/chatgpt) - Connect the Apify MCP server to ChatGPT
 
 ## Resources
 
