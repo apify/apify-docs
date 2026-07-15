@@ -94,7 +94,7 @@ properties:
     type: [string, "null"]
     examples: ["https://my-actor.apify.actor"]
   notice:
-    type: string
+    type: [string, "null"]
     examples: [NONE]
   categories:
     type: array
