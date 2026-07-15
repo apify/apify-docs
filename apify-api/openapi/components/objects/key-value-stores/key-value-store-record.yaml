@@ -31,6 +31,8 @@ sharedTagTaskLastRun: &sharedTagTaskLastRun
 sharedGet: &sharedGet
   responses:
     <<: *commonErrors
+    "402":
+      $ref: ../../responses/PaymentRequired.yaml
     "200":
       description: ""
       headers: {}
@@ -217,9 +219,9 @@ putById:
 
     Below is a list of supported `Content-Encoding` types.
 
+    * Brotli compression: `Content-Encoding: br`
     * Gzip compression: `Content-Encoding: gzip`
     * Deflate compression: `Content-Encoding: deflate`
-    * Brotli compression: `Content-Encoding: br`
   operationId: keyValueStore_record_put
   parameters:
     - $ref: "../../parameters/keyValueStoreParameters.yaml#/storeId"

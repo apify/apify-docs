@@ -45,7 +45,7 @@ properties:
     type: [boolean, "null"]
     examples: [false]
   requestUrl:
-    type: string
+    type: [string, "null"]
     format: uri
     examples: ["http://example.com/"]
   payloadTemplate:

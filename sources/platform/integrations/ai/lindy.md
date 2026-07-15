@@ -48,7 +48,7 @@ This section demonstrates how to integrate Apify's data extraction capabilities 
 
 :::tip Actor availability
 
-You have access to thousands of Actors available on the [Apify Store](https://apify.com/store). Please note that Actors using the _rental pricing model_ are not available for use with this integration. The rental pricing model is being retired during 2026 and migrated to pay-per-usage. For details, refer to our [rental pricing model documentation](/platform/actors/publishing/monetize/rental).
+You have access to thousands of Actors available on the [Apify Store](https://apify.com/store). Please note that Actors using the _rental pricing model_ are not available for use with this integration. The rental pricing model is being retired during 2026 and migrated to pay-per-usage. For details, refer to our [rental pricing model documentation](/actors/publishing/monetize/rental).
 
 :::
 

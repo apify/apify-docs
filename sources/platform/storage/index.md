@@ -1,7 +1,8 @@
 ---
 title: Storage
 description: Store anything from images and key-value pairs to structured output data. Learn how to access and manage your stored data from the Apify platform or via API.
-sidebar_position: 9
+sidebar_label: Overview
+sidebar_position: 0
 category: platform
 slug: /storage
 ---
@@ -18,17 +19,17 @@ The Apify platform provides three types of storage, accessible from [Apify Conso
     <Card
         title="Dataset"
         desc="Stores results from web scraping and data processing; each Actor run gets a unique dataset. Includes table-like visualization and export formats like JSON and Excel."
-        to="/platform/storage/dataset"
+        to="/storage/dataset"
     />
     <Card
         title="Key-value store"
         desc="Stores data of any type: JSON, HTML, images, strings. Accessible via Apify Console or API."
-        to="/platform/storage/key-value-store"
+        to="/storage/key-value-store"
     />
     <Card
         title="Request queue"
         desc="Manages URL processing for web crawling and similar tasks. Supports different crawling orders and lets you query and update URLs, accessible via Apify Console or API."
-        to="/platform/storage/request-queue"
+        to="/storage/request-queue"
     />
 </CardGrid>
 
@@ -178,11 +179,11 @@ Go to the [API documentation](/api/v2#rate-limiting) for details and to learn wh
 
 ## Share
 
-You can grant [access rights](../collaboration/index.md) to other Apify users to view or modify your storages. Check the [full list of permissions](../collaboration/list_of_permissions.md).
+You can grant [access rights](/account/collaboration) to other Apify users to view or modify your storages. Check the [full list of permissions](/account/collaboration/list-of-permissions).
 
-You can also share storages by link using their ID or name, depending on your account or resource-level general access setting. Learn how link-based access works in [General resource access](/platform/collaboration/general-resource-access).
+You can also share storages by link using their ID or name, depending on your account or resource-level general access setting. Learn how link-based access works in [General resource access](/account/collaboration/general-resource-access).
 
-For one-off sharing when access is restricted, generate time-limited pre-signed URLs. See [Sharing restricted resources with pre-signed URLs](/platform/collaboration/general-resource-access#pre-signed-urls).
+For one-off sharing when access is restricted, generate time-limited pre-signed URLs. See [Sharing restricted resources with pre-signed URLs](/account/collaboration/general-resource-access#pre-signed-urls).
 
 :::tip Accessing restricted storage resources via API
 
@@ -194,7 +195,7 @@ If your storage resource is set to _restricted_, all API calls must include a va
 
 Storage can be accessed from any [Actor](../actors/index.mdx) or [task](../actors/running/tasks.md) run, provided you have its _name_ or _ID_. Use the same methods and endpoints you'd use for the current run's storages.
 
-[Datasets](./dataset.md) and [key-value stores](./key_value_store.md) support concurrent use. Multiple Actors or tasks can write to the same dataset or key-value store, and multiple runs can read from them at the same time.
+[Datasets](/storage/dataset) and [key-value stores](/storage/key-value-store) support concurrent use. Multiple Actors or tasks can write to the same dataset or key-value store, and multiple runs can read from them at the same time.
 
 [Request queues](./request_queue.md), on the other hand, only allow multiple runs to add new data. A request queue can only be processed by one Actor or task run at any one time.
 
@@ -206,7 +207,7 @@ When multiple runs write to a storage simultaneously, the order of writes is not
 
 :::info Accessing restricted storage resources between runs
 
-If a storage resource access is set to **Restricted**, the run from which it's accessed must have explicit access to it. Learn how restricted access works in [General resource access](/platform/collaboration/general-resource-access).
+If a storage resource access is set to **Restricted**, the run from which it's accessed must have explicit access to it. Learn how restricted access works in [General resource access](/account/collaboration/general-resource-access).
 
 :::
 

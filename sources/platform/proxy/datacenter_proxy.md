@@ -17,7 +17,7 @@ You can refer to the [blog post](https://blog.apify.com/datacenter-proxies-when-
 ## Features
 
 * Periodic health checks of proxies in the pool so requests are not forwarded via dead proxies.
-* Intelligent rotation of IP addresses so target hosts are accessed via proxies that have accessed them the longest time ago, to reduce the chance of blocking.
+* Intelligent rotation of IP addresses so target hosts are accessed via proxies from a random subset that have accessed them the longest time ago, to reduce the chance of blocking.
 * Periodically checks whether proxies are banned by selected target websites. If they are, stops forwarding traffic to them to get the proxies unbanned as soon as possible.
 * Ensures proxies are located in specific countries using IP geolocation.
 * Allows selection of groups of proxy servers with specific characteristics.
