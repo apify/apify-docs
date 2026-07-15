@@ -8,9 +8,9 @@ pagination_next: null
 pagination_prev: null
 ---
 
-An Actor is ordinary code - JavaScript, Python, or anything that runs in a Docker container - packaged with a definition that tells the Apify platform how to run it: what input it accepts, what output it produces, and what environment it needs. That packaging is what makes an Actor more than a script. The platform handles the servers, scaling, storage, and scheduling, and every Actor you build gets an API, a user interface, and integrations for free.
+An Actor is ordinary code - JavaScript, Python, or anything that runs in a Docker container - packaged with a definition that tells the Apify platform how to run it. The definition specifies what input it accepts, what output it produces, and what environment it needs. That packaging is what makes an Actor more than a script. The platform handles the servers, scaling, storage, and scheduling, and every Actor you build gets an API, a user interface, and integrations for free.
 
-The journey from idea to published Actor has three stages: develop it, deploy it to the platform, and - if you want other people to use it - publish it in [Apify Store](https://apify.com/store). This page walks you through those stages and points you to the right material at each one.
+The journey from idea to published Actor has three stages: develop it, deploy it to the platform, and publish it in [Apify Store](https://apify.com/store) if you want others to use it. This page walks you through those stages and points you to the right material at each one.
 
 ## Create your first Actor
 
@@ -30,8 +30,8 @@ What turns your code into an Actor is a small set of files: an `actor.json` mani
 
 - [Actor definition](/actors/development/actor-definition) - the `actor.json`, Dockerfile, and schemas:
   - [Input schema](/actors/development/actor-definition/input-schema)
-  - [Dataset schema](/actors/development/actor-definition/dataset-schema)
-  - [Key-value store schema](/actors/development/actor-definition/key-value-store-schema)
+  - [Dataset schema](/storage/dataset-schema)
+  - [Key-value store schema](/storage/key-value-store-schema)
 - [Programming interface](/actors/development/programming-interface) - the Apify SDK, environment variables, and state persistence.
 - [Builds and runs](/actors/development/builds-and-runs) - the build and run lifecycle and versioning.
 - [Storage](/storage) - how to read input and write results from code.
@@ -47,7 +47,7 @@ Deployment turns your source code into a build - a Docker image the platform can
 
 ## Publish to Store
 
-Publishing puts your Actor in front of everyone browsing Apify Store, and lets you charge for it. A good public Actor is more than working code: it has a clear input schema, a README that explains what it does and how to use it, and runs reliably enough that strangers can depend on it. The publishing guide covers all of it, including the monetization models you can choose from.
+Publishing puts your Actor in front of everyone browsing Apify Store, and lets you charge for it. A good public Actor is more than working code. It needs a clear input schema, a README that explains what it does and how to use it, and reliable runs that strangers can depend on. The publishing guide covers all of it, including the monetization models you can choose from.
 
 - [Publish and monetize](/actors/publishing) your Actor in Apify Store.
 - Call your Actors from your own code with the [API](/api/v2) or the [API clients](/academy/getting-started/apify-client).
