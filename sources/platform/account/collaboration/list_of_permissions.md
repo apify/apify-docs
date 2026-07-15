@@ -18,7 +18,8 @@ To learn about Apify Actors, check out the [documentation](/actors).
 | Read                 | View Actor settings, source code and builds.               |
 | Write                | Edit Actor settings and source code, and delete the Actor. |
 | Run                  | Run any of an Actor's builds.                              |
-| View runs            | View a list of Actor runs and their details.               |
+| Build                | Build the Actor.                                           |
+| View owner runs      | View owner's runs of the Actor and their details.          |
 | Manage access rights | Manage Actor access rights.                                |
 
 ### Actor task
@@ -27,7 +28,7 @@ To learn about Apify Actors, check out the [documentation](/actors).
 |----------------------|------------------------------------------------------------|
 | Read                 | View task configuration.                                   |
 | Write                | Edit task configuration and settings, and delete the task. |
-| View runs            | View a list of Actor task runs and their details.          |
+| View owner runs      | View owner's runs of the Actor task and their details.     |
 | Manage access rights | Manage Actor task access rights.                           |
 
 To learn about Actor tasks, see the [documentation](/actors/running/tasks).
@@ -78,12 +79,13 @@ To learn about Apify Proxy, see its [documentation](/proxy).
 
 Permissions that can be granted to members of organizations. To learn about the organization account, see its [documentation](/account/collaboration/organization).
 
-| Permission          | Description                                                           |
-|---------------------|-----------------------------------------------------------------------|
-| Manage access keys  | Manage account access keys, i.e. API token and proxy password.        |
-| Update subscription | Update the type of subscription, billing details and payment methods. |
-| Update profile      | Make changes in profile information.                                  |
-| Update email        | Update the contact email for the account.                             |
-| Reset password      | Reset the account's password.                                         |
-| View invoices       | See the account's invoices.                                           |
-| Manage organization | Change the organization's settings.                                   |
+| Permission           | Description                                                            |
+|----------------------|------------------------------------------------------------------------|
+| Manage access tokens | Manage the account's access tokens, i.e. API token and proxy password. |
+| Manage billing       | Manage the subscription and billing of the account.                    |
+| Update profile       | Make changes in profile information.                                   |
+| Update email         | Update the contact email for the account.                              |
+| View invoices        | See the account's invoices.                                            |
+| View payouts         | View the account's payouts.                                            |
+| View monetization    | View the account's monetization details.                               |
+| Manage organization  | Manage the organization's members and permissions.                     |
