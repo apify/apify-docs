@@ -1,6 +1,6 @@
 ---
 title: Get started
-description: A short orientation to the Apify platform — what Actors are, how to run your first one, and where to go next.
+description: Learn how the Apify platform works - what Actors are, how they get to Apify Store, and how to start by running existing Actors or building your own.
 sidebar_label: Overview
 sidebar_position: 0
 slug: /get-started
@@ -8,27 +8,30 @@ pagination_next: null
 pagination_prev: null
 ---
 
-Apify is a cloud platform for running serverless programs called Actors. This page is a short orientation: what an Actor is, how to run your first one, and where to go next.
+Apify is a cloud platform for web scraping, data extraction, and automation. Everything on it revolves around _Actors_ - serverless programs that run in the cloud. This page explains how the platform fits together and where to start, whether you want to use existing tools or build your own.
 
-## What's an Actor?
+## How Apify works
 
-Actors are serverless programs that automate workflows and extract data. Each Actor takes a structured JSON input, performs a task (web scraping, browser automation, or data processing, for example), and can optionally produce a structured output. You can run Actors manually, via API, or on a schedule, and combine them into larger automations.
+An Actor takes a structured JSON input, performs a job - scraping a website, automating a browser, processing data - and stores its results on the platform, typically as a structured dataset you can export or send elsewhere. You can start an Actor manually in Apify Console, call it through the [API](/api/v2), or put it on a [schedule](/actors/running/schedules).
 
-[Apify Store](https://apify.com/store) has thousands of public Actors built by Apify and the open-source community. You can also publish your own.
+Because every Actor shares this input → run → output model, they compose: one Actor's output can feed another, results flow into [integrations](/integrations) like Make, Zapier, or n8n, and any Actor can be called from your code like a regular API.
+
+## How Actors get to Apify Store
+
+[Apify Store](https://apify.com/store) holds thousands of public Actors built by Apify and the community. Each one started as code that a developer wrote, deployed to the platform, and published - optionally setting a price, since Store Actors can [earn their developers money](/actors/publishing).
+
+You can stand on either side of that exchange. Run other people's Actors to get data without writing code, or build your own - for yourself, your team, or as a product in Store.
 
 ## Run your first Actor
 
-Open [Apify Store](https://apify.com/store), pick an Actor, click **Start**, and review the output. No code required.
+The quickest way to understand the platform is to run something. Open [Apify Store](https://apify.com/store), pick an Actor, click **Start**, and watch the results arrive. No code required.
 
-For background on the pricing models you'll see in Store (pay per event, pay per usage, rental), see [Actors in Store](/actors/running/actors-in-store).
+## Choose your path
 
-## Find your learning path
+Pick the path that matches what you want to do. Each one walks you through the loop and points you to the right tutorials and concept pages in order:
 
-Not sure where to start? [Learning paths](/get-started/learning-paths) route you through the documentation by goal — [running existing Actors](/get-started/learning-paths/run-actors) to get data, or [building your own](/get-started/learning-paths/build-actors) — pointing you to the right tutorials and concepts in order.
-
-## Build your first Actor
-
-Ready to build your own? The [Actor development quick start](/actors/development/quick-start) walks you through the options: local development with the CLI, the web IDE, AI-assisted coding, or building an AI agent.
+- [Run Actors](/get-started/run-actors) - use existing Actors from Apify Store to get data or automate a task, no coding required.
+- [Build Actors](/get-started/build-actors) - build, deploy, and publish your own Actor on the Apify platform.
 
 ## Common next steps
 
