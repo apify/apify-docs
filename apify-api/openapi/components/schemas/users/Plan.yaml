@@ -1,24 +1,6 @@
 title: Plan
 required:
-  - id
-  - description
-  - isEnabled
-  - monthlyBasePriceUsd
-  - monthlyUsageCreditsUsd
-  - enabledPlatformFeatures
-  - maxMonthlyUsageUsd
-  - maxActorMemoryGbytes
-  - maxMonthlyActorComputeUnits
-  - maxMonthlyResidentialProxyGbytes
-  - maxMonthlyProxySerps
-  - maxMonthlyExternalDataTransferGbytes
-  - maxActorCount
-  - maxActorTaskCount
-  - dataRetentionDays
   - availableProxyGroups
-  - teamAccountSeatCount
-  - supportLevel
-  - availableAddOns
 type: object
 properties:
   id:

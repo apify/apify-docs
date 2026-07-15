@@ -84,7 +84,8 @@ listLastRun:
   operationId: act_runs_last_keyValueStore_records_get
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
     - $ref: "../../parameters/keyValueStoreParameters.yaml#/collectionRecords"
     - $ref: "../../parameters/keyValueStoreParameters.yaml#/prefixRecords"
     - $ref: "../../parameters/storageParameters.yaml#/signature"
@@ -100,7 +101,8 @@ listTaskLastRun:
   operationId: actorTask_runs_last_keyValueStore_records_get
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
     - $ref: "../../parameters/keyValueStoreParameters.yaml#/collectionRecords"
     - $ref: "../../parameters/keyValueStoreParameters.yaml#/prefixRecords"
     - $ref: "../../parameters/storageParameters.yaml#/signature"
@@ -155,9 +157,9 @@ putById:
 
     Below is a list of supported `Content-Encoding` types.
 
+    * Brotli compression: `Content-Encoding: br`
     * Gzip compression: `Content-Encoding: gzip`
     * Deflate compression: `Content-Encoding: deflate`
-    * Brotli compression: `Content-Encoding: br`
   operationId: keyValueStore_record_put
   parameters:
     - $ref: "../../parameters/keyValueStoreParameters.yaml#/storeId"

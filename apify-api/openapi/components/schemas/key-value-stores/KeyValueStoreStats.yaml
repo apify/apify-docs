@@ -1,9 +1,4 @@
 title: KeyValueStoreStats
-required:
-  - readCount
-  - writeCount
-  - deleteCount
-  - listCount
 type: object
 properties:
   readCount:
