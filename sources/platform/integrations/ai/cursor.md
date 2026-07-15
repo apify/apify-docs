@@ -11,7 +11,7 @@ import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integrati
 
 The [Apify plugin for Cursor](https://github.com/apify/apify-cursor-plugin) connects Cursor to Apify's library of [Actors](https://apify.com/store) and bundles:
 
-- The [Apify MCP server](/platform/integrations/mcp) for searching Apify Store, running Actors, and retrieving datasets through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro).
+- The [Apify MCP server](/integrations/mcp) for searching Apify Store, running Actors, and retrieving datasets through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro).
 - An `apify` routing agent that picks the right tool or skill from a natural-language request.
 - Five built-in skills for common workflows (see [Bundled skills](#bundled-skills) below).
 
@@ -123,13 +123,13 @@ export APIFY_TOKEN=<YOUR_API_TOKEN>
 ## Limitations
 
 - Long-running Actors may exceed the time a single tool call waits for completion. Reduce the scope or split the work across multiple prompts.
-- Each Actor run consumes Apify platform usage from your plan in addition to any Cursor usage. See [Billing](/platform/console/billing) for details.
+- Each Actor run consumes Apify platform usage from your plan in addition to any Cursor usage. See [Billing](/account/billing) for details.
 - Skills that edit files in your project (Actor development, actorization, SDK integration) make local changes - review them before deploying or committing.
 
 ## Related integrations
 
-- [MCP server integration](/platform/integrations/mcp) - Use the Apify MCP server with other clients
-- [ChatGPT integration](/platform/integrations/chatgpt) - Connect the Apify MCP server to ChatGPT
+- [MCP server integration](/integrations/mcp) - Use the Apify MCP server with other clients
+- [ChatGPT integration](/integrations/chatgpt) - Connect the Apify MCP server to ChatGPT
 
 ## Resources
 
