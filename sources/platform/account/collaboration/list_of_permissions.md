@@ -19,7 +19,7 @@ To learn about Apify Actors, check out the [documentation](/actors).
 | Write                | Edit Actor settings and source code, and delete the Actor. |
 | Run                  | Run any of an Actor's builds.                              |
 | Build                | Build the Actor.                                           |
-| View runs            | View a list of Actor runs and their details.               |
+| View owner runs      | View owner's runs of the Actor and their details.          |
 | Manage access rights | Manage Actor access rights.                                |
 
 ### Actor task
@@ -28,7 +28,7 @@ To learn about Apify Actors, check out the [documentation](/actors).
 |----------------------|------------------------------------------------------------|
 | Read                 | View task configuration.                                   |
 | Write                | Edit task configuration and settings, and delete the task. |
-| View runs            | View a list of Actor task runs and their details.          |
+| View owner runs      | View owner's runs of the Actor task and their details.     |
 | Manage access rights | Manage Actor task access rights.                           |
 
 To learn about Actor tasks, see the [documentation](/actors/running/tasks).
@@ -88,4 +88,4 @@ Permissions that can be granted to members of organizations. To learn about the 
 | View invoices        | See the account's invoices.                                            |
 | View payouts         | View the account's payouts.                                            |
 | View monetization    | View the account's monetization details.                               |
-| Manage organization  | Change the organization's settings.                                    |
+| Manage organization  | Manage the organization's members and permissions.                     |

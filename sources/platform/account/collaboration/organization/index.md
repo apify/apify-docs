@@ -45,7 +45,7 @@ When you convert an existing user account into an organization:
 
 Before converting your personal account into an organization, make sure it has a username.
 
-You can't convert your account to an organization while you're on the Creator plan. Upgrade to a different plan to continue.
+You can't convert your account to an organization while you're on the Creator plan. Upgrade to a different plan first.
 
 An organization can't be a member of other organizations. If you want to convert your account to one, you'll first need to **leave all the organizations you are a part of**.
 

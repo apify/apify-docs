@@ -11,7 +11,7 @@ After creating your organization, you can configure its settings. The **Account*
 - Change the username
 - Delete the account.
 
-The **Members** tab lets you to update your organization's members and set its owner.
+The **Members** tab lets you update your organization's members and set its owner.
 
 In the **Security & Privacy** tab, you can set security requirements for organization members. These include:
 
