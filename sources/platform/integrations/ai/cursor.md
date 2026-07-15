@@ -2,7 +2,6 @@
 title: Cursor integration
 sidebar_label: Cursor
 description: Learn how to install the Apify plugin for Cursor to discover, run, and build Actors directly with the Apify MCP server, skills, and a routing agent.
-sidebar_position: 22
 slug: /integrations/cursor
 ---
 
@@ -12,7 +11,7 @@ import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integrati
 
 The [Apify plugin for Cursor](https://github.com/apify/apify-cursor-plugin) connects Cursor to Apify's library of [Actors](https://apify.com/store) and bundles:
 
-- The [Apify MCP server](/platform/integrations/mcp) for searching the Store, running Actors, and retrieving datasets through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro).
+- The [Apify MCP server](/platform/integrations/mcp) for searching Apify Store, running Actors, and retrieving datasets through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro).
 - An `apify` routing agent that picks the right tool or skill from a natural-language request.
 - Five built-in skills for common workflows (see [Bundled skills](#bundled-skills) below).
 
@@ -45,7 +44,7 @@ This guide covers installation from the Cursor plugin marketplace.
 
 ## Authenticate to Apify
 
-The plugin bundles the Apify MCP server. Read-only tools like searching the Store and fetching Actor details work without signing in, but you need to authenticate to run Actors and access your account data.
+The plugin bundles the Apify MCP server. Read-only tools like searching Apify Store and fetching Actor details work without signing in, but you need to authenticate to run Actors and access your account data.
 
 1. Open **Cursor** > **Preferences** > **Cursor Settings** and select **Tools & MCPs**.
 
@@ -77,7 +76,7 @@ The connection stays authenticated for future sessions. You can revoke access at
 
 Describe what you want in natural language. The `apify` agent routes the request to the right tool or skill, so you don't need to name tools yourself.
 
-> "Use Apify to find a good Actor for scraping Google Maps places. Show me the best option, its input requirements, pricing model, and what kind of dataset output it returns. Do not run the Actor yet."
+> Use Apify to find a good Actor for scraping Google Maps places. Show me the best option, its input requirements, pricing model, and what kind of dataset output it returns. Do not run the Actor yet.
 
 The agent searches Apify Store, fetches the top Actor's details through the Apify MCP server, and summarizes its inputs, pricing, and output - all without running the Actor.
 
@@ -113,7 +112,7 @@ _SDK integration:_
 
 Open **Cursor** > **Preferences** > **Cursor Settings**, select **Tools & MCPs**, and toggle the **Apify MCP** server off and on. If it still doesn't connect, re-trigger the OAuth flow with **Connect**; see [Authenticate to Apify](#authenticate-to-apify).
 
-### The wrong skill keeps getting picked
+### Cursor picks the wrong skill
 
 Start your request with `@apify` so the routing agent handles it. The agent owns the guardrails that pick the right skill and avoid common traps, such as confusing the `apify` and `apify-client` packages.
 
