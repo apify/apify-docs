@@ -38,7 +38,7 @@ You define the events and can set different pricing for each of them.
 
 ### Synthetic events
 
-Sythetic events cover the most common billing patterns. They're predefined by Apify and charged automatically:
+Synthetic events cover the most common billing patterns. They're predefined by Apify and charged automatically:
 
 - [`apify-actor-start`](#synthetic-start-event) covers the costs spent during the first 5 seconds of starting the Actor.
 - [`apify-default-dataset-item`](#synthetic-default-dataset-item-event) charges for each item written to the run's default dataset.
@@ -71,6 +71,7 @@ Only revenue and cost for Apify customers on paid plans are taken into considera
 To make your Actor profitable, price your events so that the revenue covers the platform costs. For details, see [Compute costs for PPE Actors](/actors/publishing/monetize/pricing-and-costs#compute-costs).
 
 If your Actor produces negative profit, make sure to:
+
 - [Set memory limits](#memory-limits).
 - [Respect user spending limits](#respect-user-spending-limits).
 - Enable the [`apify-actor-start` synthetic event](#synthetic-start-event).
@@ -131,7 +132,7 @@ To protect your profits, finish the Actor run once charges reach the user's limi
 For both custom and synthetic events, Apify SDKs return a `ChargeResult` from every `Actor.charge()` and `Actor.pushData()` call. The user spending limit is available in your Actor code as the `ACTOR_MAX_TOTAL_CHARGE_USD` [environment variable](/actors/development/programming-interface/environment-variables), and `ChargeResult` already accounts for it. Inspect its properties to decide when to stop the run:
 
 | Property | Description |
-|----------|-------------|
+| --- | --- |
 | `eventChargeLimitReached` | Checks if the user's limit allows for another charge of the event. |
 | `chargeableWithinLimit` | Indicates how many more of each event you can still charge within the remaining budget. Use it if you have multiple events. |
 | `chargedCount` | Indicates how many events were billed by the call. For batch charges (`count`), it can be lower than you requested. Charges above `chargedCount` are not billed. |
