@@ -147,6 +147,8 @@ post:
       $ref: ../../components/responses/NotFound.yaml
     "405":
       $ref: ../../components/responses/MethodNotAllowed.yaml
+    "408":
+      $ref: ../../components/responses/Timeout.yaml
     "413":
       $ref: ../../components/responses/PayloadTooLarge.yaml
     "415":

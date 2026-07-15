@@ -116,14 +116,14 @@ Actions allow you to perform operations like running an Actor within a workflow.
 1. Click **Add Node**, search for **Apify**, and select it.
 1. Select any operation. In this example we will use **Run Actor**.
 1. Configure it:
-    - **Custom input**: JSON input for the Actor run, which you can find on the Actor input page in Apify Console. See [Inputs](/platform/actors/running/input-and-output#input) for more information. If empty, the run uses the input specified in the default run configuration
+    - **Custom input**: JSON input for the Actor run, which you can find on the Actor input page in Apify Console. See [Inputs](/actors/running/input-and-output#input) for more information. If empty, the run uses the input specified in the default run configuration
     - **Timeout**: Timeout for the Actor run in seconds. Zero value means there is no timeout
     - **Memory**: Amount of memory allocated for the Actor run, in megabytes
     - **Build Tag**: Specifies the Actor build tag to run. By default, the run uses the build specified in the default run configuration for the Actor (typically `latest`)
     - **Wait for finish**: Whether to wait for the run to finish before continuing. If true, the node will wait for the run to complete (successfully or not) before moving to the next node
     ![Apify Node](../../images/n8n-run-actor-example.png)
 1. Add another Apify operation called **Get Dataset Items**.
-    - Set **Dataset ID** parameter as **defaultDatasetId** value received from the previous **Run Actor** node. This will give you the output of the Actor run
+    - Set **Dataset ID** parameter as **defaultDatasetId** value received from the previous **Run Actor** node. This will give you the items from the Actor run's default dataset
     ![Apify Node](../../images/n8n-get-dataset-items-example.png)
 1. Add any subsequent nodes (e.g. Google Sheets) to process or store the output
 1. Save and execute the workflow
@@ -184,11 +184,11 @@ Pull data from Apify storage.
 
 #### Datasets
 
-- **Get Items**: Retrieves items from a [dataset](/platform/storage/dataset)
+- **Get Items**: Retrieves items from a [dataset](/storage/dataset)
 
 #### Key-Value Stores
 
-- **Get Record**:  Retrieves a value from a [key-value store](/platform/storage/key-value-store)
+- **Get Record**:  Retrieves a value from a [key-value store](/storage/key-value-store)
 
 ### Triggers
 

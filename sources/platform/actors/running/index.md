@@ -116,4 +116,4 @@ print(dataset_items)
 
 The newly started Actor runs under the account associated with the provided `token`, so all consumed resources are charged to this user account.
 
-Internally, the `call()` function invokes the [Run Actor](/api/v2/act-runs-post) API endpoint, waits for the Actor to finish, and reads its output using the [Get dataset items](/api/v2/dataset-items-get) API endpoint.
+Internally, the `call()` function invokes the [Run Actor](/api/v2/act-runs-post) API endpoint, waits for the Actor to finish, and reads its results from the default dataset using the [Get dataset items](/api/v2/dataset-items-get) API endpoint.

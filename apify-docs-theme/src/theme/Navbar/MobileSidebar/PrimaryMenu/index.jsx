@@ -1,4 +1,5 @@
-import { useThemeConfig } from '@docusaurus/theme-common';
+import { useLocation } from '@docusaurus/router';
+import { isRegexpStringMatch, useThemeConfig } from '@docusaurus/theme-common';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import { usePluginData } from '@docusaurus/useGlobalData';
 import NavbarItem from '@theme/NavbarItem';
@@ -18,9 +19,12 @@ export default function NavbarMobilePrimaryMenu() {
     const {
         options: { subNavbar },
     } = usePluginData('@apify/docs-theme');
+    const location = useLocation();
+    const showSubNavbar =
+        subNavbar && (!subNavbar?.pathRegex || isRegexpStringMatch(subNavbar.pathRegex, location.pathname));
     return (
         <>
-            {subNavbar ? (
+            {showSubNavbar ? (
                 <>
                     <ul
                         className="menu__list"
