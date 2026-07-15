@@ -56,12 +56,6 @@ The plugin bundles the Apify MCP server. Read-only tools like searching Apify St
 
 1. Review the permissions and click **Allow access**.
 
-    :::caution Dynamic registration warning
-
-    The OAuth page shows a warning that the application was registered dynamically and wasn't verified by Apify. This is expected for the current plugin release - the plugin uses dynamic OAuth client registration. Make sure you trust this installation before allowing access.
-
-    :::
-
 1. Back in Cursor, the **Apify MCP** server shows as connected.
 
     ![Tools & MCPs page showing the Apify MCP server connected](./images/cursor/04-mcp-connected.webp)
