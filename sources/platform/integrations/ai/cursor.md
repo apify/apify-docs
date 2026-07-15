@@ -96,15 +96,15 @@ Example prompts that route to specific skills:
 
 _Ultimate scraper:_
 
-> "Find 10 highly rated coffee shops in Seattle with name, address, rating, phone, and website."
+> Find 10 highly rated coffee shops in Seattle with name, address, rating, phone, and website.
 
 _Actor development:_
 
-> "Create an Apify Actor that accepts a `startUrl` and `maxPages` input, crawls the site, and stores each page title and URL."
+> Create an Apify Actor that accepts a `startUrl` and `maxPages` input, crawls the site, and stores each page title and URL.
 
 _SDK integration:_
 
-> "Add Apify to this project. The Node.js API route should run an Actor and return dataset items as JSON."
+> Add Apify to this project. The Node.js API route should run an Actor and return dataset items as JSON.
 
 ## Troubleshooting
 
