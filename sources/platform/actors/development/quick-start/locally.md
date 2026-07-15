@@ -113,8 +113,8 @@ The dataset stores a series of data objects from web scraping, crawling, or data
 
 You define the Actor output using the Output schema files:
 
-- [Dataset Schema Specification](/actors/development/actor-definition/dataset-schema)
-- [Key-value Store Schema Specification](/actors/development/actor-definition/key-value-store-schema)
+- [Dataset Schema Specification](/storage/dataset-schema)
+- [Key-value Store Schema Specification](/storage/key-value-store-schema)
 
 The system uses this to generate an immutable JSON file that tells users where to find the Actor's results.
 

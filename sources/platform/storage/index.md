@@ -195,7 +195,7 @@ If your storage resource is set to _restricted_, all API calls must include a va
 
 Storage can be accessed from any [Actor](../actors/index.mdx) or [task](../actors/running/tasks.md) run, provided you have its _name_ or _ID_. Use the same methods and endpoints you'd use for the current run's storages.
 
-[Datasets](./dataset.md) and [key-value stores](./key_value_store.md) support concurrent use. Multiple Actors or tasks can write to the same dataset or key-value store, and multiple runs can read from them at the same time.
+[Datasets](/storage/dataset) and [key-value stores](/storage/key-value-store) support concurrent use. Multiple Actors or tasks can write to the same dataset or key-value store, and multiple runs can read from them at the same time.
 
 [Request queues](./request_queue.md), on the other hand, only allow multiple runs to add new data. A request queue can only be processed by one Actor or task run at any one time.
 

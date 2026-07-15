@@ -1,8 +1,8 @@
 ---
 title: Multiple datasets
 description: Learn how to use multiple datasets within your Actors to organize and store different types of data separately.
-sidebar_position: 2
-slug: /actors/development/actor-definition/dataset-schema/multiple-datasets
+sidebar_position: 3
+slug: /storage/dataset-schema/multiple-datasets
 ---
 
 import Tabs from '@theme/Tabs';
@@ -52,7 +52,7 @@ Behavior differs when an SDK runs outside the platform. See the SDK notes below.
 
 :::
 
-See the full [Actor schema reference](../actor_json.md#reference).
+See the full [Actor schema reference](/actors/development/actor-definition/actor-json#reference).
 
 ## Access datasets in Actor code
 
@@ -127,11 +127,11 @@ To export programmatically:
 - Call the [Dataset API](/api/v2/dataset-items-get) with the dataset ID from `ACTOR_STORAGES_JSON`. The API returns items in any supported format via query parameters.
 - From inside an Actor, open the dataset (see [Access datasets in Actor code](#access-datasets-in-actor-code)), then call `getData` / `get_data` to read items into memory, or `exportTo` / `export_to` to write a JSON or CSV file to the key-value store.
 
-See [Datasets](../../../../storage/dataset.md) for formats and query parameters.
+See [Datasets](/storage/dataset) for formats and query parameters.
 
 ## Surface datasets on the run page
 
-The Storage tab shows data but doesn't surface it clearly to end users. To present datasets more prominently on the run page, define an [output schema](../../actor_definition/output_schema/index.md) that references each dataset by alias:
+The Storage tab shows data but doesn't surface it clearly to end users. To present datasets more prominently on the run page, define an [output schema](/actors/development/actor-definition/output-schema) that references each dataset by alias:
 
 ```json
 {
@@ -152,10 +152,10 @@ The Storage tab shows data but doesn't surface it clearly to end users. To prese
 }
 ```
 
-[Read more](../output_schema/index.md#how-templates-work) about how templates work.
+[Read more](/actors/development/actor-definition/output-schema#how-templates-work) about how templates work.
 
 ## Billing for non-default datasets
 
 When an Actor uses multiple datasets, only items pushed to the `default` dataset trigger the built-in `apify-default-dataset-item` event. Items in other datasets are not charged automatically.
 
-To charge for items in other datasets, implement custom billing in your Actor code. Refer to the [billing documentation](../../../publishing/monetize/pay_per_event.mdx) for implementation details.
+To charge for items in other datasets, implement custom billing in your Actor code. Refer to the [billing documentation](/actors/publishing/monetize/pay-per-event) for implementation details.

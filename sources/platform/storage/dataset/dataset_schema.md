@@ -1,8 +1,8 @@
 ---
 title: Dataset schema specification
-sidebar_position: 5
+sidebar_position: 1
 description: Define a dataset schema to control how your Actor's results are structured, validated, and displayed in Apify Console, the API, and integrations.
-slug: /actors/development/actor-definition/dataset-schema
+slug: /storage/dataset-schema
 sidebar_label: Dataset schema
 ---
 
@@ -221,7 +221,7 @@ Each view has two parts:
 
 The Output tab displays fields from `transformation.fields` in the specified order:
 
-![Output tab UI](../images/output-schema-example.png)
+![Output tab UI](../../actors/development/actor_definition/images/output-schema-example.png)
 
 ### Multiple views example
 
