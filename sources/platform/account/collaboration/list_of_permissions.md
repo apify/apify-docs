@@ -9,6 +9,8 @@ This document contains all the access options that can be granted to resources o
 
 ## Actor
 
+Permissions that can be granted for an [Actor](/actors).
+
 | Permission           | Description                                                |
 |----------------------|------------------------------------------------------------|
 | Read                 | View Actor settings, source code and builds.               |
@@ -17,9 +19,9 @@ This document contains all the access options that can be granted to resources o
 | Build                | Build the Actor.                                           |
 | Manage access rights | Manage Actor access rights.                                |
 
-To learn about Apify Actors, see the [documentation](/actors).
-
 ## Actor task
+
+Permissions that can be granted for an [Actor task](/actors/running/tasks).
 
 | Permission           | Description                                                |
 |----------------------|------------------------------------------------------------|
@@ -27,9 +29,9 @@ To learn about Apify Actors, see the [documentation](/actors).
 | Write                | Edit task configuration and settings, and delete the task. |
 | Manage access rights | Manage Actor task access rights.                           |
 
-To learn about Actor tasks, see the [documentation](/actors/running/tasks).
-
 ## Storage
+
+Permissions that can be granted for [storage](/storage).
 
 | Permission           | Description                                                      |
 |----------------------|------------------------------------------------------------------|
@@ -37,20 +39,18 @@ To learn about Actor tasks, see the [documentation](/actors/running/tasks).
 | Write                | Edit storage settings, push data to it, and remove data from it. |
 | Manage access rights | Manage storage access rights.                                    |
 
-To learn about storage, see the [documentation](/storage).
-
 ## Schedule
+
+Permissions that can be granted for a [schedule](/actors/running/schedules).
 
 | Permission | Description                                                        |
 |------------|--------------------------------------------------------------------|
 | Read       | View schedule configuration.                                       |
 | Write      | Edit schedule configuration and settings, and delete the schedule. |
 
-To learn about schedules, see the [documentation](/actors/running/schedules).
-
 ## Organization
 
-Permissions that can be granted to members of organizations. To learn about the organization account, see its [documentation](/account/collaboration/organization).
+Permissions that can be granted to members of an [organization](/account/collaboration/organization).
 
 | Permission           | Description                                                                 |
 |----------------------|-----------------------------------------------------------------------------|
@@ -65,11 +65,11 @@ Permissions that can be granted to members of organizations. To learn about the 
 
 ## Proxy
 
+Permissions that can be granted for [Apify Proxy](/proxy).
+
 | Permission | Description               |
 |------------|---------------------------|
 | Proxy      | Allow to use Apify Proxy. |
-
-To learn about Apify Proxy, see its [documentation](/proxy).
 
 ## Actor issue
 
