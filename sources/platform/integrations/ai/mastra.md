@@ -116,7 +116,7 @@ await mcpClient.disconnect();
 
 :::note Use any Apify Actor
 
-Since it uses the [Apify MCP server](https://mcp.apify.com), swap in any Apify Actor from the [Apify Store](https://apify.com/store) by adding it to the `tools` query parameter in the server URL (for example, `https://mcp.apify.com/?tools=apify/rag-web-browser`).
+Since it uses the [Apify MCP server](https://mcp.apify.com), swap in any Apify Actor from the [Apify Store](https://apify.com/store) by adding it to the `tools` query parameter in the server URL (for example, `https://mcp.apify.com?tools=apify/rag-web-browser`).
 No other changes are needed in the agent code.
 
 :::
