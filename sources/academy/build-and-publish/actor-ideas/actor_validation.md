@@ -61,6 +61,8 @@ Document your findings. Note quotes and recurring themes like _Multiple marketer
 
 Zero discussion across multiple platforms over 4+ weeks means either no one cares about the problem or they've already solved it.
 
+If you work inside an AI or vibe coding assistant (Claude, Cursor, ChatGPT, Lovable, Replit, Bolt, Base44), you can now run this kind of demand research in one sweep programmatically without leaving your editor: [MCP.DemandDiscovery.ai](https://mcp.demanddiscovery.ai). Instead of relying on LLM opinions, surveys, or assumptions, you find out if your idea has real demand via actual behavior: replies, clicks, objections, and expressions of intent.
+
 ### Reddit
 
 Search relevant subreddits (r/webscraping, r/datascience, r/SEO, r/marketing, or industry-specific ones) for questions like _How can I extract [data] from [site]?_ or _I wish there was a tool to do X_. Multiple people independently asking for the same solution is strong validation.
