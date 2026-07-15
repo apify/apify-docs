@@ -9,7 +9,7 @@ import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integrati
 
 [OpenCode](https://opencode.ai) is an open-source AI coding agent that runs in your terminal. It reads and edits your codebase, runs commands, and completes multi-step development tasks.
 
-The [Apify plugin for OpenCode](https://www.npmjs.com/package/opencode-apify) connects OpenCode to Apify's library of [Actors](https://apify.com/store) by bundling the [Apify MCP server](/platform/integrations/mcp) for searching Apify Store, running Actors, and retrieving datasets through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro).
+The [Apify plugin for OpenCode](https://www.npmjs.com/package/opencode-apify) connects OpenCode to Apify's library of [Actors](https://apify.com/store) by bundling the [Apify MCP server](/integrations/mcp) for searching Apify Store, running Actors, and retrieving datasets through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro).
 
 <ThirdPartyDisclaimer />
 
@@ -59,12 +59,6 @@ The plugin bundles the Apify MCP server. Read-only tools like searching Apify St
 
 1. Review the permissions and click **Allow access**.
 
-    :::caution Dynamic registration warning
-
-    The OAuth page shows a warning that the application was registered dynamically and wasn't verified by Apify. This is expected for the current plugin release - the plugin uses dynamic OAuth client registration. Make sure you trust this installation before allowing access.
-
-    :::
-
 After you complete the flow, the Apify MCP server shows as connected and you're all set.
 
 :::tip Session persistence
@@ -77,7 +71,7 @@ The connection stays authenticated for future sessions. You can revoke access at
 
 Describe what you want in natural language. OpenCode routes the request to the Apify MCP server, so you don't need to name tools yourself.
 
-> "Use Apify to find a good Actor for scraping Google Maps places. Show me the best option, its input requirements, pricing model, and what kind of dataset output it returns. Do not run the Actor yet."
+> Use Apify to find a good Actor for scraping Google Maps places. Show me the best option, its input requirements, pricing model, and what kind of dataset output it returns. Do not run the Actor yet.
 
 OpenCode searches Apify Store, fetches the top Actor's details through the Apify MCP server, and summarizes its inputs, pricing, and output - all without running the Actor.
 
@@ -110,12 +104,12 @@ export APIFY_TOKEN=<YOUR_API_TOKEN>
 ## Limitations
 
 - Long-running Actors may exceed the time a single tool call waits for completion. Reduce the scope or split the work across multiple prompts.
-- Each Actor run consumes Apify platform usage from your plan in addition to any OpenCode usage. See [Billing](/platform/console/billing) for details.
+- Each Actor run consumes Apify platform usage from your plan in addition to any OpenCode usage. See [Billing](/account/billing) for details.
 
 ## Related integrations
 
-- [Claude Code CLI integration](/platform/integrations/claude-code-cli) - Install the Apify plugin for Claude Code CLI
-- [MCP server integration](/platform/integrations/mcp) - Use the Apify MCP server with other clients
+- [Claude Code CLI integration](/integrations/claude-code-cli) - Install the Apify plugin for Claude Code CLI
+- [MCP server integration](/integrations/mcp) - Use the Apify MCP server with other clients
 
 ## Resources
 
