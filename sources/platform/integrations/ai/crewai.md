@@ -17,8 +17,8 @@ This guide demonstrates how to integrate Apify Actors with CrewAI by building a 
 
 ### Prerequisites
 
-- **Apify API token**: To use Apify Actors in CrewAI, you need an Apify API token. Learn how to obtain it in the [Apify documentation](https://docs.apify.com/platform/integrations/api).
-- **OpenAI API key**: To power the agents in CrewAI, you need an OpenAI API key. Get one from the [OpenAI platform](https://platform.openai.com/account/api-keys).
+- **Apify API token**: To use Apify Actors in CrewAI, you need an Apify API token. Learn how to obtain it in the [Apify documentation](https://docs.apify.com/integrations/api).
+- **OpenAI API key**: To power the agents in CrewAI, you need an OpenAI API key. Get one from the [OpenAI platform](https://.openai.com/account/api-keys).
 - **Python packages**: Install the following Python packages:
 
     ```bash
@@ -195,7 +195,7 @@ print(result)
 
 ## Resources
 
-- [Apify Actors](https://docs.apify.com/platform/actors)
+- [Apify Actors](https://docs.apify.com/actors)
 - [CrewAI Documentation](https://docs.crewai.com/)
 - [What are AI agents?](https://blog.apify.com/what-are-ai-agents/)
 - [How to build an AI agent](https://blog.apify.com/how-to-build-an-ai-agent/)

@@ -102,26 +102,65 @@ put:
     - Actors
   summary: Update Actor
   description: |
-    Updates settings of an Actor using values specified by an Actor object
-    passed as JSON in the POST payload.
-    If the object does not define a specific property, its value will not be
-    updated.
+    Updates an Actor's settings with the values specified in an `Actor` object
+    passed as JSON in the POST payload. Only the fields specified in the request body are updated.
 
-    The response is the full Actor object as returned by the
-    [Get Actor](#/reference/actors/actor-object/get-actor) endpoint.
+    Returns the full `Actor` object, the same as the
+    [Get Actor](/api/v2/act-get) endpoint.
 
-    The request needs to specify the `Content-Type: application/json` HTTP header!
+    In the HTTP request, set the `Content-Type` header to `application/json`.
 
-    When providing your API authentication token, we recommend using the
-    request's `Authorization` header, rather than the URL. ([More
-    info](#/introduction/authentication)).
+    ### Authentication
 
-    If you want to make your Actor
-    [public](https://docs.apify.com/platform/actors/publishing) using `isPublic:
-    true`, you will need to provide the Actor's `title` and the `categories`
-    under which that Actor will be classified in Apify Store. For this, it's
-    best to use the [constants from our `apify-shared-js`
-    package](https://github.com/apify/apify-shared-js/blob/2d43ebc41ece9ad31cd6525bd523fb86939bf860/packages/consts/src/consts.ts#L452-L471).
+    To provide the authentication token, we recommend using the request's
+    `Authorization` header, rather than the URL. For details,
+    see [Authentication](/api/v2/getting-started#authentication).
+
+    ### Make an Actor public
+
+    To make your Actor [public](https://docs.apify.com/platform/actors/publishing):
+    - Set `isPublic` to `true`.
+    - Provide `title` and `categories`. For reference, see [constants from the `apify-shared-js`
+    package](https://github.com/apify/apify-shared-js/blob/2d43ebc41ece9ad31cd6525bd523fb86939bf860/packages/consts/src/consts.ts#L452-L471)
+
+    ### Update build tags
+
+    To change tags assigned to Actor builds, use the `taggedBuilds` object. It's a dictionary that maps tag names
+    to specific builds, where:
+    - the key is the tag name, for example `latest` or `beta`
+    - the value is either `null` or an object with a build ID
+
+    Changing tags is a patch operation. Only the tags that you provide in this object are updated.
+
+    Note that you can assign multiple tags to a single build, but you can't assign the same tag to multiple builds.
+
+    - To create or reassign a tag, provide the tag name with a build ID. For example, to assign
+    the `latest` tag to a build, use:
+
+    ```json
+    {
+      "latest": { "buildId": "z2EryhbfhgSyqj6Hn" }
+    }
+    ```
+
+    - To remove a tag from a build, provide the tag name with a `null` value. For example, to remove the `beta` tag, use:
+
+    ```json
+    {
+      "beta": null
+    }
+    ```
+
+    - You can perform multiple actions at once. The following example reassigns `latest`
+    and removes `beta`, while preserving other existing tags:
+
+    ```json
+    {
+      "latest": { "buildId": "z2EryhbfhgSyqj6Hn" },
+      "beta": null
+    }
+    ```
+
   operationId: act_put
   parameters:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
@@ -289,7 +328,7 @@ delete:
   tags:
     - Actors
   summary: Delete Actor
-  description: Deletes an Actor.
+  description: Deletes an Actor with the specified ID.
   operationId: act_delete
   parameters:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"

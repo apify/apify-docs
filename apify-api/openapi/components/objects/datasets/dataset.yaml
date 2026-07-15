@@ -52,6 +52,8 @@ sharedTaskLastRun: &sharedTaskLastRun
 sharedGet: &sharedGet
   responses:
     <<: [*common200, *commonErrors]
+    "402":
+      $ref: ../../responses/PaymentRequired.yaml
   deprecated: false
 
 getById:
