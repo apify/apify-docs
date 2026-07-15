@@ -69,19 +69,11 @@ html[data-theme='dark'] .imageLink:hover img {
     align-items: center;
     width: 100%;
     aspect-ratio: 384 / 124;
-    background: #f8f9fc;
+    background: var(--color-neutral-background-muted);
     border-radius: 12px;
     transition: background 200ms ease-in-out;
 }
 
 .imageLink:hover .iconWrapper {
-    background: #f0f1f4;
-}
-
-html[data-theme='dark'] .iconWrapper {
-    background: #23262d;
-}
-
-html[data-theme='dark'] .imageLink:hover .iconWrapper {
-    background: #2a2d35;
+    background: var(--color-neutral-card-background-hover);
 }

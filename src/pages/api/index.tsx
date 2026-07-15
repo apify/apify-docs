@@ -114,7 +114,7 @@ export default function Api() {
                     heading="Apify API documentation"
                     description={
                         <>
-                            Learn how to use the <Link to="/platform">Apify platform</Link> programmatically.
+                            Learn how to use the <Link to="/">Apify platform</Link> programmatically.
                         </>
                     }
                 />
@@ -178,11 +178,8 @@ curl -X POST -d @- \\
                                                 Bun.
                                                 <GitButton
                                                     href="https://github.com/apify/apify-client-js"
-                                                    data-size="large"
-                                                    data-show-count="true"
-                                                >
-                                                    Star
-                                                </GitButton>
+                                                    ariaLabel="Star apify/apify-client-js on GitHub"
+                                                />
                                                 <div className="DescriptionLinks">
                                                     <Button
                                                         color="success"
@@ -241,16 +238,10 @@ const { items } = await client.dataset(defaultDatasetId).listItems();`}
                                         description={
                                             <div className="Description">
                                                 For Python applications or notebooks.
-                                                {/* This is a hotfix for invalid width, sorry neither me nor Claude can do better :) */}
-                                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                                                &nbsp;
                                                 <GitButton
                                                     href="https://github.com/apify/apify-client-python"
-                                                    data-size="large"
-                                                    data-show-count="true"
-                                                >
-                                                    Star
-                                                </GitButton>
+                                                    ariaLabel="Star apify/apify-client-python on GitHub"
+                                                />
                                                 <div className="DescriptionLinks">
                                                     <Button
                                                         color="success"

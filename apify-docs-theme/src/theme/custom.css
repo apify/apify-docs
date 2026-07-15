@@ -1,127 +1,41 @@
 @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&display=swap');
 
 html[data-theme='dark'] {
-    --ifm-navbar-background-color: #1a1b23;
-    --ifm-background-color: #1a1b23;
-    --ifm-background-surface-color: #242736;
+    --ifm-navbar-background-color: var(--color-neutral-background-muted);
+    --ifm-background-color: var(--color-neutral-background);
+    --ifm-background-surface-color: var(--color-neutral-background-subtle);
 
-    --ifm-font-color-base: #f2f3fb;
+    --ifm-font-color-base: var(--color-neutral-text);
 
-    --ifm-pre-background: #242736;
+    --ifm-pre-background: var(--color-neutral-background-subtle);
 
-    --ifm-color-primary: #5d9df1;
-    --ifm-link-color: #5d9df1;
-    --ifm-heading-color: #f2f3fb;
-    --ifm-navbar-link-color: #f2f3fb;
+    --ifm-color-primary: var(--color-primary-action);
+    --ifm-link-color: var(--color-primary-text-interactive);
+    --ifm-heading-color: var(--color-neutral-text);
+    --ifm-navbar-link-color: var(--color-neutral-text);
 
     --ifm-line-height-base: 1.65;
 
     --ifm-code-background: var(--ifm-pre-background) !important;
-    --ifm-footer-title-color: #f2f3fb;
-    --ifm-footer-link-color: #8d92af;
+    --ifm-footer-title-color: var(--color-neutral-text);
+    --ifm-footer-link-color: var(--color-neutral-text-muted);
 
     --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.1);
-    --docsearch-text-color: #8d92af;
+    --docsearch-text-color: var(--color-neutral-text-muted);
 
-    /* TRON colors */
-    --color-Neutral_Text: #f3f4fa;
-    --color-Neutral_TextMuted: #b0b8d1;
-    --color-Neutral_Border: #d1d5e4;
-    --color-Neutral_Hover: #2a2d39;
-    --color-Neutral_Background: #1a1b21;
-    --color-Neutral_BackgroundMuted: #252832;
-    --color-Neutral_ChipBackground: #555d76;
-    --color-Neutral_ChipBackgroundActive: #8c93a8;
-    --color-Neutral_SeparatorSubtle: #31384d;
-    --color-Primary_ChipText: #8ebcff;
-    --color-Primary_ChipBackground: #1a3a78;
-    --color-Primary_TextInteractive: #6f9dff;
-
-    /* EXPERIMENT: tokens for shared components */
-    --color-neutral-text: #f3f4fa;
-    --color-neutral-text-muted: #b2b8cc;
-    --color-neutral-text-subtle: #8c93a8;
-    --color-neutral-text-disabled: #575d71;
-    --color-neutral-text-on-primary: #1a1b21;
-    --color-neutral-icon-on-primary: #1a1b21;
-    --color-neutral-background: #1a1b21;
-    --color-neutral-background-muted: #252832;
-    --color-neutral-background-subtle: #2a2d39;
-    --color-neutral-background-white: #f3f4fa;
-    --color-neutral-card-background: #1e2027;
-    --color-neutral-border: #414758;
-    --color-neutral-separator-subtle: #343847;
-    --color-neutral-hover: #2d313e;
-    --color-neutral-disabled: #343847;
-    --color-neutral-overflow: #2a2d39;
-    --color-neutral-icon: #b2b8cc;
-    --color-neutral-icon-subtle: #6e758a;
-    --color-neutral-icon-disabled: #575d71;
-    --color-neutral-field-border: #343847;
-    --color-neutral-action-secondary: #575d71;
-    --color-neutral-action-secondary-hover: #6e758a;
-    --color-neutral-action-secondary-active: #343847;
-    --color-neutral-chip-background: #575d71;
-    --color-neutral-chip-background-hover: #6e758a;
-    --color-neutral-chip-background-active: #8c93a8;
-    --color-neutral-chip-background-disabled: #8c93a8;
-    --color-neutral-large-tooltip-background: #2a2d39;
-    --color-neutral-large-tooltip-border: #343847;
-    --color-neutral-small-tooltip-background: #1a1b21;
-    --color-neutral-small-tooltip-border: #252832;
-    --color-neutral-overlay: #101114cc;
-    --color-neutral-field-background: #101114;
-    --color-neutral-text-placeholder: #6e758a;
-    --color-primary-text: #6f9dff;
-    --color-primary-text-interactive: #6f9dff;
-    --color-primary-icon: #3970d7;
-    --color-primary-action: #5990ff;
-    --color-primary-action-hover: #80a9ff;
-    --color-primary-action-active: #3970d7;
-    --color-primary-black-action: #ffffff;
-    --color-primary-black-action-hover: #d1d5e4;
-    --color-primary-black-action-active: #f3f4fa;
-    --color-primary-field-border-active: #3970d7;
-    --color-primary-chip-background: #1a3a78;
-    --color-primary-chip-background-hover: #194594;
-    --color-primary-chip-text: #8ebcff;
-    --color-primary-shadow-active: #295cbb;
-    --color-success-text: #3bb358;
-    --color-success-icon: #23a64a;
-    --color-success-background-subtle: #0f2b14;
-    --color-success-background-subtle-hover: #14441f;
-    --color-success-background-subtle-active: #006e29;
-    --color-success-border: #068a35;
-    --color-success-border-subtle: #006e29;
-    --color-success-action: #23a64a;
-    --color-success-action-hover: #3bb358;
-    --color-success-action-active: #068a35;
-    --color-success-chip-background: #14441f;
-    --color-success-chip-background-hover: #00531e;
-    --color-success-chip-text: #6ccd7c;
-    --color-warning-text: #f9ce4b;
-    --color-warning-icon: #f5bc38;
-    --color-warning-background-subtle: #3f1b07;
-    --color-warning-border-subtle: #8a4f05;
-    --color-warning-field-border: #cf9117;
-    --color-warning-chip-background: #5d2e0e;
-    --color-warning-chip-background-hover: #6d3806;
-    --color-warning-chip-text: #f9ce4b;
-    --color-danger-text: #ff7157;
-    --color-danger-icon: #ef6045;
-    --color-danger-background-subtle: #40191b;
-    --color-danger-background-subtle-hover: #672523;
-    --color-danger-background-subtle-active: #aa3229;
-    --color-danger-border: #cf4436;
-    --color-danger-border-subtle: #aa3229;
-    --color-danger-field-border: #ef6045;
-    --color-danger-action: #ef6045;
-    --color-danger-action-hover: #ff7157;
-    --color-danger-action-active: #cf4436;
-    --color-danger-chip-background: #672523;
-    --color-danger-chip-background-hover: #812420;
-    --color-danger-chip-text: #fe9e8a;
-    --button-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 100%);
+    /* TRON colors - map legacy names to the dark palette injected in Root.jsx */
+    --color-Neutral_Text: var(--color-neutral-text);
+    --color-Neutral_TextMuted: var(--color-neutral-text-muted);
+    --color-Neutral_Border: var(--color-neutral-border);
+    --color-Neutral_Hover: var(--color-neutral-hover);
+    --color-Neutral_Background: var(--color-neutral-background);
+    --color-Neutral_BackgroundMuted: var(--color-neutral-background-muted);
+    --color-Neutral_ChipBackground: var(--color-neutral-chip-background);
+    --color-Neutral_ChipBackgroundActive: var(--color-neutral-chip-background-active);
+    --color-Neutral_SeparatorSubtle: var(--color-neutral-separator-subtle);
+    --color-Primary_ChipText: var(--color-primary-chip-text);
+    --color-Primary_ChipBackground: var(--color-primary-chip-background);
+    --color-Primary_TextInteractive: var(--color-primary-text-interactive);
 }
 
 :root {
@@ -187,6 +101,13 @@ html[data-theme='dark'] {
     --ifm-h5-font-size: 1.4rem;
     --ifm-h6-font-size: 1.2rem;
 
+    /*
+     * Light-mode color tokens, kept identical to the original (pre-dark-mode)
+     * values. Do NOT replace these with the ui-library light token set - its
+     * palette shifts from the current design. Dark mode gets its tokens from
+     * cssColorsVariablesBrandDark, injected in Root.jsx.
+     */
+
     /* TRON colors */
     --color-Neutral_Text: #242836;
     --color-Neutral_TextMuted: #3f475d;
@@ -213,6 +134,7 @@ html[data-theme='dark'] {
     --color-neutral-background-subtle: #f3f4fa;
     --color-neutral-background-white: #ffffff;
     --color-neutral-card-background: #ffffff;
+    --color-neutral-card-background-hover: #f0f1f4;
     --color-neutral-border: #d0d5e9;
     --color-neutral-separator-subtle: #e0e3f2;
     --color-neutral-hover: #eef0f8;
@@ -472,6 +394,10 @@ footer .col {
     height: 58px;
 }
 
+html[data-theme='dark'] .navbar__sub {
+    background: var(--color-neutral-background-muted);
+}
+
 .navbar__container {
     max-width: calc(var(--max-layout-width) - var(--ifm-spacing-horizontal) * 2);
     display: flex;
@@ -551,34 +477,16 @@ aside > div > a > b {
     top: 10px;
 }
 
-.navbar .icon {
-    font-size: 0;
-    padding: 4px;
-    line-height: 0;
-}
-
-.navbar .icon::before {
-    content: '';
-    display: block;
-    width: 24px;
-    height: 24px;
-    background-size: cover;
-}
-
-.navbar .icon[href*='github']::before {
-    background-image: url('/img/github-brand.svg');
-}
-
-html[data-theme='dark'] .navbar .navbar__link[href*='github']:before {
-    background-image: url('/img/github-brand-dark.svg');
-}
-
-.navbar .icon[href*='discord']::before {
-    background-image: url('/img/discord-brand.svg');
-}
-
-html[data-theme='dark'] .navbar .navbar__link[href*='discord']:before {
-    background-image: url('/img/discord-brand-dark.svg');
+.navbar .icon[href*='discord'] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    background-color: var(--color-Neutral_BackgroundMuted);
+    border: 1px solid var(--color-neutral-border);
+    border-radius: 4px;
+    color: var(--ifm-navbar-link-color);
 }
 
 .navbar .icon svg[class*='iconExternalLink'],
@@ -932,12 +840,12 @@ html .plugin-docs .theme-doc-markdown h3 {
 
 html[data-theme='dark'] .theme-doc-sidebar-menu .menu__link,
 html[data-theme='dark'] .theme-doc-toc-desktop .table-of-contents .toc-highlight {
-    color: #b3b8d2;
+    color: var(--color-neutral-text);
 }
 
 html[data-theme='dark'] .theme-doc-sidebar-menu .menu__link--active,
 html[data-theme='dark'] .theme-doc-toc-desktop .table-of-contents .table-of-contents__link--active {
-    color: #f2f3fb;
+    color: var(--color-neutral-text);
 }
 
 .theme-doc-sidebar-menu .menu__link--active,

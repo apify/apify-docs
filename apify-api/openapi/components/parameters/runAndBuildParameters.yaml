@@ -88,16 +88,6 @@ gracefully:
     type: boolean
     example: true
 
-statusLastRun:
-  name: status
-  in: query
-  description: Filter for the run status.
-  style: form
-  explode: true
-  schema:
-    type: string
-    example: SUCCEEDED
-
 timeout: &timeout
   name: timeout
   in: query
@@ -246,9 +236,9 @@ maxTotalChargeUsd:
   in: query
   required: false
   description: |
-    Specifies the maximum cost of the run. This parameter is
-    useful for pay-per-event Actors, as it allows you to limit the amount
-    charged to your subscription. You can access the maximum cost in your Actor
+    Specifies the maximum total cost of the run.
+    Use it to cap the total amount charged for all pricing models.
+    You can access the maximum cost in your Actor
     by using the `ACTOR_MAX_TOTAL_CHARGE_USD` environment variable.
   style: form
   explode: true
@@ -309,14 +299,3 @@ scheduleId:
     type: string
     example: asdLZtadYvn4mBZmm
 
-outputRecordKey:
-  name: outputRecordKey
-  in: query
-  description: |
-    Key of the record from run's default key-value store to be returned
-    in the response. By default, it is `OUTPUT`.
-  style: form
-  explode: true
-  schema:
-    type: string
-    example: OUTPUT

@@ -86,23 +86,17 @@ post:
             - myValue: some value
               myOtherValue: some other value
     "400":
-      description: ""
-      headers: {}
-      content:
-        application/json:
-          schema:
-            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorRunFailedError"
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
     "402":
       $ref: ../../components/responses/PaymentRequired.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
     "404":
       $ref: ../../components/responses/NotFound.yaml
     "408":
-      description: ""
-      headers: {}
-      content:
-        application/json:
-          schema:
-            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorRunTimeoutExceededError"
+      $ref: ../../components/responses/Timeout.yaml
     "429":
       $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
@@ -180,21 +174,19 @@ get:
             - myValue: some value
               myOtherValue: some other value
     "400":
-      description: ""
-      headers: {}
-      content:
-        application/json:
-          schema:
-            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorRunFailedError"
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "402":
+      $ref: ../../components/responses/PaymentRequired.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
     "404":
       $ref: ../../components/responses/NotFound.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
     "408":
-      description: ""
-      headers: {}
-      content:
-        application/json:
-          schema:
-            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorRunTimeoutExceededError"
+      $ref: ../../components/responses/Timeout.yaml
     "429":
       $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false

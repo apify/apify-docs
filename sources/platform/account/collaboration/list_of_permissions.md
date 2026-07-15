@@ -1,0 +1,91 @@
+---
+title: List of permissions
+description: Learn about the access rights you can grant to other users. See a list of all access options for Apify resources such as Actors, Actor runs/tasks and storage.
+sidebar_position: 12.2
+slug: /account/collaboration/list-of-permissions
+---
+
+This document contains all the access options that can be granted to resources on the Apify platform.
+
+## Actors
+
+To learn about Apify Actors, check out the [documentation](/actors).
+
+### Actor
+
+| Permission           | Description                                                |
+|----------------------|------------------------------------------------------------|
+| Read                 | View Actor settings, source code and builds.               |
+| Write                | Edit Actor settings and source code, and delete the Actor. |
+| Run                  | Run any of an Actor's builds.                              |
+| Build                | Build the Actor.                                           |
+| View owner runs      | View owner's runs of the Actor and their details.          |
+| Manage access rights | Manage Actor access rights.                                |
+
+### Actor task
+
+| Permission           | Description                                                |
+|----------------------|------------------------------------------------------------|
+| Read                 | View task configuration.                                   |
+| Write                | Edit task configuration and settings, and delete the task. |
+| View owner runs      | View owner's runs of the Actor task and their details.     |
+| Manage access rights | Manage Actor task access rights.                           |
+
+To learn about Actor tasks, see the [documentation](/actors/running/tasks).
+
+## Storage
+
+For more information about Storage, see its [documentation](/storage).
+
+### Dataset
+
+| Permission           | Description                                                     |
+|----------------------|-----------------------------------------------------------------|
+| Read                 | View dataset information and its data.                          |
+| Write                | Edit dataset settings, push data to it, and remove the dataset. |
+| Manage access rights | Manage dataset access rights.                                   |
+
+To learn about dataset storage, see its [documentation](/storage/dataset).
+
+### Key-value-store
+
+| Permission           | Description                                                                                       |
+|----------------------|---------------------------------------------------------------------------------------------------|
+| Read                 | View key-value store details and records.                                                         |
+| Write                | Edit key-value store settings, add, update or remove its records, and delete the key-value store. |
+| Manage access rights | Manage key-value store access rights.                                                             |
+
+To learn about key-value stores, see the [documentation](/storage/key-value-store).
+
+### Request queue
+
+| Permission           | Description                                                                                    |
+|----------------------|------------------------------------------------------------------------------------------------|
+| Read                 | View request queue details and records.                                                        |
+| Write                | Edit request queue settings, add, update, or remove its records, and delete the request queue. |
+| Manage access rights | Manage request queue access rights.                                                            |
+
+To learn about request queue storage, see the [documentation](/storage/request-queue).
+
+## Proxy
+
+| Permission | Description               |
+|------------|---------------------------|
+| Proxy      | Allow to use Apify Proxy. |
+
+To learn about Apify Proxy, see its [documentation](/proxy).
+
+## User permissions
+
+Permissions that can be granted to members of organizations. To learn about the organization account, see its [documentation](/account/collaboration/organization).
+
+| Permission           | Description                                                            |
+|----------------------|------------------------------------------------------------------------|
+| Manage access tokens | Manage the account's access tokens, i.e. API token and proxy password. |
+| Manage billing       | Manage the subscription and billing of the account.                    |
+| Update profile       | Make changes in profile information.                                   |
+| Update email         | Update the contact email for the account.                              |
+| View invoices        | See the account's invoices.                                            |
+| View payouts         | View the account's payouts.                                            |
+| View monetization    | View the account's monetization details.                               |
+| Manage organization  | Manage the organization's members and permissions.                     |
