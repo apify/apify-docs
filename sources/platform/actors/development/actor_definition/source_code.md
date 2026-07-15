@@ -79,59 +79,6 @@ By copying the `package.json` and `package-lock.json` files and installing depen
 
 :::
 
-:::warning TypeScript Actors
-
-The Dockerfile above uses `--omit=dev`, which strips `typescript`. If your `build` script invokes `tsc`, the image build fails with `tsc: not found`. Three fixes:
-
-- **Multi-stage build** (smallest runtime image)—installs devDeps in a builder stage, copies the compiled output into a slim runtime stage. Most complex Dockerfile.
-  <details><summary>Example</summary>
-
-  ```dockerfile
-  FROM apify/actor-node:24 AS builder
-  COPY --chown=myuser:myuser package*.json ./
-  RUN npm install --include=dev
-  COPY --chown=myuser:myuser . ./
-  RUN npm run build
-
-  FROM apify/actor-node:24
-  COPY --chown=myuser:myuser package*.json ./
-  RUN npm install --omit=dev --omit=optional
-  COPY --from=builder --chown=myuser:myuser /usr/src/app/dist ./dist
-  CMD ["node", "dist/main.js"]
-  ```
-
-  </details>
-
-- **Drop `--omit=dev`** (simplest Dockerfile, largest runtime image)—installs everything, including linters and type declarations, into the single-stage image.
-  <details><summary>Example</summary>
-
-  ```dockerfile
-  FROM apify/actor-node:24
-  COPY --chown=myuser:myuser package*.json ./
-  RUN npm install
-  COPY --chown=myuser:myuser . ./
-  RUN npm run build
-  CMD ["node", "dist/main.js"]
-  ```
-
-  </details>
-
-- **Move `typescript` to `dependencies`**—keeps the single-stage Dockerfile but bloats the runtime image with the TypeScript compiler and its tooling. Runtime never uses these, so the extra size is wasted.
-  <details><summary>Example</summary>
-
-  ```json
-  {
-    "dependencies": {
-      "apify": "^3.4.0",
-      "typescript": "^5.5.0"
-    }
-  }
-  ```
-
-  </details>
-
-:::
-
 ### `package.json`
 
 The `package.json` file defines the `npm start` command:
