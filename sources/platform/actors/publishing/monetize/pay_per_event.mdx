@@ -351,6 +351,8 @@ When using browser automation tools like Puppeteer or Playwright for web scrapin
 
 Charge for inputs that seem valid but lead to errors, such as URLs that return a 404. Even though such action doesn't produce usable data, you still spend platform resources opening the page to discover the problem.
 
+Note that charging for invalid input might not cover the entire cost of platform resources spent on handling errors. Test your Actor with invalid input and adjust the validation logic, if necessary.
+
 Instead of failing the entire run because of the bad input, return error items with clear error codes and messages. The run continues for the valid inputs and gives users a transparent record of what they were charged for.
 
 The following example shows how to charge for invalid inputs using `Actor.pushData()` when a dataset item is created and the `scraped-result` event is charged:
