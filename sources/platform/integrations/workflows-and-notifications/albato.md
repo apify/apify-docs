@@ -27,37 +27,37 @@ You can use the Albato integration to trigger a workflow whenever an Actor or a 
 
 Log in to [Apify Console](https://console.apify.com/).
 
-![Apify Console dashboard for signing in](../images/albato-apify-console.png)
+![Apify Console dashboard for signing in](../images/albato-apify-console.webp)
 
 Go to **Settings > API & Integrations**.
 
-![Apify Console Settings page open](../images/albato-api-settings.png)
+![Apify Console Settings page open](../images/albato-api-settings.webp)
 
 Copy your **Personal API token**.
 
-![Apify Console API & Integrations page showing the Personal API token field](../images/albato-api-token.png)
+![Apify Console API & Integrations page showing the Personal API token field](../images/albato-api-token.webp)
 
 ### Step 2: Create the Apify connection in Albato
 
 Log in to [Albato](https://albato.com/app/user/auth/login?lang=en).
 
-![Albato login screen](../images/albato-login.png)
+![Albato login screen](../images/albato-login.webp)
 
 Go to **Apps** and click **Add a connection**.
 
-![Albato Apps page with the Add a connection button](../images/albato-add-connection.png)
+![Albato Apps page with the Add a connection button](../images/albato-add-connection.webp)
 
 Search for **Apify**, select it, and click **Add a connection**.
 
-![Albato connection search with Apify selected from the app list](../images/albato-search-apify.png)
+![Albato connection search with Apify selected from the app list](../images/albato-search-apify.webp)
 
 Paste the API token you copied from Apify and click **Continue**.
 
-![Albato connection tab with the Apify API token pasted into the token field](../images/albato-paste-token.png)
+![Albato connection tab with the Apify API token pasted into the token field](../images/albato-paste-token.webp)
 
 A success notification confirms the connection is active.
 
-![Albato success notification confirming the Apify connection was created](../images/albato-connection-success.png)
+![Albato success notification confirming the Apify connection was created](../images/albato-connection-success.webp)
 
 ## Build a workflow with an Apify trigger
 
@@ -67,23 +67,23 @@ This example shows how to scrape data with an Apify Actor and automatically send
 
 In Albato, click **Create automation**. Select **Apify** as the trigger app and choose the **Finished Actor Run** trigger. This fires every time a selected Actor completes a run. Select your Apify connection and pick the Actor you want to monitor.
 
-![Albato trigger setup panel with Apify selected, the Finished actor run event chosen, and an Apify connection configured](../images/albato-trigger-setup.png)
+![Albato trigger setup panel with Apify selected, the Finished actor run event chosen, and an Apify connection configured](../images/albato-trigger-setup.webp)
 
 ### Step 2: Add an action to retrieve the data
 
 Click **+** to add the next step. Select **Apify** as the action app and choose the **Get dataset** action. Map the **Run ID** from the trigger output to fetch the correct dataset.
 
-![Albato action setup panel with Apify selected, the Get dataset action chosen, and an Apify connection configured](../images/albato-action-setup.png)
+![Albato action setup panel with Apify selected, the Get dataset action chosen, and an Apify connection configured](../images/albato-action-setup.webp)
 
 ### Step 3: Send the data to Google Sheets
 
 Click **+** to add another step. Select **Google Sheets** as the action app and choose the **Create/update a row** action. Select your spreadsheet and map the dataset fields to the corresponding columns. Click **Save** and turn on the automation.
 
-![Albato action setup panel with Google Sheets selected, the Create/update a row action chosen, and the spreadsheet and sheet fields configured](../images/albato-google-sheets-action.png)
+![Albato action setup panel with Google Sheets selected, the Create/update a row action chosen, and the spreadsheet and sheet fields configured](../images/albato-google-sheets-action.webp)
 
 Every time the selected Actor finishes a run, Albato fetches the scraped data and adds it to your spreadsheet automatically.
 
-![Albato automation canvas showing the complete three-step workflow: Apify Finished actor run trigger, Apify Get dataset action, and Google Sheets Create/update a row action](../images/albato-automation-canvas.png)
+![Albato automation canvas showing the complete three-step workflow: Apify Finished actor run trigger, Apify Get dataset action, and Google Sheets Create/update a row action](../images/albato-automation-canvas.webp)
 
 ## Build a workflow with an Apify action
 
@@ -91,7 +91,7 @@ You can also start an Actor directly from an Albato workflow. This is useful whe
 
 Create a new automation and choose any app as the trigger (for example, **HubSpot > Contact added**). Add **Apify** as the action app and select **Run Actor**. Pick the Actor you want to run and configure its input fields. Optionally, add a second Apify step with **Get dataset** to retrieve the results once the run completes.
 
-![Albato automation canvas showing a three-step workflow: HubSpot Contact added trigger, Apify Run Actor action, and Apify Get dataset action](../images/albato-action-workflow-canvas.png)
+![Albato automation canvas showing a three-step workflow: HubSpot Contact added trigger, Apify Run Actor action, and Apify Get dataset action](../images/albato-action-workflow-canvas.webp)
 
 ### Handling long-running Actors
 
