@@ -27,11 +27,11 @@ This guide covers installation in the Codex CLI.
 
 1. In the Codex CLI, run the `/plugins` command.
 
-    ![Codex CLI prompt with the /plugins command typed in](../images/codex-cli/00-plugins-command.png)
+    ![Codex CLI prompt with the /plugins command typed in](../images/codex-cli/00-plugins-command.webp)
 
 1. Use the arrow keys to move right to the **Add Marketplace** tab, then press Enter.
 
-    ![Codex CLI plugins menu with the Add Marketplace tab selected](../images/codex-cli/01-add-marketplace-tab.png)
+    ![Codex CLI plugins menu with the Add Marketplace tab selected](../images/codex-cli/01-add-marketplace-tab.webp)
 
 1. Type the Apify plugin repository and press Enter to confirm:
 
@@ -39,15 +39,15 @@ This guide covers installation in the Codex CLI.
     apify/apify-codex-plugin
     ```
 
-    ![Codex CLI add marketplace prompt with the Apify repository entered](../images/codex-cli/02-marketplace-repo.png)
+    ![Codex CLI add marketplace prompt with the Apify repository entered](../images/codex-cli/02-marketplace-repo.webp)
 
 1. Open the **Apify Plugin** tab, select **Apify**, and press Enter to view the plugin details.
 
-    ![Codex CLI plugins menu showing the Apify plugin as available](../images/codex-cli/03-plugin-detail.png)
+    ![Codex CLI plugins menu showing the Apify plugin as available](../images/codex-cli/03-plugin-detail.webp)
 
 1. Select **Install plugin** and press Enter to install.
 
-    ![Codex CLI Apify plugin detail with the Install plugin option selected](../images/codex-cli/04-plugin-install.png)
+    ![Codex CLI Apify plugin detail with the Install plugin option selected](../images/codex-cli/04-plugin-install.webp)
 
 ## Authenticate to Apify
 
@@ -73,11 +73,11 @@ In any new Codex CLI chat, describe what you want in natural language. Because t
 
 Codex searches Apify Store and fetches the top Actor's details through the `apify` MCP server.
 
-![Codex CLI calling the Apify MCP server search-actors tool](../images/codex-cli/05-test-prompt-input.png)
+![Codex CLI calling the Apify MCP server search-actors tool](../images/codex-cli/05-test-prompt-input.webp)
 
 It then summarizes the Actor's inputs, pricing, and output - all without running the Actor.
 
-![Codex CLI response summarizing the Google Maps Actor inputs and pricing](../images/codex-cli/06-test-prompt-output.png)
+![Codex CLI response summarizing the Google Maps Actor inputs and pricing](../images/codex-cli/06-test-prompt-output.webp)
 
 ## Bundled skills
 

@@ -27,11 +27,11 @@ This guide covers installation in the Codex app.
 
 1. In Codex, open the left sidebar and select **Plugins**.
 
-    ![Codex left sidebar with the Plugins entry selected](../images/codex/00-plugins.png)
+    ![Codex left sidebar with the Plugins entry selected](../images/codex/00-plugins.webp)
 
 1. On the **Plugins** screen, select the dropdown next to **+** and choose **Add marketplace**.
 
-    ![Plugins screen with the add menu open and Add marketplace available](../images/codex/01-add-marketplace.png)
+    ![Plugins screen with the add menu open and Add marketplace available](../images/codex/01-add-marketplace.webp)
 
 1. In the **Add plugin marketplace** dialog, enter the Apify plugin repository in the **Source** field:
 
@@ -39,17 +39,17 @@ This guide covers installation in the Codex app.
     apify/apify-codex-plugin
     ```
 
-    ![Add plugin marketplace dialog with the Apify repository in the Source field](../images/codex/02-marketplace-form.png)
+    ![Add plugin marketplace dialog with the Apify repository in the Source field](../images/codex/02-marketplace-form.webp)
 
 1. Select **Add marketplace**.
 
 1. On the **Plugins** screen, open the **Personal** tab. The **Apify** plugin appears under **Apify Plugin**.
 
-    ![Plugins screen Personal tab showing the Apify plugin card](../images/codex/03-add-plugin.png)
+    ![Plugins screen Personal tab showing the Apify plugin card](../images/codex/03-add-plugin.webp)
 
 1. Select **Add** next to **Apify**.
 
-    ![Apify plugin card with the Add button and Install plugin tooltip](../images/codex/04-install-plugin.png)
+    ![Apify plugin card with the Add button and Install plugin tooltip](../images/codex/04-install-plugin.webp)
 
 1. In the dialog, select **Add to Codex**.
 
@@ -79,7 +79,7 @@ Describe what you want in natural language. Because this bundle exposes the MCP 
 
 Codex searches Apify Store, fetches the top Actor's details through the `apify` MCP server, and summarizes its inputs, pricing, and output - all without running the Actor.
 
-![Codex session calling the Apify MCP server and returning Google Maps Actor details](../images/codex/05-test-plugin.png)
+![Codex session calling the Apify MCP server and returning Google Maps Actor details](../images/codex/05-test-plugin.webp)
 
 ## Bundled skills
 
