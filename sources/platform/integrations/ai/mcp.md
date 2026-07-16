@@ -23,7 +23,7 @@ and enables AI coding assistants to access Apify documentation and tutorials.
 
 :::info Apify MCP server vs MCP connectors
 
-This page covers the Apify MCP server, which exposes Apify Actors as tools to outside AI clients. If you are building an Actor that needs to call third-party MCP servers (such as Notion or Slack) on a user's behalf, see [MCP connectors](/platform/integrations/mcp-connectors) instead.
+This page covers the Apify MCP server, which exposes Apify Actors as tools to outside AI clients. If you are building an Actor that needs to call third-party MCP servers (such as Notion or Slack) on a user's behalf, see [MCP connectors](/integrations/mcp-connectors) instead.
 
 :::
 
@@ -217,7 +217,32 @@ VS Code supports MCP through GitHub Copilot's agent mode (requires Copilot subsc
 
 You can also search for "Apify" in the connector directory and install it directly.
 
-For detailed setup options and troubleshooting, see the [Claude Desktop integration guide](/platform/integrations/claude-desktop).
+For detailed setup options and troubleshooting, see the [Claude Desktop integration guide](/integrations/claude-desktop).
+
+</TabItem>
+<TabItem value="apify-cli" label="Apify CLI">
+
+Use the Apify CLI to add the Apify MCP server to a supported local client:
+
+```bash
+apify mcp install cursor
+```
+
+Available clients are: `claude-code`, `cursor`, `vscode`, `vscode-insiders`, `codex`, `kiro`, and `antigravity`.
+
+The command creates or updates a user-level MCP server entry named `apify`. For Cursor, Kiro, and Antigravity, it writes to the client's MCP config file. For Claude Code, VS Code, VS Code Insiders, and Codex CLI, it uses the client's own install command.
+
+By default, the command uses the API token saved by `apify login`. To use a different token or Apify account than the one configured in the Apify CLI, pass `--token <APIFY_TOKEN>`:
+
+```bash
+apify mcp install cursor --token <APIFY_TOKEN>
+```
+
+Use `--tools` to expose only selected tools or Actors:
+
+```bash
+apify mcp install vscode --tools search-actors,apify/rag-web-browser
+```
 
 </TabItem>
 </Tabs>
@@ -329,8 +354,8 @@ For a detailed overview of client support for dynamic discovery, see the [MCP cl
 
 Agentic payments allow AI agents to autonomously pay for Actor runs without requiring an Apify API token. The Apify MCP server supports two payment methods:
 
-- [x402 protocol](/platform/integrations/x402) - Direct on-chain payments using USDC on the [Base](https://www.base.org/) blockchain via the open [x402](https://www.x402.org/) standard.
-- [Skyfire](/platform/integrations/skyfire) - Managed payment tokens through the [Skyfire](https://www.skyfire.xyz/) payment platform.
+- [x402 protocol](/integrations/x402) - Direct on-chain payments using USDC on the [Base](https://www.base.org/) blockchain via the open [x402](https://www.x402.org/) standard.
+- [Skyfire](/integrations/skyfire) - Managed payment tokens through the [Skyfire](https://www.skyfire.xyz/) payment platform.
 
 For setup instructions and details, see the individual integration pages.
 
@@ -399,7 +424,7 @@ documentation queries. If you exceed this limit, you'll receive a `429` response
 
 :::tip Claude Desktop issues
 
-For Claude Desktop-specific troubleshooting (tools not loading, connection errors, corrupted cache), see [Claude Desktop troubleshooting](/platform/integrations/claude-desktop#troubleshooting).
+For Claude Desktop-specific troubleshooting (tools not loading, connection errors, corrupted cache), see [Claude Desktop troubleshooting](/integrations/claude-desktop#troubleshooting).
 
 :::
 

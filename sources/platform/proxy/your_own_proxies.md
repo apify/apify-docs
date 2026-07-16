@@ -9,7 +9,7 @@ In addition to Apify Proxy, you can use your own proxies both in Apify Console a
 
 ## Custom proxies in console
 
-To use your own proxies with Apify Console, in your Actor's **Input and options** tab, scroll down and open the **Proxy and browser configuration** section. Enter your proxy URLs, and you're good to go.
+To use your own proxies with Apify Console, in your Actor's **Input** tab, scroll down and open the **Proxy and browser configuration** section (available for Actors whose input schema defines it). Enter your proxy URLs, and you're good to go.
 
 ![Using custom proxy in Apify Console](../images/proxy-custom.png)
 
