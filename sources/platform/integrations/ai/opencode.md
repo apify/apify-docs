@@ -81,7 +81,7 @@ OpenCode searches Apify Store, fetches the top Actor's details through the Apify
 
 Run `opencode mcp list` to confirm the server is registered. If it appears as not connected, authenticate with `opencode mcp auth apify` and complete the OAuth flow. See [Authenticate to Apify](#authenticate-to-apify).
 
-### The plugin isn't loaded
+### OpenCode doesn't load the plugin
 
 Print the resolved OpenCode configuration to confirm the plugin is registered:
 
