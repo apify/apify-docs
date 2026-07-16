@@ -115,9 +115,9 @@ Apify Actors often run for several minutes, which doesn't fit well into a single
 | Find last Actor run | Finds the most recent Actor run. |
 | Find last task run | Finds the most recent Actor task run. |
 | Create Actor task | Creates a new Actor task configuration. |
-| Get dataset | Retrieves items from a [dataset](/platform/storage/dataset). |
-| Get key-value store record | Retrieves a value from a [key-value store](/platform/storage/key-value-store). |
-| Get list of keys | Lists keys in a [key-value store](/platform/storage/key-value-store). |
+| Get dataset | Retrieves items from a [dataset](/storage/dataset). |
+| Get key-value store record | Retrieves a value from a [key-value store](/storage/key-value-store). |
+| Get list of keys | Lists keys in a [key-value store](/storage/key-value-store). |
 | Custom API request | Sends a custom request to any Apify API endpoint. |
 
 ## Troubleshooting
