@@ -105,11 +105,11 @@ _SDK integration:_
 
 ## Troubleshooting
 
-### The `/plugins` command isn't available
+### The `/plugins` command does not appear
 
 Plugins require a local installation of the Codex CLI with plugin support enabled. Install or update the Codex CLI locally, then run `/plugins` again.
 
-### The Apify plugin isn't listed
+### The Apify plugin does not appear in the list
 
 Reopen `/plugins`, move to the **Apify Plugin** tab, and confirm the marketplace was added. If the **Apify** plugin still doesn't appear, re-add the marketplace using the repository `apify/apify-codex-plugin`.
 

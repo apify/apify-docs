@@ -107,11 +107,11 @@ _SDK integration:_
 
 ## Troubleshooting
 
-### The Apify plugin isn't listed
+### The Apify plugin does not appear in the list
 
 Open the **Plugins** screen, switch to the **Personal** tab, and confirm the Apify marketplace was added. If the **Apify** plugin still doesn't appear, re-add the marketplace using the repository `apify/apify-codex-plugin`.
 
-### The Plugins screen isn't available
+### The Plugins screen does not appear
 
 Plugins require a local installation of Codex with plugin support enabled. Install or update Codex, then reopen the **Plugins** screen.
 
