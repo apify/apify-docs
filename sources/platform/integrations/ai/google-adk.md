@@ -2,7 +2,6 @@
 title: Google ADK integration
 sidebar_label: Google ADK
 description: Learn how to integrate Apify Actors as tools for AI agents built with Google Agent Development Kit to access real-time web scraping data and automation.
-sidebar_position: 2
 slug: /integrations/google-adk
 ---
 
@@ -18,7 +17,7 @@ Apify is a marketplace of web scraping and automation tools, AI agents, and MCP 
 
 ### Prerequisites
 
-- _Apify API token_: To use Apify Actors in Google ADK, you need an Apify API token. To obtain your token, check [Apify documentation](/platform/integrations/api#api-token).
+- _Apify API token_: To use Apify Actors in Google ADK, you need an Apify API token. To obtain your token, check [Apify documentation](/integrations/api#api-token).
 - _Python packages_: Install the following Python packages:
 
     ```bash
@@ -85,9 +84,9 @@ Find a pub near the Ferry Building in San Francisco.
 
 ## Resources
 
-- [Apify Actors](https://docs.apify.com/platform/actors)
+- [Apify Actors](https://docs.apify.com/actors)
 - [Google ADK documentation](https://google.github.io/adk-docs/get-started/)
 - [What are AI agents?](https://blog.apify.com/what-are-ai-agents/)
 - [Apify MCP server](https://mcp.apify.com)
-- [Apify MCP server documentation](https://docs.apify.com/platform/integrations/mcp)
+- [Apify MCP server documentation](https://docs.apify.com/integrations/mcp)
 - [Apify OpenRouter proxy](https://apify.com/apify/openrouter)

@@ -2,7 +2,6 @@
 title: Lindy integration
 description: Learn how to integrate Apify with Lindy to run Actors inside AI-powered automation workflows and extract real-time web data without writing code.
 sidebar_label: Lindy
-sidebar_position: 9
 slug: /integrations/lindy
 ---
 
@@ -47,9 +46,9 @@ This section demonstrates how to integrate Apify's data extraction capabilities 
 
     ![Apify "Run Actor" module configuration in Lindy, showing a dropdown or search for Actors, with "Instagram profile scraper" selected.](images/lindy/lindy-instagram-actor.png)
 
-:::tip Actor Availability
+:::tip Actor availability
 
-You have access to thousands of Actors available on the [Apify Store](https://apify.com/store). Please note that Actors using the _rental pricing model_ are not available for use with this integration. For details on Actor pricing models, refer to our [Pricing Documentation](/platform/actors/publishing/monetize#rental-pricing-model).
+You have access to thousands of Actors available on the [Apify Store](https://apify.com/store). Please note that Actors using the _rental pricing model_ are not available for use with this integration. The rental pricing model is being retired during 2026 and migrated to pay-per-usage. For details, refer to our [rental pricing model documentation](/actors/publishing/monetize/rental).
 
 :::
 

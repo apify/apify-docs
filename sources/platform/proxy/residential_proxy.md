@@ -12,7 +12,7 @@ Residential proxies use IP addresses assigned by Internet Service Providers to t
 
 This solution allows you to access a larger pool of servers than datacenter proxy. This makes it a better option in cases when you need a large number of different IP addresses.
 
-Residential proxies support [IP address rotation](./usage.md#ip-address-rotation) and [sessions](#session-persistence).
+Residential proxies support [IP address rotation](./index.md#ip-address-rotation) and [sessions](#session-persistence).
 
 **Pricing is based on data traffic**. It is measured for each connection made and displayed on your [proxy usage dashboard](https://console.apify.com/proxy/usage) in Apify Console.
 
@@ -20,13 +20,13 @@ Residential proxies support [IP address rotation](./usage.md#ip-address-rotation
 
 Connecting to residential proxy works the same way as [datacenter proxy](./datacenter_proxy.md), with two differences.
 
-1. The `groups` [username parameter](./usage.md#username-parameters) should always specify `RESIDENTIAL`.
+1. The `groups` [username parameter](./index.md#username-parameters) should always specify `RESIDENTIAL`.
 
 2. You can specify the country in which you want your proxies to be.
 
 ### How to set a proxy group
 
-When using [standard libraries and languages](./datacenter_proxy.md), specify the `groups` parameter in the [username](./usage.md#username-parameters) as `groups-RESIDENTIAL`.
+When using [standard libraries and languages](./datacenter_proxy.md), specify the `groups` parameter in the [username](./index.md#username-parameters) as `groups-RESIDENTIAL`.
 
 For example, your **proxy URL** when using the [got-scraping](https://www.npmjs.com/package/got-scraping) JavaScript library will look like this:
 
@@ -69,7 +69,7 @@ async def main():
 
 ### How to set a proxy country
 
-When using [standard libraries and languages](./datacenter_proxy.md), specify the `country` parameter in the [username](./usage.md#username-parameters) as `country-COUNTRY-CODE`. For example, to target Japan, set the username to `groups-RESIDENTIAL,country-JP`.
+When using [standard libraries and languages](./datacenter_proxy.md), specify the `country` parameter in the [username](./index.md#username-parameters) as `country-COUNTRY-CODE`. For example, to target Japan, set the username to `groups-RESIDENTIAL,country-JP`.
 
 In the [Apify SDK](/sdk) you set the country in your proxy configuration using two-letter [country codes](https://laendercode.net/en/2-letter-list.html). Specify the groups as `RESIDENTIAL`, then add a `countryCode`/`country_code` parameter:
 
@@ -114,10 +114,10 @@ async def main():
 State-level targeting is currently only supported for the United States.
 :::
 
-To use state targeting, specify the `country` parameter in the [username](./usage.md#username-parameters) using the [ISO 3166-2:US](https://en.wikipedia.org/wiki/ISO_3166-2:US) format: `country-US_XX`, where `XX` is the two-letter state abbreviation. For example, to target California when using the proxy URL directly, set the username to `groups-RESIDENTIAL,country-US_CA`.
+To use state targeting, specify the `country` parameter in the [username](./index.md#username-parameters) using the [ISO 3166-2:US](https://en.wikipedia.org/wiki/ISO_3166-2:US) format: `country-US_XX`, where `XX` is the two-letter state abbreviation. For example, to target California when using the proxy URL directly, set the username to `groups-RESIDENTIAL,country-US_CA`.
 
 
-In the [Apify SDK](/sdk) you set the state in your proxy configuration using the `countryCode`/`country_code` parameter:
+In the [Apify SDK](/sdk) you set the state in your proxy configuration using the `countryCode`/`country_code` and `subdivisionCode`/`subdivision_code` parameters:
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
@@ -129,7 +129,8 @@ await Actor.init();
 // ...
 const proxyConfiguration = await Actor.createProxyConfiguration({
     groups: ['RESIDENTIAL'],
-    countryCode: 'US_CA',
+    countryCode: 'US',
+    subdivisionCode: 'CA',
 });
 // ...
 await Actor.exit();
@@ -146,7 +147,8 @@ async def main():
         # ...
         proxy_configuration = await Actor.create_proxy_configuration(
             groups=['RESIDENTIAL'],
-            country_code='US_CA',
+            country_code='US',
+            subdivision_code='CA',
         )
         # ...
 ```
@@ -156,18 +158,21 @@ async def main():
 
 ## Session persistence
 
-When using residential proxy with the `session` [parameter](./usage.md#sessions) set in the [username](./usage.md#username-parameters), a single IP address is assigned to the **session ID** provided after you make the first request.
+When using residential proxy with the `session` [parameter](./index.md#sessions) set in the [username](./index.md#username-parameters), a single IP address is assigned to the **session ID** provided after you make the first request.
 
-**Session IDs represent IP addresses. Therefore, you can manage the IP addresses you use by managing sessions.** [[More info](./usage.md#sessions)]
+**Session IDs represent IP addresses. Therefore, you can manage the IP addresses you use by managing sessions.** [[More info](./index.md#sessions)]
 
-This IP/session ID combination is persisted for 1 minute. Each subsequent request resets the expiration time to 1 minute.
+This IP/session ID combination persists for around 30 minutes.
 
 If the proxy server becomes unresponsive or the session expires, a new IP address is selected for the next request.
 
-> If you really need to persist the same session, you can try sending some data using that session (e.g. every 20 seconds) to keep it alive.<br/>
-> Provided the connection is not interrupted, this will let you keep the IP address for longer.
+:::tip Reuse sessions
 
-To learn more about [sessions](./usage.md#sessions) and [IP address rotation](./usage.md#ip-address-rotation), see the proxy [overview page](./index.md).
+To keep using the same IP address, reuse the same session ID within its lifetime. Once the session expires, a new IP address is assigned.
+
+:::
+
+To learn more about [sessions](./index.md#sessions) and [IP address rotation](./index.md#ip-address-rotation), see the proxy [overview page](./index.md).
 
 ## Tips to keep in mind
 
@@ -181,9 +186,9 @@ To reduce your traffic use, we recommend using the `blockRequests()` function of
 
 ### Connected proxy speed variation
 
-Each host on the residential proxy network uses a different device. They have different network speeds and different latencies. This means that requests made with one [session](./usage.md#sessions) can be extremely fast, while another request with a different session can be extremely slow. The difference can range from a few milliseconds to a few seconds.
+Each host on the residential proxy network uses a different device. They have different network speeds and different latencies. This means that requests made with one [session](./index.md#sessions) can be extremely fast, while another request with a different session can be extremely slow. The difference can range from a few milliseconds to a few seconds.
 
-If your solution requires quickly loaded content, the best option is to set a [session](./usage.md#sessions), try a small request and see if the response time is acceptable. If it is, you can use this session for other requests. Otherwise, repeat the attempt with a different session.
+If your solution requires quickly loaded content, the best option is to set a [session](./index.md#sessions), try a small request and see if the response time is acceptable. If it is, you can use this session for other requests. Otherwise, repeat the attempt with a different session.
 
 ### Connection interruptions
 

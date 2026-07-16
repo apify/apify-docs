@@ -22,10 +22,7 @@ function HeroPromotion({ badge, label, href }: HeroPromotionProps) {
             <Text className={styles.heroPromotionLabel} weight="medium">
                 {label}
             </Text>
-            <ArrowRightIcon
-                className={styles.heroPromotionArrow}
-                size="16"
-            />
+            <ArrowRightIcon className={styles.heroPromotionArrow} size="16" />
         </a>
     );
 }
@@ -44,11 +41,11 @@ export default function Hero({ heading, description, promotion, align = 'left', 
             <div className={clsx(styles.heroBannerContent, { [styles.heroAlignLeft]: align === 'left' })}>
                 {promotion && <HeroPromotion {...promotion} />}
                 <div>
-                    <Heading type='title3Xl' className={styles.tagline}>{heading}</Heading>
+                    <Heading type="title3Xl" className={styles.tagline}>
+                        {heading}
+                    </Heading>
                 </div>
-                <div className={clsx(styles.heroDescription)}>
-                    {description}
-                </div>
+                <div className={clsx(styles.heroDescription)}>{description}</div>
             </div>
         </header>
     );

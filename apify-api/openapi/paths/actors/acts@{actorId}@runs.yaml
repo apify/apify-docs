@@ -130,7 +130,7 @@ post:
               schema:
                 type: string
               example: >-
-                https://api.apify.com/v2/acts/zdc3Pyhyz3m8vjDeM/runs/HG7ML7M8z78YcAPEB
+                https://api.apify.com/v2/actors/zdc3Pyhyz3m8vjDeM/runs/HG7ML7M8z78YcAPEB
       content:
         application/json:
           schema:
@@ -147,6 +147,8 @@ post:
       $ref: ../../components/responses/NotFound.yaml
     "405":
       $ref: ../../components/responses/MethodNotAllowed.yaml
+    "408":
+      $ref: ../../components/responses/Timeout.yaml
     "413":
       $ref: ../../components/responses/PayloadTooLarge.yaml
     "415":

@@ -1,7 +1,7 @@
 post:
   tags:
     - Actors/Actor runs
-  summary: Run Actor synchronously with input and get dataset items
+  summary: Run Actor synchronously and get dataset items
   description: |
     Runs a specific Actor and returns its dataset items.
 
@@ -42,6 +42,7 @@ post:
     - $ref: "../../components/parameters/paginationParameters.yaml#/offset"
     - $ref: "../../components/parameters/datasetParameters.yaml#/limit"
     - $ref: "../../components/parameters/datasetParameters.yaml#/fields"
+    - $ref: "../../components/parameters/datasetParameters.yaml#/outputFields"
     - $ref: "../../components/parameters/datasetParameters.yaml#/omit"
     - $ref: "../../components/parameters/datasetParameters.yaml#/unwind"
     - $ref: "../../components/parameters/datasetParameters.yaml#/flatten"
@@ -57,6 +58,8 @@ post:
     - $ref: "../../components/parameters/datasetParameters.yaml#/simplified"
     - $ref: "../../components/parameters/datasetParameters.yaml#/view"
     - $ref: "../../components/parameters/datasetParameters.yaml#/skipFailedPages"
+    - $ref: "../../components/parameters/datasetParameters.yaml#/feedTitle"
+    - $ref: "../../components/parameters/datasetParameters.yaml#/feedDescription"
   requestBody:
     description: ""
     content:
@@ -83,23 +86,17 @@ post:
             - myValue: some value
               myOtherValue: some other value
     "400":
-      description: ""
-      headers: {}
-      content:
-        application/json:
-          schema:
-            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorRunFailedError"
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
     "402":
       $ref: ../../components/responses/PaymentRequired.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
     "404":
       $ref: ../../components/responses/NotFound.yaml
     "408":
-      description: ""
-      headers: {}
-      content:
-        application/json:
-          schema:
-            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorRunTimeoutExceededError"
+      $ref: ../../components/responses/Timeout.yaml
     "429":
       $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
@@ -144,6 +141,7 @@ get:
     - $ref: "../../components/parameters/paginationParameters.yaml#/offset"
     - $ref: "../../components/parameters/datasetParameters.yaml#/limit"
     - $ref: "../../components/parameters/datasetParameters.yaml#/fields"
+    - $ref: "../../components/parameters/datasetParameters.yaml#/outputFields"
     - $ref: "../../components/parameters/datasetParameters.yaml#/omit"
     - $ref: "../../components/parameters/datasetParameters.yaml#/unwind"
     - $ref: "../../components/parameters/datasetParameters.yaml#/flatten"
@@ -159,6 +157,8 @@ get:
     - $ref: "../../components/parameters/datasetParameters.yaml#/simplified"
     - $ref: "../../components/parameters/datasetParameters.yaml#/view"
     - $ref: "../../components/parameters/datasetParameters.yaml#/skipFailedPages"
+    - $ref: "../../components/parameters/datasetParameters.yaml#/feedTitle"
+    - $ref: "../../components/parameters/datasetParameters.yaml#/feedDescription"
   responses:
     "201":
       description: ""
@@ -174,21 +174,19 @@ get:
             - myValue: some value
               myOtherValue: some other value
     "400":
-      description: ""
-      headers: {}
-      content:
-        application/json:
-          schema:
-            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorRunFailedError"
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "402":
+      $ref: ../../components/responses/PaymentRequired.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
     "404":
       $ref: ../../components/responses/NotFound.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
     "408":
-      description: ""
-      headers: {}
-      content:
-        application/json:
-          schema:
-            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorRunTimeoutExceededError"
+      $ref: ../../components/responses/Timeout.yaml
     "429":
       $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false

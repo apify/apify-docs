@@ -10,60 +10,65 @@ import React from 'react';
 import styles from './styles.module.css';
 
 function useSyntheticTitle() {
-  const { metadata, frontMatter, contentTitle } = useDoc();
-  const shouldRender = !frontMatter.hide_title && typeof contentTitle === 'undefined';
+    const { metadata, frontMatter, contentTitle } = useDoc();
+    const shouldRender = !frontMatter.hide_title && typeof contentTitle === 'undefined';
 
-  if (!shouldRender) {
-    return null;
-  }
+    if (!shouldRender) {
+        return null;
+    }
 
-  return metadata.title;
+    return metadata.title;
 }
 
 /**
  * This component is also used in other Apify docs (clients, SDKs, CLI)
  */
 export default function DocItemContent({ children }) {
-  const syntheticTitle = useSyntheticTitle();
-  const location = useLocation();
+    const syntheticTitle = useSyntheticTitle();
+    const location = useLocation();
 
-  // Define the allowed paths that should show LLMButtons
-  // The logic is handled here, and also in docusaurus.config.js (see docusaurus-plugin-openapi-docs)
-  const allowedPaths = [
-    '/api/v2/getting-started',
-    '/api/v2/actors',
-    '/api/v2/actors-actor-versions',
-    '/api/v2/actors-actor-builds',
-    '/api/v2/actors-actor-runs',
-    '/api/v2/actors-webhook-collection',
-    '/api/v2/actor-builds',
-    '/api/v2/actor-runs',
-    '/api/v2/actor-tasks',
-    '/api/v2/storage-datasets',
-    '/api/v2/storage-key-value-stores',
-    '/api/v2/storage-request-queues',
-    '/api/v2/storage-request-queues-requests',
-    '/api/v2/storage-request-queues-requests-locks',
-    '/api/v2/webhooks-webhooks',
-    '/api/v2/webhooks-webhook-dispatches',
-    '/api/v2/schedules',
-    '/api/v2/store',
-    '/api/v2/logs',
-    '/api/v2/users',
-    '/api/client',
-    '/platform',
-    '/sdk',
-    '/cli',
-    '/academy',
-  ];
+    // Define the allowed paths that should show LLMButtons
+    // The logic is handled here, and also in docusaurus.config.js (see docusaurus-plugin-openapi-docs)
+    const allowedPaths = [
+        '/api/v2/getting-started',
+        '/api/v2/actors',
+        '/api/v2/actors-actor-versions',
+        '/api/v2/actors-actor-builds',
+        '/api/v2/actors-actor-runs',
+        '/api/v2/actors-webhook-collection',
+        '/api/v2/actor-builds',
+        '/api/v2/actor-runs',
+        '/api/v2/actor-tasks',
+        '/api/v2/storage-datasets',
+        '/api/v2/storage-key-value-stores',
+        '/api/v2/storage-request-queues',
+        '/api/v2/storage-request-queues-requests',
+        '/api/v2/storage-request-queues-requests-locks',
+        '/api/v2/webhooks-webhooks',
+        '/api/v2/webhooks-webhook-dispatches',
+        '/api/v2/schedules',
+        '/api/v2/store',
+        '/api/v2/logs',
+        '/api/v2/users',
+        '/api/client',
+        '/get-started',
+        '/actors',
+        '/storage',
+        '/proxy',
+        '/account',
+        '/integrations',
+        '/security',
+        '/sdk',
+        '/cli',
+        '/academy',
+    ];
 
-  // Define paths that should not show LLMButtons (e.g., changelog pages)
-  const disallowedPaths = [
-    '/changelog',
-  ];
+    // Define paths that should not show LLMButtons (e.g., changelog pages)
+    const disallowedPaths = ['/changelog'];
 
-  const shouldShowLLMButtons = allowedPaths.some((path) => location.pathname.startsWith(path))
-    && !disallowedPaths.some((path) => location.pathname.includes(path));
+    const shouldShowLLMButtons =
+        allowedPaths.some((path) => location.pathname.startsWith(path)) &&
+        !disallowedPaths.some((path) => location.pathname.includes(path));
 
     return (
         <div className={clsx(ThemeClassNames.docs.docMarkdown, 'markdown')}>

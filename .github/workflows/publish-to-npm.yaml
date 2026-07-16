@@ -21,20 +21,14 @@ jobs:
         outputs:
             theme_changed: ${{ steps.changed-theme-files.outputs.any_changed }}
         steps:
-            -   uses: actions/checkout@v6
+            -   uses: actions/checkout@v7
                 with:
                     fetch-depth: 0
 
             -   name: Use Node.js
-                uses: actions/setup-node@v6
+                uses: actions/setup-node@v7
                 with:
                     node-version: 24
-                    cache: 'npm'
-                    cache-dependency-path: 'package-lock.json'
-
-            -   name: Enable corepack
-                run: |
-                    corepack enable
 
             -   name: Check changes in theme
                 id: changed-theme-files
@@ -49,21 +43,17 @@ jobs:
         if: ${{ needs.look_for_change.outputs.theme_changed == 'true' || github.event_name == 'workflow_dispatch' }}
         runs-on: ubuntu-latest
         steps:
-            -   uses: actions/checkout@v6
+            -   uses: actions/checkout@v7
                 with:
                     token: ${{ secrets.APIFY_SERVICE_ACCOUNT_GITHUB_TOKEN }}
 
             -   name: Use Node.js
-                uses: actions/setup-node@v6
+                uses: actions/setup-node@v7
                 with:
                     node-version: 24
-                    cache: 'npm'
                     registry-url: 'https://registry.npmjs.org'
-                    cache-dependency-path: 'package-lock.json'
 
-            -   name: Enable corepack
-                run: |
-                    corepack enable
+            -   uses: apify/actions/pnpm-install@v1.3.1
 
             -   name: Setup git user and npm
                 run: |
@@ -74,14 +64,17 @@ jobs:
                 run: |
                     cd "$GITHUB_WORKSPACE/apify-docs-theme"
                     PACKAGE_NAME=$(jq -r .name package.json)
-                    LATEST_VERSION=$(npm show "$PACKAGE_NAME" version 2>/dev/null || jq -r .version package.json)
-                    npm pkg set "version=$LATEST_VERSION"
-                    npm version patch --no-git-tag-version
+                    LATEST_VERSION=$(pnpm show "$PACKAGE_NAME" version 2>/dev/null || jq -r .version package.json)
+                    # Compute the next patch version from the latest published one and write it directly.
+                    # Avoid `pnpm version patch`, which refuses to run when the working tree is dirty
+                    # (it becomes dirty whenever the committed version has drifted behind npm).
+                    NEXT_VERSION=$(npx --yes semver -i patch "$LATEST_VERSION")
+                    pnpm pkg set "version=$NEXT_VERSION"
 
             -   name: Deploy theme to npm
                 run: |
                     cd "$GITHUB_WORKSPACE/apify-docs-theme"
-                    npm publish
+                    pnpm publish --no-git-checks
 
             -   name: Wait until the new theme version is available on npm
                 run: |
@@ -90,7 +83,7 @@ jobs:
                     PACKAGE_VER=$(jq -r .version package.json);
                     for _ in $(seq 1 10); do
                         EXIT_CODE=0;
-                        npm show "$PACKAGE_NAME@$PACKAGE_VER" || EXIT_CODE=1;
+                        pnpm show "$PACKAGE_NAME@$PACKAGE_VER" || EXIT_CODE=1;
                         if [[ $EXIT_CODE -eq 1 ]]; then
                             echo "The new package version ($PACKAGE_VER) is not yet available, waiting 30 seconds...";
                             sleep 30;
@@ -99,16 +92,15 @@ jobs:
                         echo "The new package version ($PACKAGE_VER) is live, proceeding!";
                         break;
                     done;
-                    npm show "$PACKAGE_NAME@$PACKAGE_VER" # fails if the package is not available, succeeds if it is
+                    pnpm show "$PACKAGE_NAME@$PACKAGE_VER" # fails if the package is not available, succeeds if it is
 
             -   name: Commit the new theme version
-                continue-on-error: true
-                uses: EndBug/add-and-commit@v10
+                uses: apify/actions/signed-commit@v1.0.0
                 with:
-                    add: 'apify-docs-theme/package*.json'
-                    author_name: github-actions[bot]
-                    author_email: 41898282+github-actions[bot]@users.noreply.github.com
                     message: 'chore: publish new version of @apify/docs-theme [skip ci]'
+                    add: 'apify-docs-theme/package.json'
+                    pull: '--rebase --autostash'
+                    github-token: ${{ secrets.APIFY_SERVICE_ACCOUNT_GITHUB_TOKEN }}
 
     rebuild-docs:
         needs: publish

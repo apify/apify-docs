@@ -1,14 +1,19 @@
 post:
   tags:
     - Actors/Actor runs
-  summary: Run Actor synchronously with input and return output
+  summary: Run Actor synchronously and return key-value store record
   description: |
-    Runs a specific Actor and returns its output.
+    Runs a specific Actor and returns a key-value store record.
 
     The POST payload including its `Content-Type` header is passed as `INPUT` to
     the Actor (usually <code>application/json</code>).
-    The HTTP response contains Actors `OUTPUT` record from its default
-    key-value store.
+
+    The response contains the record stored under the `OUTPUT` key in the run's
+    default key-value store. This is a legacy approach that has been replaced by
+    the Actor [output object](https://docs.apify.com/platform/actors/development/actor-definition/output-schema#output-object-definition);
+    Actors aren't required to store a record under this key, so the response may
+    not contain any data. Use the `outputRecordKey` query parameter to return a
+    different record.
 
     The Actor is started with the default options; you can override them using
     various URL query parameters.
@@ -26,7 +31,7 @@ post:
   operationId: act_runSync_post
   parameters:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
-    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/outputRecordKey"
+    - $ref: "../../components/parameters/runSyncParameters.yaml#/outputRecordKey"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/timeout"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/memory"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/maxItems"
@@ -56,23 +61,17 @@ post:
           example:
             bar: foo
     "400":
-      description: ""
-      headers: {}
-      content:
-        application/json:
-          schema:
-            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorRunFailedError"
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
     "402":
       $ref: ../../components/responses/PaymentRequired.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
     "404":
       $ref: ../../components/responses/NotFound.yaml
     "408":
-      description: ""
-      headers: {}
-      content:
-        application/json:
-          schema:
-            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorRunTimeoutExceededError"
+      $ref: ../../components/responses/Timeout.yaml
     "415":
       $ref: ../../components/responses/UnsupportedMediaType.yaml
     "429":
@@ -85,9 +84,14 @@ post:
 get:
   tags:
     - Actors/Actor runs
-  summary: Without input
+  summary: Run Actor synchronously without input
   description: |
-    Runs a specific Actor and returns its output.
+    Runs a specific Actor and returns a key-value store record. The response contains the
+    record stored under the `OUTPUT` key in the run's default key-value store.
+    This is a legacy approach that has been replaced by the Actor
+    [output object](https://docs.apify.com/platform/actors/development/actor-definition/output-schema#output-object-definition);
+    the record may not exist, in which case the response contains no data. Use the
+    `outputRecordKey` query parameter to return a different record.
     The run must finish in 300<!-- MAX_ACTOR_JOB_SYNC_WAIT_SECS --> seconds
     otherwise the API endpoint returns a timeout error.
     The Actor is not passed any input.
@@ -104,7 +108,7 @@ get:
   operationId: act_runSync_get
   parameters:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
-    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/outputRecordKey"
+    - $ref: "../../components/parameters/runSyncParameters.yaml#/outputRecordKey"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/timeout"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/memory"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/maxItems"
@@ -123,21 +127,17 @@ get:
           example:
             foo: bar
     "400":
-      description: ""
-      headers: {}
-      content:
-        application/json:
-          schema:
-            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorRunFailedError"
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
     "404":
       $ref: ../../components/responses/NotFound.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
     "408":
-      description: ""
-      headers: {}
-      content:
-        application/json:
-          schema:
-            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorRunTimeoutExceededError"
+      $ref: ../../components/responses/Timeout.yaml
     "429":
       $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false

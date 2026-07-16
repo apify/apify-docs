@@ -18,4 +18,8 @@ You can also organize the results from the store by different criteria, includin
 
 Once you select an Actor from the store, you'll be directed to its specific page. Here, you can configure the settings for your future Actor run, save these configurations for later use, or run the Actor immediately.
 
-For more information, see [Actors in Store](/sources/platform/actors/running/store.md).
+## Search
+
+Search results in Apify Console are personalized to each individual user, so the same query can return different Actors than the public Store at [apify.com/store](https://apify.com/store). Both Console and the public Store rank Actors using parameters similar to those in the [Actor quality score](/actors/publishing/quality-score).
+
+For more information, see [Actors in Store](/actors/running/actors-in-store).

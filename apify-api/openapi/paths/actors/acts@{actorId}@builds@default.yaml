@@ -25,17 +25,18 @@ get:
             $ref: ../../components/schemas/actor-builds/BuildResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      # Although the endpoint does not require a token, the API still validates any token that is supplied and returns 401 for an invalid one.
+      $ref: ../../components/responses/Unauthorized.yaml
     "403":
       # It should be 404, but is 403 for backwards compatibility. https://github.com/apify/apify-core/pull/17414
-      description: Not found - the requested resource was not found.
-      content:
-        application/json:
-          schema:
-            $ref: "../../components/schemas/common/errors/BuildErrors.yaml#/UnknownBuildTagError"
+      $ref: ../../components/responses/Forbidden.yaml
     "404":
       $ref: ../../components/responses/NotFound.yaml
     "405":
       $ref: ../../components/responses/MethodNotAllowed.yaml
+    "408":
+      $ref: ../../components/responses/Timeout.yaml
     "429":
       $ref: ../../components/responses/TooManyRequests.yaml
   x-js-parent: ActorClient

@@ -10,6 +10,8 @@ sharedGet: &sharedGet
       $ref: ../../responses/BadRequest.yaml
     "401":
       $ref: ../../responses/Unauthorized.yaml
+    "402":
+      $ref: ../../responses/PaymentRequired.yaml
     "403":
       $ref: ../../responses/Forbidden.yaml
     "404":
@@ -60,7 +62,8 @@ getLastRun:
   operationId: act_runs_last_dataset_statistics_get
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
 
 getTaskLastRun:
   <<: *sharedGet
@@ -75,4 +78,5 @@ getTaskLastRun:
   operationId: actorTask_runs_last_dataset_statistics_get
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"

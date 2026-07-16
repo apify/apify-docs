@@ -24,9 +24,9 @@ properties:
     examples: [2048]
   maxItems:
     type: [integer, "null"]
-    minimum: 1
+    minimum: 0
     examples: [1000]
   maxTotalChargeUsd:
-    type: number
+    type: [number, "null"]
     minimum: 0
     examples: [5]

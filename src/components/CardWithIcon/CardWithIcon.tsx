@@ -1,11 +1,17 @@
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import styled from 'styled-components';
 
 import { theme, VerticalTile } from '@apify/ui-library';
 
+import { cardHoverStyles } from '../cardHoverStyles';
 import { Heading } from '../Heading';
 import { Text } from '../Text';
 import styles from './styles.module.css';
+
+const StyledVerticalTile = styled(VerticalTile)`
+    ${cardHoverStyles}
+`;
 
 interface CardWithIconProps {
     icon: React.ReactNode;
@@ -19,20 +25,25 @@ export default function CardWithIcon({ icon, title, description, to, width }: Ca
     const { siteConfig } = useDocusaurusContext();
     const external = to.startsWith('http');
 
-    const Tile = <VerticalTile style={{ height: '100%' }}
-        content={
-            <div className={styles.cardContent}>
-                <div className={styles.cardContentHeader}>
-                    {icon}
-                    <Heading type='titleM'>{title}</Heading>
+    const Tile = (
+        <StyledVerticalTile
+            style={{ height: '100%' }}
+            content={
+                <div className={styles.cardContent}>
+                    <div className={styles.cardContentHeader}>
+                        {icon}
+                        <Heading type="titleM">{title}</Heading>
+                    </div>
+                    <div className={styles.cardContentDescription}>
+                        <Text align="left" color={theme.color.neutral.textSubtle}>
+                            {description}
+                        </Text>
+                    </div>
                 </div>
-                <div className={styles.cardContentDescription}>
-                    <Text align='left' color={theme.color.neutral.textSubtle}>{description}</Text>
-                </div>
-            </div>
-        }
-        isClickable
-    />;
+            }
+            isClickable
+        />
+    );
 
     if (external) {
         return (

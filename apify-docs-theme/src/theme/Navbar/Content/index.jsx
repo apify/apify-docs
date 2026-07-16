@@ -1,8 +1,6 @@
 import { useLocation } from '@docusaurus/router';
 import { isRegexpStringMatch, useThemeConfig } from '@docusaurus/theme-common';
-import {
-    splitNavbarItems,
-} from '@docusaurus/theme-common/internal';
+import { splitNavbarItems } from '@docusaurus/theme-common/internal';
 import { usePluginData } from '@docusaurus/useGlobalData';
 import NavbarLogo from '@theme/Navbar/Logo';
 import NavbarMobileSidebarToggle from '@theme/Navbar/MobileSidebar/Toggle';
@@ -13,23 +11,24 @@ import React from 'react';
 
 // import SearchBar from '../../SearchBar';
 import NavbarCTA from '../CTA';
+import { DiscordIcon } from './DiscordIcon';
 
 function NavbarItems({ items }) {
     return (
         <>
-            {items.map((item, i) => <NavbarItem {...item} key={i} />)}
+            {items.map((item, i) => (
+                <NavbarItem {...item} key={i} />
+            ))}
         </>
     );
 }
 
-function NavbarContentLayout({
-    left,
-    right,
-}) {
+function NavbarContentLayout({ left, center, right }) {
     return (
         <div className="navbar__inner">
             <div className="navbar__container">
                 <div className="navbar__items">{left}</div>
+                <div className="navbar__items navbar__items--center">{center}</div>
                 <div className="navbar__items navbar__items--right">{right}</div>
             </div>
         </div>
@@ -37,39 +36,43 @@ function NavbarContentLayout({
 }
 
 function SubNavbarTitle({ titleIcon, title }) {
-    return titleIcon
-        ? <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
+    return titleIcon ? (
+        <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
             <img src={`img/${titleIcon}`} width={24} height={24} /> {title}
         </div>
-        : title;
-}
-
-function SubNavbar() {
-    const { options: { subNavbar } } = usePluginData('@apify/docs-theme');
-    const location = useLocation();
-
-    return (
-        subNavbar && (!subNavbar?.pathRegex || isRegexpStringMatch(subNavbar.pathRegex, location.pathname)) ? (
-            <div className="navbar__inner navbar__sub">
-                <div className="navbar__container">
-                    <div className="navbar__items">
-                        <div className="navbar__sub--title">
-                            <NavbarItem
-                                label={<SubNavbarTitle title={subNavbar.title} titleIcon={subNavbar.titleIcon} />}
-                                to={subNavbar.to ?? '/'}
-                                activeBaseRegex='(?!)'
-                            />
-                        </div>
-                        <NavbarItems items={subNavbar.items} />
-                    </div>
-                </div>
-            </div>
-        ) : null
+    ) : (
+        title
     );
 }
 
+function SubNavbar() {
+    const {
+        options: { subNavbar },
+    } = usePluginData('@apify/docs-theme');
+    const location = useLocation();
+
+    return subNavbar && (!subNavbar?.pathRegex || isRegexpStringMatch(subNavbar.pathRegex, location.pathname)) ? (
+        <div className="navbar__inner navbar__sub">
+            <div className="navbar__container">
+                <div className="navbar__items">
+                    <div className="navbar__sub--title">
+                        <NavbarItem
+                            label={<SubNavbarTitle title={subNavbar.title} titleIcon={subNavbar.titleIcon} />}
+                            to={subNavbar.to ?? '/'}
+                            activeBaseRegex="(?!)"
+                        />
+                    </div>
+                    <NavbarItems items={subNavbar.items} />
+                </div>
+            </div>
+        </div>
+    ) : null;
+}
+
 export default function NavbarContent() {
-    const { navbar: { items } } = useThemeConfig();
+    const {
+        navbar: { items },
+    } = useThemeConfig();
     const [leftItems, rightItems] = splitNavbarItems(items);
     const searchBarItem = items.find((item) => item.type === 'search');
 
@@ -87,19 +90,39 @@ export default function NavbarContent() {
                 left={
                     <>
                         <NavbarLogo />
+                    </>
+                }
+                center={
+                    !searchBarItem && (
+                        <NavbarSearch>
+                            <SearchBar />
+                        </NavbarSearch>
+                    )
+                }
+                right={
+                    <>
+                        <a
+                            href="https://discord.com/invite/jyEM2PRvMU"
+                            className="icon"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <DiscordIcon size={20} />
+                        </a>
+                        <NavbarCTA />
+                        <NavbarMobileSidebarToggle />
+                    </>
+                }
+            />
+            <NavbarContentLayout
+                left={
+                    <>
                         <NavbarItems items={leftItems} />
                     </>
                 }
                 right={
                     <>
                         <NavbarItems items={rightItems} />
-                        {!searchBarItem && (
-                            <NavbarSearch>
-                                <SearchBar />
-                            </NavbarSearch>
-                        )}
-                        <NavbarCTA />
-                        <NavbarMobileSidebarToggle />
                     </>
                 }
             />

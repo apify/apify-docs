@@ -5,8 +5,6 @@ slug: /actors/development/programming-interface/basic-commands
 sidebar_position: 2
 ---
 
-**Learn how to use basic commands of the Apify SDK for both JavaScript and Python.**
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -100,7 +98,7 @@ Usually, the file is called `INPUT`, but the exact key is defined in the `ACTOR_
 
 ## Key-value store access
 
-Use the [Key-value store](../../../storage/key_value_store.md) to read and write arbitrary files
+Use the [Key-value store](/storage/key-value-store) to read and write arbitrary files
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
@@ -150,7 +148,7 @@ async def main():
 
 ## Push results to the dataset
 
-Store larger results in a [Dataset](../../../storage/dataset.md), an append-only object storage
+Store larger results in a [Dataset](/storage/dataset), an append-only object storage
 
 Note that Datasets can optionally be equipped with the schema that ensures only certain kinds of objects are stored in them.
 

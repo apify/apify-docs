@@ -8,6 +8,8 @@ const { config } = require('./apify-docs-theme');
 const { collectSlugs } = require('./tools/utils/collectSlugs');
 const { externalLinkProcessor, isInternal } = require('./tools/utils/externalLink');
 const { removeLlmButtons } = require('./tools/utils/removeLlmButtons');
+const { rehypeExpandTabs } = require('./tools/utils/rehypeExpandTabs');
+const { rehypeFixCodeLanguage } = require('./tools/utils/rehypeFixCodeLanguage');
 
 /**
  * Helper to extract text from a node recursively.
@@ -28,10 +30,7 @@ module.exports = {
     trailingSlash: false,
     organizationName: 'apify',
     projectName: 'apify-docs',
-    scripts: [
-        '/js/custom.js',
-        ...config.scripts ?? [],
-    ],
+    scripts: ['/js/custom.js', ...(config.scripts ?? [])],
     future: {
         experimental_faster: {
             // swcJsLoader: true,
@@ -75,10 +74,8 @@ module.exports = {
         },
     ].filter(Boolean),
 
-    onBrokenLinks:
-    /** @type {import('@docusaurus/types').ReportingSeverity} */ ('throw'),
-    onBrokenAnchors:
-    /** @type {import('@docusaurus/types').ReportingSeverity} */ ('warn'),
+    onBrokenLinks: /** @type {import('@docusaurus/types').ReportingSeverity} */ ('throw'),
+    onBrokenAnchors: /** @type {import('@docusaurus/types').ReportingSeverity} */ ('warn'),
     themes: [
         [
             require.resolve('./apify-docs-theme'),
@@ -123,7 +120,7 @@ module.exports = {
                     showLastUpdateTime: false,
                     editUrl: 'https://github.com/apify/apify-docs/edit/master/',
                     path: './sources/platform',
-                    routeBasePath: 'platform',
+                    routeBasePath: '/',
                     sidebarPath: require.resolve('./sources/platform/sidebars.js'),
                     rehypePlugins: [externalLinkProcessor],
                 },
@@ -218,14 +215,21 @@ module.exports = {
                                     const sidebarLabel = item.frontMatter.sidebar_label;
                                     const { title } = item;
                                     const id = item.type === 'schema' ? `schemas/${item.id}` : item.id;
-                                    const className = item.type === 'api'
-                                        ? clsx({
-                                            'menu__list-item--deprecated': item.api.deprecated,
-                                            'api-method': !!item.api.method,
-                                        }, item.api.method)
-                                        : clsx({
-                                            'menu__list-item--deprecated': item.schema.deprecated,
-                                        }, 'schema');
+                                    const className =
+                                        item.type === 'api'
+                                            ? clsx(
+                                                  {
+                                                      'menu__list-item--deprecated': item.api.deprecated,
+                                                      'api-method': !!item.api.method,
+                                                  },
+                                                  item.api.method,
+                                              )
+                                            : clsx(
+                                                  {
+                                                      'menu__list-item--deprecated': item.schema.deprecated,
+                                                  },
+                                                  'schema',
+                                              );
                                     // const endpoint = item.api.servers[0].url + item.api.path;
                                     const endpoint = item.api.path.replace('/v2', '');
                                     const { method } = item.api;
@@ -251,6 +255,7 @@ module.exports = {
                 allowedInDev: false,
             },
         ],
+        resolve(__dirname, 'src/plugins/docusaurus-plugin-preview-meta'),
         () => ({
             name: 'webpack-loader-fix',
             configureWebpack() {
@@ -275,7 +280,8 @@ module.exports = {
             '@signalwire/docusaurus-plugin-llms-txt',
             /** @type {import('@signalwire/docusaurus-plugin-llms-txt').PluginOptions} */
             ({
-                siteDescription: 'Apify is the largest marketplace of tools for AI. 25,000 ready-made Actors to automate your business. Get real-time web data, track competitors, generate leads, analyze sentiment, and orchestrate your apps. Actors are created by a global community of builders earning over $1M every month. Apify takes care of infrastructure, billing, and distribution.\n\nThe entire content of Apify documentation is available in a single Markdown file at https://docs.apify.com/llms-full.txt\n\nFor pricing details, see https://apify.com/pricing',
+                siteDescription:
+                    'Apify is the largest marketplace of tools for AI. Thousands of ready-made Actors to automate your business. Get real-time web data, track competitors, generate leads, analyze sentiment, and orchestrate your apps. Actors are created by a global community of builders earning over $1M every month. Apify takes care of infrastructure, billing, and distribution.\n\nThe entire content of Apify documentation is available in a single Markdown file at https://docs.apify.com/llms-full.txt\n\nFor pricing details, see https://apify.com/pricing.md\n\nFor autonomous AI agents, the Apify Agent General Interface (AGI) at https://agi.apify.com is the entry point to use and pay for the Apify platform and Actors through agentic payment protocols like x402 or MPP, without account setup or ongoing billing.',
                 content: {
                     includeVersionedDocs: false,
                     enableLlmsFullTxt: true,
@@ -292,7 +298,7 @@ module.exports = {
                                 const isUrlInternal = isInternal(parsedUrl, config.absoluteUrl);
                                 const url = isUrlInternal ? `${config.absoluteUrl}${parsedUrl.pathname}.md` : node.url;
 
-                                if (isUrlInternal && !parsedUrl.pathname) return '';
+                                if (isUrlInternal && !parsedUrl.pathname) return getNodeText(node);
 
                                 if (node.title) return `[${node.title}](${url})`;
                                 const linkText = getNodeText(node);
@@ -309,7 +315,9 @@ module.exports = {
                                         try {
                                             const parsedUrl = parse(splitValueLines[i + 1]);
                                             if (isInternal(parsedUrl, config.absoluteUrl) && parsedUrl.pathname) {
-                                                if (splitValueLines[i + 1]) splitValueLines[i + 1] = `https://api.apify.com${parsedUrl.pathname}`;
+                                                if (splitValueLines[i + 1])
+                                                    splitValueLines[i + 1] =
+                                                        `https://api.apify.com${parsedUrl.pathname}`;
                                             }
                                         } catch {
                                             // do nothing, leave the line as is
@@ -324,69 +332,13 @@ module.exports = {
                             },
                         },
                     },
-                    excludeRoutes: [
-                        '/',
-                        // API: exclude all deprecated act-* endpoints
-                        '/api/v2/act-*',
-                        // API: exclude individual CRUD endpoint pages (keep Introduction pages)
-                        '/api/v2/actor-build-abort-post',
-                        '/api/v2/actor-build-delete',
-                        '/api/v2/actor-build-get',
-                        '/api/v2/actor-build-log-get',
-                        '/api/v2/actor-build-openapi-json-get',
-                        '/api/v2/actor-builds-get',
-                        '/api/v2/actor-run-*',
-                        '/api/v2/actor-runs-get',
-                        '/api/v2/actor-task-*',
-                        '/api/v2/actor-tasks-get',
-                        '/api/v2/actor-tasks-post',
-                        '/api/v2/acts-get',
-                        '/api/v2/acts-post',
-                        '/api/v2/dataset-*',
-                        '/api/v2/datasets-*',
-                        '/api/v2/key-value-store-*',
-                        '/api/v2/key-value-stores-*',
-                        '/api/v2/log-get',
-                        '/api/v2/post-*',
-                        '/api/v2/request-queue-*',
-                        '/api/v2/request-queues-*',
-                        '/api/v2/schedule-*',
-                        '/api/v2/schedules-get',
-                        '/api/v2/schedules-post',
-                        '/api/v2/store-get',
-                        '/api/v2/tools-*',
-                        '/api/v2/user-get',
-                        '/api/v2/users-me-*',
-                        '/api/v2/webhook-*',
-                        '/api/v2/webhooks-get',
-                        '/api/v2/webhooks-post',
-                        // Academy: exclude legacy JS course
-                        '/academy/scraping-basics-javascript/legacy',
-                        '/academy/scraping-basics-javascript/legacy/**',
-                        // Academy: exclude individual Node.js tutorials (keep index)
-                        '/academy/node-js/*',
-                        // Academy: exclude individual Python tutorials (keep index)
-                        '/academy/python/*',
-                        // Academy: exclude exercise solutions
-                        '/academy/expert-scraping-with-apify/solutions',
-                        '/academy/expert-scraping-with-apify/solutions/**',
-                        // Academy: exclude legacy scraper tutorials (keep index)
-                        '/academy/apify-scrapers/*',
-                        // Academy: exclude marketing playbook deep pages
-                        '/academy/actor-marketing-playbook/**',
-                        // Academy: exclude misc
-                        '/academy/tutorials',
-                        '/academy/php/**',
-                        // Legal: exclude outdated docs
-                        '/legal/old/**',
-                        '/legal/fair-share-program-terms-and-conditions',
-                        '/legal/challenge-terms-and-conditions',
-                        '/legal/candidate-referral-program-terms',
-                        // Misc singleton pages
-                        '/open-source',
-                        '/sdk',
-                        '/search',
-                    ],
+                    // NOTE: Do not list pages here just to keep them out of llms.txt -
+                    // anything in `excludeRoutes` also loses its .md counterpart at
+                    // /<route>.md (see https://github.com/signalwire/docusaurus-plugins).
+                    // To exclude a page from the llms.txt index while keeping its .md
+                    // file accessible, add it to LLMS_INDEX_EXCLUDE_PATTERNS in
+                    // scripts/joinLlmsFiles.mjs instead.
+                    excludeRoutes: ['/', '/search'],
                     routeRules: [
                         {
                             route: '/api/**',
@@ -394,7 +346,7 @@ module.exports = {
                         },
                         {
                             route: '/academy/**',
-                            categoryName: 'Apify academy',
+                            categoryName: 'Apify Academy',
                         },
                         {
                             route: '/legal/**',
@@ -405,6 +357,8 @@ module.exports = {
                             categoryName: 'Platform documentation',
                         },
                     ],
+                    // Expand <Tabs> and fix Prism code language tags before HTML→markdown conversion
+                    beforeDefaultRehypePlugins: [rehypeExpandTabs, rehypeFixCodeLanguage],
                     // Add custom remark processing to remove LLM button text
                     remarkPlugins: [removeLlmButtons],
                 },
@@ -428,8 +382,7 @@ module.exports = {
     markdown: {
         mermaid: true,
         hooks: {
-            onBrokenMarkdownLinks:
-            /** @type {import('@docusaurus/types').ReportingSeverity} */ ('throw'),
+            onBrokenMarkdownLinks: /** @type {import('@docusaurus/types').ReportingSeverity} */ ('throw'),
         },
         parseFrontMatter: async (params) => {
             const result = await params.defaultParseFrontMatter(params);
@@ -472,7 +425,18 @@ module.exports = {
             ...config.themeConfig.prism,
             additionalLanguages: [
                 ...config.themeConfig.prism.additionalLanguages,
-                'http', 'bash', 'ruby', 'java', 'scala', 'go', 'csharp', 'powershell', 'dart', 'objectivec', 'ocaml', 'r',
+                'http',
+                'bash',
+                'ruby',
+                'java',
+                'scala',
+                'go',
+                'csharp',
+                'powershell',
+                'dart',
+                'objectivec',
+                'ocaml',
+                'r',
             ],
         },
         zoom: {
@@ -592,7 +556,7 @@ module.exports = {
     },
     staticDirectories: ['apify-docs-theme/static', 'static'],
     customFields: {
-        ...config.customFields ?? [],
+        ...(config.customFields ?? []),
     },
     clientModules: ['./clientModule.js'],
 };
