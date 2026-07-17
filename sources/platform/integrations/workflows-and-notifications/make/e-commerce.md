@@ -40,7 +40,7 @@ To use this module, you need an [Apify account](https://console.apify.com/sign-u
     ![Apify Console token for Make](images/apify-console-token-for-make.png)
 
 1. Find your token under **Personal API tokens**. Alternatively, create a new API token with customizable permissions by clicking **+ Create a new token**.
-1. **Copy the API token** and go back to Make.
+1. *Copy the API token* and go back to Make.
 
     ![Apify token on Make](images/Apify_token_on_Make.png)
 
@@ -52,7 +52,7 @@ Once connected, you can build workflows to automate e-commerce data extraction (
 
 ## Module: Extract using E-commerce Scraping Tool
 
-This is a **search** module: it returns one bundle per item it collects (product, review, seller, etc.). When a run produces many items, the module outputs many bundles that the scenario iterates over automatically.
+This is a *search* module: it returns one bundle per item it collects (product, review, seller, etc.). When a run produces many items, the module outputs many bundles that the scenario iterates over automatically.
 
 ### How it works
 
@@ -64,7 +64,7 @@ If the run does not finish successfully, the module returns an error with the ru
 
 :::info Synchronous run timeout
 
-This module runs the Actor **synchronously**: the scenario step waits for the run to finish before continuing. Make imposes a hard timeout on synchronous operations, and the limit varies based on your Make plan. If the Actor run takes longer than that timeout, the data will not be fully returned.
+This module runs the Actor *synchronously*: the scenario step waits for the run to finish before continuing. Make imposes a hard timeout on synchronous operations, and the limit varies based on your Make plan. If the Actor run takes longer than that timeout, the data will not be fully returned.
 
 To keep runs fast and within the timeout, use the per-mode **maximum results** fields to cap how much data each run collects. For very large extractions, split the work across multiple scenario runs.
 
@@ -100,11 +100,11 @@ Pull rich product data in product mode. You can feed the module direct **product
 
 For each product, the module returns these top-level fields:
 
-- **Identity**: `name`, `brand` (with `slogan`), `url`, and `image`.
-- **Pricing**: an `offers` object with `price` and `priceCurrency`.
-- **Description**: a `description` string.
-- **Reviews summary**: `rating` and `reviewCount`.
-- **Context**: the `keyword` that surfaced the product (for keyword searches) and the `inputUrl` the run started from.
+- *Identity*: `name`, `brand` (with `slogan`), `url`, and `image`.
+- *Pricing*: an `offers` object with `price` and `priceCurrency`.
+- *Description*: a `description` string.
+- *Reviews summary*: `rating` and `reviewCount`.
+- *Context*: the `keyword` that surfaced the product (for keyword searches) and the `inputUrl` the run started from.
 
 When **Include additional properties** is on, the module nests source-specific fields under `additionalProperties`. The exact set varies by marketplace and can include availability (`inStock`, `inStockText`), identifiers (`asin`, `originalAsin`), rating detail (`stars`, `starsBreakdown`), `breadCrumbs`, media (`galleryThumbnails`, `highResolutionImages`), `features`, key/value `attributes` and `productOverview`, `variantAsins` and `variantDetails`, `seller`, `bestsellerRanks`, `priceRange`, and an `aiReviewsSummary`. When you set AI summary data points, the module can also return an AI-generated summary of the chosen fields (see [AI summary](#ai-summary-product-details-mode) below).
 
@@ -163,11 +163,11 @@ Mine customer reviews in review mode. You can pass **review detail URLs**, **rev
 
 For each review, the module returns these top-level fields:
 
-- **Review content**: `reviewBody` (the review text) and `name` (the review title).
-- **Rating**: a `reviewRating` object with `ratingValue`, `bestRating`, and `worstRating`.
-- **Reviewer**: `author` (name or username).
-- **Timestamp**: `datePublished`.
-- **Product association**: `productUrl` and the `inputUrl` the run started from.
+- *Review content*: `reviewBody` (the review text) and `name` (the review title).
+- *Rating*: a `reviewRating` object with `ratingValue`, `bestRating`, and `worstRating`.
+- *Reviewer*: `author` (name or username).
+- *Timestamp*: `datePublished`.
+- *Product association*: `productUrl` and the `inputUrl` the run started from.
 
 When **Include additional review properties** is on, the module nests extra fields under `additionalProperties`. The keys depend on the marketplace, for example `recommended`, feedback counts, and `badges` on some sites, or `location`, `badge`, and `reviewId` on others.
 
@@ -213,12 +213,12 @@ Map the vendor side of a marketplace in seller mode. Provide one or more **selle
 
 For each seller, the module returns these top-level fields:
 
-- **Identity**: `name` and storefront `url`.
-- **Reputation**: an `aggregateRating` object with `ratingValue` and `ratingCount`.
-- **Contact**: `sellerEmail` and `sellerPhone` where the marketplace exposes them (often empty).
-- **Location**: an `address` object with `addressCountry` and `addressLocality`.
-- **Ownership**: a `parentOrganization` object (`name`, `url`, `additionalName`) where available.
-- **Context**: the `inputUrl` the run started from.
+- *Identity*: `name` and storefront `url`.
+- *Reputation*: an `aggregateRating` object with `ratingValue` and `ratingCount`.
+- *Contact*: `sellerEmail` and `sellerPhone` where the marketplace exposes them (often empty).
+- *Location*: an `address` object with `addressCountry` and `addressLocality`.
+- *Ownership*: a `parentOrganization` object (`name`, `url`, `additionalName`) where available.
+- *Context*: the `inputUrl` the run started from.
 
 ```json title="Sellers bundle (shortened)"
 [
@@ -265,10 +265,10 @@ Discover products across the web with Google Shopping-style results. Provide one
 
 For each search result, the module returns these top-level fields:
 
-- **Identity**: `name`, `image`, `brand` (with `slogan`), `description`, and the `googleURL` for the result.
-- **Offers**: an `offers` array, one entry per seller, each with `seller`, `url`, `price`, `priceCurrency`, `rating`, `extras` (labels such as shipping and return notes), and a `ranking`.
-- **Rating summary**: `rating` and `reviewCount`.
-- **Context**: the `keyword` searched and the `inputUrl` the run started from.
+- *Identity*: `name`, `image`, `brand` (with `slogan`), `description`, and the `googleURL` for the result.
+- *Offers*: an `offers` array, one entry per seller, each with `seller`, `url`, `price`, `priceCurrency`, `rating`, `extras` (labels such as shipping and return notes), and a `ranking`.
+- *Rating summary*: `rating` and `reviewCount`.
+- *Context*: the `keyword` searched and the `inputUrl` the run started from.
 
 ```json title="Search Engine bundle (shortened)"
 [
@@ -319,10 +319,10 @@ Pull localized data from food and grocery delivery platforms (currently Instacar
 
 For each delivery product, the module returns these top-level fields:
 
-- **Identity**: `name`, `url`, `brand` (with `slogan`), and `image`.
-- **Pricing**: an `offers` object with `price` and `currency`.
-- **Description**: a `description` string.
-- **Context**: the `keyword` searched.
+- *Identity*: `name`, `url`, `brand` (with `slogan`), and `image`.
+- *Pricing*: an `offers` object with `price` and `currency`.
+- *Description*: a `description` string.
+- *Context*: the `keyword` searched.
 
 When **Include extended delivery review data** is on, the module adds review records to the output.
 
@@ -359,10 +359,10 @@ Map the social-commerce side of e-commerce by looking at influencer storefront p
 
 For each influencer post, the module returns these top-level fields:
 
-- **Source**: `influencerUrl` (the storefront) and the `inputUrl` the run started from.
-- **Post**: `url`, `type` (such as `LIST`), `postId`, and `image`.
-- **Engagement**: `likes` where available.
-- **Products**: `itemsCount`, the number of products tagged in the post. When **Include products from influencer posts** is on, the module also collects those products.
+- *Source*: `influencerUrl` (the storefront) and the `inputUrl` the run started from.
+- *Post*: `url`, `type` (such as `LIST`), `postId`, and `image`.
+- *Engagement*: `likes` where available.
+- *Products*: `itemsCount`, the number of products tagged in the post. When **Include products from influencer posts** is on, the module also collects those products.
 
 ```json title="Influencer storefronts bundle (shortened)"
 [
@@ -403,11 +403,11 @@ Run the scenario. The Extract module outputs one bundle per product, and Google 
 
 ## Tips and best practices
 
-- **Provide a data source.** Each mode needs at least one URL, keyword, or profile URL.
-- **Mind the synchronous timeout.** The module waits for the run to finish; use the per-mode "maximum results" fields to keep runs fast and within your Make plan's limit.
-- **Usage is billed to your Apify account.** Larger limits mean more platform usage.
-- **Marketplace and AI data-point lists are dynamic.** They're fetched from the Actor, so the available options reflect what the Actor currently supports.
-- **Sorting may fall back.** If a marketplace doesn't support the chosen review sort, the tool uses its default order.
+- *Provide a data source.* Each mode needs at least one URL, keyword, or profile URL.
+- *Mind the synchronous timeout.* The module waits for the run to finish; use the per-mode "maximum results" fields to keep runs fast and within your Make plan's limit.
+- *Usage is billed to your Apify account.* Larger limits mean more platform usage.
+- *Marketplace and AI data-point lists are dynamic.* They're fetched from the Actor, so the available options reflect what the Actor currently supports.
+- *Sorting may fall back.* If a marketplace doesn't support the chosen review sort, the tool uses its default order.
 
 ## Other scrapers available
 
