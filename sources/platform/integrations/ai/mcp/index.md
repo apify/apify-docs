@@ -37,6 +37,13 @@ The Apify MCP server and [Apify AI](/console/apify-ai) share the same Actor sear
 
 Actor ranking on both surfaces uses parameters similar to those evaluated by the [Actor quality score](/platform/actors/publishing/quality-score), so Actors with higher quality scores tend to rank higher.
 
+## Excluded Actors
+
+Two categories of Actors are intentionally excluded from search and execution through the MCP server:
+
+- _Full-permission Actors_ - excluded for security. Running a [full-permission Actor](/actors/running/permissions#full-permission-actors) is a decision the user approves personally, so an LLM can't make it on their behalf.
+- _Rental Actors_ - excluded because their subscription-based model doesn't fit the sporadic, on-demand way these tools run Actors.
+
 ## Prerequisites
 
 Before connecting your AI to Apify, you'll need three things:
