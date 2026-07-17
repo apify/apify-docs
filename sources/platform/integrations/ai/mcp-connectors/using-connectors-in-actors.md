@@ -2,14 +2,13 @@
 title: Build Actors with MCP connectors
 sidebar_label: Build with connectors
 description: Declare MCP connectors in your Actor input schema, connect to them from TypeScript or Python, and apply tool-permission constraints at runtime.
-sidebar_position: 1
 slug: /integrations/mcp-connectors/use-in-actors
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This guide explains how to build Actors that accept [MCP connectors](/platform/integrations/mcp-connectors) as input, connect to them at runtime, and constrain which tools they can call.
+This guide explains how to build Actors that accept [MCP connectors](/integrations/mcp-connectors) as input, connect to them at runtime, and constrain which tools they can call.
 
 ## Declare connectors in the input schema
 
@@ -449,7 +448,7 @@ For the full schema, see [The `mcpServers` rule list](#the-mcpservers-rule-list)
 
 ## Related pages
 
-- [MCP connectors overview](/platform/integrations/mcp-connectors)
-- [Input schema specification - resource type](/platform/actors/development/actor-definition/input-schema/specification/v1#resource-type)
-- [Account settings - MCP connectors](/platform/console/settings#mcp-connectors)
-- [Apify environment variables](/platform/actors/development/programming-interface/environment-variables#system-environment-variables)
+- [MCP connectors overview](/integrations/mcp-connectors)
+- [Input schema specification - resource type](/actors/development/actor-definition/input-schema/specification/v1#resource-type)
+- [Account settings - MCP connectors](/account/settings#mcp-connectors)
+- [Apify environment variables](/actors/development/programming-interface/environment-variables#system-environment-variables)

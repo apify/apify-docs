@@ -2,7 +2,7 @@ packages:
   - apify-docs-theme
 
 overrides:
-  openapi-to-postmanv2>js-yaml: 4.1.1
+  openapi-to-postmanv2>js-yaml: 5.2.0
   "@stoplight/spectral-core>minimatch": 3.1.5
   copy-webpack-plugin>serialize-javascript: ^7.0.4
   css-minimizer-webpack-plugin>serialize-javascript: ^7.0.4
@@ -31,3 +31,16 @@ preferWorkspacePackages: true
 publicHoistPattern:
   - "*"
 legacyPeerDeps: true
+
+# pnpm v11 enables strictDepBuilds by default and fails the install if a
+# dependency's build scripts are neither approved nor explicitly declined.
+# These packages ship prebuilt binaries or have non-essential lifecycle
+# scripts, so we keep them disabled as on pnpm v10.
+allowBuilds:
+  "@apify/ui-icons": false
+  "@parcel/watcher": false
+  "@swc/core": false
+  core-js: false
+  core-js-pure: false
+  postman-code-generators: false
+  protobufjs: false

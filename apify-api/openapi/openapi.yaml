@@ -17,10 +17,20 @@ info:
     [JSON](http://www.json.org/) format with UTF-8 encoding,
     with a few exceptions that are explicitly described in the reference.
 
-    - To access the API using [Node.js](https://nodejs.org/en/), we recommend the [`apify-client`](https://docs.apify.com/api/client/js) [NPM
+    To access the API, we recommend using one of our API clients:
+
+    Stable API clients:
+    - For [Node.js](https://nodejs.org/en/), we recommend the [`apify-client`](https://docs.apify.com/api/client/js) [NPM
     package](https://www.npmjs.com/package/apify-client).
-    - To access the API using [Python](https://www.python.org/), we recommend the [`apify-client`](https://docs.apify.com/api/client/python) [PyPI
+    - For [Python](https://www.python.org/), we recommend the [`apify-client`](https://docs.apify.com/api/client/python) [PyPI
     package](https://pypi.org/project/apify-client/).
+
+    Experimental API clients:
+    - For [Java](https://www.java.com/), we recommend the `apify-client` [Maven central component](https://central.sonatype.com/artifact/com.apify/apify-client).
+    - For [Rust](https://rust-lang.org/), we recommend the `apify-client` [crate](https://crates.io/crates/apify-client).
+    - For [.NET](https://dotnet.microsoft.com/), we recommend the `apify-client` [Nuget package](https://www.nuget.org/packages/Apify.Client).
+    - For [PHP](https://www.php.net/), we recommend the `apify-client` [Packagist package](https://packagist.org/packages/apify/apify-client).
+    - For [Go](https://go.dev/), we recommend the `apify-client` [package](https://github.com/apify/apify-client-go/releases).
 
     The clients' functions correspond to the API endpoints and have the same
     parameters. This simplifies development of apps that depend on the Apify
@@ -58,6 +68,16 @@ info:
 
     For more information, see our
     [integrations](https://docs.apify.com/platform/integrations) documentation.
+
+    ### Agentic payments
+
+    AI agents can authenticate and pay for Actor runs without an Apify account
+    using agentic payments. Instead of an API token, the request carries a
+    payment credential that both authorizes and pays for the call. Apify supports
+    the [x402 protocol](https://docs.apify.com/platform/integrations/x402)
+    (`PAYMENT-SIGNATURE` header) and
+    [Skyfire](https://docs.apify.com/platform/integrations/skyfire)
+    (`skyfire-pay-id` header).
 
     ## Basic usage
     <span id="/introduction/basic-usage"></span>

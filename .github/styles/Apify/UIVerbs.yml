@@ -1,0 +1,10 @@
+extends: substitution
+message: "Use '%s' instead of '%s' for UI actions."
+ignorecase: true
+level: warning
+scope: text
+swap:
+    '(?<!double-|right-|left-|single-)click(?!-through)': select
+    '(?<!double-|right-|left-|single-)clicks(?!-through)': selects
+    '(?<!double-|right-|left-|single-)clicked(?!-through)': selected
+    '(?<!double-|right-|left-|single-)clicking(?!-through)': selecting

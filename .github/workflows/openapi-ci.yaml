@@ -20,14 +20,14 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
-            - uses: actions/checkout@v6
+            - uses: actions/checkout@v7
 
             - name: Set up Node.js
-              uses: actions/setup-node@v6
+              uses: actions/setup-node@v7
               with:
                   node-version: 24
 
-            - uses: apify/actions/pnpm-install@v1.1.2
+            - uses: apify/actions/pnpm-install@v1.3.1
 
             - name: Lint with Redocly
               run: pnpm openapi:lint:redocly --format=github-actions
@@ -41,14 +41,14 @@ jobs:
         needs: lint
 
         steps:
-            - uses: actions/checkout@v6
+            - uses: actions/checkout@v7
 
             - name: Set up Node.js
-              uses: actions/setup-node@v6
+              uses: actions/setup-node@v7
               with:
                   node-version: 24
 
-            - uses: apify/actions/pnpm-install@v1.1.2
+            - uses: apify/actions/pnpm-install@v1.3.1
 
             - name: Build bundles
               run: pnpm openapi:build
@@ -68,14 +68,14 @@ jobs:
         needs: [lint, build]
 
         steps:
-            - uses: actions/checkout@v6
+            - uses: actions/checkout@v7
 
             - name: Set up Node.js
-              uses: actions/setup-node@v6
+              uses: actions/setup-node@v7
               with:
                   node-version: 24
 
-            - uses: apify/actions/pnpm-install@v1.1.2
+            - uses: apify/actions/pnpm-install@v1.3.1
 
             - name: Download bundles
               uses: actions/download-artifact@v8
@@ -114,7 +114,7 @@ jobs:
             && github.event.pull_request.head.repo.full_name == github.repository
 
         steps:
-            - uses: actions/checkout@v6
+            - uses: actions/checkout@v7
 
             - name: Check if OpenAPI files changed
               id: changed-files

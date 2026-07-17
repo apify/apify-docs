@@ -5,12 +5,8 @@ sidebar_position: 7.1
 slug: /actors/running
 ---
 
-**In this section, you'll learn how to run Apify Actors using Apify Console or programmatically. You'll learn about their configuration, versioning, data retention, usage, and pricing.**
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-
----
 
 ## Run your first Apify Actor
 
@@ -120,4 +116,4 @@ print(dataset_items)
 
 The newly started Actor runs under the account associated with the provided `token`, so all consumed resources are charged to this user account.
 
-Internally, the `call()` function invokes the [Run Actor](/api/v2/act-runs-post) API endpoint, waits for the Actor to finish, and reads its output using the [Get dataset items](/api/v2/dataset-items-get) API endpoint.
+Internally, the `call()` function invokes the [Run Actor](/api/v2/act-runs-post) API endpoint, waits for the Actor to finish, and reads its results from the default dataset using the [Get dataset items](/api/v2/dataset-items-get) API endpoint.

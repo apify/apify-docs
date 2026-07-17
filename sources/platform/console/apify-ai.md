@@ -6,7 +6,13 @@ category: platform
 slug: /console/apify-ai
 ---
 
-Apify AI is a conversational AI interface inside [Apify Console](https://console.apify.com) that lets you describe what you want in plain English and runs the right Actor for you. It uses the same search and execution backend as [Apify Store](https://apify.com/store) search and the [Apify MCP server](/platform/integrations/mcp).
+Apify AI is a conversational AI interface inside [Apify Console](https://console.apify.com) that lets you describe what you want in natural language and runs the right Actor for you. It uses the same search and execution backend as [Apify Store](https://apify.com/store) search and the [Apify MCP server](/integrations/mcp).
+
+:::note Apify AI is in beta
+
+Apify AI is currently focused on finding and running Actors. Its capabilities and entry points will expand as it evolves.
+
+:::
 
 <!-- TODO: add screenshot of the Store search bar showing the "Ask AI" routing -->
 
@@ -26,6 +32,8 @@ Apify AI currently supports the core discovery and execution workflow:
 - Run an Actor with inputs that Apify AI fills in from your description.
 - Fetch results from the Actor's default dataset.
 
+Apify AI always asks for your confirmation before it runs an Actor - no run starts, and nothing is charged, without your approval. You can also rate any response with a thumbs up or down to help improve Apify AI.
+
 ## Excluded Actors
 
 Apify AI can run most Actors in Apify Store, but two categories are excluded:
@@ -37,10 +45,10 @@ Apify AI can run most Actors in Apify Store, but two categories are excluded:
 
 Apify AI does not yet support the following operations. Use Apify Console directly for these:
 
-- Creating or running [tasks](/platform/actors/running/tasks).
-- Setting up [schedules](/platform/schedules).
-- [Publishing](/platform/actors/publishing) Actors.
-- Configuring external [integrations](/platform/integrations).
+- Creating or running [tasks](/actors/running/tasks).
+- Setting up [schedules](/actors/running/schedules).
+- [Publishing](/actors/publishing) Actors.
+- Configuring external [integrations](/integrations).
 
 ## Daily usage limit
 
@@ -53,10 +61,10 @@ If you hit the limit, wait until the next day or upgrade to a paid plan for the 
 
 ## Search ranking
 
-Search ranking in Apify AI uses parameters similar to those evaluated by the [Actor quality score](/platform/actors/publishing/quality-score), the same as Apify Store search and the MCP server `search-actors` tool. The two are separate systems that correlate strongly: Actors with higher quality scores tend to rank higher in search. To improve your Actor's visibility, focus on improving its quality score.
+Search ranking in Apify AI uses parameters similar to those evaluated by the [Actor quality score](/actors/publishing/quality-score), the same as Apify Store search and the MCP server `search-actors` tool. The two are separate systems that correlate strongly: Actors with higher quality scores tend to rank higher in search. To improve your Actor's visibility, focus on improving its quality score.
 
 ## Related
 
-- [Apify MCP server](/platform/integrations/mcp) - the programmatic interface to the same backend for external AI agents and CLIs.
-- [Actor quality score](/platform/actors/publishing/quality-score) - the metric that correlates with search ranking across surfaces.
+- [Apify MCP server](/integrations/mcp) - the programmatic interface to the same backend for external AI agents and CLIs.
+- [Actor quality score](/actors/publishing/quality-score) - the metric that correlates with search ranking across surfaces.
 - [Apify Store](/console/store) - the Console view of the Store, including the search bar entry point.

@@ -9,54 +9,36 @@ slug: /getting-started/creating-actors
 
 ---
 
-You can create an Actor in several ways. You can create one from your own source code hosted in a Git repository or in your local machine, for example. But in this tutorial, we'll focus on the easiest method: selecting an Actor code template. We don't need to install any special software, and everything can be done directly in Apify Console using an Apify account.
+You can create an Actor in several ways. In this tutorial, we'll focus on the easiest method: selecting an Actor template. You don't need to install any special software, and you can complete the entire process directly in Apify Console using your Apify account.
 
 ## Choose the source
 
-Once you're in Apify Console, go to [Actors](https://console.apify.com/actors), and click on the **Develop new** button in the top right-hand corner.
+To choose the source of your new Actor, go to Apify Console > [Actors](https://console.apify.com/actors), and select **Develop new**.
 
-![Develop an Actor button](./images/develop-new-actor.png)
+You have two options:
 
-You'll be presented with a page featuring two ways to get started with a new Actor.
+- Create an Actor from existing source code by using Git providers or pushing the code from your local machine using Apify CLI.
+- Create an Actor from a template.
 
-1. Creating an Actor from existing source code (using Git providers or pushing the code from your local machine using Apify CLI)
-2. Creating an Actor from a code template
+## Create Actor from existing source code {#existing-source-code}
 
-|                               Existing source code                                |                                  Code templates                                  |
-|:---------------------------------------------------------------------------------:|:--------------------------------------------------------------------------------:|
-|  ![Create and Actor from source code](./images/create-actor-from-source-code.png) | ![Create an Actor from code templates](./images/create-actor-from-templates.png) |
+If you already have your code hosted by a Git provider, you can use it to create an Actor by linking the repository. If you use GitHub, you can use the [GitHub integration](/integrations/github) to create an Actor from your public or private repository. You can also use GitLab, Bitbucket or other Git providers or external repositories. To see all available options, select **Import from Git**.
 
-## Creating Actor from existing source code {#existing-source-code}
+You can also push your existing code from your local machine using [Apify CLI](/cli). This option is useful when you develop your code locally and then you want to push it to Apify Console to run the code as an Actor in the cloud. For details, see [Quick start](/cli/docs/quick-start) in the Apify CLI docs.
 
-If you already have your code hosted by a Git provider, you can use it to create an Actor by linking the repository. If you use GitHub, you can use our [GitHub integration](/platform/integrations/github) to create an Actor from your public or private repository. You can also use GitLab, Bitbucket or other Git providers or external repositories.
+## Create Actor from a template {#code-template}
 
-![Create an Actor from Git repository](./images/create-actor-git.png)
+Python, JavaScript, and TypeScript have several template options that you can use. To see all available templates, select **Browse all templates**.
 
-You can also push your existing code from your local machine using [Apify CLI](/cli). This is useful when you develop your code locally and then you want to push it to Apify Console to run the code as an Actor in the cloud. For this option, you'll need the [Apify CLI installed](/cli/docs/installation) on your machine. By clicking on the **Push your code using the Apify command-line interface (CLI)** button, you will be presented with instructions on how to push your code to Apify Console.
-
-![Push your code using the Apify CLI](./images/create-actor-cli.png)
-
-## Creating Actor from code template {#code-template}
-
-Python, JavaScript, and TypeScript have several template options that you can use.
-
-:::tip Template library
-
-You can select one from the list on this page or you can browse all the templates in the template library by clicking on the **View all templates** button in the right corner.
-
-:::
-
-For example, let's choose the **Start with JavaScript** template and click on the template card.
-
-![JavaScript template card](./images/create-actor-template-javascript-card.png)
+In this tutorial, let's choose the **One-Page HTML Scraper with Cheerio** template.
 
 You will end up on a template detail page where you can see all the important information about the template - description, included features, used technologies, and what is the use-case of this template. More importantly, there is a code preview and also instructions for how the code works.
 
 ![JavaScript template detail page](./images/create-actor-template-detail-page.png)
 
-### Using the template in the Web IDE {#web-ide}
+### Use templates in Web IDE {#web-ide}
 
-By clicking **Use this template** button you will create the Actor in Apify Console and you will be moved to the **Code** tab with the [Web IDE](/platform/actors/development/quick-start/web-ide) where you can see the code of the template and start editing it.
+By clicking **Use this template** button you will create the Actor in Apify Console and you will be moved to the **Code** tab with the [Web IDE](/get-started/web-ide) where you can see the code of the template and start editing it.
 
 :::tip Web IDE
 
@@ -66,7 +48,7 @@ The Web IDE is a great tool for developing your Actor directly in Apify Console 
 
 ![Web IDE](./images/create-actor-web-ide.png)
 
-### Using the template locally {#local}
+### Use templates locally {#local}
 
 If you want to use the template locally, you can again use our [Apify CLI](/cli) to download the template to your local machine.
 
@@ -143,7 +125,7 @@ The Actor takes the `url` from the input and then:
 3. Extracts headings (H1 - H6) from the page.
 4. Stores the extracted data.
 
-The extracted data is stored in the [Dataset](/platform/storage/dataset) where you can preview it and download it. We'll show how to do that later in [Run the Actor](#run-the-actor) section.
+The extracted data is stored in the [Dataset](/storage/dataset) where you can preview it and download it. We'll show how to do that later in [Run the Actor](#run-the-actor) section.
 
 :::tip Customize template
 
@@ -157,7 +139,7 @@ Learn more about the Actor input and output [in the next page](/academy/getting-
 
 ## Build the Actor
 
-In order to run the Actor, you need to [build](/platform/actors/development/builds-and-runs/builds) it first. Click on the **Build** button at the bottom of the page or **Build now** button right under the code editor.
+In order to run the Actor, you need to [build](/actors/development/builds-and-runs/builds) it first. Click on the **Build** button at the bottom of the page or **Build now** button right under the code editor.
 
 ![Build the Actor](./images/build-actor.png)
 

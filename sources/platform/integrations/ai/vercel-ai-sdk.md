@@ -2,7 +2,6 @@
 title: 🔺 Vercel AI SDK integration
 sidebar_label: Vercel AI SDK
 description: Learn how to integrate Apify Actors as tools for AI agents built with Vercel AI SDK to access real-time web data in your TypeScript applications.
-sidebar_position: 2
 slug: /integrations/vercel-ai-sdk
 ---
 
@@ -18,7 +17,7 @@ Apify is a marketplace of ready-to-use web scraping and automation tools, AI age
 
 ### Prerequisites
 
-- _Apify API token_: You need an Apify API token set as the `APIFY_TOKEN` environment variable. To obtain your token check [Apify documentation](https://docs.apify.com/platform/integrations/api).
+- _Apify API token_: You need an Apify API token set as the `APIFY_TOKEN` environment variable. To obtain your token check [Apify documentation](https://docs.apify.com/integrations/api).
 - _Node.js packages_: Install the following Node.js packages:
 
     ```bash
@@ -95,9 +94,9 @@ await mcpClient.close();
 
 ## Resources
 
-- [Apify Actors](https://docs.apify.com/platform/actors)
+- [Apify Actors](https://docs.apify.com/actors)
 - [Vercel AI SDK documentation](https://ai-sdk.dev/docs/introduction)
 - [What are AI agents?](https://blog.apify.com/what-are-ai-agents/)
 - [Apify MCP server](https://mcp.apify.com)
-- [Apify MCP server documentation](https://docs.apify.com/platform/integrations/mcp)
+- [Apify MCP server documentation](https://docs.apify.com/integrations/mcp)
 - [Apify OpenRouter proxy](https://apify.com/apify/openrouter)

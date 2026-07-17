@@ -2,7 +2,6 @@
 title: 🦜🔗 LangChain integration
 sidebar_label: LangChain
 description: Learn how to integrate Apify with LangChain to feed vector databases and large language models with web data crawled from the web using Actors.
-sidebar_position: 5
 slug: /integrations/langchain
 ---
 
@@ -35,7 +34,7 @@ from langchain_openai import ChatOpenAI
 from langchain_openai.embeddings import OpenAIEmbeddings
 ```
 
-Find your [Apify API token](https://console.apify.com/settings/integrations) and [OpenAI API key](https://platform.openai.com/account/api-keys) and initialize these into environment variable:
+Find your [Apify API token](https://console.apify.com/settings/integrations) and [OpenAI API key](https://.openai.com/account/api-keys) and initialize these into environment variable:
 
 ```python
 os.environ["OPENAI_API_KEY"] = "Your OpenAI API key"
