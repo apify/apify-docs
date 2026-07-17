@@ -1,9 +1,9 @@
 ---
 title: Apify AI
 description: Apify AI is the conversational AI interface inside Apify Console for finding and running Actors using natural language, instead of keyword search.
-sidebar_position: 2.5
+sidebar_position: 2
 category: platform
-slug: /console/apify-ai
+slug: /account/apify-ai
 ---
 
 Apify AI is a conversational AI interface inside [Apify Console](https://console.apify.com) that lets you describe what you want in natural language and runs the right Actor for you. It uses the same search and execution backend as [Apify Store](https://apify.com/store) search and the [Apify MCP server](/integrations/mcp).
