@@ -15,10 +15,10 @@ The pay per event (PPE) pricing model offers a flexible monetization option for 
 - Unlimited revenue scalability
 - AI/MCP compatibility
 - Predictable user costs
-- Store discounts
+- Store discounts available
 - Standard 20% commission
 - Custom event billing
-- Per-result billing (optional)
+- Two automatically charged events available
 
 :::tip Additional benefits
 
@@ -30,20 +30,20 @@ Actors that implement PPE pricing receive additional benefits, including increas
 
 An event is a specific, measurable action that your Actor triggers programmatically and charges the user for. The most common events include:
 
-- Starting an Actor.
-- Creating a dataset item.
+- Creating a result.
+- Processing an item.
 - Calling an external API.
 
-You define the events and can set different pricing for each of them.
+You define the events and can set different pricing for each event type and [discount tier](/actors/publishing/monetize/pricing-and-costs#discount-tiers).
 
 ### Synthetic events
 
-Synthetic events cover the most common billing patterns. They're predefined by Apify and charged automatically:
+Synthetic events are predefined by Apify and charged automatically:
 
-- [`apify-actor-start`](#synthetic-start-event) covers the costs spent during the first 5 seconds of starting the Actor.
-- [`apify-default-dataset-item`](#synthetic-default-dataset-item-event) charges for each item written to the run's default dataset.
+- [`apify-actor-start`](#synthetic-start-event) reduces the costs of starting the Actor.
+- [`apify-default-dataset-item`](#synthetic-default-dataset-item-event) charges for each item written to the default dataset of the run.
 
-You can adjust or remove synthetic events in Apify Console.
+You can remove synthetic events or change their price in Apify Console.
 
 ### Custom events
 
@@ -82,8 +82,8 @@ When testing your Actor pricing, you can also temporarily [pass platform usage c
 
 An Actor's negative net profit doesn't affect the positive profit of another Actor. For aggregation purposes, an Actor with a negative net profit is considered to have a profit of $0.
 
-- Before: `Total profit = (-$90) + $100 = $10`
-- Now: `Total profit = $0 + $100 = $100`
+- Without isolation: `Total profit = (-$90) + $100 = $10`
+- With isolation: `Total profit = $0 + $100 = $100`
 
 :::
 
@@ -151,7 +151,7 @@ Make sure to:
 
 :::tip Consider using `ChargingManager`
 
-If charging happens in multiple places across your code, or when you use a crawler where you don't directly control the main loop, you can use the `ChargingManager` to check the remaining budget periodically instead of inspecting every `ChargeResult`.
+If charging happens in multiple places across your code, or when you use an Actor where you don't directly control the main loop, you can use the `ChargingManager` to check the remaining budget periodically instead of inspecting every `ChargeResult`.
 
 :::
 
@@ -311,7 +311,7 @@ For existing Actors, you can add this event manually:
 
 #### Actors with a custom start event
 
-Your Actor can't use both the synthetic and custom start events.
+Don't use both the synthetic and custom start events.
 
 To use the synthetic event, remove the existing custom event from your Actor in Apify Console.
 
@@ -450,7 +450,7 @@ The following examples show clear mapping of events to results:
 - `post` event: Each charge adds one social media post to the dataset.
 - `profile` event: Each charge adds one user profile to the dataset.
 - `processed-image` event: Each charge adds one processed image to the dataset.
-- `ai-analysis` event: Each charge processes one document through an AI workflow. It doesn't produce an output, but processing is still valuable.
+- `ai-analysis` event: Each charge processes one document through an AI workflow.
 
 ### Use idempotency keys
 
