@@ -115,7 +115,7 @@ export default function NavbarContent() {
                 }
             />
             <NavbarContentLayout
-                className="navbar__inner--mobile"
+                className="navbar__inner--subnavbar"
                 left={
                     <>
                         <NavbarItems items={leftItems} />

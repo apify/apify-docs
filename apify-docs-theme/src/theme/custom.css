@@ -391,7 +391,7 @@ footer .col {
 
 @media (max-width: 996px) {
     /* Nav links move into a dropdown on mobile. */
-    .navbar__inner--mobile {
+    .navbar__inner--subnavbar {
         display: none;
     }
 }
