@@ -129,6 +129,14 @@ The Apify platform enforces this limit. Once it's reached, `Actor.charge()` and 
 
 To protect your profits, finish the Actor run once charges reach the user's limit.
 
+:::tip Set a minimum for the user limit
+
+To prevent users from setting the maximum cost for the run too low, set the minimum value during the [monetization setup](/actors/publishing/monetize#set-up-monetization). For example, you can use it to cover the price of starting the Actor and producing one result.
+
+The minimum value is stored by the `minimalMaxTotalChargeUsd` property.
+
+:::
+
 For both custom and synthetic events, Apify SDKs return a `ChargeResult` from every `Actor.charge()` and `Actor.pushData()` call. The user spending limit is available in your Actor code as the `ACTOR_MAX_TOTAL_CHARGE_USD` [environment variable](/actors/development/programming-interface/environment-variables), and `ChargeResult` already accounts for it. Inspect its properties to decide when to stop the run:
 
 | Property | Description |
@@ -139,14 +147,14 @@ For both custom and synthetic events, Apify SDKs return a `ChargeResult` from ev
 
 :::caution The limit is per run, not per user
 
-`ACTOR_MAX_TOTAL_CHARGE_USD` and the `ChargeResult` limit apply to a single run. If a user starts many runs at once, your aggregate platform costs can grow beyond what a single run's limit suggests. To protect your profit, [set memory limits](#memory-limits) and keep per-event platform costs low.
+`ACTOR_MAX_TOTAL_CHARGE_USD` and the `ChargeResult` limit apply to a single run, not to a user's total spending. If a user starts many runs at once, your combined platform costs across all runs can grow beyond what a single run's limit suggests. To protect your profit, [set memory limits](#memory-limits) and keep per-event platform costs low.
 
 :::
 
 Make sure to:
 
-- Charge for work as soon as it's done, not in a large batch at the end. If the run is stops early, unbilled work is lost.
-- Prefer charging one unit at a time over batching with `count`, so a partial charge can't leave produced results unpaid.
+- Charge for work as soon as it's done, not in a large batch at the end. If the run stops early, produced results don't get charged.
+- Charge for results after they're saved and available for users. Don't bill users for what they can't access, for example if a run gets aborted.
 - Finish the run once `eventChargeLimitReached` is `true`.
 
 :::tip Consider using `ChargingManager`
@@ -289,7 +297,7 @@ Apify recommends using the synthetic `apify-actor-start` event in all Actors. It
 
 The `apify-actor-start` synthetic event works as follows:
 
-- It's enabled by default for all new PPE Actors. For existing Actors, you can enable it in Apify Console.
+- It's available by default for all new PPE Actors. For existing Actors, you can enable it in Apify Console.
 - Apify automatically charges the event. Don't manually charge the event in your Actor code, as it will fail.
 - The default price of the event is $0.00005, which equals to $0.05 per 1,000 starts. To keep your Actor competitive, Apify recommends keeping the default price.
 - The number of events charged depends on the amount of memory allocated to the run. Up to and including 1 GB of RAM, the event is charged once. Then, it's charged once for each extra GB of memory. For example:
