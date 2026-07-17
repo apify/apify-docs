@@ -38,10 +38,10 @@ Actor ranking on both surfaces uses parameters similar to those evaluated by the
 
 ## Excluded Actors
 
-Two categories of Actors are intentionally excluded from search and execution through the MCP server:
+The MCP server intentionally excludes two categories of Actors from search and execution:
 
-- _Full-permission Actors_ - excluded for security. Running a [full-permission Actor](/actors/running/permissions#full-permission-actors) is a decision the user approves personally, so an LLM can't make it on their behalf.
-- _Rental Actors_ - excluded because their subscription-based model doesn't fit the sporadic, on-demand way these tools run Actors.
+- _Full-permission Actors_ - excluded for security. Running a [full-permission Actor](/actors/running/permissions#full-permission-actors) is a decision you approve personally, so an LLM can't make it on your behalf.
+- _Rental Actors_ - excluded because their subscription-based model doesn't fit the sporadic, on-demand way the MCP server runs Actors.
 
 ## Prerequisites
 

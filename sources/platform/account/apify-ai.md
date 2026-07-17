@@ -18,7 +18,7 @@ Apify AI is currently focused on finding and running Actors. Its capabilities an
 
 Apify AI has two entry points in Apify Console:
 
-- _Store search bar_ - long, intent-heavy queries are routed to Apify AI. Short keyword queries continue to use the regular Store search.
+- _Store search bar_ - Apify AI picks up long, intent-heavy queries. Short keyword queries continue to use the regular Apify Store search.
 - _Dashboard widget_ - a chat widget on the Console dashboard.
 
 ![Apify Store search bar with the placeholder Search Actors or ask Apify AI](./images/apify-ai-store-search.png)
@@ -37,7 +37,7 @@ Apify AI always asks for your confirmation before it runs an Actor - no run star
 
 ## Excluded Actors
 
-Apify AI can run most Actors in Apify Store, but two categories are excluded:
+Apify AI can run most Actors in Apify Store, but excludes two categories:
 
 - _Full-permission Actors_ - excluded for security. Running a [full-permission Actor](/actors/running/permissions#full-permission-actors) is a decision you approve personally, so an LLM can't make it on your behalf.
 - _Rental Actors_ - excluded because their subscription-based model doesn't fit the sporadic, on-demand way Apify AI runs Actors.
@@ -68,4 +68,4 @@ Search ranking in Apify AI uses parameters similar to those evaluated by the [Ac
 
 - [Apify MCP server](/integrations/mcp) - the programmatic interface to the same backend for external AI agents and CLIs.
 - [Actor quality score](/actors/publishing/quality-score) - the metric that correlates with search ranking across surfaces.
-- [Apify Console](/account/console) - the web application where Apify AI lives, in the Store search bar and the dashboard widget.
+- [Apify Console](/account/console) - the web application where Apify AI lives, in the Apify Store search bar and the dashboard widget.
