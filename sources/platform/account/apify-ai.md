@@ -6,7 +6,7 @@ category: platform
 slug: /account/apify-ai
 ---
 
-Apify AI is a conversational AI interface inside [Apify Console](https://console.apify.com) that lets you describe what you want in natural language and runs the right Actor for you. It uses the same search and execution backend as [Apify Store](https://apify.com/store) search and the [Apify MCP server](/integrations/mcp).
+Apify AI is a conversational AI interface inside [Apify Console](https://console.apify.com) that lets you describe what you want in natural language and runs the right [Actor](/actors) for you. It uses the same search and execution backend as [Apify Store](https://apify.com/store) search and the [Apify MCP server](/integrations/mcp).
 
 :::note Apify AI is in beta
 
@@ -28,9 +28,9 @@ Apify AI has two entry points in Apify Console:
 Apify AI currently supports the core discovery and execution workflow:
 
 - Search Apify Store for an Actor that matches your goal.
-- View an Actor's details, including its input schema and pricing.
+- View an Actor's details, including its [input schema](/actors/development/actor-definition/input-schema) and [pricing](/actors/running/actors-in-store).
 - Run an Actor with inputs that Apify AI fills in from your description.
-- Fetch results from the Actor's default dataset.
+- Fetch results from the Actor's default [dataset](/storage/dataset).
 
 Apify AI always asks for your confirmation before it runs an Actor - no run starts, and nothing is charged, without your approval. You can also rate any response with a thumbs up or down to help improve Apify AI.
 
@@ -54,7 +54,7 @@ Apify AI does not yet support the following operations. Use Apify Console direct
 
 Apify AI has a daily token limit per user:
 
-- Free plan users get a lower daily allowance.
+- [Free plan](https://apify.com/pricing) users get a lower daily allowance.
 - Users on any paid plan share the same higher daily allowance.
 
 If you hit the limit, wait until the next day or upgrade to a paid plan for the higher allowance.
