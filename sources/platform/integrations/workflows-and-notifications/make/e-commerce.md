@@ -80,7 +80,7 @@ Each mode needs at least one data source: a URL, keyword, or profile URL. A mode
 
 Select an **Operation Type** first; the input fields below appear based on your choice. Each mode lists its input fields, the data it extracts, and a shortened sample of its output.
 
-The samples show the fields the Make module exposes with labels for mapping. When **Include additional properties** is enabled, extra source-specific fields (SKUs, variants, badges, store context, and similar) are returned nested under `additionalProperties`.
+The samples show the fields the Make module exposes with labels for mapping. Each bundle also carries Make's iterator fields `__IMTLENGTH__` (total number of items in the run) and `__IMTINDEX__` (the item's 1-based position). In **Product Details** and **Reviews** modes, enabling **Include additional properties** nests extra source-specific fields (availability, identifiers, ratings breakdown, media, and similar) under `additionalProperties`. The keys under `additionalProperties` depend on the marketplace the item comes from, so they vary from site to site. The other modes return all fields at the top level.
 
 ### Product Details
 
@@ -98,60 +98,42 @@ Pull rich product data in product mode. You can feed the module direct **product
 | **AI summary custom prompt** | Custom instructions for the AI summary. Leave blank to use Apify's default prompt. |
 | **Total maximum products** | Cap on the number of products collected during the run. |
 
-For each product, you will extract:
+For each product, the module returns these top-level fields:
 
-- **Product identity**: product name, brand, URL, SKU, MPN, GTIN-13, handle, and product type.
-- **Pricing**: current offer price and currency, on-sale flag, price range, and regular price range.
-- **Inventory and variants**: available variants (size, color, SKU ID), options, stock signals, and weight.
-- **Media**: primary image, full image gallery (with dimensions, alt text, and positions).
-- **Descriptions & marketing copy**: long description, HTML description, tags, features, and enticements.
-- **Reviews summary**: average rating, total review count.
-- **Additional metadata**: age groups, style number, color, created/updated timestamps, and any extra retailer-specific properties.
-- **Optional AI summary**: when AI summary data points are set, the module returns an AI-generated summary of the chosen fields, using either Apify's default prompt or your custom prompt (see [AI summary](#ai-summary-product-details-mode) below).
+- **Identity**: `name`, `brand` (with `slogan`), `url`, and `image`.
+- **Pricing**: an `offers` object with `price` and `priceCurrency`.
+- **Description**: a `description` string.
+- **Reviews summary**: `rating` and `reviewCount`.
+- **Context**: the `keyword` that surfaced the product (for keyword searches) and the `inputUrl` the run started from.
+
+When **Include additional properties** is on, the module nests source-specific fields under `additionalProperties`. The exact set varies by marketplace and can include availability (`inStock`, `inStockText`), identifiers (`asin`, `originalAsin`), rating detail (`stars`, `starsBreakdown`), `breadCrumbs`, media (`galleryThumbnails`, `highResolutionImages`), `features`, key/value `attributes` and `productOverview`, `variantAsins` and `variantDetails`, `seller`, `bestsellerRanks`, `priceRange`, and an `aiReviewsSummary`. When you set AI summary data points, the module can also return an AI-generated summary of the chosen fields (see [AI summary](#ai-summary-product-details-mode) below).
 
 ```json title="Product Details bundle (shortened)"
 [
     {
-        "url": "https://www.example.com/product/wireless-headphones",
-        "title": "Example Wireless Headphones",
-        "brand": { "slogan": "Example Audio" },
-        "mpn": "EX-WH-100",
-        "image": "https://www.example.com/images/wireless-headphones.jpg",
-        "description": "Over-ear wireless headphones with active noise cancellation and 40h battery life.",
+        "url": "https://www.example.com/product/abc-123",
+        "name": "Example Product",
         "offers": {
-            "price": "199.00",
-            "priceCurrency": "USD"
+            "price": 199.00,
+            "priceCurrency": "$"
         },
-        "rating": 4.5,
-        "reviewCount": 1200,
-        "aggregateRating": {
-            "ratingValue": "4.5",
-            "ratingCount": 1200
+        "brand": {
+            "slogan": "example"
         },
+        "image": "https://www.example.com/images/abc-123.jpg",
+        "description": "example",
+        "reviewCount": 12345,
+        "rating": 12345,
         "additionalProperties": {
-            "sku": "EX-WH-100",
-            "gtin13": "1234567890123",
-            "color": "Black",
-            "onSale": true,
-            "priceRange": { "min": 199.00, "max": 249.00 }
-        }
-    },
-    {
-        "url": "https://www.example.com/product/building-blocks-set",
-        "title": "Example Building Blocks Set",
-        "brand": { "slogan": "Example Toys" },
-        "image": "https://www.example.com/images/building-blocks-set.jpg",
-        "offers": {
-            "price": "59.99",
-            "priceCurrency": "USD"
+            "asin": "abc-123",
+            "originalAsin": "abc-123",
+            "inStock": true,
+            "inStockText": "example"
         },
-        "rating": 4.8,
-        "reviewCount": 340,
-        "additionalProperties": {
-            "sku": "EX-BB-200",
-            "ageGroups": ["18+"],
-            "features": ["939 pieces", "Display-ready"]
-        }
+        "keyword": "example",
+        "inputUrl": "https://www.example.com/product/abc-123",
+        "__IMTLENGTH__": 1,
+        "__IMTINDEX__": 1
     }
 ]
 ```
@@ -179,14 +161,15 @@ Mine customer reviews in review mode. You can pass **review detail URLs**, **rev
 | **Include additional review properties** | Include extra fields in the response (default: on). |
 | **Total maximum reviews** | Cap on the number of reviews collected during the run. |
 
-For each review, you will extract:
+For each review, the module returns these top-level fields:
 
-- **Review content**: review text/body and review title.
-- **Ratings**: star rating and helpful-vote count.
-- **Reviewer profile**: reviewer name or username, verified-buyer flag, and (where available) location.
-- **Timestamps**: review date and timestamp.
-- **Product association**: URL, name, and ID of the product the review belongs to.
-- **Additional review properties**: variant purchased (size, color), media attachments (images/videos), and marketplace-specific metadata.
+- **Review content**: `reviewBody` (the review text) and `name` (the review title).
+- **Rating**: a `reviewRating` object with `ratingValue`, `bestRating`, and `worstRating`.
+- **Reviewer**: `author` (name or username).
+- **Timestamp**: `datePublished`.
+- **Product association**: `productUrl` and the `inputUrl` the run started from.
+
+When **Include additional review properties** is on, the module nests extra fields under `additionalProperties`. The keys depend on the marketplace, for example `recommended`, feedback counts, and `badges` on some sites, or `location`, `badge`, and `reviewId` on others.
 
 :::note Marketplace differences
 
@@ -197,38 +180,24 @@ Some sort options and extended review properties depend on the marketplace. If a
 ```json title="Reviews bundle (shortened)"
 [
     {
-        "productUrl": "https://www.example.com/product/wireless-headphones",
-        "author": "Jane D.",
-        "datePublished": "2026-03-14",
-        "reviewBody": "Battery easily lasts a full week of commuting and the noise cancellation is excellent.",
+        "productUrl": "https://www.example.com/product/abc-123",
+        "author": "example",
+        "datePublished": "2026-01-01",
+        "reviewBody": "example",
+        "name": "example",
         "reviewRating": {
-            "ratingValue": 5,
-            "bestRating": 5,
-            "worstRating": 1
+            "bestRating": null,
+            "ratingValue": 12345,
+            "worstRating": null
         },
         "additionalProperties": {
-            "title": "Best headphones I've owned",
-            "verifiedPurchase": true,
-            "helpfulCount": 42,
-            "variant": { "color": "Black" }
-        }
-    },
-    {
-        "productUrl": "https://www.example.com/product/wireless-headphones",
-        "author": "customer_02",
-        "datePublished": "2026-02-02",
-        "reviewBody": "Comfortable and lightweight, but I expected stronger noise cancellation at this price.",
-        "reviewRating": {
-            "ratingValue": 3,
-            "bestRating": 5,
-            "worstRating": 1
+            "badge": "example",
+            "location": "example",
+            "reviewId": 12345
         },
-        "additionalProperties": {
-            "title": "Good, not great",
-            "verifiedPurchase": true,
-            "helpfulCount": 8,
-            "variant": { "color": "Silver" }
-        }
+        "inputUrl": "https://www.example.com/product/abc-123",
+        "__IMTLENGTH__": 1,
+        "__IMTINDEX__": 1
     }
 ]
 ```
@@ -242,55 +211,38 @@ Map the vendor side of a marketplace in seller mode. Provide one or more **selle
 | **Seller profile URLs** | Seller profile / store page URLs to read. |
 | **Total maximum sellers** | Cap on the number of sellers collected during the run. |
 
-For each seller, you will extract:
+For each seller, the module returns these top-level fields:
 
-- **Seller identity**: seller name, store name, seller ID, and storefront URL.
-- **Reputation**: aggregate rating, total ratings count, positive feedback percentage, and badges (Top Rated, Pro Seller, etc.).
-- **Business details**: business location, country, registration date, and contact info where available.
-- **Catalog stats**: number of listed products, categories covered, and (depending on marketplace) shipping origin.
-- **Logos and images**: storefront logo and banner URLs.
-- **Marketplace-specific fields**: response time, return policy summary, and similar.
+- **Identity**: `name` and storefront `url`.
+- **Reputation**: an `aggregateRating` object with `ratingValue` and `ratingCount`.
+- **Contact**: `sellerEmail` and `sellerPhone` where the marketplace exposes them (often empty).
+- **Location**: an `address` object with `addressCountry` and `addressLocality`.
+- **Ownership**: a `parentOrganization` object (`name`, `url`, `additionalName`) where available.
+- **Context**: the `inputUrl` the run started from.
 
 ```json title="Sellers bundle (shortened)"
 [
     {
-        "name": "Example Store",
-        "url": "https://www.example.com/seller/example-store",
-        "sellerEmail": "seller@example.com",
-        "sellerPhone": "123 456 789",
-        "address": {
-            "addressCountry": "US",
-            "addressLocality": "Example City"
-        },
+        "url": "https://www.example.com/seller/abc-123",
+        "name": "example",
         "parentOrganization": {
-            "name": "Example Holdings",
-            "url": "https://www.example.com",
-            "additionalName": "Example Group"
+            "name": null,
+            "url": null,
+            "additionalName": null
         },
-        "additionalProperties": {
-            "marketplace": "www.example.com",
-            "rating": 4.8,
-            "ratingsCount": 12000,
-            "positiveFeedbackPercent": 97,
-            "badges": ["Top Rated Seller"]
-        }
-    },
-    {
-        "name": "Second Example Store",
-        "url": "https://www.example.com/seller/second-example-store",
-        "sellerEmail": "store@example.com",
-        "sellerPhone": "234 567 890",
         "address": {
             "addressCountry": "US",
-            "addressLocality": "Example Town"
+            "addressLocality": "example"
         },
-        "additionalProperties": {
-            "marketplace": "www.example.com",
-            "rating": 4.9,
-            "ratingsCount": 3800,
-            "positiveFeedbackPercent": 99,
-            "badges": ["Pro Seller"]
-        }
+        "aggregateRating": {
+            "ratingCount": 12345,
+            "ratingValue": "example"
+        },
+        "sellerEmail": "",
+        "sellerPhone": null,
+        "inputUrl": "https://www.example.com/seller/abc-123",
+        "__IMTLENGTH__": 1,
+        "__IMTINDEX__": 1
     }
 ]
 ```
@@ -311,49 +263,42 @@ Discover products across the web with Google Shopping-style results. Provide one
 | **Maximum sellers per product** | Cap on sellers collected per product (when looking at sellers). |
 | **Total maximum search engine results** | Overall cap on items (products/sellers/reviews) in this mode. |
 
-For each search result, you will extract:
+For each search result, the module returns these top-level fields:
 
-- **Result metadata**: product title, result URL, source domain, position in the SERP, and thumbnail image.
-- **Commercial details**: price, currency, shipping cost (where shown), and condition (new/used/refurbished).
-- **Aggregated offers**: number of sellers offering the product and price range across sellers.
-- **Rating summary**: average rating and review count when Google surfaces them.
-- **Localization**: the country, city, and region the result was returned for.
+- **Identity**: `name`, `image`, `brand` (with `slogan`), `description`, and the `googleURL` for the result.
+- **Offers**: an `offers` array, one entry per seller, each with `seller`, `url`, `price`, `priceCurrency`, `rating`, `extras` (labels such as shipping and return notes), and a `ranking`.
+- **Rating summary**: `rating` and `reviewCount`.
+- **Context**: the `keyword` searched and the `inputUrl` the run started from.
 
 ```json title="Search Engine bundle (shortened)"
 [
     {
-        "url": "https://www.example.com/product/wireless-earbuds",
-        "title": "Example Wireless Earbuds",
-        "offers": {
-            "price": "149.99",
-            "priceCurrency": "USD"
+        "googleURL": "https://www.example.com/search?q=example",
+        "name": "Example Product",
+        "offers": [
+            {
+                "seller": "example",
+                "url": "https://www.example.com/product/abc-123",
+                "price": "12345",
+                "priceCurrency": "$",
+                "rating": 12345,
+                "extras": [
+                    "example"
+                ],
+                "ranking": 1
+            }
+        ],
+        "brand": {
+            "slogan": null
         },
-        "rating": 4.6,
-        "reviewCount": 5400,
-        "keyword": "wireless earbuds",
-        "additionalProperties": {
-            "source": "Example Store",
-            "position": 1,
-            "country": "us",
-            "city": "Example City"
-        }
-    },
-    {
-        "url": "https://www.example.com/product/wireless-earbuds-usb-c",
-        "title": "Example Wireless Earbuds (USB-C)",
-        "offers": {
-            "price": "139.99",
-            "priceCurrency": "USD"
-        },
-        "rating": 4.4,
-        "reviewCount": 3100,
-        "keyword": "wireless earbuds",
-        "additionalProperties": {
-            "source": "Second Example Store",
-            "position": 2,
-            "country": "us",
-            "city": "Example City"
-        }
+        "description": null,
+        "image": "https://www.example.com/images/abc-123.jpg",
+        "reviewCount": 12345,
+        "rating": 12345,
+        "keyword": "example",
+        "inputUrl": "https://www.example.com/search?q=example",
+        "__IMTLENGTH__": 1,
+        "__IMTINDEX__": 1
     }
 ]
 ```
@@ -372,44 +317,32 @@ Pull localized data from food and grocery delivery platforms (currently Instacar
 | **Include extended delivery review data** | Include reviews in the output (default: off). |
 | **Total maximum results** | Overall cap on delivery products/reviews collected. |
 
-For each delivery product, you will extract:
+For each delivery product, the module returns these top-level fields:
 
-- **Product identity**: product name, URL, brand, and category.
-- **Pricing and availability**: price, currency, unit price, sale flag, and in-stock status for the selected delivery address.
-- **Store/restaurant context**: store name, store URL, and (for DoorDash) restaurant menu category.
-- **Media**: product images.
-- **Optional reviews**: rating, total review count, and individual review records when extended review data is enabled.
+- **Identity**: `name`, `url`, `brand` (with `slogan`), and `image`.
+- **Pricing**: an `offers` object with `price` and `currency`.
+- **Description**: a `description` string.
+- **Context**: the `keyword` searched.
+
+When **Include extended delivery review data** is on, the module adds review records to the output.
 
 ```json title="Food Delivery bundle (shortened)"
 [
     {
-        "url": "https://www.example.com/delivery/organic-avocados",
-        "title": "Organic Avocados, Bag",
+        "url": "https://www.example.com/delivery/product/abc-123",
+        "name": "Example Product",
         "offers": {
-            "price": "6.99",
-            "priceCurrency": "USD"
+            "price": 12345,
+            "currency": "USD"
         },
-        "rating": 4.6,
-        "reviewCount": 120,
-        "additionalProperties": {
-            "storeName": "Example Grocery",
-            "unitPrice": "1.40 each",
-            "available": true,
-            "deliveryAddress": "12345"
-        }
-    },
-    {
-        "url": "https://www.example.com/delivery/margherita-pizza",
-        "title": "Margherita Pizza",
-        "offers": {
-            "price": "16.50",
-            "priceCurrency": "USD"
+        "brand": {
+            "slogan": null
         },
-        "additionalProperties": {
-            "storeName": "Example Restaurant",
-            "available": true,
-            "deliveryAddress": "Example City, 12345"
-        }
+        "description": "example",
+        "image": "https://www.example.com/images/abc-123.jpg",
+        "keyword": "example",
+        "__IMTLENGTH__": 1,
+        "__IMTINDEX__": 1
     }
 ]
 ```
@@ -424,26 +357,26 @@ Map the social-commerce side of e-commerce by looking at influencer storefront p
 | **Include products from influencer posts** | Also collect the products featured in the influencer's posts (default: off). |
 | **Total maximum influencer results** | Cap on the number of influencer posts/items collected. |
 
-For each influencer post, you will extract:
+For each influencer post, the module returns these top-level fields:
 
-- **Influencer identity**: handle, display name, storefront URL, and profile image.
-- **Post details**: post URL, post type (photo, video, idea list, livestream), caption, and timestamp.
-- **Media**: post image or video URLs.
-- **Engagement signals**: likes, comments, and views where available.
-- **Promoted products** (when product scraping is enabled): the URLs of the products tagged inside the post, returned as a `productUrls` list, with `itemsCount` giving the number of tagged products.
+- **Source**: `influencerUrl` (the storefront) and the `inputUrl` the run started from.
+- **Post**: `url`, `type` (such as `LIST`), `postId`, and `image`.
+- **Engagement**: `likes` where available.
+- **Products**: `itemsCount`, the number of products tagged in the post. When **Include products from influencer posts** is on, the module also collects those products.
 
 ```json title="Influencer storefronts bundle (shortened)"
 [
     {
-        "influencerUrl": "https://www.example.com/shop/example-creator",
-        "type": "Idea list",
-        "postId": "post-12345",
-        "likes": 1800,
-        "itemsCount": 2,
-        "productUrls": [
-            "https://www.example.com/product/cold-brew-coffee-maker",
-            "https://www.example.com/product/porcelain-ramekins"
-        ]
+        "influencerUrl": "https://www.example.com/shop/abc-123",
+        "url": "https://www.example.com/shop/abc-123/list/abc-123",
+        "image": "https://www.example.com/images/abc-123.jpg",
+        "type": "LIST",
+        "postId": "abc-123",
+        "likes": 12345,
+        "itemsCount": 12345,
+        "inputUrl": "https://www.example.com/shop/abc-123",
+        "__IMTLENGTH__": 1,
+        "__IMTINDEX__": 1
     }
 ]
 ```
