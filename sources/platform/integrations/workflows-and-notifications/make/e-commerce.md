@@ -31,16 +31,33 @@ To use this module, you need an [Apify account](https://console.apify.com/sign-u
 
 ## Connect Apify E-commerce Scraping Tool
 
-1. Create an account at [console.apify.com](https://console.apify.com/). You can sign up using your email, Gmail, or GitHub account.
+First, create an account at [console.apify.com](https://console.apify.com/). You can sign up using your email, Gmail, or GitHub account.
 
-    ![Apify sign-up page](images/e-commerce/apify-sign-up-page.webp)
+![Apify sign-up page](images/e-commerce/apify-sign-up-page.webp)
 
-1. To connect your Apify account to Make, you can use an OAuth connection (recommended) or an Apify API token. To get the token, head to the **Settings > API & Integrations** tab at [console.apify.com/settings/integrations](https://console.apify.com/settings/integrations).
+To connect your Apify account to Make, use an OAuth connection (recommended) or an Apify API token.
+
+### Connect with OAuth
+
+1. In Make, add the **Extract using E-commerce Scraping Tool** module and click **Add** to open the **Create a connection** dialog. Open the **Connection type** dropdown, select the OAuth option, name the connection, and click **Save**.
+
+    ![Create a connection dialog in Make](images/e-commerce/apify-OAuth-for-module-e-commerce.webp)
+
+1. A sign-in popup opens. Choose the Apify account to connect, either a personal or an organization account.
+
+    ![Choose an Apify account](images/e-commerce/apify-OAuth-popup.webp)
+
+1. Review the permissions Make requests, your profile data and full API access, then click **Allow access**. The popup closes and the connection is ready to use.
+
+    ![Apify permission request for Make](images/e-commerce/apify-OAuth-permission-popup.webp)
+
+### Connect with an API token
+
+1. In Apify Console, open the **Settings > API & Integrations** tab at [console.apify.com/settings/integrations](https://console.apify.com/settings/integrations).
 
     ![Apify Console token for Make](images/apify-console-token-for-make.png)
 
-1. Find your token under **Personal API tokens**. Alternatively, create a new API token with customizable permissions by clicking **+ Create a new token**.
-1. *Copy the API token* and go back to Make.
+1. Find your token under **Personal API tokens**, or create a new token with customizable permissions by clicking **+ Create a new token**. Copy the token and go back to Make.
 
     ![Apify token on Make](images/Apify_token_on_Make.png)
 
