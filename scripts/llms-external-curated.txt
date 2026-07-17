@@ -35,11 +35,11 @@
 
 ## Experimental API clients
 
-- [Apify API client for Rust](https://raw.githubusercontent.com/apify/apify-client-rust/refs/heads/master/README.md): The official Rust library to access the Apify API, async and Tokio-friendly, with retries with exponential backoff and lazy iterators. Experimental, AI-generated and AI-maintained. Install by adding `apify-client` to `Cargo.toml`.
-- [Apify API client for Go](https://raw.githubusercontent.com/apify/apify-client-go/refs/heads/master/README.md): The official Go library to access the Apify API, with transparent authentication, retries with exponential backoff, and lazy iterators. Experimental, AI-generated and AI-maintained. Install with `go get github.com/apify/apify-client-go`.
-- [Apify API client for PHP](https://raw.githubusercontent.com/apify/apify-client-php/refs/heads/master/README.md): The official PHP library to access the Apify API, resource-oriented with typed models and automatic retries. Experimental, AI-generated and AI-maintained. Install with `composer require apify/apify-client`.
-- [Apify API client for Java](https://raw.githubusercontent.com/apify/apify-client-java/refs/heads/master/README.md): The official Java library to access the Apify API, resource-oriented with typed models and automatic retries. Experimental, AI-generated and AI-maintained. Install from Maven Central as `com.apify:apify-client`.
-- [Apify API client for .NET](https://raw.githubusercontent.com/apify/apify-client-dotnet/refs/heads/master/README.md): The official .NET library to access the Apify API, fully asynchronous and CancellationToken-aware, with typed models. Experimental, AI-generated and AI-maintained. Install with `dotnet add package Apify.Client`.
+- [Apify API client for Rust](https://raw.githubusercontent.com/apify/apify-client-rust/refs/heads/master/README.md). Install by adding `apify-client` to `Cargo.toml`.
+- [Apify API client for Go](https://raw.githubusercontent.com/apify/apify-client-go/refs/heads/master/README.md). Install with `go get github.com/apify/apify-client-go`.
+- [Apify API client for PHP](https://raw.githubusercontent.com/apify/apify-client-php/refs/heads/master/README.md). Install with `composer require apify/apify-client`.
+- [Apify API client for Java](https://raw.githubusercontent.com/apify/apify-client-java/refs/heads/master/README.md). Install from Maven Central as `com.apify:apify-client`.
+- [Apify API client for .NET](https://raw.githubusercontent.com/apify/apify-client-dotnet/refs/heads/master/README.md). Install with `dotnet add package Apify.Client`.
 
 ## Apify SDK for JavaScript
 
