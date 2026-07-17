@@ -245,10 +245,7 @@ async function joinFiles() {
 
 async function sanitizeFile(filePath) {
     const content = await fs.readFile(filePath, 'utf8');
-    // Remove HTML tags. Tags must open and close on the same line - a lone `<`
-    // in code (e.g. `count < 10` in a Java sample) must not swallow everything
-    // up to a `>` many lines (or files) later.
-    const sanitizedContent = content.replace(/<[^>\n]*>/g, '');
+    const sanitizedContent = content.replace(/<[^>]*>/g, ''); // Remove HTML tags
     await fs.writeFile(filePath, sanitizedContent, 'utf8');
     console.log(`Sanitized ${filePath}`);
 }
