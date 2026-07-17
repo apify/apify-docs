@@ -80,6 +80,26 @@ const SITE_URL = process.env.APIFY_DOCS_ABSOLUTE_URL || 'https://docs.apify.com'
 
 const isExcludedRoute = createMatcher(LLMS_INDEX_EXCLUDE_PATTERNS);
 
+// Experimental API clients whose docs live only on GitHub (no docs site yet).
+// Their README + docs/*.md files are fetched into llms-full.txt the same way
+// as the Actor whitepaper below; the matching llms.txt index sections are
+// hand-maintained in scripts/llms-external-curated.txt. Values are the
+// per-resource pages each repo has under docs/ (README.md and docs/README.md
+// are always included).
+const EXPERIMENTAL_CLIENT_DOCS = {
+    'apify-client-rust': ['actors', 'builds', 'runs', 'storages', 'tasks', 'schedules', 'webhooks', 'misc'],
+    'apify-client-go': ['actors', 'builds', 'runs', 'storages', 'tasks', 'schedules', 'webhooks', 'misc'],
+    'apify-client-php': ['actors', 'builds', 'runs', 'storages', 'tasks', 'schedules', 'webhooks', 'misc', 'examples', 'models', 'options'],
+    'apify-client-java': ['actors', 'builds', 'runs', 'storages', 'tasks', 'schedules', 'webhooks', 'misc', 'examples'],
+    'apify-client-dotnet': ['actors', 'builds', 'runs', 'storages', 'tasks', 'schedules', 'webhooks', 'misc', 'examples', 'models'],
+};
+
+const EXPERIMENTAL_CLIENT_FETCH_URLS = Object.entries(EXPERIMENTAL_CLIENT_DOCS).flatMap(([repo, pages]) =>
+    ['README.md', 'docs/README.md', ...pages.map((page) => `docs/${page}.md`)].map(
+        (file) => `https://raw.githubusercontent.com/apify/${repo}/refs/heads/master/${file}`,
+    ),
+);
+
 const EXTERNAL_FETCH_URLS = [
     'https://docs.apify.com/api/client/js/llms-full.txt',
     'https://docs.apify.com/api/client/python/llms-full.txt',
@@ -94,6 +114,7 @@ const EXTERNAL_FETCH_URLS = [
     'https://raw.githubusercontent.com/apify/actor-whitepaper/refs/heads/master/pages/KEY_VALUE_STORE_SCHEMA.md',
     'https://raw.githubusercontent.com/apify/actor-whitepaper/refs/heads/master/pages/OUTPUT_SCHEMA.md',
     'https://raw.githubusercontent.com/apify/actor-whitepaper/refs/heads/master/pages/REQUEST_QUEUE_SCHEMA.md',
+    ...EXPERIMENTAL_CLIENT_FETCH_URLS,
 ];
 
 async function fetchFile(route) {
@@ -113,6 +134,11 @@ const SECTION_ORDER = [
     'Apify API',
     'Apify API client for JavaScript',
     'Apify API client for Python',
+    'Apify API client for Rust (experimental)',
+    'Apify API client for Go (experimental)',
+    'Apify API client for PHP (experimental)',
+    'Apify API client for Java (experimental)',
+    'Apify API client for .NET (experimental)',
     'Apify SDK for JavaScript',
     'Apify SDK for Python',
     'Apify CLI',
@@ -237,7 +263,10 @@ async function joinFiles() {
 
 async function sanitizeFile(filePath) {
     const content = await fs.readFile(filePath, 'utf8');
-    const sanitizedContent = content.replace(/<[^>]*>/g, ''); // Remove HTML tags
+    // Remove HTML tags. Tags must open and close on the same line - a lone `<`
+    // in code (e.g. `count < 10` in a Java sample) must not swallow everything
+    // up to a `>` many lines (or files) later.
+    const sanitizedContent = content.replace(/<[^>\n]*>/g, '');
     await fs.writeFile(filePath, sanitizedContent, 'utf8');
     console.log(`Sanitized ${filePath}`);
 }
