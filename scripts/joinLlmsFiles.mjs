@@ -80,26 +80,6 @@ const SITE_URL = process.env.APIFY_DOCS_ABSOLUTE_URL || 'https://docs.apify.com'
 
 const isExcludedRoute = createMatcher(LLMS_INDEX_EXCLUDE_PATTERNS);
 
-// Experimental API clients whose docs live only on GitHub (no docs site yet).
-// Their README + docs/*.md files are fetched into llms-full.txt the same way
-// as the Actor whitepaper below; the matching llms.txt index sections are
-// hand-maintained in scripts/llms-external-curated.txt. Values are the
-// per-resource pages each repo has under docs/ (README.md and docs/README.md
-// are always included).
-const EXPERIMENTAL_CLIENT_DOCS = {
-    'apify-client-rust': ['actors', 'builds', 'runs', 'storages', 'tasks', 'schedules', 'webhooks', 'misc'],
-    'apify-client-go': ['actors', 'builds', 'runs', 'storages', 'tasks', 'schedules', 'webhooks', 'misc'],
-    'apify-client-php': ['actors', 'builds', 'runs', 'storages', 'tasks', 'schedules', 'webhooks', 'misc', 'examples', 'models', 'options'],
-    'apify-client-java': ['actors', 'builds', 'runs', 'storages', 'tasks', 'schedules', 'webhooks', 'misc', 'examples'],
-    'apify-client-dotnet': ['actors', 'builds', 'runs', 'storages', 'tasks', 'schedules', 'webhooks', 'misc', 'examples', 'models'],
-};
-
-const EXPERIMENTAL_CLIENT_FETCH_URLS = Object.entries(EXPERIMENTAL_CLIENT_DOCS).flatMap(([repo, pages]) =>
-    ['README.md', 'docs/README.md', ...pages.map((page) => `docs/${page}.md`)].map(
-        (file) => `https://raw.githubusercontent.com/apify/${repo}/refs/heads/master/${file}`,
-    ),
-);
-
 const EXTERNAL_FETCH_URLS = [
     'https://docs.apify.com/api/client/js/llms-full.txt',
     'https://docs.apify.com/api/client/python/llms-full.txt',
@@ -114,7 +94,13 @@ const EXTERNAL_FETCH_URLS = [
     'https://raw.githubusercontent.com/apify/actor-whitepaper/refs/heads/master/pages/KEY_VALUE_STORE_SCHEMA.md',
     'https://raw.githubusercontent.com/apify/actor-whitepaper/refs/heads/master/pages/OUTPUT_SCHEMA.md',
     'https://raw.githubusercontent.com/apify/actor-whitepaper/refs/heads/master/pages/REQUEST_QUEUE_SCHEMA.md',
-    ...EXPERIMENTAL_CLIENT_FETCH_URLS,
+    // Experimental API clients - docs live only on GitHub; their llms.txt
+    // index entries are hand-maintained in scripts/llms-external-curated.txt
+    'https://raw.githubusercontent.com/apify/apify-client-rust/refs/heads/master/README.md',
+    'https://raw.githubusercontent.com/apify/apify-client-go/refs/heads/master/README.md',
+    'https://raw.githubusercontent.com/apify/apify-client-php/refs/heads/master/README.md',
+    'https://raw.githubusercontent.com/apify/apify-client-java/refs/heads/master/README.md',
+    'https://raw.githubusercontent.com/apify/apify-client-dotnet/refs/heads/master/README.md',
 ];
 
 async function fetchFile(route) {
