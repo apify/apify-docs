@@ -23,9 +23,9 @@ function NavbarItems({ items }) {
     );
 }
 
-function NavbarContentLayout({ left, center, right }) {
+function NavbarContentLayout({ left, center, right, className }) {
     return (
-        <div className="navbar__inner">
+        <div className={`navbar__inner ${className ?? ''}`}>
             <div className="navbar__container">
                 <div className="navbar__items">{left}</div>
                 <div className="navbar__items navbar__items--center">{center}</div>
@@ -115,6 +115,7 @@ export default function NavbarContent() {
                 }
             />
             <NavbarContentLayout
+                className="navbar__inner--mobile"
                 left={
                     <>
                         <NavbarItems items={leftItems} />
