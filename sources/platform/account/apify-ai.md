@@ -67,4 +67,4 @@ Search ranking in Apify AI uses parameters similar to those evaluated by the [Ac
 
 - [Apify MCP server](/integrations/mcp) - the programmatic interface to the same backend for external AI agents and CLIs.
 - [Actor quality score](/actors/publishing/quality-score) - the metric that correlates with search ranking across surfaces.
-- [Apify Store](/console/store) - the Console view of the Store, including the search bar entry point.
+- [Apify Console](/account/console) - the web application where Apify AI lives, in the Store search bar and the dashboard widget.
