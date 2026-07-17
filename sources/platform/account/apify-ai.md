@@ -31,6 +31,7 @@ Apify AI currently supports the core discovery and execution workflow:
 - View an Actor's details, including its [input schema](/actors/development/actor-definition/input-schema) and [pricing](/actors/running/actors-in-store).
 - Run an Actor with inputs that Apify AI fills in from your description.
 - Fetch results from the Actor's default [dataset](/storage/dataset).
+- Summarize the results or answer questions about them, right in the chat.
 
 Apify AI always asks for your confirmation before it runs an Actor - no run starts, and nothing is charged, without your approval. You can also rate any response with a thumbs up or down to help improve Apify AI.
 
