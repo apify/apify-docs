@@ -291,5 +291,5 @@ Try re-running with different filters or verify the company website is accessibl
 ## Next steps
 
 - After setting up your first enrichment, browse the [Apify Store](https://apify.com/store) for more scraping Actors.
-- If you are building custom workflows, see how to [integrate Actors via API](/platform/integrations/actors/integrating-actors-via-api).
+- If you are building custom workflows, see how to [integrate Actors via API](/integrations/actors/integrating-actors-via-api).
 - For questions or help, contact the Apify team at [integrations@apify.com](mailto:integrations@apify.com) or in the [developer community on Discord](https://discord.com/invite/jyEM2PRvMU).

@@ -1,7 +1,8 @@
 ---
 title: Integrations
 description: Connect the Apify platform to external services, data pipelines, and automation workflows using APIs, webhooks, and third-party integrations.
-sidebar_position: 11
+sidebar_label: Overview
+sidebar_position: 0
 category: platform
 slug: /integrations
 ---
@@ -19,20 +20,20 @@ Connect Apify Actors to other Actors and tasks to build multi-step workflows dir
     <Card
         title="Actor-to-Actor"
         desc="Trigger other Actors or tasks from your Actor's runs."
-        to="/platform/integrations/actors"
+        to="/integrations/actors"
         imageUrl="/img/platform/integrations/emoji-actor-to-actor.svg"
         smallImage
     />
     <Card
         title="Integration-ready Actors"
         desc="Build Actors that act as integration targets."
-        to="/platform/integrations/actors/integration-ready-actors"
+        to="/integrations/actors/integration-ready-actors"
         imageUrl="/img/platform/integrations/emoji-pluggable.svg"
         smallImage
     />
 </CardGrid>
 
-[See all Actor integrations →](/platform/integrations/actors)
+[See all Actor integrations →](/integrations/actors)
 
 ## Programming
 
@@ -42,28 +43,28 @@ Drive the Apify platform programmatically with the REST API, react to platform e
     <Card
         title="API"
         desc="Control the Apify platform programmatically from your code."
-        to="/platform/integrations/api"
+        to="/integrations/api"
         imageUrl="/img/platform/integrations/emoji-api.svg"
         smallImage
     />
     <Card
         title="Webhooks"
         desc="Trigger external events when an Actor run succeeds or fails."
-        to="/platform/integrations/webhooks"
+        to="/integrations/webhooks"
         imageUrl="/img/platform/integrations/webhooks.svg"
         smallImage
     />
     <Card
         title="GitHub"
         desc="Trigger Apify runs from GitHub events."
-        to="/platform/integrations/github"
+        to="/integrations/github"
         imageUrl="/img/platform/integrations/github.svg"
         imageUrlDarkTheme="/img/platform/integrations/github-white.svg"
         smallImage
     />
 </CardGrid>
 
-[See all Programming integrations →](/platform/integrations/programming)
+[See all Programming integrations →](/integrations/programming)
 
 ## AI
 
@@ -73,7 +74,7 @@ Plug Apify Actors into the AI stack - chat clients like Claude and ChatGPT via t
     <Card
         title="Apify MCP server"
         desc="Expose Apify Actors and storages to any MCP-compatible AI client."
-        to="/platform/integrations/mcp"
+        to="/integrations/mcp"
         imageUrl="/img/platform/integrations/mcp-logo.png"
         imageUrlDarkTheme="/img/platform/integrations/mcp-logo-white.png"
         smallImage
@@ -81,14 +82,14 @@ Plug Apify Actors into the AI stack - chat clients like Claude and ChatGPT via t
     <Card
         title="Claude Code CLI"
         desc="Install the Apify plugin in Claude Code to discover, run, and build Actors from the terminal."
-        to="/platform/integrations/claude-code-cli"
+        to="/integrations/claude-code-cli"
         imageUrl="/img/platform/integrations/claude-code.svg"
         smallImage
     />
     <Card
         title="OpenAI Agents SDK"
         desc="Use Apify Actors as tools in agents built on the OpenAI Agents SDK."
-        to="/platform/integrations/openai-agents"
+        to="/integrations/openai-agents"
         imageUrl="/img/platform/integrations/openai.svg"
         imageUrlDarkTheme="/img/platform/integrations/openai-white.svg"
         smallImage
@@ -96,14 +97,14 @@ Plug Apify Actors into the AI stack - chat clients like Claude and ChatGPT via t
     <Card
         title="LangChain"
         desc="Wrap Apify Actors as LangChain tools for retrieval and agents."
-        to="/platform/integrations/langchain"
+        to="/integrations/langchain"
         imageUrl="/img/platform/integrations/langchain.png"
         smallImage
     />
     <Card
         title="Vercel AI SDK"
         desc="Call Apify Actors from agents built on the Vercel AI SDK."
-        to="/platform/integrations/vercel-ai-sdk"
+        to="/integrations/vercel-ai-sdk"
         imageUrl="/img/platform/integrations/vercel.svg"
         imageUrlDarkTheme="/img/platform/integrations/vercel-white.svg"
         smallImage
@@ -111,20 +112,28 @@ Plug Apify Actors into the AI stack - chat clients like Claude and ChatGPT via t
     <Card
         title="Google ADK"
         desc="Add Apify Actors as tools in Google Agent Development Kit agents."
-        to="/platform/integrations/google-adk"
+        to="/integrations/google-adk"
         imageUrl="/img/platform/integrations/google.svg"
         smallImage
     />
     <Card
         title="Pinecone"
         desc="Embed and index scraped content in Pinecone for RAG."
-        to="/platform/integrations/pinecone"
+        to="/integrations/pinecone"
         imageUrl="/img/platform/integrations/pinecone.svg"
+        smallImage
+    />
+    <Card
+        title="Cursor"
+        desc="Install the Apify plugin in Cursor to interact with Apify from the IDE."
+        to="/integrations/cursor"
+        imageUrl="/img/platform/integrations/cursor.svg"
+        imageUrlDarkTheme="/img/platform/integrations/cursor-white.svg"
         smallImage
     />
 </CardGrid>
 
-[See all AI integrations →](/platform/integrations/ai)
+[See all AI integrations →](/integrations/ai)
 
 ## Data and storage
 
@@ -134,34 +143,34 @@ Send Apify Actor output to data warehouses, structured stores, CRMs, and shared 
     <Card
         title="Snowflake"
         desc="Stream Apify datasets straight into a Snowflake warehouse."
-        to="/platform/integrations/snowflake"
+        to="/integrations/snowflake"
         imageUrl="/img/platform/integrations/snowflake.svg"
         smallImage
     />
     <Card
         title="Airtable"
         desc="Land Actor output as structured rows in Airtable bases."
-        to="/platform/integrations/airtable"
+        to="/integrations/airtable"
         imageUrl="/img/platform/integrations/airtable.svg"
         smallImage
     />
     <Card
         title="Google Drive"
         desc="Upload Actor datasets and exports to a shared Drive folder - a native Apify integration."
-        to="/platform/integrations/drive"
+        to="/integrations/drive"
         imageUrl="/img/platform/integrations/drive.svg"
         smallImage
     />
     <Card
         title="HubSpot"
         desc="Enrich your HubSpot CRM with business contacts scraped from company websites."
-        to="/platform/integrations/hubspot"
+        to="/integrations/hubspot"
         imageUrl="/img/platform/integrations/hubspot.svg"
         smallImage
     />
 </CardGrid>
 
-[See all Data and storage integrations →](/platform/integrations/data-and-storage)
+[See all Data and storage integrations →](/integrations/data-and-storage)
 
 ## Workflows and notifications
 
@@ -171,37 +180,37 @@ Trigger Apify Actors from workflow automation platforms (n8n, Make, and Zapier),
     <Card
         title="n8n"
         desc="Run Apify Actors and route their data through n8n's node graph."
-        to="/platform/integrations/n8n"
+        to="/integrations/n8n"
         imageUrl="/img/platform/integrations/n8n.svg"
         smallImage
     />
     <Card
         title="Make"
         desc="Visual scenarios that connect Apify Actors with 1,500+ apps."
-        to="/platform/integrations/make"
+        to="/integrations/make"
         imageUrl="/img/platform/integrations/make.svg"
         smallImage
     />
     <Card
         title="Zapier"
         desc="Trigger Apify Actors from any of Zapier's 6,000+ apps."
-        to="/platform/integrations/zapier"
+        to="/integrations/zapier"
         imageUrl="/img/platform/integrations/zapier.svg"
         smallImage
     />
     <Card
         title="Gumloop"
         desc="Drag-and-drop agent builder with Apify Actors as nodes."
-        to="/platform/integrations/gumloop"
+        to="/integrations/gumloop"
         imageUrl="/img/platform/integrations/gumloop.svg"
         smallImage
     />
 </CardGrid>
 
-[See all Workflow and notification integrations →](/platform/integrations/workflows-and-notifications)
+[See all Workflow and notification integrations →](/integrations/workflows-and-notifications)
 
 ## Create a new integration
 
-If you're building a service or platform and want your users to be able to connect it with Apify, [create a new integration](/platform/integrations/integrate). The page walks through both routes - building an integration-ready Actor that other Apify users can plug into their workflows, or connecting your service to Apify externally via the API.
+If you're building a service or platform and want your users to be able to connect it with Apify, [create a new integration](/integrations/integrate). The page walks through both routes - building an integration-ready Actor that other Apify users can plug into their workflows, or connecting your service to Apify externally via the API.
 
 If your tool isn't listed above, you can also browse [Apify Store](https://apify.com/store) for community-built integration Actors like [MongoDB Import](https://apify.com/drobnikj/mongodb-import) or [MySQL Insert](https://apify.com/petr_cermak/mysql-insert).
