@@ -389,6 +389,13 @@ footer .col {
     background: var(--color-Neutral_Background);
 }
 
+@media (max-width: 996px) {
+    /* Nav links move into a dropdown on mobile. */
+    .navbar__inner--subnavbar {
+        display: none;
+    }
+}
+
 .navbar__sub {
     padding: 0.8rem var(--ifm-spacing-horizontal);
     height: 58px;

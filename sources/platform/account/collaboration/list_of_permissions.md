@@ -17,6 +17,7 @@ Permissions that can be granted for an [Actor](/actors).
 | Write                | Edit Actor settings and source code, and delete the Actor. |
 | Run                  | Run any of an Actor's builds.                              |
 | Build                | Build the Actor.                                           |
+| View owner runs      | View owner's runs of the Actor and their details.          |
 | Manage access rights | Manage Actor access rights.                                |
 
 ## Actor task
@@ -27,6 +28,7 @@ Permissions that can be granted for an [Actor task](/actors/running/tasks).
 |----------------------|------------------------------------------------------------|
 | Read                 | View task configuration.                                   |
 | Write                | Edit task configuration and settings, and delete the task. |
+| View owner runs      | View owner's runs of the Actor task and their details.     |
 | Manage access rights | Manage Actor task access rights.                           |
 
 ## Storage

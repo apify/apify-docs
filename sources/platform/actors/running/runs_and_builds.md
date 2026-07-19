@@ -65,9 +65,12 @@ Both **Actor runs** and **builds** have the **Origin** field indicating how the 
 |`API`|From [Apify API](https://docs.apify.com/api)|
 |`CLI`|From [Apify CLI](https://docs.apify.com/cli/)|
 |`SCHEDULER`|Using a schedule|
+|`TEST`|From the Actor's test page in Apify Console|
 |`WEBHOOK`|Using a webhook|
 |`ACTOR`|From another Actor run|
 |`STANDBY`|From [Actor Standby](./standby)|
+|`CI`|From a CI/CD pipeline (for example, GitHub Actions)|
+|`MCP`|From the [Apify MCP Server](https://docs.apify.com/integrations/mcp)|
 
 ## Lifecycle
 

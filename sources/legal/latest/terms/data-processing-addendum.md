@@ -12,7 +12,7 @@ slug: /data-processing-addendum
 <!-- vale off -->
 <!-- markdownlint-disable -->
 
-Last Updated: January 13, 2025
+Last Updated: July 8, 2026
 
 ---
 
@@ -35,9 +35,9 @@ All capitalized terms not otherwise defined herein shall have the meaning set fo
 
 1.4. "**UK Addendum**" means the International Data Transfer Addendum to the EU Commission Standard Contractual Clauses, as published by the UK Information Commissioner's Office and in force as of 21 March 2022.
 
-## 2. Roles and Details of Processing
+## 2. Roles and details of processing
 
-2.1. **Customer as a Controller**
+2.1. **Customer as a Controller or Processor**
 
 2.1.1. Under this DPA, Customer acts as a Controller or Processor (as applicable) of Personal Data and Apify will act as a (Sub)Processor or Service Provider (as defined in and as applicable under the Data Protection Laws) and will Process Personal Data in connection with the Apify Platform and other Services solely to fulfill Apify obligations to Customer under the Agreement, including this DPA; on Customer's behalf, pursuant to Customer's documented instructions; and in compliance with applicable Data Protection Laws ("**Permitted Purpose**").
 
@@ -45,9 +45,9 @@ All capitalized terms not otherwise defined herein shall have the meaning set fo
 
 2.1.3. It is Customer's responsibility to ensure that Customer's instructions comply with Data Protection Laws. Apify is not responsible for determining what laws or regulations apply to Customer's business, or for determining whether Apify Platform or other Services meet the requirements of such laws. Customer will ensure that Processing Personal Data in accordance with its instructions will not cause Apify to violate any law or regulation, including Data Protection Laws.
 
-2.1.4. Unless Parties mutually agree otherwise in writing, Customer shall not provide Apify any Personal Data for Processing that is subject to strict privacy regimes outside of the scope of this DPA, including but not limited to Family Educational Rights and Privacy Act, 20 U.S.C. § 1232g (FERPA), relating to criminal convictions and offenses or Personal Data collected or otherwise Processed by Customer subject to or in connection with FBI Criminal Justice Information Services or the related Security Policy; constituting protected health information subject to the Health Insurance Portability and Accountability Act of 1996 (HIPAA) or data subject to Payment Card Industry Data Security Standard (PCI-DSS).
+2.1.4. Unless Parties mutually agree otherwise in writing, Customer shall not provide Apify any Personal Data for Processing that is subject to strict privacy regimes outside of the scope of this DPA, including but not limited to Family Educational Rights and Privacy Act, 20 U.S.C. § 1232g (FERPA), relating to criminal convictions and offenses or Personal Data collected or otherwise Processed by Customer subject to or in connection with FBI Criminal Justice Information Services or the related Security Policy; constituting protected health information subject to the Health Insurance Portability and Accountability Act of 1996 (HIPAA), data subject to Payment Card Industry Data Security Standard (PCI-DSS), information subject to the Gramm-Leach-Bliley Act, Fair Credit Reporting Act, or similar laws, or the regulations promulgated thereunder; information subject to restrictions under applicable law governing personal data of children, including, without limitation, all information about children under 16 years of age; or any information that falls within any special categories of data (as defined under the Data Protection Law.
 
-2.2. **Apify as an Independent Controller**. Apify Processes some Personal Data as an independent Controller. Apify conducts such Processing outside of the scope of this DPA, however, in compliance with Data Protection Laws, and in a manner consistent with the purposes outlined in the [Apify Privacy Policy](https://docs.apify.com/legal/privacy-policy). Those exhaustive purposes are restated here for transparency and convenience:
+2.2. **Apify as an independent Controller**. Apify Processes some Personal Data as an independent Controller. Apify conducts such Processing outside of the scope of this DPA, however, in compliance with Data Protection Laws, and in a manner consistent with the purposes outlined in the [Apify Privacy Policy](https://docs.apify.com/legal/privacy-policy). Those exhaustive purposes are restated here for transparency and convenience:
 
 2.2.1. user accounts provisioning, management and removal, customer support; account, billing, and customer relationship management and related customer correspondence;
 
@@ -57,19 +57,19 @@ All capitalized terms not otherwise defined herein shall have the meaning set fo
 
 2.2.4. creating aggregated statistical data for internal reporting, financial reporting, revenue planning, capacity planning, and forecast modeling (including product strategy).
 
-## 3. Confidentiality of Processing
+## 3. Confidentiality of processing
 
 3.1. Apify shall ensure that any person it authorizes to Process the Personal Data (including Apify affiliates and their staff, agents, and subcontractors) (an "**Authorized Person**") shall be subject to a strict duty of confidentiality (whether a contractual duty or a statutory duty), and shall not permit any person to Process the Personal Data who is not under such a duty of confidentiality.
 
 3.2. Apify shall ensure that only Authorized Persons will Process the Personal Data, and that such Processing shall be limited to the extent necessary to achieve the Permitted Purpose. Apify accepts responsibility for any breach of this DPA caused by the act, error or omission of an Authorized Person.
 
-## 4. Security Measures
+## 4. Security measures
 
 4.1. Apify has adopted a variety of administrative, technical, physical, and organizational measures designed to protect the Apify Platform against accidental or unlawful destruction, loss, alteration, disclosure or access (collectively the "**Security Measures**").
 
 4.2. Apify will maintain its Security Measures to provide a level of protection that is appropriate to the risks concerning confidentiality, integrity, availability, and resilience of our systems and the Apify Platform while also taking into account the state of the art, implementation costs, the nature, scope, and purposes of Processing, as well as the probability of occurrence and the severity of the risk to the rights and freedoms of Data Subjects. Apify Security Measures are described in Schedule D.
 
-## 5. Security Incidents
+## 5. Security incidents
 
 5.1. Apify will notify Customer without undue delay (and in any event within 72 hours) of any known breach of security leading to the accidental or unlawful destruction, loss, alteration, unauthorized disclosure of, or access to, Personal Data Processed by Apify on Customer's behalf (a "**Security Incident**"). For clarity, the term Security Incident always excludes (a) unsuccessful attempts to penetrate computer networks or servers maintained by or for Apify; and (b) immaterial incidents that occur on a routine basis, such as security scans, brute-force attempts or "denial of service" attacks.
 
@@ -94,7 +94,7 @@ Where, and in so far as, it is not possible to provide all information at the sa
 
 6.1. Customer authorizes Apify to engage third parties to Process Personal Data ("**Subprocessors**") listed in Schedule E ("**Apify Subprocessor(s)**"), provided that Apify provides at least ten (10) days' prior written notice of the addition of any Subprocessor (including the categories of Personal Data Processed, details of the Processing it performs or will perform, and the location of such Processing) by means of a notice on the Apify Subprocessors website.
 
-6.2. Apify encourages Customer to periodically review the Apify Subprocessors website for the latest information on Apify Subprocessors, and especially before Customer provides Apify with any Personal Data. The Apify Subprocessors website contains a mechanism to subscribe to notifications of updates to the Subprocessor list, and Apify will provide details of any such changes solely via this subscription mechanism. Customer has the opportunity to object to such changes within ten (10) days after written notification. Suppose Customer objects to Apify's appointment of a new Subprocessor on reasonable grounds relating to the protection of its Personal Data. In that case, the Parties will promptly confer and discuss alternative arrangements to enable Apify to continue Processing of Personal Data.
+6.2. Apify encourages Customer to periodically review the Apify Subprocessors website for the latest information on Apify Subprocessors, and especially before Customer provides Apify with any Personal Data. Apify will provide details of any such changes solely through the Apify Subprocessors website. Customer has the opportunity to object to such changes within ten (10) days from notice. Suppose Customer objects to Apify's appointment of a new Subprocessor on reasonable grounds relating to the protection of its Personal Data. In that case, the Parties will promptly confer and discuss alternative arrangements to enable Apify to continue Processing of Personal Data.
 
 6.3. In all cases, Apify shall impose in writing the same data protection obligations on any Subprocessor it appoints as those provided for by this DPA and Apify shall remain liable for any breach of this DPA that is caused by an act, error or omission of its Subprocessor to the extent it is liable for its own acts and omissions under the Agreement.
 
@@ -277,6 +277,8 @@ Apify shall implement appropriate technical and organizational measures in accor
 (c) the ability to restore the availability and access to personal data in a timely manner in the event of a physical or technical incident;
 (d) a process for regularly testing, accessing and evaluating the effectiveness of technical and organizational measures for ensuring the security of the Processing.
 
+For more details that describe Apify’s current security-related information, please see our [Trust Center](https://trust.apify.com).
+
 ## Schedule E: List of Apify Subprocessors
 
-List of Apify Subprocessor is available at: https://trust.apify.com/subprocessors
+List of Apify Subprocessors is available at: https://trust.apify.com/subprocessors
