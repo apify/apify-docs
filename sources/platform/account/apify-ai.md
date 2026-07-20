@@ -18,7 +18,7 @@ Apify AI is currently focused on finding and running Actors. Its capabilities an
 
 Apify AI has two entry points in Apify Console:
 
-- _Apify Store search bar_ - long, intent-heavy queries go to Apify AI automatically and short keyword queries stay on the regular Apify Store search, but the suggestions below the bar always let you choose either option yourself.
+- _Apify Store search bar_ - long, intent-heavy queries go to Apify AI automatically, and short keyword queries stay on the regular Apify Store search. The suggestions below the bar always let you choose either option yourself.
 - _Dashboard widget_ - a chat widget on the Console dashboard.
 
 ![Apify Store search bar with the placeholder Search Actors or ask Apify AI](./images/apify-ai-store-search.webp)
@@ -46,10 +46,10 @@ Apify AI can run most Actors in Apify Store, but excludes two categories:
 
 Apify AI focuses on finding and running Actors, so some capabilities aren't in the chat yet. Use Apify Console directly for operations such as:
 
-- Creating or running [tasks](/actors/running/tasks).
-- Setting up [schedules](/actors/running/schedules).
-- [Publishing](/actors/publishing) Actors.
-- Configuring external [integrations](/integrations).
+- Creating or running [tasks](/actors/running/tasks)
+- Setting up [schedules](/actors/running/schedules)
+- [Publishing](/actors/publishing) Actors
+- Configuring external [integrations](/integrations)
 
 Apify AI also has no chat history or long-term memory yet, and it can't access account data such as your billing usage.
 
@@ -59,6 +59,8 @@ Apify AI has a daily token limit per user:
 
 - [Free plan](https://apify.com/pricing) users get a lower daily allowance.
 - Users on any paid plan share the same higher daily allowance.
+
+The limit applies to the chat itself. Actors you run from Apify AI are billed like any other Actor run.
 
 If you hit the limit, wait until the next day or upgrade to a paid plan for the higher allowance.
 
