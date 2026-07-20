@@ -82,7 +82,7 @@ Before submitting documentation, verify:
 - [ ] Screenshots use light theme
 - [ ] Red indicators used to highlight UI elements
 - [ ] Images stored in `images/` subdirectory
-- [ ] Image format is appropriate (PNG for screenshots, SVG for logos)
+- [ ] Image format is appropriate (WebP for screenshots, SVG for logos)
 
 ### File organization
 
