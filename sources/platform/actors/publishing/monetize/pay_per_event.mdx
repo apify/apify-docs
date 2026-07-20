@@ -125,7 +125,7 @@ You can also call the [Charge events in run](/api/v2/post-charge-run) API endpoi
 
 Your Actor users can set the maximum cost for the run in Apify Console or with the API. It helps users control their spending, as they won't be billed beyond the limit.
 
-The Apify platform enforces this limit. Once it's reached, `Actor.charge()` and `Actor.pushData()` stop charging and pushing data, but your Actor keeps running, consuming platform resources, and producing results that are no longer billed.
+The Apify platform enforces this limit. Once it's reached, `Actor.charge()` stop charging and `Actor.pushData()` stops pushing data over the limit. The platform then aborts the run automatically. However, the run keeps consuming platform resources for a short time before it stops. For details, see [Handle graceful shutdown](#handle-graceful-shutdown).
 
 To protect your profits, finish the Actor run once charges reach the user's limit.
 
@@ -137,7 +137,12 @@ The minimum value is stored by the `minimalMaxTotalChargeUsd` property.
 
 :::
 
-For both custom and synthetic events, Apify SDKs return a `ChargeResult` from every `Actor.charge()` and `Actor.pushData()` call. The user spending limit is available in your Actor code as the `ACTOR_MAX_TOTAL_CHARGE_USD` [environment variable](/actors/development/programming-interface/environment-variables), and `ChargeResult` already accounts for it. Inspect its properties to decide when to stop the run:
+The user spending limit is available in your Actor code as the `ACTOR_MAX_TOTAL_CHARGE_USD` [environment variable](/actors/development/programming-interface/environment-variables), and `ChargeResult` already accounts for it. Returning a `ChargeResult` depends on the event type:
+
+- For custom events, `Actor.charge()` and `Actor.pushData()` called with an event name always return a `ChargeResult`.
+- For synthetic events, pushing datasets items is charged automatically. In the Python SDK, `Actor.pushData()` returns a `ChargeResult`. In the JavaScript SDK, `Actor.pushData()` called without an event name returns `void`.
+
+Inspect the `ChargeResult` properties to decide when to stop the run:
 
 | Property | Description |
 | --- | --- |
@@ -226,7 +231,7 @@ When using [Crawlee](https://crawlee.dev/), use `crawler.autoscaledPool.abort()`
 
 ### Handle graceful shutdown
 
-When a user gracefully aborts a run, the platform sends the `aborting` event and force-stops the run 30 seconds later. Use this window to bill for work already done, so an abort doesn't cost you the revenue.
+When a platform or user gracefully aborts a run, the platform sends the `aborting` event and force-stops the run 30 seconds later. Use this window to bill for work already done, so an abort doesn't cost you the revenue.
 
 Apify SDKs already handle the graceful shutdown for you. They listen for `aborting` and call `Actor.exit()` automatically. Register your own `aborting` handler to:
 
