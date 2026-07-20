@@ -11,7 +11,7 @@ import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integrati
 
 The [Apify plugin for GitHub Copilot](https://github.com/apify/apify-github-copilot-plugin) connects Copilot to Apify's library of [Actors](https://apify.com/store) and bundles:
 
-- The [Apify MCP server](/platform/integrations/mcp) for searching the Store, running Actors, and retrieving datasets through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro).
+- The [Apify MCP server](/platform/integrations/mcp) for searching Apify Store, running Actors, and retrieving datasets through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro).
 - An `apify` routing agent that picks the right tool or skill from a natural-language request.
 - Five built-in skills for common workflows (see [Bundled skills](#bundled-skills) below).
 
@@ -56,9 +56,9 @@ Install the plugin directly from its GitHub repository - there's no need to clon
 
 ## Connect the Apify MCP server
 
-The plugin bundles the Apify MCP server (`https://mcp.apify.com/`) - its configuration ships in the plugin's `.mcp.json`, so you don't add it manually. Read-only tools like searching the Store and fetching Actor details work without signing in, but you need to authenticate to run Actors and access your account data.
+The plugin bundles the Apify MCP server (`https://mcp.apify.com/`) - its configuration ships in the plugin's `.mcp.json`, so you don't add it manually. Read-only tools like searching Apify Store and fetching Actor details work without signing in, but you need to authenticate to run Actors and access your account data.
 
-1. Confirm the **Apify MCP Server** tool is enabled for the `apify` agent. Open the tools picker in Copilot Chat and check that **Apify MCP Server** is selected.
+1. Open the tools picker in Copilot Chat and confirm that **Apify MCP Server** is selected for the `apify` agent.
 
     ![Configure Tools dialog with Apify MCP Server enabled for the apify agent](images/github-copilot/configure-tools.webp)
 
@@ -84,7 +84,7 @@ The connection stays authenticated for future sessions. You can revoke access at
 
 Select the **apify** agent and describe what you want in natural language. The agent routes the request to the right tool or skill, so you don't need to name tools yourself.
 
-> "Use Apify to find a good Actor for scraping Google Maps places. Show me the best option, its input requirements, pricing model, and what kind of dataset output it returns. Do not run the Actor yet."
+> Use Apify to find a good Actor for scraping Google Maps places. Show me the best option, its input requirements, pricing model, and what kind of dataset output it returns. Do not run the Actor yet.
 
 The agent searches Apify Store, fetches the top Actor's details through the Apify MCP server, and summarizes its inputs, pricing, and output - all without running the Actor.
 
@@ -106,23 +106,23 @@ Example prompts that route to specific skills:
 
 _Ultimate scraper:_
 
-> "Find 10 highly rated coffee shops in Seattle with name, address, rating, phone, and website."
+> Find 10 highly rated coffee shops in Seattle with name, address, rating, phone, and website.
 
 _Actor development:_
 
-> "Create an Apify Actor that accepts a `startUrl` and `maxPages` input, crawls the site, and stores each page title and URL."
+> Create an Apify Actor that accepts a `startUrl` and `maxPages` input, crawls the site, and stores each page title and URL.
 
 _SDK integration:_
 
-> "Add Apify to this project. The Node.js API route should run an Actor and return dataset items as JSON."
+> Add Apify to this project. The Node.js API route should run an Actor and return dataset items as JSON.
 
 ## Authentication paths
 
 The `apify` agent uses the transport that fits the task, and each one authenticates differently:
 
-- **MCP (search, run, retrieve data)**: OAuth through the browser, as described in [Connect the Apify MCP server](#connect-the-apify-mcp-server). No token setup needed.
-- **Apify CLI (building Actors, actorization, CLI fallback)**: run `apify login` once, or set `APIFY_TOKEN` in headless environments. Get your token from [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations).
-- **SDK integration (`apify-client`)**: reads the `APIFY_TOKEN` environment variable from your application's environment.
+- For MCP tools (search, run, retrieve data), authenticate with OAuth through the browser, as described in [Connect the Apify MCP server](#connect-the-apify-mcp-server). No token setup is needed.
+- For the Apify CLI (building Actors, actorization, CLI fallback), run `apify login` once, or set `APIFY_TOKEN` in headless environments. Get your token from [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations).
+- For SDK integration with `apify-client`, set the `APIFY_TOKEN` environment variable in your application's environment.
 
 ## Troubleshooting
 
@@ -138,13 +138,13 @@ Open the plugin's `.mcp.json` and select the **Start** action above the `apify-m
 
 If the browser doesn't open automatically, copy the OAuth URL from the VS Code dialog and paste it into your browser manually.
 
-If you're running VS Code over SSH, in a devcontainer, or in any environment without a browser, the MCP OAuth flow can't complete. Authenticate locally first so the connection is stored, or use the CLI and SDK paths instead - run `apify login`, or set `APIFY_TOKEN`:
+If you're running VS Code over SSH, in a dev container, or in any environment without a browser, the MCP OAuth flow can't complete. Authenticate locally first so the connection is stored, or use the CLI and SDK paths instead - run `apify login`, or set `APIFY_TOKEN`:
 
 ```bash
 export APIFY_TOKEN=<YOUR_API_TOKEN>
 ```
 
-### The wrong skill or transport keeps getting picked
+### The agent picks the wrong skill or transport
 
 Start from the **apify** agent. It is the single entry point that detects the available transport and routes each request to the correct tool or skill.
 
@@ -153,7 +153,7 @@ Start from the **apify** agent. It is the single entry point that detects the av
 - Copilot plugin support is a preview feature in VS Code, so its settings and behavior may change between releases.
 - The plugin is installed from its GitHub repository URL; it isn't published to a plugin marketplace yet.
 - Long-running Actors may exceed the time a single tool call waits for completion. Reduce the scope or split the work across multiple prompts.
-- Each Actor run consumes Apify platform usage from your plan in addition to any Copilot usage. See [Billing](/platform/console/billing) for details.
+- Each Actor run consumes usage on the Apify platform from your plan in addition to any Copilot usage. See the [Apify billing documentation](/platform/console/billing) for details.
 - Skills that edit files in your project (Actor development, actorization, SDK integration) make local changes - review them before deploying or committing.
 
 ## Related integrations
