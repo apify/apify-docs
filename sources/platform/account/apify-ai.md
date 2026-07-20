@@ -6,7 +6,7 @@ category: platform
 slug: /account/apify-ai
 ---
 
-Apify AI is a conversational AI interface inside [Apify Console](https://console.apify.com) that lets you describe what you want in natural language and runs the right [Actor](/actors) for you. It uses the same search and execution backend as [Apify Store](https://apify.com/store) search and the [Apify MCP server](/integrations/mcp).
+Apify AI is a conversational AI interface inside [Apify Console](https://console.apify.com) that lets you find and run [Actors](/actors) using natural language. It uses the same search and execution backend as [Apify Store](https://apify.com/store) search and the [Apify MCP server](/integrations/mcp).
 
 :::note Apify AI is in beta
 
@@ -14,18 +14,21 @@ Apify AI is currently focused on finding and running Actors. Its capabilities an
 
 :::
 
-## Where to find Apify AI
+## Access Apify AI
 
 Apify AI has two entry points in Apify Console:
 
 - _Apify Store search bar_ - long, intent-heavy queries go to Apify AI automatically, and short keyword queries stay on the regular Apify Store search. The suggestions below the bar always let you choose either option yourself.
+
+  ![The Apify Store search bar with the placeholder Search Actors or ask Apify AI](./images/apify-ai-store-search.webp)
+
 - _Dashboard widget_ - a chat widget on the Console dashboard.
 
-![Apify Store search bar with the placeholder Search Actors or ask Apify AI](./images/apify-ai-store-search.webp)
+  ![The Ask Apify AI chat widget on the Apify Console dashboard](./images/apify-ai-dashboard.webp)
 
 ## What you can do with Apify AI
 
-Apify AI currently supports the core discovery and execution workflow:
+Apify AI currently supports the following actions:
 
 - Search Apify Store for an Actor that matches your goal.
 - View an Actor's details, including its [input schema](/actors/development/actor-definition/input-schema) and [pricing](/actors/running/actors-in-store).
@@ -33,13 +36,13 @@ Apify AI currently supports the core discovery and execution workflow:
 - Fetch results from the Actor's default [dataset](/storage/dataset).
 - Summarize the results or answer questions about them, right in the chat.
 
-Apify AI always asks for your confirmation before it runs an Actor - no run starts, and nothing is charged, without your approval. You can also rate any response with a thumbs up or down to help improve Apify AI.
+Apify AI always asks for your confirmation before it runs an Actor. Nothing is charged without your approval. To help improve Apify AI, you can also rate its responses with a thumbs up or down.
 
 ## Excluded Actors
 
 Apify AI can run most Actors in Apify Store, but excludes two categories:
 
-- _Full-permission Actors_ - excluded for security. Running a [full-permission Actor](/actors/running/permissions#full-permission-actors) is a decision you approve personally, so an LLM can't make it on your behalf.
+- _Full-permission Actors_ - excluded for security. A [full-permission Actor](/actors/running/permissions#full-permission-actors) can access your entire account and all its data. In Apify Console, you stay in control and decide every run yourself. In Apify AI, the LLM chooses and runs Actors for you, so Apify doesn't let it run Actors that have full access to your account.
 - _Rental Actors_ - excluded because their subscription-based model doesn't fit the sporadic, on-demand way Apify AI runs Actors.
 
 ## Out of current scope
@@ -51,14 +54,14 @@ Apify AI focuses on finding and running Actors, so some capabilities aren't in t
 - [Publishing](/actors/publishing) Actors
 - Configuring external [integrations](/integrations)
 
-Apify AI also has no chat history or long-term memory yet, and it can't access account data such as your billing usage.
+Apify AI also has no chat history or long-term memory, and it can't access account data such as your billing usage.
 
 ## Daily usage limit
 
 Apify AI has a daily token limit per user:
 
 - [Free plan](https://apify.com/pricing) users get a lower daily allowance.
-- Users on any paid plan share the same higher daily allowance.
+- Users on paid plans share the same higher daily allowance.
 
 The limit applies to the chat itself. Actors you run from Apify AI are billed like any other Actor run.
 
