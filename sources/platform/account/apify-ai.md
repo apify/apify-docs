@@ -21,7 +21,7 @@ Apify AI has two entry points in Apify Console:
 - _Apify Store search bar_ - long, intent-heavy queries go to Apify AI automatically and short keyword queries stay on the regular Apify Store search, but the suggestions below the bar always let you choose either option yourself.
 - _Dashboard widget_ - a chat widget on the Console dashboard.
 
-![Apify Store search bar with the placeholder Search Actors or ask Apify AI](./images/apify-ai-store-search.png)
+![Apify Store search bar with the placeholder Search Actors or ask Apify AI](./images/apify-ai-store-search.webp)
 
 ## What you can do with Apify AI
 
