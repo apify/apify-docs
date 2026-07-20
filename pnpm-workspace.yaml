@@ -3,7 +3,7 @@ packages:
 
 overrides:
   openapi-to-postmanv2>js-yaml: 5.2.0
-  "@stoplight/spectral-core>minimatch": 3.1.5
+  "@stoplight/spectral-core>minimatch": 10.2.5
   copy-webpack-plugin>serialize-javascript: ^7.0.4
   css-minimizer-webpack-plugin>serialize-javascript: ^7.0.4
   "@stoplight/spectral-ruleset-bundler>rollup": 2.80.0
