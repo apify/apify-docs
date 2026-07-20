@@ -18,7 +18,7 @@ Apify AI is currently focused on finding and running Actors. Its capabilities an
 
 Apify AI has two entry points in Apify Console:
 
-- _Store search bar_ - Apify AI picks up long, intent-heavy queries. Short keyword queries continue to use the regular Apify Store search.
+- _Store search bar_ - Apify AI automatically picks up long, intent-heavy queries, and you can also open it manually at any time. Short keyword queries continue to use the regular Apify Store search.
 - _Dashboard widget_ - a chat widget on the Console dashboard.
 
 ![Apify Store search bar with the placeholder Search Actors or ask Apify AI](./images/apify-ai-store-search.png)
@@ -44,12 +44,14 @@ Apify AI can run most Actors in Apify Store, but excludes two categories:
 
 ## Out of current scope
 
-Apify AI does not yet support the following operations. Use Apify Console directly for these:
+Apify AI focuses on finding and running Actors, so some capabilities aren't in the chat yet. Use Apify Console directly for operations such as:
 
 - Creating or running [tasks](/actors/running/tasks).
 - Setting up [schedules](/actors/running/schedules).
 - [Publishing](/actors/publishing) Actors.
 - Configuring external [integrations](/integrations).
+
+Apify AI also has no chat history or long-term memory yet, and it can't access account data such as your billing usage.
 
 ## Daily usage limit
 
@@ -62,7 +64,7 @@ If you hit the limit, wait until the next day or upgrade to a paid plan for the 
 
 ## Search ranking
 
-Search ranking in Apify AI uses parameters similar to those evaluated by the [Actor quality score](/actors/publishing/quality-score), the same as Apify Store search and the MCP server `search-actors` tool. The two are separate systems that correlate strongly: Actors with higher quality scores tend to rank higher in search. To improve your Actor's visibility, focus on improving its quality score.
+Search ranking in Apify AI uses parameters similar to those evaluated by the [Actor quality score](/actors/publishing/quality-score), as with Apify Store search and the MCP server `search-actors` tool. The two are separate systems that correlate strongly: Actors with higher quality scores tend to rank higher in search. To improve your Actor's visibility, focus on improving its quality score.
 
 ## Related
 
