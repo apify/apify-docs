@@ -2,7 +2,7 @@
 title: Web IDE
 sidebar_position: 2
 description: Create and run your first Actor using the web IDE in Apify Console, from writing your first lines of code to deploying it live in the cloud.
-slug: /get-started/web-ide
+slug: /actors/development/quick-start/web-ide
 pagination_next: null
 pagination_prev: null
 ---
@@ -57,7 +57,7 @@ The next step it to build the Actor:
 
 Once the build starts, you're redirected to the **Last build** tab. Here you can check the build progress and view Docker build logs.
 
-![Source code of an Actor in the web IDE](../images/build-actor-in-web-ide.svg)
+![Source code of an Actor in the web IDE](./images/build-actor-in-web-ide.svg)
 
 ## Step 4: Run the Actor
 
