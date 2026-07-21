@@ -19,12 +19,9 @@ Apify AI is currently focused on finding and running Actors. Its capabilities an
 Apify AI has two entry points in Apify Console:
 
 - _Apify Store search bar_ - long, intent-heavy queries go to Apify AI automatically, and short keyword queries stay on the regular Apify Store search. The suggestions below the bar always let you choose either option yourself.
-
-  ![The Apify Store search bar with the placeholder Search Actors or ask Apify AI](./images/apify-ai-store-search.webp)
-
 - _Dashboard widget_ - a chat widget on the Console dashboard.
 
-  ![The Ask Apify AI chat widget on the Apify Console dashboard](./images/apify-ai-dashboard.webp)
+![The Ask Apify AI chat on the Apify Console dashboard](./images/ai-chat-in-dashboard.svg)
 
 ## What you can do with Apify AI
 
