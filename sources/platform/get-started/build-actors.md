@@ -12,18 +12,6 @@ An Actor is ordinary code - JavaScript, Python, or anything that runs in a Docke
 
 The journey from idea to published Actor has three stages: develop it, deploy it to the platform, and publish it in [Apify Store](https://apify.com/store) if you want others to use it. This page walks you through those stages and points you to the right material at each one.
 
-## Create your first Actor
-
-The fastest way to a working Actor is a template - a runnable project you modify rather than a blank file. You can develop locally with your own tools, in the web IDE without any setup, or with an AI coding assistant.
-
-- [Actor development quick start](/actors/development/quick-start) - pick your entry point:
-  - [Local development](/actors/development/quick-start/locally) with the Apify CLI.
-  - [Web IDE](/actors/development/quick-start/web-ide) - build in the browser, no local setup.
-  - [Build with AI](/actors/development/quick-start/build-with-ai) - use AI coding assistants with the Apify MCP server.
-- [Build an Actor from a template](/academy/getting-started/creating-actors) - a guided Apify Academy lesson using the web IDE.
-- [Inputs and outputs from scratch](/academy/getting-started/inputs-outputs) - build an Actor that takes input and stores a result.
-- [Develop AI agents](/actors/development/quick-start/develop-ai-agents) - templates, sandboxes, LLM access, and pay-per-event monetization.
-
 ## Understand the Actor model
 
 What turns your code into an Actor is a small set of files: an `actor.json` manifest, a Dockerfile, and schemas that describe the input and output. The input schema is what generates the input form users see in Apify Console, and the Apify SDK gives your code access to input, storage, and platform events at runtime. Understand these pieces and the rest of Actor development falls into place.
@@ -35,6 +23,18 @@ What turns your code into an Actor is a small set of files: an `actor.json` mani
 - [Programming interface](/actors/development/programming-interface) - the Apify SDK, environment variables, and state persistence.
 - [Builds and runs](/actors/development/builds-and-runs) - the build and run lifecycle and versioning.
 - [Storage](/storage) - how to read input and write results from code.
+
+## Create your first Actor
+
+The fastest way to a working Actor is a template - a runnable project you modify rather than a blank file. You can develop locally with your own tools, in the web IDE without any setup, or with an AI coding assistant.
+
+- [Actor development quick start](/actors/development/quick-start) - pick your entry point:
+  - [Local development](/actors/development/quick-start/locally) with the Apify CLI.
+  - [Web IDE](/actors/development/quick-start/web-ide) - build in the browser, no local setup.
+  - [Build with AI](/actors/development/quick-start/build-with-ai) - use AI coding assistants with the Apify MCP server.
+- [Build an Actor from a template](/academy/getting-started/creating-actors) - a guided Apify Academy lesson using the web IDE.
+- [Inputs and outputs from scratch](/academy/getting-started/inputs-outputs) - build an Actor that takes input and stores a result.
+- [Develop AI agents](/actors/development/quick-start/develop-ai-agents) - templates, sandboxes, LLM access, and pay-per-event monetization.
 
 ## Deploy and iterate
 
