@@ -27,7 +27,7 @@ post:
 
     To run the Actor asynchronously, use the [Run
     Actor](#/reference/actors/run-collection/run-actor) API endpoint instead.
-  operationId: act_runSyncGetDatasetItems_post
+  operationId: actor_runSyncGetDatasetItems_post
   parameters:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/timeout"
@@ -126,7 +126,7 @@ get:
 
     To run the Actor asynchronously, use the [Run
     Actor](#/reference/actors/run-collection/run-actor) API endpoint instead.
-  operationId: act_runSyncGetDatasetItems_get
+  operationId: actor_runSyncGetDatasetItems_get
   parameters:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/timeout"

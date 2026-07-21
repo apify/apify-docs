@@ -14,7 +14,7 @@ get:
     new ones are still being created. To sort the records in descending order, use
     `desc=1` parameter. You can also filter runs by status ([available
     statuses](https://docs.apify.com/platform/actors/running/runs-and-builds#lifecycle)).
-  operationId: act_runs_get
+  operationId: actors_runs_get
   parameters:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
     - $ref: "../../components/parameters/paginationParameters.yaml#/offset"
@@ -83,7 +83,7 @@ post:
     dataset, you'll need to pass the ID received in the `defaultDatasetId` field
     received in the response JSON to the [Get dataset items](#/reference/datasets/item-collection/get-items)
     API endpoint.
-  operationId: act_runs_post
+  operationId: actors_runs_post
   parameters:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/timeout"

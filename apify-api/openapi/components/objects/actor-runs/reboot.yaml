@@ -61,7 +61,7 @@ lastRunByActor:
     on the Actor's last run. Only runs with status `RUNNING` can be rebooted. The run's
     container will be restarted, so any data not persisted in the key-value store, dataset,
     or request queue will be lost.
-  operationId: act_runs_last_reboot_post
+  operationId: actor_runs_last_reboot_post
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
     - $ref: "../../parameters/lastRunParameters.yaml#/status"

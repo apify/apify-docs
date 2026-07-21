@@ -97,7 +97,7 @@ getLastRun:
     Retrieves last Actor run's logs.
 
     This endpoint is a shortcut for getting last Actor run's log. Same as [Get log](/api/v2/log-get) endpoint.
-  operationId: act_runs_last_log_get
+  operationId: actor_runs_last_log_get
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
     - $ref: "../../parameters/lastRunParameters.yaml#/status"

@@ -52,7 +52,7 @@ If, instead of data, you see an error saying `Authentication token is not valid`
 
 Now that we have our guzzle client ready to go, we can run some Actors. Let's try the **Contact Details Scraper** ([vdrmota/contact-info-scraper](https://apify.com/vdrmota/contact-info-scraper)).
 
-The [API reference](/api/v2/act-runs-post) states that an Actor's input should be passed as JSON in the request body. Other options are passed as query parameters.
+The [API reference](/api/v2/actors-runs-post) states that an Actor's input should be passed as JSON in the request body. Other options are passed as query parameters.
 
 ```php
 // To run the Actor, we make a POST request to its run's endpoint

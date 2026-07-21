@@ -26,7 +26,7 @@ get:
 
     * [Log](/api/v2/last-actor-runs-log)
 
-  operationId: act_runs_last_get
+  operationId: actor_runs_last_get
   parameters:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
     - $ref: "../../components/parameters/lastRunParameters.yaml#/status"

@@ -59,7 +59,7 @@ getLastRun:
 
     This endpoint is a shortcut that resolves the last run's `defaultDatasetId` and proxies to the
     [Get dataset statistics](/api/v2/dataset-statistics-get) endpoint.
-  operationId: act_runs_last_dataset_statistics_get
+  operationId: actor_runs_last_dataset_statistics_get
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
     - $ref: "../../parameters/lastRunParameters.yaml#/status"
