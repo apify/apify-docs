@@ -101,6 +101,8 @@ put:
       $ref: ../../components/responses/NotFound.yaml
     "405":
       $ref: ../../components/responses/MethodNotAllowed.yaml
+    "409":
+      $ref: ../../components/responses/Conflict.yaml
     "413":
       $ref: ../../components/responses/PayloadTooLarge.yaml
     "415":

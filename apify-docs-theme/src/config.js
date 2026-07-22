@@ -397,7 +397,7 @@ const scripts = [
         src: 'https://widget.kapa.ai/kapa-widget.bundle.js',
         'data-website-id': 'a9937f98-9c9d-44d9-a433-fec4cb1c114d',
         'data-project-name': 'Apify',
-        'data-modal-title': 'Apify AI Assistant',
+        'data-modal-title': 'Apify Docs Assistant',
         'data-project-color': '#666666',
         'data-button-hide': 'true',
         'data-project-logo': 'https://apify.com/img/apify-logo/logomark-32x32.svg',
