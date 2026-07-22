@@ -519,6 +519,13 @@ aside .icon svg[class*='iconExternalLink'] {
     transition: all ease-in 0.12s;
 }
 
+/* Keep multi-word navbar labels (e.g. "Get started") on a single line so they
+   don't wrap and overflow the fixed-height navbar row. Scoped to navbar links
+   only - the docs sidebar uses .menu__link and must stay free to wrap. */
+.navbar__link {
+    white-space: nowrap;
+}
+
 .menu__link:hover {
     background: var(--color-Neutral_Hover);
     color: unset;
