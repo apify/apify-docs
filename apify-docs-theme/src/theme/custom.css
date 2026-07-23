@@ -506,7 +506,7 @@ aside .icon svg[class*='iconExternalLink'] {
 }
 
 .navbar__items--right {
-    gap: 1.6rem;
+    gap: 0.4rem;
 }
 
 .navbar__item,
@@ -668,6 +668,7 @@ aside button[class*='collapseSidebarButton'] svg {
     display: flex;
     align-items: center;
     gap: 0.4rem;
+    white-space: nowrap;
 }
 
 .navbar .dropdown__link:hover {
@@ -676,6 +677,20 @@ aside button[class*='collapseSidebarButton'] svg {
 
 .navbar .dropdown__link svg[class*='iconExternalLink'] {
     margin-left: unset;
+}
+
+/* Non-interactive subheader that groups items inside a navbar dropdown.
+   The html navbar item renders a bare <li class="dropdown__subheader">, so this
+   is styled from scratch rather than extending .dropdown__link. */
+.navbar .dropdown__menu li.dropdown__subheader {
+    margin-top: 0.4rem;
+    padding: 0.8rem 0.8rem 0.2rem;
+    border-top: 1px solid var(--color-neutral-border);
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-neutral-text-subtle);
+    white-space: nowrap;
+    cursor: default;
 }
 
 .navbar__toggle,

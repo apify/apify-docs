@@ -60,7 +60,8 @@ export default function NavbarNavLink({
             .filter((item) => item.type === 'dropdown')
             .filter((item) => item.label === label)
             .reduce((nestedItems, item) => [...nestedItems, ...item.items], [])
-            .some((item) => (item.to || item.href).endsWith(location.pathname));
+            // Some dropdown items (e.g. `type: 'html'` subheaders) have no link target.
+            .some((item) => (item.to || item.href)?.endsWith(location.pathname));
 
     if (href) {
         return (
