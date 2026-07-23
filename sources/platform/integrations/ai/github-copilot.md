@@ -11,7 +11,7 @@ import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integrati
 
 The [Apify plugin for GitHub Copilot](https://github.com/apify/apify-github-copilot-plugin) connects Copilot to Apify's library of [Actors](https://apify.com/store) and bundles:
 
-- The [Apify MCP server](/platform/integrations/mcp) for searching Apify Store, running Actors, and retrieving datasets through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro).
+- The [Apify MCP server](/integrations/mcp) for searching Apify Store, running Actors, and retrieving datasets through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro).
 - An `apify` routing agent that picks the right tool or skill from a natural-language request.
 - Five built-in skills for common workflows (see [Bundled skills](#bundled-skills) below).
 
@@ -153,17 +153,17 @@ Start from the **apify** agent. It is the single entry point that detects the av
 - Copilot plugin support is a preview feature in VS Code, so its settings and behavior may change between releases.
 - The plugin is installed from its GitHub repository URL; it isn't published to a plugin marketplace yet.
 - Long-running Actors may exceed the time a single tool call waits for completion. Reduce the scope or split the work across multiple prompts.
-- Each Actor run consumes usage on the Apify platform from your plan in addition to any Copilot usage. See the [Apify billing documentation](/platform/console/billing) for details.
+- Each Actor run consumes usage on the Apify platform from your plan in addition to any Copilot usage. See the [Apify billing documentation](/account/billing) for details.
 - Skills that edit files in your project (Actor development, actorization, SDK integration) make local changes - review them before deploying or committing.
 
 ## Related integrations
 
-- [Claude Code CLI integration](/platform/integrations/claude-code-cli) - Install the Apify plugin in the Claude Code CLI
-- [MCP server integration](/platform/integrations/mcp) - Use the Apify MCP server with other clients
+- [Claude Code CLI integration](/integrations/claude-code-cli) - Install the Apify plugin in the Claude Code CLI
+- [MCP server integration](/integrations/mcp) - Use the Apify MCP server with other clients
 
 ## Resources
 
 - [Apify plugin for GitHub Copilot](https://github.com/apify/apify-github-copilot-plugin) - Source repository and full README with advanced setup notes
 - [GitHub Copilot documentation](https://docs.github.com/en/copilot) - Official GitHub Copilot docs
-- [Apify MCP server documentation](/platform/integrations/mcp) - Connect the Apify MCP server to other clients
+- [Apify MCP server documentation](/integrations/mcp) - Connect the Apify MCP server to other clients
 - [Apify Store](https://apify.com/store) - Browse Actors you can run from Copilot

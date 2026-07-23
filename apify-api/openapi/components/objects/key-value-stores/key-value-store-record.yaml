@@ -31,6 +31,8 @@ sharedTagTaskLastRun: &sharedTagTaskLastRun
 sharedGet: &sharedGet
   responses:
     <<: *commonErrors
+    "402":
+      $ref: ../../responses/PaymentRequired.yaml
     "200":
       description: ""
       headers: {}
@@ -155,7 +157,8 @@ getLastRun:
   operationId: act_runs_last_keyValueStore_record_get
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
     - $ref: "../../parameters/keyValueStoreParameters.yaml#/recordKey"
     - $ref: "../../parameters/storageParameters.yaml#/signature"
     - $ref: "../../parameters/keyValueStoreParameters.yaml#/attachment"
@@ -171,7 +174,8 @@ getTaskLastRun:
   operationId: actorTask_runs_last_keyValueStore_record_get
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
     - $ref: "../../parameters/keyValueStoreParameters.yaml#/recordKey"
     - $ref: "../../parameters/storageParameters.yaml#/signature"
     - $ref: "../../parameters/keyValueStoreParameters.yaml#/attachment"
@@ -215,9 +219,9 @@ putById:
 
     Below is a list of supported `Content-Encoding` types.
 
+    * Brotli compression: `Content-Encoding: br`
     * Gzip compression: `Content-Encoding: gzip`
     * Deflate compression: `Content-Encoding: deflate`
-    * Brotli compression: `Content-Encoding: br`
   operationId: keyValueStore_record_put
   parameters:
     - $ref: "../../parameters/keyValueStoreParameters.yaml#/storeId"
@@ -259,7 +263,8 @@ putLastRun:
   operationId: act_runs_last_keyValueStore_record_put
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
     - $ref: "../../parameters/keyValueStoreParameters.yaml#/recordKey"
     - $ref: "../../parameters/keyValueStoreParameters.yaml#/Content-Encoding"
 
@@ -274,7 +279,8 @@ putTaskLastRun:
   operationId: actorTask_runs_last_keyValueStore_record_put
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
     - $ref: "../../parameters/keyValueStoreParameters.yaml#/recordKey"
     - $ref: "../../parameters/keyValueStoreParameters.yaml#/Content-Encoding"
 
@@ -320,7 +326,8 @@ postLastRun:
   operationId: act_runs_last_keyValueStore_record_post
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
     - $ref: "../../parameters/keyValueStoreParameters.yaml#/recordKey"
     - $ref: "../../parameters/keyValueStoreParameters.yaml#/Content-Encoding"
 
@@ -335,7 +342,8 @@ postTaskLastRun:
   operationId: actorTask_runs_last_keyValueStore_record_post
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
     - $ref: "../../parameters/keyValueStoreParameters.yaml#/recordKey"
     - $ref: "../../parameters/keyValueStoreParameters.yaml#/Content-Encoding"
 
@@ -382,7 +390,8 @@ deleteLastRun:
   operationId: act_runs_last_keyValueStore_record_delete
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
     - $ref: "../../parameters/keyValueStoreParameters.yaml#/recordKey"
 
 deleteTaskLastRun:
@@ -396,5 +405,6 @@ deleteTaskLastRun:
   operationId: actorTask_runs_last_keyValueStore_record_delete
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
     - $ref: "../../parameters/keyValueStoreParameters.yaml#/recordKey"

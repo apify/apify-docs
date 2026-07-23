@@ -3,7 +3,9 @@
 export const darkTheme = {
     plain: {
         color: '#d6deeb',
-        backgroundColor: '#252832',
+        // same token the web's CodeBlock body uses; fallback is its value
+        // from the ui-library brand dark palette
+        backgroundColor: 'var(--color-neutral-background-muted, #0f0f0f)',
     },
     styles: [
         {

@@ -307,7 +307,7 @@ We've done it, the prices save as numbers!
 
 :::tip Specifying output schema
 
-If we didn't want to always click on **All fields** to see full items, we need to specify an [output schema](https://docs.apify.com/platform/actors/development/actor-definition/output-schema) so that the platform knows what it can expect and how it should display it in the interface. With Cursor, such change is just a single prompt away:
+If we didn't want to always click on **All fields** to see full items, we need to specify an [output schema](https://docs.apify.com/actors/development/actor-definition/output-schema) so that the platform knows what it can expect and how it should display it in the interface. With Cursor, such change is just a single prompt away:
 
 ```text
 Change the output schema of the Actor

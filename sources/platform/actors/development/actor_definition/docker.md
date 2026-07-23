@@ -5,7 +5,7 @@ slug: /actors/development/actor-definition/dockerfile
 sidebar_position: 8
 ---
 
-When developing an [Actor](/sources/platform/actors/index.mdx) on the Apify platform, you can choose from a variety of pre-built Docker images to serve as the base for your Actor. These base images come with pre-installed dependencies and tools, making it easier to set up your development environment and ensuring consistent behavior across different environments.
+When developing an [Actor](/actors) on the Apify platform, you can choose from a variety of pre-built Docker images to serve as the base for your Actor. These base images come with pre-installed dependencies and tools, making it easier to set up your development environment and ensuring consistent behavior across different environments.
 
 ## Base Docker images
 
@@ -203,6 +203,48 @@ This means the system expects the source code to be in `main.js` by default. If 
 You can check out various optimization tips for Dockerfile in the [Performance](../performance.md) documentation.
 
 :::
+
+## Build TypeScript Actors
+
+TypeScript Actors compile to JavaScript at build time through a `tsc` build step. Installing only production dependencies (`npm install --omit=dev`, or the older `--only=prod`) strips the `typescript` package, so the build fails with `tsc: not found`. Three fixes:
+
+1. Multi-stage build (smallest runtime image, most complex Dockerfile). Installs dev dependencies in a builder stage, then copies the compiled output into a slim runtime stage.
+
+    ```dockerfile
+    FROM apify/actor-node:24 AS builder
+    COPY --chown=myuser:myuser package*.json ./
+    RUN npm install --include=dev
+    COPY --chown=myuser:myuser . ./
+    RUN npm run build
+
+    FROM apify/actor-node:24
+    COPY --chown=myuser:myuser package*.json ./
+    RUN npm install --omit=dev --omit=optional
+    COPY --from=builder --chown=myuser:myuser /usr/src/app/dist ./dist
+    CMD ["node", "dist/main.js"]
+    ```
+
+1. Drop `--omit=dev` (simplest Dockerfile, largest runtime image). Installs everything, including linters and type declarations, into the single-stage image.
+
+    ```dockerfile
+    FROM apify/actor-node:24
+    COPY --chown=myuser:myuser package*.json ./
+    RUN npm install
+    COPY --chown=myuser:myuser . ./
+    RUN npm run build
+    CMD ["node", "dist/main.js"]
+    ```
+
+1. Move `typescript` to `dependencies`. Keeps the single-stage Dockerfile but bloats the runtime image with the TypeScript compiler and its tooling. The runtime never uses these, so the extra size is wasted.
+
+    ```json
+    {
+        "dependencies": {
+            "apify": "^3.4.0",
+            "typescript": "^5.5.0"
+        }
+    }
+    ```
 
 ## Update older Dockerfiles
 

@@ -50,7 +50,7 @@ properties:
     description: ""
   schema:
     type: [object, "null"]
-    description: Defines the schema of items in your dataset, the full specification can be found in [Apify docs](/platform/actors/development/actor-definition/dataset-schema)
+    description: Defines the schema of items in your dataset, the full specification can be found in [Apify docs](/storage/dataset-schema)
     example:
       actorSpecification: 1
       title: My dataset
