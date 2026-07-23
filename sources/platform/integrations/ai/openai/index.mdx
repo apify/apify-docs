@@ -1,6 +1,6 @@
 ---
 title: OpenAI
-description: Use Apify Actors with OpenAI - call scrapers and crawlers from ChatGPT, the OpenAI Agents SDK, and OpenAI Assistants to feed models live web data.
+description: Use Apify Actors with OpenAI - call scrapers and crawlers from ChatGPT, Codex, the OpenAI Agents SDK, and OpenAI Assistants to feed models live web data.
 sidebar_label: OpenAI
 slug: /integrations/openai
 ---
@@ -8,7 +8,7 @@ slug: /integrations/openai
 import Card from '@site/src/components/Card';
 import CardGrid from '@site/src/components/CardGrid';
 
-Apify integrates with [OpenAI](https://openai.com) in three places: ChatGPT (via the Apify MCP server), the Agents SDK, and the legacy Assistants API. Each gives OpenAI models a way to call Apify Actors as tools and read their results.
+Apify integrates with [OpenAI](https://openai.com) across ChatGPT (via the Apify MCP server), Codex (in the ChatGPT desktop app and the CLI), the Agents SDK, and the legacy Assistants API. Each gives OpenAI models a way to call Apify Actors as tools and read their results.
 
 ## What you can build
 
@@ -18,6 +18,22 @@ Apify integrates with [OpenAI](https://openai.com) in three places: ChatGPT (via
         desc="Use Apify as an MCP server inside ChatGPT. Ask ChatGPT to run Actors and pull live web data into the conversation."
         to="/integrations/chatgpt"
         imageUrl="/img/platform/integrations/openai.svg"
+        smallImage
+    />
+    <Card
+        title="Codex (desktop app)"
+        desc="Install the Apify plugin for Codex in the ChatGPT desktop app to discover, run, and build Actors through the Apify MCP server."
+        to="/integrations/codex-desktop"
+        imageUrl="/img/platform/integrations/codex.svg"
+        imageUrlDarkTheme="/img/platform/integrations/codex-white.svg"
+        smallImage
+    />
+    <Card
+        title="Codex CLI"
+        desc="Install the Apify plugin for Codex in your terminal to discover, run, and build Actors through the Apify MCP server."
+        to="/integrations/codex-cli"
+        imageUrl="/img/platform/integrations/codex.svg"
+        imageUrlDarkTheme="/img/platform/integrations/codex-white.svg"
         smallImage
     />
     <Card
