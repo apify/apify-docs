@@ -45,7 +45,6 @@ After installation, add the Apify card to your company record pages:
 
 The Apify card now appears on the right sidebar of your company record pages.
 
-
 ## Create a lead enrichment
 
 Select the **+ Add Lead Enrichment** button in the Apify card to open the configuration wizard.
