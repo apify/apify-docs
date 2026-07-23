@@ -139,8 +139,8 @@ When **Include additional properties** is on, the module nests source-specific f
         },
         "image": "https://www.example.com/images/abc-123.jpg",
         "description": "example",
-        "reviewCount": 12345,
-        "rating": 12345,
+        "reviewCount": 1240,
+        "rating": 4.5,
         "additionalProperties": {
             "asin": "abc-123",
             "originalAsin": "abc-123",
@@ -204,13 +204,13 @@ Some sort options and extended review properties depend on the marketplace. If a
         "name": "example",
         "reviewRating": {
             "bestRating": null,
-            "ratingValue": 12345,
+            "ratingValue": 5,
             "worstRating": null
         },
         "additionalProperties": {
             "badge": "example",
             "location": "example",
-            "reviewId": 12345
+            "reviewId": 812470
         },
         "inputUrl": "https://www.example.com/product/abc-123",
         "__IMTLENGTH__": 1,
@@ -252,8 +252,8 @@ For each seller, the module returns these top-level fields:
             "addressLocality": "example"
         },
         "aggregateRating": {
-            "ratingCount": 12345,
-            "ratingValue": "example"
+            "ratingCount": 3820,
+            "ratingValue": "4.8"
         },
         "sellerEmail": "",
         "sellerPhone": null,
@@ -296,9 +296,9 @@ For each search result, the module returns these top-level fields:
             {
                 "seller": "example",
                 "url": "https://www.example.com/product/abc-123",
-                "price": "12345",
+                "price": "149.99",
                 "priceCurrency": "$",
-                "rating": 12345,
+                "rating": 4.6,
                 "extras": [
                     "example"
                 ],
@@ -310,8 +310,8 @@ For each search result, the module returns these top-level fields:
         },
         "description": null,
         "image": "https://www.example.com/images/abc-123.jpg",
-        "reviewCount": 12345,
-        "rating": 12345,
+        "reviewCount": 5400,
+        "rating": 4.6,
         "keyword": "example",
         "inputUrl": "https://www.example.com/search?q=example",
         "__IMTLENGTH__": 1,
@@ -349,7 +349,7 @@ When **Include extended delivery review data** is on, the module adds review rec
         "url": "https://www.example.com/delivery/product/abc-123",
         "name": "Example Product",
         "offers": {
-            "price": 12345,
+            "price": 6.99,
             "currency": "USD"
         },
         "brand": {
@@ -389,8 +389,8 @@ For each influencer post, the module returns these top-level fields:
         "image": "https://www.example.com/images/abc-123.jpg",
         "type": "LIST",
         "postId": "abc-123",
-        "likes": 12345,
-        "itemsCount": 12345,
+        "likes": 1800,
+        "itemsCount": 4,
         "inputUrl": "https://www.example.com/shop/abc-123",
         "__IMTLENGTH__": 1,
         "__IMTINDEX__": 1
