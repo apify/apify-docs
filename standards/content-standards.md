@@ -186,7 +186,7 @@ FROM apify/actor-node-playwright:22
 All images must include meaningful alt text describing the content:
 
 ```markdown
-![Apify Console showing the Actor creation dialog](./images/create-actor.png)
+![Apify Console showing the Actor creation dialog](./images/create-actor.webp)
 ```
 
 ### Theme
@@ -205,9 +205,10 @@ Use red boxes or arrows to highlight important UI elements:
 
 ### Image format
 
-- **PNG** for screenshots and diagrams
-- **JPG** for photos
-- **SVG** for logos and icons (when available)
+- **WebP** for screenshots and diagrams
+- **SVG** for logos, icons, and product images (when available)
+
+New raster images must be WebP. The `lint_images` CI check fails on PNG, JPG, and other raster formats. Convert and optimize an image - or a whole directory - with `pnpm opt:images <path>`, then update your Markdown to reference the resulting `.webp` file.
 
 ### File organization
 
@@ -218,7 +219,7 @@ platform/
 ├── actors/
 │   ├── running.md
 │   └── images/
-│       └── run-button.png
+│       └── run-button.webp
 ```
 
 ## Lists
