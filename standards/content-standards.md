@@ -206,7 +206,7 @@ Use red boxes or arrows to highlight important UI elements:
 ### Image format
 
 - **WebP** for screenshots and diagrams
-- **SVG** for logos and icons (when available)
+- **SVG** for logos, icons, and product images (when available)
 
 New raster images must be WebP. The `lint_images` CI check fails on PNG, JPG, and other raster formats. Convert and optimize an image - or a whole directory - with `pnpm opt:images <path>`, then update your Markdown to reference the resulting `.webp` file.
 
