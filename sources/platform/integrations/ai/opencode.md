@@ -57,7 +57,7 @@ The plugin bundles the Apify MCP server. Read-only tools like searching Apify St
 
     OpenCode opens a browser tab for the Apify OAuth flow.
 
-1. Review the permissions and click **Allow access**.
+1. Review the permissions and select **Allow access**.
 
 After you complete the flow, the Apify MCP server shows as connected and you're all set.
 
