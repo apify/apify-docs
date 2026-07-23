@@ -25,9 +25,9 @@ A single module, **Extract using E-commerce Scraping Tool**, powers six operatio
 | **Sellers** | Seller / store profile data, including reputation and contact details, from seller profile URLs. |
 | **Search Engine** | Product, review, or seller results pulled from Google Shopping-style results, localized by country/region/city. |
 | **Food Delivery** | Products and reviews from food-delivery marketplaces (Instacart, DoorDash), localized by delivery address. |
-| **Influencer storefronts** | Posts and (optionally) the products featured by influencers, from influencer storefront URLs. |
+| **Influencer Storefronts** | Posts and (optionally) the products featured by influencers, from influencer storefront URLs. |
 
-To use this module, you need an [Apify account](https://console.apify.com/sign-up) and either an OAuth connection (recommended) or an [API token](https://docs.apify.com/platform/integrations/api#api-token). Running the Actor consumes Apify platform usage on your account. Once connected, you can pipe results straight into pricing dashboards, repricing tools, CRMs, sheets, or any other system in your Make scenario.
+To use this module, you need an [Apify account](https://console.apify.com/sign-up) and either an OAuth connection (recommended) or an [API token](/integrations/api#api-token). Running the Actor consumes usage on the Apify platform. Once connected, you can pipe results straight into pricing dashboards, repricing tools, CRMs, sheets, or any other system in your Make scenario.
 
 ## Connect Apify E-commerce Scraping Tool
 
@@ -364,7 +364,7 @@ When **Include extended delivery review data** is on, the module adds review rec
 ]
 ```
 
-### Influencer storefronts
+### Influencer Storefronts
 
 Map the social-commerce side of e-commerce by looking at influencer storefront pages (such as Amazon Influencer storefronts) in influencer mode. Provide one or more **influencer URLs** and optionally also pull the promoted products inside each post.
 
@@ -381,7 +381,7 @@ For each influencer post, the module returns these top-level fields:
 - *Engagement*: `likes` where available.
 - *Products*: `itemsCount`, the number of products tagged in the post. When **Include products from influencer posts** is on, the module also collects those products.
 
-```json title="Influencer storefronts bundle (shortened)"
+```json title="Influencer Storefronts bundle (shortened)"
 [
     {
         "influencerUrl": "https://www.example.com/shop/abc-123",
