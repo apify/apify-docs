@@ -350,7 +350,7 @@ The `get-actor-output` tool is automatically included with any Actor-related too
 
 :::
 
-#### Finding and calling any Actor on demand
+#### Find and call any Actor on demand
 
 Your AI can search Apify Store for relevant Actors using the `search-actors` tool, inspect Actor details to understand required inputs, and call any Actor by name using `call-actor` - without needing to pre-configure it. This means your AI can adapt to new tasks without manual configuration.
 
