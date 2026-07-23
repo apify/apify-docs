@@ -2,7 +2,7 @@
 title: Codex in the ChatGPT desktop app
 sidebar_label: Codex (desktop app)
 description: Learn how to install the Apify plugin for Codex to discover, run, and build Actors with the Apify MCP server and bundled skills for common workflows.
-slug: /integrations/codex-desktop
+slug: /integrations/codex-app
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';

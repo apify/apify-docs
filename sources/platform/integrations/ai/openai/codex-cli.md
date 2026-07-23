@@ -14,7 +14,7 @@ The [Apify plugin for Codex](https://github.com/apify/apify-codex-plugin) connec
 - The [Apify MCP server](/integrations/mcp) for searching Apify Store, running Actors, and retrieving datasets through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro).
 - Five built-in skills for common workflows (see [Bundled skills](#bundled-skills) below).
 
-This guide covers installation in the Codex CLI. To use Codex in the ChatGPT desktop app instead, see the [Codex in the ChatGPT desktop app](/integrations/codex-desktop) guide.
+This guide covers installation in the Codex CLI. To use Codex in the ChatGPT desktop app instead, see the [Codex in the ChatGPT desktop app](/integrations/codex-app) guide.
 
 <ThirdPartyDisclaimer />
 
