@@ -1,0 +1,183 @@
+---
+title: Create an Actor README
+description: Learn how to create a README for your Actor.
+slug: /actors/publishing/actor-readme
+sidebar_position: 1
+---
+
+Your Actor's README has four functions:
+
+- SEO. A well-structured README that includes important keywords has a high chance of being noticed and promoted by search engines. Organic search brings the most motivated type of potential users.
+- First impression. Your README is one of the first points of contact with a potential user. If you come across as convincing, clear, and reassuring it could be the factor that makes a user try your Actor.
+- Extended instructions. The README explains specific and complex input settings. For example, special formatting of the input, any coding-related, or extended functions.
+- Support. Your users come back to the README when they face issues. Include links to the tutorials, describe common troubleshooting techniques, share tricks, or warn about bugs.
+
+## Create a README file
+
+Every [Actor template](https://apify.com/templates) ships with a
+`README.md` file that includes instructions on setting up the project locally. Once you're ready to [publish your Actor](/actors/publishing/publish), edit the file and replace the default content with information aimed at potential users.
+
+The file's content renders identically on [Apify Store](https://apify.com/store) and on the Actor's page in [Apify Console](https://console.apify.com).
+
+## Sections to include
+
+Try to include the following sections in your README and aim for at least 300 words.
+
+To make the text more readable, try to break it up into smaller chunks. For example, you can use emojis as bullet points.
+
+### Introduction
+
+Introduce your Actor and its purpose:
+
+- Explain in two or three sentences what the Actor does and the easiest way to try it. Mention the goals that the tool helps the user achieve. Describe the input. To grab user's attention, highlight the most important words in bold.
+- List the Actor's main features and platform advantages.
+- If it's a bundle, mention the steps that the Actor takes, and the obstacles it can overcome. Say upfront how many results users can get for free.
+
+:::tip Remember the Apify platform
+
+Your Actor and the Apify platform come as a package. In the README, mention all the advantages that the platform gives to your solution, such as monitoring, access to API, scheduling, possibility of integrations, or proxy rotation.
+
+:::
+
+Example headings to use for this section:
+
+- What is [Actor]?
+- What can this [Actor] do?
+- What data can [Actor] extract?
+- What data can you extract from [target website]?
+
+### Tutorial
+
+Create step-by-step instructions on how to use the Actor or include a link to a tutorial on a blog.
+
+An ordered list is reassuring for the user, and it can be optimized for Google.
+
+### Pricing
+
+Don't rely only on the **Pricing** tab on your Actor's detail page to inform users about the costs of using the Actor. Include a section on pricing in your README as well:
+
+- Inform and reassure the user about the pricing, explain the details.
+- If it's a pay per usage Actor, set expectations and explain what it means to pay for compute units. Make it easy for users to imagine how much they will pay for a given dataset. It helps them compare your solution with others.
+- If it's price per result, explain how many results a user can get on a free plan and paid plans.
+- If it's a bundle that consists of a couple of Actors that are priced differently, explain the difference between all the Actors involved and how that affects the final price of a run.
+
+Cost-related questions can show up in Google results if they are SEO optimized. It can bring you more traffic and potential users.
+
+Example headings to use for this section:
+
+- How much will it cost to scrape [target site]?
+- How much will scraping [target site] cost?
+- Is scraping [target site] free?
+- How much does it cost to extract [target site] data?
+
+### Input and output examples
+
+Explain how difficult the input is, what it looks like, and what kind of information users can expect:
+
+- For the input example, you can include a screenshot of the input schema. This is also a way for people to see the platform even before they create an account.
+
+- For the output example, use a screenshot if your output schema looks like something you want to promote to users. You can also include a JSON example containing a few objects. Try to keep the continuity between the input example and output example.
+
+If your datasets come out too complex and require scrolling, you can also show multiple output examples: one for reviews, one for contact details, one for ads, and so on.
+
+### Actor recommendations
+
+Use the README to promote your other Actors.
+
+Apify's system for Actor recommendation works within the same category or similar name. It won't recommend a completely different Actor from the same creator. Make sure to interconnect your work by taking the initiative yourself. You can mention your other Actors in a list or as a table.
+
+### FAQ and support
+
+Include an FAQ (Frequently Asked Questions) section to answer potential questions that users might have. Such questions might include:
+
+- Disclaimers and legality.
+- Comparison table between your Actor and similar solutions.
+- Tips on how best to use the Actor.
+- Troubleshooting and known bugs.
+- Interlinking.
+- Possibilities of transferring data using an API.
+- Integration possibilities.
+- Use cases for the Actor and success stories.
+
+You can also use this section to mention that you're open to creating a custom solution based on the current one and showing a way to contact you.
+
+## Formatting
+
+To format your README, use [Markdown](https://www.markdownguide.org/cheat-sheet/) and basic HTML. CSS isn't supported.
+
+The most important elements are H2 and H3 headings, links to pages, links to images, and tables.
+
+## Tone
+
+The README should reflect the level of skill of the target audience for the Actor. It helps people that land on your Actor detail page to set their expectations right away:
+
+- If your tool's input includes glob patterns or looking for selectors, don't simplify this information. It might be misleading to the user. You will attract the wrong audience, and they will end up churning.
+- If your target audience is less technical, use simple terms and avoid code blocks or complex information at the beginning.
+
+## Length
+
+There are no strict rules around the length of the README:
+
+- For someone deciding whether to try your Actor, the first few sections are the most important. They should make it immediately obvious what the tool is about, how hard it is to use, and who it is created for.
+- For someone who already uses your Actor, a longer and detailed README is more useful. People treat it as a backup when they need more guidance or when something goes wrong.
+
+## Images
+
+To include screenshots and gifs in your README:
+
+- Use a hosting service. Your own GitHub repository works best for that purpose, because you have full control over it.
+- Use SEO-friendly names for the files.
+- Keep the files compressed but with good quality. Prevent loading an image or gif for too long.
+
+Consider making images clickable. You can lead such clicks towards a signup page, which is possible with Markdown.
+
+If your images are too big or occupy too much space, make them smaller with HTML.
+
+:::tip Try Carbon for code
+
+To add code screenshots to your README, try [Carbon](https://github.com/carbon-app/carbon).
+
+:::
+
+## Input schema
+
+The README should serve as a fallback for your users if something in the input schema is unclear. To provide more details about things like input, formatting, or expectations, put it in the README and refer to it from the relevant place in the input schema.
+
+See also [How to create a great input schema](/academy/actor-marketing-playbook/product-optimization/how-to-create-a-great-input-schema).
+
+## Optimize for SEO
+
+According to Google, the README is a landing page that contains the most important information about your Actor.
+
+A good README must strike a balance between what you want the visitors to know, your users to turn to when they run into trouble, and Google to register when it's indexing pages and considering which one deserves to be placed higher.
+
+Any part of your README can make it onto Google pages. The intro sentence describing what your Actor is about, a video, a random question. That's why it's important to structure and write your README with SEO in mind.
+
+### Table of contents
+
+The H1 heading of your page is the Actor name, so use only H2 and H3 in your README.
+
+H2 headings form the table of contents. To keep it less crowded, keep the H2s to the basics and push the longer phrases and questions to H3s.
+
+H3 headings stay hidden in the table of contents until you hover your cursor over it.
+
+H4 headings don't appear in the table of contents.
+
+### Keywords
+
+Do SEO research for keywords and see how they can fit into the text of your README. Prioritize H2s and H3s, add keyword-heavy paragraphs.
+
+The easiest sections to include keywords in are, for example:
+
+- API, as in Instagram API
+- data, as in extract Instagram data
+- Python, as in extract data in Python
+- scrape, as in how to scrape X
+
+It's worth optimizing the headings, since the H2s and H3s are sometimes returned in Google search results. For example, they might appear in the **People also ask** section or get highlighted in the sitelinks of Google search results.
+
+### Videos
+
+If your page includes a video, it has a better chance of ranking higher in Google.
+
+To embed a YouTube video, include its URL. The thumbnail renders automatically as an embedded video player.
