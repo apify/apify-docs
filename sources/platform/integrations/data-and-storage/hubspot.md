@@ -34,22 +34,16 @@ The app is now connected to both your HubSpot portal and your Apify account.
 
 ## Add the CRM card
 
-After installation, add the Apify card to your CRM record pages:
+After installation, add the Apify card to your company record pages:
 
-1. In HubSpot, go to **CRM** > **Contacts** (or **Companies**).
-1. Open any contact or company record.
+1. In HubSpot, go to **CRM** > **Companies**.
+1. Open any company record.
 1. Select the **Customize** button on the right side of the record page.
 1. Select the **Default view**.
 1. Select **Add card**, then go to the **Card Library**.
 1. Search for **Apify** and select **Add card**.
 
-The Apify card now appears on the right sidebar of your CRM record pages.
-
-:::note Card operates on companies
-
-The card is designed for company record pages. When viewing a contact record, the card uses the parent company's data for enrichment operations.
-
-:::
+The Apify card now appears on the right sidebar of your company record pages.
 
 ## Create a lead enrichment
 
