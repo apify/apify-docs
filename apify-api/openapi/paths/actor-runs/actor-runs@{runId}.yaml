@@ -19,6 +19,8 @@ get:
 
     By passing the optional `waitForFinish` parameter the API endpoint will synchronously wait
     for the run to finish. This is useful to avoid periodic polling when waiting for Actor run to complete.
+    Note that the first response after completion can still show preliminary `stats`, costs, and event counts.
+    For stable figures, wait about 10 seconds and call the endpoint again.
 
     This endpoint does not require the authentication token. Instead, calls are authenticated using a hard-to-guess ID of the run. However,
     if you access the endpoint without the token, certain attributes, such as `usageUsd` and `usageTotalUsd`, will be hidden.
@@ -45,6 +47,8 @@ get:
       $ref: ../../components/responses/NotFound.yaml
     "405":
       $ref: ../../components/responses/MethodNotAllowed.yaml
+    "408":
+      $ref: ../../components/responses/Timeout.yaml
     "429":
       $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false

@@ -1,19 +1,18 @@
 .docItemContainer {
-  margin-bottom: 50px;
-}
-
-.docItemContainer > article {
-  margin-left: 16px;
-  margin-right: 16px;
+    margin-bottom: 50px;
 }
 
 .docItemContainer header + *,
 .docItemContainer article > *:first-child {
-  margin-top: 0;
+    margin-top: 0;
 }
 
 @media (min-width: 997px) {
-  .docItemCol {
-    max-width: 75% !important;
-  }
+    .docItemCol {
+        max-width: 75% !important;
+    }
+    .docItemContainer > article {
+        margin-left: 16px;
+        margin-right: 16px;
+    }
 }

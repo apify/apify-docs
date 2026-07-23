@@ -34,6 +34,7 @@ parametersGetHeadById: &parametersGetHeadById
     - $ref: "../../parameters/paginationParameters.yaml#/offset"
     - $ref: "../../parameters/datasetParameters.yaml#/limit"
     - $ref: "../../parameters/datasetParameters.yaml#/fields"
+    - $ref: "../../parameters/datasetParameters.yaml#/outputFields"
     - $ref: "../../parameters/datasetParameters.yaml#/omit"
     - $ref: "../../parameters/datasetParameters.yaml#/unwind"
     - $ref: "../../parameters/datasetParameters.yaml#/flatten"
@@ -49,6 +50,8 @@ parametersGetHeadById: &parametersGetHeadById
     - $ref: "../../parameters/datasetParameters.yaml#/simplified"
     - $ref: "../../parameters/datasetParameters.yaml#/view"
     - $ref: "../../parameters/datasetParameters.yaml#/skipFailedPages"
+    - $ref: "../../parameters/datasetParameters.yaml#/feedTitle"
+    - $ref: "../../parameters/datasetParameters.yaml#/feedDescription"
     - $ref: "../../parameters/storageParameters.yaml#/signature"
 
 sharedGet: &sharedGet
@@ -90,9 +93,11 @@ sharedGet: &sharedGet
           example: <items><item><foo>bar</foo></item><item><foo2>bar2</foo2></item></items>
     "400":
       $ref: ../../responses/BadRequest.yaml
+    "402":
+      $ref: ../../responses/PaymentRequired.yaml
   deprecated: false
 
-getById:
+listById:
   <<: [*sharedGet, *sharedTagById, *parametersGetHeadById]
   summary: Get dataset items
   description: |
@@ -257,7 +262,7 @@ getById:
   x-py-name: stream_items
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/DatasetClientAsync#stream_items
 
-getDefault:
+listDefault:
   <<: [*sharedGet, *sharedTagDefault]
   summary: Get default dataset items
   description: |
@@ -273,6 +278,7 @@ getDefault:
     - $ref: "../../parameters/paginationParameters.yaml#/offset"
     - $ref: "../../parameters/datasetParameters.yaml#/limit"
     - $ref: "../../parameters/datasetParameters.yaml#/fields"
+    - $ref: "../../parameters/datasetParameters.yaml#/outputFields"
     - $ref: "../../parameters/datasetParameters.yaml#/omit"
     - $ref: "../../parameters/datasetParameters.yaml#/unwind"
     - $ref: "../../parameters/datasetParameters.yaml#/flatten"
@@ -288,9 +294,11 @@ getDefault:
     - $ref: "../../parameters/datasetParameters.yaml#/simplified"
     - $ref: "../../parameters/datasetParameters.yaml#/view"
     - $ref: "../../parameters/datasetParameters.yaml#/skipFailedPages"
+    - $ref: "../../parameters/datasetParameters.yaml#/feedTitle"
+    - $ref: "../../parameters/datasetParameters.yaml#/feedDescription"
     - $ref: "../../parameters/storageParameters.yaml#/signature"
 
-getLastRun:
+listLastRun:
   <<: [*sharedGet, *sharedTagLastRun]
   summary: Get last run's dataset items
   description: |
@@ -301,12 +309,14 @@ getLastRun:
   operationId: act_runs_last_dataset_items_get
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
     - $ref: "../../parameters/datasetParameters.yaml#/format"
     - $ref: "../../parameters/datasetParameters.yaml#/clean"
     - $ref: "../../parameters/paginationParameters.yaml#/offset"
     - $ref: "../../parameters/datasetParameters.yaml#/limit"
     - $ref: "../../parameters/datasetParameters.yaml#/fields"
+    - $ref: "../../parameters/datasetParameters.yaml#/outputFields"
     - $ref: "../../parameters/datasetParameters.yaml#/omit"
     - $ref: "../../parameters/datasetParameters.yaml#/unwind"
     - $ref: "../../parameters/datasetParameters.yaml#/flatten"
@@ -322,9 +332,11 @@ getLastRun:
     - $ref: "../../parameters/datasetParameters.yaml#/simplified"
     - $ref: "../../parameters/datasetParameters.yaml#/view"
     - $ref: "../../parameters/datasetParameters.yaml#/skipFailedPages"
+    - $ref: "../../parameters/datasetParameters.yaml#/feedTitle"
+    - $ref: "../../parameters/datasetParameters.yaml#/feedDescription"
     - $ref: "../../parameters/storageParameters.yaml#/signature"
 
-getTaskLastRun:
+listTaskLastRun:
   <<: [*sharedGet, *sharedTagTaskLastRun]
   summary: Get last task run's dataset items
   description: |
@@ -335,12 +347,14 @@ getTaskLastRun:
   operationId: actorTask_runs_last_dataset_items_get
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
     - $ref: "../../parameters/datasetParameters.yaml#/format"
     - $ref: "../../parameters/datasetParameters.yaml#/clean"
     - $ref: "../../parameters/paginationParameters.yaml#/offset"
     - $ref: "../../parameters/datasetParameters.yaml#/limit"
     - $ref: "../../parameters/datasetParameters.yaml#/fields"
+    - $ref: "../../parameters/datasetParameters.yaml#/outputFields"
     - $ref: "../../parameters/datasetParameters.yaml#/omit"
     - $ref: "../../parameters/datasetParameters.yaml#/unwind"
     - $ref: "../../parameters/datasetParameters.yaml#/flatten"
@@ -356,6 +370,8 @@ getTaskLastRun:
     - $ref: "../../parameters/datasetParameters.yaml#/simplified"
     - $ref: "../../parameters/datasetParameters.yaml#/view"
     - $ref: "../../parameters/datasetParameters.yaml#/skipFailedPages"
+    - $ref: "../../parameters/datasetParameters.yaml#/feedTitle"
+    - $ref: "../../parameters/datasetParameters.yaml#/feedDescription"
     - $ref: "../../parameters/storageParameters.yaml#/signature"
 
 headById:
@@ -414,6 +430,10 @@ sharedPost: &sharedPost
             anyOf:
               - $ref: ../../schemas/datasets/PutItemResponseError.yaml
               - $ref: ../../schemas/common/ErrorResponse.yaml
+    "413":
+      $ref: ../../responses/PayloadTooLarge.yaml
+    "415":
+      $ref: ../../responses/UnsupportedMediaType.yaml
   deprecated: false
 
 postById:
@@ -427,9 +447,18 @@ postById:
     For more information about dataset schema validation, see [Dataset schema](https://docs.apify.com/platform/actors/development/actor-definition/dataset-schema/validation).
 
     **IMPORTANT:** The limit of request payload size for the dataset is 5 MB. If the array exceeds the size, you'll need to split it into a number of smaller arrays.
+
+    To save bandwidth and speed up your upload, you can send the request payload compressed and set the `Content-Encoding` header accordingly.
+
+    Below is a list of supported `Content-Encoding` types.
+
+    * Brotli: `Content-Encoding: br`
+    * Gzip: `Content-Encoding: gzip`
+    * Deflate: `Content-Encoding: deflate`
   operationId: dataset_items_post
   parameters:
     - $ref: "../../parameters/datasetParameters.yaml#/datasetId"
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/Content-Encoding"
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/datasets/item-collection/put-items
     - https://docs.apify.com/api/v2#/reference/datasets/put-items
@@ -450,9 +479,17 @@ postDefault:
     This endpoint is a shortcut that resolves the run's `defaultDatasetId` and proxies to the
     [Store items](/api/v2/dataset-items-post) endpoint.
 
+    To save bandwidth and speed up your upload, you can send the request payload compressed and set the `Content-Encoding` header accordingly.
+
+    Below is a list of supported `Content-Encoding` types.
+
+    * Brotli: `Content-Encoding: br`
+    * Gzip: `Content-Encoding: gzip`
+    * Deflate: `Content-Encoding: deflate`
   operationId: actorRun_dataset_items_post
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/Content-Encoding"
 
 postLastRun:
   <<: [*sharedPost, *sharedTagLastRun]
@@ -463,10 +500,19 @@ postLastRun:
     This endpoint is a shortcut that resolves the last run's `defaultDatasetId` and proxies to the
     [Store items](/api/v2/dataset-items-post) endpoint.
 
+    To save bandwidth and speed up your upload, you can send the request payload compressed and set the `Content-Encoding` header accordingly.
+
+    Below is a list of supported `Content-Encoding` types.
+
+    * Brotli: `Content-Encoding: br`
+    * Gzip: `Content-Encoding: gzip`
+    * Deflate: `Content-Encoding: deflate`
   operationId: act_runs_last_dataset_items_post
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/Content-Encoding"
 
 postTaskLastRun:
   <<: [*sharedPost, *sharedTagTaskLastRun]
@@ -477,7 +523,16 @@ postTaskLastRun:
     This endpoint is a shortcut that resolves the last task run's `defaultDatasetId` and proxies to the
     [Store items](/api/v2/dataset-items-post) endpoint.
 
+    To save bandwidth and speed up your upload, you can send the request payload compressed and set the `Content-Encoding` header accordingly.
+
+    Below is a list of supported `Content-Encoding` types.
+
+    * Brotli: `Content-Encoding: br`
+    * Gzip: `Content-Encoding: gzip`
+    * Deflate: `Content-Encoding: deflate`
   operationId: actorTask_runs_last_dataset_items_post
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/Content-Encoding"

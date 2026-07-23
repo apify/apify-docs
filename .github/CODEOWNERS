@@ -1,11 +1,22 @@
-# Documentation
-/sources/platform/ @TC-MO
+# Repo-level documentation
+/README.md @TC-MO @marcel-rbro @szaganek
+/CONTRIBUTING.md @TC-MO @marcel-rbro @szaganek
+
+# AI agent config (skills, rules, workflows)
+/.cursor/ @TC-MO @marcel-rbro @szaganek
+/.agents/ @TC-MO @marcel-rbro @szaganek
+/.github/copilot-instructions.md @TC-MO @marcel-rbro @szaganek
+/AGENTS.md @TC-MO @marcel-rbro @szaganek
+/standards/ @TC-MO @marcel-rbro @szaganek
+
+# Integrations
+/sources/platform/integrations/ @marcel-rbro
 
 # Legal
 /sources/legal/ @mnmkng
 
 # Academy
-/sources/academy/ @honzajavorek @TC-MO
+/sources/academy/ @honzajavorek @szaganek
 
 # OpenAPI spec
-/apify-api/ @janbuchar @fnesveda
+/apify-api/ @janbuchar @fnesveda @szaganek

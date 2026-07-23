@@ -1,9 +1,4 @@
 title: KeyValueStoreStats
-required:
-  - readCount
-  - writeCount
-  - deleteCount
-  - listCount
 type: object
 properties:
   readCount:
@@ -21,3 +16,6 @@ properties:
   s3StorageBytes:
     type: integer
     examples: [18]
+  storageBytes:
+    type: integer
+    examples: [457225]

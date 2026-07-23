@@ -100,6 +100,8 @@ getLastRun:
   operationId: act_runs_last_log_get
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
     - $ref: "../../parameters/logParameters.yaml#/stream"
     - $ref: "../../parameters/logParameters.yaml#/download"
     - $ref: "../../parameters/logParameters.yaml#/raw"
@@ -116,6 +118,8 @@ getTaskLastRun:
   operationId: actorTask_last_log_get
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
     - $ref: "../../parameters/logParameters.yaml#/stream"
     - $ref: "../../parameters/logParameters.yaml#/download"
     - $ref: "../../parameters/logParameters.yaml#/raw"

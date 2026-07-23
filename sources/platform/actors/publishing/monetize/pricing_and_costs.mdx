@@ -5,7 +5,7 @@ slug: /actors/publishing/monetize/pricing-and-costs
 sidebar_position: 4
 ---
 
-## Computing your costs for PPE Actors
+## Compute costs for PPE Actors {#compute-costs}
 
 Profit is computed using the formula `(0.8 * revenue) - costs`. In this section, we'll explain how the `costs` component is calculated.
 
@@ -17,7 +17,7 @@ Platform usage by _FREE_ tier users is covered by Apify and does not contribute 
 
 :::
 
-To calculate your costs for a specific run by paying user, multiply the unit cost of each service by the quantity consumed. For example, if a _BRONZE_ tier user run uses 10 compute units (CUs) at $0.3/CU, your cost would be $3.
+To calculate your costs for a specific run by a paying user, multiply the unit cost of each service by the quantity consumed. For example, if a _BRONZE_ tier user run uses 10 compute units (CUs) at $0.2/CU, your cost would be $2.
 
 If your Actor uses tiered pricing, the user's discount tier determines the unit costs applied to their runs. Your costs are lower for higher tiers, enabling you to offer more competitive pricing to these customers, while sustaining healthy profit margins.
 
@@ -25,7 +25,7 @@ The following table summarizes the platform unit costs used for your cost comput
 
 | Service (unit)                        | _FREE_  | _BRONZE_ | _SILVER_ | _GOLD_  |
 |:--------------------------------------|--------:|---------:|---------:|--------:|
-| Compute unit (per CU)                 | $0.3    | $0.3     | $0.25    | $0.2    |
+| Compute unit (per CU)                 | $0.2    | $0.2     | $0.16    | $0.13   |
 | Residential proxies (per GB)          | $8      | $8       | $7.5     | $7      |
 | SERPs proxy (per 1,000 SERPs)         | $2.5    | $2.5     | $2       | $1.7    |
 | Data transfer - external (per GB)     | $0.2    | $0.2     | $0.19    | $0.18   |
@@ -36,7 +36,7 @@ The following table summarizes the platform unit costs used for your cost comput
 | Key-value store - writes (per 1,000)  | $0.05   | $0.05    | $0.045   | $0.04   |
 | Key-value store - lists (per 1,000)   | $0.05   | $0.05    | $0.045   | $0.04   |
 | Request queue - reads (per 1,000)     | $0.004  | $0.004   | $0.0036  | $0.0032 |
-| Request queue - writes (per 1,000)    | $0.02   | $0.02    | $0.018   | $0.016  |
+| Request queue - writes (per 1,000)    | $0.01   | $0.01    | $0.009   | $0.008  |
 
 If you decide not to offer tiered discounts on your Actor, the unit prices for _FREE_ tier apply. To offer enterprise level services and unlock even cheaper unit prices for enterprise customers, please reach out to us.
 
@@ -46,7 +46,7 @@ When you monetize your Actor in Standby mode using pay per event mode only, you 
 
 :::
 
-## Discount tiers and pricing strategy
+## Discount tiers and pricing strategy {#discount-tiers}
 
 Each user running your PPE Actor belongs to a discount tier:
 

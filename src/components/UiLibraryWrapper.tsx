@@ -14,11 +14,15 @@ export default function UiLibraryWrapper({ children }: PropsWithChildren) {
     }, [isDark]);
 
     return (
-        <UiDependencyProvider dependencies={{
-            InternalLink: (props) => <Link {...props} />,
-            windowLocationHost: useBaseUrl(''),
-            isHrefTrusted: () => true,
-            uiTheme: themeIsDark ? 'DARK' : 'LIGHT',
-        }}>{children}</UiDependencyProvider>
+        <UiDependencyProvider
+            dependencies={{
+                InternalLink: (props) => <Link {...props} />,
+                windowLocationHost: useBaseUrl(''),
+                isHrefTrusted: () => true,
+                uiTheme: themeIsDark ? 'DARK' : 'LIGHT',
+            }}
+        >
+            {children}
+        </UiDependencyProvider>
     );
 }

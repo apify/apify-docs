@@ -16,60 +16,61 @@
     },
     "homepage": "https://github.com/apify/apify-docs#readme",
     "scripts": {
-        "start": "npm run api:rebuild && rimraf .docusaurus && cross-env LOCALHOST=1 CRAWLEE_DOCS_FAST=1 docusaurus start",
-        "start:dev": "npm run api:rebuild && rimraf .docusaurus && cross-env DEV=1 CRAWLEE_DOCS_FAST=1 docusaurus start",
-        "build": "npm run api:rebuild && rimraf .docusaurus && docusaurus build",
-        "api:generate": "npm run openapi:bundle && npm run openapi:build && docusaurus gen-api-docs all",
+        "start": "pnpm api:rebuild && rimraf .docusaurus && cross-env LOCALHOST=1 CRAWLEE_DOCS_FAST=1 docusaurus start",
+        "start:dev": "pnpm api:rebuild && rimraf .docusaurus && cross-env DEV=1 CRAWLEE_DOCS_FAST=1 docusaurus start",
+        "build": "pnpm api:rebuild && rimraf .docusaurus && docusaurus build",
+        "api:generate": "pnpm openapi:bundle && pnpm openapi:build && docusaurus gen-api-docs all",
         "api:clean": "docusaurus clean-api-docs all",
-        "api:rebuild": "npm run api:clean && npm run api:generate",
+        "api:rebuild": "pnpm api:clean && pnpm api:generate",
         "openapi:preview": "redocly preview-docs",
         "openapi:bundle": "redocly bundle apify-api/openapi/openapi.yaml -o apify-api",
-        "openapi:build": "npm run openapi:build:yaml && npm run openapi:build:json",
+        "openapi:build": "pnpm openapi:build:yaml && pnpm openapi:build:json",
         "openapi:build:yaml": "redocly bundle apify-api/openapi/openapi.yaml --skip-decorator=apify/legacy-doc-url-decorator --skip-decorator=apify/code-samples-decorator -o static/api/openapi.yaml",
         "openapi:build:json": "redocly bundle apify-api/openapi/openapi.yaml --skip-decorator=apify/legacy-doc-url-decorator --skip-decorator=apify/code-samples-decorator -o static/api/openapi.json",
-        "openapi:lint": "npm run openapi:lint:redocly && npm run openapi:lint:spectral && npm run openapi:lint:yaml",
+        "openapi:lint": "pnpm openapi:lint:redocly && pnpm openapi:lint:spectral",
         "openapi:lint:redocly": "redocly lint apify-api/openapi/openapi.yaml",
         "openapi:lint:spectral": "spectral lint apify-api/openapi/openapi.yaml",
-        "openapi:lint:yaml": "eslint 'apify-api/**/*.yaml'",
-        "openapi:lint:yaml:fix": "eslint 'apify-api/**/*.yaml' --fix",
         "write-translations": "docusaurus write-translations",
         "version": "docusaurus version",
         "rename-version": "docusaurus rename-version",
         "swizzle": "docusaurus swizzle",
         "docusaurus": "docusaurus",
-        "lint": "npm run lint:md && npm run lint:code",
-        "lint:fix": "npm run lint:md:fix && npm run lint:code:fix",
+        "lint": "pnpm lint:md && pnpm lint:code",
+        "lint:fix": "pnpm lint:md:fix && pnpm lint:code:fix",
         "lint:md": "markdownlint '**/*.md'",
         "lint:md:fix": "markdownlint '**/*.md' --fix",
-        "lint:code": "eslint .",
-        "lint:code:fix": "eslint . --fix",
+        "lint:code": "oxlint --type-aware",
+        "lint:code:fix": "oxlint --type-aware --fix",
+        "opt:images": "pnx --config.onlyBuiltDependencies=* @343dev/optimizt --webp",
+        "format": "oxfmt",
+        "format:check": "oxfmt --check",
         "test:academy": "bats --print-output-on-failure -r .",
+        "test:llms-size": "node ./scripts/checkLlmsSize.mjs",
+        "test:nav-headers": "node ./scripts/checkNavHeaders.mjs",
         "postinstall": "patch-package",
-        "postbuild": "node ./scripts/joinLlmsFiles.mjs && node ./scripts/indentLlmsFile.mjs"
+        "postbuild": "node ./scripts/joinLlmsFiles.mjs && node ./scripts/indentLlmsFile.mjs && node ./scripts/addNavHeaders.mjs"
     },
     "devDependencies": {
-        "@apify/eslint-config": "^1.0.0",
-        "@apify/tsconfig": "^0.1.0",
+        "@apify/oxlint-config": "^0.3.0",
+        "@apify/tsconfig": "^0.2.0",
         "@stoplight/spectral-cli": "^6.15.0",
         "@types/react": "^19.0.0",
         "babel-plugin-styled-components": "^2.1.4",
         "bats": "^1.13.0",
         "cross-env": "^10.0.0",
-        "eslint": "^9.32.0",
-        "eslint-plugin-react": "^7.37.5",
-        "eslint-plugin-yml": "^3.0.0",
-        "globals": "^17.0.0",
-        "markdownlint": "^0.40.0",
-        "markdownlint-cli": "^0.48.0",
+        "markdownlint": "^0.41.0",
+        "markdownlint-cli": "^0.49.0",
+        "oxfmt": "0.59.0",
+        "oxlint": "1.62.0",
+        "oxlint-tsgolint": "0.25.0",
         "patch-package": "^8.0.0",
         "path-browserify": "^1.0.1",
         "rimraf": "^6.0.0",
-        "typescript": "6.0.2",
-        "typescript-eslint": "^8.38.0"
+        "typescript": "6.0.2"
     },
     "dependencies": {
         "@apify/ui-icons": "^1.26.0",
-        "@apify/ui-library": "^1.131.1",
+        "@apify/ui-library": "^1.156.1",
         "@docusaurus/core": "~3.9.2",
         "@docusaurus/faster": "~3.9.2",
         "@docusaurus/plugin-client-redirects": "~3.9.2",
@@ -77,21 +78,20 @@
         "@docusaurus/preset-classic": "~3.9.2",
         "@docusaurus/theme-common": "~3.9.2",
         "@docusaurus/theme-mermaid": "~3.9.2",
+        "@docusaurus/utils": "~3.9.2",
         "@redocly/cli": "^2.0.0",
         "@signalwire/docusaurus-plugin-llms-txt": "^1.2.1",
         "clsx": "^2.0.0",
         "docusaurus-plugin-image-zoom": "^3.0.1",
         "docusaurus-plugin-openapi-docs": "^4.6.0",
         "docusaurus-theme-openapi-docs": "^4.6.0",
-        "github-buttons": "^2.28.0",
         "postcss-preset-env": "^11.0.0",
         "prism-react-renderer": "^2.4.0",
         "prop-types": "^15.8.1",
         "raw-loader": "^4.0.2",
         "react": "^19.1.0",
         "react-dom": "^19.1.0",
-        "react-github-btn": "^1.4.0",
-        "styled-components": "6.3.12",
+        "styled-components": "^6.4.1",
         "unist-util-visit": "^5.0.0"
     },
     "browserslist": {
@@ -106,28 +106,15 @@
             "last 5 safari version"
         ]
     },
-    "workspaces": [
-        "apify-docs-theme"
-    ],
     "engines": {
         "node": ">=18.0.0"
     },
-    "packageManager": "npm@10.9.2",
-    "overrides": {
-        "openapi-to-postmanv2": {
-            "js-yaml": "4.1.1"
-        },
-        "@stoplight/spectral-core": {
-            "minimatch": "3.1.5"
-        },
-        "copy-webpack-plugin": {
-            "serialize-javascript": "^7.0.4"
-        },
-        "css-minimizer-webpack-plugin": {
-            "serialize-javascript": "^7.0.4"
-        },
-        "@stoplight/spectral-ruleset-bundler": {
-            "rollup": "2.80.0"
+    "packageManager": "pnpm@11.9.0",
+    "devEngines": {
+        "packageManager": {
+            "name": "pnpm",
+            "version": "11.9.0",
+            "onFail": "error"
         }
     }
 }

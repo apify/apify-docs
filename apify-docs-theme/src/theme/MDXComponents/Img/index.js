@@ -8,11 +8,5 @@ function transformImgClassName(className) {
 }
 
 export default function MDXImg(props) {
-    return (
-        <img
-            loading="lazy"
-            {...props}
-            className={transformImgClassName(props.className)}
-        />
-    );
+    return <img loading="lazy" {...props} className={transformImgClassName(props.className)} />;
 }

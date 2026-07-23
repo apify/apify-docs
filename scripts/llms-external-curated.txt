@@ -1,0 +1,104 @@
+
+## Apify API client for JavaScript
+
+- [Overview](https://docs.apify.com/api/client/js/docs.md): The official JavaScript library to access the Apify API, with automatic retries, TypeScript support, and cross-platform compatibility.
+  - [Quick start](https://docs.apify.com/api/client/js/docs/introduction/quick-start.md): Get started with the Apify API client for JavaScript by running an Actor and retrieving results from its dataset.
+  - [Usage patterns](https://docs.apify.com/api/client/js/docs/concepts/usage-patterns.md): Learn the resource client and collection client patterns used by the Apify API client for JavaScript.
+  - [Convenience functions](https://docs.apify.com/api/client/js/docs/concepts/convenience-functions.md): Use call(), waitForFinish(), and other convenience functions in the Apify API client for JavaScript.
+  - [Error handling and retries](https://docs.apify.com/api/client/js/docs/concepts/error-handling.md): Handle API errors and configure automatic retries with exponential backoff in the Apify API client for JavaScript.
+  - [Pagination](https://docs.apify.com/api/client/js/docs/concepts/pagination.md): Paginate through large result sets and use async iteration with the Apify API client for JavaScript.
+  - [Use in bundled environments](https://docs.apify.com/api/client/js/docs/concepts/bundled-environments.md): Use the Apify API client for JavaScript in browsers, Cloudflare Workers, and other edge runtimes.
+  - [Code examples](https://docs.apify.com/api/client/js/docs/guides/examples.md): Practical code examples for common tasks with the Apify API client for JavaScript, including webhooks and datasets.
+  - [Changelog](https://docs.apify.com/api/client/js/docs/changelog.md)
+- [apify-client reference](https://docs.apify.com/api/client/js/reference.md)
+
+## Apify API client for Python
+
+- [Overview](https://docs.apify.com/api/client/python/docs.md): The official Python library to access the Apify API, with automatic retries, async support, and comprehensive API coverage.
+  - [Quick start](https://docs.apify.com/api/client/python/docs/introduction/quick-start.md): Get started with the Apify API client for Python by running an Actor and retrieving results from its dataset.
+  - [Single and collection clients](https://docs.apify.com/api/client/python/docs/concepts/single-and-collection-clients.md): Understand the two main types of clients for managing API resources.
+  - [Convenience methods](https://docs.apify.com/api/client/python/docs/concepts/convenience-methods.md): Convenience methods to handle actions that the API alone cannot perform efficiently.
+  - [Error handling](https://docs.apify.com/api/client/python/docs/concepts/error-handling.md): The client automatically extracts data, converts date strings to datetime objects, and raises ApifyApiError on errors.
+  - [Pagination](https://docs.apify.com/api/client/python/docs/concepts/pagination.md): Work with paginated data using the ListPage object returned by list methods.
+  - [Asyncio support](https://docs.apify.com/api/client/python/docs/concepts/asyncio-support.md): Use the asynchronous ApifyClientAsync to interact with the Apify API using Python's async/await syntax.
+  - [Retries](https://docs.apify.com/api/client/python/docs/concepts/retries.md): Automatic retries for requests that fail due to network issues or rate limiting.
+  - [Nested clients](https://docs.apify.com/api/client/python/docs/concepts/nested-clients.md): Use nested clients to simplify working with related collections like Actor runs.
+  - [Streaming resources](https://docs.apify.com/api/client/python/docs/concepts/streaming-resources.md): Stream dataset items, key-value store records, and logs incrementally without downloading entirely into memory.
+  - [Logging](https://docs.apify.com/api/client/python/docs/concepts/logging.md): Configure the apify_client logger to print debug information about API requests.
+  - [Passing input to Actor](https://docs.apify.com/api/client/python/docs/guides/passing-input-to-actor.md): Run an Actor and retrieve results by passing input data directly to the call method.
+  - [Retrieve Actor data](https://docs.apify.com/api/client/python/docs/guides/retrieve-actor-data.md): Retrieve, paginate, merge, and export Actor output data from datasets.
+  - [Manage tasks for reusable input](https://docs.apify.com/api/client/python/docs/guides/manage-tasks-for-reusable-input.md): Create multiple tasks with different input configurations for the same Actor.
+  - [Integration with data libraries](https://docs.apify.com/api/client/python/docs/guides/integration-with-data-libraries.md): Load dataset items directly into a Pandas DataFrame for efficient manipulation and analysis.
+  - [Upgrading to v2](https://docs.apify.com/api/client/python/docs/upgrading/upgrading-to-v2.md): Breaking changes between Apify Python API Client v1.x and v2.0.
+  - [Changelog](https://docs.apify.com/api/client/python/docs/changelog.md)
+- [apify-client reference](https://docs.apify.com/api/client/python/reference.md)
+
+## Experimental API clients
+
+- [Apify API client for Rust](https://raw.githubusercontent.com/apify/apify-client-rust/refs/heads/master/README.md). Install by adding `apify-client` to `Cargo.toml`.
+- [Apify API client for Go](https://raw.githubusercontent.com/apify/apify-client-go/refs/heads/master/README.md). Install with `go get github.com/apify/apify-client-go`.
+- [Apify API client for PHP](https://raw.githubusercontent.com/apify/apify-client-php/refs/heads/master/README.md). Install with `composer require apify/apify-client`.
+- [Apify API client for Java](https://raw.githubusercontent.com/apify/apify-client-java/refs/heads/master/README.md). Install from Maven Central as `com.apify:apify-client`.
+- [Apify API client for .NET](https://raw.githubusercontent.com/apify/apify-client-dotnet/refs/heads/master/README.md). Install with `dotnet add package Apify.Client`.
+
+## Apify SDK for JavaScript
+
+- [Apify SDK for JavaScript](https://docs.apify.com/sdk/js/docs/overview.md): The official library for creating Apify Actors in JavaScript, providing tools for web crawling, scraping, and automation at scale.
+  - [Quick start](https://docs.apify.com/sdk/js/docs/introduction/quick-start.md): Get started with the Apify SDK for JavaScript by creating your first Actor.
+  - [Actor lifecycle](https://docs.apify.com/sdk/js/docs/concepts/actor-lifecycle.md): Understanding Actor lifecycle, initialization, and the Apify platform.
+  - [Environment Variables](https://docs.apify.com/sdk/js/docs/concepts/environment-variables.md): Environment variables used by Apify SDK.
+  - [Proxy Management](https://docs.apify.com/sdk/js/docs/concepts/proxy-management.md): IP address rotation and proxy configuration.
+  - [Request Storage](https://docs.apify.com/sdk/js/docs/concepts/request-storage.md): Request storage types for managing crawl queues.
+  - [Result Storage](https://docs.apify.com/sdk/js/docs/concepts/result-storage.md): Result storage types for saving crawl output.
+  - [Session Management](https://docs.apify.com/sdk/js/docs/concepts/session-management.md): SessionPool for managing browser sessions and cookies.
+  - [Running in Docker](https://docs.apify.com/sdk/js/docs/concepts/docker-images.md): Example Docker images to run your crawlers.
+  - [Pay-per-event Monetization](https://docs.apify.com/sdk/js/docs/concepts/pay-per-event.md): Monetize your Actors using the pay-per-event pricing model.
+  - [Basic crawler](https://docs.apify.com/sdk/js/docs/guides/basic-crawler.md): Bare-bones example using BasicCrawler.
+  - [Cheerio crawler](https://docs.apify.com/sdk/js/docs/guides/cheerio-crawler.md): Crawl URLs using plain HTTP requests and parse HTML with Cheerio.
+  - [Playwright crawler](https://docs.apify.com/sdk/js/docs/guides/playwright-crawler.md): Use PlaywrightCrawler for browser-based crawling.
+  - [Puppeteer crawler](https://docs.apify.com/sdk/js/docs/guides/puppeteer-crawler.md): Use PuppeteerCrawler for browser-based crawling.
+  - [Crawl all links on a website](https://docs.apify.com/sdk/js/docs/guides/crawl-all-links.md): Use enqueueLinks() to crawl entire websites.
+  - [Crawl a sitemap](https://docs.apify.com/sdk/js/docs/guides/crawl-sitemap.md): Download and crawl URLs from a sitemap.
+  - [Accept user input](https://docs.apify.com/sdk/js/docs/guides/accept-user-input.md): Accept and log user input in your Actor.
+  - [Add data to dataset](https://docs.apify.com/sdk/js/docs/guides/add-data-to-dataset.md): Save data to the default dataset.
+  - [Call actor](https://docs.apify.com/sdk/js/docs/guides/call-actor.md): Start an Apify Actor programmatically.
+  - [Setting up a TypeScript project](https://docs.apify.com/sdk/js/docs/guides/type-script-actor.md): TypeScript support in Apify SDK.
+  - [Upgrading to v3](https://docs.apify.com/sdk/js/docs/upgrading/upgrading-to-v3.md): Breaking changes between Crawlee (v3) and Apify SDK (v2).
+  - [Changelog](https://docs.apify.com/sdk/js/docs/changelog.md)
+- [apify reference](https://docs.apify.com/sdk/js/reference.md)
+
+## Apify SDK for Python
+
+- [Overview](https://docs.apify.com/sdk/python/docs/overview.md): The official library for creating Apify Actors in Python, providing tools for web scraping, automation, and data storage integration.
+  - [Quick start](https://docs.apify.com/sdk/python/docs/introduction/quick-start.md): Get started with the Apify SDK for Python by creating your first Actor.
+  - [Actor lifecycle](https://docs.apify.com/sdk/python/docs/concepts/actor-lifecycle.md): How an Apify Actor starts, runs, and shuts down.
+  - [Actor input](https://docs.apify.com/sdk/python/docs/concepts/actor-input.md): Read Actor input from the default key-value store.
+  - [Actor configuration](https://docs.apify.com/sdk/python/docs/concepts/actor-configuration.md): Configure the Actor class using the Configuration class and environment variables.
+  - [Actor events & state persistence](https://docs.apify.com/sdk/python/docs/concepts/actor-events.md): Handle Actor events sent by the Apify platform during runtime.
+  - [Working with storages](https://docs.apify.com/sdk/python/docs/concepts/storages.md): Work with default or named storages for datasets, key-value stores, and request queues.
+  - [Proxy management](https://docs.apify.com/sdk/python/docs/concepts/proxy-management.md): Work around IP blocking using proxy servers.
+  - [Interacting with other Actors](https://docs.apify.com/sdk/python/docs/concepts/interacting-with-other-actors.md): Methods to interact with other Actors and tasks on the platform.
+  - [Accessing Apify API](https://docs.apify.com/sdk/python/docs/concepts/access-apify-api.md): Access Apify API features not covered by the SDK.
+  - [Creating webhooks](https://docs.apify.com/sdk/python/docs/concepts/webhooks.md): Configure webhooks to trigger actions on Actor events.
+  - [Logging](https://docs.apify.com/sdk/python/docs/concepts/logging.md): Logging through Python's standard logging module.
+  - [Pay-per-event monetization](https://docs.apify.com/sdk/python/docs/concepts/pay-per-event.md): Monetize your Actors using the pay-per-event pricing model.
+  - [Using Crawlee](https://docs.apify.com/sdk/python/docs/guides/crawlee.md): Use the Crawlee library in your Actors.
+  - [Using BeautifulSoup with HTTPX](https://docs.apify.com/sdk/python/docs/guides/beautifulsoup-httpx.md): Use BeautifulSoup with HTTPX in your Actors.
+  - [Using Playwright](https://docs.apify.com/sdk/python/docs/guides/playwright.md): Use Playwright for web scraping in your Actors.
+  - [Using Scrapy](https://docs.apify.com/sdk/python/docs/guides/scrapy.md): Use the Scrapy framework in your Actors.
+  - [Using Selenium](https://docs.apify.com/sdk/python/docs/guides/selenium.md): Use Selenium for web scraping in your Actors.
+  - [Using Parsel with Impit](https://docs.apify.com/sdk/python/docs/guides/parsel-impit.md): Combine Parsel and Impit libraries for scraping.
+  - [Running webserver](https://docs.apify.com/sdk/python/docs/guides/running-webserver.md): Run a web server inside your Actor.
+  - [Upgrading to v3](https://docs.apify.com/sdk/python/docs/upgrading/upgrading-to-v3.md): Breaking changes between Apify Python SDK v2.x and v3.0.
+  - [Changelog](https://docs.apify.com/sdk/python/docs/changelog.md)
+- [apify-sdk-python reference](https://docs.apify.com/sdk/python/reference.md)
+
+## Apify CLI
+
+- [Apify CLI overview](https://docs.apify.com/cli/docs.md): An introduction to Apify CLI, a command-line interface for creating, developing, building, and running Apify Actors and managing the Apify cloud platform.
+  - [Quick start](https://docs.apify.com/cli/docs/quick-start.md): Learn how to create, run, and manage Actors using Apify CLI.
+  - [Installation](https://docs.apify.com/cli/docs/installation.md): Learn how to install Apify CLI using installation scripts, Homebrew, or NPM.
+  - [Command reference](https://docs.apify.com/cli/docs/reference.md): The Apify CLI provides tools for managing your Apify projects and resources from the command line.
+  - [Integrating Scrapy projects](https://docs.apify.com/cli/docs/integrating-scrapy.md): Learn how to run Scrapy projects as Apify Actors and deploy them on the Apify platform.
+  - [Telemetry](https://docs.apify.com/cli/docs/telemetry.md): Apify collects telemetry data about the general usage of the CLI.
+  - [Changelog](https://docs.apify.com/cli/docs/changelog.md)

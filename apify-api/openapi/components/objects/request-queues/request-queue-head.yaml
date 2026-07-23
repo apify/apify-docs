@@ -37,10 +37,12 @@ sharedGet: &sharedGet
         application/json:
           schema:
             $ref: ../../schemas/request-queues/HeadResponse.yaml
+    "402":
+      $ref: ../../responses/PaymentRequired.yaml
     <<: *commonErrors
   deprecated: false
 
-getById:
+listById:
   <<: [*sharedGet, *sharedTagById]
   summary: Get head
   description: |
@@ -68,7 +70,7 @@ getById:
   x-py-name: list_head
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/RequestQueueClientAsync#list_head
 
-getDefault:
+listDefault:
   <<: [*sharedGet, *sharedTagDefault]
   summary: Get default request queue head
   description: |
@@ -82,7 +84,7 @@ getDefault:
     - $ref: "../../parameters/requestQueueParameters.yaml#/headLimit"
     - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
 
-getLastRun:
+listLastRun:
   <<: [*sharedGet, *sharedTagLastRun]
   summary: Get last run's default request queue head
   description: |
@@ -93,11 +95,12 @@ getLastRun:
   operationId: act_runs_last_requestQueue_head_get
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
     - $ref: "../../parameters/requestQueueParameters.yaml#/headLimit"
     - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
 
-getTaskLastRun:
+listTaskLastRun:
   <<: [*sharedGet, *sharedTagTaskLastRun]
   summary: Get last task run's default request queue head
   description: |
@@ -108,6 +111,7 @@ getTaskLastRun:
   operationId: actorTask_runs_last_requestQueue_head_get
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
     - $ref: "../../parameters/requestQueueParameters.yaml#/headLimit"
     - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"

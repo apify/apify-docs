@@ -3,12 +3,13 @@
     border-radius: 0.5rem;
 }
 
-.card-hoverable:hover {
-    background-color: rgb(241, 242, 247);
+.card.card-hoverable:hover {
+    background-color: var(--color-neutral-card-background-hover);
 }
 
-html[data-theme="dark"] .card-hoverable:hover {
-    background-color: rgb(30, 40, 59);
+html[data-theme='dark'] .card {
+    background: var(--color-neutral-card-background);
+    border-color: var(--color-neutral-border);
 }
 
 .card-image-container {
@@ -40,17 +41,21 @@ html[data-theme="dark"] .card-hoverable:hover {
     box-sizing: border-box;
 }
 
+html[data-theme='dark'] .card-header {
+    border-bottom-color: var(--color-neutral-border);
+}
+
 .card-links {
     list-style-type: none;
     padding: 0 0.5rem 1rem 1rem;
-    margin: 0; 
+    margin: 0;
     font-size: 80%;
 }
 
 .card-links a {
-    color: var(--ifm-color-content)
+    color: var(--ifm-color-content);
 }
 
 .card-links a:hover {
-    color: var(--ifm-link-color)
+    color: var(--ifm-link-color);
 }

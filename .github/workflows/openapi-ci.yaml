@@ -20,29 +20,20 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
-            - uses: actions/checkout@v6
+            - uses: actions/checkout@v7
 
             - name: Set up Node.js
-              uses: actions/setup-node@v6
+              uses: actions/setup-node@v7
               with:
                   node-version: 24
-                  cache: "npm"
-                  cache-dependency-path: "package-lock.json"
 
-            - name: Enable corepack
-              run: corepack enable
-
-            - name: Install dependencies
-              run: npm ci --force
+            - uses: apify/actions/pnpm-install@v1.3.1
 
             - name: Lint with Redocly
-              run: npm run openapi:lint:redocly -- --format=github-actions
+              run: pnpm openapi:lint:redocly --format=github-actions
 
             - name: Lint with Spectral
-              run: npm run openapi:lint:spectral -- --format=github-actions
-
-            - name: Lint YAML style
-              run: npm run openapi:lint:yaml
+              run: pnpm openapi:lint:spectral --format=github-actions
 
     build:
         name: Build bundled specification
@@ -50,23 +41,17 @@ jobs:
         needs: lint
 
         steps:
-            - uses: actions/checkout@v6
+            - uses: actions/checkout@v7
 
             - name: Set up Node.js
-              uses: actions/setup-node@v6
+              uses: actions/setup-node@v7
               with:
                   node-version: 24
-                  cache: "npm"
-                  cache-dependency-path: "package-lock.json"
 
-            - name: Enable corepack
-              run: corepack enable
-
-            - name: Install dependencies
-              run: npm ci --force
+            - uses: apify/actions/pnpm-install@v1.3.1
 
             - name: Build bundles
-              run: npm run openapi:build
+              run: pnpm openapi:build
 
             - name: Upload bundles
               uses: actions/upload-artifact@v7
@@ -83,20 +68,14 @@ jobs:
         needs: [lint, build]
 
         steps:
-            - uses: actions/checkout@v6
+            - uses: actions/checkout@v7
 
             - name: Set up Node.js
-              uses: actions/setup-node@v6
+              uses: actions/setup-node@v7
               with:
                   node-version: 24
-                  cache: "npm"
-                  cache-dependency-path: "package-lock.json"
 
-            - name: Enable corepack
-              run: corepack enable
-
-            - name: Install dependencies
-              run: npm ci --force
+            - uses: apify/actions/pnpm-install@v1.3.1
 
             - name: Download bundles
               uses: actions/download-artifact@v8
@@ -105,10 +84,10 @@ jobs:
                   path: static/api/
 
             - name: Validate YAML bundle
-              run: npx redocly lint static/api/openapi.yaml
+              run: pnpm exec redocly lint static/api/openapi.yaml
 
             - name: Validate JSON bundle
-              run: npx redocly lint static/api/openapi.json
+              run: pnpm exec redocly lint static/api/openapi.json
 
             - name: Check bundle sizes
               run: |
@@ -135,7 +114,7 @@ jobs:
             && github.event.pull_request.head.repo.full_name == github.repository
 
         steps:
-            - uses: actions/checkout@v6
+            - uses: actions/checkout@v7
 
             - name: Check if OpenAPI files changed
               id: changed-files

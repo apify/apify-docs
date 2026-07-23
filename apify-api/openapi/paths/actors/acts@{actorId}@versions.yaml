@@ -122,7 +122,7 @@ post:
             text/plain:
               schema:
                 type: string
-              example: https://api.apify.com/v2/acts/zdc3Pyhyz3m8vjDeM/versions/0.0
+              example: https://api.apify.com/v2/actors/zdc3Pyhyz3m8vjDeM/versions/0.0
       content:
         application/json:
           schema:

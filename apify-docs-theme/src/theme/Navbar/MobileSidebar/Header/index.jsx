@@ -10,7 +10,9 @@ import NavbarCTA from '../../CTA';
 export default function NavbarMobileSidebarHeader() {
     const mobileSidebar = useNavbarMobileSidebar();
 
-    const { navbar: { items } } = useThemeConfig();
+    const {
+        navbar: { items },
+    } = useThemeConfig();
     const searchBarItem = items.find((item) => item.type === 'search');
 
     function onSearchClick(event) {

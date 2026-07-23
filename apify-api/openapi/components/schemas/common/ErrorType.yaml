@@ -65,6 +65,7 @@ enum:
   - cannot-metamorph-to-pay-per-result-actor
   - cannot-modify-actor-pricing-too-frequently
   - cannot-modify-actor-pricing-with-immediate-effect
+  - cannot-monetize-without-payout-billing-info
   - cannot-override-paid-actor-trial
   - cannot-permanently-delete-subscription
   - cannot-publish-actor
@@ -126,6 +127,8 @@ enum:
   - expired-conference-token
   - failed-to-charge-user
   - final-invoice-negative
+  - full-permission-actor-blocked-for-admin
+  - full-permission-actor-not-approved
   - github-branch-empty
   - github-issue-already-exists
   - github-public-key-not-found
@@ -297,6 +300,7 @@ enum:
   - requested-dataset-view-does-not-exist
   - resume-token-expired
   - run-failed
+  - run-input-body-not-valid-json
   - run-timeout-exceeded
   - russia-is-evil
   - same-user
@@ -306,6 +310,7 @@ enum:
   - schema-validation
   - schema-validation-error
   - schema-validation-failed
+  - service-worker-registration-not-allowed
   - sign-up-method-not-allowed
   - slack-integration-not-custom
   - socket-closed

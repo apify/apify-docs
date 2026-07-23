@@ -12,9 +12,10 @@ argument-hint: file-path
 
 1. **Verify file version** - `git status` to confirm you have the latest
 2. **Run deterministic checks** (main process) - these are objective, no judgment needed:
-   - `npm run lint:md` (heading hierarchy, list numbering, spacing)
-   - `vale "<file>" --minAlertLevel=error` (prose style, pronouns, dashes, code fences, admonitions)
+   - `pnpm lint:md` (heading hierarchy, list numbering, spacing)
    - `.agents/skills/review-docs/scripts/check-frontmatter.sh "<file>"` (description char count)
+
+   Vale runs separately as a repo-level PR check and via the TW's local editor extension - don't invoke it here. The delegated standards review (step 3) covers the same prose-style ground.
 3. **Delegated standards review** - spawn one subagent per standards file to check compliance. Each subagent reads the file being reviewed plus one standards file, and returns violations with line numbers and suggested fixes:
    - Subagent 1: check against `standards/writing-style.md` (voice, tone, headings, links)
    - Subagent 2: check against `standards/content-standards.md` (front matter, admonitions, code blocks)

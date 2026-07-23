@@ -30,7 +30,6 @@ properties:
     type: [object, "null"]
     required:
       - actorId
-      - actorRunId
     properties:
       actorId:
         type: string
@@ -38,6 +37,16 @@ properties:
       actorRunId:
         type: string
         examples: [JgwXN9BdwxGcu9MMF]
+      actorBuildId:
+        type: string
+        examples: [HG7ML7M8z78YcAPEB]
+      actorTaskId:
+        type: [string, "null"]
+        examples: [zRLp8SDOZz2NyLg7K]
+  webhook:
+    anyOf:
+      - $ref: ./WebhookDispatchWebhookSummary.yaml
+      - type: "null"
   calls:
     title: calls
     type: array

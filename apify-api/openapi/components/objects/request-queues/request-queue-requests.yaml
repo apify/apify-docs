@@ -37,10 +37,12 @@ sharedGet: &sharedGet
         application/json:
           schema:
             $ref: ../../schemas/request-queues/ListOfRequestsResponse.yaml
+    "402":
+      $ref: ../../responses/PaymentRequired.yaml
     <<: *commonErrors
   deprecated: false
 
-getById:
+listById:
   <<: [*sharedGet, *sharedTagById]
   summary: List requests
   description: |
@@ -65,7 +67,7 @@ getById:
   x-py-name: list_requests
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/RequestQueueClientAsync#list_requests
 
-getDefault:
+listDefault:
   <<: [*sharedGet, *sharedTagDefault]
   summary: List default request queue's requests
   description: |
@@ -82,7 +84,7 @@ getDefault:
     - $ref: "../../parameters/requestQueueParameters.yaml#/cursor"
     - $ref: "../../parameters/requestQueueParameters.yaml#/filter"
 
-getLastRun:
+listLastRun:
   <<: [*sharedGet, *sharedTagLastRun]
   summary: List last run's default request queue's requests
   description: |
@@ -93,14 +95,15 @@ getLastRun:
   operationId: act_runs_last_requestQueue_requests_get
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
     - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
     - $ref: "../../parameters/requestQueueParameters.yaml#/exclusiveStartId"
     - $ref: "../../parameters/requestQueueParameters.yaml#/listLimit"
     - $ref: "../../parameters/requestQueueParameters.yaml#/cursor"
     - $ref: "../../parameters/requestQueueParameters.yaml#/filter"
 
-getTaskLastRun:
+listTaskLastRun:
   <<: [*sharedGet, *sharedTagTaskLastRun]
   summary: List last task run's default request queue's requests
   description: |
@@ -111,7 +114,8 @@ getTaskLastRun:
   operationId: actorTask_runs_last_requestQueue_requests_get
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
     - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
     - $ref: "../../parameters/requestQueueParameters.yaml#/exclusiveStartId"
     - $ref: "../../parameters/requestQueueParameters.yaml#/listLimit"
@@ -191,7 +195,8 @@ postLastRun:
   operationId: act_runs_last_requestQueue_requests_post
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
     - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
     - $ref: "../../parameters/requestQueueParameters.yaml#/forefront"
 
@@ -206,6 +211,7 @@ postTaskLastRun:
   operationId: actorTask_runs_last_requestQueue_requests_post
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
     - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
     - $ref: "../../parameters/requestQueueParameters.yaml#/forefront"
