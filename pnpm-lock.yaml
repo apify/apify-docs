@@ -226,8 +226,8 @@ importers:
         specifier: ^1.26.0
         version: 1.34.1(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
       '@apify/ui-library':
-        specifier: ^1.151.0
-        version: 1.151.0(@types/react@19.2.14)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(styled-components@6.4.1(css-to-react-native@3.2.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))
+        specifier: ^1.156.1
+        version: 1.156.1(@types/react@19.2.14)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(styled-components@6.4.1(css-to-react-native@3.2.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))
       '@docusaurus/core':
         specifier: ~3.9.2
         version: 3.9.2(@docusaurus/faster@3.9.2(@docusaurus/types@3.9.2(@swc/core@1.15.24)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)))(@mdx-js/react@3.1.1(@types/react@19.2.14)(react@19.2.5))(@rspack/core@1.7.11)(@swc/core@1.15.24)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(supports-color@5.5.0)(typescript@6.0.2)
@@ -353,8 +353,8 @@ importers:
         specifier: ^1.19.0
         version: 1.34.1(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
       '@apify/ui-library':
-        specifier: ^1.151.0
-        version: 1.151.0(@types/react@19.2.14)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))
+        specifier: ^1.156.1
+        version: 1.156.1(@types/react@19.2.14)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))
       '@docusaurus/theme-common':
         specifier: ^3.7.0
         version: 3.9.2(@docusaurus/plugin-content-docs@3.9.2(@docusaurus/faster@3.9.2(@docusaurus/types@3.9.2(@swc/core@1.15.24)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)))(@mdx-js/react@3.1.1(@types/react@19.2.14)(react@19.2.5))(@rspack/core@1.7.11)(@swc/core@1.15.24)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(typescript@6.0.2))(@swc/core@1.15.24)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
@@ -580,14 +580,14 @@ packages:
       react: 17.x || 18.x || 19.x
       react-dom: 17.x || 18.x || 19.x
 
-  '@apify/ui-icons@1.47.0':
-    resolution: {integrity: sha512-Yzm6NYFa8SmKE5e6bH21dCtoBWFGwGwRPTEADQlKGVwuvPM+UImUy0CAj3aKC8ptm6CkY+NKuIpZNYUiGPQSsw==}
+  '@apify/ui-icons@1.48.0':
+    resolution: {integrity: sha512-b4mMkhI3tqMImSQH+RyjrTsRs7XPlBbsocB470Y7vSJQgMbfD55dZsuJ5Gsp5sxf9die5WOzSneWwUJCACLWCg==}
     peerDependencies:
       react: 17.x || 18.x || 19.x
       react-dom: 17.x || 18.x || 19.x
 
-  '@apify/ui-library@1.151.0':
-    resolution: {integrity: sha512-bsLRGY08fsvXfQ8j8fbVvyGEM6JPVemjfbttyfVvWEo8FoIHtCVsEgiRBUvWHUb/izJQjW4nvqQAzo+TBVt+sA==}
+  '@apify/ui-library@1.156.1':
+    resolution: {integrity: sha512-wiWYTWgHD/HDH6CD8n/1jO0J+DGOquh+4+6O3+T1trRfvullyn6bnPNx1muautEWZgWY8gJSOs1nhbUbhTuQNw==}
     peerDependencies:
       react: 17.x || 18.x || 19.x
       react-dom: 17.x || 18.x || 19.x
@@ -9896,7 +9896,7 @@ snapshots:
     dependencies:
       '@algolia/autocomplete-js': 1.19.8(@algolia/client-search@5.50.1)(algoliasearch@4.27.0)(search-insights@2.17.3)
       '@algolia/autocomplete-theme-classic': 1.19.8
-      '@apify/ui-library': 1.151.0(@types/react@19.2.14)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(styled-components@5.3.11(@babel/core@7.29.0)(react-dom@19.2.5(react@19.2.5))(react-is@16.13.1)(react@19.2.5))
+      '@apify/ui-library': 1.156.1(@types/react@19.2.14)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(styled-components@5.3.11(@babel/core@7.29.0)(react-dom@19.2.5(react@19.2.5))(react-is@16.13.1)(react@19.2.5))
       algoliasearch: 4.27.0
       html-entities: 2.6.0
       react: 19.2.5
@@ -9925,15 +9925,15 @@ snapshots:
       react: 19.2.5
       react-dom: 19.2.5(react@19.2.5)
 
-  '@apify/ui-icons@1.47.0(react-dom@19.2.5(react@19.2.5))(react@19.2.5)':
+  '@apify/ui-icons@1.48.0(react-dom@19.2.5(react@19.2.5))(react@19.2.5)':
     dependencies:
       clsx: 2.1.1
       react: 19.2.5
       react-dom: 19.2.5(react@19.2.5)
 
-  '@apify/ui-library@1.151.0(@types/react@19.2.14)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(styled-components@5.3.11(@babel/core@7.29.0)(react-dom@19.2.5(react@19.2.5))(react-is@16.13.1)(react@19.2.5))':
+  '@apify/ui-library@1.156.1(@types/react@19.2.14)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(styled-components@5.3.11(@babel/core@7.29.0)(react-dom@19.2.5(react@19.2.5))(react-is@16.13.1)(react@19.2.5))':
     dependencies:
-      '@apify/ui-icons': 1.47.0(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
+      '@apify/ui-icons': 1.48.0(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
       '@floating-ui/react': 0.27.19(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
       '@floating-ui/react-dom': 2.1.8(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
       '@radix-ui/react-checkbox': 1.3.3(@types/react@19.2.14)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
@@ -9967,9 +9967,9 @@ snapshots:
       - '@types/react-dom'
       - supports-color
 
-  '@apify/ui-library@1.151.0(@types/react@19.2.14)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(styled-components@6.4.1(css-to-react-native@3.2.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))':
+  '@apify/ui-library@1.156.1(@types/react@19.2.14)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(styled-components@6.4.1(css-to-react-native@3.2.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))':
     dependencies:
-      '@apify/ui-icons': 1.47.0(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
+      '@apify/ui-icons': 1.48.0(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
       '@floating-ui/react': 0.27.19(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
       '@floating-ui/react-dom': 2.1.8(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
       '@radix-ui/react-checkbox': 1.3.3(@types/react@19.2.14)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
@@ -10003,9 +10003,9 @@ snapshots:
       - '@types/react-dom'
       - supports-color
 
-  '@apify/ui-library@1.151.0(@types/react@19.2.14)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))':
+  '@apify/ui-library@1.156.1(@types/react@19.2.14)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))':
     dependencies:
-      '@apify/ui-icons': 1.47.0(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
+      '@apify/ui-icons': 1.48.0(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
       '@floating-ui/react': 0.27.19(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
       '@floating-ui/react-dom': 2.1.8(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
       '@radix-ui/react-checkbox': 1.3.3(@types/react@19.2.14)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
