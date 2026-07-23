@@ -11,7 +11,7 @@ import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integrati
 
 The [Apify plugin for Codex](https://github.com/apify/apify-codex-plugin) connects Codex to Apify's library of [Actors](https://apify.com/store) and bundles:
 
-- The [Apify MCP server](/integrations/mcp) for searching the Store, running Actors, and retrieving datasets through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro).
+- The [Apify MCP server](/integrations/mcp) for searching Apify Store, running Actors, and retrieving datasets through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro).
 - Five built-in skills for common workflows (see [Bundled skills](#bundled-skills) below).
 
 This guide covers installation in the Codex CLI.
@@ -29,7 +29,7 @@ This guide covers installation in the Codex CLI.
 
     ![Codex CLI prompt with the /plugins command typed in](../images/codex-cli/00-plugins-command.webp)
 
-1. Use the arrow keys to move right to the **Add Marketplace** tab, then press Enter.
+1. Use the arrow keys to select the **Add Marketplace** tab, then press Enter.
 
     ![Codex CLI plugins menu with the Add Marketplace tab selected](../images/codex-cli/01-add-marketplace-tab.webp)
 
@@ -51,7 +51,7 @@ This guide covers installation in the Codex CLI.
 
 ## Authenticate to Apify
 
-The plugin bundles the Apify MCP server. Read-only tools like searching the Store and fetching Actor details work without signing in, but you need to authenticate to run Actors and access your account data.
+The plugin bundles the Apify MCP server. Read-only tools like searching Apify Store and fetching Actor details work without signing in, but you need to authenticate to run Actors and access your account data.
 
 1. The first time Codex calls a tool that requires authentication, such as running an Actor, it opens a browser tab for the Apify OAuth flow.
 
