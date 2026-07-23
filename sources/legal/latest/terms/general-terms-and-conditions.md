@@ -33,13 +33,14 @@ The Services are intended for business use only and are not designed, marketed, 
 1.4. "**Fee(s)**" means price for the Services agreed in an Order or displayed in the Platform, including but not limited to Platform Fee, Development Fee, Professional Services Fee, and Overages, as specified by the Agreement.
 
 1.5. "**Order**" means an ordering document (e.g., order form, statement of work) executed between the parties or a checkout page specifying Services purchased by you.
-“Platform” means the Apify platform and related infrastructure operated by Apify, remote access to which is available upon registration by means of servers within the apify.com domain or other domains, including, but not limited to, Apify Console at console.apify.com, the Apify API at api.apify.com, and the Apify MCP server at mcp.apify.com.
 
-1.6. "**Services**" are Subscription Services and Professional Services as specified in Section 2 below (unless expressly specified otherwise, Actors, Beta Previews, Development Tools, and Integrations are expressly excluded from the Services).
+1.6. "**Platform**" means the Apify platform and related infrastructure operated by Apify, remote access to which is available upon registration by means of servers within the apify.com domain or other domains, including, but not limited to, Apify Console at console.apify.com, the Apify API at api.apify.com, and the Apify MCP server at mcp.apify.com.
 
-1.7. "**Usage Data**" means User information relating to provision, use, and performance of the Services, Actors, or Beta Previews, including but not limited to metrics, analytics, and information derived from Actor Inputs, Actor Outputs, and your Customer Data and usage patterns.
+1.7. "**Services**" are Subscription Services and Professional Services as specified in Section 2 below (unless expressly specified otherwise, Actors, Beta Previews, Development Tools, and Integrations are expressly excluded from the Services).
 
-1.8. "**Website**" means https://apify.com, and all Apify-owned subdomains of apify.com, such as https://docs.apify.com/ or https://help.apify.com.
+1.8. "**Usage Data**" means User information relating to provision, use, and performance of the Services, Actors, or Beta Previews, including but not limited to metrics, analytics, and information derived from Actor Inputs, Actor Outputs, and your Customer Data and usage patterns.
+
+1.9. "**Website**" means https://apify.com, and all Apify-owned subdomains of apify.com, such as https://docs.apify.com/ or https://help.apify.com.
 
 ## 2. Apify Services
 
