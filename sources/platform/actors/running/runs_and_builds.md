@@ -100,27 +100,27 @@ flowchart LR
 
 ---
 
-| Status     | Type         | Description                                 |
-|:-----------|:-------------|:--------------------------------------------|
-| READY      | initial      | Started but not allocated to any worker yet |
-| RUNNING    | transitional | Executing on a worker machine               |
-| SUCCEEDED  | terminal     | Finished successfully                       |
-| FAILED     | terminal     | Run failed                                  |
-| TIMING-OUT | transitional | Timing out now                              |
-| TIMED-OUT  | terminal     | Timed out                                   |
-| ABORTING   | transitional | Being aborted by the user                   |
-| ABORTED    | terminal     | Aborted by the user                         |
+| Status | Type | Description |
+| --- | --- | --- |
+| READY | initial | Started but not allocated to any worker yet |
+| RUNNING | transitional | Executing on a worker machine |
+| SUCCEEDED | terminal | Finished successfully |
+| FAILED | terminal | Run failed |
+| TIMING-OUT | transitional | Timing out now |
+| TIMED-OUT | terminal | Timed out |
+| ABORTING | transitional | Run is being aborted |
+| ABORTED | terminal | Run aborted |
 
-### Aborting runs
+### Abort a run
 
 You can abort runs with the statuses **READY**, **RUNNING**, or **TIMING-OUT** in two ways:
 
-- _Immediately_ - this is the default option. The Actor process is killed immediately with no grace period.
-- _Gracefully_ - the Actor run receives a signal about aborting via the `aborting` event and is granted a 30-second window to finish in-progress tasks before getting aborted. This is helpful in cases where you plan to resurrect the run later because it gives the Actor a chance to persist its state. When resurrected, the Actor can restart where it left off.
+- Immediately (default). The Actor process is killed with no grace period.
+- Gracefully. The Actor run receives a signal about aborting with the `aborting` event and is granted a 30-second window to finish in-progress tasks before getting terminated. If you plan to resurrect the run later, a graceful abort gives the Actor a chance to persist its state. When resurrected, the Actor can restart where it left off.
 
-You can abort a run in Apify Console using the **Abort** button or via API using the [Abort run](/api/v2/actor-run-abort-post) endpoint.
+To abort a run, use the **Abort** button in Apify Console or the [Abort run](/api/v2/actor-run-abort-post) API endpoint.
 
-### Resurrection of finished run
+### Resurrect a finished run
 
 Any Actor run in a terminal state, i.e., run with status **FINISHED**, **FAILED**, **ABORTED**, and **TIMED-OUT**, might be resurrected back to a **RUNNING** state. This is helpful in many cases, for example, when the timeout for an Actor run was too low or in case of an unexpected error.
 
