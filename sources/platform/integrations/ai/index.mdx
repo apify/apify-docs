@@ -88,10 +88,48 @@ Plug Apify Actors into the AI stack - chat clients like Claude and ChatGPT via t
         imageUrl="/img/platform/integrations/emoji-x402.svg"
         smallImage
     />
+</CardGrid>
+
+## AI assistants
+
+Chat and coding assistants you connect to Apify through the Apify MCP server or a plugin.
+
+<CardGrid>
     <Card
-        title="Codex"
-        desc="Install the Apify plugin in Codex to discover, run, and build Actors from the Codex app."
-        to="/integrations/codex"
+        title="ChatGPT"
+        desc="Use Apify as an MCP server in ChatGPT to run Actors and pull live web data into the conversation."
+        to="/integrations/chatgpt"
+        imageUrl="/img/platform/integrations/openai.svg"
+        imageUrlDarkTheme="/img/platform/integrations/openai-white.svg"
+        smallImage
+    />
+    <Card
+        title="Claude Desktop"
+        desc="Connect Apify to Claude Desktop through the MCP server to run Actors from your chats."
+        to="/integrations/claude-desktop"
+        imageUrl="/img/platform/integrations/anthropic.svg"
+        imageUrlDarkTheme="/img/platform/integrations/anthropic-white.svg"
+        smallImage
+    />
+    <Card
+        title="Claude Code CLI"
+        desc="Use Apify Actors from the Claude Code CLI through the Apify MCP server."
+        to="/integrations/claude-code-cli"
+        imageUrl="/img/platform/integrations/claude-code.svg"
+        smallImage
+    />
+    <Card
+        title="Codex (desktop app)"
+        desc="Install the Apify plugin for Codex in the ChatGPT desktop app to discover, run, and build Actors."
+        to="/integrations/codex-app"
+        imageUrl="/img/platform/integrations/codex.svg"
+        imageUrlDarkTheme="/img/platform/integrations/codex-white.svg"
+        smallImage
+    />
+    <Card
+        title="Codex CLI"
+        desc="Install the Apify plugin for Codex in your terminal to discover, run, and build Actors."
+        to="/integrations/codex-cli"
         imageUrl="/img/platform/integrations/codex.svg"
         imageUrlDarkTheme="/img/platform/integrations/codex-white.svg"
         smallImage
@@ -104,12 +142,35 @@ Plug Apify Actors into the AI stack - chat clients like Claude and ChatGPT via t
         imageUrlDarkTheme="/img/platform/integrations/cursor-white.svg"
         smallImage
     />
+    {/* Prepared for release - uncomment each card when its page merges:
+        GitHub Copilot (#2699), Grok Build (#2700), OpenCode (#2692).
+    <Card
+        title="GitHub Copilot"
+        desc="Install the Apify plugin in GitHub Copilot to discover, run, and build Actors in VS Code."
+        to="/integrations/github-copilot"
+        imageUrl="/img/platform/integrations/github-copilot.svg"
+        imageUrlDarkTheme="/img/platform/integrations/github-copilot-white.svg"
+        smallImage
+    />
+    <Card
+        title="Grok Build"
+        desc="Install the Apify plugin in Grok Build to discover, run, and build Actors from the terminal."
+        to="/integrations/grok-build"
+        imageUrl="/img/platform/integrations/grok-light.svg"
+        imageUrlDarkTheme="/img/platform/integrations/grok.svg"
+        smallImage
+    />
+    <Card
+        title="OpenCode"
+        desc="Install the Apify plugin in OpenCode to discover, run, and build Actors from the coding agent."
+        to="/integrations/opencode"
+        imageUrl="/img/platform/integrations/opencode.svg"
+        imageUrlDarkTheme="/img/platform/integrations/opencode-white.svg"
+        smallImage
+    />
+    */}
 </CardGrid>
 
 ## By provider
 
-The [Claude hub](/integrations/claude) covers Apify integrations across Claude Desktop and the Claude Code CLI on one page.
-
-The [OpenAI hub](/integrations/openai) covers Apify integrations across ChatGPT, the OpenAI Agents SDK, and OpenAI Assistants on one page.
-
-For Google ADK, see the [Google ADK](/integrations/google-adk) page. The full list of AI integrations lives in the sidebar.
+See everything for a provider on one page: the [OpenAI hub](/integrations/openai) (ChatGPT, Codex, Agents SDK) and the [Claude hub](/integrations/claude) (Claude Desktop, Claude Code CLI).
