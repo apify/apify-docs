@@ -1,0 +1,1 @@
+{"source_file": "sources/platform/console/store.md", "assertions": [{"id": "store-route", "kind": "route", "target": "/store", "page_context": "Apify Store main page", "source_quote": "[Apify Store](https://apify.com/store) is a place where you can explore a variety of Actors, both created and maintained by Apify or the community.", "source_line": 9, "needs_auth": true}]}
