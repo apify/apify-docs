@@ -100,7 +100,7 @@ Monetization changes fall into two categories:
 - Non-significant changes that take effect immediately: decreasing prices, removing events, updating descriptions
 - Significant changes that require a 14-day notice period: increasing prices, adding new paid events, changing the pricing model
 
-When you submit a significant change, your users receive a notification and the current pricing stays active for 14 days. You can only make significant changes _once per month_ per Actor, and you _cannot cancel_ a planned change on your own - you need to contact [Apify support](https://apify.com/contact).
+When you submit a significant change, your users receive a notification and the current pricing stays active for 14 days. You can only make significant changes once per month per Actor. To cancel a planned change, [contact Apify support](https://apify.com/contact).
 
 This means roughly one month passes between your first significant change and when you can make the next one. Plan your pricing carefully before committing.
 
