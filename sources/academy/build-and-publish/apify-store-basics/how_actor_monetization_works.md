@@ -104,8 +104,6 @@ When you submit a significant change, your users receive a notification and the 
 
 This means roughly one month passes between your first significant change and when you can make the next one. Plan your pricing carefully before committing.
 
-For full details, refer to the [monetization change rules](/platform/actors/publishing/monetize#change-monetization).
-
 ### Tracking and promotion
 
 - _Track profit_: review payout invoices and statistics in Apify Console (**Monitoring** tab).
