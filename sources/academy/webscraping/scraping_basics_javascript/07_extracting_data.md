@@ -27,7 +27,7 @@ Sony XBR-950G BRAVIA 4K HDR Ultra HD TV | From $1,398.00
 ...
 ```
 
-Let's summarize what stands in our way if we want to have it in our Python program as a number:
+Let's summarize what stands in our way if we want to have it in our JavaScript program as a number:
 
 - A dollar sign precedes the number,
 - the number contains decimal commas for better human readability, and
@@ -244,13 +244,6 @@ Denon AH-C720 In-Ear Headphones | 236
 <details>
   <summary>Solution</summary>
   <CodeBlock language="js">{WarehouseUnitsExercise.code}</CodeBlock>
-
-  :::tip Conditional (ternary) operator
-
-  For brevity, the solution uses the [conditional (ternary) operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_operator). You can achieve the same with a plain `if` and `else` block.
-
-  :::
-
 </details>
 
 ### Use regular expressions
@@ -260,18 +253,11 @@ Simplify the code from previous exercise. Use [regular expressions](https://deve
 <details>
   <summary>Solution</summary>
   <CodeBlock language="js">{WarehouseUnitsRegexExercise.code}</CodeBlock>
-
-  :::tip Conditional (ternary) operator
-
-  For brevity, the solution uses the [conditional (ternary) operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_operator). You can achieve the same with a plain `if` and `else` block.
-
-  :::
-
 </details>
 
 ### Scrape publish dates of F1 news
 
-Download Guardian's page with the latest F1 news and use Beautiful Soup to parse it. Print titles and publish dates of all the listed articles. This is the URL:
+Download Guardian's page with the latest F1 news and use Cheerio to parse it. Print titles and publish dates of all the listed articles. This is the URL:
 
 ```text
 https://www.theguardian.com/sport/formulaone
