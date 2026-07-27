@@ -175,34 +175,23 @@ const themeConfig = {
     footer: {
         links: [
             {
-                title: 'Learn',
+                title: 'Reference',
                 items: [
                     {
-                        label: 'Academy',
-                        href: `${absoluteUrl}/academy`,
-                        target: '_self',
-                        rel: 'dofollow',
-                    },
-                    {
-                        label: 'Get started',
-                        href: `${absoluteUrl}/get-started`,
-                        target: '_self',
-                        rel: 'dofollow',
-                    },
-                    {
-                        label: 'Actors',
-                        href: `${absoluteUrl}/actors`,
-                        target: '_self',
-                        rel: 'dofollow',
-                    },
-                ],
-            },
-            {
-                title: 'API',
-                items: [
-                    {
-                        label: 'Reference',
+                        label: 'API Reference',
                         href: `${absoluteUrl}/api/v2`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                    {
+                        label: 'SDK for JavaScript',
+                        href: `${absoluteUrl}/sdk/js/docs/overview`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                    {
+                        label: 'SDK for Python',
+                        href: `${absoluteUrl}/sdk/python/docs/overview`,
                         target: '_self',
                         rel: 'dofollow',
                     },
@@ -218,20 +207,9 @@ const themeConfig = {
                         target: '_self',
                         rel: 'dofollow',
                     },
-                ],
-            },
-            {
-                title: 'SDK',
-                items: [
                     {
-                        label: 'SDK for JavaScript',
-                        href: `${absoluteUrl}/sdk/js/docs/overview`,
-                        target: '_self',
-                        rel: 'dofollow',
-                    },
-                    {
-                        label: 'SDK for Python',
-                        href: `${absoluteUrl}/sdk/python/docs/overview`,
+                        label: 'CLI',
+                        href: `${absoluteUrl}/cli/docs`,
                         target: '_self',
                         rel: 'dofollow',
                     },
@@ -265,49 +243,64 @@ const themeConfig = {
                         label: 'proxy-chain',
                         href: 'https://github.com/apify/proxy-chain',
                     },
+                ],
+            },
+            {
+                title: 'Security',
+                items: [
                     {
-                        label: 'Apify on GitHub',
+                        label: 'Trust Center',
+                        href: 'https://trust.apify.com',
+                    },
+                ],
+            },
+            {
+                title: 'Community',
+                items: [
+                    {
+                        label: 'Discord',
+                        href: 'https://discord.com/invite/jyEM2PRvMU',
+                    },
+                    {
+                        label: 'X',
+                        href: 'https://x.com/apify',
+                    },
+                    {
+                        label: 'YouTube',
+                        href: 'https://www.youtube.com/c/Apify',
+                    },
+                    {
+                        label: 'GitHub',
                         href: 'https://github.com/apify',
                     },
                 ],
             },
             {
-                title: 'Other',
+                title: 'For AI',
                 items: [
-                    {
-                        label: 'CLI',
-                        href: `${absoluteUrl}/cli/docs`,
-                        position: 'left',
-                        target: '_self',
-                        rel: 'dofollow',
-                    },
                     {
                         label: 'llms.txt',
                         href: `${absoluteUrl}/llms.txt`,
                         target: '_self',
                         rel: 'dofollow',
                     },
-                ],
-            },
-            {
-                title: 'More',
-                items: [
                     {
-                        label: 'Crawlee',
-                        to: 'https://crawlee.dev',
+                        label: 'llms-full.txt',
+                        href: `${absoluteUrl}/llms-full.txt`,
+                        target: '_self',
                         rel: 'dofollow',
                     },
                     {
-                        label: 'GitHub',
-                        href: 'https://github.com/apify',
+                        label: 'OpenAPI (JSON)',
+                        href: `${absoluteUrl}/api/openapi.json`,
+                        target: '_self',
+                        rel: 'dofollow',
                     },
                     {
-                        href: 'https://discord.com/invite/jyEM2PRvMU',
-                        label: 'Discord',
-                    },
-                    {
-                        label: 'Trust Center',
-                        href: 'https://trust.apify.com',
+                        label: 'OpenAPI (YAML)',
+                        href: `${absoluteUrl}/api/openapi.yaml`,
+                        target: '_self',
+                        rel: 'dofollow',
                     },
                 ],
             },
