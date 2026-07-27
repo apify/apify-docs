@@ -1,6 +1,6 @@
 setup_file() {
   cd "$BATS_TEST_DIRNAME"
-  npm init --yes
+  echo '{"name":"exercises","private":true}' > package.json
   npm install cheerio crawlee
 }
 
