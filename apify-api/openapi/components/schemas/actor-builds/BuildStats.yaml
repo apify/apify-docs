@@ -1,6 +1,4 @@
 title: BuildStats
-required:
-  - computeUnits
 type: object
 properties:
   durationMillis:

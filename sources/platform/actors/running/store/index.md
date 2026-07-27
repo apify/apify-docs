@@ -18,7 +18,7 @@ import RentalSunset from '../../../../_partials/_rental-sunsetting.mdx';
 
 ## Pricing models
 
-All Actors in [Apify Store](https://apify.com/store) fall into one of the four pricing models:
+All Actors in [Apify Store](https://apify.com/store) fall into one of the three pricing models:
 
 1. [**Pay per event**](#pay-per-event) - you pay for specific events the Actor creator defines, such as generating a single result or starting the Actor. Most Actors include platform usage in the price, but some may charge it separately - check the Actor's pricing for details.
 1. [**Pay per usage**](#pay-per-usage) - you only pay for the platform resources (compute units, data transfer, etc.) the

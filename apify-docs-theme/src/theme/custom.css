@@ -389,6 +389,13 @@ footer .col {
     background: var(--color-Neutral_Background);
 }
 
+@media (max-width: 996px) {
+    /* Nav links move into a dropdown on mobile. */
+    .navbar__inner--subnavbar {
+        display: none;
+    }
+}
+
 .navbar__sub {
     padding: 0.8rem var(--ifm-spacing-horizontal);
     height: 58px;
@@ -510,6 +517,13 @@ aside .icon svg[class*='iconExternalLink'] {
     font-size: 1.4rem;
     line-height: 2.4rem;
     transition: all ease-in 0.12s;
+}
+
+/* Keep multi-word navbar labels (e.g. "Get started") on a single line so they
+   don't wrap and overflow the fixed-height navbar row. Scoped to navbar links
+   only - the docs sidebar uses .menu__link and must stay free to wrap. */
+.navbar__link {
+    white-space: nowrap;
 }
 
 .menu__link:hover {

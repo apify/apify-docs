@@ -95,15 +95,14 @@ If you want more details about rental pricing, refer to our [rental pricing docu
 
 ### Changing monetization
 
-Some monetization updates are applied immediately. However, significant pricing changes require a 14-day notice period.
+Monetization changes fall into two categories:
 
-Significant changes include:
+- Non-significant changes that take effect immediately: decreasing prices, removing events, updating descriptions
+- Significant changes that require a 14-day notice period: increasing prices, adding new paid events, changing the pricing model
 
-- Increasing prices
-- Adding a new paid pricing event (PPE)
-- Changing the pricing model
+When you submit a significant change, your users receive a notification and the current pricing stays active for 14 days. You can only make significant changes once per month per Actor. To cancel a planned change, [contact Apify support](https://apify.com/contact).
 
-You can make these significant changes only once per month.
+This means roughly one month passes between your first significant change and when you can make the next one. Plan your pricing carefully before committing.
 
 ### Tracking and promotion
 

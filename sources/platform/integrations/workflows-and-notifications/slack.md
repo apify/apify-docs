@@ -54,7 +54,7 @@ A few rules apply to every template:
 
 - The template must be between 2 and 4000 characters long.
 - The text supports [Slack's mrkdwn syntax](https://api.slack.com/reference/surfaces/formatting), which uses single-asterisk bold (`*bold*`) and `<url|label>` for links rather than the standard Markdown `[label](url)`.
-- Apify automatically appends a "Sent by Apify" attribution line that links to apify.com, so you don't need to add one yourself.
+- Apify automatically appends a "Sent by Apify" attribution line that links to the integration's settings page in Apify Console, so you don't need to add one yourself.
 - `TEST` events ignore the template and post a fixed test message. Use them to verify channel delivery.
 - An empty template falls back to Apify's built-in run-status preset.
 
@@ -126,8 +126,8 @@ For `ACTOR.BUILD.*` events, `resource` is the build document - the same object r
 
 The `resource.status` field uses these values:
 
-- Actor run: `READY`, `RUNNING`, `SUCCEEDED`, `FAILED`, `ABORTED`, `TIMED-OUT`, `ABORTING`.
-- Actor build: `READY`, `RUNNING`, `SUCCEEDED`, `FAILED`, `ABORTED`, `TIMED-OUT`.
+- Actor run: `READY`, `RUNNING`, `SUCCEEDED`, `FAILED`, `TIMING-OUT`, `TIMED-OUT`, `ABORTING`, `ABORTED`.
+- Actor build: `READY`, `RUNNING`, `SUCCEEDED`, `FAILED`, `TIMING-OUT`, `TIMED-OUT`, `ABORTING`, `ABORTED`.
 
 :::tip Full resource object
 

@@ -1,5 +1,5 @@
 ---
-title: Access rights
+title: Grant access rights
 description: Manage permissions for your private resources such as Actors, Actor runs, and storages. Allow other users to read, run, modify, or build new versions.
 sidebar_position: 12
 category: platform
@@ -28,3 +28,9 @@ To share a key-value store, request queue, or a dataset:
 1. From the table, select the resource you want to share.
 1. Under **Invite**, add the user ID, email, or username of a person you want to share the resource with and select **Add user**.
 1. From the dropdown, select the permissions to grant.
+
+## Transfer an Actor between accounts
+
+To transfer your Actor to another Apify account, [contact support](http://apify.com/contact). The transfer keeps the Actor's reviews and usage statistics.
+
+Note that the Actor's URL in Apify Store changes, as it includes the account ID. The Actor's URL in Apify Console stays the same.
