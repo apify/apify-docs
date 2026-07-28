@@ -433,6 +433,7 @@ module.exports = {
                 'go',
                 'csharp',
                 'powershell',
+                'rust',
                 'dart',
                 'objectivec',
                 'ocaml',
