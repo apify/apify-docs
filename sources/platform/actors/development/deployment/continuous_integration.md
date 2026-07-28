@@ -1,7 +1,7 @@
 ---
 title: Continuous integration for Actors
 sidebar_label: Continuous integration
-description: Set up automated builds, deploys, and tests for your Actors using GitHub Actions, webhooks, or the official GitHub integration.
+description: Set up continuous integration for your Actors to automate builds, deploys, and tests with GitHub Actions, webhooks, GitHub integration, or Bitbucket Pipelines.
 slug: /actors/development/deployment/continuous-integration
 sidebar_position: 2
 ---

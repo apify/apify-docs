@@ -40,8 +40,8 @@ For example, an Actor might have:
 If you publish your Actor for others to use, treat your version tags as a stable contract with your users:
 
 - Avoid pinning users to `latest`. Give each version a descriptive tag (for example, `0.0` or `1.0`) so users can depend on a stable version instead of being moved onto every change automatically.
-- Ship non-breaking changes under the same tag. For bug fixes and performance improvements that keep the same input and output, keep the version tag and let the build number increment automatically, and record the change in your Actor's changelog.
-- Fork a new version for breaking changes. When you change the input schema or output format, create a new version with a new tag (for example, from `0.0` to `0.1`) so existing users stay on the previous version until they choose to upgrade.
+- Ship non-breaking changes under the same tag. For bug fixes and performance improvements that keep the same input and output, keep the version tag and let the build number increment automatically. Record the change in your Actor's changelog.
+- Fork a new version for breaking changes. When you change the input schema or output format, create a new version with a new tag (for example, from `0.0` to `0.1`). Existing users stay on the previous version until they choose to upgrade.
 - Set the default version deliberately. New users get the default version first, so point it at your newest stable version.
 - Migrate off `latest` gradually. If your Actor currently builds only under `latest`, fork the current version to a new tag, set it as the default, and use tagged versions from then on.
 

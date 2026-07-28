@@ -64,7 +64,7 @@ If the Actor doesn't have this information, or you want to use your own solution
 
 :::tip Estimating usage
 
-Check out [reference consumption rates](#reference-consumption-rates) for approximate figures, or [measure your own usage with a test run](#measure-consumption-with-a-test-run).
+See [reference consumption rates](#reference-consumption-rates) for approximate figures, or [measure your own usage with a test run](#measure-consumption-with-a-test-run).
 
 :::
 
