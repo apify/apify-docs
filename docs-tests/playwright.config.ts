@@ -1,10 +1,10 @@
 import { defineConfig, devices } from '@playwright/test';
 import 'dotenv/config';
 
+// May be undefined: only the browser-based `tests` project needs it, and it
+// guards at runtime (auth.fixture + the anon-context path in from-doc.spec.ts).
+// Not throwing here lets the credential-free `integrity` project run on its own.
 export const baseURL = process.env.CONSOLE_STAGING_URL;
-if (!baseURL) {
-    throw new Error('CONSOLE_STAGING_URL is not set. Copy .env.example to .env and fill it in.');
-}
 
 export default defineConfig({
     testDir: './tests',
@@ -27,6 +27,12 @@ export default defineConfig({
     // session in memory. Nothing on disk has to pre-exist — works the same locally
     // and in CI, where credentials come from GitHub Secrets.
     projects: [
+        // Static doc-side checks: no browser, no staging credentials. Runs first
+        // so a stale baseline (e.g. docs moved) fails fast before the UI suite.
+        {
+            name: 'integrity',
+            testMatch: /baseline-integrity\.spec\.ts/,
+        },
         {
             name: 'tests',
             testMatch: /from-doc\.spec\.ts/,

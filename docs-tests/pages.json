@@ -1,8 +1,7 @@
 {
   "pages": [
-    "sources/platform/console/index.md",
-    "sources/platform/console/settings.md",
-    "sources/platform/console/billing.md",
-    "sources/platform/console/store.md"
+    "sources/platform/account/console.md",
+    "sources/platform/account/settings.md",
+    "sources/platform/account/billing.md"
   ]
 }
