@@ -106,6 +106,13 @@ const BlogImageWrapper = styled.img`
     height: 100%;
 `;
 
+// `Section` centers itself with auto margins, which stops it from stretching inside the
+// page's flex column. Sections with wide children still fill the layout width, but one
+// holding only text shrinks to fit its sentence, so it needs the width spelled out.
+const TextOnlySection = styled(Section)`
+    width: 100%;
+`;
+
 interface ExperimentalClient {
     language: string;
     description: string;
@@ -290,6 +297,23 @@ curl -X POST -d @- \\
                         </CodeBlock>
                     </ClientCodeWrapper>
                 </SectionWrapper>
+                <TextOnlySection
+                    headingClassName={styles.ApiSectionHeading}
+                    className={styles.LargerContent}
+                    heading="OpenAPI schema"
+                    description={
+                        <>
+                            You can download the complete OpenAPI schema of the Apify API in the{' '}
+                            <Link to="https://docs.apify.com/api/openapi.yaml">YAML</Link> or{' '}
+                            <Link to="https://docs.apify.com/api/openapi.json">JSON</Link> formats. The source code is
+                            also{' '}
+                            <Link to="https://github.com/apify/apify-docs/tree/master/apify-api/openapi">
+                                available on GitHub
+                            </Link>
+                            .
+                        </>
+                    }
+                />
                 <Section
                     headingClassName={styles.ApiSectionHeading}
                     className={styles.LargerContent}
@@ -426,7 +450,7 @@ dataset_items = apify_client.dataset(actor_call['defaultDatasetId']).list_items(
                     headingClassName={styles.ApiSectionHeading}
                     className={styles.LargerContent}
                     heading="Experimental API clients"
-                    description="Clients for other languages are official Apify projects, but they are experimental: AI generates and maintains them. Review the code before you rely on them in production, and report issues on their repositories."
+                    description="Clients for other languages are official Apify projects, but they are experimental: they are generated automatically from the OpenAPI schema. Review the code before you rely on them in production, and report issues on their repositories."
                 >
                     <Tabs
                         items={experimentalClients.map((client) => ({
