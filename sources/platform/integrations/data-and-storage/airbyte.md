@@ -39,3 +39,41 @@ To find your Apify API token, you need to navigate to the **Settings** tab and s
 And that's it! You now have Apify datasets set up as a Source, and you can use Airbyte to transfer your datasets to one of the available destinations.
 
 To learn more about how to setup a Connection, visit [Airbyte's documentation](https://docs.airbyte.com/using-airbyte/getting-started/set-up-a-connection)
+
+## Trigger a sync automatically after an Actor run
+
+Instead of syncing on a schedule, you can start an Airbyte sync as soon as an Actor run finishes. Use an Apify [webhook](/integrations/webhooks) to call the Airbyte API and refresh the connection whenever new data is scraped.
+
+### Prerequisites
+
+- An Airbyte connection that uses your Apify Dataset as a source.
+- Airbyte API access: an access token and the **connection ID** (you can copy it from the connection's URL in Airbyte). The exact endpoint and authentication depend on whether you use Airbyte Cloud or a self-managed instance, so check the [Airbyte API reference](https://reference.airbyte.com/reference/createjob) for the current details.
+
+### Set up the webhook
+
+1. In [Apify Console](https://console.apify.com), open the Actor and go to the **Integrations** tab.
+1. Under **Connect with Apify**, click **HTTP webhook**.
+1. Configure the webhook:
+    - **Event types**: select `Run succeeded` (`ACTOR.RUN.SUCCEEDED`).
+    - **URL**: the Airbyte API endpoint that starts a sync, for example `https://api.airbyte.com/v1/jobs`.
+1. Set the **Headers template** to authenticate with your Airbyte token:
+
+    ```json
+    {
+        "Authorization": "Bearer YOUR_AIRBYTE_TOKEN",
+        "Content-Type": "application/json"
+    }
+    ```
+
+1. Set the **Payload template** to start a sync for your connection:
+
+    ```json
+    {
+        "connectionId": "YOUR_CONNECTION_ID",
+        "jobType": "sync"
+    }
+    ```
+
+1. Click **Save**, then **Test** to confirm that Airbyte starts a sync.
+
+Every successful Actor run now triggers Airbyte to move the freshly scraped data to your destination, with no manual step in between.
