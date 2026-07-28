@@ -15,8 +15,8 @@ Set up continuous integration for your Actors using one of these methods:
 
 - [GitHub Actions](#github-actions) - the most flexible approach, with support for tests, multi-branch builds, and custom workflows.
 - [API webhook](#api-webhook) - works with Bitbucket, GitLab, and other Git hosting providers that support webhooks.
-- [Bitbucket Pipelines](#bitbucket-pipelines) - run tests and push your Actor from Bitbucket on every commit.
 - [GitHub integration](#github-integration) - the quickest setup with no workflow files needed, but less flexible than GitHub Actions.
+- [Bitbucket Pipelines](#bitbucket-pipelines) - run tests and push your Actor from Bitbucket on every commit.
 
 ## Set up automated builds with GitHub Actions {#github-actions}
 
@@ -155,6 +155,14 @@ For example, in GitHub, go to **Settings** > **Webhooks** > **Add webhook** and 
 
 ![GitHub integration](./images/ci-github-integration.png)
 
+## Use the Apify GitHub integration {#github-integration}
+
+Apify Console includes a built-in [GitHub integration](/integrations/github) that links an Actor directly to a GitHub repository. When you connect a repository, Apify automatically rebuilds the Actor on every push - no workflow files or webhook configuration needed.
+
+This is the quickest way to get automated builds running, but it's less flexible than the GitHub Actions approach. It doesn't support running tests before building, managing multiple version tags from different branches, or customizing the build pipeline.
+
+To set it up, see the [GitHub integration](/integrations/github) documentation.
+
 ## Set up Bitbucket Pipelines {#bitbucket-pipelines}
 
 If you host your Actor's source code on Bitbucket, you can use [Bitbucket Pipelines](https://bitbucket.org/product/features/pipelines) to run tests and push your Actor to the Apify platform on every commit. Unlike the [webhook approach](#api-webhook), this pushes your source code to the platform, so you don't need to link the Actor to the repository in Apify Console.
@@ -190,11 +198,3 @@ If you host your Actor's source code on Bitbucket, you can use [Bitbucket Pipeli
    ```
 
 Because `npm test` runs before `apify push`, a failing test stops the pipeline and keeps a broken build from reaching the platform. Adjust the branch names to match your repository's branching model.
-
-## Use the Apify GitHub integration {#github-integration}
-
-Apify Console includes a built-in [GitHub integration](/integrations/github) that links an Actor directly to a GitHub repository. When you connect a repository, Apify automatically rebuilds the Actor on every push - no workflow files or webhook configuration needed.
-
-This is the quickest way to get automated builds running, but it's less flexible than the GitHub Actions approach. It doesn't support running tests before building, managing multiple version tags from different branches, or customizing the build pipeline.
-
-To set it up, see the [GitHub integration](/integrations/github) documentation.
