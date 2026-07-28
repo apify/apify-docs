@@ -115,6 +115,36 @@ const themeConfig = {
                         target: '_self',
                         rel: 'dofollow',
                     },
+                    {
+                        label: 'Client for Rust',
+                        href: `https://github.com/apify/apify-client-rust`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                    {
+                        label: 'Client for Go',
+                        href: `https://github.com/apify/apify-client-go`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                    {
+                        label: 'Client for PHP',
+                        href: `https://github.com/apify/apify-client-php`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                    {
+                        label: 'Client for Java',
+                        href: `https://github.com/apify/apify-client-java`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                    {
+                        label: 'Client for .NET',
+                        href: `https://github.com/apify/apify-client-dotnet`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
                 ],
             },
             {
