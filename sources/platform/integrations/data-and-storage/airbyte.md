@@ -46,16 +46,16 @@ Instead of syncing on a schedule, you can start an Airbyte sync as soon as an Ac
 
 ### Prerequisites
 
-- An Airbyte connection that uses your Apify Dataset as a source.
-- Airbyte API access: an access token and the **connection ID** (you can copy it from the connection's URL in Airbyte). The exact endpoint and authentication depend on whether you use Airbyte Cloud or a self-managed instance, so check the [Airbyte API reference](https://reference.airbyte.com/reference/createjob) for the current details.
+* An Airbyte connection that uses your Apify Dataset as a source.
+* Airbyte API access: an access token and the **connection ID** (you can copy it from the connection's URL in Airbyte). The exact endpoint and authentication depend on whether you use Airbyte Cloud or a self-managed instance, so check the [Airbyte API reference](https://reference.airbyte.com/reference/createjob) for the current details.
 
 ### Set up the webhook
 
 1. In [Apify Console](https://console.apify.com), open the Actor and go to the **Integrations** tab.
 1. Under **Connect with Apify**, click **HTTP webhook**.
 1. Configure the webhook:
-    - **Event types**: select `Run succeeded` (`ACTOR.RUN.SUCCEEDED`).
-    - **URL**: the Airbyte API endpoint that starts a sync, for example `https://api.airbyte.com/v1/jobs`.
+    * **Event types**: `Run succeeded` (`ACTOR.RUN.SUCCEEDED`)
+    * **URL**: the Airbyte API endpoint that starts a sync, for example `https://api.airbyte.com/v1/jobs`
 1. Set the **Headers template** to authenticate with your Airbyte token:
 
     ```json
