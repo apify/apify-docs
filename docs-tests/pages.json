@@ -1,0 +1,8 @@
+{
+  "pages": [
+    "sources/platform/console/index.md",
+    "sources/platform/console/settings.md",
+    "sources/platform/console/billing.md",
+    "sources/platform/console/store.md"
+  ]
+}
