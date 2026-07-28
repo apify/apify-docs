@@ -83,26 +83,98 @@ const themeConfig = {
                 target: '_self',
                 rel: 'dofollow',
             },
+            // The dropdown labels below carry both `href` and `to` on purpose. `href` keeps the
+            // target absolute, so the link resolves from the client, SDK, and CLI docs sites as
+            // well. `to` tells the Docusaurus dropdown that the label is a real link, so clicking
+            // it opens the landing page instead of only toggling the menu open.
             {
                 label: 'API',
+                type: 'dropdown',
                 href: `${absoluteUrl}/api`,
-                activeBasePath: 'api',
+                to: `${absoluteUrl}/api`,
+                activeBaseRegex: '^/api(/|$)',
                 position: 'right',
                 target: '_self',
                 rel: 'dofollow',
+                items: [
+                    {
+                        label: 'API reference',
+                        href: `${absoluteUrl}/api/v2`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                    {
+                        label: 'Client for JavaScript',
+                        href: `${absoluteUrl}/api/client/js/docs`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                    {
+                        label: 'Client for Python',
+                        href: `${absoluteUrl}/api/client/python/docs`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                ],
             },
             {
                 label: 'SDK',
+                type: 'dropdown',
                 href: `${absoluteUrl}/sdk`,
-                activeBasePath: 'sdk',
+                to: `${absoluteUrl}/sdk`,
+                activeBaseRegex: '^/sdk(/|$)',
                 position: 'right',
                 target: '_self',
                 rel: 'dofollow',
+                items: [
+                    {
+                        label: 'SDK for JavaScript',
+                        href: `${absoluteUrl}/sdk/js/docs/overview`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                    {
+                        label: 'SDK for Python',
+                        href: `${absoluteUrl}/sdk/python/docs/overview`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                ],
             },
             {
                 label: 'CLI',
+                type: 'dropdown',
                 href: `${absoluteUrl}/cli`,
-                activeBasePath: 'cli',
+                to: `${absoluteUrl}/cli`,
+                activeBaseRegex: '^/cli(/|$)',
+                position: 'right',
+                target: '_self',
+                rel: 'dofollow',
+                items: [
+                    {
+                        label: 'Installation',
+                        href: `${absoluteUrl}/cli/docs/installation`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                    {
+                        label: 'Quick start',
+                        href: `${absoluteUrl}/cli/docs/quick-start`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                    {
+                        label: 'Command reference',
+                        href: `${absoluteUrl}/cli/docs/reference`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                ],
+            },
+            {
+                label: 'MCP',
+                href: `${absoluteUrl}/integrations/mcp`,
+                activeBasePath: 'integrations/mcp',
                 position: 'right',
                 target: '_self',
                 rel: 'dofollow',
