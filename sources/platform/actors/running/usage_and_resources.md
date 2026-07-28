@@ -50,7 +50,7 @@ Sometimes, you see the Actor's CPU use go over 100%. This is not unusual. To hel
 
 The Actor has hard disk space limited by twice the amount of memory. For example, an Actor with `1024MB` of memory will have `2048MB` of disk available.
 
-## Requirements
+## Choose the right memory
 
 Actors built with [Crawlee](https://crawlee.dev/) use autoscaling. This means that they will always run as efficiently as they can based on the allocated memory. If you double the allocated memory, the run should be twice as fast and consume the same amount of [compute units](#what-is-a-compute-unit) (1 * 1 = 0.5 * 2).
 
@@ -70,7 +70,7 @@ See [reference consumption rates](#reference-consumption-rates) for approximate 
 
 :::
 
-### Memory requirements
+### Minimum memory
 
 Each use case has its own memory requirements. The larger and more complex your project, the more memory/CPU power it will require. Some examples which have minimum requirements are:
 
