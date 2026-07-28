@@ -5,6 +5,8 @@ sidebar_position: 2
 slug: /actors/running/usage-and-resources
 ---
 
+Every Actor run uses platform resources - memory, CPU, and disk space - and how much it uses directly affects what the run costs. This page explains how Apify allocates these resources to an Actor, how usage is measured in compute units, and how to estimate and reduce what your runs consume.
+
 ## Resources
 
 [Actors](../index.mdx) run in [Docker containers](https://www.docker.com/resources/what-container/), which have a [limited amount of resources](https://phoenixnap.com/kb/docker-memory-and-cpu-limit) (memory, CPU, disk size, etc). When starting, the Actor needs to be allocated a certain share of those resources, such as CPU capacity that is necessary for the Actor to run.
