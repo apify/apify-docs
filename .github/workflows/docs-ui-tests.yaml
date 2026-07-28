@@ -13,9 +13,6 @@ on:
     schedule:
         -   cron: '0 6 * * 1'   # Every Monday 06:00 UTC
     workflow_dispatch:           # Manual on-demand run
-    push:                        # TEMP (remove before PR): validate detail-page fixtures on the real runner
-        branches:
-            -   docs/docs-tests-detail-fixtures
 
 defaults:
     run:
@@ -79,7 +76,7 @@ jobs:
             # the run (where the report/artifacts live) and lists only assertion
             # IDs + their doc source — never the staging URL or credentials.
             -   name: File a drift issue for maintainers
-                if: failure() && github.ref == 'refs/heads/master'   # TEMP guard (remove before PR): don't file issues from the validation branch
+                if: failure()
                 env:
                     GH_TOKEN: ${{ github.token }}
                     REPO: ${{ github.repository }}
