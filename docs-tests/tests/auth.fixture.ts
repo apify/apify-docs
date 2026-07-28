@@ -32,10 +32,10 @@ function makeLogger() {
 export const test = base.extend<object, { authState: StorageState }>({
     authState: [
         async ({ browser }, use) => {
-            if (!EMAIL || !PASSWORD) {
+            if (!EMAIL || !PASSWORD || !BASE_URL) {
                 throw new Error(
-                    'CONSOLE_STAGING_USER_EMAIL and CONSOLE_STAGING_USER_PASSWORD must be set ' +
-                        '(.env locally, GitHub Secrets in CI).',
+                    'CONSOLE_STAGING_URL, CONSOLE_STAGING_USER_EMAIL and CONSOLE_STAGING_USER_PASSWORD ' +
+                        'must be set (.env locally, GitHub Secrets in CI).',
                 );
             }
 
