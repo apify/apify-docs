@@ -116,12 +116,6 @@ const themeConfig = {
                         rel: 'dofollow',
                     },
                     {
-                        label: 'Client for Rust',
-                        href: `https://github.com/apify/apify-client-rust`,
-                        target: '_self',
-                        rel: 'dofollow',
-                    },
-                    {
                         label: 'Client for Go',
                         href: `https://github.com/apify/apify-client-go`,
                         target: '_self',
@@ -142,6 +136,12 @@ const themeConfig = {
                     {
                         label: 'Client for .NET',
                         href: `https://github.com/apify/apify-client-dotnet`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                    {
+                        label: 'Client for Rust',
+                        href: `https://github.com/apify/apify-client-rust`,
                         target: '_self',
                         rel: 'dofollow',
                     },
