@@ -56,20 +56,22 @@ RAW_OUTPUT=$(cd /tmp && claude -p \
 # Slice out the JSON between <output> sentinels; discard any stray prose.
 # -0777 slurps the whole stream so this works whether the tags and JSON are on
 # their own lines or share one line.
-printf '%s' "$RAW_OUTPUT" \
-  | perl -0777 -ne 'print $1 if m{<output>\s*(.*?)\s*</output>}s' \
-  > "$OUTPUT_FILE"
+EXTRACTED=$(printf '%s' "$RAW_OUTPUT" \
+  | perl -0777 -ne 'print $1 if m{<output>\s*(.*?)\s*</output>}s')
 
-if [[ ! -s "$OUTPUT_FILE" ]]; then
+if [[ -z "$EXTRACTED" ]]; then
   echo "Extraction produced no JSON for $DOC_PATH. Raw model output was:" >&2
   echo "$RAW_OUTPUT" >&2
-  rm -f "$OUTPUT_FILE"
   exit 1
 fi
 
-if ! jq empty "$OUTPUT_FILE" 2>/dev/null; then
+# Pretty-print through jq so committed baselines have a stable, diff-friendly
+# layout regardless of how the model formatted its output. A jq failure here
+# also doubles as the JSON-validity check.
+if ! printf '%s' "$EXTRACTED" | jq . > "$OUTPUT_FILE" 2>/dev/null; then
   echo "Extraction produced non-JSON output for $DOC_PATH. Contents:" >&2
-  cat "$OUTPUT_FILE" >&2
+  echo "$EXTRACTED" >&2
+  rm -f "$OUTPUT_FILE"
   exit 1
 fi
 

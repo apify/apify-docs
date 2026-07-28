@@ -25,21 +25,22 @@ jobs:
             contents: read
             issues: write   # the failure step files a drift issue for maintainers
         steps:
-            -   uses: actions/checkout@v6
+            -   uses: actions/checkout@v7
 
             -   name: Use Node.js 24
-                uses: actions/setup-node@v6
+                uses: actions/setup-node@v7
                 with:
                     node-version: 24
 
-            -   name: Install pnpm
-                # Version is read from the repo root package.json ("packageManager"
-                # field); do not also pass `version` here or the action errors on a
-                # version conflict.
-                uses: pnpm/action-setup@v4
-
-            -   name: Install docs-tests dependencies
-                run: pnpm install --frozen-lockfile
+            -   name: Install pnpm and docs-tests dependencies
+                # Shared Apify action: sets up pnpm (version from
+                # docs-tests/package.json "packageManager"), caches the pnpm
+                # store, and installs with --frozen-lockfile. working-directory
+                # is docs-tests because it's a standalone project with its own
+                # lockfile, not part of the repo-root pnpm workspace.
+                uses: apify/actions/pnpm-install@v1.4.0
+                with:
+                    working-directory: docs-tests
 
             -   name: Install Playwright browser
                 run: pnpm exec playwright install --with-deps chromium
