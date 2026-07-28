@@ -13,7 +13,7 @@ get:
     therefore you can use pagination to incrementally fetch all builds while new
     ones are still being started. To sort the records in descending order, use
     the `desc=1` parameter.
-  operationId: act_builds_get
+  operationId: actors_builds_get
   parameters:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
     - $ref: "../../components/parameters/paginationParameters.yaml#/offset"
@@ -58,7 +58,7 @@ post:
     Builds an Actor.
     The response is the build object as returned by the
     [Get build](#/reference/actors/build-object/get-build) endpoint.
-  operationId: act_builds_post
+  operationId: actors_builds_post
   parameters:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
     - name: version

@@ -3,7 +3,7 @@ get:
     - Actors
   summary: Get Actor
   description: Gets an object that contains all the details about a specific Actor.
-  operationId: act_get
+  operationId: actor_get
   parameters:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
   responses:
@@ -106,7 +106,7 @@ put:
     passed as JSON in the POST payload. Only the fields specified in the request body are updated.
 
     Returns the full `Actor` object, the same as the
-    [Get Actor](/api/v2/act-get) endpoint.
+    [Get Actor](/api/v2/actor-get) endpoint.
 
     In the HTTP request, set the `Content-Type` header to `application/json`.
 
@@ -161,7 +161,7 @@ put:
     }
     ```
 
-  operationId: act_put
+  operationId: actor_put
   parameters:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
   requestBody:
@@ -329,7 +329,7 @@ delete:
     - Actors
   summary: Delete Actor
   description: Deletes an Actor with the specified ID.
-  operationId: act_delete
+  operationId: actor_delete
   parameters:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
   responses:

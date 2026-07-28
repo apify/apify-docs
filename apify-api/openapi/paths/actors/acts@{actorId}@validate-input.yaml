@@ -8,7 +8,7 @@ post:
     The endpoint checks whether the JSON payload conforms to the input schema
     defined in the Actor's build. If no `build` query parameter is provided,
     the `latest` build tag is used by default.
-  operationId: act_validateInput_post
+  operationId: actor_validateInput_post
   parameters:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
     - name: build

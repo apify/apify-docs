@@ -92,7 +92,7 @@ listLastRun:
 
     This endpoint is a shortcut for getting the last run's `defaultRequestQueueId` and then using the
     [Get head](/api/v2/request-queue-head-get) endpoint.
-  operationId: act_runs_last_requestQueue_head_get
+  operationId: actor_runs_last_requestQueue_head_get
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
     - $ref: "../../parameters/lastRunParameters.yaml#/status"

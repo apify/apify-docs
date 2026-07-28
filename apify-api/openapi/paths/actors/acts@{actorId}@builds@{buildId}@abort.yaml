@@ -10,7 +10,7 @@ post:
 
     Only builds that are starting or running are aborted. For builds with status
     `FINISHED`, `FAILED`, `ABORTING` and `TIMED-OUT` this call does nothing.
-  operationId: act_build_abort_post
+  operationId: actors_build_abort_post
   parameters:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/buildId"
