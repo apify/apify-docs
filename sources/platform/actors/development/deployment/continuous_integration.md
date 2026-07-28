@@ -17,6 +17,7 @@ Set up continuous integration for your Actors using one of these methods:
 
 - [GitHub Actions](#github-actions) - the most flexible approach, with support for tests, multi-branch builds, and custom workflows.
 - [API webhook](#api-webhook) - works with Bitbucket, GitLab, and other Git hosting providers that support webhooks.
+- [Bitbucket Pipelines](#bitbucket-pipelines) - run tests and push your Actor from Bitbucket on every commit.
 - [GitHub integration](#github-integration) - the quickest setup with no workflow files needed, but less flexible than GitHub Actions.
 
 ## Set up automated builds with GitHub Actions {#github-actions}
@@ -156,11 +157,41 @@ For example, in GitHub, go to **Settings** > **Webhooks** > **Add webhook** and 
 
 ![GitHub integration](./images/ci-github-integration.png)
 
-:::tip Bitbucket Pipelines
+## Set up Bitbucket Pipelines {#bitbucket-pipelines}
 
-For a more complete Bitbucket setup with automated tests, see the [Bitbucket CI guide](https://help.apify.com/en/articles/6988586-setting-up-continuous-integration-for-apify-actors-on-bitbucket).
+If you host your Actor's source code on Bitbucket, you can use [Bitbucket Pipelines](https://bitbucket.org/product/features/pipelines) to run tests and push your Actor to the Apify platform on every commit. Unlike the [webhook approach](#api-webhook), this pushes your source code to the platform, so you don't need to link the Actor to the repository in Apify Console.
 
-:::
+1. In Bitbucket, go to **Repository settings** > **Repository variables** and add a variable named `APIFY_TOKEN` with your Apify API token as its value. Mark it as **Secured** so it isn't exposed in build logs.
+1. Add a `bitbucket-pipelines.yml` file to the root of your repository. The following example runs your tests, then pushes and builds the Actor, tagging builds from your production branch as `latest` and builds from your development branch as `beta`:
+
+   ```yaml
+   image: node:22
+
+   pipelines:
+     branches:
+       master:
+         - step:
+             caches:
+               - node
+             script:
+               - npm install
+               - npm test
+               - npm install -g apify-cli
+               - apify login --token $APIFY_TOKEN
+               - apify push --build-tag latest
+       develop:
+         - step:
+             caches:
+               - node
+             script:
+               - npm install
+               - npm test
+               - npm install -g apify-cli
+               - apify login --token $APIFY_TOKEN
+               - apify push --build-tag beta
+   ```
+
+Because `npm test` runs before `apify push`, a failing test stops the pipeline and keeps a broken build from reaching the platform. Adjust the branch names to match your repository's branching model.
 
 ## Use the Apify GitHub integration {#github-integration}
 

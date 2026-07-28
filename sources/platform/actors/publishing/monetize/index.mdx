@@ -106,6 +106,20 @@ When monetizing your Actor, you might want to limit features or usage for users 
 - Graceful exits: If a free user hits a limit, don't crash the Actor or return a system error. Instead, exit gracefully with a clear [status message](/actors/development/programming-interface/status-messages#communicating-limitations) explaining the limit (e.g., "Free tier limit reached").
 - Avoid confusion: Never make a policy restriction look like a bug or platform error.
 
+## Compensate users for failed runs
+
+If a run fails or returns bad results because of a problem with your Actor, you can compensate the affected user with Apify platform credits.
+
+1. The user reports the problem on your Actor's **Issues** tab.
+1. Review the issue and decide whether it's valid. Ask the user for the run details, such as the run ID or a shared run link, so you can verify what happened before you approve anything.
+1. If the compensation is warranted, contact [Apify support](https://apify.com/contact) and request a user credit compensation. Provide the user ID, the Actor ID, the amount, and the reason (or a link to the issue). Apify credits the user's account.
+
+Keep a few things in mind when handling compensations:
+
+- Compensation is issued in platform credits, not a monetary refund. Describe it to users as credits - for example, "We'll compensate you for the run with credits" - rather than as a refund.
+- Don't post specific compensation amounts publicly on the Issues tab.
+- If you and the user can't agree, or the user insists on a monetary refund, raise it with [Apify support](https://apify.com/contact) through the same process for an impartial review.
+
 ## Actor analytics
 
 Monitor your Actors' performance through the [Actor Analytics](https://console.apify.com/actors/insights/analytics) dashboard under **Development > Insights > Analytics**.
