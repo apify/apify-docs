@@ -18,7 +18,7 @@ This guide shows you how to set up Apify datasets as a source in Airbyte and, op
 * An [Apify account](https://console.apify.com).
 * An [Airbyte account](https://airbyte.com).
 
-## Set up the Apify connector in Airbyte
+## Set up the Apify Dataset source in Airbyte
 
 In Airbyte, open the **Sources** tab and select **Apify Dataset**.
 
@@ -36,11 +36,11 @@ To find your **Apify API token**, open **Settings > API & Integrations** in Apif
 
 ![API & Integrations token in Apify Console](../images/apify-integrations-token.png)
 
-Your Apify datasets are now available as a source. You can use Airbyte to transfer them to any supported destination.
+Your Apify dataset is now available as a source. Next, connect it to a destination so Airbyte knows where to move the data.
 
-## Set up a connection
+## Connect the source to a destination
 
-A connection links your Apify Dataset source to a destination and controls how and when data syncs. To create one, follow [Set up a connection](https://docs.airbyte.com/using-airbyte/getting-started/set-up-a-connection) in the Airbyte documentation.
+Setting up the source only tells Airbyte where your data comes from. To actually move it, create a _connection_: an Airbyte pipeline that links your Apify Dataset source to a destination and controls how and when the data syncs. To set one up, follow [Set up a connection](https://docs.airbyte.com/using-airbyte/getting-started/set-up-a-connection) in the Airbyte documentation.
 
 ## Trigger a sync automatically after an Actor run
 
