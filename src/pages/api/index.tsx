@@ -118,37 +118,6 @@ interface ExperimentalClient {
 
 const experimentalClients: ExperimentalClient[] = [
     {
-        language: 'Rust',
-        description: 'Async client for Tokio-based Rust applications, built on reqwest.',
-        repository: 'https://github.com/apify/apify-client-rust',
-        installLanguage: 'bash',
-        installSnippet: `cargo add apify-client serde_json
-cargo add tokio --features macros,rt-multi-thread`,
-        exampleLanguage: 'rust',
-        exampleSnippet: `use apify_client::ApifyClient;
-
-#[tokio::main]
-async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let client = ApifyClient::new("MY-APIFY-TOKEN");
-
-    // Starts an Actor and waits for it to finish.
-    let run = client
-        .actor("john-doe/my-cool-actor")
-        .call::<serde_json::Value>(None, Default::default(), None)
-        .await?;
-
-    // Fetches results from the Actor's dataset.
-    let dataset_id = run.default_dataset_id.expect("run has a default dataset");
-    let items = client
-        .dataset(&dataset_id)
-        .list_items::<serde_json::Value>(Default::default())
-        .await?;
-    println!("Got {} items", items.items.len());
-
-    Ok(())
-}`,
-    },
-    {
         language: 'Go',
         description: 'Client for Go 1.23 or newer, built almost entirely on the standard library.',
         repository: 'https://github.com/apify/apify-client-go',
@@ -247,6 +216,37 @@ var run = await client.Actor("john-doe/my-cool-actor").CallAsync(null, null, nul
 // Fetches results from the Actor's dataset.
 var items = await client.Dataset(run.DefaultDatasetId!).ListItemsAsync();
 Console.WriteLine($"Got {items.Count} items");`,
+    },
+    {
+        language: 'Rust',
+        description: 'Async client for Tokio-based Rust applications, built on reqwest.',
+        repository: 'https://github.com/apify/apify-client-rust',
+        installLanguage: 'bash',
+        installSnippet: `cargo add apify-client serde_json
+cargo add tokio --features macros,rt-multi-thread`,
+        exampleLanguage: 'rust',
+        exampleSnippet: `use apify_client::ApifyClient;
+
+#[tokio::main]
+async fn main() -> Result<(), Box<dyn std::error::Error>> {
+    let client = ApifyClient::new("MY-APIFY-TOKEN");
+
+    // Starts an Actor and waits for it to finish.
+    let run = client
+        .actor("john-doe/my-cool-actor")
+        .call::<serde_json::Value>(None, Default::default(), None)
+        .await?;
+
+    // Fetches results from the Actor's dataset.
+    let dataset_id = run.default_dataset_id.expect("run has a default dataset");
+    let items = client
+        .dataset(&dataset_id)
+        .list_items::<serde_json::Value>(Default::default())
+        .await?;
+    println!("Got {} items", items.items.len());
+
+    Ok(())
+}`,
     },
 ];
 
@@ -438,10 +438,6 @@ dataset_items = apify_client.dataset(actor_call['defaultDatasetId']).list_items(
                                     description={
                                         <div className="Description">
                                             {client.description}
-                                            <GitButton
-                                                href={client.repository}
-                                                ariaLabel={`Star ${client.repository.replace('https://github.com/', '')} on GitHub`}
-                                            />
                                             <div className="DescriptionLinks">
                                                 <Button color="success" hideExternalIcon to={client.repository}>
                                                     Get started
