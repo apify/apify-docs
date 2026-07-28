@@ -14,7 +14,7 @@ The [Apify plugin for Codex](https://github.com/apify/apify-codex-plugin) connec
 - The [Apify MCP server](/integrations/mcp) for searching Apify Store, running Actors, and retrieving datasets through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro).
 - Five built-in skills for common workflows (see [Bundled skills](#bundled-skills) below).
 
-This guide covers installation in the Codex CLI.
+This guide covers installation in the Codex CLI. To use Codex in the ChatGPT desktop app instead, see the [Codex in the ChatGPT desktop app](/integrations/codex-app) guide.
 
 <ThirdPartyDisclaimer />
 
@@ -55,7 +55,7 @@ The plugin bundles the Apify MCP server. Read-only tools like searching Apify St
 
 1. The first time Codex calls a tool that requires authentication, such as running an Actor, it opens a browser tab for the Apify OAuth flow.
 
-1. Review the permissions and click **Allow access**.
+1. Review the permissions and select **Allow access**.
 
 1. Back in the terminal, the `apify` MCP server is connected and ready to use in any new chat.
 
