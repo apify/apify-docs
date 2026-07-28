@@ -117,7 +117,8 @@
       "page_context": "Billing page > Pricing tab",
       "source_quote": "The **Pricing** tab offers a way to quickly check all unit pricing for various platform services",
       "source_line": 61,
-      "needs_auth": true
+      "needs_auth": true,
+      "at": "/billing/pricing"
     },
     {
       "id": "invoices-tab",
@@ -126,7 +127,8 @@
       "page_context": "Billing page > Invoices tab",
       "source_quote": "The **Invoices** tab is where you can find your current and previous invoices for Apify platform usage.",
       "source_line": 67,
-      "needs_auth": true
+      "needs_auth": true,
+      "at": "/billing/invoices"
     },
     {
       "id": "limits-tab",

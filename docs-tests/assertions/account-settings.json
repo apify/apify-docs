@@ -154,7 +154,8 @@
       "page_context": "Settings page tabs (no dedicated route mapping known)",
       "source_quote": "The **Referrals** tab lets you share Apify with others and earn rewards.",
       "source_line": 105,
-      "needs_auth": true
+      "needs_auth": true,
+      "at": "/settings/referrals"
     }
   ]
 }
