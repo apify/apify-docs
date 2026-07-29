@@ -82,7 +82,7 @@ post:
   summary: Update version (POST)
   description: |
     Updates Actor version using values specified by a [Version object](#/reference/actors/version-object) passed as JSON in the POST payload.
-    This endpoint is an alias for the [`PUT` update version](#tag/ActorsVersion-object/operation/actor_version_put) method and behaves identically.
+    This endpoint is an alias for the [`PUT` update version](#tag/ActorsVersion-object/operation/act_version_put) method and behaves identically.
   operationId: actor_version_post
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/version-object/update-version

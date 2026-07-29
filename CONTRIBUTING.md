@@ -264,7 +264,7 @@ Operation IDs must follow this format:
 
 - Generated from path structure and HTTP method
 - Use camelCase for object names
-- Single object for paths with {id}, plural otherwise
+- Single object for paths with {id}, plural otherwise - except for the Actor `/runs` and `/builds` collections, see the note below
 - Underscore separator between object name and action
 - Method name in lowercase at the end
 
@@ -274,7 +274,9 @@ Examples:
 - `/requests-queues/{queueId}` PUT -> `requestQueue_put`
 - `/actors/{actorId}/runs` POST -> `actors_runs_post`
 
-An Actor's own `/runs` and `/builds` sub-resources keep the plural `actors_` prefix, because the account-wide `/actor-runs` and `/actor-builds` paths already own the singular `actorRun_` and `actorBuild_` prefixes.
+Operations on an Actor's own `/runs` and `/builds` collections and their direct members keep the plural `actors_` prefix - `actors_runs_get`, `actors_runs_post`, `actors_run_get`, `actors_run_abort_post`, `actors_run_metamorph_post`, `actors_builds_get`, `actors_builds_post`, `actors_build_get`, `actors_build_abort_post`. That is the complete list. The reason is that the account-wide `/actor-runs` and `/actor-builds` paths already own the singular `actorRun_` and `actorBuild_` prefixes.
+
+Deeper scoped sub-resources use the singular `actor_` prefix: `runs/last` (`actor_runs_last_get`), `run-sync` (`actor_runSync_post`), `builds/default` (`actor_build_default_get`), versions, and webhooks. The same split is encoded in the redirect rules in `nginx.conf`.
 
 #### Code samples
 
