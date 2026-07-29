@@ -31,7 +31,7 @@ After a run finishes, any interactions with the dataset - such as reading or wri
 
 ### Pay per event
 
-With pay per event pricing, you pay for specific events defined by the Actor creator, such as producing a single result, uploading a file, or starting an Actor. These events and their prices are always described on each Actor's page.
+With pay-per-event pricing, you pay for specific events defined by the Actor creator, such as producing a single result, uploading a file, or starting an Actor. These events and their prices are always described on each Actor's page.
 
 [//]: # (TODO: also show the screenshot from Apify Store on Web)
 
@@ -39,7 +39,7 @@ With pay per event pricing, you pay for specific events defined by the Actor cre
 
 :::caution Some Actors charge platform usage separately
 
-Most pay per event Actors include [platform usage](../usage_and_resources.md) in the event price. However, some Actors may require you to pay for platform usage separately. Always check the Actor's pricing section to understand what's included.
+Most pay-per-event Actors include [platform usage](../usage_and_resources.md) in the event price. However, some Actors may require you to pay for platform usage separately. Always check the Actor's pricing section to understand what's included.
 
 :::
 
