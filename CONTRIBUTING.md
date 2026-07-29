@@ -272,7 +272,9 @@ Examples:
 
 - `/requests-queues` GET -> `requestQueues_get`
 - `/requests-queues/{queueId}` PUT -> `requestQueue_put`
-- `/acts/{actorId}/runs` POST -> `act_runs_post`
+- `/actors/{actorId}/runs` POST -> `actors_runs_post`
+
+An Actor's own `/runs` and `/builds` sub-resources keep the plural `actors_` prefix, because the account-wide `/actor-runs` and `/actor-builds` paths already own the singular `actorRun_` and `actorBuild_` prefixes.
 
 #### Code samples
 

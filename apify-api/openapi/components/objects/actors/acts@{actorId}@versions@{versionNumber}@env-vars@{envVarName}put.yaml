@@ -90,7 +90,7 @@ post:
     Updates Actor environment variable using values specified by a [EnvVar
     object](#/reference/actors/environment-variable-object)
     passed as JSON in the POST payload.
-    This endpoint is an alias for the [`PUT` update environment variable](#tag/ActorsEnvironment-variable-object/operation/act_version_envVar_put) method and behaves identically.
+    This endpoint is an alias for the [`PUT` update environment variable](#tag/ActorsEnvironment-variable-object/operation/actor_version_envVar_put) method and behaves identically.
   operationId: actor_version_envVar_post
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/environment-variable-object/update-environment-variable

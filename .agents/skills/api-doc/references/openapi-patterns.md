@@ -85,9 +85,13 @@ Rules:
 | `/request-queues` | GET | `requestQueues_get` |
 | `/request-queues/{queueId}` | GET | `requestQueue_get` |
 | `/request-queues/{queueId}` | PUT | `requestQueue_put` |
-| `/acts/{actorId}/runs` | POST | `act_runs_post` |
-| `/acts/{actorId}/runs` | GET | `act_runs_get` |
-| `/acts/{actorId}/runs/{runId}` | GET | `act_run_get` |
+| `/actors/{actorId}/runs` | POST | `actors_runs_post` |
+| `/actors/{actorId}/runs` | GET | `actors_runs_get` |
+| `/actors/{actorId}/runs/{runId}` | GET | `actors_run_get` |
+
+An Actor's own `/runs` and `/builds` sub-resources keep the plural `actors_` prefix, because the account-wide `/actor-runs` and `/actor-builds` paths already own the singular `actorRun_` and `actorBuild_` prefixes.
+
+Never use the legacy `/acts` prefix in paths or operation IDs. The canonical prefixes are `/actors`, `/actor-runs`, and `/actor-builds`.
 
 ## Code sample examples
 
