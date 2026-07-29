@@ -997,6 +997,18 @@ div[class*='searchBox'] {
     }
 }
 
+/*
+ * Just above the mobile breakpoint the two halves of the nav link row run out of room and
+ * collide. The switch to the mobile sidebar is pinned to 996px in Docusaurus (both Infima
+ * and the JS `useWindowSize`), so the row has to fit down to that width instead: tighten
+ * the spacing between the right-hand links until the layout has room again.
+ */
+@media (min-width: 997px) and (max-width: 1100px) {
+    .navbar__inner--subnavbar .navbar__items--right {
+        gap: 0.4rem;
+    }
+}
+
 /* @media (min-width: 997px) and (max-width: 1250px) {
     .navbar__items--right a.icon {
         display: none;
