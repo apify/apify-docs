@@ -98,7 +98,7 @@ schema:
 
 2. **apify-client-python** (`.github/workflows/on_schedule_regenerate_models.yaml`): nightly at 02:00 UTC, refreshes its committed `spec/openapi.json` snapshot from that URL, regenerates the models, and opens a PR when they change.
 
-So a spec change reaches the Python client within a day of being deployed, with no coordination needed on this side. Nothing here needs to be merged in lockstep with a client PR.
+A spec change therefore reaches the Python client within a day of being deployed, with no coordination needed on this side. Nothing here needs to be merged in lockstep with a client PR.
 
 This used to be a cross-repo dispatch that opened a companion client PR per docs PR. It was removed: the client can only generate from the published spec anyway, and having two mechanisms write the same generated files made them diverge.
 
