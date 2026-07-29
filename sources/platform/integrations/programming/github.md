@@ -52,13 +52,11 @@ For private repositories, configure a [deployment key](/actors/development/deplo
 
 After you link an Actor to a GitHub repository, add a webhook in GitHub to trigger a new build on every push:
 
-1. In Apify Console, open the Actor's **API** dropdown and select **API endpoints**. Copy the **Build Actor** endpoint URL:
+1. In Apify Console, open the Actor's **API** dropdown and select **API endpoints**. Copy the **Build Actor** endpoint URL. It has this format:
 
     ```text
     https://api.apify.com/v2/actors/YOUR-ACTOR-NAME/builds?token=YOUR-TOKEN&version=0.0&tag=latest&waitForFinish=60
     ```
-
-    Console may give you the same endpoint with the legacy `/v2/acts/` prefix. Both prefixes work, so use the URL as copied.
 
     :::note API token
 
