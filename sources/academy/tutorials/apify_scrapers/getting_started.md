@@ -27,7 +27,7 @@ Depending on how you arrived at this tutorial, you may already have your first t
 
 > This tutorial covers the use of **Web**, **Cheerio**, and **Puppeteer** scrapers, but a lot of the information here can be used with all Actors. For this tutorial, we will select **Web Scraper**.
 
-![$1](https://raw.githubusercontent.com/apify/actor-scraper/master/docs/img/actor-selection.webp)
+![Selecting the Web Scraper Actor in Apify Store](./images/actor-selection.jpg)
 
 ### Running a task
 
@@ -47,7 +47,7 @@ After clicking **Save & Run**, the window will change to the run detail. Here, y
 
 Now that the run has `SUCCEEDED`, click on the glowing **Results** card to see the scrape's results. This takes you to the **Dataset** tab, where you can display or download the results in various formats. For now, click the **Preview** button. Voila, the scraped data!
 
-![$1](https://raw.githubusercontent.com/apify/actor-scraper/master/docs/img/the-run-detail.webp)
+![Run detail page showing scraped results in the Dataset tab](./images/the-run-detail.jpg)
 
 Good job! We've run our first task and got some results. Let's learn how to change the default configuration to scrape something more interesting than the page's `<title>`.
 
@@ -204,7 +204,7 @@ The DevTools window will pop up and display a lot of, perhaps unfamiliar, inform
 
 You'll see that the Element tab jumps to the first `<title>` element of the current page and that the title is **Store · Apify**. It's always good practice to do your research using the DevTools before writing the `pageFunction` and running your task.
 
-![$1](https://raw.githubusercontent.com/apify/actor-scraper/master/docs/img/using-devtools.webp)
+![Chrome DevTools Elements tab with search results for title](./images/using-devtools.jpg)
 
 > For the sake of brevity, we won't go into the details of using the DevTools in this tutorial. If you're just starting out with DevTools, this [Google tutorial](https://developer.chrome.com/docs/devtools/) is a good place to begin.
 
