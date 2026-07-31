@@ -35,9 +35,11 @@ jobs:
 
             -   name: Start Docusaurus server
                 run: |
-                    nohup pnpm exec docusaurus serve --port 3000 --no-open &
+                    # --host is needed since Docusaurus 3.10 binds to the given host
+                    # only ([::1] for localhost), while Nginx proxies to 127.0.0.1
+                    nohup pnpm exec docusaurus serve --port 3000 --host 0.0.0.0 --no-open &
                     sleep 5
-                    curl -f http://localhost:3000 > /dev/null
+                    curl -f http://127.0.0.1:3000 > /dev/null
 
             -   name: Start Nginx with project config
                 run: |
