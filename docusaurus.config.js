@@ -32,7 +32,7 @@ module.exports = {
     projectName: 'apify-docs',
     scripts: ['/js/custom.js', ...(config.scripts ?? [])],
     future: {
-        experimental_faster: {
+        faster: {
             // swcJsLoader: true,
             swcJsMinimizer: true,
             swcHtmlMinimizer: true,
