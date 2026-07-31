@@ -1,6 +1,6 @@
 ---
 title: Developing a scraper with docs-driven prompting
-description: Improve your Apify scraper by documenting its behavior first and letting an AI agent follow it as a practical spec.
+description: Improve your Apify scraper by documenting its behavior first and letting an AI agent follow the documentation as a practical spec.
 slug: /scraping-with-apify-and-ai/docs-driven-prompting
 unlisted: true
 ---
@@ -14,10 +14,10 @@ We made our lives easier with an AI agent. Improving our scraper now takes way l
 Prompting a chat or agent is quick and straightforward, but it doesn't leave much trace of our intentions:
 
 - If we want someone else to take over later, it'll be hard for them to figure out why we made some decisions and whether behavior is intentional or accidental.
-- If we get busy with other things and return after a few months, we'll basically become that "someone else" from the first bullet. After a week, we remember why we process prices a certain way. After a year, it's mostly fuzzy memories.
+- If we get busy with other things and return after a few months, we'll basically become that “someone else” who needs to figure out the project. After a week, we might still remember why we process prices a certain way. After a year, it's mostly fuzzy memories.
 - If we want other people to use our scraper, they need simple instructions on how to run it and what to expect.
 
-Traditionally, we'd write this documentation after finishing the software. With AI, we can describe how the program should work before it's done, point the agent to that spec, and ask it to make it real.
+Traditionally, we write the documentation after finishing the software. With AI, we can describe how the program should work before it's done, point the agent to that spec, and ask it to make it real.
 
 ## Starting with README
 
@@ -89,7 +89,7 @@ Now let's add a summary of what our scraper already does:
 
 - Downloads the Sales page: https://warehouse-theme-metal.myshopify.com/collections/sales
 - The Sales page is the default input URL of the Actor.
-- Extracts all products and saves this for each one:
+- Extracts all products and saves the following data for each one:
     - Product name
     - Product detail page URL
     - Price
@@ -113,7 +113,7 @@ Most of the text above is just our past prompts, slightly rephrased. Because we 
 The README documents what we already have. Now let's use it as a spec for what comes next. We'll add vendor name to the output:
 
 ```md
-- Extracts all products and saves this for each one:
+- Extracts all products and saves the following data for each one:
     - Product name
     - Product detail page URL
     - Price
@@ -156,7 +156,7 @@ Nice! We just used a docs-first approach with an AI agent!
 Now let's add two more details for each product. We want the scraper to get the product image URL and the number of units in stock, also called [SKU](https://en.wikipedia.org/wiki/Stock_keeping_unit):
 
 ```md
-- Extracts all products and saves this for each one:
+- Extracts all products and saves the following data for each one:
     - Product name
     - Product detail page URL
     - Price
@@ -222,7 +222,7 @@ Success: Actor was deployed to Apify cloud and built there.
 
 In the Apify interface, we'll click the **Start** button. Soon we should see items popping up in the **Output** section.
 
-Thanks to the sentence "The Actor output schema ensures that Apify interface shows saved items in the best way," the agent improved how our Actor talks to Apify, so we don't have to switch to **All fields** anymore:
+Thanks to the sentence “The Actor output schema ensures that Apify interface shows saved items in the best way”, the agent improved how our Actor talks to Apify, so we don't have to switch to **All fields** anymore:
 
 ![Improved Apify output](images/apify-output-products.webp)
 

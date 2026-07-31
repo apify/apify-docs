@@ -262,7 +262,7 @@ We'll approve all changes and go to the command line again:
 apify run
 ```
 
-Now, the scraper prints the actual items being scraped and we can verify we've been successful in changing the format of the prices (they appear at the very end of each line):
+Now, the scraper prints the actual items being scraped and we can verify we've been successful in changing the format of the prices. They appear at the end of each line:
 
 ```text
 ...
