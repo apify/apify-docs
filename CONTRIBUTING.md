@@ -337,6 +337,8 @@ Add languages by adding new folders at the appropriate path level.
 
 - **Broken links**: [Periodic GitHub Action](.github/workflows/lychee.yml) checks broken links by [lychee](https://lychee.cli.rs/). If the Action fails, we manually fix the issues.
 
+- **API paths**: `pnpm test:api-paths` checks that every `/v2/...` route written in `sources/` exists in the bundled OpenAPI spec, so the docs can't teach a route the contract doesn't define. It runs in the [OpenAPI checks](.github/workflows/openapi-ci.yaml) `validate` job on every pull request. Build the bundle first (`pnpm openapi:build:json`) when running it locally. The most common failure is the legacy `/v2/acts/` prefix, which still responds but is absent from the published contract - use `/v2/actors`, `/v2/actor-runs`, or `/v2/actor-builds` instead.
+
 - **Academy exercises**: At the end of each lesson in the academy courses, there are exercises that target real-world websites. Each exercise includes a solution, stored as a separate file containing executable code. These files are included in the docs using the `!!raw-loader` syntax. Each course has a [Bats](https://bats-core.readthedocs.io/) test file named `test.bats`. The tests run each solution as a standalone program and verify that it produces output matching the expected results. A [periodic GitHub Action](.github/workflows/test-academy.yml) runs all these tests using `pnpm test:academy`. If the Action fails, we rework the exercises.
 
 ## Pull request process
