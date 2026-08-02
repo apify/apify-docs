@@ -55,3 +55,7 @@ properties:
   standbyUrl:
     type: [string, "null"]
     format: uri
+  publicConfig:
+    anyOf:
+      - $ref: ./TaskPublicConfig.yaml
+      - type: "null"

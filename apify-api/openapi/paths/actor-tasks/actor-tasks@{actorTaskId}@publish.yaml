@@ -1,0 +1,48 @@
+post:
+  tags:
+    - Actor tasks
+  summary: Publish task
+  description: |
+    Publish the task on its public landing page. The task's public display configuration
+    is set beforehand via the `publicConfig` field of the
+    [Update task](/api/v2/actor-task-put) endpoint. This endpoint validates it and
+    publishes the task.
+
+    Publishing requires the task's Actor to be public, and the task must pass the
+    publication validation.
+    The publication state is stored in `publicConfig.publishedAt` (`null` means the task
+    is not published).
+
+    The endpoint requires write permission to the task's Actor.
+
+    The response is the full task object as returned by the
+    [Get task](/api/v2/actor-task-get) endpoint.
+  operationId: actorTask_publish_post
+  parameters:
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorTaskId"
+  responses:
+    "200":
+      description: ""
+      headers: {}
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - data
+            properties:
+              data:
+                $ref: ../../components/schemas/actor-tasks/Task.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      $ref: ../../components/responses/NotFound.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
+  deprecated: false

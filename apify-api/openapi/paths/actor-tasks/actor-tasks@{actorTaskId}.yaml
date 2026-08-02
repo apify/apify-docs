@@ -52,6 +52,11 @@ put:
 
     If the object does not define a specific property, its value is not updated.
 
+    The `publicConfig` field carries the display configuration of the task's public
+    landing page. To publish or unpublish the task itself, use the
+    [Publish task](/api/v2/actor-task-publish-post) and
+    [Unpublish task](/api/v2/actor-task-unpublish-post) endpoints.
+
     The response is the full task object as returned by the
     [Get task](/api/v2/actor-task-get) endpoint.
 

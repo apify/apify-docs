@@ -592,6 +592,10 @@ paths:
     $ref: paths/actor-tasks/actor-tasks.yaml
   "/v2/actor-tasks/{actorTaskId}":
     $ref: "paths/actor-tasks/actor-tasks@{actorTaskId}.yaml"
+  "/v2/actor-tasks/{actorTaskId}/publish":
+    $ref: "paths/actor-tasks/actor-tasks@{actorTaskId}@publish.yaml"
+  "/v2/actor-tasks/{actorTaskId}/unpublish":
+    $ref: "paths/actor-tasks/actor-tasks@{actorTaskId}@unpublish.yaml"
   "/v2/actor-tasks/{actorTaskId}/input":
     $ref: "paths/actor-tasks/actor-tasks@{actorTaskId}@input.yaml"
   "/v2/actor-tasks/{actorTaskId}/webhooks":
