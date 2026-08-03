@@ -124,6 +124,7 @@ module.exports = {
                     sidebarPath: require.resolve('./sources/platform/sidebars.js'),
                     rehypePlugins: [externalLinkProcessor],
                 },
+                blog: false,
                 sitemap: {
                     filename: 'sitemap_base.xml',
                 },
