@@ -1,21 +1,19 @@
 ---
-title: Tests driven prompting
-description: TBD
+title: Using examples as a spec for AI
+description: Improve your Apify scraper by adding automated tests with real-world examples which an AI agent can use as a spec.
 slug: /scraping-with-apify-and-ai/tests-driven-prompting
 unlisted: true
 ---
 
+**In this lesson, we'll continue developing our app for tracking prices on an e-commerce website. We'll use real-world examples to describe various edge cases our scraper can encounter. Cursor will not only make sure they're all accounted for, but next time we change something, it'll always test whether everything still works.**
+
+---
+
+
+
 <!--
 Adding fixtures, expectations. Setting up tests and teaching the agent to run tests. Dealing with corner cases by pointing the agent to the fixtures.
 
-In lesson 3, students would try to make changes via ChatGPT and see that it gets tedious, which leads to introducing an agent-based IDE to work inside the template more comfortably.
--->
-
-:::note Course under construction
-This page hasn't been written yet. Come later, please!
-:::
-
-<!--
 #### Creating tests
 Explain tests, expectations. Create test folder, drop downloaded HTML of the listing there, let the agent set up tests around it. Let the agent run tests.
 #### Scrape product variants
