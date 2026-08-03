@@ -9,6 +9,16 @@ unlisted: true
 
 ---
 
+Documenting behavior of our scraper in the README and telling the AI agent it's the source of truth about our project can get us far, but the approach has certain limitations:
+
+- Describing a large set of edge cases is tedious. Documenting "if this tiny detail is certain way, then we'll process it as X, otherwise Y" for each situation is possible, but a bit messy.
+- Sometimes the edge cases lie in how the HTML code of the page is constructed, and we need to say something like "if you encounter exactly this HTML markup, process it like this". Including long snippets of HTML in our README usually isn't really desirable.
+- Each time we modify our project, we must trust the AI agent that it didn't break existing stuff when adding new things. Neither the agent nor us have an efficient way to verify whether everything still holds together. We can prompt it to "go through the whole README and verify all the behavior", but that's slow and not reliable.
+
+That's why it's a good practice to include additional files with real-world examples (_test fixtures_) together with a examples of how the resulting data should look like (_test expectations_). Loading the real-world examples, processing it as if it was during scraping, and verifying that the result fits the expectation, can be then automated (_test suite_), for the benefit of both AI agents and humans.
+
+## Setting up a test suite
+
 
 
 <!--
