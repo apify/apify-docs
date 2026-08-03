@@ -96,7 +96,7 @@ schema:
 
 1. **This repo** (`.github/workflows/openapi-ci.yaml`): on a PR touching `apify-api/openapi/**`, lints, builds, and validates the bundled spec. Once merged and deployed, the bundle is served at `https://docs.apify.com/api/openapi.json`.
 
-2. **apify-client-python** (`.github/workflows/on_schedule_regenerate_models.yaml`): nightly at 02:00 UTC, refreshes its committed `spec/openapi.json` snapshot from that URL, regenerates the models, and opens a PR when they change.
+2. **apify-client-python** (`.github/workflows/on_schedule_regenerate_models.yaml`): nightly at 02:00 UTC, downloads the spec from that URL, regenerates the models, and opens a PR when they change. Only the spec's version is recorded on that side, not the spec itself.
 
 A spec change therefore reaches the Python client within a day of being deployed, with no coordination needed on this side. Nothing here needs to be merged in lockstep with a client PR.
 
