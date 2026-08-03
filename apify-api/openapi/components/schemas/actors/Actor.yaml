@@ -46,12 +46,12 @@ properties:
     type: string
     format: date-time
     examples: ["2019-07-08T11:27:57.401Z"]
-    description: The date and time the Actor was created.
+    description: The date and time the Actor was created. Follows the ISO 8601 format.
   modifiedAt:
     type: string
     format: date-time
     examples: ["2019-07-08T14:01:05.546Z"]
-    description: The date and time the Actor was last modified.
+    description: The date and time the Actor was last modified. Follows the ISO 8601 format.
   stats:
     $ref: ./ActorStats.yaml
   versions:
