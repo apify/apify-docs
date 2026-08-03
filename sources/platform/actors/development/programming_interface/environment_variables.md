@@ -56,7 +56,7 @@ Variables prefixed with `ACTOR_` are defined by the [Actor specification](https:
 | `ACTOR_WEB_SERVER_PORT` | TCP port for the Actor to start an HTTP server on. This server can be used to receive external messages or expose monitoring and control interfaces. The server also receives messages from the [Actor Standby](/actors/development/programming-interface/standby) mode. |
 | `ACTOR_STANDBY_URL` | URL for accessing web servers of Actor runs in the [Actor Standby](/actors/development/programming-interface/standby) mode. |
 | `ACTOR_EVENTS_WEBSOCKET_URL` | Websocket URL where Actor may listen for [events](/actors/development/programming-interface/system-events) from Actor platform. |
-| `ACTOR_MCP_PROXY_URL` | Base URL of the Apify MCP Proxy. Connect to an [MCP connector](/integrations/mcp-connectors) at `${ACTOR_MCP_PROXY_URL}/<connectorId>` using `APIFY_TOKEN` as the bearer token. |
+| `ACTOR_MCP_CONNECTOR_BASE_URL` | Base URL of the Apify MCP Proxy. Connect to an [MCP connector](/integrations/mcp-connectors) at `${ACTOR_MCP_CONNECTOR_BASE_URL}/<connectorId>` using `APIFY_TOKEN` as the bearer token. |
 
 <!-- vale Microsoft.RangeFormat = NO -->
 
