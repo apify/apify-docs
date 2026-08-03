@@ -114,12 +114,7 @@ properties:
       URL for sending requests to the Actor in Standby mode.
       `null` if the Standby mode isn't enabled.
   notice:
-    type: [string, "null"]
-    enum: [NONE, RESIDENTIAL_PROXY_REQUIRED, UNDER_MAINTENANCE]
-    default: NONE
-    examples: [NONE]
-    description: A warning displayed on the Actor's page in Apify Store and Console.
-      Can be set by the Actor's developer or automatically by Apify's quality checks.
+    $ref: ./ActorNotice.yaml
   categories:
     type: array
     items:
