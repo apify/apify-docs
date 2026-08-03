@@ -10,7 +10,7 @@
   description: |
     The API endpoints in this section allow you to manage [Apify Actors](https://docs.apify.com/platform/actors).
 
-    ## Indentify an Actor
+    ## Identify an Actor
 
     For API endpoints that require the `actorId` parameter, provide one of the following:
     - The Actor ID. It's part of the Actor's URL in Apify Console: `https://console.apify.com/actors/<ACTOR_ID>`. For example, `reGe1ST3OBgYZSsZJ`.
