@@ -38,19 +38,34 @@ const TRAILING_HOST = /([A-Za-z0-9][A-Za-z0-9.-]*\.[A-Za-z]{2,})$/;
 // Where a path reference ends. Markdown and code fences wrap them in all of these.
 const PATH_CHARS = /[A-Za-z0-9{}$@%!*+,:;.=_~/-]/;
 
-const specPaths = Object.keys(JSON.parse(await readFile(SPEC, 'utf8')).paths ?? {});
+const spec = JSON.parse(await readFile(SPEC, 'utf8'));
+const specPaths = Object.keys(spec.paths ?? {});
 if (specPaths.length === 0) throw new Error(`No paths found in ${SPEC} - is the bundle built?`);
+
+// Existing-in-the-spec is necessary but not sufficient. `/v2/actors/{actorId}/runs/{runId}` is in
+// the contract yet carries `deprecated: true` - "endpoints related to run of the Actor were moved
+// under new namespace actor-runs" - so a docs page can teach a contract-valid route that we've
+// already superseded. Treat that as drift too, otherwise the check blesses the deprecated form.
+const deprecatedPaths = new Set(
+    specPaths.filter((p) => Object.values(spec.paths[p]).some((op) => op?.deprecated === true)),
+);
 
 // A doc path matches a spec path when they have the same number of segments and every spec segment
 // is either a `{template}` (any concrete value the docs put there - `apify~web-scraper`,
 // `ACTOR_ID`, a real id) or literally equal.
-const specSegments = specPaths.map((p) => p.split('/'));
+const specSegments = specPaths.map((p) => ({ path: p, segs: p.split('/') }));
 
-function isDocumented(docPath) {
+// All spec paths a doc path could be. Templates make this genuinely ambiguous: a docs page writing
+// `/v2/actors/X/runs/last` matches both `/v2/actors/{actorId}/runs/last` and the deprecated
+// `/v2/actors/{actorId}/runs/{runId}`, so callers must not assume a single match.
+function matchSpecPaths(docPath) {
     const docSegs = docPath.split('/');
-    return specSegments.some(
-        (spec) => spec.length === docSegs.length && spec.every((seg, i) => seg.startsWith('{') || seg === docSegs[i]),
-    );
+    return specSegments
+        .filter(
+            ({ segs }) =>
+                segs.length === docSegs.length && segs.every((seg, i) => seg.startsWith('{') || seg === docSegs[i]),
+        )
+        .map(({ path }) => path);
 }
 
 // Template interpolation leaves fragments a static check can't resolve: `${storeId}`,
@@ -86,7 +101,8 @@ function extractRef(line, index) {
     return path;
 }
 
-const failures = [];
+const missing = [];
+const deprecated = [];
 let checked = 0;
 let skipped = 0;
 
@@ -105,8 +121,18 @@ for await (const entry of glob(SOURCES, { cwd: ROOT })) {
                 continue;
             }
             checked += 1;
-            if (isDocumented(path)) continue;
-            failures.push(`${file}:${i + 1}  ${path}`);
+
+            const matches = matchSpecPaths(path);
+            if (matches.length === 0) {
+                missing.push(`${file}:${i + 1}  ${path}`);
+                continue;
+            }
+
+            // Only drift when every candidate is deprecated - if any current path also matches,
+            // the docs are on a supported route.
+            if (matches.every((m) => deprecatedPaths.has(m))) {
+                deprecated.push(`${file}:${i + 1}  ${path}  (matches deprecated ${matches.join(', ')})`);
+            }
         }
     });
 }
@@ -119,14 +145,25 @@ console.log(
         `\n(${skipped} skipped as template interpolation)\n`,
 );
 
-if (failures.length > 0) {
-    console.error(`❌ ${failures.length} documented API path(s) are absent from the OpenAPI contract:\n`);
-    for (const f of failures) console.error(`   ${f}`);
+if (missing.length > 0) {
+    console.error(`❌ ${missing.length} documented API path(s) are absent from the OpenAPI contract:\n`);
+    for (const f of missing) console.error(`   ${f}`);
     console.error(
         '\nUse the canonical route from the spec. The `/v2/acts/...` prefix is a deprecated alias' +
             '\nthat still responds but is not part of the published contract - see issue #2804.',
     );
-    process.exit(1);
 }
 
-console.log('✅ Every documented API path exists in the OpenAPI contract');
+if (deprecated.length > 0) {
+    console.error(`\n❌ ${deprecated.length} documented API path(s) are deprecated in the OpenAPI contract:\n`);
+    for (const f of deprecated) console.error(`   ${f}`);
+    console.error(
+        "\nThese exist but are superseded. Read the operation's description in the spec for the" +
+            '\nreplacement - Actor-scoped run and build routes moved to `/v2/actor-runs` and' +
+            '\n`/v2/actor-builds`.',
+    );
+}
+
+if (missing.length > 0 || deprecated.length > 0) process.exit(1);
+
+console.log('✅ Every documented API path exists in the OpenAPI contract and none are deprecated');

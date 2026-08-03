@@ -239,7 +239,7 @@ When we run the Actor with the [usual API call](#run-an-actor-or-task) shown abo
 Replace the `RUN_ID` in the following URL with the ID you extracted earlier:
 
 ```cURL
-https://api.apify.com/v2/actors/ACTOR_NAME_OR_ID/runs/RUN_ID
+https://api.apify.com/v2/actor-runs/RUN_ID
 ```
 
 Once a status of `SUCCEEDED` or `FAILED` has been received, we know the run has finished and can cancel the interval and finally [collect the data](#collect-the-data).
