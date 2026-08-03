@@ -19,7 +19,20 @@ That's why it's a good practice to include additional files with real-world exam
 
 ## Setting up a test suite
 
+We'll start with adding a new section to the README:
 
+```md
+## Testing
+
+- Inside `tests`, there are real-world HTML snapshots of each page type we're scraping, together with JSON files of the same name containing corresponding data as expectations.
+- Command `npm test` runs all automated tests.
+```
+
+Then we'll instruct the AI agent with the following prompt:
+
+```text
+Setup a test suite which covers current project according to the Testing section in README.
+```
 
 <!--
 Adding fixtures, expectations. Setting up tests and teaching the agent to run tests. Dealing with corner cases by pointing the agent to the fixtures.
