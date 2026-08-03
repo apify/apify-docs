@@ -31,15 +31,15 @@ After a run finishes, any interactions with the dataset - such as reading or wri
 
 ### Pay per event
 
-With pay per event pricing, you pay for specific events defined by the Actor creator, such as producing a single result, uploading a file, or starting an Actor. These events and their prices are always described on each Actor's page.
+With pay-per-event pricing, you pay for specific events defined by the Actor creator, such as producing a single result, uploading a file, or starting an Actor. These events and their prices are always described on each Actor's page.
 
 [//]: # (TODO: also show the screenshot from Apify Store on Web)
 
-![Example pay per event Actor](../images/store/pay_per_event_example_actor.png)
+![Example of a pay-per-event Actor](../images/store/pay_per_event_example_actor.png)
 
 :::caution Some Actors charge platform usage separately
 
-Most pay per event Actors include [platform usage](../usage_and_resources.md) in the event price. However, some Actors may require you to pay for platform usage separately. Always check the Actor's pricing section to understand what's included.
+Most pay-per-event Actors include [platform usage](../usage_and_resources.md) in the event price. However, some Actors may require you to pay for platform usage separately. Always check the Actor's pricing section to understand what's included.
 
 :::
 
@@ -47,13 +47,13 @@ Most pay per event Actors include [platform usage](../usage_and_resources.md) in
 
 When starting a run, you can define a maximum charge limit. The Actor terminates gracefully when it reaches that limit - and even if it does not stop immediately, you are never charged for produced events over the defined limit.
 
-![Pay per event Actor - max charge per run](../images/store/pay_per_event_max_charge_per_run.png)
+![Pay-per-event Actor - max charge per run](../images/store/pay_per_event_max_charge_per_run.png)
 
 Your charges appear on your invoices and in the [Historical usage tab](https://console.apify.com/billing/historical-usage) in the Billing section of Apify Console. The cost of each run also appears on the run detail page.
 
-![Pay per event Actor - historical usage tab](../images/store/pay_per_event_historical_usage_tab.png)
+![Pay-per-event Actor - historical usage tab](../images/store/pay_per_event_historical_usage_tab.png)
 
-![Pay per event Actor - run detail](../images/store/pay_per_event_price_on_run_detail.png)
+![Pay-per-event Actor - run detail](../images/store/pay_per_event_price_on_run_detail.png)
 
 If charges seem incorrect, contact the Actor author or the Apify support team. You can also open an issue directly on the Actor's detail page in Apify Console.
 
