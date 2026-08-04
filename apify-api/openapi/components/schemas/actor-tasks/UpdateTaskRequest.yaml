@@ -19,13 +19,12 @@ properties:
       - $ref: ../actors/ActorStandby.yaml
       - type: "null"
   publicConfig:
-    anyOf:
-      - $ref: ./TaskPublicConfig.yaml
-      - type: "null"
     description: |
       Public-facing display configuration of the task's public landing page. The provided
-      fields are merged into the stored configuration and validated.
+      fields are merged into the stored configuration and validated. The stored configuration
+      cannot be cleared this way. Use the
       [Publish task](/api/v2/actor-task-publish-post) and
       [Unpublish task](/api/v2/actor-task-unpublish-post) endpoints to change the
       publication state. Updating `publicConfig` requires write permission to the task's
       Actor.
+    $ref: ./TaskPublicConfig.yaml
