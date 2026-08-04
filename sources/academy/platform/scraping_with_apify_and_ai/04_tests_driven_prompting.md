@@ -25,14 +25,17 @@ We'll start with adding a new section to the README:
 ## Testing
 
 - Inside `tests`, there are real-world HTML snapshots of each page type we're scraping, together with JSON files of the same name containing corresponding data as expectations.
-- Command `npm test` runs all automated tests.
+- After any significant change to code, use `npm test` to run all automated tests.
 ```
 
 Then we'll instruct the AI agent with the following prompt:
 
 ```text
-Setup a test suite which covers current project according to the Testing section in README.
+Read the Testing section in README and setup a test suite
+covering the current functionality accordingly.
 ```
+
+
 
 <!--
 Adding fixtures, expectations. Setting up tests and teaching the agent to run tests. Dealing with corner cases by pointing the agent to the fixtures.
