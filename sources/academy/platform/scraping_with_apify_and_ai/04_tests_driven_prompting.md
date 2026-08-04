@@ -5,37 +5,40 @@ slug: /scraping-with-apify-and-ai/tests-driven-prompting
 unlisted: true
 ---
 
-**In this lesson, we'll continue developing our app for tracking prices on an e-commerce website. We'll use real-world examples to describe various edge cases our scraper can encounter. Cursor will not only make sure they're all accounted for, but next time we change something, it'll always test whether everything still works.**
+**In this lesson, we'll keep developing our app for tracking prices on an e-commerce website. We'll describe edge cases with real-world examples, and Cursor will use them not only to get things right, but also to check that nothing breaks next time we change something.**
 
 ---
 
-Documenting behavior of our scraper in the README and telling the AI agent it's the source of truth about our project can get us far, but the approach has certain limitations:
+The README as a source of truth for the AI agent gets us far, but it has limits:
 
-- Describing a large set of edge cases is tedious. Documenting "if this tiny detail is certain way, then we'll process it as X, otherwise Y" for each situation is possible, but a bit messy.
-- Sometimes the edge cases lie in how the HTML code of the page is constructed, and we need to say something like "if you encounter exactly this HTML markup, process it like this". Including long snippets of HTML in our README usually isn't really desirable.
-- Each time we modify our project, we must trust the AI agent that it didn't break existing stuff when adding new things. Neither the agent nor us have an efficient way to verify whether everything still holds together. We can prompt it to "go through the whole README and verify all the behavior", but that's slow and not reliable.
+- Describing a large set of edge cases is tedious. "If this tiny detail is a certain way, process it as X, otherwise Y" for each situation is possible, but messy.
+- Sometimes the edge case lies in how the HTML of the page is built, and we'd have to say "if you encounter exactly this markup, process it like this". Pasting long snippets of HTML into a README isn't great.
+- After each change, we have to trust the agent that it didn't break what already worked. We can prompt it to "go through the whole README and verify all the behavior", but that's slow and unreliable.
 
-That's why it's a good practice to include additional files with real-world examples (_test fixtures_) together with a examples of how the resulting data should look like (_test expectations_). Loading the real-world examples, processing it as if it was during scraping, and verifying that the result fits the expectation, can be then automated (_test suite_), for the benefit of both AI agents and humans.
+There's a better way. We can save real-world examples of the pages we scrape, save the data we expect to get out of them, and let a program do the checking: load the example, process it as if we were scraping, compare the result to our expectation.
+
+Software developers do this all the time, so each piece has a name. The saved examples are _fixtures_, the expected results are _expectations_, and the setup for running it all is a _test suite_.
+
+Running such _tests_ is much faster than manual probes, and both the AI agent and us humans can run it anytime.
 
 ## Setting up a test suite
 
-We'll start with adding a new section to the README:
+Let's start by adding a new section to the README:
 
 ```md
 ## Testing
 
-- Inside `tests`, there are real-world HTML snapshots of each page type we're scraping, together with JSON files of the same name containing corresponding data as expectations.
-- After any significant change to code, use `npm test` to run all automated tests.
+- The `tests` directory contains real-world HTML snapshots of each page type we scrape.
+- Each snapshot also has a JSON file of the same name with the data we expect to get out of it.
+- Run `npm test` to run all automated tests. Do this after any significant change to the code.
 ```
 
-Then we'll instruct the AI agent with the following prompt:
+Then we'll send this prompt to the AI agent:
 
 ```text
-Read the Testing section in README and setup a test suite
-covering the current functionality accordingly.
+Read the Testing section in README and set up a test suite
+covering the behavior we already have.
 ```
-
-
 
 <!--
 Adding fixtures, expectations. Setting up tests and teaching the agent to run tests. Dealing with corner cases by pointing the agent to the fixtures.
