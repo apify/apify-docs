@@ -45,6 +45,7 @@
         "format": "oxfmt",
         "format:check": "oxfmt --check",
         "test:academy": "bats --print-output-on-failure -r .",
+        "test:api-paths": "node ./scripts/checkApiPaths.mjs",
         "test:llms-size": "node ./scripts/checkLlmsSize.mjs",
         "test:nav-headers": "node ./scripts/checkNavHeaders.mjs",
         "postinstall": "patch-package",

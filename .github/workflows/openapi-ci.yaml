@@ -84,6 +84,11 @@ jobs:
             - name: Validate JSON bundle
               run: pnpm exec redocly lint static/api/openapi.json
 
+            # Guards against docs teaching routes the contract doesn't define - notably the legacy
+            # `/v2/acts` alias, which responds but is absent from the published spec (#2804).
+            - name: Check documented API paths exist in the spec
+              run: pnpm test:api-paths
+
             - name: Check bundle sizes
               run: |
                   JSON_SIZE=$(stat -f%z static/api/openapi.json 2>/dev/null || stat -c%s static/api/openapi.json)
