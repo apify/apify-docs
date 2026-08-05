@@ -227,33 +227,25 @@ Well, not to spoil the excitement, but in its current form, the data isn't very 
 
 <Exercises />
 
-### Scrape dimensions of IKEA storage solutions
+### Scrape dimensions and prices from IKEA
 
-Download the [IKEA storage solutions page](https://www.ikea.com/se/en/cat/storage-solution-systems-46052/) and parse it with Cheerio. Print each listed product's title and dimensions.
+Download the [IKEA JONAXEL system page](https://www.ikea.com/se/en/cat/jonaxel-system-45730/) and parse it with Cheerio. Print each product's width, depth, height, and price.
 
 ![IKEA product listing](../scraping_basics/images/exercise-ikea.webp)
 
-Your output should resemble the following. The final three columns contain the width, depth, and height:
+Your output should resemble the following. Note that the page has prices in [SEK](https://www.google.com/search?q=1%20sek):
 
 ```text
-JONAXEL | w 50 | d 51 | h 104
-GÖMPYSSLING | w null | d null | h null
-TROFAST | w 99 | d 44 | h 94
-JONAXEL | w 50 | d 51 | h 70
-...
+50 | 51 | 104 ... 599 SEK
+99 | 51 | 173 ... 1496 SEK
+50 | 51 | 104 ... 349 SEK
 ```
 
-If a product card doesn't list all three dimensions, set all three values to `null`, as shown for GÖMPYSSLING.
+Skip products that don't list all three dimensions. For example, the top shelf in the image lists only its width and depth, so your program shouldn't print it.
 
 <details>
   <summary>Solution</summary>
   <CodeBlock language="js">{IkeaDimensionsExercise.code}</CodeBlock>
-
-  :::tip Conditional (ternary) operator
-
-  For brevity, the solution uses the [conditional (ternary) operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_operator). You can achieve the same with a plain `if` and `else` block.
-
-  :::
 
 </details>
 
@@ -264,12 +256,6 @@ Simplify the code from the previous exercise. Use a [regular expression](https:/
 <details>
   <summary>Solution</summary>
   <CodeBlock language="js">{IkeaDimensionsRegexExercise.code}</CodeBlock>
-
-  :::tip Conditional (ternary) operator
-
-  For brevity, the solution uses the [conditional (ternary) operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_operator). You can achieve the same with a plain `if` and `else` block.
-
-  :::
 
 </details>
 

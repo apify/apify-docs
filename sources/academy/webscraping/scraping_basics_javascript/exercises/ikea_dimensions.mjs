@@ -5,17 +5,13 @@ function parseDimensions(text) {
   if (words.at(-1) === 'cm') {
     const dimensions = words.at(-2).split('x');
     if (dimensions.length === 3) {
-      return {
-        width: dimensions[0],
-        depth: dimensions[1],
-        height: dimensions[2],
-      };
+      return dimensions;
     }
   }
-  return { width: null, depth: null, height: null };
+  return null;
 }
 
-const url = 'https://www.ikea.com/se/en/cat/storage-solution-systems-46052/';
+const url = 'https://www.ikea.com/se/en/cat/jonaxel-system-45730/';
 const response = await fetch(url);
 
 if (!response.ok) {
@@ -28,11 +24,10 @@ const $ = cheerio.load(html);
 for (const element of $('.plp-mastercard').toArray()) {
   const $productCard = $(element);
 
-  const $title = $productCard.find('.plp-price-module__product-name');
-  const title = $title.text().trim();
-
   const descriptionText = $productCard.find('.plp-text').text();
   const dimensions = parseDimensions(descriptionText);
-
-  console.log(`${title} | w ${dimensions.width} | d ${dimensions.depth} | h ${dimensions.height}`);
+  if (dimensions) {
+    const price = $productCard.find('.plp-price__integer').text().replaceAll(' ', '').trim();
+    console.log(`${dimensions.join(' | ')} ... ${price} SEK`);
+  }
 }

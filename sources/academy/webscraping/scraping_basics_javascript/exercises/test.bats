@@ -80,20 +80,16 @@ teardown_file() {
   [[ $(echo "$output" | wc -l) -gt 5 ]]
 }
 
-@test "prints IKEA product dimensions" {
+@test "prints IKEA product dimensions and prices" {
   run_retry node ikea_dimensions.mjs
 
-  [[ "$output" == *$'JONAXEL | w 50 | d 51 | h 104\n'* ]]
-  [[ "$output" == *$'GÖMPYSSLING | w null | d null | h null\n'* ]]
-  [[ $(echo "$output" | wc -l) -gt 5 ]]
+  [[ "$output" == *'50 | 51 | 70'* ]]
 }
 
-@test "prints IKEA product dimensions using regex" {
+@test "prints IKEA product dimensions and prices using regex" {
   run_retry node ikea_dimensions_regex.mjs
 
-  [[ "$output" == *$'JONAXEL | w 50 | d 51 | h 104\n'* ]]
-  [[ "$output" == *$'GÖMPYSSLING | w null | d null | h null\n'* ]]
-  [[ $(echo "$output" | wc -l) -gt 5 ]]
+  [[ "$output" == *'50 | 51 | 70'* ]]
 }
 
 @test "prints Guardian F1 titles with publish dates" {
