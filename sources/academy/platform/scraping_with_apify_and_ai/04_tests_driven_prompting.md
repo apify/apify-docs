@@ -12,7 +12,7 @@ unlisted: true
 The README as a source of truth for the AI agent gets us far, but it has limits:
 
 - Describing a large set of edge cases is tedious. "If this tiny detail is a certain way, process it as X, otherwise Y" for each situation is possible, but messy.
-- Sometimes the edge case lies in how the HTML of the page is built, and we'd have to say "if you encounter exactly this markup, process it like this". Pasting long snippets of HTML into a README isn't great.
+- Sometimes the edge case lies in the page's HTML, the text format that describes its content and structure. We'd have to say, "if you encounter exactly this HTML code, process it like this". Pasting long snippets of HTML into a README isn't great.
 - After each change, we have to trust the agent that it didn't break what already worked. We can prompt it to "go through the whole README and verify all the behavior", but that's slow and unreliable.
 - Our scraper assumes certain page structure, but that can change over time. The README says what data we want, not what the page looked like back when everything worked.
 
@@ -35,11 +35,9 @@ Let's start by adding a new section to the README:
 - Use red-green test-driven development.
 ```
 
-:::tip Test-driven development
+_JSON_ is a text format for storing structured data. A JSON file can represent the same rows and fields you see in the Apify output table, but in a form that programs can read and compare. You don't need to write these files yourself. The AI agent will create them, and you'll only inspect whether their contents look correct.
 
 _Red-green test-driven development_ means that whenever the AI agent modifies our project, it will start with expectations, run the tests to let them fail (which verifies the tests actually test something), and only then starts to add code to make them pass. It's an engineering technique which makes all development more reliable.
-
-:::
 
 Now let's send this prompt to the AI agent:
 
