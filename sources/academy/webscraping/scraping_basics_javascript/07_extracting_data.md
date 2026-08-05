@@ -227,19 +227,27 @@ Well, not to spoil the excitement, but in its current form, the data isn't very 
 
 <Exercises />
 
-### Scrape units on stock
+### Scrape prices of IKEA's storage solutions
 
-Change our scraper so that it extracts how many units of each product are on stock. Your program should print the following. Note the unit amounts at the end of each line:
+Download IKEA's page with storage solutions and use Beautiful Soup to parse it. Print titles and dimensions of all the listed products. This is the URL:
 
 ```text
-JBL Flip 4 Waterproof Portable Bluetooth Speaker | 672
-Sony XBR-950G BRAVIA 4K HDR Ultra HD TV | 77
-Sony SACS9 10" Active Subwoofer | 7
-Sony PS-HX500 Hi-Res USB Turntable | 15
-Klipsch R-120SW Powerful Detailed Home Speaker - Unit | 0
-Denon AH-C720 In-Ear Headphones | 236
+https://www.ikea.com/se/en/cat/storage-solution-systems-46052/
+```
+
+![IKEA products listing](../scraping_basics/images/exercise-ikea.webp)
+
+Your program should print something like the following. Note the columns at the end of each line for width, depth, and height:
+
+```text
+JONAXEL | w 50 | d 51 | h 104
+GÖMPYSSLING | w null | d null | h null
+TROFAST | w 99 | d 44 | h 94
+JONAXEL | w 50 | d 51 | h 70
 ...
 ```
+
+If a product doesn't provide three dimensions in the product card description, like GÖMPYSSLING in the example above, set the values to `null`.
 
 <details>
   <summary>Solution</summary>

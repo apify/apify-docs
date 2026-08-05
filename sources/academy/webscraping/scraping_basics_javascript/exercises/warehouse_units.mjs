@@ -1,19 +1,17 @@
 import * as cheerio from 'cheerio';
 
-function parseUnitsText(text) {
-  const count = text
-    .replace('In stock,', '')
-    .replace('Only', '')
-    .replace(' left', '')
-    .replace('units', '')
-    .trim();
-  if (count === 'Sold out') {
-    return 0;
+function parseDimensions(text) {
+  const words = text.split(" ")
+  if (words.at(-1) === "cm") {
+    const dimensions = words.at(-2).split("x");
+    if (dimensions.length === 3) {
+        return { width: parseInt(dimensions[0]), depth: parseInt(dimensions[1]), height: parseInt(dimensions[2]) };
+    }
   }
-  return Number.parseInt(count, 10);
+  return { width: null, depth: null, height: null };
 }
 
-const url = 'https://warehouse-theme-metal.myshopify.com/collections/sales';
+const url = 'https://www.ikea.com/se/en/cat/storage-solution-systems-46052/';
 const response = await fetch(url);
 
 if (!response.ok) {
@@ -23,14 +21,14 @@ if (!response.ok) {
 const html = await response.text();
 const $ = cheerio.load(html);
 
-for (const element of $('.product-item').toArray()) {
-  const $productItem = $(element);
+for (const element of $('.plp-mastercard').toArray()) {
+  const $productCard = $(element);
 
-  const $title = $productItem.find('.product-item__title');
+  const $title = $productCard.find('.plp-price-module__product-name');
   const title = $title.text().trim();
 
-  const unitsText = $productItem.find('.product-item__inventory').text();
-  const unitsCount = parseUnitsText(unitsText);
+  const descriptionText = $productCard.find('.plp-text').text();
+  const dimensions = parseDimensions(descriptionText);
 
-  console.log(`${title} | ${unitsCount}`);
+  console.log(`${title} | w ${dimensions.width} | d ${dimensions.depth} | h ${dimensions.height}`);
 }
