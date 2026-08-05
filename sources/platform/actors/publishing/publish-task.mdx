@@ -17,7 +17,7 @@ Before you publish a task, make sure you have:
 - A [saved task](/actors/running/tasks) with a complete input configuration.
 - An [input schema](/actors/development/actor-definition/input-schema) and at least one [dataset schema view](/storage/dataset-schema) defined on the Actor.
 
-If your Actor is missing an input schema or dataset schema, the Publishing tab shows what needs to be set up before you can publish.
+If your Actor is missing an input schema or dataset schema, the **Publishing** tab shows what needs to be set up before you can publish.
 
 ## What tasks to publish
 
@@ -59,7 +59,7 @@ If your Actor supports multiple use cases, publish a task for each one. A web sc
 
 ## Publish your tasks
 
-Once your task runs reliably and produces the output you want users to see, publish it from Apify Console. The Publishing tab guides you through each requirement.
+Once your task runs reliably and produces the output you want users to see, publish it from Apify Console. The **Publishing** tab guides you through each requirement.
 
 1. From your task's page in Apify Console, open the **Publishing** tab.
 1. Complete the three sections: [Page details](#page-details), [Input](#input), and [Dataset schema](#dataset-schema).
@@ -101,7 +101,7 @@ Avoid titles like "Google Maps scraper - task 3" or "Test task" that describe th
 
 ### Input
 
-The Input section controls which fields from your task's input configuration appear on the landing page. Every input field is selected by default. Deselect any field that isn't relevant to this task's use case.
+The **Input** section controls which fields from your task's input configuration appear on the landing page. Every input field is selected by default. Deselect any field that isn't relevant to this task's use case.
 
 This control affects display only. The task itself always runs with the full input configuration, regardless of which fields are selected here.
 
@@ -115,7 +115,7 @@ All input fields with `"isSecret": true` in the Actor's [input schema](/actors/d
 
 ### Dataset schema
 
-The Dataset schema section selects which view of the Actor's dataset is rendered on the landing page. Each view organizes the output fields differently. Pick the one that best matches the task's use case.
+The **Dataset schema** section selects which view of the Actor's dataset is rendered on the landing page. Each view organizes the output fields differently. Pick the one that best matches the task's use case.
 
 ![Dataset schema view selection.](./images/public-tasks/task-dataset-schema.webp)
 
@@ -125,7 +125,7 @@ For more on configuring views, see [Dataset schema](/storage/dataset-schema).
 
 A confirmation dialog reminds you that your runs and data stay private. Once published, anyone on Apify can duplicate and run your task with their own input.
 
-A success dialog lets you share your task on social media. Use the **View landing page** button in the Publishing tab to preview it.
+A success dialog lets you share your task on social media. Use the **View landing page** button in the **Publishing** tab to preview it.
 
 ## Unpublish a task
 
