@@ -21,4 +21,4 @@ for product in soup.select(".plp-mastercard"):
     description_text = product.select_one(".plp-text").text
     if dimensions := parse_dimensions(description_text):
         price = product.select_one(".plp-price__integer").text.replace(" ", "").strip()
-        print(" | ".join(dimensions), f"{price} SEK", sep=" ... ")
+        print(f"{dimensions[0]} | {dimensions[1]} | {dimensions[2]} ... {price} SEK")
