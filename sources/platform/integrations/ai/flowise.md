@@ -11,7 +11,7 @@ import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integrati
 
 <ThirdPartyDisclaimer />
 
-:::caution Flowise discontinued
+:::caution Flowise development ended
 
 The Flowise team has [discontinued the project](https://flowiseai.com/sunset). The code stays open source, so existing deployments keep working, but there are no further releases or official support.
 
