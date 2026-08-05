@@ -6,9 +6,9 @@ function parseDimensions(text) {
     const dimensions = words.at(-2).split('x');
     if (dimensions.length === 3) {
       return {
-        width: parseInt(dimensions[0], 10),
-        depth: parseInt(dimensions[1], 10),
-        height: parseInt(dimensions[2], 10),
+        width: dimensions[0],
+        depth: dimensions[1],
+        height: dimensions[2],
       };
     }
   }

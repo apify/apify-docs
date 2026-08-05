@@ -4,9 +4,9 @@ function parseDimensions(text) {
   const match = text.match(/(\d+)x(\d+)x(\d+)\s*cm\s*$/);
   if (match) {
     return {
-      width: parseInt(match[1], 10),
-      depth: parseInt(match[2], 10),
-      height: parseInt(match[3], 10),
+      width: match[1],
+      depth: match[2],
+      height: match[3],
     };
   }
   return { width: null, depth: null, height: null };
