@@ -1,11 +1,11 @@
 ---
 title: Publish your Actor task
-description: Publish a saved Actor task as a public use-case landing page on Apify Store by completing the display information, input, and dataset schema sections.
+description: Publish a saved Actor task as a public use-case landing page on Apify Store by completing the page details, input, and dataset schema sections.
 slug: /actors/publishing/publish-task
 sidebar_position: 2
 ---
 
-[Actor tasks](/actors/running/tasks) are shareable, pre-configured inputs for your Actors. [Publishing a task](#publish-your-tasks) creates a public landing page that shows what the Actor does, what inputs it uses, and what output to expect. Public tasks also appear in your Actor's **Example tasks** tab, which helps users discover your Actor through search engines and AI agents.
+[Actor tasks](/actors/running/tasks) are shareable, pre-configured inputs for your Actors. [Publishing a task](#publish-your-tasks) creates a public landing page that shows what it does, what inputs to provide, and what output to expect. Public tasks also appear in your Actor's **Example tasks** tab, which helps users discover your Actor through search engines and AI agents. For monetized Actors, more discoverability means more paid runs.
 
 You can create up to 50 tasks per Actor.
 
@@ -16,6 +16,8 @@ Before you publish a task, make sure you have:
 - A [published Actor](./publish/index.mdx) that you own or maintain.
 - A [saved task](/actors/running/tasks) with a complete input configuration.
 - An [input schema](/actors/development/actor-definition/input-schema) and at least one [dataset schema view](/storage/dataset-schema) defined on the Actor.
+
+If your Actor is missing an input schema or dataset schema, the Publishing tab shows what needs to be set up before you can publish.
 
 ## What tasks to publish
 
@@ -57,7 +59,7 @@ If your Actor supports multiple use cases, publish a task for each one. A web sc
 
 ## Publish your tasks
 
-Once your task runs reliably and produces the output you want users to see, publish it from Apify Console.
+Once your task runs reliably and produces the output you want users to see, publish it from Apify Console. The Publishing tab guides you through each requirement.
 
 1. From your task's page in Apify Console, open the **Publishing** tab.
 1. Complete the three sections: [Page details](#page-details), [Input](#input), and [Dataset schema](#dataset-schema).
@@ -69,11 +71,14 @@ Once your task runs reliably and produces the output you want users to see, publ
 
 This section controls how your task appears on the landing page and in search results.
 
-- **Slug:** the URL-friendly name used in the task's landing page URL.
+- **Slug:** the URL path for your task's landing page (lowercase, hyphens, no spaces).
 - **SEO title:** appears as the heading on the landing page and as the page title in search results.
 - **SEO description:** appears under the title on the landing page and as the meta description in search results.
+- **Use case:** categorizes your task for Store browsing and search filtering. Required.
 
-You can live preview how the fields propagate on the right:
+Use the AI icon to generate the SEO title and description from your task configuration.
+
+The preview on the right updates as you type:
 
 - **Page preview:** how the landing page will look to users.
 - **Google preview:** how the page will appear in search results.
@@ -116,11 +121,17 @@ The Dataset schema section selects which view of the Actor's dataset is rendered
 
 For more on configuring views, see [Dataset schema](/storage/dataset-schema).
 
+### After publishing
+
+A confirmation dialog reminds you that your runs and data stay private. Once published, anyone on Apify can duplicate and run your task with their own input.
+
+A success dialog lets you share your task on social media. Use the **View landing page** button in the Publishing tab to preview it.
+
 ## Unpublish a task
 
-To remove a task's public landing page, open the task's **Publishing** tab and select **Unpublish task**. Confirm to remove the landing page.
+To remove a task's landing page, open the task's **Publishing** tab and select **Unpublish task**. Confirm to remove it.
 
-Unpublishing removes the public landing page, but your task and its configuration stay saved. Republish anytime.
+Unpublishing removes the landing page, but your task and its configuration stay saved. Republish anytime.
 
 ![Unpublish task dialog on the Publishing tab.](./images/public-tasks/task-unpublish-dialog.webp)
 
@@ -149,13 +160,13 @@ Keep the task name short, descriptive, and focused on the use case keyword.
 The landing page displays the information you configured in the [Page details](#page-details), [Input](#input), and [Dataset schema](#dataset-schema) sections:
 
 - The **SEO title** and **SEO description** at the top of the page.
-- The selected **input fields** with their configured values, so users can see exactly how the task is set up.
+- The selected **input fields** with their exact configured values.
 - A preview of the **Dataset schema fields** based on the dataset view you selected.
 - A call-to-action button that lets users try the task right away.
 
-### What happens when a user tries the task
+### After a user tries your task
 
-When a user clicks the call-to-action button, Apify creates a new task under their account with the same input configuration. The user can change, run, and manage it without affecting your original task. Your resources and configuration stay untouched.
+When a user clicks the call-to-action button, Apify creates a new task under their account with the same input configuration. The user can change, run, and manage it without affecting your original task. Your runs, data, and configuration stay private.
 
 ## Next steps
 
