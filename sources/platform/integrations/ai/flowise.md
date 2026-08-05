@@ -11,6 +11,12 @@ import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integrati
 
 <ThirdPartyDisclaimer />
 
+:::caution Flowise is sunset
+
+The Flowise team has [discontinued the project](https://flowiseai.com/sunset). The code stays open source, so existing deployments keep working, but there are no further releases or official support.
+
+:::
+
 ## How to use Apify with Flowise
 
 ### Installation
