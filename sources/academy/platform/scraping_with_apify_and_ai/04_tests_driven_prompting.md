@@ -70,7 +70,7 @@ npm notice run node --test tests/*.test.js
 ℹ duration_ms 165.677875
 ```
 
-Depending on what your agent did, it can look different, but it should look similar. You don't need to understand every line. The important parts are `pass 6` and `fail 0`, which confirm that all tests passed.
+Depending on what the agent created, your output may look different, but it should follow a similar pattern. You don't need to understand every line. The important parts are `pass 6` and `fail 0`, which confirm that all tests passed.
 
 ## Handling product variants
 
@@ -152,8 +152,8 @@ If the target website introduces new edge cases, all we have to do is identify t
 
 If the website changes significantly and our scraper stops returning results or starts crashing, we'll tell the AI agent to update the snapshots and adjust the code.
 
-Whenever we change the project, we can now make sure we haven't broken existing behavior. No manual checks or extra stress on the target website.
+Whenever we change the project, we can now make sure we haven't broken existing behavior without checking every case by hand or putting extra stress on the target website.
 
 With an AI agent, docs, and tests, scraper development becomes easier, more reliable, and ready for further improvements.
 
-If you build a stable scraper like this, it would be a shame to keep it to yourself. The next lesson will be about publishing to the Apify Store, so that other people can use your scrapers and pay you for its development and maintenance.
+If you build a stable scraper like this, it would be a shame to keep it to yourself. In the next lesson, we'll publish our scraper to Apify Store so that other people can use it and pay us for developing and maintaining it.
