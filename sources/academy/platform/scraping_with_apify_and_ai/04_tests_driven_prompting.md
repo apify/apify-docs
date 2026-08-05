@@ -54,7 +54,7 @@ When it's done, you should see new files inside `tests`, most likely `sales.html
 
 When we run `npm test`, all the tests should pass. This is an example output of the command:
 
-```
+```text
 npm notice run node --test tests/*.test.js
 ✔ parseMinPrice handles sale price text (0.532625ms)
 ✔ parseMinPrice returns null when no price is found (0.06775ms)
