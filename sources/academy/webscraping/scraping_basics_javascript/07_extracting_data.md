@@ -8,8 +8,8 @@ slug: /scraping-basics-javascript/extracting-data
 import CodeBlock from '@theme/CodeBlock';
 import LegacyJsCourseAdmonition from '@site/src/components/LegacyJsCourseAdmonition';
 import Exercises from '../scraping_basics/_exercises.mdx';
-import WarehouseUnitsExercise from '!!raw-loader!roa-loader!./exercises/warehouse_units.mjs';
-import WarehouseUnitsRegexExercise from '!!raw-loader!roa-loader!./exercises/warehouse_units_regex.mjs';
+import IkeaDimensionsExercise from '!!raw-loader!roa-loader!./exercises/ikea_dimensions.mjs';
+import IkeaDimensionsRegexExercise from '!!raw-loader!roa-loader!./exercises/ikea_dimensions_regex.mjs';
 import GuardianPublishDatesExercise from '!!raw-loader!roa-loader!./exercises/guardian_publish_dates.mjs';
 
 <LegacyJsCourseAdmonition />
@@ -227,17 +227,13 @@ Well, not to spoil the excitement, but in its current form, the data isn't very 
 
 <Exercises />
 
-### Scrape prices of IKEA's storage solutions
+### Scrape dimensions of IKEA storage solutions
 
-Download IKEA's page with storage solutions and use Beautiful Soup to parse it. Print titles and dimensions of all the listed products. This is the URL:
+Download the [IKEA storage solutions page](https://www.ikea.com/se/en/cat/storage-solution-systems-46052/) and parse it with Cheerio. Print each listed product's title and dimensions.
 
-```text
-https://www.ikea.com/se/en/cat/storage-solution-systems-46052/
-```
+![IKEA product listing](../scraping_basics/images/exercise-ikea.webp)
 
-![IKEA products listing](../scraping_basics/images/exercise-ikea.webp)
-
-Your program should print something like the following. Note the columns at the end of each line for width, depth, and height:
+Your output should resemble the following. The final three columns contain the width, depth, and height:
 
 ```text
 JONAXEL | w 50 | d 51 | h 104
@@ -247,11 +243,11 @@ JONAXEL | w 50 | d 51 | h 70
 ...
 ```
 
-If a product doesn't provide three dimensions in the product card description, like GÖMPYSSLING in the example above, set the values to `null`.
+If a product card doesn't list all three dimensions, set all three values to `null`, as shown for GÖMPYSSLING.
 
 <details>
   <summary>Solution</summary>
-  <CodeBlock language="js">{WarehouseUnitsExercise.code}</CodeBlock>
+  <CodeBlock language="js">{IkeaDimensionsExercise.code}</CodeBlock>
 
   :::tip Conditional (ternary) operator
 
@@ -263,11 +259,11 @@ If a product doesn't provide three dimensions in the product card description, l
 
 ### Use regular expressions
 
-Simplify the code from previous exercise. Use [regular expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions) to parse the number of units. You can match digits using a range like `[0-9]` or by a special sequence `\d`. To match more characters of the same type you can use `+`.
+Simplify the code from the previous exercise. Use a [regular expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions) to parse the width, depth, and height. Match digits with `[0-9]` or `\d`, and use `+` to match one or more digits.
 
 <details>
   <summary>Solution</summary>
-  <CodeBlock language="js">{WarehouseUnitsRegexExercise.code}</CodeBlock>
+  <CodeBlock language="js">{IkeaDimensionsRegexExercise.code}</CodeBlock>
 
   :::tip Conditional (ternary) operator
 

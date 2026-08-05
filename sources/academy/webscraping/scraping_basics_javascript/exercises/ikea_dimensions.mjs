@@ -1,11 +1,15 @@
 import * as cheerio from 'cheerio';
 
 function parseDimensions(text) {
-  const words = text.split(" ")
-  if (words.at(-1) === "cm") {
-    const dimensions = words.at(-2).split("x");
+  const words = text.trim().split(' ');
+  if (words.at(-1) === 'cm') {
+    const dimensions = words.at(-2).split('x');
     if (dimensions.length === 3) {
-        return { width: parseInt(dimensions[0]), depth: parseInt(dimensions[1]), height: parseInt(dimensions[2]) };
+      return {
+        width: parseInt(dimensions[0], 10),
+        depth: parseInt(dimensions[1], 10),
+        height: parseInt(dimensions[2], 10),
+      };
     }
   }
   return { width: null, depth: null, height: null };

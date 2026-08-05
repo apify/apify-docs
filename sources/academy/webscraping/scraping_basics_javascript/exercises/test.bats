@@ -80,19 +80,19 @@ teardown_file() {
   [[ $(echo "$output" | wc -l) -gt 5 ]]
 }
 
-@test "prints warehouse stock counts" {
-  run_retry node warehouse_units.mjs
+@test "prints IKEA product dimensions" {
+  run_retry node ikea_dimensions.mjs
 
-  [[ "$output" == *$'JBL Flip 4 Waterproof Portable Bluetooth Speaker | 672\n'* ]]
-  [[ "$output" == *$'Sony XBR-950G BRAVIA 4K HDR Ultra HD TV | 76\n'* ]]
+  [[ "$output" == *$'JONAXEL | w 50 | d 51 | h 104\n'* ]]
+  [[ "$output" == *$'GÖMPYSSLING | w null | d null | h null\n'* ]]
   [[ $(echo "$output" | wc -l) -gt 5 ]]
 }
 
-@test "prints warehouse stock counts using regex" {
-  run_retry node warehouse_units_regex.mjs
+@test "prints IKEA product dimensions using regex" {
+  run_retry node ikea_dimensions_regex.mjs
 
-  [[ "$output" == *$'JBL Flip 4 Waterproof Portable Bluetooth Speaker | 672\n'* ]]
-  [[ "$output" == *$'Sony XBR-950G BRAVIA 4K HDR Ultra HD TV | 76\n'* ]]
+  [[ "$output" == *$'JONAXEL | w 50 | d 51 | h 104\n'* ]]
+  [[ "$output" == *$'GÖMPYSSLING | w null | d null | h null\n'* ]]
   [[ $(echo "$output" | wc -l) -gt 5 ]]
 }
 
