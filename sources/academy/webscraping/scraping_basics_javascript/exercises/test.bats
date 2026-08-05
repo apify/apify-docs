@@ -83,13 +83,15 @@ teardown_file() {
 @test "prints IKEA product dimensions and prices" {
   run_retry node ikea_dimensions.mjs
 
-  [[ "$output" == *'50 | 51 | 70'* ]]
+  [[ "$output" == *'50 | 51 | 70'* ]]  # bestseller
+  [[ "$output" == *'9 SEK'* ]]  # IKEA prices way too often end with 9
 }
 
 @test "prints IKEA product dimensions and prices using regex" {
   run_retry node ikea_dimensions_regex.mjs
 
-  [[ "$output" == *'50 | 51 | 70'* ]]
+  [[ "$output" == *'50 | 51 | 70'* ]]  # bestseller
+  [[ "$output" == *'9 SEK'* ]]  # IKEA prices way too often end with 9
 }
 
 @test "prints Guardian F1 titles with publish dates" {
