@@ -5,7 +5,7 @@ slug: /actors/publishing/publish-task
 sidebar_position: 2
 ---
 
-[Actor tasks](/actors/running/tasks) are shareable, pre-configured inputs for your Actors. [Publishing a task](#publish-your-tasks) creates a public landing page that shows what the Actor does, what inputs it uses, and what output to expect. Public tasks also appear in your Actor's **Examples** tab, which helps users discover your Actor through search engines and AI agents. For monetized Actors, this can lead to more page views, more runs, and more revenue.
+[Actor tasks](/actors/running/tasks) are shareable, pre-configured inputs for your Actors. [Publishing a task](#publish-your-tasks) creates a public landing page that shows what the Actor does, what inputs it uses, and what output to expect. Public tasks also appear in your Actor's **Example tasks** tab, which helps users discover your Actor through search engines and AI agents.
 
 You can create up to 50 tasks per Actor.
 
@@ -27,7 +27,7 @@ The best tasks aim to solve a problem a user actually has. Instead of publishing
 
 For example, if you maintain Google Maps, Amazon, and Yahoo scraper Actors:
 
-| ❌ Weak task | ✅ Strong task |
+| Generic task | Specific task |
 | --- | --- |
 | Google Maps - default config | Find dentists in San Francisco with reviews |
 | Test run 2 | Extract restaurant emails for local marketing |
@@ -35,11 +35,11 @@ For example, if you maintain Google Maps, Amazon, and Yahoo scraper Actors:
 | Amazon default | Monitor Amazon product prices and reviews for market research |
 | Yahoo Finance test | Track stock prices and news on Yahoo Finance |
 
-Each strong task focuses on a specific industry, location, or workflow. A user searching for "dentist data San Francisco" is far more likely to land on a page with that exact framing.
+Each strong task focuses on a specific industry, location, or workflow. A user searching for "dentist data San Francisco" is more likely to land on a page with that exact framing.
 
 ### Target search traffic and AI discovery
 
-Each landing page is indexed by search engines and includes a markdown (`.md`) version that AI agents can access directly, making your task discoverable through AI-powered search and AI assistants.
+Each landing page is indexed by search engines and includes a markdown (`.md`) version that AI agents can access directly, making your task discoverable through AI search and AI assistants.
 
 Think of each task as a keyword-targeted landing page:
 
@@ -59,28 +59,26 @@ If your Actor supports multiple use cases, publish a task for each one. A web sc
 
 Once your task runs reliably and produces the output you want users to see, publish it from Apify Console.
 
-1. From your task's page in Apify Console, open the **Publication** tab.
-1. Complete the three sections: [Display information](#display-information), [Input](#input), and [Dataset schema](#dataset-schema).
-1. Click **Publish task**.
+1. From your task's page in Apify Console, open the **Publishing** tab.
+1. Complete the three sections: [Page details](#page-details), [Input](#input), and [Dataset schema](#dataset-schema).
+1. Select **Publish task**.
 
-![Publication tab on a task page.](./images/public-tasks/task-publication-tab.webp)
+![Publishing tab on a task page.](./images/public-tasks/task-publication-tab.webp)
 
-### Display information
+### Page details
 
-This section controls how your task appears on the public task landing page and in search results.
-
-There are three fields in this section:
+This section controls how your task appears on the landing page and in search results.
 
 - **Slug:** the URL-friendly name used in the task's landing page URL.
-- **SEO task title:** shown as the heading on the landing page and as the page title in search results.
+- **SEO title:** appears as the heading on the landing page and as the page title in search results.
 - **SEO description:** appears under the title on the landing page and as the meta description in search results.
 
-You can live preview how the fields propagate on the right (they update as you type):
+You can live preview how the fields propagate on the right:
 
-- **Page Preview:** how the landing page will look to visitors.
-- **SERP Preview:** how the page will appear in search engine results pages (SERPs).
+- **Page preview:** how the landing page will look to users.
+- **Google preview:** how the page will appear in search results.
 
-![Display information section with page and SERP previews.](./images/public-tasks/task-display-information.webp)
+![Page details section with page and Google previews.](./images/public-tasks/task-display-information.webp)
 
 :::tip Title format
 
@@ -98,16 +96,11 @@ Avoid titles like "Google Maps scraper - task 3" or "Test task" that describe th
 
 ### Input
 
-The Input section controls which fields from your task's input configuration appear on the public landing page. By default, every field defined in your task input is selected. Deselect any field that is not relevant to the task's use case.
+The Input section controls which fields from your task's input configuration appear on the landing page. Every input field is selected by default. Deselect any field that isn't relevant to this task's use case.
 
 This control affects display only. The task itself always runs with the full input configuration, regardless of which fields are selected here.
 
 ![Input section with field selection.](./images/public-tasks/task-input-section.webp)
-
-Use this section to:
-
-- Show only the fields that demonstrate how the task is configured for its specific use case.
-- Hide configuration fields that are not relevant to the task and would confuse first-time users.
 
 :::info Secret fields are protected automatically
 
@@ -123,11 +116,21 @@ The Dataset schema section selects which view of the Actor's dataset is rendered
 
 For more on configuring views, see [Dataset schema](/storage/dataset-schema).
 
+## Unpublish a task
+
+To remove a task's public landing page, open the task's **Publishing** tab and select **Unpublish task**. Confirm to remove the landing page.
+
+Unpublishing removes the public landing page, but your task and its configuration stay saved. Republish anytime.
+
+![Unpublish task dialog on the Publishing tab.](./images/public-tasks/task-unpublish-dialog.webp)
+
+To see which tasks are published, filter by **Publish status** in the Tasks list in the sidebar.
+
 ## Task landing page
 
-Each published task gets its own standalone landing page on the [Apify website](https://apify.com). This page is publicly accessible, indexed by search engines, and readable by AI agents. Published tasks also appear in the **Examples** tab of the Actor's detail page, linking visitors directly to the landing page.
+Each published task gets its own standalone landing page on the [Apify website](https://apify.com). Published tasks also appear in the **Example tasks** tab of the Actor's detail page, linking users directly to the landing page.
 
-![Examples tab on the Actor detail page showing published tasks.](./images/public-tasks/actor-examples-tab.webp)
+![Example tasks tab on the Actor detail page showing published tasks.](./images/public-tasks/actor-examples-tab.webp)
 
 ### URL structure
 
@@ -143,17 +146,16 @@ Keep the task name short, descriptive, and focused on the use case keyword.
 
 ![Task landing page with title, input fields, and output preview.](./images/public-tasks/task-landing-page.webp)
 
-The landing page displays the information you configured in the [Display information](#display-information), [Input](#input), and [Dataset schema](#dataset-schema) sections:
+The landing page displays the information you configured in the [Page details](#page-details), [Input](#input), and [Dataset schema](#dataset-schema) sections:
 
-- The **SEO task title** and **SEO description** at the top of the page.
-- The selected **input fields** with their configured values, so visitors can see exactly how the task is set up.
+- The **SEO title** and **SEO description** at the top of the page.
+- The selected **input fields** with their configured values, so users can see exactly how the task is set up.
 - A preview of the **Dataset schema fields** based on the dataset view you selected.
-- A call-to-action button that lets visitors try the task immediately.
-- Generic sections explaining how Apify works and how to integrate it.
+- A call-to-action button that lets users try the task right away.
 
-### What happens when a visitor tries the task
+### What happens when a user tries the task
 
-When a visitor clicks the call-to-action button, Apify creates a new task under their account with the same input configuration. The visitor gets their own independent copy. They can modify, run, and manage it without affecting your original task. You don't need to worry about other users consuming your resources or altering your configuration.
+When a user clicks the call-to-action button, Apify creates a new task under their account with the same input configuration. The user can change, run, and manage it without affecting your original task. Your resources and configuration stay untouched.
 
 ## Next steps
 
