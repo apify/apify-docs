@@ -1,9 +1,9 @@
 import * as cheerio from 'cheerio';
 
 function parseDimensions(text) {
-  const match = text.match(/(\d+)x(\d+)x(\d+)\s*cm\s*$/);
+  const match = text.match(/(\d+)x(\d+)x(\d+) cm/);
   if (match) {
-    return match.slice(1);
+    return [match[1], match[2], match[3]];
   }
   return null;
 }
