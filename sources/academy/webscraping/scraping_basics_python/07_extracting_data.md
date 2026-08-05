@@ -234,15 +234,13 @@ Download the [IKEA JONAXEL system page](https://www.ikea.com/se/en/cat/jonaxel-s
 
 ![IKEA product listing](../scraping_basics/images/exercise-ikea.webp)
 
-Your output should resemble the following. Note that the page has prices in [SEK](https://www.google.com/search?q=1%20sek):
+Skip products that don't list all three dimensions. For example, the top shelf in the image lists only its width and depth, so your program shouldn't print it. Your output should resemble the following (prices are in [SEK](https://www.google.com/search?q=1%20sek)):
 
 ```text
 50 | 51 | 104 ... 599 SEK
 99 | 51 | 173 ... 1496 SEK
 50 | 51 | 104 ... 349 SEK
 ```
-
-Skip products that don't list all three dimensions. For example, the top shelf in the image lists only its width and depth, so your program shouldn't print it.
 
 <details>
   <summary>Solution</summary>
