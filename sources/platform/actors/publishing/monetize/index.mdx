@@ -1,6 +1,6 @@
 ---
 title: Monetize your Actor
-description: Monetize your Actors on Apify Store and earn regular passive income.
+description: Monetize your Actors on Apify Store by choosing a pricing model, earning passive income from paying users, and tracking revenue with built-in analytics.
 slug: /actors/publishing/monetize
 sidebar_position: 2.5
 ---
@@ -105,6 +105,24 @@ When monetizing your Actor, you might want to limit features or usage for users 
 - Communicate upfront: Clearly state any limitations in your Actor's `README` and input schema. Users should know about restrictions _before_ they run the Actor.
 - Graceful exits: If a free user hits a limit, don't crash the Actor or return a system error. Instead, exit gracefully with a clear [status message](/actors/development/programming-interface/status-messages#communicating-limitations) explaining the limit (e.g., "Free tier limit reached").
 - Avoid confusion: Never make a policy restriction look like a bug or platform error.
+
+## Compensate users for failed runs
+
+If a run fails or returns bad results because of a problem with your Actor, you can compensate the affected user with Apify platform credits. The amount is deducted from your payout.
+
+1. The user reports the problem on your Actor's **Issues** tab.
+1. Review the issue and decide whether it's valid. Ask the user for the run details, such as the run ID or a shared run link, so you can verify what happened before you approve anything.
+1. If the compensation is warranted, open the Apify support chat, select **Request user credit compensation**, and fill in the requested details: the user ID, the Actor ID, the amount, and the reason (or a link to the issue). Apify then credits the user's account.
+
+<img src={require('./images/request-user-credit-compensation.webp').default} alt="The Request user credit compensation option in the Apify support chat" width="320" />
+
+The **Request user credit compensation** option appears in the Apify support chat only for Actor developers. If you're contacting support as a user, you won't see it.
+
+Keep a few things in mind when handling compensations:
+
+- Compensation is paid in platform credits and deducted from your payout, not refunded as money. Describe it to users as credits - for example, "We'll compensate you for the run with credits" - rather than as a refund.
+- Don't post specific compensation amounts publicly on the **Issues** tab.
+- If you and the user can't agree, or the user insists on a monetary refund, raise it in the Apify support chat through the same option for an impartial review.
 
 ## Actor analytics
 

@@ -5,6 +5,8 @@ sidebar_position: 2
 slug: /actors/running/usage-and-resources
 ---
 
+Every Actor run uses platform resources - memory, CPU, and disk space - and how much it uses directly affects what the run costs. This page explains how Apify allocates these resources to an Actor, how usage is measured in compute units, and how to estimate and reduce what your runs consume.
+
 ## Resources
 
 [Actors](../index.mdx) run in [Docker containers](https://www.docker.com/resources/what-container/), which have a [limited amount of resources](https://phoenixnap.com/kb/docker-memory-and-cpu-limit) (memory, CPU, disk size, etc). When starting, the Actor needs to be allocated a certain share of those resources, such as CPU capacity that is necessary for the Actor to run.
@@ -48,7 +50,7 @@ Sometimes, you see the Actor's CPU use go over 100%. This is not unusual. To hel
 
 The Actor has hard disk space limited by twice the amount of memory. For example, an Actor with `1024MB` of memory will have `2048MB` of disk available.
 
-## Requirements
+## Choose the right memory
 
 Actors built with [Crawlee](https://crawlee.dev/) use autoscaling. This means that they will always run as efficiently as they can based on the allocated memory. If you double the allocated memory, the run should be twice as fast and consume the same amount of [compute units](#what-is-a-compute-unit) (1 * 1 = 0.5 * 2).
 
@@ -64,11 +66,11 @@ If the Actor doesn't have this information, or you want to use your own solution
 
 :::tip Estimating usage
 
-Check out the article on [estimating consumption](https://help.apify.com/en/articles/3470975-how-to-estimate-compute-unit-usage-for-your-project) for more details.
+See [reference consumption rates](#reference-consumption-rates) for approximate figures, or [measure your own usage with a test run](#measure-consumption-with-a-test-run).
 
 :::
 
-### Memory requirements
+### Minimum memory
 
 Each use case has its own memory requirements. The larger and more complex your project, the more memory/CPU power it will require. Some examples which have minimum requirements are:
 
@@ -147,4 +149,19 @@ The factors that influence resource consumption, in order of importance, are:
 
 - _Page type_: Heavy pages, such as Amazon or Facebook will take more time to load regardless whether you use a browser or Cheerio. Large pages can take up to _3 times_ more resources to load and parse than average pages.
 
-You can check out our [article on estimating consumption](https://help.apify.com/en/articles/3470975-how-to-estimate-compute-unit-usage-for-your-project) for more details on what determines consumption.
+#### Reference consumption rates
+
+These approximate figures can help you size a project before running it at scale. Treat them as order-of-magnitude ballparks rather than guarantees - your actual usage depends on the target site, page size, and your code.
+
+- Browser-based scraping (Puppeteer or Playwright): roughly 300 pages per CU.
+- Plain HTTP scraping (Cheerio): roughly 3,000 pages per CU.
+- Downloading and uploading images: more than 10,000 images per CU.
+- A short browser workflow (load a page, log in, and click a few buttons): about 0.01 CU per run.
+
+#### Measure consumption with a test run
+
+To get a figure specific to your project, run a controlled test instead of relying on averages:
+
+1. Prepare a request list of about 1,000 URLs. To exercise a single page repeatedly, duplicate one URL and give each request a randomized `uniqueKey` so the requests aren't deduplicated.
+1. Allocate memory appropriate to your tooling - for example, `128MB` to `512MB` for Cheerio, or `1024MB` or more for Puppeteer or Playwright.
+1. Run the Actor, then open the run's details and check its exact CU usage. Divide the CUs consumed by the number of pages processed to get your per-page cost, then scale that up to your target volume.

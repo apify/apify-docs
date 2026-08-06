@@ -5,6 +5,8 @@ sidebar_position: 7
 slug: /actors/development/builds-and-runs/builds
 ---
 
+A build packages a specific version of your Actor's source code and settings into a runnable Docker image. This page explains how builds and build numbers work, how to version your Actor and tag its builds, and how to manage the build cache.
+
 ## Understand Actor builds
 
 Before an Actor can be run, it needs to be built. The build process creates a snapshot of a specific version of the Actor's settings, including its [source code](../actor_definition/source_code.md) and [environment variables](../programming_interface/environment_variables.md). This snapshot is then used to create a Docker image containing everything the Actor needs for its run, such as `npm` packages, web browsers, etc.
@@ -34,6 +36,16 @@ For example, an Actor might have:
 - Production version _1.1_
 - Beta version _1.2_ that contains new features but is still backward compatible
 - Development version _2.0_ that contains breaking changes.
+
+### Best practices for public Actors
+
+If you publish your Actor for others to use, treat your version tags as a stable contract with your users:
+
+- Avoid pinning users to `latest`. Give each version a descriptive tag (for example, `0.0` or `1.0`) so users can depend on a stable version instead of being moved onto every change automatically.
+- Ship non-breaking changes under the same tag. For bug fixes and performance improvements that keep the same input and output, keep the version tag and let the build number increment automatically. Record the change in your Actor's changelog.
+- Fork a new version for breaking changes. When you change the input schema or output format, create a new version with a new tag (for example, from `0.0` to `0.1`). Existing users stay on the previous version until they choose to upgrade.
+- Set the default version deliberately. New users get the default version first, so point it at your newest stable version.
+- Migrate off `latest` gradually. If your Actor currently builds only under `latest`, fork the current version to a new tag, set it as the default, and use tagged versions from then on.
 
 ## Tags
 
