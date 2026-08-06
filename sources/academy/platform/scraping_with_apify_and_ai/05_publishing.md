@@ -26,9 +26,9 @@ This page hasn't been written yet. Please come back later!
 
 <!--
 - Ask the learner to try the Actor as a new user would: start with the prefilled input, finish quickly, return useful data, and fail with an actionable message.
-- Briefly check safe defaults, clear field names and tooltips, a useful sample output, consistent output, and least-privilege permissions. Do not repeat the schema reference.
+- Briefly check safe defaults, clear field names and tooltips, a useful sample output, and consistent output. Do not repeat the schema reference.
 - Connect this pass to the tests created in the previous lesson. Mention that Apify's Store test expects the default run to succeed and produce a non-empty dataset within five minutes.
-- Link to [How to create a great input schema](/academy/actor-marketing-playbook/product-optimization/how-to-create-a-great-input-schema), [Actor output schema](/actors/development/actor-definition/output-schema), [Actor permissions](/actors/development/permissions), and [Automated testing](/actors/publishing/test).
+- Link to [How to create a great input schema](/academy/actor-marketing-playbook/product-optimization/how-to-create-a-great-input-schema), [Actor output schema](/actors/development/actor-definition/output-schema), and [Automated testing](/actors/publishing/test).
 -->
 
 ## Explaining the Actor before users ask
@@ -50,7 +50,7 @@ This page hasn't been written yet. Please come back later!
 :::
 
 <!--
-- Walk through the decisions to make before opening the Publication tab: a clear name, permanent technical name/URL, concise description, recognizable logo, sample output, schemas, permissions, and pricing model.
+- Walk through the decisions to make before opening the Publication tab: a clear name, permanent technical name/URL, concise description, recognizable logo, sample output, schemas, and pricing model.
 - Explain in a sentence that the regular name and description serve Store visitors, while the optional SEO variants serve searchers. Avoid turning this into an SEO lesson.
 - Point to [Name your Actor](/academy/actor-marketing-playbook/actor-basics/name-your-actor), [Actor description and SEO description](/academy/actor-marketing-playbook/actor-basics/actor-description), and [Importance of Actor URL](/academy/actor-marketing-playbook/actor-basics/importance-of-actor-url).
 - Do not reproduce the publication clicks. End with [Publish your Actor](/actors/publishing/publish) and [Monetize your Actor](/actors/publishing/monetize) as the next operational steps.
