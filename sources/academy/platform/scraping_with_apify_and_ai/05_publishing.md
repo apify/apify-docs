@@ -52,7 +52,7 @@ Cursor can read the contributing docs, inspect the code, and follow the [guide t
 
 Read the whole README and make sure everything is accurate and sounds like you. It will set users' expectations, and it's you who is responsible for every promise it makes, not the AI agent.
 
-This new README will eventually become the page that sells your Actor, so keep prompting the AI agent to improve it. Most importantly, ask it to rename the Actor to something juicier than "My Actor"!
+This new README will eventually become the page that sells your Actor, so keep prompting the AI agent to improve it. Most importantly, ask it to rename the Actor to something catchier than "My Actor"!
 
 ## Making the first run easy
 
