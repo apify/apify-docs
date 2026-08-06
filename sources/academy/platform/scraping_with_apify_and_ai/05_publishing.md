@@ -11,7 +11,7 @@ unlisted: true
 
 Our scraper works, and its behavior is backed by documentation and tests. However, we've built it only for ourselves. If we wanted other people to use it, they'd run into several problems:
 
-- _Wrong kind of README:_ It tells Cursor how the code should behave, not users how to get useful data.
+- _Wrong kind of README:_ It tells its developers how the code should behave, not users how to get useful data.
 - _Rough first run:_ We haven't designed, documented, or tested the scraper inputs for a first-time user.
 - _Empty storefront:_ The Actor has no convincing name, description, presentation, or clear pricing.
 - _No maintenance strategy:_ There will be failed runs, user questions, or changes to the target website. We need to be prepared.
