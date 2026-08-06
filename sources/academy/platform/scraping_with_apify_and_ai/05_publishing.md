@@ -11,12 +11,24 @@ unlisted: true
 
 Our scraper works, and its behavior is backed by documentation and tests. However, we've built it only for ourselves. If we wanted other people to use it, they'd run into several problems:
 
-- _Rough first run:_ We haven't designed, documented, or tested the scraper inputs for a first-time user.
 - _Wrong kind of README:_ It tells Cursor how the code should behave, not users how to get useful data.
+- _Rough first run:_ We haven't designed, documented, or tested the scraper inputs for a first-time user.
 - _Empty storefront:_ The Actor has no convincing name, description, presentation, or clear pricing.
 - _No maintenance strategy:_ There will be failed runs, user questions, or changes to the target website. We need to be prepared.
 
 We can ask an AI agent to examine our Actor from a user's perspective and help us tie up these loose ends. We'll also prepare our scraper's Apify Store listing and decide how to keep it working after launch.
+
+## Explaining the Actor before users ask
+
+:::note Course under construction
+This page hasn't been written yet. Please come back later!
+:::
+
+<!--
+- Build on the README work from the docs-driven prompting lesson, but shift its audience from the developer to the Actor's users.
+- Show only the essential README shape: what the Actor does, the quickest successful run, input and output examples, pricing expectations, limitations, troubleshooting, and support.
+- Stress consistency between the README, input schema, output schema, name, and descriptions. Link to [Create an Actor README](/actors/publishing/actor-readme) for the full structure, formatting, images, and SEO guidance.
+-->
 
 ## Making the first run easy
 
@@ -29,18 +41,6 @@ This page hasn't been written yet. Please come back later!
 - Briefly check safe defaults, clear field names and tooltips, a useful sample output, and consistent output. Do not repeat the schema reference.
 - Connect this pass to the tests created in the previous lesson. Mention that Apify's Store test expects the default run to succeed and produce a non-empty dataset within five minutes.
 - Link to [How to create a great input schema](/academy/actor-marketing-playbook/product-optimization/how-to-create-a-great-input-schema), [Actor output schema](/actors/development/actor-definition/output-schema), and [Automated testing](/actors/publishing/test).
--->
-
-## Explaining the Actor before users ask
-
-:::note Course under construction
-This page hasn't been written yet. Please come back later!
-:::
-
-<!--
-- Build on the README work from the docs-driven prompting lesson, but shift its audience from the developer to the Actor's users.
-- Show only the essential README shape: what the Actor does, the quickest successful run, input and output examples, pricing expectations, limitations, troubleshooting, and support.
-- Stress consistency between the README, input schema, output schema, name, and descriptions. Link to [Create an Actor README](/actors/publishing/actor-readme) for the full structure, formatting, images, and SEO guidance.
 -->
 
 ## Preparing the Store listing
