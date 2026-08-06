@@ -1,6 +1,6 @@
 ---
 title: Publishing to Apify Store
-description: TBD
+description: Use AI to prepare your scraper for other users by improving its first-run experience, Store presentation, documentation, and maintenance plan.
 slug: /scraping-with-apify-and-ai/publishing-to-apify-store
 unlisted: true
 ---
