@@ -26,6 +26,6 @@ properties:
   publicConfig:
     description: |
       Public-facing display configuration of the task's public landing page. The task is not
-      published by setting it — use the [Publish task](/api/v2/actor-task-publish-post)
+      published by setting it — set `isPublic` via the [Update task](/api/v2/actor-task-put)
       endpoint for that. Setting `publicConfig` requires write permission to the task's Actor.
     $ref: ./TaskPublicConfig.yaml

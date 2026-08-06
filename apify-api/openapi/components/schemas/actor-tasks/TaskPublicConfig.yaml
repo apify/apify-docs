@@ -11,9 +11,8 @@ properties:
     readOnly: true
     description: |
       Time when the task was published, or `null` if the task is not published.
-      This field is server-controlled - to publish or unpublish a task, use the
-      [Publish task](/api/v2/actor-task-publish-post) and
-      [Unpublish task](/api/v2/actor-task-unpublish-post) endpoints.
+      This field is server-controlled - to publish or unpublish a task, set `isPublic`
+      via the [Update task](/api/v2/actor-task-put) endpoint.
     examples: ["2025-06-16T09:20:45.777Z"]
   seoTitle:
     type: [string, "null"]
