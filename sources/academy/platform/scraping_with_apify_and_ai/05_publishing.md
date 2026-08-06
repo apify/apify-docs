@@ -9,12 +9,6 @@ unlisted: true
 
 ---
 
-<!--
-The last lesson could focus more on quality, maintainability, and also touch on the Apify Store.
-
-It won't include the publishing itself, but will cover most of the 'tidying up' needed before one actually goes to publish an Actor for others to use.
--->
-
 ## Turning your scraper into a product
 
 :::note Course under construction
