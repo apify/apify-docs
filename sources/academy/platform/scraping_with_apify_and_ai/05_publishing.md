@@ -18,45 +18,41 @@ Our scraper works, and its behavior is backed by documentation and tests. Howeve
 
 We can ask an AI agent to examine our Actor from a user's perspective and help us tie up these loose ends. We'll also prepare our scraper's Apify Store listing and decide how to keep it working after launch.
 
-## Turning the README to a landing page
+## Turning the README into a landing page
 
-As of now the README documents how to develop the project, what is its behavior and what were the design decisions behind it.
+Right now, the README explains how to develop the project, how it works, and why we made certain design decisions.
 
-That's all very useful, but not to users of the scraper. Users want to know what data the Actor provides, what inputs it takes, and how do the outputs look like.
+That's useful information, but not for most scraper users. They want to know what data the Actor provides, what inputs it takes, and what its output looks like.
 
-If they're interested in any design info at all, it's primarily about understanding limitations of the software, but otherwise they'll be happy not knowing any details if it just works.
+They might care about the implementation when they need to understand the scraper's limitations. Otherwise, they'll be perfectly happy not knowing any details, as long as it works.
 
-For this reason, we'll move the current README to a different file, for example `CONTRIBUTING.md`, and create a brand new `README.md`, which will serve more as our landing page.
-
-For a start, let the AI agent draft something with the following prompt:
+Let's move the current README to a separate file, such as `CONTRIBUTING.md`, and create a new `README.md` that serves as the Actor's landing page. Ask the AI agent to draft it:
 
 ```text
-Move current README content to CONTRIBUTING.md,
-then read https://docs.apify.com/actors/publishing/actor-readme
+Move the current README content to CONTRIBUTING.md.
+Then read https://docs.apify.com/actors/publishing/actor-readme
 and draft a new README focused on users.
 ```
 
-After a short wait we'll be presented with a new README, which was written with users on first place. Each AI agent run is different, but your new README should have sections similar to these:
+After a short wait, we'll have a new README ready. Each AI agent run is different, but the result will probably include sections similar to these:
 
 - What does this Actor do?
 - How to scrape Shopify product prices
 - How much does it cost?
-- Input / Output
+- Input and output
 - FAQ
 
-Because Cursor has access to the contributing docs we wrote, all the code, and we gave it a [tutorial on how to write good README](/actors/publishing/actor-readme) and what is expected from Apify side, it has all the context it needs to write such document very well.
-
-It's also able infer questions like these and answers to them:
+Cursor can read the contributing docs, inspect the code, and follow the [guide to writing a good Actor README](/actors/publishing/actor-readme) we gave it. That gives it enough context to draft a useful document. It can also anticipate questions and answers like the following:
 
 - What websites does this Actor support?
 - How are prices parsed?
 - How is stock availability handled?
 - Can I schedule regular price checks?
-- Something went wrong — what should I check?
+- Something went wrong - what should I check?
 
-Read the whole README and make sure everything is correct and by your liking. If you present this README to users, information contained will set their expectations and it's you who is responsible for all given promises, not the AI agent.
+Read the whole README and make sure everything is accurate and sounds like you. It will set users' expectations, and it's you who is responsible for every promise it makes, not the AI agent.
 
-Since this README later becomes the page which sells your Actor, feel free to continue with prompts to improve it. Most importantly, tell the AI agent to rename the Actor to something juicier than "My Actor"!
+This new README will eventually become the page that sells your Actor, so keep prompting the AI agent to improve it. Most importantly, ask it to rename the Actor to something juicier than "My Actor"!
 
 ## Making the first run easy
 
