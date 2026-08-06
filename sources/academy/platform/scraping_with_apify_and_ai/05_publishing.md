@@ -20,6 +20,22 @@ We can ask an AI agent to examine our Actor from a user's perspective and help u
 
 ## Explaining the Actor before users ask
 
+As of now the README documents how to develop the project, what is its behavior and what were the design decisions behind it.
+
+That's all very useful, but not to users of the scraper. Users want to know what data the Actor provides, what inputs it takes, and how do the outputs look like.
+
+If they're interested in any design info at all, it's primarily about understanding limitations of the software, but otherwise they'll be happy not knowing any details if it just works.
+
+For this reason, we'll move the current README to a different file, for example `CONTRIBUTING.md`, and create a brand new `README.md`, which will serve more as our landing page.
+
+For a start, let the AI agent draft something with the following prompt:
+
+```text
+Move current README content to CONTRIBUTING.md,
+then read https://docs.apify.com/actors/publishing/actor-readme
+and draft a new README focused on users.
+```
+
 :::note Course under construction
 This page hasn't been written yet. Please come back later!
 :::
