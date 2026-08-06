@@ -18,7 +18,7 @@ Our scraper works, and its behavior is backed by documentation and tests. Howeve
 
 We can ask an AI agent to examine our Actor from a user's perspective and help us tie up these loose ends. We'll also prepare our scraper's Apify Store listing and decide how to keep it working after launch.
 
-## Explaining the Actor before users ask
+## Turning the README to a landing page
 
 As of now the README documents how to develop the project, what is its behavior and what were the design decisions behind it.
 
@@ -36,15 +36,27 @@ then read https://docs.apify.com/actors/publishing/actor-readme
 and draft a new README focused on users.
 ```
 
-:::note Course under construction
-This page hasn't been written yet. Please come back later!
-:::
+After a short wait we'll be presented with a new README, which was written with users on first place. Each AI agent run is different, but your new README should have sections similar to these:
 
-<!--
-- Build on the README work from the docs-driven prompting lesson, but shift its audience from the developer to the Actor's users.
-- Show only the essential README shape: what the Actor does, the quickest successful run, input and output examples, pricing expectations, limitations, troubleshooting, and support.
-- Stress consistency between the README, input schema, output schema, name, and descriptions. Link to [Create an Actor README](/actors/publishing/actor-readme) for the full structure, formatting, images, and SEO guidance.
--->
+- What does this Actor do?
+- How to scrape Shopify product prices
+- How much does it cost?
+- Input / Output
+- FAQ
+
+Because Cursor has access to the contributing docs we wrote, all the code, and we gave it a [tutorial on how to write good README](/actors/publishing/actor-readme) and what is expected from Apify side, it has all the context it needs to write such document very well.
+
+It's also able infer questions like these and answers to them:
+
+- What websites does this Actor support?
+- How are prices parsed?
+- How is stock availability handled?
+- Can I schedule regular price checks?
+- Something went wrong — what should I check?
+
+Read the whole README and make sure everything is correct and by your liking. If you present this README to users, information contained will set their expectations and it's you who is responsible for all given promises, not the AI agent.
+
+Since this README later becomes the page which sells your Actor, feel free to continue with prompts to improve it. Most importantly, tell the AI agent to rename the Actor to something juicier than "My Actor"!
 
 ## Making the first run easy
 
