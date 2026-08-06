@@ -5,6 +5,10 @@ slug: /scraping-with-apify-and-ai/publishing-to-apify-store
 unlisted: true
 ---
 
+**In this lesson, we'll prepare our app for tracking prices on an e-commerce website for other people to use. We'll use Cursor to inspect and polish its first-run experience and documentation, prepare its Apify Store listing, and make a plan for keeping it reliable.**
+
+---
+
 <!--
 The last lesson could focus more on quality, maintainability, and also touch on the Apify Store.
 
