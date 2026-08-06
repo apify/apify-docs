@@ -1,6 +1,6 @@
 ---
 title: Publishing to Apify Store
-description: Use AI to prepare your scraper for other users by improving its first-run experience, Store presentation, documentation, and maintenance plan.
+description: Use AI to prepare your scraper for other users by improving its first-run experience, Apify Store listing, documentation, and maintenance plan.
 slug: /scraping-with-apify-and-ai/publishing-to-apify-store
 unlisted: true
 ---
@@ -8,13 +8,13 @@ unlisted: true
 <!--
 The last lesson could focus more on quality, maintainability, and also touch on the Apify Store.
 
-It won't include the publishing itself, but will cover most of any 'tidying up' needed before one actually goes to publish an Actor for others to use.
+It won't include the publishing itself, but will cover most of the 'tidying up' needed before one actually goes to publish an Actor for others to use.
 -->
 
 ## Turning your scraper into a product
 
 :::note Course under construction
-This page hasn't been written yet. Come later, please!
+This page hasn't been written yet. Please come back later!
 :::
 
 <!--
@@ -26,7 +26,7 @@ This page hasn't been written yet. Come later, please!
 ## Making the first run easy
 
 :::note Course under construction
-This page hasn't been written yet. Come later, please!
+This page hasn't been written yet. Please come back later!
 :::
 
 <!--
@@ -39,7 +39,7 @@ This page hasn't been written yet. Come later, please!
 ## Explaining the Actor before users ask
 
 :::note Course under construction
-This page hasn't been written yet. Come later, please!
+This page hasn't been written yet. Please come back later!
 :::
 
 <!--
@@ -51,7 +51,7 @@ This page hasn't been written yet. Come later, please!
 ## Preparing the Store listing
 
 :::note Course under construction
-This page hasn't been written yet. Come later, please!
+This page hasn't been written yet. Please come back later!
 :::
 
 <!--
@@ -64,7 +64,7 @@ This page hasn't been written yet. Come later, please!
 ## Planning for the morning after launch
 
 :::note Course under construction
-This page hasn't been written yet. Come later, please!
+This page hasn't been written yet. Please come back later!
 :::
 
 <!--
@@ -77,7 +77,7 @@ This page hasn't been written yet. Come later, please!
 ## Helping the right users find it
 
 :::note Course under construction
-This page hasn't been written yet. Come later, please!
+This page hasn't been written yet. Please come back later!
 :::
 
 <!--
