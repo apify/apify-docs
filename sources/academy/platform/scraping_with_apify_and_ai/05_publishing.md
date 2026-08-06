@@ -9,17 +9,14 @@ unlisted: true
 
 ---
 
-## Turning your scraper into a product
+Our scraper works, and its behavior is backed by documentation and tests. However, we've built it only for ourselves. If we wanted other people to use it, they'd run into several problems:
 
-:::note Course under construction
-This page hasn't been written yet. Please come back later!
-:::
+- _Rough first run:_ We haven't designed, documented or tested the scraper inputs for a first-time user.
+- _Wrong kind of README:_ It tells Cursor how the code should behave, not users how to get useful data.
+- _Empty storefront:_ The Actor has no convincing name, description, presentation, or clear pricing.
+- _No maintenance strategy:_ There will be failed runs, user questions, or changes to the target website. We need to be prepared.
 
-<!--
-- Reset the learner's perspective: the Actor will now be used by strangers who cannot see the code or guess the author's intent.
-- Introduce the final pass as product work - reliability, ease of use, predictable costs, documentation, and support - rather than cosmetic cleanup.
-- Set expectations that a public Actor needs ongoing care. Link to [Why publish Actors on Apify](/academy/build-and-publish/why) and [Publishing and monetization](/actors/publishing).
--->
+We can use the help of AI agent to look at our Actor from a user's perspective and help us tie up these loose ends. We'll also prepare Apify Store listing for our scraper and decide how we'll keep it working after launch.
 
 ## Making the first run easy
 
@@ -59,7 +56,7 @@ This page hasn't been written yet. Please come back later!
 - Do not reproduce the publication clicks. End with [Publish your Actor](/actors/publishing/publish) and [Monetize your Actor](/actors/publishing/monetize) as the next operational steps.
 -->
 
-## Planning for the morning after launch
+## Planning for maintenance
 
 :::note Course under construction
 This page hasn't been written yet. Please come back later!
