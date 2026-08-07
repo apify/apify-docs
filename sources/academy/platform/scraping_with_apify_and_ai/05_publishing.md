@@ -90,10 +90,7 @@ for the first time. Provide feedback on what can be
 improved to polish the first time experience.
 ```
 
-<!--
-- Connect this pass to the tests created in the previous lesson. Mention that Apify's Store test expects the default run to succeed and produce a non-empty dataset within five minutes.
-- Link to [How to create a great input schema](/academy/actor-marketing-playbook/product-optimization/how-to-create-a-great-input-schema), [Actor output schema](/actors/development/actor-definition/output-schema), and [Automated testing](/actors/publishing/test).
--->
+Mind that once you publish your actor, Apify Store itself will join the feedback party. They automatically test public Actors every day with its prefilled input and expect it to successfully finish within 5 minutes. That's one more reason to make the default run quick, reliable, and useful. Learn more about [automated Actor testing](/actors/publishing/test).
 
 ## Preparing the Store listing
 
