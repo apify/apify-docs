@@ -356,10 +356,12 @@ Your AI can search Apify Store for relevant Actors using the `search-actors` too
 
 ## Agentic payments
 
-Agentic payments allow AI agents to autonomously pay for Actor runs without requiring an Apify API token. The Apify MCP server supports two payment methods:
+Agentic payments allow AI agents to autonomously pay for Actor runs without requiring an Apify API token:
 
-- [x402 protocol](/integrations/x402) - Direct on-chain payments using USDC on the [Base](https://www.base.org/) blockchain via the open [x402](https://www.x402.org/) standard.
-- [Skyfire](/integrations/skyfire) - Managed payment tokens through the [Skyfire](https://www.skyfire.xyz/) payment platform.
+- [AGI](/integrations/x402) - buy a prepaid Apify API token from [Apify AGI](https://agi.apify.com) with an x402 or MPP payment, then use it against this MCP server or the Apify API directly. Recommended for most agents - works for any Actor, not just Pay Per Event ones.
+- [Skyfire](/integrations/skyfire) - managed payment tokens through the [Skyfire](https://www.skyfire.xyz/) payment platform.
+
+The MCP server also has its own Direct x402 support (per-request, no minted token, Pay Per Event Actors only) via [`mcpc`](https://github.com/apify/mcp-cli) - see the [Apify MCP Server README](https://github.com/apify/apify-mcp-server#-agentic-payments) for setup.
 
 For setup instructions and details, see the individual integration pages.
 
