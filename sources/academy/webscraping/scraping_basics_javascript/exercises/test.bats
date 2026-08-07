@@ -80,20 +80,18 @@ teardown_file() {
   [[ $(echo "$output" | wc -l) -gt 5 ]]
 }
 
-@test "prints warehouse stock counts" {
-  run_retry node warehouse_units.mjs
+@test "prints IKEA product dimensions and prices" {
+  run_retry node ikea_dimensions.mjs
 
-  [[ "$output" == *$'JBL Flip 4 Waterproof Portable Bluetooth Speaker | 672\n'* ]]
-  [[ "$output" == *$'Sony XBR-950G BRAVIA 4K HDR Ultra HD TV | 76\n'* ]]
-  [[ $(echo "$output" | wc -l) -gt 5 ]]
+  [[ "$output" == *'50 | 51 | 70'* ]]  # bestseller
+  [[ "$output" == *'9 SEK'* ]]  # IKEA prices way too often end with 9
 }
 
-@test "prints warehouse stock counts using regex" {
-  run_retry node warehouse_units_regex.mjs
+@test "prints IKEA product dimensions and prices using regex" {
+  run_retry node ikea_dimensions_regex.mjs
 
-  [[ "$output" == *$'JBL Flip 4 Waterproof Portable Bluetooth Speaker | 672\n'* ]]
-  [[ "$output" == *$'Sony XBR-950G BRAVIA 4K HDR Ultra HD TV | 76\n'* ]]
-  [[ $(echo "$output" | wc -l) -gt 5 ]]
+  [[ "$output" == *'50 | 51 | 70'* ]]  # bestseller
+  [[ "$output" == *'9 SEK'* ]]  # IKEA prices way too often end with 9
 }
 
 @test "prints Guardian F1 titles with publish dates" {
