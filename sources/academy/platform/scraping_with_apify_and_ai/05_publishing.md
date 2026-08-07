@@ -60,11 +60,13 @@ This new README will eventually become the page that sells your Actor, so keep p
 
 ## Making the first run easy
 
-To make sure that our users can understand the Actor well and won't have issues to try the Actor, we'll do a small simulation.
+Now let's make sure people can understand the Actor and get through their first run without getting stuck. We'll run a small experiment.
 
-If you have a at least a tiny little bit tech savvy friend, ask them for 30 minutes of their time and let them try their first run with your Actor. Ideally if they don't know what you're working on, so they're without previous context.
+If you have a friend who's at least a tiny little bit tech-savvy, ask for 30 minutes of their time and let them try your Actor. Ideally, choose someone who doesn't know what you've been working on.
 
-It sounds silly, but it's really not! It's called _user testing_. Give your friend the instructions in the README and the Actor ready in your Apify console, and let them control the computer with the goal of using your Actor for the first time. You can watch behind their back and make notes, but don't say anything during the experiment. After these 30 minutes, you'll most definitely discover several loose ends to tie:
+It might sound a bit silly, but it really isn't! This is called _user testing_.
+
+Run `apify push`, give your friend the README, and open the Actor in Apify Console. Then let them take control of the computer with a single goal: run the Actor for the first time. Watch over their shoulder and take notes, but don't help. Within 30 minutes, you'll almost certainly uncover a few loose ends:
 
 - Does the README explain the quickest way to get useful results?
 - Are the input field names clear, with helpful tooltips where needed?
@@ -73,24 +75,30 @@ It sounds silly, but it's really not! It's called _user testing_. Give your frie
 - Is the output consistent, with predictable fields and formats?
 - When the Actor fails, does it provide a useful, actionable error message?
 
-If you can't have a hold of such friend, you can try it yourself, forcing your own mind into acting like someone who doesn't know what the Actor is about and tries to use it, but it's never the same as a true second pair of eyes.
+If you can't find such a friend, you can try the experiment yourself, pretending you are seeing the Actor for the first time, but it won't match a genuine second pair of eyes.
 
-In this case, it's probably better to ask any AI chat or agent different from the one which wrote the README to give you such feedback:
+A better alternative is to ask an AI chat or agent other than the one that wrote the README. Use this prompt as a starting point:
+
+```text
+Imitate a user testing session. You are an Apify Store user
+who has just found this Actor and its README. Work out what
+the Actor does, what it's useful for, and how to run it for
+the first time. Then suggest improvements that would make
+the first-run experience clearer and smoother.
+```
+
+For example, this is how response from Claude (AI chat by Anthropic) can look like:
+
 
 ![Claude reviewing an Actor README as a first-time user](images/claude-user-testing.webp)
 
-This is the example prompt you can use as a starting point:
 
-```text
-Imitate a user testing session in which you, as a user
-of Apify Store, find this Actor README and try
-to comprehend what is it good for and how to use it for
-the first time. Your goal is to try running the Actor
-for the first time. Provide feedback on what can be
-improved to polish the first time experience.
-```
 
-Mind that once you publish your actor, Apify Store itself will join the feedback party. They automatically test public Actors every day with its prefilled input and expect it to successfully finish within 5 minutes. That's one more reason to make the default run quick, reliable, and useful. Learn more about [automated Actor testing](/actors/publishing/test).
+:::info Apify Store test
+
+Once you publish your Actor, Apify Store itself will join the feedback party. Apify [automatically tests public Actors](/actors/publishing/test) every day. The run, using the Actor's prefilled input, must succeed and produce a non-empty output within 5 minutes. If this test fails, the Actor gets flagged.
+
+:::
 
 ## Preparing the Store listing
 
