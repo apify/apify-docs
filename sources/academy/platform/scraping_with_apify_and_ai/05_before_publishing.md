@@ -1,7 +1,7 @@
 ---
-title: Publishing to Apify Store
+title: Before publishing to Apify Store
 description: Use AI to prepare your scraper for other users by improving its first-run experience, Apify Store listing, documentation, and maintenance plan.
-slug: /scraping-with-apify-and-ai/publishing-to-apify-store
+slug: /scraping-with-apify-and-ai/before-publishing-to-apify-store
 unlisted: true
 ---
 
