@@ -75,7 +75,7 @@ Run `apify push`, give your friend the README, and open the Actor in Apify Conso
 - Is the output consistent, with predictable fields and formats?
 - When the Actor fails, does it provide a useful, actionable error message?
 
-If you can't find such a friend, you can try the experiment yourself, pretending you are seeing the Actor for the first time, but it won't match a genuine second pair of eyes.
+If you can't find such a friend, you can try the experiment yourself and pretend you're seeing the Actor for the first time, but it won't match a genuine second pair of eyes.
 
 A better alternative is to ask an AI chat or agent other than the one that wrote the README. Use this prompt as a starting point:
 
@@ -87,16 +87,13 @@ the first time. Then suggest improvements that would make
 the first-run experience clearer and smoother.
 ```
 
-For example, this is how response from Claude (AI chat by Anthropic) can look like:
-
+For example, here's what a response from Claude, Anthropic's AI chat, might look like:
 
 ![Claude reviewing an Actor README as a first-time user](images/claude-user-testing.webp)
 
-
-
 :::info Apify Store test
 
-Once you publish your Actor, Apify Store itself will join the feedback party. Apify [automatically tests public Actors](/actors/publishing/test) every day. The run, using the Actor's prefilled input, must succeed and produce a non-empty output within 5 minutes. If this test fails, the Actor gets flagged.
+Once you publish your Actor, Apify Store itself will join the feedback party. Apify [automatically tests public Actors](/actors/publishing/test) every day using each Actor's prefilled input. The run must succeed and produce a non-empty output within 5 minutes. If it fails, the Actor gets flagged.
 
 :::
 
