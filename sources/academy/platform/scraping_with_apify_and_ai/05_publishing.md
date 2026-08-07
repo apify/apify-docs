@@ -12,21 +12,19 @@ unlisted: true
 Our scraper works, and its behavior is backed by documentation and tests. However, we've built it only for ourselves. If we wanted other people to use it, they'd run into several problems:
 
 - _Wrong kind of README:_ It tells its developers how the code should behave, not users how to get useful data.
-- _Rough first run:_ We haven't designed, documented, or tested the scraper inputs for a first-time user.
+- _Rough first run:_ It can be the case that the scraper inputs are not designed, documented, or properly tested with a first-time user in mind.
 - _Empty storefront:_ The Actor has no convincing name, description, presentation, or clear pricing.
 - _No maintenance strategy:_ There will be failed runs, user questions, or changes to the target website. We need to be prepared.
 
-We can ask an AI agent to examine our Actor from a user's perspective and help us tie up these loose ends. We'll also prepare our scraper's Apify Store listing and decide how to keep it working after launch.
+Before publishing our Actor to the Apify Store we'll rework the README, make sure first-time users know what to do, prepare the Store listing, and decide how to keep the scraper working after launch.
 
 ## Turning the README into a landing page
 
-Right now, the README explains how to develop the project, how it works, and why we made certain design decisions.
+Right now, the README explains how to develop the project, how it works, and why we made certain design decisions. That's useful information, but not for most users of Actors.
 
-That's useful information, but not for most scraper users. They want to know what data the Actor provides, what inputs it takes, and what its output looks like.
+They want to know what data the Actor provides, what inputs it takes, and what its output looks like. When they need to understand the scraper's limitations, they might care about some technical details, but as long as the scraper delivers data they need, they'll be perfectly happy without them.
 
-They might care about the implementation when they need to understand the scraper's limitations. Otherwise, they'll be perfectly happy not knowing any details, as long as it works.
-
-Let's move the current README to a separate file, such as `CONTRIBUTING.md`, and create a new `README.md` that serves as the Actor's landing page. Ask the AI agent to draft it:
+Let's move the current README to a different file, such as `CONTRIBUTING.md`, and create a new `README.md` that serves as the Actor's landing page. Ask the AI agent to draft it:
 
 ```text
 Move the current README content to CONTRIBUTING.md.
@@ -34,7 +32,11 @@ Then read https://docs.apify.com/actors/publishing/actor-readme
 and draft a new README focused on users.
 ```
 
-After a short wait, we'll have a new README ready. Each AI agent run is different, but the result will probably include sections similar to these:
+After a short wait, we'll have a new README ready. Cursor has a built-in Markdown preview, so for easier reading press Command+Shift+P to open the command palette, then type `mark pre` and the palette will suggest "Markdown: Open Preview". Press Enter to confirm.
+
+![Preview of the new README in Cursor](images/cursor-user-readme-top.webp)
+
+Each AI agent run is different, but the result will probably include sections similar to these:
 
 - What does this Actor do?
 - How to scrape Shopify product prices
@@ -49,6 +51,8 @@ Cursor can read the contributing docs, inspect the code, and follow the [guide t
 - How is stock availability handled?
 - Can I schedule regular price checks?
 - Something went wrong - what should I check?
+
+![Output fields and FAQ in the README preview](images/cursor-user-readme-output-faq.webp)
 
 Read the whole README and make sure everything is accurate and sounds like you. It will set users' expectations, and it's you who is responsible for every promise it makes, not the AI agent.
 
