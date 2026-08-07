@@ -32,7 +32,7 @@ Then read https://docs.apify.com/actors/publishing/actor-readme
 and draft a new README focused on users.
 ```
 
-After a short wait, we'll have a new README ready. Cursor has a built-in Markdown preview, so for easier reading press Command+Shift+P to open the command palette, then type `mark pre` and the palette will suggest "Markdown: Open Preview". Press Enter to confirm.
+After a short wait, we'll have a new README ready. Cursor has a built-in Markdown preview, so let's make it easier to read. Open the [command palette](https://docs.cursor.com/advanced/keyboard-shortcuts) with <kbd>⌘+⇧+P</kbd> on macOS or <kbd>Ctrl+Shift+P</kbd> on Windows and Linux. Type "mark pre", select **Markdown: Open Preview**, and press <kbd>↵</kbd>. You should see a preview of how the document would look on Apify Store, GitHub, or another service.
 
 ![Preview of the new README in Cursor](images/cursor-user-readme-top.webp)
 
@@ -56,16 +56,40 @@ Cursor can read the contributing docs, inspect the code, and follow the [guide t
 
 Read the whole README and make sure everything is accurate and sounds like you. It will set users' expectations, and it's you who is responsible for every promise it makes, not the AI agent.
 
-This new README will eventually become the page that sells your Actor, so keep prompting the AI agent to improve it. Most importantly, ask it to rename the Actor to something catchier than "My Actor"!
+This new README will eventually become the page that sells your Actor, so keep prompting the AI agent to improve it. And most importantly, ask it to rename the Actor to something catchier than "My Actor"!
 
 ## Making the first run easy
 
-:::note Course under construction
-This page hasn't been written yet. Please come back later!
-:::
+To make sure that our users can understand the Actor well and won't have issues to try the Actor, we'll do a small simulation.
+
+If you have a at least a tiny little bit tech savvy friend, ask them for 30 minutes of their time and let them try their first run with your Actor. Ideally if they don't know what you're working on, so they're without previous context.
+
+It sounds silly, but it's really not! It's called _user testing_. Give your friend the instructions in the README and the Actor ready in your Apify console, and let them control the computer with the goal of using your Actor for the first time. You can watch behind their back and make notes, but don't say anything during the experiment. After these 30 minutes, you'll most definitely discover several loose ends to tie:
+
+- Can you provide better documentation?
+- Default or prefilled input values?
+- Choose the example values wisely so that the first run finishes quickly but still illustrates the value of the Actor?
+- Can the output data be more diverse to show the Actor value?
+- When the Actor fails, does it provide useful and actionable error messages?
+
+If you can't have a hold of such friend, you can try it yourself, forcing your own mind into acting like someone who doesn't know what the Actor is about and tries to use it, but it's never the same as a true second pair of eyes.
+
+In this case, it's probably better to ask any AI chat or agent different from the one which wrote the README to give you such feedback:
+
+![Claude reviewing an Actor README as a first-time user](images/claude-user-testing.webp)
+
+This is the example prompt you can use as a starting point:
+
+```text
+Imitate a user testing session in which you, as a user
+of Apify Store, find this Actor README and try
+to comprehend what is it good for and how to use it for
+the first time. Your goal is to try running the Actor
+for the first time. Provide feedback on what can be
+improved to polish the first time experience.
+```
 
 <!--
-- Ask the learner to try the Actor as a new user would: start with the prefilled input, finish quickly, return useful data, and fail with an actionable message.
 - Briefly check safe defaults, clear field names and tooltips, a useful sample output, and consistent output. Do not repeat the schema reference.
 - Connect this pass to the tests created in the previous lesson. Mention that Apify's Store test expects the default run to succeed and produce a non-empty dataset within five minutes.
 - Link to [How to create a great input schema](/academy/actor-marketing-playbook/product-optimization/how-to-create-a-great-input-schema), [Actor output schema](/actors/development/actor-definition/output-schema), and [Automated testing](/actors/publishing/test).
