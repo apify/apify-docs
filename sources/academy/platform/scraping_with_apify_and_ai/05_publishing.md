@@ -66,11 +66,12 @@ If you have a at least a tiny little bit tech savvy friend, ask them for 30 minu
 
 It sounds silly, but it's really not! It's called _user testing_. Give your friend the instructions in the README and the Actor ready in your Apify console, and let them control the computer with the goal of using your Actor for the first time. You can watch behind their back and make notes, but don't say anything during the experiment. After these 30 minutes, you'll most definitely discover several loose ends to tie:
 
-- Can you provide better documentation?
-- Default or prefilled input values?
-- Choose the example values wisely so that the first run finishes quickly but still illustrates the value of the Actor?
-- Can the output data be more diverse to show the Actor value?
-- When the Actor fails, does it provide useful and actionable error messages?
+- Does the README explain the quickest way to get useful results?
+- Are the input field names clear, with helpful tooltips where needed?
+- Are the default and prefilled values safe, inexpensive, and quick to run while still showing the Actor's value?
+- Does the sample output make it obvious what useful data the Actor provides?
+- Is the output consistent, with predictable fields and formats?
+- When the Actor fails, does it provide a useful, actionable error message?
 
 If you can't have a hold of such friend, you can try it yourself, forcing your own mind into acting like someone who doesn't know what the Actor is about and tries to use it, but it's never the same as a true second pair of eyes.
 
@@ -90,7 +91,6 @@ improved to polish the first time experience.
 ```
 
 <!--
-- Briefly check safe defaults, clear field names and tooltips, a useful sample output, and consistent output. Do not repeat the schema reference.
 - Connect this pass to the tests created in the previous lesson. Mention that Apify's Store test expects the default run to succeed and produce a non-empty dataset within five minutes.
 - Link to [How to create a great input schema](/academy/actor-marketing-playbook/product-optimization/how-to-create-a-great-input-schema), [Actor output schema](/actors/development/actor-definition/output-schema), and [Automated testing](/actors/publishing/test).
 -->
