@@ -1,0 +1,25 @@
+name: Test API Docs Code Samples
+
+on:
+  push:
+    paths:
+      - 'apify-api/openapi/code_samples/**'
+  pull_request:
+    paths:
+      - 'apify-api/openapi/code_samples/**'
+
+jobs:
+  run-code-sample-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Call Code Sample Tester Actor
+        env:
+          APIFY_TOKEN: ${{ secrets.CODE_SAMPLE_TESTER_ACTOR_TOKEN }}
+          BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
+          REPO_OWNER: ${{ github.actor }}
+        run: |
+          curl --fail-with-body -X POST "https://api.apify.com/v2/acts/X8D0L4wfpO8fCL1uL/run-sync" \
+          -H "Content-Type: application/json" \
+          -H "Authorization: Bearer $APIFY_TOKEN" \
+          -d '{ "branch": "'"$BRANCH_NAME"'", "repoOwner": "'"$REPO_OWNER"'" }'
