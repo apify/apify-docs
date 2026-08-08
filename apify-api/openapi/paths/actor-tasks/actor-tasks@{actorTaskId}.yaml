@@ -52,6 +52,10 @@ put:
 
     If the object does not define a specific property, its value is not updated.
 
+    The `publicConfig` field carries the display configuration of the task's public
+    landing page, and `isPublic` publishes or unpublishes the task itself. Both require
+    write permission to the task's Actor.
+
     The response is the full task object as returned by the
     [Get task](/api/v2/actor-task-get) endpoint.
 

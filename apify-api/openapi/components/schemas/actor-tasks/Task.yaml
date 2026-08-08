@@ -55,3 +55,14 @@ properties:
   standbyUrl:
     type: [string, "null"]
     format: uri
+  isPublic:
+    type: boolean
+    description: |
+      Whether the task is published on its public landing page. Derived from
+      `publicConfig.publishedAt`. Set it via the [Update task](/api/v2/actor-task-put)
+      endpoint to publish or unpublish the task.
+    examples: [false]
+  publicConfig:
+    anyOf:
+      - $ref: ./TaskPublicConfig.yaml
+      - type: "null"

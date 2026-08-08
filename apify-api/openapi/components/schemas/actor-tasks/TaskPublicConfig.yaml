@@ -1,0 +1,37 @@
+title: TaskPublicConfig
+type: object
+description: |
+  Public-facing configuration of a published task, used by the task's public landing page.
+  The task's publication state is determined by `publishedAt` - a task is published when
+  `publishedAt` is set and unpublished when it is `null`.
+properties:
+  publishedAt:
+    type: [string, "null"]
+    format: date-time
+    readOnly: true
+    description: |
+      Time when the task was published, or `null` if the task is not published.
+      This field is server-controlled - to publish or unpublish a task, set `isPublic`
+      via the [Update task](/api/v2/actor-task-put) endpoint.
+    examples: ["2025-06-16T09:20:45.777Z"]
+  seoTitle:
+    type: [string, "null"]
+    description: SEO title of the public task page. Defaults to the task title when not set.
+    examples: [Scrape data from a website]
+  seoDescription:
+    type: [string, "null"]
+    description: SEO description of the public task page. Defaults to the task description when not set.
+  categorization:
+    type: [string, "null"]
+    description: Use-case category of the public task.
+  inputSchemaFields:
+    type: [array, "null"]
+    description: Names of the task input fields displayed on the public task page.
+    items:
+      type: string
+  datasetName:
+    type: [string, "null"]
+    description: Name of the dataset from the Actor's dataset schema whose results are displayed.
+  datasetView:
+    type: [string, "null"]
+    description: Key of the dataset view from the Actor's dataset schema used to display results.
