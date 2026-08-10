@@ -18,6 +18,12 @@ Our scraper works, and its behavior is backed by documentation and tests. Howeve
 
 Before publishing our Actor to the Apify Store we'll rework the README, make sure first-time users know what to do, prepare the Store listing, and decide how to keep the scraper working after launch.
 
+:::info Publishing and monetization guide
+
+This lesson just scratches the surface. If you want a deep dive, be sure to head over to the [Publishing and monetization](https://docs.apify.com/actors/publishing) section in our documentation about Actors.
+
+:::
+
 ## Turning the README into a landing page
 
 Right now, the README explains how to develop the project, how it works, and why we made certain design decisions. That's useful information, but not for most users of Actors.
