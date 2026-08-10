@@ -172,3 +172,13 @@ This page hasn't been written yet. Please come back later!
 - Encourage one or two relevant channels rather than an indiscriminate launch campaign.
 - Link to the [Marketing checklist](/academy/actor-marketing-playbook/promote-your-actor/checklist), [SEO guide](/academy/actor-marketing-playbook/promote-your-actor/seo), and [Video tutorials](/academy/actor-marketing-playbook/promote-your-actor/video-tutorials) for deeper promotion guidance.
 -->
+
+## Ready!
+
+After five lessons on how to develop a new Actor and prepare it for listing in the Apify Store, you should be now ready to pursue your own ideas what to create.
+
+The methods from this course show how to develop without writing or understanding code, using the AI chat and then AI agent. It also shows how to make the project robust so that it won't easily deteriorate with further prompting, and how to leverage the AI to kick off some of the stuff needed for publishing to the Apify Store.
+
+The only bit missing now is an idea which you'll start turning into a real working software which you can eventutally also share and which can bring you some pennies. It ain't no passive income, but it's definitely an interesting and fun way how to earn some bucks. Good luck & have fun!
+
+If you ever bump into limits of what you're able to do with AI, you can deepen your scraping knowledge by follwing our beginner coding courses: [Web scraping basics with JavaScript](http://localhost:3000/academy/scraping-basics-javascript) or [Web scraping basics with Python](http://localhost:3000/academy/scraping-basics-python).
