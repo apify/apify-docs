@@ -160,15 +160,15 @@ Apify calculates an [Actor quality score](/actors/publishing/quality-score) that
 
 :::
 
-## Helping the right users find it
+## Reaching your first users
 
-Usefulness and technical excellence are one thing, but nobody can use something they don't know it exists. That's why, if we aim for the moon, we'll need also marketing. It's a big topic and [Apify's Marketing guide](/academy/actor-marketing-playbook/promote-your-actor/checklist) is a great resource for that, but for a start, you may want to consider at least a few basics:
+A useful, reliable Actor can still sit quietly on Apify Store while nobody notices it. You don't need a grand launch campaign, but you do need to help the first few users find it.
 
-- Make sure the README and communication in overall uses the words the users use when talk about the problem your scraper solves. Avoid too many technical details and terms.
-- [Record one short demo](/academy/actor-marketing-playbook/promote-your-actor/video-tutorials) that shows the whole life cycle of the Actor from input to output. It doesn't have to be anything fancy or very polished. Even a crude screencast with some free background music will do. It won't make big numbers on YouTube, but you can insert it to your README and share to places where your users are.
-- Craft the Apify Store listing, README headings, or even the video in a way that it answers questions your users may have before or after they use the Actor. It also contributes to [searchability of these resources](/academy/actor-marketing-playbook/promote-your-actor/seo).
+- Describe the problem your Actor solves in the words your users would use, not in technical terms. Use that language naturally in the Actor's name, Store listing, README headings, and FAQ. This helps people, search engines, and AI tools understand when the Actor is useful.
+- [Record a short demo](/academy/actor-marketing-playbook/promote-your-actor/video-tutorials) that follows one run from input to useful results. It doesn't have to be fancy or polished. Even a rough screencast with some free background music will do. It probably won't rack up huge numbers on YouTube, but you can add it to your README and share it wherever your users hang out.
+- Pick one or two places where people already discuss the problem your Actor solves. Answer questions, show how the Actor helps, and listen to the feedback. That's more useful than dropping the same promotional post everywhere.
 
-Instead of preparing a launch of a big campaign, in the beginning you may be better off starting with one or two relevant channels where you can gather initial feedback.
+Marketing can go much further than this, but that's a course of its own. When you're ready for more, continue with the [marketing checklist](/academy/actor-marketing-playbook/promote-your-actor/checklist) and the guide to [making your Actor easier to find through search](/academy/actor-marketing-playbook/promote-your-actor/seo).
 
 ## Wrapping up
 
