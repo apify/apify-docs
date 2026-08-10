@@ -8,8 +8,13 @@ with Playwright, so documentation drift is caught automatically.
 
 ```
 pages.json ──extract──▶ assertions/*.json ──Playwright──▶ output/issues.json
-(page list)  (claude -p)  (committed baseline)  (vs staging)   (drift report)
+(page list)  (claude -p)  (committed baseline)   (2 suites)    (drift report)
 ```
+
+Two suites run against the same baseline:
+
+- **UI side** (`from-doc.spec.ts`) — does the live Console still match what the docs claim? Detects *UI drift* (the product changed, the docs didn't).
+- **Doc side** (`baseline-integrity.spec.ts`) — does each assertion's `source_file` / `source_quote` still resolve in the repo? Detects *doc drift* (the docs moved or were rewritten under the baseline). Static, no browser, no credentials.
 
 ## Model
 
@@ -21,10 +26,16 @@ pages.json ──extract──▶ assertions/*.json ──Playwright──▶ ou
 3. **`assertions/`** is the *stored, reviewed baseline* — committed to the repo.
    Regenerate it with the LLM whenever docs change, review the diff, commit.
    The assertion set is owned by humans even though a model drafts it.
-4. **`tests/from-doc.spec.ts`** reads every stored assertion and emits one
-   Playwright `test()` per assertion, run against `$CONSOLE_STAGING_URL`.
-5. Failures point back to `source_file:line` so the offending prose is one click
-   away, and land in `output/issues.json` for downstream triage.
+4. **`tests/from-doc.spec.ts`** (UI side) reads every stored assertion and emits
+   one Playwright `test()` per assertion, run against `$CONSOLE_STAGING_URL`.
+5. **`tests/baseline-integrity.spec.ts`** (doc side) checks the *other half* of
+   every assertion — that its `source_file` still exists and its `source_quote`
+   still appears in it. This catches docs being moved or rewritten under the
+   baseline; the UI checks alone stay green when that happens. Pure static: no
+   browser, no credentials.
+6. Failures from either suite point back to `source_file:line` so the offending
+   prose is one click away, and land in `output/issues.json` for downstream
+   triage.
 
 The Notion plan *"AI-based testing for docs"* (its Part 1 routes + Part 2
 elements) is the inspiration for which pages and claims to cover — not a fixed
@@ -55,18 +66,31 @@ cp .env.example .env   # fill in CONSOLE_STAGING_URL + seeded-user email/passwor
 pnpm extract:all
 
 # Or a single page:
-pnpm extract sources/platform/console/settings.md
+pnpm extract sources/platform/account/settings.md
 ```
 
-Review the diff in `assertions/`, then commit. This is the step a human owns.
+The extractor writes `assertions/<slug>.json`, where `<slug>` is the doc path
+with `sources/platform/` stripped and `/` turned into `-` (so
+`account/settings.md` → `account-settings.json`). Output is pretty-printed and
+normalized through `jq` so re-extractions stay diff-friendly.
+
+Review the diff in `assertions/`, then commit. **This is the step a human owns** —
+the model drafts; you decide what's a real, testable UI claim (see
+[Adding a new test case](#adding-a-new-test-case)).
 
 ## Run the tests
 
 ```bash
-pnpm test            # evaluate all stored assertions against staging
+pnpm test            # both suites: doc-side integrity + UI checks against staging
+pnpm test:integrity  # doc side only — static, no browser, no credentials
+pnpm test:ui         # UI side only — against staging
 pnpm issues          # machine-readable, action-oriented failures
 pnpm report          # HTML report (failures include screenshots, video, trace)
 ```
+
+`pnpm test` runs two Playwright projects — `integrity` (doc side) and `tests`
+(UI side). `integrity` runs first and needs no credentials, so a stale baseline
+(e.g. a doc that moved) fails fast before the browser suite starts.
 
 Authentication is automatic: a worker-scoped fixture (`tests/auth.fixture.ts`)
 logs in once per run with `CONSOLE_STAGING_USER_EMAIL` / `_PASSWORD` and keeps
@@ -81,24 +105,87 @@ also captures the live page's same-kind labels (`observed_candidates`) and, when
 unambiguous, a `suggested_target`, so a downstream LLM can propose a doc fix
 without re-running the browser.
 
-## Adjusting coverage
+## Adding a new test case
 
-Edit `pages.json` and re-run `pnpm extract:all`. Add a page → it gets an
-assertion set; remove one → delete its `assertions/<slug>.json`.
+There are two paths, depending on whether you're covering a whole new page or
+adding a single claim.
+
+### Cover a new page (the usual way)
+
+1. Add the doc's repo-relative path to **`pages.json`**, e.g.
+   `"sources/platform/account/notifications.md"`. Only add pages that document
+   the **Console** UI — not the public marketing site (see the surface-mismatch
+   gap below).
+2. Run `pnpm extract sources/platform/account/notifications.md` (one page) or
+   `pnpm extract:all` (everything). This writes `assertions/account-notifications.json`.
+3. **Review the diff** — this is the real work. The extractor is a first draft;
+   you confirm each assertion is a genuine, testable UI claim and delete the
+   ones that aren't (see [Curating the diff](#curating-the-diff)).
+4. `pnpm test:integrity` to confirm the doc side resolves, then `pnpm test` to
+   validate against staging. Adjust or drop any assertion that fails for a
+   reason other than real drift.
+5. Commit `pages.json` + the new `assertions/*.json`.
+
+Removing a page: delete its line from `pages.json` and its
+`assertions/<slug>.json`.
+
+### Add or edit a single assertion by hand
+
+Assertions are plain JSON — you can hand-write one without re-extracting. Each
+lives in `assertions/<page>.json` under `assertions[]`:
+
+```json
+{
+  "id": "notifications-tab",              // unique, kebab-case
+  "kind": "element_tab",                  // route | element_tab | element_button | element_text
+  "target": "Notifications",              // route path (kind=route) OR the visible UI label
+  "at": "/settings/notifications",        // page to open first (element_* only); omit for a route
+  "page_context": "Settings > Notifications tab",   // human note, not asserted
+  "source_quote": "The **Notifications** tab lets you…",  // exact text copied from the doc
+  "source_line": 42,                      // 1-indexed line of that text in source_file
+  "needs_auth": true                      // false = run logged-out (sign-up/sign-in pages)
+}
+```
+
+Then run `pnpm test:integrity` (verifies `source_file`/`source_quote`/`source_line`
+resolve) and `pnpm test`. `source_file` is set once per file at the top level, so
+a hand-added assertion inherits it.
+
+> An `element_*` assertion **without** `at` is intentionally *skipped*, not
+> failed — it has no landing route to open. Those are the detail-page-fixture
+> gap (below). Give it an `at` only when there's a real page it appears on.
+
+### Curating the diff
+
+The extractor over-generates; a few recurring false positives to delete on sight:
+
+- **Bolded prose that isn't a UI label.** House style bolds real UI element
+  names, but authors also bold for emphasis. `"The tab shows **third-party apps
+  and services**…"` is a description, not a clickable label — drop it.
+- **Sign-up / sign-in form buttons.** Console's `/sign-up` serves the app, not a
+  form, so "Sign up" / "Continue with Google" buttons aren't present — don't
+  assert them. The `/sign-up` and `/sign-in` *routes* are fine.
+- **Surface mismatch.** If the doc describes `apify.com/store` (public site) but
+  the harness tests Console `/store`, labels can differ — verify before adding.
 
 ## CI
 
-`.github/workflows/docs-ui-tests.yaml` runs the evaluation on a weekly schedule
-and on manual dispatch: it installs Playwright, logs in with the
+`.github/workflows/docs-ui-tests.yaml` runs `pnpm test` (both suites) on a weekly
+schedule and on manual dispatch: it installs Playwright, logs in with the
 `CONSOLE_STAGING_*` repo secrets, evaluates the committed baseline against
-staging, uploads the report, and files a `docs-ui-drift` issue when an assertion
-fails. Extraction never runs in CI — the reviewed baseline is the only input.
+staging, uploads the report, and files a `docs-ui-drift` issue when any assertion
+fails — UI-side *or* doc-side. Extraction never runs in CI; the reviewed baseline
+is the only input. The workflow triggers only from the default branch, so
+pre-merge validation is a local `pnpm test` (or a temporary `push:` trigger on a
+throwaway branch).
 
 ## Known gaps (deferred)
 
-- **Coverage is a starting slice.** `pages.json` covers the Console section
-  (index, settings, billing, store) — routes and landing-page elements. Widening
-  to more pages is a follow-up: add to `pages.json`, re-extract, review, commit.
+- **Coverage is a starting slice.** `pages.json` covers the account section
+  (`account/console` dashboard, `account/settings`, `account/billing`) — routes
+  and landing-page elements. (`console/store.md` was dropped: it has no bold UI
+  element labels to test.) Widening to more pages is a follow-up: add to
+  `pages.json`, re-extract, review, commit.
 - **Detail-page fixtures.** Assertions about Actor-detail, Schedule-detail, etc.
   need a known fixture to navigate to. The runner currently *skips* element
   assertions with no `at` route — surfacing the gap without false negatives.
@@ -127,9 +214,10 @@ docs-tests/
 │   └── extract-all.sh           # whole manifest
 ├── reporters/issues-reporter.ts # custom Playwright reporter → output/issues.json
 ├── tests/
-│   ├── auth.fixture.ts          # worker-scoped login from env creds (in-memory session)
-│   ├── from-doc.spec.ts         # reads assertions/*.json, emits tests
-│   └── similarity.ts            # suggest-replacement helper for failures
-├── playwright.config.ts
-└── .env                         # CONSOLE_STAGING_URL (gitignored)
+│   ├── auth.fixture.ts             # worker-scoped login from env creds (in-memory session)
+│   ├── from-doc.spec.ts            # UI side: reads assertions/*.json, checks Console staging
+│   ├── baseline-integrity.spec.ts  # doc side: checks each source_file/source_quote resolves
+│   └── similarity.ts               # suggest-replacement helper for failures
+├── playwright.config.ts         # two projects: `integrity` (doc) + `tests` (UI)
+└── .env                         # CONSOLE_STAGING_URL + creds (gitignored)
 ```

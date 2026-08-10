@@ -83,11 +83,151 @@ const themeConfig = {
                 target: '_self',
                 rel: 'dofollow',
             },
+            // The dropdown labels below carry both `href` and `to` on purpose. `href` keeps the
+            // target absolute, so the link resolves from the client, SDK, and CLI docs sites as
+            // well. `to` tells the Docusaurus dropdown that the label is a real link, so clicking
+            // it opens the landing page instead of only toggling the menu open.
             {
-                label: 'APIs, SDKs & CLI',
+                label: 'API',
                 type: 'dropdown',
-                activeBaseRegex: '^/(api|sdk|cli)/',
+                href: `${absoluteUrl}/api`,
+                to: `${absoluteUrl}/api`,
+                activeBaseRegex: '^/api(/|$)',
                 position: 'right',
+                target: '_self',
+                rel: 'dofollow',
+                items: [
+                    {
+                        label: 'API reference',
+                        href: `${absoluteUrl}/api/v2`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                    {
+                        label: 'Client for JavaScript',
+                        href: `${absoluteUrl}/api/client/js/docs`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                    {
+                        label: 'Client for Python',
+                        href: `${absoluteUrl}/api/client/python/docs`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                    {
+                        label: 'Client for Go',
+                        href: `https://github.com/apify/apify-client-go`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                    {
+                        label: 'Client for PHP',
+                        href: `https://github.com/apify/apify-client-php`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                    {
+                        label: 'Client for Java',
+                        href: `https://github.com/apify/apify-client-java`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                    {
+                        label: 'Client for .NET',
+                        href: `https://github.com/apify/apify-client-dotnet`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                    {
+                        label: 'Client for Rust',
+                        href: `https://github.com/apify/apify-client-rust`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                ],
+            },
+            {
+                label: 'SDK',
+                type: 'dropdown',
+                href: `${absoluteUrl}/sdk`,
+                to: `${absoluteUrl}/sdk`,
+                activeBaseRegex: '^/sdk(/|$)',
+                position: 'right',
+                target: '_self',
+                rel: 'dofollow',
+                items: [
+                    {
+                        label: 'SDK for JavaScript',
+                        href: `${absoluteUrl}/sdk/js/docs/overview`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                    {
+                        label: 'SDK for Python',
+                        href: `${absoluteUrl}/sdk/python/docs/overview`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                ],
+            },
+            {
+                label: 'CLI',
+                type: 'dropdown',
+                href: `${absoluteUrl}/cli`,
+                to: `${absoluteUrl}/cli`,
+                activeBaseRegex: '^/cli(/|$)',
+                position: 'right',
+                target: '_self',
+                rel: 'dofollow',
+                items: [
+                    {
+                        label: 'Installation',
+                        href: `${absoluteUrl}/cli/docs/installation`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                    {
+                        label: 'Quick start',
+                        href: `${absoluteUrl}/cli/docs/quick-start`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                    {
+                        label: 'Command reference',
+                        href: `${absoluteUrl}/cli/docs/reference`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                ],
+            },
+            {
+                label: 'MCP',
+                href: `${absoluteUrl}/integrations/mcp`,
+                activeBasePath: 'integrations/mcp',
+                position: 'right',
+                target: '_self',
+                rel: 'dofollow',
+            },
+        ],
+    },
+    colorMode: {
+        defaultMode: 'light',
+        disableSwitch: false,
+        respectPrefersColorScheme: true,
+    },
+    prism: {
+        defaultLanguage: 'typescript',
+        theme: require('./theme/CodeThemes/light').lightTheme,
+        darkTheme: require('./theme/CodeThemes/dark').darkTheme,
+        additionalLanguages: ['docker', 'log', 'php', 'json5', 'bash'],
+    },
+    // this needs to be absolute link otherwise it gets resolved wrongly in project docs
+    image: 'https://apify.com/og-image/docs-article',
+    footer: {
+        links: [
+            {
+                title: 'Reference',
                 items: [
                     {
                         label: 'API Reference',
@@ -125,116 +265,6 @@ const themeConfig = {
                         target: '_self',
                         rel: 'dofollow',
                     },
-                    {
-                        label: 'Experimental client for Rust',
-                        href: `https://github.com/apify/apify-client-rust`,
-                        target: '_self',
-                        rel: 'dofollow',
-                    },
-                    {
-                        label: 'Experimental client for Go',
-                        href: `https://github.com/apify/apify-client-go`,
-                        target: '_self',
-                        rel: 'dofollow',
-                    },
-                    {
-                        label: 'Experimental client for PHP',
-                        href: `https://github.com/apify/apify-client-php`,
-                        target: '_self',
-                        rel: 'dofollow',
-                    },
-                    {
-                        label: 'Experimental client for Java',
-                        href: `https://github.com/apify/apify-client-java`,
-                        target: '_self',
-                        rel: 'dofollow',
-                    },
-                    {
-                        label: 'Experimental client for .NET',
-                        href: `https://github.com/apify/apify-client-dotnet`,
-                        target: '_self',
-                        rel: 'dofollow',
-                    },
-                ],
-            },
-        ],
-    },
-    colorMode: {
-        defaultMode: 'light',
-        disableSwitch: false,
-        respectPrefersColorScheme: true,
-    },
-    prism: {
-        defaultLanguage: 'typescript',
-        theme: require('./theme/CodeThemes/light').lightTheme,
-        darkTheme: require('./theme/CodeThemes/dark').darkTheme,
-        additionalLanguages: ['docker', 'log', 'php', 'json5', 'bash'],
-    },
-    // this needs to be absolute link otherwise it gets resolved wrongly in project docs
-    image: 'https://apify.com/og-image/docs-article',
-    footer: {
-        links: [
-            {
-                title: 'Learn',
-                items: [
-                    {
-                        label: 'Academy',
-                        href: `${absoluteUrl}/academy`,
-                        target: '_self',
-                        rel: 'dofollow',
-                    },
-                    {
-                        label: 'Get started',
-                        href: `${absoluteUrl}/get-started`,
-                        target: '_self',
-                        rel: 'dofollow',
-                    },
-                    {
-                        label: 'Actors',
-                        href: `${absoluteUrl}/actors`,
-                        target: '_self',
-                        rel: 'dofollow',
-                    },
-                ],
-            },
-            {
-                title: 'API',
-                items: [
-                    {
-                        label: 'Reference',
-                        href: `${absoluteUrl}/api/v2`,
-                        target: '_self',
-                        rel: 'dofollow',
-                    },
-                    {
-                        label: 'Client for JavaScript',
-                        href: `${absoluteUrl}/api/client/js/docs`,
-                        target: '_self',
-                        rel: 'dofollow',
-                    },
-                    {
-                        label: 'Client for Python',
-                        href: `${absoluteUrl}/api/client/python/docs`,
-                        target: '_self',
-                        rel: 'dofollow',
-                    },
-                ],
-            },
-            {
-                title: 'SDK',
-                items: [
-                    {
-                        label: 'SDK for JavaScript',
-                        href: `${absoluteUrl}/sdk/js/docs/overview`,
-                        target: '_self',
-                        rel: 'dofollow',
-                    },
-                    {
-                        label: 'SDK for Python',
-                        href: `${absoluteUrl}/sdk/python/docs/overview`,
-                        target: '_self',
-                        rel: 'dofollow',
-                    },
                 ],
             },
             {
@@ -265,49 +295,64 @@ const themeConfig = {
                         label: 'proxy-chain',
                         href: 'https://github.com/apify/proxy-chain',
                     },
+                ],
+            },
+            {
+                title: 'Security',
+                items: [
                     {
-                        label: 'Apify on GitHub',
+                        label: 'Trust Center',
+                        href: 'https://trust.apify.com',
+                    },
+                ],
+            },
+            {
+                title: 'Community',
+                items: [
+                    {
+                        label: 'Discord',
+                        href: 'https://discord.com/invite/jyEM2PRvMU',
+                    },
+                    {
+                        label: 'X',
+                        href: 'https://x.com/apify',
+                    },
+                    {
+                        label: 'YouTube',
+                        href: 'https://www.youtube.com/c/Apify',
+                    },
+                    {
+                        label: 'GitHub',
                         href: 'https://github.com/apify',
                     },
                 ],
             },
             {
-                title: 'Other',
+                title: 'For AI',
                 items: [
-                    {
-                        label: 'CLI',
-                        href: `${absoluteUrl}/cli/docs`,
-                        position: 'left',
-                        target: '_self',
-                        rel: 'dofollow',
-                    },
                     {
                         label: 'llms.txt',
                         href: `${absoluteUrl}/llms.txt`,
                         target: '_self',
                         rel: 'dofollow',
                     },
-                ],
-            },
-            {
-                title: 'More',
-                items: [
                     {
-                        label: 'Crawlee',
-                        to: 'https://crawlee.dev',
+                        label: 'llms-full.txt',
+                        href: `${absoluteUrl}/llms-full.txt`,
+                        target: '_self',
                         rel: 'dofollow',
                     },
                     {
-                        label: 'GitHub',
-                        href: 'https://github.com/apify',
+                        label: 'OpenAPI (JSON)',
+                        href: `${absoluteUrl}/api/openapi.json`,
+                        target: '_self',
+                        rel: 'dofollow',
                     },
                     {
-                        href: 'https://discord.com/invite/jyEM2PRvMU',
-                        label: 'Discord',
-                    },
-                    {
-                        label: 'Trust Center',
-                        href: 'https://trust.apify.com',
+                        label: 'OpenAPI (YAML)',
+                        href: `${absoluteUrl}/api/openapi.yaml`,
+                        target: '_self',
+                        rel: 'dofollow',
                     },
                 ],
             },

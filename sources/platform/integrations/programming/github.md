@@ -55,7 +55,7 @@ After you link an Actor to a GitHub repository, add a webhook in GitHub to trigg
 1. In Apify Console, open the Actor's **API** dropdown and select **API endpoints**. Copy the **Build Actor** endpoint URL. It has this format:
 
     ```text
-    https://api.apify.com/v2/acts/YOUR-ACTOR-NAME/builds?token=YOUR-TOKEN&version=0.0&tag=latest&waitForFinish=60
+    https://api.apify.com/v2/actors/YOUR-ACTOR-NAME/builds?token=YOUR-TOKEN&version=0.0&tag=latest&waitForFinish=60
     ```
 
     :::note API token

@@ -92,23 +92,15 @@ schema:
 
 ### Python API client model generation
 
-OpenAPI spec changes in this repo automatically trigger Pydantic model regeneration in `apify-client-python`. The pipeline:
+`apify-client-python` generates its Pydantic models from the **published** spec, and it pulls them on its own schedule - this repo does not push anything to it:
 
-1. **This repo** (`.github/workflows/openapi-ci.yaml`):
-   - On PR with changes to `apify-api/openapi/**`: lint, build, and validate the bundled spec
-   - Upload `static/api/openapi.{json,yaml}` as artifacts
-   - `trigger-client-model-regeneration` job calls `gh workflow run manual_regenerate_models.yaml` in `apify/apify-client-python`, passing `docs_pr_number` and `docs_workflow_run_id`
-   - On PR close: `cleanup-client-model-pr` job closes the corresponding PR in `apify-client-python` and deletes its branch
+1. **This repo** (`.github/workflows/openapi-ci.yaml`): on a PR touching `apify-api/openapi/**`, lints, builds, and validates the bundled spec. Once merged and deployed, the bundle is served at `https://docs.apify.com/api/openapi.json`.
 
-2. **apify-client-python** (`.github/workflows/manual_regenerate_models.yaml`):
-   - Triggered via `workflow_dispatch` (automatically from this repo's CI or manually from GitHub UI)
-   - Downloads the OpenAPI spec artifact from this repo's workflow run (or fetches from `https://docs.apify.com/api/openapi.json` for manual runs)
-   - Runs `datamodel-codegen` to generate Pydantic models into `src/apify_client/_models.py`
-   - Runs `scripts/postprocess_generated_models.py` to fix known codegen issues (e.g. camelCase discriminator fields)
-   - Commits to branch `update-models-docs-pr-{PR_NUMBER}`, creates/updates a PR
-   - Posts a cross-repo comment on the original docs PR linking to the generated client PR
+2. **apify-client-python** (`.github/workflows/on_schedule_regenerate_models.yaml`): nightly at 02:00 UTC, downloads the spec from that URL, regenerates the models, and opens a PR when they change. Only the spec's version is recorded on that side, not the spec itself.
 
-Branch naming convention `update-models-docs-pr-{N}` links the two PRs.
+A spec change therefore reaches the Python client within a day of being deployed, with no coordination needed on this side. Nothing here needs to be merged in lockstep with a client PR.
+
+This used to be a cross-repo dispatch that opened a companion client PR per docs PR. It was removed: the client can only generate from the published spec anyway, and having two mechanisms write the same generated files made them diverge.
 
 ### Theme system
 

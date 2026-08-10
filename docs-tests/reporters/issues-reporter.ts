@@ -53,8 +53,12 @@ export default class IssuesReporter implements Reporter {
     private collected: { test: TestCase; result: TestResult }[] = [];
 
     onTestEnd(test: TestCase, result: TestResult): void {
-        // Only collect doc-derived assertions, not the auth setup project.
-        if (!test.location.file.endsWith('from-doc.spec.ts')) return;
+        // Collect both suites: the UI checks (from-doc.spec.ts) and the doc-side
+        // integrity checks (baseline-integrity.spec.ts). Both emit an
+        // `assertion-data` annotation, so a failure from either lands in the
+        // drift report and the auto-filed issue the same way.
+        const { file } = test.location;
+        if (!file.endsWith('from-doc.spec.ts') && !file.endsWith('baseline-integrity.spec.ts')) return;
         this.collected.push({ test, result });
     }
 

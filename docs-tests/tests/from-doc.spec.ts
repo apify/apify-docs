@@ -64,6 +64,8 @@ for (const data of sets) {
                 // so its buttons ("Sign up", "Continue with Google/GitHub") vanish. Use
                 // a fresh context with no storageState instead.
                 if (!a.needs_auth) {
+                    if (!baseURL)
+                        throw new Error('CONSOLE_STAGING_URL is not set (.env locally, GitHub Secrets in CI).');
                     const anonContext = await browser.newContext({ baseURL });
                     try {
                         await runAssertion(await anonContext.newPage(), a);

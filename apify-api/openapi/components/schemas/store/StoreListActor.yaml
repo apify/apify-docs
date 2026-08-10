@@ -33,7 +33,7 @@ properties:
       - MARKETING
       - LEAD_GENERATION
   notice:
-    type: [string, "null"]
+    $ref: ../actors/ActorNotice.yaml
   pictureUrl:
     type: [string, "null"]
     format: uri

@@ -8,7 +8,9 @@
   "scripts": {
     "extract": "bash scripts/extract.sh",
     "extract:all": "bash scripts/extract-all.sh",
-    "test": "playwright test --project=tests",
+    "test": "playwright test",
+    "test:integrity": "playwright test --project=integrity",
+    "test:ui": "playwright test --project=tests",
     "test:headed": "playwright test --project=tests --headed",
     "report": "playwright show-report",
     "issues": "jq . output/issues.json"
