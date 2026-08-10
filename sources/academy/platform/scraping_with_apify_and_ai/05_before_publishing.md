@@ -138,16 +138,23 @@ Give the AI agent too much free rein, and the result might look like generic AI 
 
 ## Planning for maintenance
 
-:::note Course under construction
-This page hasn't been written yet. Please come back later!
-:::
+Every scraper requires maintenance. One day the target website changes. Other days random network hiccups will come after us. There is no "if", only "when" something happens. This is the inevitable chore of running a scraper.
 
-<!--
-- Make the maintenance obligation concrete: monitor runs, keep tests useful, watch target-site changes, answer issues, and avoid silent breaking changes.
-- Introduce the Actor quality score as a useful dashboard, not a number to game. Highlight reliability, ease of use, pricing transparency, trust, and consistency.
-- Suggest reserving regular maintenance time and deciding how users will get support before publishing.
-- Link to [Actor quality score](/actors/publishing/quality-score), [Handle Actor issues](/academy/actor-marketing-playbook/interact-with-users/issues-tab), and [Display Actor status](/actors/publishing/actor-status).
--->
+Moreover, users of the scraper will have [questions or file issues](/academy/actor-marketing-playbook/interact-with-users/issues-tab), and you'll need some time to handle them.
+
+The strategy is to prepare. Designate a few hours weekly to attend to the scraper. Count with sessions when you'll be fixing unexpected failures or answer user queries.
+
+Use [tasks](https://docs.apify.com/actors/development/automated-tests) to set up health checks which can help recognize problems before they hit Actor users, or at least identify them fast enough for you to quickly fix them.
+
+When debugging an issue, again, the AI agent is here for the rescue. Provide it as much context as possible so that it can find the bug: output of the failing run with the whole error, the target page on which it is failing, etc.
+
+Make sure the agent adds a test for each problem it's fixing. That's called _regression tests_: they guard against re-introducing the very same mistake again during future development.
+
+:::info Apify Store score
+
+Apify Store is [scoring the quality of Actors](/actors/publishing/quality-score). This metric can serve as a useful feedback on how your Actor fares regarding reliability, ease of use, pricing transparency, trust, and consistency.
+
+:::
 
 ## Helping the right users find it
 
