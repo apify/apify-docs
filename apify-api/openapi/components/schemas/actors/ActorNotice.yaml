@@ -6,4 +6,5 @@ enum:
   - NONE
   - RESIDENTIAL_PROXY_REQUIRED
   - UNDER_MAINTENANCE
+  - null
 examples: [UNDER_MAINTENANCE]
