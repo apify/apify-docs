@@ -136,23 +136,27 @@ This is all good fuel for thinking about how to name, describe, and monetize you
 
 Give the AI agent too much free rein, and the result might look like generic AI slop that people won't trust. Make sure the final listing still sounds like the human you.
 
-## Planning for maintenance
+## Keeping your Actor reliable
 
-Every scraper requires maintenance. One day the target website changes. Other days random network hiccups will come after us. There is no "if", only "when" something happens. This is the inevitable chore of running a scraper.
+Every scraper needs maintenance. One day, the target website changes. Another day, a random network hiccup knocks the scraper over. It's not a question of _if_ something will happen, but _when_. That's simply part of running a scraper.
 
-Moreover, users of the scraper will have [questions or file issues](/academy/actor-marketing-playbook/interact-with-users/issues-tab), and you'll need some time to handle them.
+On Apify Store, users will also [ask questions or report issues](/academy/actor-marketing-playbook/interact-with-users/issues-tab), and you'll need time to help them.
 
-The strategy is to prepare. Designate a few hours weekly to attend to the scraper. Count with sessions when you'll be fixing unexpected failures or answer user queries.
+The best strategy is to plan ahead. Set aside a few hours each week for your scraper. Some weeks, you'll spend that time fixing unexpected failures. In others, you'll answer questions from users.
 
-Use [tasks](https://docs.apify.com/actors/development/automated-tests) to set up health checks which can help recognize problems before they hit Actor users, or at least identify them fast enough for you to quickly fix them.
+Set up [scheduled automated tests](/actors/development/automated-tests) to catch problems before users notice them, or at least early enough for you to fix them quickly.
 
-When debugging an issue, again, the AI agent is here for the rescue. Provide it as much context as possible so that it can find the bug: output of the failing run with the whole error, the target page on which it is failing, etc.
+When something breaks, the AI agent can come to the rescue again. Give it as much context as possible:
 
-Make sure the agent adds a test for each problem it's fixing. That's called _regression tests_: they guard against re-introducing the very same mistake again during future development.
+- The complete error from the failed run,
+- the page where the scraper failed,
+- the input that triggered the problem.
 
-:::info Apify Store score
+Ask the agent to add a test for every bug it fixes. These are called _regression tests_, and they prevent the same bugs from sneaking back in later.
 
-Apify Store is [scoring the quality of Actors](/actors/publishing/quality-score). This metric can serve as a useful feedback on how your Actor fares regarding reliability, ease of use, pricing transparency, trust, and consistency.
+:::info Actor quality score
+
+Apify calculates an [Actor quality score](/actors/publishing/quality-score) that provides useful feedback on your scraper's reliability, ease of use, pricing transparency, trustworthiness, and consistency.
 
 :::
 
