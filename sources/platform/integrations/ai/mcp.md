@@ -57,7 +57,7 @@ The hosted Apify MCP server at `https://mcp.apify.com` supports _output schema i
 
 ### Anonymous discovery
 
-The MCP server accepts requests without an API token when the `tools` query parameter contains only tools enabled for unauthenticated use. These tools cover Actor discovery and documentation lookup:
+The MCP server accepts requests without an API token when the `tools` query parameter (see [Tool selection](#tool-selection)) contains only tools enabled for unauthenticated use. These tools cover Actor discovery and documentation lookup:
 
 - `search-actors`
 - `fetch-actor-details`
@@ -86,7 +86,7 @@ If the `tools` parameter includes any other tool, or you connect to the default 
 
 Running Actors, reading run data, and accessing storage all require an Apify account. Sign up for one if you don't have it yet.
 
-Two methods are available. OAuth is recommended - it never exposes your API token to the client. Use a bearer token when your client can't complete a browser-based flow.
+Choose one of two methods. OAuth is recommended - it never exposes your API token to the client. Use a bearer token when your client can't complete a browser-based flow.
 
 #### Hosted OAuth (recommended)
 
@@ -125,7 +125,7 @@ Replace `<APIFY_TOKEN>` with your API token from the **API & Integrations** sect
 
 ### Client configuration
 
-The configuration below uses the OAuth form. To use a token instead, add the `Authorization` header described in [Bearer token](#bearer-token).
+The configuration below uses OAuth. To use a token instead, add the `Authorization` header described in [Bearer token](#bearer-token).
 
 <Tabs>
 <TabItem value="cursor" label="Cursor">
@@ -244,7 +244,7 @@ The server will download automatically on first use and connect using your API t
 
 ## Tool selection
 
-By default, the MCP server loads the `actors` and `docs` tool categories, plus `report-problem`. You can customize which tools are available by adding parameters to the server URL:
+By default, the MCP server loads the `actors` and `docs` tool categories, the `apify/rag-web-browser` Actor, and `report-problem`. You can customize which tools are available by adding parameters to the server URL:
 
 `https://mcp.apify.com?tools=actors,docs,apify/rag-web-browser`
 
@@ -264,21 +264,24 @@ Use the UI configurator `https://mcp.apify.com/` to select your tools visually, 
 
 ### Available tools
 
-Tools are grouped into five categories: `actors`, `docs`, `runs`, `storage`, and `dev`.
+The server groups tools into five categories: `actors`, `docs`, `runs`, `storage`, and `dev`.
 
 :::caution The tools parameter replaces the defaults
 
 The `tools` parameter does not add to the default selection - it replaces it. Connecting to `https://mcp.apify.com?tools=storage` gives you the storage tools and nothing else, without `search-actors` or `call-actor`. List every category you want: `https://mcp.apify.com?tools=actors,docs,storage`.
 
+The `apify/rag-web-browser` Actor is part of the defaults but isn't part of any category, so listing every category - even `?tools=actors,docs` - still drops it. Add it explicitly: `?tools=actors,docs,apify/rag-web-browser`.
+
 :::
 
-Tools marked _auto-injected_ are added automatically whenever `call-actor`, `get-actor-run`, or a specific Actor tool is loaded, even if you didn't select them. They cover the run and result lookups an agent needs immediately after starting a run, so a default configuration exposes them too.
+The server automatically adds tools marked _auto-injected_ whenever `call-actor` or a specific Actor tool is loaded, even if you didn't select them. They cover the run and result lookups an agent needs immediately after starting a run, so a default configuration exposes them too.
 
 | Tool name | Category | Loaded by default | Description |
 | :--- | :--- | :--- | :--- |
 | `search-actors` | actors | ✅ | Search for Actors in Apify Store |
 | `fetch-actor-details` | actors | ✅ | Retrieve detailed information about a specific Actor, including its input and output schema, README (summary when available, full otherwise), and pricing |
 | `call-actor` | actors | ✅ | Run an Actor and wait up to `waitSecs` (0-45, default 30) for it to finish. Returns the run status, storage IDs, and field metadata - not the results themselves |
+| [`apify/rag-web-browser`](https://apify.com/apify/rag-web-browser) | Actor | ✅ | Browse and extract web data |
 | `search-apify-docs` | docs | ✅ | Search the Apify documentation for relevant pages |
 | `fetch-apify-docs` | docs | ✅ | Fetch the full content of an Apify documentation page by its URL |
 | `get-actor-run` | runs | Auto-injected | Get detailed information about a specific Actor run |
