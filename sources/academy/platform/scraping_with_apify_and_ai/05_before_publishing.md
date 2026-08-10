@@ -105,34 +105,36 @@ Once you publish your Actor, Apify Store itself will join the feedback party. Ap
 
 ## Preparing the Store listing
 
-As we already mentioned, our Actor needs a good name. But what makes a name good? The [Name your Actor](/academy/actor-marketing-playbook/actor-basics/name-your-actor) guide has plenty of advice. Let's give it to the AI agent and ask for help brainstorming:
+We already know our Actor needs a good name. But what makes a name good? The [Name your Actor](/academy/actor-marketing-playbook/actor-basics/name-your-actor) guide has plenty of advice. Let's give it to the AI agent and brainstorm together:
 
 ```text
 Read the Actor naming guide:
 https://docs.apify.com/academy/actor-marketing-playbook/actor-basics/name-your-actor
 Then inspect this repository and suggest 20 suitable names for this Actor.
+Put the strongest ideas first and briefly explain why they work.
 ```
 
-Depending on how eager and proactive the AI agent is, it will consider what the Actor actually does, or whether there are any possible collisions with already existing Agents in the Apify Store, and should spill out a table or a list of 20 suggestions which may not be great, but should work as a great start for your own thinking: Shopify Collection Scraper, Shopify Variant Scraper, Shopify Product Price Scraper…
+The AI agent can inspect what the Actor does and might even check for name collisions with existing Actors on Apify Store. Don't expect all 20 suggestions to be brilliant, but they should get your own ideas flowing: Shopify Collection Scraper, Shopify Variant Scraper, Shopify Product Price Scraper...
 
-And we can do the same also with the rest of the stuff we need to get ready before we publish our Actor in the Apify Store: [Technical name](https://docs.apify.com/academy/actor-marketing-playbook/actor-basics/importance-of-actor-url), [description](https://docs.apify.com/academy/actor-marketing-playbook/actor-basics/actor-description), and so on.
+We can use the same approach for other parts of the Store listing, such as the [technical name](/academy/actor-marketing-playbook/actor-basics/importance-of-actor-url) and [description](/academy/actor-marketing-playbook/actor-basics/actor-description).
 
-If you plan to price the Actor, feel free to consult that as well:
+If you plan to charge for the Actor, ask the AI agent to help you think through pricing as well:
 
 ```text
 Read the Actor monetization and pricing guide:
 https://docs.apify.com/actors/publishing/monetize
-Then inspect this repository and return an analysis
-of what is the best pricing model for this Actor.
+Then inspect this repository and recommend the most suitable
+pricing model for this Actor. Explain your reasoning and flag
+anything we should fix before publishing.
 ```
 
-An example output can look like this, including caveats the AI agent identified when looking around the repository in the context of pricing, and which we should fix before publishing:
+The result will also help us uncover caveats or missing pieces in the repository that we should attend to before publishing:
 
 ![Cursor suggesting pricing for the Actor](images/cursor-pricing-ideas.webp)
 
-Again, this is good to get your brain started around naming, describing, or monetizing your scraper, but don't forget that you must stay as a driver behind the steering wheel and properly consider everything as you're the one taking responsibility for the Actor.
+This is all good fuel for thinking about how to name, describe, and monetize your scraper. But you're still in the driver's seat, and you're responsible for the Actor, so consider every suggestion carefully.
 
-If you overdo it with the AI agent and give it too much free hand, the result might repell people as just another AI slop which they cannot really trust much. Make sure everything still sounds like the human you.
+Give the AI agent too much free rein, and the result might look like generic AI slop that people won't trust. Make sure the final listing still sounds like the human you.
 
 ## Planning for maintenance
 
