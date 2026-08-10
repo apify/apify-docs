@@ -101,7 +101,7 @@ cd my-actor
 
 Being inside the folder will help us to run the following commands focused just on the project, not affecting any other folders on our disk.
 
-Now we've got the code of our Actor, but we already know from the previous lesson that Actors first need to be _built_ before they can be _run_. Let's run the following command, which installs software our Actor depends on:
+Now we've got the code of our Actor. Actors need to be _built_ before they can be _run_, as we saw in the previous lesson. Let's run the following command, which installs software our Actor depends on:
 
 ```text
 npm install
