@@ -20,7 +20,7 @@ Before publishing our Actor to the Apify Store we'll rework the README, make sur
 
 :::info Publishing and monetization guide
 
-This lesson just scratches the surface. If you want a deep dive, be sure to head over to the [Publishing and monetization](https://docs.apify.com/actors/publishing) section in our documentation about Actors.
+This lesson works as an intro, but it only scratches the surface. It's enough for a start, but if you really want your Actor to be successful on Apify Store, check out the [Publishing and monetization](/actors/publishing) and [Apify Store basics](/academy/actor-marketing-playbook/store-basics/how-store-works) guides.
 
 :::
 
@@ -105,16 +105,34 @@ Once you publish your Actor, Apify Store itself will join the feedback party. Ap
 
 ## Preparing the Store listing
 
-:::note Course under construction
-This page hasn't been written yet. Please come back later!
-:::
+As we already mentioned, our Actor needs a good name. But what makes a name good? The [Name your Actor](/academy/actor-marketing-playbook/actor-basics/name-your-actor) guide has plenty of advice. Let's give it to the AI agent and ask for help brainstorming:
 
-<!--
-- Walk through the decisions to make before opening the Publication tab: a clear name, permanent technical name/URL, concise description, recognizable logo, sample output, schemas, and pricing model.
-- Explain in a sentence that the regular name and description serve Store visitors, while the optional SEO variants serve searchers. Avoid turning this into an SEO lesson.
-- Point to [Name your Actor](/academy/actor-marketing-playbook/actor-basics/name-your-actor), [Actor description and SEO description](/academy/actor-marketing-playbook/actor-basics/actor-description), and [Importance of Actor URL](/academy/actor-marketing-playbook/actor-basics/importance-of-actor-url).
-- Do not reproduce the publication clicks. End with [Publish your Actor](/actors/publishing/publish) and [Monetize your Actor](/actors/publishing/monetize) as the next operational steps.
--->
+```text
+Read the Actor naming guide:
+https://docs.apify.com/academy/actor-marketing-playbook/actor-basics/name-your-actor
+Then inspect this repository and suggest 20 suitable names for this Actor.
+```
+
+Depending on how eager and proactive the AI agent is, it will consider what the Actor actually does, or whether there are any possible collisions with already existing Agents in the Apify Store, and should spill out a table or a list of 20 suggestions which may not be great, but should work as a great start for your own thinking: Shopify Collection Scraper, Shopify Variant Scraper, Shopify Product Price Scraper…
+
+And we can do the same also with the rest of the stuff we need to get ready before we publish our Actor in the Apify Store: [Technical name](https://docs.apify.com/academy/actor-marketing-playbook/actor-basics/importance-of-actor-url), [description](https://docs.apify.com/academy/actor-marketing-playbook/actor-basics/actor-description), and so on.
+
+If you plan to price the Actor, feel free to consult that as well:
+
+```text
+Read the Actor monetization and pricing guide:
+https://docs.apify.com/actors/publishing/monetize
+Then inspect this repository and return an analysis
+of what is the best pricing model for this Actor.
+```
+
+An example output can look like this, including caveats the AI agent identified when looking around the repository in the context of pricing, and which we should fix before publishing:
+
+![Cursor suggesting pricing for the Actor](images/cursor-pricing-ideas.webp)
+
+Again, this is good to get your brain started around naming, describing, or monetizing your scraper, but don't forget that you must stay as a driver behind the steering wheel and properly consider everything as you're the one taking responsibility for the Actor.
+
+If you overdo it with the AI agent and give it too much free hand, the result might repell people as just another AI slop which they cannot really trust much. Make sure everything still sounds like the human you.
 
 ## Planning for maintenance
 
