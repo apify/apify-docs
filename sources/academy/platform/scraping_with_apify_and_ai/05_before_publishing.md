@@ -105,7 +105,7 @@ Once you publish your Actor, Apify Store itself will join the feedback party. Ap
 
 ## Preparing the Store listing
 
-We already know our Actor needs a good name. But what makes a name good? The [Name your Actor](/academy/actor-marketing-playbook/actor-basics/name-your-actor) guide has plenty of advice. Let's give it to the AI agent and brainstorm together:
+As mentioned, our Actor needs a good name. But what makes a name good? The [Name your Actor](/academy/actor-marketing-playbook/actor-basics/name-your-actor) guide has plenty of advice. Let's give it to the AI agent and brainstorm together:
 
 ```text
 Read the Actor naming guide:
@@ -173,12 +173,12 @@ This page hasn't been written yet. Please come back later!
 - Link to the [Marketing checklist](/academy/actor-marketing-playbook/promote-your-actor/checklist), [SEO guide](/academy/actor-marketing-playbook/promote-your-actor/seo), and [Video tutorials](/academy/actor-marketing-playbook/promote-your-actor/video-tutorials) for deeper promotion guidance.
 -->
 
-## Ready!
+## Wrapping up
 
-After five lessons on how to develop a new Actor and prepare it for listing in the Apify Store, you should be now ready to pursue your own ideas what to create.
+Five lessons ago, we started with an Actor template and an AI chat. Since then, we've watched a scraper take shape, move into an AI agent workflow, gain docs and tests, and get polished for Apify Store. All without writing or understanding code. Wild!
 
-The methods from this course show how to develop without writing or understanding code, using the AI chat and then AI agent. It also shows how to make the project robust so that it won't easily deteriorate with further prompting, and how to leverage the AI to kick off some of the stuff needed for publishing to the Apify Store.
+We also explored how to keep the project from falling apart as the prompts pile up, and how AI can help with the groundwork before publishing.
 
-The only bit missing now is an idea which you'll start turning into a real working software which you can eventutally also share and which can bring you some pennies. It ain't no passive income, but it's definitely an interesting and fun way how to earn some bucks. Good luck & have fun!
+All that's missing now is your next idea. Turn it into real, working software, share it with others, and perhaps even make some money along the way. It isn't passive income (what is?), but it can be a fun way to earn a few cents (pesos, rupees, yen…) without leaving your room. Good luck, and have fun!
 
-If you ever bump into limits of what you're able to do with AI, you can deepen your scraping knowledge by follwing our beginner coding courses: [Web scraping basics with JavaScript](http://localhost:3000/academy/scraping-basics-javascript) or [Web scraping basics with Python](http://localhost:3000/academy/scraping-basics-python).
+When you bump into the limits of what AI can do for you, deepen your web scraping knowledge with our beginner coding courses: [Web scraping basics with JavaScript](/academy/scraping-basics-javascript) or [Web scraping basics with Python](/academy/scraping-basics-python).
