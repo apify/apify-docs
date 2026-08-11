@@ -27,23 +27,12 @@ Before integrating Apify with Hermes Agent, you'll need:
 
 ### Install the plugin
 
-Install the plugin from PyPI:
+Install the plugin from PyPI, then enable it:
 
 ```bash
 pip install apify-hermes-agent-plugin
+hermes plugins enable apify
 ```
-
-:::note Enable the plugin manually
-
-`hermes plugins enable apify` doesn't recognize pip-installed plugins yet - this is a known Hermes Agent CLI issue, since it only scans bundled and user plugin directories, not Python entry points. Until that's fixed upstream, enable the plugin directly in `~/.hermes/config.yaml`:
-
-```yaml
-plugins:
-    enabled:
-        - apify
-```
-
-:::
 
 ### Configure your API token
 
@@ -121,7 +110,7 @@ Actor execution time varies depending on the task complexity. `apify_collect` re
 
 ### Plugin or tool not available
 
-- _Check plugin enablement_ - Ensure `apify` is listed under `plugins.enabled` in `~/.hermes/config.yaml`. Pip-installed plugins aren't auto-detected by `hermes plugins enable apify` yet.
+- _Check plugin enablement_ - Run `hermes plugins enable apify` to confirm the plugin is enabled.
 - _Check toolset enablement_ - Run `hermes tools` and confirm `apify` is enabled for the CLI. `hermes apify-setup` enables it automatically in most cases.
 
 ### Actor run failures
