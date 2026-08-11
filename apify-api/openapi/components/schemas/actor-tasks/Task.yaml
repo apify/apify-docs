@@ -58,9 +58,13 @@ properties:
   isPublic:
     type: boolean
     description: |
-      Whether the task is published on its public landing page. Derived from
-      `publicConfig.publishedAt`. Set it via the [Update task](/api/v2/actor-task-put)
-      endpoint to publish or unpublish the task.
+      Whether the task is published. Derived from `publicConfig.publishedAt`. Set it via the
+      [Update task](/api/v2/actor-task-put) endpoint to publish or unpublish the task.
+
+      Publishing lists the task among the Actor's examples and makes its input public, so anyone
+      can view and copy it. The task's own landing page is shown only while `publicConfig` still
+      validates against the Actor's current build - a new build can therefore stop the page from
+      being offered while the task stays published and copyable.
     examples: [false]
   publicConfig:
     anyOf:

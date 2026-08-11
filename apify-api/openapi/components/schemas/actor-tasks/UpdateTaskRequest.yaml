@@ -32,4 +32,8 @@ properties:
       Sending the value the task already has does nothing. Publishing requires the task's
       `publicConfig` to be filled in and write permission to the task's Actor; it fails if the
       task is not ready to be published, leaving the rest of the update unapplied.
+
+      Publishing makes the task's input public so it can be viewed and copied. Whether its
+      landing page is rendered is re-evaluated against the Actor's current build, so the page
+      can stop being offered after a new build while the task remains published.
     examples: [true]

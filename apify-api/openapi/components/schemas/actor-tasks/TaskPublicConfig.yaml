@@ -31,7 +31,12 @@ properties:
       type: string
   datasetName:
     type: [string, "null"]
-    description: Name of the dataset from the Actor's dataset schema whose results are displayed.
+    description: |
+      Name of the dataset from the Actor's dataset schema whose results are displayed. When
+      `null`, the Actor's default dataset is used - the only dataset it declares, or the one
+      named `default` when it declares several.
   datasetView:
     type: [string, "null"]
-    description: Key of the dataset view from the Actor's dataset schema used to display results.
+    description: |
+      Key of the dataset view from the Actor's dataset schema used to display results. Must be
+      one of the views declared on the resolved dataset; a task cannot be published without it.
