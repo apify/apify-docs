@@ -282,7 +282,7 @@ Try re-running with different filters or verify the company website is accessibl
 
 To remove the Apify integration from HubSpot, select the settings icon in the top-right of the Apify card, then select **Uninstall**.
 
-![Uninstall option in the Apify card settings menu](../images/hubspot/hubspot_uninstall_guide.png)
+![Uninstall option in the Apify card settings menu](../images/hubspot/hubspot_uninstall_guide.webp)
 
 Your enriched contact data remains in HubSpot - only the app connection is removed.
 
