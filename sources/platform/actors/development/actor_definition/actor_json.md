@@ -21,6 +21,7 @@ import TabItem from '@theme/TabItem';
     "actorSpecification": 1, // always 1
     "name": "name-of-my-scraper",
     "title": "My Web Scraper",
+    "description": "Extract data from example.com.",
     "version": "0.0",
     "buildTag": "latest",
     "meta": {
@@ -39,7 +40,8 @@ import TabItem from '@theme/TabItem';
     "input": "./input_schema.json",
     "output": "./output_schema.json",
     "storages": {
-        "dataset": "./dataset_schema.json"
+        "dataset": "./dataset_schema.json",
+        "keyValueStore": "./key_value_store_schema.json"
     },
     "webServerSchema": "./web_server_openapi.json",
     "webServerMcpPath": "/mcp"
@@ -73,6 +75,7 @@ Actor `name`, `version`, `buildTag`, and `environmentVariables` are currently on
 | `actorSpecification` | Required | The version of the Actor specification. This property must be set to `1`, which is the only version available. |
 | `name` | Required | The name of the Actor. |
 | `title` | Optional | The display title of the Actor. This is the human-readable title shown in Apify Console and Apify Store. If not specified, the `name` property is used as the title. |
+| `description` | Optional | The description of the Actor. |
 | `version` | Required | The version of the Actor, specified in the format `[Number].[Number]`, e.g., `0.1`, `0.3`, `1.0`, `1.3`, etc. |
 | `buildTag` | Optional | The tag name to be applied to a successful build of the Actor. If not specified, defaults to `latest`. Refer to the [builds](../builds_and_runs/builds.md) for more information. |
 | `meta` | Optional | Metadata object containing additional information about the Actor. Currently supports `templateId` field to identify the template from which the Actor was created. |
@@ -85,6 +88,7 @@ Actor `name`, `version`, `buildTag`, and `environmentVariables` are currently on
 | `changelog` | Optional | The path to the CHANGELOG file displayed in the Information tab of the Actor in Apify Console next to Readme. If not provided, the CHANGELOG at `.actor/CHANGELOG.md` or `CHANGELOG.md` is used, in this order of preference. Your Actor doesn't need to have a CHANGELOG but it is a good practice to keep it updated for published Actors. |
 | `storages.dataset` | Optional | You can define the schema of the items in your dataset under the `storages.dataset` field. This can be either an embedded object or a path to a JSON schema file. [Read more](/storage/dataset-schema) about Actor dataset schemas. |
 | `storages.datasets` | Optional | You can define multiple datasets for the Actor under the `storages.datasets` field. This can be an object containing embedded objects or paths to a JSON schema files. [Read more](/storage/dataset-schema/multiple-datasets) about multiple dataset schemas. |
+| `storages.keyValueStore` | Optional | You can define key-value store collections under the `storages.keyValueStore` field. This can be either an embedded object or a path to a key-value store schema file. [Read more](/storage/key-value-store-schema) about Actor key-value store schemas. |
 | `defaultMemoryMbytes` | Optional | Specifies the default amount of memory in megabytes to be used when the Actor is started. Can be an integer or a [dynamic memory expression string](./dynamic_actor_memory/index.md). |
 | `minMemoryMbytes` | Optional | Specifies the minimum amount of memory in megabytes required by the Actor to run. Requires an _integer_ value. If both `minMemoryMbytes` and `maxMemoryMbytes` are set, then `minMemoryMbytes` must be equal or lower than `maxMemoryMbytes`. Refer to the [Usage and resources](https://docs.apify.com/actors/running/usage-and-resources#memory) for more details about memory allocation. |
 | `maxMemoryMbytes` | Optional | Specifies the maximum amount of memory in megabytes required by the Actor to run. It can be used to control the costs of run. Requires an _integer_ value. Refer to the [Usage and resources](https://docs.apify.com/actors/running/usage-and-resources#memory) for more details about memory allocation. |
