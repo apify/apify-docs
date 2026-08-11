@@ -1,14 +1,14 @@
 ---
 title: Hermes Agent integration
 sidebar_label: Hermes Agent
-description: Learn how to integrate Apify with Hermes Agent to give your AI agent access to web scraping, data extraction, and automation using pre-built Actors.
+description: Learn how to integrate Apify with Hermes Agent to give your AI agent access to thousands of pre-built AI tools, called Actors, for scraping and automation.
 slug: /integrations/hermes-agent
 toc_min_heading_level: 2
 ---
 
-import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+import ThirdPartyDisclaimer from '@site/sources/\_partials/\_third-party-integration.mdx';
 
-[Hermes Agent](https://hermes-agent.nousresearch.com) is an open-source autonomous AI agent CLI from Nous Research. The Apify plugin for Hermes Agent gives your agent access to thousands of pre-built Actors for web scraping, data extraction, and automation through three tools: `apify_discover`, `apify_start`, and `apify_collect`.
+[Hermes Agent](https://hermes-agent.nousresearch.com) is an open-source autonomous AI agent from [Nous Research](https://nousresearch.com/). The Apify plugin for Hermes Agent gives your agent access to thousands of pre-built AI tools, called Actors. The plugin comes with three tools: `apify_discover`, `apify_start`, and `apify_collect`, which your agent can use autonomously.
 
 For more details about Hermes Agent, refer to the [official documentation](https://hermes-agent.nousresearch.com/docs).
 
@@ -39,8 +39,8 @@ pip install apify-hermes-agent-plugin
 
 ```yaml
 plugins:
-  enabled:
-    - apify
+    enabled:
+        - apify
 ```
 
 :::
@@ -67,11 +67,11 @@ If the toolset isn't enabled automatically, run `hermes tools` and enable `apify
 
 The plugin registers three tools under the `apify` toolset:
 
-| Tool | Purpose |
-| ---- | ------- |
-| `apify_discover` | Search the Apify Store by keyword, or fetch an Actor's input schema and README by `actor_id` |
-| `apify_start` | Start up to 10 Actor runs in a single call and get run references back immediately |
-| `apify_collect` | Poll run statuses using the references from `apify_start` and retrieve completed dataset results |
+| Tool             | Purpose                                                                                          |
+| ---------------- | ------------------------------------------------------------------------------------------------ |
+| `apify_discover` | Search Apify Store by keyword, or fetch an Actor's input schema and README by `actor_id`         |
+| `apify_start`    | Start up to 10 Actor runs in a single call and get run references back immediately               |
+| `apify_collect`  | Poll run statuses using the references from `apify_start` and retrieve completed dataset results |
 
 ### Fire-and-forget batch pattern
 
@@ -89,9 +89,9 @@ Actor IDs accept either the unique ID or the `username~actor-name` format (for e
 
 Once the plugin is set up, your Hermes agent can:
 
-- _Search for scrapers_ - Ask the agent to find an Actor for any platform (for example, "find me an Instagram scraper") and it discovers the right one from [Apify Store](https://apify.com/store).
+- _Search for Actors_ - Ask the agent to find an Actor to add to its AI tools. Actors can be scrapers, lead generation tools, or any other kind of tool - for example, try asking it to `find me an Actor to scrape Instagram` and it discovers the right one from [Apify Store](https://apify.com/store).
 - _Inspect input requirements_ - Fetch an Actor's input schema and README with `apify_discover` before starting a run, so the agent knows exactly what input to provide.
-- _Scrape any website_ - The agent can extract data from Google Search, Instagram, TikTok, YouTube, Google Maps, e-commerce sites, and more.
+- _Extract data from any website_ - Scrapers are just one category of Actor. The agent can extract data from Google Search, Instagram, TikTok, YouTube, Google Maps, e-commerce sites, and more.
 - _Batch multiple targets_ - Start up to 10 Actor runs in a single `apify_start` call and collect all results together with `apify_collect`.
 
 :::note Actor runs may take some time
@@ -108,8 +108,8 @@ Actor execution time varies depending on the task complexity. `apify_collect` re
 
 ## Configuration
 
-| Setting | Description |
-| ------- | ----------- |
+| Setting           | Description                                                                                                    |
+| ----------------- | -------------------------------------------------------------------------------------------------------------- |
 | `APIFY_API_TOKEN` | Your Apify API token, saved to `~/.hermes/.env` by `hermes apify-setup`. Required for every `apify` tool call. |
 
 ## Troubleshooting
