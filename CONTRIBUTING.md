@@ -107,6 +107,7 @@ You should be able to open https://docs.apify.loc in your browser and run all th
     - Use concise, meaningful headings:
       - Use sentence case.
       - Avoid question-like titles ("How to...", "What is...").
+      - Don't use gerunds.
 
     Example of proper usage and formatting:
 
