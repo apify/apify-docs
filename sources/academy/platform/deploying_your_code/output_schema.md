@@ -17,7 +17,7 @@ In this quick tutorial, you will learn how to set up an output tab for your own 
 
 ## Implementation
 
-First, create a `.actor` folder in the root of your Actor's source code. Then, create an `actor.json` file in this folder, after which you'll have `.actor/actor.json`.
+First, create an `.actor` folder in the root of your Actor's source code. Then, create an `actor.json` file in this folder, after which you'll have `.actor/actor.json`.
 
 ![.actor/actor.json](./images/actor-json-example.webp)
 
