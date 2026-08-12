@@ -76,7 +76,7 @@ Actor IDs accept either the unique ID or the `username~actor-name` format (for e
 
 ## What you can do
 
-Once the plugin is set up, your Hermes agent can:
+Once the plugin is set up, your Hermes Agent can:
 
 - _Search for Actors_ - Ask the agent to find an Actor to add to its AI tools. Actors can be scrapers, lead generation tools, or any other kind of tool - for example, try asking it to `find me an Actor to scrape Instagram` and it discovers the right one from [Apify Store](https://apify.com/store).
 - _Inspect input requirements_ - Fetch an Actor's input schema and README with `apify_discover` before starting a run, so the agent knows exactly what input to provide.
@@ -110,7 +110,14 @@ Actor execution time varies depending on the task complexity. `apify_collect` re
 
 ### Plugin or tool not available
 
-- _Check plugin enablement_ - Run `hermes plugins enable apify` to confirm the plugin is enabled.
+- _Check plugin enablement_ - Run `hermes plugins enable apify` to confirm the plugin is enabled. If that fails with `Plugin 'apify' is not installed or bundled.`, your Hermes Agent predates `0.18.1`, when entry-point plugin discovery was fixed upstream - update with `pip install --upgrade hermes-agent`. If you can't upgrade, add `apify` under `plugins.enabled` in `~/.hermes/config.yaml` manually instead:
+
+    ```yaml
+    plugins:
+        enabled:
+            - apify
+    ```
+
 - _Check toolset enablement_ - Run `hermes tools` and confirm `apify` is enabled for the CLI. `hermes apify-setup` enables it automatically in most cases.
 
 ### Actor run failures
