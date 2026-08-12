@@ -10,17 +10,23 @@ properties:
     format: date-time
     readOnly: true
     description: |
-      Time when the task was published, or `null` if the task is not published.
-      This field is server-controlled - to publish or unpublish a task, set `isPublic`
-      via the [Update task](/api/v2/actor-task-put) endpoint.
+      Time when the task was published, or `null` if the task isn't published.
+      This field is server-controlled. To publish or unpublish a task, use the
+      [Update task](/api/v2/actor-task-put) endpoint and set `isPublic`.
     examples: ["2025-06-16T09:20:45.777Z"]
   seoTitle:
     type: [string, "null"]
-    description: SEO title of the public task page. Defaults to the task title when not set.
+    maxLength: 60
+    description: |
+      Name of the Actor task to display by search engines such as Google. Defaults to the task
+      title. At most 60 characters.
     examples: [Scrape data from a website]
   seoDescription:
     type: [string, "null"]
-    description: SEO description of the public task page. Defaults to the task description when not set.
+    maxLength: 160
+    description: |
+      Description of the Actor task to display by search engines such as Google. Defaults to the
+      task description. At most 160 characters.
   inputSchemaFields:
     type: [array, "null"]
     description: Names of the task input fields displayed on the public task page.
@@ -30,10 +36,10 @@ properties:
     type: [string, "null"]
     description: |
       Name of the dataset from the Actor's dataset schema whose results are displayed. When
-      `null`, the Actor's default dataset is used - the only dataset it declares, or the one
-      named `default` when it declares several.
+      `null`, the Actor's default dataset is used. That is, the only dataset the Actor declares,
+      or the one named `default` when it declares several.
   datasetView:
     type: [string, "null"]
     description: |
       Key of the dataset view from the Actor's dataset schema used to display results. Must be
-      one of the views declared on the resolved dataset; a task cannot be published without it.
+      one of the views declared on the resolved dataset. You can't publish a task without it.
