@@ -21,9 +21,6 @@ properties:
   seoDescription:
     type: [string, "null"]
     description: SEO description of the public task page. Defaults to the task description when not set.
-  categorization:
-    type: [string, "null"]
-    description: Use-case category of the public task.
   inputSchemaFields:
     type: [array, "null"]
     description: Names of the task input fields displayed on the public task page.
