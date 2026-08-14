@@ -55,3 +55,12 @@ properties:
   standbyUrl:
     type: [string, "null"]
     format: uri
+  isPublic:
+    type: boolean
+    description: |
+      Whether the task is published. Based on the `publicConfig.publishedAt` field.
+    examples: [false]
+  publicConfig:
+    anyOf:
+      - $ref: ./TaskPublicConfig.yaml
+      - type: "null"
