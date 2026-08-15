@@ -299,7 +299,7 @@ Generic platform primitives that run any Actor or task and read datasets.
 - `ApifyRunActorAndGetDatasetTool` - run any Actor and return both run metadata and dataset items in one call.
 - `ApifyGetDatasetItemsTool` - read items from an existing dataset by ID, with `limit` / `offset` pagination.
 - `ApifyScrapeUrlTool` - scrape a single URL and return its markdown content in a JSON envelope (in the item's `content` field).
-- `ApifyRunTaskTool` - run a saved [Actor task](/platform/actors/running/tasks) by ID and return run metadata.
+- `ApifyRunTaskTool` - run a saved [Actor task](/actors/running/tasks) by ID and return run metadata.
 - `ApifyRunTaskAndGetDatasetTool` - run a saved task and return both run metadata and dataset items.
 
 ### Search and crawling tools (`APIFY_SEARCH_TOOLS`)
