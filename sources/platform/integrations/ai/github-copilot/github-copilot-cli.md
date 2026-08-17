@@ -13,7 +13,7 @@ The [Apify plugin for GitHub Copilot](https://github.com/apify/apify-github-copi
 
 - The [Apify MCP server](/integrations/mcp) for searching Apify Store, running Actors, and retrieving datasets.
 - An `apify` routing agent that picks the right tool or skill based on your prompt.
-- [Five built-in ](#bundled-skills) for common workflows.
+- [Five built-in skills](#bundled-skills) for common workflows.
 
 This guide covers installation in the GitHub Copilot CLI.
 
@@ -42,13 +42,15 @@ The plugin lives in an Apify marketplace that you add to Copilot with a reposito
     /plugin install apify@apify
     ```
 
-    This installs the plugin, its five [bundled skills](#bundled-skills), and the bundled Apify MCP server (`https://mcp.apify.com/`). Copilot then prompts you to sign in to Apify and opens a browser tab for the OAuth flow.
+    This installs the plugin, its five [bundled skills](#bundled-skills), and the bundled Apify MCP server (`https://mcp.apify.com/`). Copilot usually opens a browser tab for the Apify sign-in automatically once the install finishes.
 
     ![GitHub Copilot CLI installing the apify plugin, its skills, and the Apify MCP server](images/github-copilot-cli/02-plugin-install.webp)
 
 1. Complete the Apify OAuth flow in your browser and choose the account to connect. The browser confirms the authorization, and back in the terminal `apify-mcp-server` shows as connected.
 
     ![Browser window confirming the Apify authorization was successful](images/github-copilot-cli/03-authorization-successful.webp)
+
+    If no browser tab opens, connect the server yourself with the [manual steps](#connect-the-mcp-server-manually) below.
 
 :::note Read-only access without signing in
 
@@ -64,19 +66,27 @@ The connection stays authenticated for future sessions. You can revoke access at
 
 ## Connect the MCP server manually
 
-If you closed the browser before finishing the OAuth flow, or `apify-mcp-server` didn't connect during installation, connect it from the MCP server manager.
+If no browser tab opened during installation, or `apify-mcp-server` shows as disconnected, authenticate it from the MCP server manager.
 
-1. Run `/mcp` to open the MCP server manager. The `apify-mcp-server` entry appears in the list.
+1. Run `/mcp` to open the MCP server manager, select `apify-mcp-server` under **Plugins**, and press Enter to show its details.
 
-    ![GitHub Copilot CLI MCP server list showing apify-mcp-server](images/github-copilot-cli/04-mcp-server-list.webp)
+    ![GitHub Copilot CLI MCP server list with apify-mcp-server selected](images/github-copilot-cli/04-mcp-server-list.webp)
 
-1. Select `apify-mcp-server` and choose to authenticate. Copilot opens a browser tab for the Apify OAuth flow.
+1. The detail view shows the `http` type and the `https://mcp.apify.com/` URL. Press `r` to authenticate.
 
-    ![GitHub Copilot CLI prompting to authenticate the apify-mcp-server](images/github-copilot-cli/05-authenticate-server.webp)
+    ![GitHub Copilot CLI apify-mcp-server detail view with the authenticate action](images/github-copilot-cli/05-mcp-server-detail.webp)
 
-1. Complete the OAuth flow. Back in the terminal, Copilot confirms that `apify-mcp-server` is connected.
+1. Copilot opens a browser tab for the Apify OAuth flow. If the browser doesn't open, copy the URL shown in the terminal and open it manually.
 
-    ![GitHub Copilot CLI confirming successful authentication with apify-mcp-server](images/github-copilot-cli/06-authentication-successful.webp)
+    ![GitHub Copilot CLI showing the Apify OAuth URL to open in a browser](images/github-copilot-cli/06-mcp-authenticating.webp)
+
+1. Complete the OAuth flow and choose the account to connect. Back in the terminal, Copilot confirms `Successfully authenticated with apify-mcp-server`. Press Enter to continue.
+
+    ![GitHub Copilot CLI confirming successful authentication with apify-mcp-server](images/github-copilot-cli/07-mcp-authentication-successful.webp)
+
+1. Run `/mcp` again to confirm `apify-mcp-server` is connected and enabled. Use `space` to enable or disable it.
+
+    ![GitHub Copilot CLI MCP server list showing apify-mcp-server connected](images/github-copilot-cli/08-mcp-server-connected.webp)
 
 ## Run your first prompt
 
@@ -88,7 +98,7 @@ The agent searches Apify Store, fetches the top Actor's details, and summarizes 
 
 To check what's available, ask the agent to list its Apify tools.
 
-![GitHub Copilot CLI listing the available Apify MCP tools and skills](images/github-copilot-cli/07-list-tools.webp)
+![GitHub Copilot CLI listing the available Apify MCP tools and skills](images/github-copilot-cli/09-list-tools.webp)
 
 ## Bundled skills
 
