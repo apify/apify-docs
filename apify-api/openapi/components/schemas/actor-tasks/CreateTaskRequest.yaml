@@ -23,3 +23,8 @@ properties:
     anyOf:
       - $ref: ../actors/ActorStandby.yaml
       - type: "null"
+  publicConfig:
+    description: |
+      Configuration that controls how the published task appears on its public landing page.
+      Editing this object requires write permission to the Actor that the task belongs to.
+    $ref: ./TaskPublicConfig.yaml
