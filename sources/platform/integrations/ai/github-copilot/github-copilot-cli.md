@@ -11,9 +11,9 @@ The [GitHub Copilot CLI](https://docs.github.com/en/copilot/concepts/agents/copi
 
 The [Apify plugin for GitHub Copilot](https://github.com/apify/apify-github-copilot-plugin) connects Copilot to Apify's library of [Actors](https://apify.com/store) and bundles:
 
-- The [Apify MCP server](/integrations/mcp) for searching Apify Store, running Actors, and retrieving datasets through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro).
-- An `apify` routing agent that picks the right tool or skill from a natural-language request.
-- Five built-in skills for common workflows (see [Bundled skills](#bundled-skills) below).
+- The [Apify MCP server](/integrations/mcp) for searching Apify Store, running Actors, and retrieving datasets.
+- An `apify` routing agent that picks the right tool or skill based on your prompt.
+- [Five built-in ](#bundled-skills) for common workflows.
 
 This guide covers installation in the GitHub Copilot CLI.
 
@@ -22,11 +22,11 @@ This guide covers installation in the GitHub Copilot CLI.
 ## Prerequisites
 
 - [An Apify account](https://console.apify.com/sign-up) - sign up for free if you don't have one.
-- [The GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/set-up/install-copilot-cli) - installed and signed in with Copilot access.
+- [The GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/set-up/install-copilot-cli) - installed and signed in.
 
-## Install the plugin
+## Install the plugin and sign in
 
-The plugin is distributed through an Apify plugin marketplace that you add to Copilot by its repository URL.
+The plugin lives in an Apify marketplace that you add to Copilot with a repository URL. Installing the plugin also sets up the bundled Apify MCP server and signs you in, so there's no separate authentication step.
 
 1. In a Copilot session, add the Apify marketplace:
 
@@ -34,7 +34,7 @@ The plugin is distributed through an Apify plugin marketplace that you add to Co
     /plugin marketplace add https://github.com/apify/apify-github-copilot-plugin
     ```
 
-    ![GitHub Copilot CLI confirming the Apify marketplace was added](images/github-copilot-cli/01-marketplace-added.png)
+    ![GitHub Copilot CLI confirming the Apify marketplace was added](images/github-copilot-cli/01-marketplace-added.webp)
 
 1. Install the `apify` plugin from the marketplace:
 
@@ -42,27 +42,19 @@ The plugin is distributed through an Apify plugin marketplace that you add to Co
     /plugin install apify@apify
     ```
 
-    ![GitHub Copilot CLI installing the apify plugin from the Apify marketplace](images/github-copilot-cli/02-plugin-install.png)
+    This installs the plugin, its five [bundled skills](#bundled-skills), and the bundled Apify MCP server (`https://mcp.apify.com/`). Copilot then prompts you to sign in to Apify and opens a browser tab for the OAuth flow.
 
-## Authenticate to Apify
+    ![GitHub Copilot CLI installing the apify plugin, its skills, and the Apify MCP server](images/github-copilot-cli/02-plugin-install.webp)
 
-The plugin bundles the Apify MCP server (`https://mcp.apify.com/`) over the HTTP transport. Read-only tools like searching Apify Store and fetching Actor details work without signing in, but you need to authenticate to run Actors and access your account data.
+1. Complete the Apify OAuth flow in your browser and choose the account to connect. The browser confirms the authorization, and back in the terminal `apify-mcp-server` shows as connected.
 
-1. Run `/mcp` to open the MCP server manager. The `apify-mcp-server` entry appears in the list with the `http` transport.
+    ![Browser window confirming the Apify authorization was successful](images/github-copilot-cli/03-authorization-successful.webp)
 
-    ![GitHub Copilot CLI MCP server list showing apify-mcp-server on the http transport](images/github-copilot-cli/03-mcp-server-list.png)
+:::note Read-only access without signing in
 
-1. Select `apify-mcp-server` and choose to authenticate. Copilot opens a browser tab for the Apify OAuth flow.
+Read-only tools like searching Apify Store and fetching Actor details work without signing in. You only need to authenticate to run Actors and access your account data.
 
-    ![GitHub Copilot CLI prompting to authenticate the apify-mcp-server](images/github-copilot-cli/04-authenticate-server.png)
-
-1. Complete the Apify OAuth flow in your browser and choose the account to connect.
-
-    ![Browser window confirming the Apify authorization was successful](images/github-copilot-cli/05-authorization-successful.png)
-
-1. Back in the terminal, Copilot confirms `Successfully authenticated with apify-mcp-server`.
-
-    ![GitHub Copilot CLI confirming successful authentication with apify-mcp-server](images/github-copilot-cli/06-authentication-successful.png)
+:::
 
 :::tip Session persistence
 
@@ -70,17 +62,33 @@ The connection stays authenticated for future sessions. You can revoke access at
 
 :::
 
+## Connect the MCP server manually
+
+If you closed the browser before finishing the OAuth flow, or `apify-mcp-server` didn't connect during installation, connect it from the MCP server manager.
+
+1. Run `/mcp` to open the MCP server manager. The `apify-mcp-server` entry appears in the list.
+
+    ![GitHub Copilot CLI MCP server list showing apify-mcp-server](images/github-copilot-cli/04-mcp-server-list.webp)
+
+1. Select `apify-mcp-server` and choose to authenticate. Copilot opens a browser tab for the Apify OAuth flow.
+
+    ![GitHub Copilot CLI prompting to authenticate the apify-mcp-server](images/github-copilot-cli/05-authenticate-server.webp)
+
+1. Complete the OAuth flow. Back in the terminal, Copilot confirms that `apify-mcp-server` is connected.
+
+    ![GitHub Copilot CLI confirming successful authentication with apify-mcp-server](images/github-copilot-cli/06-authentication-successful.webp)
+
 ## Run your first prompt
 
-Describe what you want in natural language. The `apify` agent routes the request to the right tool or skill, so you don't need to name tools yourself.
+Describe what you want in plain language.
 
 > Use Apify to find a good Actor for scraping Google Maps places. Show me the best option, its input requirements, pricing model, and what kind of dataset output it returns. Do not run the Actor yet.
 
-The agent searches Apify Store, fetches the top Actor's details through the Apify MCP server, and summarizes its inputs, pricing, and output - all without running the Actor.
+The agent searches Apify Store, fetches the top Actor's details, and summarizes its inputs, pricing, and output - without running the Actor.
 
 To check what's available, ask the agent to list its Apify tools.
 
-![GitHub Copilot CLI listing the available Apify MCP tools and skills](images/github-copilot-cli/07-list-tools.png)
+![GitHub Copilot CLI listing the available Apify MCP tools and skills](images/github-copilot-cli/07-list-tools.webp)
 
 ## Bundled skills
 
@@ -108,9 +116,9 @@ _SDK integration:_
 
 ## Authentication paths
 
-The `apify` agent uses the transport that fits the task, and each one authenticates differently:
+The `apify` agent picks the right transport for each task. Each transport authenticates differently:
 
-- For MCP tools (search, run, retrieve data), authenticate with OAuth through the browser, as described in [Authenticate to Apify](#authenticate-to-apify). No token setup is needed.
+- For MCP tools (search, run, retrieve data), authenticate with OAuth through the browser, as described in [Install the plugin and sign in](#install-the-plugin-and-sign-in). You don't need to set up a token.
 - For the Apify CLI (building Actors, actorization, CLI fallback), run `apify login` once, or set `APIFY_TOKEN` in headless environments. Get your token from [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations).
 - For SDK integration with `apify-client`, set the `APIFY_TOKEN` environment variable in your application's environment.
 
@@ -122,7 +130,7 @@ Run `/plugin marketplace add https://github.com/apify/apify-github-copilot-plugi
 
 ### The Apify MCP server won't authenticate
 
-Run `/mcp`, select `apify-mcp-server`, and choose to authenticate. Confirm the entry shows the `http` transport pointing to `https://mcp.apify.com/`. Read-only tools work without signing in, so run a search prompt first to confirm the server is connected.
+Installation normally signs you in automatically. If the browser prompt didn't appear or you skipped it, connect the server manually: run `/mcp`, select `apify-mcp-server`, and choose to authenticate, as described in [Connect the MCP server manually](#connect-the-mcp-server-manually). Read-only tools work without signing in, so run a search prompt first to confirm the server is connected.
 
 ### Browser doesn't open, or OAuth fails
 
@@ -136,12 +144,12 @@ export APIFY_TOKEN=<YOUR_API_TOKEN>
 
 ### The agent picks the wrong skill or transport
 
-Start from the `apify` agent. It is the single entry point that detects the available transport and routes each request to the correct tool or skill.
+Start from the `apify` agent. It automatically detects the right transport and routes your request.
 
 ## Limitations
 
-- Long-running Actors may exceed the time a single tool call waits for completion. Reduce the scope or split the work across multiple prompts.
-- Each Actor run consumes Apify platform usage from your plan in addition to any Copilot usage. See [Billing](/account/billing) for details.
+- Long-running Actors may time out during a single tool call. Reduce the scope or split the work across multiple prompts.
+- Each Actor run counts toward your Apify plan usage in addition to any Copilot usage. See [Billing](/account/billing) for details.
 - Skills that edit files in your project (Actor development, actorization, SDK integration) make local changes - review them before deploying or committing.
 
 ## Related integrations
