@@ -7,19 +7,19 @@ slug: /integrations/openai-assistants
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
-[OpenAI Assistants API](https://.openai.com/docs/assistants/overview) allows you to build your own AI applications such as chatbots, virtual assistants, and more.
-The OpenAI Assistants can access OpenAI knowledge base ([vector store](https://.openai.com/docs/api-reference/vector-stores)) via file search and use function calling for dynamic interaction and data retrieval.
+[OpenAI Assistants API](https://platform.openai.com/docs/assistants/overview) allows you to build your own AI applications such as chatbots, virtual assistants, and more.
+The OpenAI Assistants can access OpenAI knowledge base ([vector store](https://platform.openai.com/docs/api-reference/vector-stores)) via file search and use function calling for dynamic interaction and data retrieval.
 
 Unlike Custom GPT, OpenAI Assistants are available via API, enabling integration with Apify to automatically update assistant data and deliver real-time information, improving the quality of answers.
 
 In this tutorial, we’ll start by demonstrating how to create an assistant and integrate real-time data using function calling with the [RAG Web Browser](https://apify.com/apify/rag-web-browser).
-Next, we’ll show how to save data from Apify Actors into the OpenAI Vector Store for easy retrieval through [file-search](https://.openai.com/docs/assistants/tools/file-search).
+Next, we’ll show how to save data from Apify Actors into the OpenAI Vector Store for easy retrieval through [file-search](https://platform.openai.com/docs/assistants/tools/file-search).
 
 <ThirdPartyDisclaimer />
 
 ## Real-time search data for OpenAI Assistant
 
-We'll use the [RAG Web Browser](https://apify.com/apify/rag-web-browser) Actor to fetch the latest information from the web and provide it to the OpenAI Assistant through [function calling](https://.openai.com/docs/assistants/tools/function-calling?context=without-streaming).
+We'll use the [RAG Web Browser](https://apify.com/apify/rag-web-browser) Actor to fetch the latest information from the web and provide it to the OpenAI Assistant through [function calling](https://platform.openai.com/docs/assistants/tools/function-calling?context=without-streaming).
 To begin, we need to create an OpenAI Assistant with the appropriate instructions.
 After that, we can initiate a conversation with the assistant by creating a thread, adding messages, and running the assistant to receive responses.
 The image below provides an overview of the entire process:
@@ -44,7 +44,7 @@ from openai import OpenAI, Stream
 from openai.types.beta.threads.run_submit_tool_outputs_params import ToolOutput
 ```
 
-Find your [Apify API token](https://console.apify.com/settings/integrations) and [OpenAI API key](https://.openai.com/account/api-keys) and initialize OpenAI and Apify clients:
+Find your [Apify API token](https://console.apify.com/settings/integrations) and [OpenAI API key](https://platform.openai.com/account/api-keys) and initialize OpenAI and Apify clients:
 
 ```python
 client = OpenAI(api_key="YOUR OPENAI API KEY")
@@ -245,7 +245,7 @@ for m in client.beta.threads.messages.list(thread_id=run.thread_id):
 
 ## Save data into OpenAI Vector Store and use it in the assistant
 
-To provide real-time or proprietary data, OpenAI Assistants can access the [OpenAI Vector Store](https://.openai.com/docs/assistants/tools/file-search/vector-stores) to retrieve information for their answers.
+To provide real-time or proprietary data, OpenAI Assistants can access the [OpenAI Vector Store](https://platform.openai.com/docs/assistants/tools/file-search/vector-stores) to retrieve information for their answers.
 With the [Apify OpenAI Vector Store Integration](https://apify.com/jiri.spilka/openai-vector-store-integration), data saving and updating the OpenAI Vector Store can be fully automated.
 The following image illustrates the Apify-OpenAI Vector Store integration:
 
@@ -260,7 +260,7 @@ Before we start, we need to install all dependencies:
 pip install apify-client openai
 ```
 
-Find your [Apify API token](https://console.apify.com/settings/integrations) and [OpenAI API key](https://.openai.com/account/api-keys) and initialize OpenAI and Apify clients:
+Find your [Apify API token](https://console.apify.com/settings/integrations) and [OpenAI API key](https://platform.openai.com/account/api-keys) and initialize OpenAI and Apify clients:
 
 ```python
 from apify_client import ApifyClient
@@ -416,7 +416,7 @@ for m in client.beta.threads.messages.list(thread_id=run.thread_id):
 
 ## Resources
 
-- [OpenAI Assistants](https://.openai.com/docs/assistants/overview)
-- [OpenAI function calling](https://.openai.com/docs/assistants/tools/function-calling)
+- [OpenAI Assistants](https://platform.openai.com/docs/assistants/overview)
+- [OpenAI function calling](https://platform.openai.com/docs/assistants/tools/function-calling)
 - [RAG Web Browser](https://apify.com/apify/rag-web-browser) Actor
 - [OpenAI Vector Store Integration](https://apify.com/jiri.spilka/openai-vector-store-integration) Actor
