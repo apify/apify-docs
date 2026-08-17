@@ -289,7 +289,7 @@ To crawl a whole site into documents on demand, use `ApifyCrawlLoader` instead.
 
 ## Tool reference
 
-Every dedicated tool below is importable from `langchain_apify`. For full parameter tables, see the [LangChain Apify provider page](https://docs.langchain.com/oss/python/integrations/providers/apify).
+Every dedicated tool below is importable from `langchain_apify`.
 
 ### Core tools (`APIFY_CORE_TOOLS`)
 
@@ -339,5 +339,4 @@ result = tool.invoke({"run_input": {"searchTerms": ["web scraping", "data extrac
 ## Resources
 
 - [LangChain quickstart](https://docs.langchain.com/oss/python/langchain/quickstart)
-- [Apify Dataset loader](https://docs.langchain.com/oss/python/integrations/document_loaders/apify_dataset)
-- [LangChain Apify Provider](https://docs.langchain.com/oss/python/integrations/providers/apify)
+- [langchain-apify repository](https://github.com/apify/langchain-apify)
