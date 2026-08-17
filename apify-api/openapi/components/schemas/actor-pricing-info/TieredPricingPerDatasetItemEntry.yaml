@@ -1,0 +1,9 @@
+title: TieredPricingPerDatasetItemEntry
+description: A single tier's price-per-dataset-item entry.
+type: object
+required:
+  - tieredPricePerUnitUsd
+properties:
+  tieredPricePerUnitUsd:
+    type: number
+    description: Price per unit in USD for this tier.

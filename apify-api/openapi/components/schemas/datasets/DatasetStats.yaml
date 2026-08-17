@@ -1,8 +1,4 @@
 title: DatasetStats
-required:
-  - readCount
-  - writeCount
-  - storageBytes
 type: object
 properties:
   readCount:
@@ -13,4 +9,9 @@ properties:
     examples: [3]
   storageBytes:
     type: integer
+    description: Total storage size in bytes. Only returned by the single-dataset endpoint.
     examples: [783]
+  inflatedBytes:
+    type: integer
+    description: Uncompressed size in bytes. Only returned by the dataset list endpoint.
+    examples: [0]

@@ -5,8 +5,6 @@ slug: /actors/development/programming-interface/status-messages
 sidebar_position: 3
 ---
 
-**Learn how to use custom status messages to inform users about an Actor's progress.**
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

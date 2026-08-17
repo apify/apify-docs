@@ -11,14 +11,14 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             -   name: Checkout Source code
-                uses: actions/checkout@v6
+                uses: actions/checkout@v7
 
             -   name: Use Node.js 24
-                uses: actions/setup-node@v6
+                uses: actions/setup-node@v7
                 with:
                     node-version: 24
 
-            -   uses: apify/workflows/pnpm-install@main
+            -   uses: apify/actions/pnpm-install@v1.3.1
 
             -   run: pnpm build
                 env:
@@ -26,7 +26,7 @@ jobs:
                     SEGMENT_TOKEN: ${{ secrets.SEGMENT_TOKEN }}
 
             -   name: Check llms.txt size
-                run: npm run test:llms-size
+                run: pnpm run test:llms-size
 
             -   name: Install Nginx
                 run: |
@@ -35,9 +35,11 @@ jobs:
 
             -   name: Start Docusaurus server
                 run: |
-                    nohup pnpm exec docusaurus serve --port 3000 --no-open &
+                    # --host is needed since Docusaurus 3.10 binds to the given host
+                    # only ([::1] for localhost), while Nginx proxies to 127.0.0.1
+                    nohup pnpm exec docusaurus serve --port 3000 --host 0.0.0.0 --no-open &
                     sleep 5
-                    curl -f http://localhost:3000 > /dev/null
+                    curl -f http://127.0.0.1:3000 > /dev/null
 
             -   name: Start Nginx with project config
                 run: |
@@ -138,14 +140,14 @@ jobs:
                     assert_no_redirect "http://localhost:8080" --request-target '/\evil.com/'
                     assert_no_redirect "http://localhost:8080" --request-target '///\evil.com/'
                     # Normal trailing-slash redirect must still work
-                    assert_status "http://localhost:8080/platform/proxy/usage/" "302"
+                    assert_status "http://localhost:8080/proxy/datacenter-proxy/" "302"
 
                     echo "🧪 Checking Nginx responses... (apify-docs)"
                     assert_header "http://localhost:8080/" "Content-Type" "text/html"
                     assert_header "http://localhost:8080/" "Content-Type" "text/markdown" -H "Accept: text/markdown"
-                    assert_header "http://localhost:8080/platform/proxy/usage" "Content-Type" "text/html"
-                    assert_header "http://localhost:8080/platform/proxy/usage.md" "Content-Type" "text/markdown"
-                    assert_header "http://localhost:8080/platform/proxy/usage" "Content-Type" "text/markdown" -H "Accept: text/markdown"
+                    assert_header "http://localhost:8080/proxy/datacenter-proxy" "Content-Type" "text/html"
+                    assert_header "http://localhost:8080/proxy/datacenter-proxy.md" "Content-Type" "text/markdown"
+                    assert_header "http://localhost:8080/proxy/datacenter-proxy" "Content-Type" "text/markdown" -H "Accept: text/markdown"
                     assert_header "http://localhost:8080/img/docs-og.png" "Content-Type" "image/png"
                     assert_header "http://localhost:8080/img/javascript-40x40.svg" "Content-Type" "image/svg"
                     assert_header "http://localhost:8080/llms.txt" "Content-Type" "text/markdown"
@@ -172,7 +174,7 @@ jobs:
                     assert_html_md_alternate "http://localhost:8080/api/v2/dataset-get" "https://docs.apify.com/api/v2/dataset-get.md"
                     assert_html_md_alternate "http://localhost:8080/academy/tutorials" "https://docs.apify.com/academy/tutorials.md"
                     # Sanity check: a regular (non-excluded) page also has the alternate.
-                    assert_html_md_alternate "http://localhost:8080/platform/proxy/usage" "https://docs.apify.com/platform/proxy/usage.md"
+                    assert_html_md_alternate "http://localhost:8080/proxy/datacenter-proxy" "https://docs.apify.com/proxy/datacenter-proxy.md"
 
                     echo "🧪 Checking Nginx responses... (apify-sdk-js)"
                     assert_final_content_type "http://localhost:8080/sdk/js" "text/html"
@@ -221,6 +223,11 @@ jobs:
 
                     echo "✅ All Nginx header checks passed."
 
+            -   name: Verify per-page .md navigation headers
+                # Checks the Vercel-style nav header that scripts/addNavHeaders.mjs
+                # prepends to every per-page .md in postbuild (#2596 / issue #2557).
+                run: node scripts/checkNavHeaders.mjs http://localhost:8080
+
             -   name: Stop Nginx
                 if: always()
                 run: nginx -c "$(pwd)/default.conf" -s stop
@@ -230,7 +237,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             -   name: Checkout Source code
-                uses: actions/checkout@v6
+                uses: actions/checkout@v7
 
             -   name: Get changed files
                 id: changed-files
@@ -241,11 +248,11 @@ jobs:
                     separator: ","
 
             -   name: Use Node.js 24
-                uses: actions/setup-node@v6
+                uses: actions/setup-node@v7
                 with:
                     node-version: 24
 
-            -   uses: apify/workflows/pnpm-install@main
+            -   uses: apify/actions/pnpm-install@v1.3.1
 
             -   name: List and Lint Changed Markdown Files
                 env:
@@ -262,16 +269,48 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             -   name: Checkout Source code
-                uses: actions/checkout@v6
+                uses: actions/checkout@v7
 
             -   name: Use Node.js 24
-                uses: actions/setup-node@v6
+                uses: actions/setup-node@v7
                 with:
                     node-version: 24
 
-            -   uses: apify/workflows/pnpm-install@main
+            -   uses: apify/actions/pnpm-install@v1.3.1
 
             -   run: pnpm lint:code
 
             -   name: Format check
                 run: pnpm format:check
+
+
+    lint_images:
+        name: Lint images
+        runs-on: ubuntu-latest
+        steps:
+            -   name: Checkout Source code
+                uses: actions/checkout@v7
+
+            -   name: Get changed unoptimized image files in sources
+                id: changed-files
+                uses: tj-actions/changed-files@v47
+                with:
+                    files: |
+                        sources/**/*.{png,jpg,jpeg,gif,bmp,tif,tiff,avif}
+                    separator: "\n"
+
+            -   name: Fail on unoptimized images
+                if: steps.changed-files.outputs.any_changed == 'true'
+                env:
+                    UNOPTIMIZED_IMAGE_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
+                run: |
+                    echo "Unoptimized images detected! Please run the following commands:"
+                    echo ""
+                    while IFS= read -r file_path; do
+                      echo "pnpm opt:images $file_path"
+                    done <<< "$UNOPTIMIZED_IMAGE_FILES"
+                    echo ""
+                    echo "Don't forget to change image paths to end with .webp in your Markdown."
+                    echo "If you point the same command at a whole directory, it will convert "
+                    echo "and optimize all images inside."
+                    exit 1

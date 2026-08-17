@@ -1,46 +1,37 @@
 ---
 title: Actor development quick start
 sidebar_label: Quick start
-sidebar_position: 0.5
-description: Create your first Apify Actor using the web IDE in Apify Console or locally with the Apify CLI, then choose from a library of ready-made code templates.
+sidebar_position: 0
 slug: /actors/development/quick-start
+description: Choose how to build your first Actor on Apify - local development with the CLI, the web IDE, AI-assisted coding, or building an AI agent on the platform.
+pagination_next: null
+pagination_prev: null
 ---
 
-import Card from "@site/src/components/Card";
-import CardGrid from "@site/src/components/CardGrid";
+import Card from '@site/src/components/Card';
+import CardGrid from '@site/src/components/CardGrid';
 
-:::info Before you build
-
-Before you start building your own Actor, try out a couple of existing Actors from [Apify Store](https://apify.com/store). See the [Running Actors](/platform/actors/running) section for more information on running existing Actors.
-
-:::
-
-## Technology stack
-
-Any code that can run inside of a Docker container can be turned into Apify [Actor](/platform/actors). This gives you freedom in choosing your technical stack, including programming language and technologies.
-
-But to fully benefit from running on top of the Apify platform, we recommend you choose either JavaScript/Node.js or Python, where Apify provides first-level support regarding its SDK, API clients, and learning materials.
-
-For these languages, you can also [choose from many code templates](https://apify.com/templates) that help you to kickstart your project quickly.
-
-## Development paths
-
-You can choose from three main ways to build your Actor, depending on your preferences and requirements:
+There's more than one way to build an Actor. Pick the path that fits how you work and what you're building:
 
 <CardGrid>
     <Card
-        title="Start Locally in Your IDE"
-        desc="Build and test on your own machine using your preferred IDE, then deploy to Apify when ready."
-        to="/platform/actors/development/quick-start/locally"
+        title="Local development"
+        desc="Develop with the Apify CLI in your own editor and terminal, then deploy."
+        to="/actors/development/quick-start/locally"
     />
     <Card
-        title="Start in Apify Web IDE"
-        desc="Start coding immediately in your browser using Apify Console."
-        to="/platform/actors/development/quick-start/web-ide"
+        title="Web IDE"
+        desc="Develop in the browser, with zero local setup."
+        to="/actors/development/quick-start/web-ide"
     />
     <Card
         title="Build with AI"
-        desc="Use AI coding assistants to generate and refine your Actor's code."
-        to="/platform/actors/development/quick-start/build-with-ai"
+        desc="Use AI coding assistants (Claude Code, Cursor, GitHub Copilot) with the Apify MCP server."
+        to="/actors/development/quick-start/build-with-ai"
+    />
+    <Card
+        title="Develop AI agents"
+        desc="Templates, sandboxes, LLM access through OpenRouter, and pay-per-event monetization."
+        to="/actors/development/quick-start/develop-ai-agents"
     />
 </CardGrid>

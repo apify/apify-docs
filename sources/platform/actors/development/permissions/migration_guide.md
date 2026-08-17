@@ -39,7 +39,7 @@ await apifyClient.actor(actorId).call(input, {
 Or using the API:
 
 ```tsx
- POST https://api.apify.com/v2/acts/<actor_id>/runs?forcePermissionLevel=LIMITED_PERMISSIONS
+ POST https://api.apify.com/v2/actors/<actor_id>/runs?forcePermissionLevel=LIMITED_PERMISSIONS
 ```
 
 ## Common migration paths

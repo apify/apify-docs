@@ -33,7 +33,7 @@ example:
           lastRunStartedAt: "2019-07-08T14:01:05.546Z"
         currentPricingInfo:
           pricingModel: FREE
-        isWhiteListedForAgenticPayment: true
+        isWhiteListedForAgenticPayments: true
       - id: zdc3Pyhyz3m8vjDeM
         title: My Public Actor
         name: my-public-actor
@@ -57,4 +57,4 @@ example:
           lastRunStartedAt: "2019-07-08T14:01:05.546Z"
         currentPricingInfo:
           pricingModel: FREE
-        isWhiteListedForAgenticPayment: false
+        isWhiteListedForAgenticPayments: false

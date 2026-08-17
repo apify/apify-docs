@@ -6,3 +6,50 @@ properties:
   pricingModel:
     type: string
     examples: [FREE]
+  apifyMarginPercentage:
+    type: number
+    examples: [0.2]
+  createdAt:
+    type: string
+    format: date-time
+    examples: ["2023-01-01T00:00:00.000Z"]
+  startedAt:
+    type: string
+    format: date-time
+    examples: ["2023-01-01T00:00:00.000Z"]
+  notifiedAboutChangeAt:
+    type: [string, "null"]
+    format: date-time
+    examples: [null]
+  notifiedAboutFutureChangeAt:
+    type: [string, "null"]
+    format: date-time
+    examples: [null]
+  isPriceChangeNotificationSuppressed:
+    type: boolean
+    examples: [false]
+  forceContainsSignificantPriceChange:
+    type: boolean
+    examples: [false]
+  isPPEPlatformUsagePaidByUser:
+    type: boolean
+    examples: [false]
+  reasonForChange:
+    type: [string, "null"]
+    examples: [null]
+  trialMinutes:
+    type: [integer, "null"]
+    examples: [null]
+  unitName:
+    type: [string, "null"]
+    examples: [null]
+  pricePerUnitUsd:
+    type: [number, "null"]
+    examples: [null]
+  minimalMaxTotalChargeUsd:
+    type: [number, "null"]
+    examples: [0.5]
+  pricingPerEvent:
+    type: [object, "null"]
+    description: Per-event pricing configuration for pay-per-event Actors.
+    additionalProperties: true

@@ -104,6 +104,10 @@ You should be able to open https://docs.apify.loc in your browser and run all th
       - danger
     - Use code tabs for multiple languages
     - Include proper metadata in front matter
+    - Use concise, meaningful headings:
+      - Use sentence case.
+      - Avoid question-like titles ("How to...", "What is...").
+      - Don't use gerunds.
 
     Example of proper usage and formatting:
 
@@ -117,9 +121,10 @@ You should be able to open https://docs.apify.loc in your browser and run all th
 
 3. Screenshots:
 
-    - Use light theme when taking screenshots
-    - Include meaningful alt texts
-    - Use red indicators
+    - Keep screenshots to a minimum. If an image shows what your prose already describes, it's probably not needed.
+    - Always include meaningful alt texts. Remember that it might be the only way for some users to understand the content.
+    - Use light theme when taking screenshots.
+    - To highlight UI elements, use `#F86606` color for indicators. Don't use arrows.
 
 ### Front matter metadata best practices
 
@@ -127,6 +132,10 @@ You should be able to open https://docs.apify.loc in your browser and run all th
 - Use action-oriented phrasing
 - Avoid repetitive keywords
 - Avoid the word "documentation" in descriptions
+
+### File naming conventions
+
+For file names, use lowercase letters and hyphens (kebab-case). For example `web-scraping-basics.mdx`
 
 ## AI assistant rules structure
 
@@ -264,7 +273,7 @@ Examples:
 
 - `/requests-queues` GET -> `requestQueues_get`
 - `/requests-queues/{queueId}` PUT -> `requestQueue_put`
-- `/acts/{actorId}/runs` POST -> `act_runs_post`
+- `/actors/{actorId}/runs` POST -> `actors_runs_post`
 
 #### Code samples
 
@@ -328,6 +337,8 @@ Add languages by adding new folders at the appropriate path level.
 ### Testing
 
 - **Broken links**: [Periodic GitHub Action](.github/workflows/lychee.yml) checks broken links by [lychee](https://lychee.cli.rs/). If the Action fails, we manually fix the issues.
+
+- **API paths**: `pnpm test:api-paths` checks that every `/v2/...` route written in `sources/` exists in the bundled OpenAPI spec and isn't marked `deprecated`, so the docs can't teach a route the contract doesn't define or has already superseded. It runs in the [OpenAPI checks](.github/workflows/openapi-ci.yaml) `validate` job on every pull request. Build the bundle first (`pnpm openapi:build:json`) when running it locally. Two common failures: the legacy `/v2/acts/` prefix, which still responds but is absent from the published contract; and the Actor-scoped single-run and single-build routes such as `/v2/actors/{actorId}/runs/{runId}`, which are deprecated in favor of `/v2/actor-runs/{runId}` and `/v2/actor-builds/{buildId}`. Note that the run and build _collection_ routes (`/v2/actors/{actorId}/runs`) are current - only the singular forms moved.
 
 - **Academy exercises**: At the end of each lesson in the academy courses, there are exercises that target real-world websites. Each exercise includes a solution, stored as a separate file containing executable code. These files are included in the docs using the `!!raw-loader` syntax. Each course has a [Bats](https://bats-core.readthedocs.io/) test file named `test.bats`. The tests run each solution as a standalone program and verify that it produces output matching the expected results. A [periodic GitHub Action](.github/workflows/test-academy.yml) runs all these tests using `pnpm test:academy`. If the Action fails, we rework the exercises.
 

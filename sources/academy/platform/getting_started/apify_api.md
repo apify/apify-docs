@@ -22,7 +22,7 @@ Within one of your Actors on the [Apify Console](https://console.apify.com?asrc=
 You should see a long list of API endpoints that you can copy and paste elsewhere, or even test right within the **API** modal. Go ahead and copy the endpoint labeled **Run Actor synchronously and get dataset items**. It should look something like this:
 
 ```text
-https://api.apify.com/v2/acts/YOUR_USERNAME~adding-actor/run-sync?token=YOUR_TOKEN
+https://api.apify.com/v2/actors/YOUR_USERNAME~adding-actor/run-sync?token=YOUR_TOKEN
 ```
 
 :::note Single endpoint
@@ -44,10 +44,10 @@ Our **adding-actor** takes in two input values (`num1` and `num2`). When using t
 Let's say we want to run our **adding-actor** via API and view its results in CSV format at the end. We'll achieve this by passing the **format** parameter with a value of **csv** to change the output format:
 
 ```text
-https://api.apify.com/v2/acts/YOUR_USERNAME~adding-actor/run-sync-get-dataset-items?token=YOUR_TOKEN_HERE&format=csv
+https://api.apify.com/v2/actors/YOUR_USERNAME~adding-actor/run-sync-get-dataset-items?token=YOUR_TOKEN_HERE&format=csv
 ```
 
-Additional parameters can be passed to this endpoint. You can learn about them in our [API documentation](/api/v2/act-run-sync-get-dataset-items-post)
+Additional parameters can be passed to this endpoint. You can learn about them in our [API documentation](/api/v2/actor-run-sync-get-dataset-items-post)
 
 :::caution Token security
 
@@ -60,7 +60,7 @@ Network components can record visited URLs, so it's more secure to send the toke
 If you're not using an HTTP client, you can send the request through your terminal with this command:
 
 ```curl
-curl -d '{"num1":1, "num2":8}' -H "Content-Type: application/json" -X POST "https://api.apify.com/v2/acts/YOUR_USERNAME~adding-actor/run-sync-get-dataset-items?token=YOUR_TOKEN_HERE&format=csv"
+curl -d '{"num1":1, "num2":8}' -H "Content-Type: application/json" -X POST "https://api.apify.com/v2/actors/YOUR_USERNAME~adding-actor/run-sync-get-dataset-items?token=YOUR_TOKEN_HERE&format=csv"
 ```
 
 Here's the response we got:
@@ -71,7 +71,7 @@ And there it is! The Actor was run with our inputs of **num1** and **num2**, the
 
 ## Apify API's many features {#api-many-features}
 
-What we've done in this lesson only scratches the surface of what the Apify API can do. Right from Insomnia, or from any HTTP client, you can manage [datasets](/api/v2/storage-datasets) and [key-value stores](/api/v2/storage-key-value-stores), add to [request queues](/api/v2/storage-request-queues), [update Actors](/api/v2/act-put), and much more! Basically, whatever you can do on the platform's web interface, you also do through the API.
+What we've done in this lesson only scratches the surface of what the Apify API can do. Right from Insomnia, or from any HTTP client, you can manage [datasets](/api/v2/storage-datasets) and [key-value stores](/api/v2/storage-key-value-stores), add to [request queues](/api/v2/storage-request-queues), [update Actors](/api/v2/actor-put), and much more! Basically, whatever you can do on the platform's web interface, you also do through the API.
 
 ## Next up {#next}
 

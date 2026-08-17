@@ -1,12 +1,11 @@
 import Link from '@docusaurus/Link';
-import { useColorMode } from '@docusaurus/theme-common';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import type React from 'react';
-import GitHubButton from 'react-github-btn';
 
 import { theme } from '@apify/ui-library';
 
 import CardWithImageAndContent from '../CardWithImageAndContent/ImageWithContent';
+import GitButton from '../GitButton';
 import { Heading } from '../Heading';
 import { Text } from '../Text';
 import styles from './styles.module.css';
@@ -16,8 +15,6 @@ interface OpenSourceCardsProps {
 }
 
 const OpenSourceCards: React.FC<OpenSourceCardsProps> = ({ hideCrawlee = false }) => {
-    const { colorMode } = useColorMode();
-
     return (
         <>
             {!hideCrawlee && (
@@ -41,15 +38,10 @@ const OpenSourceCards: React.FC<OpenSourceCardsProps> = ({ hideCrawlee = false }
                                 </Text>
                             </div>
                             <div className={styles.githubButtonWrapper}>
-                                <GitHubButton
+                                <GitButton
                                     href="https://github.com/apify/crawlee"
-                                    data-color-scheme={colorMode}
-                                    data-size="large"
-                                    data-show-count="true"
-                                    aria-label="Star apify/crawlee on GitHub"
-                                >
-                                    Star
-                                </GitHubButton>
+                                    ariaLabel="Star apify/crawlee on GitHub"
+                                />
                             </div>
                         </div>
                     }
@@ -75,15 +67,10 @@ const OpenSourceCards: React.FC<OpenSourceCardsProps> = ({ hideCrawlee = false }
                             </Text>
                         </div>
                         <div className={styles.githubButtonWrapper}>
-                            <GitHubButton
+                            <GitButton
                                 href="https://github.com/apify/fingerprint-suite"
-                                data-color-scheme={colorMode}
-                                data-size="large"
-                                data-show-count="true"
-                                aria-label="Star apify/fingerprint-suite on GitHub"
-                            >
-                                Star
-                            </GitHubButton>
+                                ariaLabel="Star apify/fingerprint-suite on GitHub"
+                            />
                         </div>
                     </div>
                 }
@@ -108,22 +95,14 @@ const OpenSourceCards: React.FC<OpenSourceCardsProps> = ({ hideCrawlee = false }
                             </Text>
                         </div>
                         <div className={styles.githubButtonWrapper}>
-                            <GitHubButton
-                                href="https://github.com/apify/impit"
-                                data-color-scheme={colorMode}
-                                data-size="large"
-                                data-show-count="true"
-                                aria-label="Star apify/impit on GitHub"
-                            >
-                                Star
-                            </GitHubButton>
+                            <GitButton href="https://github.com/apify/impit" ariaLabel="Star apify/impit on GitHub" />
                         </div>
                     </div>
                 }
             />
             <CardWithImageAndContent
                 image={
-                    <Link to="https://github.com/apify/mcp-cli" className={styles.imageLink}>
+                    <Link to="https://github.com/apify/mcpc" className={styles.imageLink}>
                         <div className={styles.iconWrapper}>
                             <img src={useBaseUrl('/img/landing-pages/mcpc.svg')} alt="mcpc" />
                         </div>
@@ -132,7 +111,7 @@ const OpenSourceCards: React.FC<OpenSourceCardsProps> = ({ hideCrawlee = false }
                 content={
                     <div className="cardContentWrapper">
                         <div className="cardContentWrapperText">
-                            <Link to="https://github.com/apify/mcp-cli" className={styles.headingLink}>
+                            <Link to="https://github.com/apify/mcpc" className={styles.headingLink}>
                                 <Heading type="titleM">mcpc</Heading>
                             </Link>
                             <Text color={theme.color.neutral.textMuted}>
@@ -141,15 +120,7 @@ const OpenSourceCards: React.FC<OpenSourceCardsProps> = ({ hideCrawlee = false }
                             </Text>
                         </div>
                         <div className={styles.githubButtonWrapper}>
-                            <GitHubButton
-                                href="https://github.com/apify/mcp-cli"
-                                data-color-scheme={colorMode}
-                                data-size="large"
-                                data-show-count="true"
-                                aria-label="Star apify/mcp-cli on GitHub"
-                            >
-                                Star
-                            </GitHubButton>
+                            <GitButton href="https://github.com/apify/mcpc" ariaLabel="Star apify/mcpc on GitHub" />
                         </div>
                     </div>
                 }
@@ -173,15 +144,10 @@ const OpenSourceCards: React.FC<OpenSourceCardsProps> = ({ hideCrawlee = false }
                             </Text>
                         </div>
                         <div className={styles.githubButtonWrapper}>
-                            <GitHubButton
+                            <GitButton
                                 href="https://github.com/apify/proxy-chain"
-                                data-color-scheme={colorMode}
-                                data-size="large"
-                                data-show-count="true"
-                                aria-label="Star apify/proxy-chain on GitHub"
-                            >
-                                Star
-                            </GitHubButton>
+                                ariaLabel="Star apify/proxy-chain on GitHub"
+                            />
                         </div>
                     </div>
                 }

@@ -1,0 +1,142 @@
+{
+  "source_file": "sources/platform/account/billing.md",
+  "assertions": [
+    {
+      "id": "current-period-tab",
+      "kind": "element_tab",
+      "target": "Current period",
+      "at": "/billing",
+      "page_context": "Billing page > Current period tab",
+      "source_quote": "The **Current period** tab is a comprehensive resource for understanding your platform usage during the ongoing billing cycle.",
+      "source_line": 11,
+      "needs_auth": true
+    },
+    {
+      "id": "plan-consumption-graph",
+      "kind": "element_text",
+      "target": "Plan Consumption",
+      "at": "/billing",
+      "page_context": "Billing page > Current period tab > Plan Consumption graph",
+      "source_quote": "the tab features a **Plan Consumption** Graph.",
+      "source_line": 13,
+      "needs_auth": true
+    },
+    {
+      "id": "current-period-actors-section",
+      "kind": "element_text",
+      "target": "Actors",
+      "at": "/billing",
+      "page_context": "Billing page > Current period tab > usage breakdown sections",
+      "source_quote": "You can access detailed statistics related to **Actors**, **Data transfer**, **Proxy**, and **Storage**.",
+      "source_line": 15,
+      "needs_auth": true
+    },
+    {
+      "id": "current-period-data-transfer-section",
+      "kind": "element_text",
+      "target": "Data transfer",
+      "at": "/billing",
+      "page_context": "Billing page > Current period tab > usage breakdown sections",
+      "source_quote": "You can access detailed statistics related to **Actors**, **Data transfer**, **Proxy**, and **Storage**.",
+      "source_line": 15,
+      "needs_auth": true
+    },
+    {
+      "id": "current-period-proxy-section",
+      "kind": "element_text",
+      "target": "Proxy",
+      "at": "/billing",
+      "page_context": "Billing page > Current period tab > usage breakdown sections",
+      "source_quote": "You can access detailed statistics related to **Actors**, **Data transfer**, **Proxy**, and **Storage**.",
+      "source_line": 15,
+      "needs_auth": true
+    },
+    {
+      "id": "current-period-storage-section",
+      "kind": "element_text",
+      "target": "Storage",
+      "at": "/billing",
+      "page_context": "Billing page > Current period tab > usage breakdown sections",
+      "source_quote": "You can access detailed statistics related to **Actors**, **Data transfer**, **Proxy**, and **Storage**.",
+      "source_line": 15,
+      "needs_auth": true
+    },
+    {
+      "id": "historical-usage-tab",
+      "kind": "element_tab",
+      "target": "Historical usage",
+      "at": "/billing/historical-usage",
+      "page_context": "Billing page > Historical usage tab",
+      "source_quote": "The **Historical usage** tab provides a detailed view of your monthly platform usage",
+      "source_line": 21,
+      "needs_auth": true
+    },
+    {
+      "id": "usage-by-actors-table",
+      "kind": "element_text",
+      "target": "Usage by Actors",
+      "at": "/billing/historical-usage",
+      "page_context": "Billing page > Historical usage tab > table below bar chart",
+      "source_quote": "Below the bar chart, there is a table titled **Usage by Actors**.",
+      "source_line": 31,
+      "needs_auth": true
+    },
+    {
+      "id": "subscription-tab",
+      "kind": "element_tab",
+      "target": "Subscription",
+      "at": "/billing/subscription",
+      "page_context": "Billing page > Subscription tab",
+      "source_quote": "The **Subscription** tab offers a central location to manage various aspects of your subscription plan.",
+      "source_line": 37,
+      "needs_auth": true
+    },
+    {
+      "id": "subscription-route",
+      "kind": "route",
+      "target": "/billing/subscription",
+      "page_context": "Billing page > Subscription tab link",
+      "source_quote": "Navigate to [Subscription](https://console.apify.com/billing/subscription) section in Apify Console",
+      "source_line": 53,
+      "needs_auth": true
+    },
+    {
+      "id": "buy-add-ons-button",
+      "kind": "element_button",
+      "target": "Buy add-ons",
+      "at": "/billing/subscription",
+      "page_context": "Billing page > Subscription tab > Plan add-ons info box",
+      "source_quote": "click the **Buy add-ons** button to explore the available options.",
+      "source_line": 53,
+      "needs_auth": true
+    },
+    {
+      "id": "pricing-tab",
+      "kind": "element_tab",
+      "target": "Pricing",
+      "page_context": "Billing page > Pricing tab",
+      "source_quote": "The **Pricing** tab offers a way to quickly check all unit pricing for various platform services",
+      "source_line": 61,
+      "needs_auth": true
+    },
+    {
+      "id": "invoices-tab",
+      "kind": "element_tab",
+      "target": "Invoices",
+      "page_context": "Billing page > Invoices tab",
+      "source_quote": "The **Invoices** tab is where you can find your current and previous invoices for Apify platform usage.",
+      "source_line": 67,
+      "needs_auth": true
+    },
+    {
+      "id": "limits-tab",
+      "kind": "element_tab",
+      "target": "Limits",
+      "at": "/billing#/limits",
+      "page_context": "Billing page > Limits tab",
+      "source_quote": "The **Limits** tab displays the usage limits for the Apify platform based on your current subscription plan.",
+      "source_line": 73,
+      "needs_auth": true
+    }
+  ]
+}

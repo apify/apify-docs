@@ -17,10 +17,20 @@ info:
     [JSON](http://www.json.org/) format with UTF-8 encoding,
     with a few exceptions that are explicitly described in the reference.
 
-    - To access the API using [Node.js](https://nodejs.org/en/), we recommend the [`apify-client`](https://docs.apify.com/api/client/js) [NPM
+    To access the API, we recommend using one of our API clients:
+
+    Stable API clients:
+    - For [Node.js](https://nodejs.org/en/), we recommend the [`apify-client`](https://docs.apify.com/api/client/js) [NPM
     package](https://www.npmjs.com/package/apify-client).
-    - To access the API using [Python](https://www.python.org/), we recommend the [`apify-client`](https://docs.apify.com/api/client/python) [PyPI
+    - For [Python](https://www.python.org/), we recommend the [`apify-client`](https://docs.apify.com/api/client/python) [PyPI
     package](https://pypi.org/project/apify-client/).
+
+    Experimental API clients:
+    - For [Java](https://www.java.com/), we recommend the `apify-client` [Maven central component](https://central.sonatype.com/artifact/com.apify/apify-client).
+    - For [Rust](https://rust-lang.org/), we recommend the `apify-client` [crate](https://crates.io/crates/apify-client).
+    - For [.NET](https://dotnet.microsoft.com/), we recommend the `apify-client` [Nuget package](https://www.nuget.org/packages/Apify.Client).
+    - For [PHP](https://www.php.net/), we recommend the `apify-client` [Packagist package](https://packagist.org/packages/apify/apify-client).
+    - For [Go](https://go.dev/), we recommend the `apify-client` [package](https://github.com/apify/apify-client-go/releases).
 
     The clients' functions correspond to the API endpoints and have the same
     parameters. This simplifies development of apps that depend on the Apify
@@ -37,9 +47,9 @@ info:
     ## Authentication
     <span id="/introduction/authentication"></span>
 
-    You can find your API token on the
-    [Integrations](https://console.apify.com/account#/integrations) page in the
-    Apify Console.
+    **You can find your API token on the
+    [Integrations](https://console.apify.com/settings/integrations) page in the
+    Apify Console.**
 
     To use your token in a request, either:
 
@@ -54,10 +64,20 @@ info:
     in browser history and server logs. This creates a chance for someone
     unauthorized to access your API token.
 
-    **Do not share your API token or password with untrusted parties.**
+    **Never share your API token or password with untrusted parties!**
 
     For more information, see our
     [integrations](https://docs.apify.com/platform/integrations) documentation.
+
+    ### Agentic payments
+
+    AI agents can authenticate and pay for Actor runs without an Apify account
+    using agentic payments. Instead of an API token, the request carries a
+    payment credential that both authorizes and pays for the call. Apify supports
+    the [x402 protocol](https://docs.apify.com/platform/integrations/x402)
+    (`PAYMENT-SIGNATURE` header) and
+    [Skyfire](https://docs.apify.com/platform/integrations/skyfire)
+    (`skyfire-pay-id` header).
 
     ## Basic usage
     <span id="/introduction/basic-usage"></span>
@@ -67,7 +87,7 @@ info:
     Actor ID code (e.g. `vKg4IjxZbEYTYeW8T`) or its name (e.g.
     `janedoe~my-actor`):
 
-    `https://api.apify.com/v2/acts/[actor_id]/runs`
+    `https://api.apify.com/v2/actors/[actor_id]/runs`
 
     If the Actor is not runnable anonymously, you will receive a 401 or 403
     [response code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status).
@@ -110,6 +130,14 @@ info:
     synchronously. This will ensure that the request waits for 300 seconds (5
     minutes) for the run to finish and returns its output. If the run takes
     longer, the request will time out and throw an error.
+
+    ## Legacy `/v2/acts/` URL prefix
+    <span id="/introduction/legacy-acts-prefix"></span>
+
+    The `/v2/acts/` prefix is deprecated but still fully functional, and 
+    such endpoint routes to the same handler as its `/v2/actors/...` counterpart. 
+    New integrations should use the canonical /v2/actors/ prefix, 
+    but existing clients keep working without changes.
 
     ## Response structure
     <span id="/introduction/response-structure"></span>
@@ -480,79 +508,85 @@ servers:
   - url: "https://api.apify.com"
     variables: {}
 paths:
-  /v2/acts:
+  /v2/actors:
     $ref: paths/actors/acts.yaml
-  "/v2/acts/{actorId}":
+  "/v2/actors/{actorId}":
     $ref: "paths/actors/acts@{actorId}.yaml"
-  "/v2/acts/{actorId}/versions":
+  "/v2/actors/{actorId}/versions":
     $ref: "paths/actors/acts@{actorId}@versions.yaml"
-  "/v2/acts/{actorId}/versions/{versionNumber}":
+  "/v2/actors/{actorId}/versions/{versionNumber}":
     $ref: "paths/actors/acts@{actorId}@versions@{versionNumber}.yaml"
-  "/v2/acts/{actorId}/versions/{versionNumber}/env-vars":
+  "/v2/actors/{actorId}/versions/{versionNumber}/env-vars":
     $ref: "paths/actors/acts@{actorId}@versions@{versionNumber}@env-vars.yaml"
-  "/v2/acts/{actorId}/versions/{versionNumber}/env-vars/{envVarName}":
+  "/v2/actors/{actorId}/versions/{versionNumber}/env-vars/{envVarName}":
     $ref: "paths/actors/acts@{actorId}@versions@{versionNumber}@env-vars@{envVarName}.yaml"
-  "/v2/acts/{actorId}/webhooks":
+  "/v2/actors/{actorId}/webhooks":
     $ref: "paths/actors/acts@{actorId}@webhooks.yaml"
-  "/v2/acts/{actorId}/builds":
+  "/v2/actors/{actorId}/builds":
     $ref: "paths/actors/acts@{actorId}@builds.yaml"
-  "/v2/acts/{actorId}/builds/default":
+  "/v2/actors/{actorId}/builds/default":
     $ref: "paths/actors/acts@{actorId}@builds@default.yaml"
-  "/v2/acts/{actorId}/builds/{buildId}/openapi.json":
+  "/v2/actors/{actorId}/builds/{buildId}/openapi.json":
     $ref: "paths/actors/acts@{actorId}@builds@{buildId}@openapi.json.yaml"
-  "/v2/acts/{actorId}/builds/{buildId}":
+  "/v2/actors/{actorId}/builds/{buildId}":
     $ref: "paths/actors/acts@{actorId}@builds@{buildId}.yaml"
-  "/v2/acts/{actorId}/builds/{buildId}/abort":
+  "/v2/actors/{actorId}/builds/{buildId}/abort":
     $ref: "paths/actors/acts@{actorId}@builds@{buildId}@abort.yaml"
-  "/v2/acts/{actorId}/runs":
+  "/v2/actors/{actorId}/runs":
     $ref: "paths/actors/acts@{actorId}@runs.yaml"
-  "/v2/acts/{actorId}/run-sync":
+  "/v2/actors/{actorId}/run-sync":
     $ref: "paths/actors/acts@{actorId}@run-sync.yaml"
-  "/v2/acts/{actorId}/run-sync-get-dataset-items":
+  "/v2/actors/{actorId}/run-sync-get-dataset-items":
     $ref: "paths/actors/acts@{actorId}@run-sync-get-dataset-items.yaml"
-  "/v2/acts/{actorId}/validate-input":
+  "/v2/actors/{actorId}/validate-input":
     $ref: "paths/actors/acts@{actorId}@validate-input.yaml"
-  "/v2/acts/{actorId}/runs/{runId}/resurrect":
+  "/v2/actors/{actorId}/runs/{runId}/resurrect":
     $ref: "paths/actors/acts@{actorId}@runs@{runId}@resurrect.yaml"
-  "/v2/acts/{actorId}/runs/last":
+  "/v2/actors/{actorId}/runs/last":
     $ref: "paths/actors/acts@{actorId}@runs@last.yaml"
-  "/v2/acts/{actorId}/runs/last/dataset":
+  "/v2/actors/{actorId}/runs/last/dataset":
     $ref: "paths/actors/acts@{actorId}@runs@last@dataset.yaml"
-  "/v2/acts/{actorId}/runs/last/dataset/items":
+  "/v2/actors/{actorId}/runs/last/dataset/items":
     $ref: "paths/actors/acts@{actorId}@runs@last@dataset@items.yaml"
-  "/v2/acts/{actorId}/runs/last/dataset/statistics":
+  "/v2/actors/{actorId}/runs/last/dataset/statistics":
     $ref: "paths/actors/acts@{actorId}@runs@last@dataset@statistics.yaml"
-  "/v2/acts/{actorId}/runs/last/key-value-store":
+  "/v2/actors/{actorId}/runs/last/key-value-store":
     $ref: "paths/actors/acts@{actorId}@runs@last@key-value-store.yaml"
-  "/v2/acts/{actorId}/runs/last/key-value-store/keys":
+  "/v2/actors/{actorId}/runs/last/key-value-store/keys":
     $ref: "paths/actors/acts@{actorId}@runs@last@key-value-store@keys.yaml"
-  "/v2/acts/{actorId}/runs/last/key-value-store/records":
+  "/v2/actors/{actorId}/runs/last/key-value-store/records":
     $ref: "paths/actors/acts@{actorId}@runs@last@key-value-store@records.yaml"
-  "/v2/acts/{actorId}/runs/last/key-value-store/records/{recordKey}":
+  "/v2/actors/{actorId}/runs/last/key-value-store/records/{recordKey}":
     $ref: "paths/actors/acts@{actorId}@runs@last@key-value-store@records@{recordKey}.yaml"
-  "/v2/acts/{actorId}/runs/last/request-queue":
+  "/v2/actors/{actorId}/runs/last/request-queue":
     $ref: "paths/actors/acts@{actorId}@runs@last@request-queue.yaml"
-  "/v2/acts/{actorId}/runs/last/request-queue/requests":
+  "/v2/actors/{actorId}/runs/last/request-queue/requests":
     $ref: "paths/actors/acts@{actorId}@runs@last@request-queue@requests.yaml"
-  "/v2/acts/{actorId}/runs/last/request-queue/requests/batch":
+  "/v2/actors/{actorId}/runs/last/request-queue/requests/batch":
     $ref: "paths/actors/acts@{actorId}@runs@last@request-queue@requests@batch.yaml"
-  "/v2/acts/{actorId}/runs/last/request-queue/requests/unlock":
+  "/v2/actors/{actorId}/runs/last/request-queue/requests/unlock":
     $ref: "paths/actors/acts@{actorId}@runs@last@request-queue@requests@unlock.yaml"
-  "/v2/acts/{actorId}/runs/last/request-queue/requests/{requestId}":
+  "/v2/actors/{actorId}/runs/last/request-queue/requests/{requestId}":
     $ref: "paths/actors/acts@{actorId}@runs@last@request-queue@requests@{requestId}.yaml"
-  "/v2/acts/{actorId}/runs/last/request-queue/requests/{requestId}/lock":
+  "/v2/actors/{actorId}/runs/last/request-queue/requests/{requestId}/lock":
     $ref: "paths/actors/acts@{actorId}@runs@last@request-queue@requests@{requestId}@lock.yaml"
-  "/v2/acts/{actorId}/runs/last/request-queue/head":
+  "/v2/actors/{actorId}/runs/last/request-queue/head":
     $ref: "paths/actors/acts@{actorId}@runs@last@request-queue@head.yaml"
-  "/v2/acts/{actorId}/runs/last/request-queue/head/lock":
+  "/v2/actors/{actorId}/runs/last/request-queue/head/lock":
     $ref: "paths/actors/acts@{actorId}@runs@last@request-queue@head@lock.yaml"
-  "/v2/acts/{actorId}/runs/last/log":
+  "/v2/actors/{actorId}/runs/last/log":
     $ref: "paths/actors/acts@{actorId}@runs@last@log.yaml"
-  "/v2/acts/{actorId}/runs/{runId}":
+  "/v2/actors/{actorId}/runs/last/abort":
+    $ref: "paths/actors/acts@{actorId}@runs@last@abort.yaml"
+  "/v2/actors/{actorId}/runs/last/metamorph":
+    $ref: "paths/actors/acts@{actorId}@runs@last@metamorph.yaml"
+  "/v2/actors/{actorId}/runs/last/reboot":
+    $ref: "paths/actors/acts@{actorId}@runs@last@reboot.yaml"
+  "/v2/actors/{actorId}/runs/{runId}":
     $ref: "paths/actors/acts@{actorId}@runs@{runId}.yaml"
-  "/v2/acts/{actorId}/runs/{runId}/abort":
+  "/v2/actors/{actorId}/runs/{runId}/abort":
     $ref: "paths/actors/acts@{actorId}@runs@{runId}@abort.yaml"
-  "/v2/acts/{actorId}/runs/{runId}/metamorph":
+  "/v2/actors/{actorId}/runs/{runId}/metamorph":
     $ref: "paths/actors/acts@{actorId}@runs@{runId}@metamorph.yaml"
   /v2/actor-tasks:
     $ref: paths/actor-tasks/actor-tasks.yaml
@@ -572,6 +606,12 @@ paths:
     $ref: "paths/actor-tasks/actor-tasks@{actorTaskId}@runs@last.yaml"
   "/v2/actor-tasks/{actorTaskId}/runs/last/log":
     $ref: "paths/actor-tasks/actor-tasks@{actorTaskId}@runs@last@log.yaml"
+  "/v2/actor-tasks/{actorTaskId}/runs/last/abort":
+    $ref: "paths/actor-tasks/actor-tasks@{actorTaskId}@runs@last@abort.yaml"
+  "/v2/actor-tasks/{actorTaskId}/runs/last/metamorph":
+    $ref: "paths/actor-tasks/actor-tasks@{actorTaskId}@runs@last@metamorph.yaml"
+  "/v2/actor-tasks/{actorTaskId}/runs/last/reboot":
+    $ref: "paths/actor-tasks/actor-tasks@{actorTaskId}@runs@last@reboot.yaml"
   "/v2/actor-tasks/{actorTaskId}/runs/last/dataset":
     $ref: "paths/actor-tasks/actor-tasks@{actorTaskId}@runs@last@dataset.yaml"
   "/v2/actor-tasks/{actorTaskId}/runs/last/dataset/items":

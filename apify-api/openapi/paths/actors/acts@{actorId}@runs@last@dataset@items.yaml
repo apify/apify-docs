@@ -1,4 +1,4 @@
 get:
-  $ref: "../../components/objects/datasets/dataset-items.yaml#/getLastRun"
+  $ref: "../../components/objects/datasets/dataset-items.yaml#/listLastRun"
 post:
   $ref: "../../components/objects/datasets/dataset-items.yaml#/postLastRun"

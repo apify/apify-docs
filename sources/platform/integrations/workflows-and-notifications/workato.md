@@ -2,7 +2,6 @@
 title: Workato integration
 description: Connect Apify Actors to Workato recipes to run web scraping jobs, monitor run events, and process results in automated workflows.
 sidebar_label: Workato
-sidebar_position: 7.0
 slug: /integrations/workato
 ---
 

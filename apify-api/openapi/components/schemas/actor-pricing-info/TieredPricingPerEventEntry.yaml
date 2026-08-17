@@ -1,0 +1,9 @@
+title: TieredPricingPerEventEntry
+description: A single tier's price-per-event entry.
+type: object
+required:
+  - tieredEventPriceUsd
+properties:
+  tieredEventPriceUsd:
+    type: number
+    description: Price per event in USD for this tier.

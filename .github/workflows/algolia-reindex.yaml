@@ -1,0 +1,25 @@
+name: Algolia reindex
+
+# Triggers a reindex of the Algolia documentation search crawler.
+# Run this manually from the Actions UI so the search index picks up new content.
+on:
+    workflow_dispatch:
+
+env:
+    ALGOLIA_CRAWLER_ID: 0ff0db5f-08b9-415e-8a82-b6f50e734f20
+
+jobs:
+    reindex:
+        runs-on: ubuntu-latest
+        steps:
+            -   name: Trigger Algolia crawler reindex
+                env:
+                    ALGOLIA_CRAWLER_USER_ID: ${{ secrets.ALGOLIA_CRAWLER_USER_ID }}
+                    ALGOLIA_CRAWLER_API_KEY: ${{ secrets.ALGOLIA_CRAWLER_API_KEY }}
+                run: |
+                    response=$(curl --silent --show-error --fail-with-body \
+                        --request POST \
+                        --user "${ALGOLIA_CRAWLER_USER_ID}:${ALGOLIA_CRAWLER_API_KEY}" \
+                        "https://crawler.algolia.com/api/1/crawlers/${ALGOLIA_CRAWLER_ID}/reindex")
+                    echo "✅ Algolia reindex triggered successfully"
+                    echo "$response"

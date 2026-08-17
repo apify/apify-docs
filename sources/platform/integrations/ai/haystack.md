@@ -2,7 +2,6 @@
 title: Haystack integration
 sidebar_label: Haystack
 description: Learn how to integrate Apify with Haystack to crawl websites, compute text embeddings, and build retrieval-augmented generation pipelines with ease.
-sidebar_position: 4
 slug: /integrations/haystack
 ---
 
@@ -35,7 +34,7 @@ from haystack.utils.auth import Secret
 from apify_haystack import ApifyDatasetFromActorCall
 ```
 
-Find your [Apify API token](https://console.apify.com/settings/integrations) and [OpenAI API key](https://platform.openai.com/account/api-keys) and initialize these into environment variable:
+Find your [Apify API token](https://console.apify.com/settings/integrations) and [OpenAI API key](https://.openai.com/account/api-keys) and initialize these into environment variable:
 
 ```python
 import os

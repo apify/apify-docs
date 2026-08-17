@@ -16,7 +16,11 @@ Our Google SERP proxy currently supports the below services.
 * Google Shopping (`http://www.google.<country domain>/shopping/product/<product ID>`).
 * Google Shopping Search (`http://www.google.<country domain>/search?tbm=shop`).
 
-> Google SERP proxy can **only** be used for Google Search and Shopping. It cannot be used to access other websites.
+:::caution Google-only
+
+Google SERP proxy can _only_ be used for Google Search and Shopping. It cannot be used to access other websites.
+
+:::
 
 When using the proxy, **pricing is based on the number of requests made**.
 
@@ -30,7 +34,7 @@ For code examples on how to connect to Google SERP proxies, see the [examples](#
 
 ### Username parameters
 
-The `username` field enables you to pass various [parameters](./usage.md#username-parameters), such as groups and country, for your proxy connection.
+The `username` field enables you to pass various [parameters](./index.md#username-parameters), such as groups and country, for your proxy connection.
 
 When using Google SERP proxy, the username should always be:
 
@@ -38,9 +42,9 @@ When using Google SERP proxy, the username should always be:
 groups-GOOGLE_SERP
 ```
 
-Unlike [datacenter](./datacenter_proxy.md) or [residential](./residential_proxy.md) proxies, there is no [session](./usage.md#sessions) parameter.
+Unlike [datacenter](./datacenter_proxy.md) or [residential](./residential_proxy.md) proxies, there is no [session](./index.md#sessions) parameter.
 
-If you use the `country` [parameter](./usage.md), the Google proxy location is used if you access a website whose hostname (stripped of `www.`) starts with **google**.
+If you use the `country` [parameter](./index.md), the Google proxy location is used if you access a website whose hostname (stripped of `www.`) starts with **google**.
 
 ## Country selection
 
@@ -176,9 +180,11 @@ await Actor.exit();
 
 You can find your proxy password on the [Proxy page](https://console.apify.com/proxy/access) of Apify Console.
 
-> The `username` field is **not** your Apify username.<br/>
-> Instead, you specify proxy settings (e.g. `groups-GOOGLE_SERP`).<br/>
-> Use `groups-GOOGLE_SERP` to use proxies from all available countries.
+:::note Username field
+
+Use the `username` field to specify your proxy settings (for example, `groups-GOOGLE_SERP`), or set it to `groups-GOOGLE_SERP` to use proxies from all available countries. It isn't your Apify username.
+
+:::
 
 For examples using [PHP](https://www.php.net/), you need to have the [cURL](https://www.php.net/manual/en/book.curl.php) extension enabled in your PHP installation. See [installation instructions](https://www.php.net/manual/en/curl.installation.php) for more information.
 

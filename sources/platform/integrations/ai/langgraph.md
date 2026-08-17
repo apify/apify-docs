@@ -2,7 +2,6 @@
 title: 🦜🔘➡️ LangGraph integration
 sidebar_label: LangGraph
 description: Learn how to build stateful multi-agent AI workflows with LangGraph and Apify Actors to search, extract, and analyze real-time web data at scale.
-sidebar_position: 8
 slug: /integrations/langgraph
 ---
 
@@ -18,9 +17,9 @@ This guide will demonstrate how to use Apify Actors with LangGraph by building a
 
 ### Prerequisites
 
-- **Apify API token**: To use Apify Actors in LangGraph, you need an Apify API token. If you don't have one, you can learn how to obtain it in the [Apify documentation](https://docs.apify.com/platform/integrations/api).
+- **Apify API token**: To use Apify Actors in LangGraph, you need an Apify API token. If you don't have one, you can learn how to obtain it in the [Apify documentation](https://docs.apify.com/integrations/api).
 
-- **OpenAI API key**: In order to work with agents in LangGraph, you need an OpenAI API key. If you don't have one, you can get it from the [OpenAI platform](https://platform.openai.com/account/api-keys).
+- **OpenAI API key**: In order to work with agents in LangGraph, you need an OpenAI API key. If you don't have one, you can get it from the [OpenAI platform](https://.openai.com/account/api-keys).
 
 - **Python packages**:  You need to install the following Python packages:
 
@@ -147,5 +146,5 @@ for state in agent_executor.stream(
 
 ## Resources
 
-- [Apify Actors](https://docs.apify.com/platform/actors)
+- [Apify Actors](https://docs.apify.com/actors)
 - [LangGraph - How to Create a ReAct Agent](https://langchain-ai.github.io/langgraph/how-tos/create-react-agent/)

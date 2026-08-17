@@ -1,0 +1,11 @@
+# Never commit a logged-in session or local secrets to this public repo.
+node_modules/
+.env
+auth.json
+playwright-report/
+test-results/
+.DS_Store
+
+# Runtime outputs. The stored assertion baseline (assertions/) IS committed;
+# only the per-run report lives here.
+output/

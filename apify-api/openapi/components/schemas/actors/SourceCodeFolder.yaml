@@ -9,9 +9,9 @@ required:
 properties:
   name:
     type: string
-    description: The folder path relative to the Actor's root directory.
+    description: The path of the folder relative to the Actor's root directory.
     examples: [src/utils]
   folder:
     type: boolean
-    description: Always `true` for folders. Used to distinguish folders from files.
+    description: Whether it's a folder. Distinguishes folders from files.
     examples: [true]

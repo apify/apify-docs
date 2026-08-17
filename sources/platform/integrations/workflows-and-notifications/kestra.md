@@ -2,7 +2,6 @@
 title: Kestra integration
 description: Connect Apify with Kestra to orchestrate workflows declaratively in YAML - run Actors, extract structured data, and react to Actor or task events.
 sidebar_label: Kestra
-sidebar_position: 7
 slug: /integrations/kestra
 ---
 

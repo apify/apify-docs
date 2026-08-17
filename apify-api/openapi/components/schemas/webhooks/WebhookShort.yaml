@@ -28,6 +28,15 @@ properties:
   isAdHoc:
     type: [boolean, "null"]
     examples: [false]
+  isApifyIntegration:
+    type: boolean
+    examples: [false]
+  isEnabled:
+    type: boolean
+    examples: [true]
+  actionType:
+    type: string
+    examples: [HTTP_REQUEST]
   shouldInterpolateStrings:
     type: [boolean, "null"]
     examples: [false]

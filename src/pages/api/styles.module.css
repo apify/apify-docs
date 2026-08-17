@@ -8,4 +8,13 @@
         font-size: 1.6rem;
         line-height: 2.4rem;
     }
+
+    /*
+     * The theme numbers code lines for an allowlist of languages (JavaScript, Python, JSON and
+     * a few more), which would number only some of the blocks on this page. These snippets are
+     * short and nothing refers to them by line, so drop the numbers from all of them.
+     */
+    :global(.prism-code) :global(.token-line)::before {
+        content: none;
+    }
 }

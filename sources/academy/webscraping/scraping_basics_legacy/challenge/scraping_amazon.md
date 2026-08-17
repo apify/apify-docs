@@ -31,29 +31,17 @@ router.addHandler(labels.PRODUCT, async ({ $ }) => {
 ```
 
 
-Great! But wait, where do we go from here? We need to go to the offers page next and scrape each offer, but how can we do that? Let's take a small break from writing the scraper and open up Proxyman to analyze requests which we might be difficult to find in the network tab, then we'll click the button on the product page that loads up all of the product offers:
+Great! But where do we go from here? We need to visit the product page and scrape the offer from there.
 
-![View offers button](./images/view-offers-button.jpg)
+:::note Why only one offer per product?
 
-After clicking this button and checking back in Proxyman, we discovered this link:
+Amazon product pages list a single featured offer in their static HTML. The full list of sellers is loaded separately by JavaScript after the page loads. CheerioCrawler can't see the list because it only fetches the raw HTML, without running JavaScript.
 
-> You can find the request below in the network tab just fine, but with Proxyman, it is much easier and faster due to the extended filtering options.
+If you need all seller offers, you have to use [PlaywrightCrawler](../../puppeteer_playwright/index.md), which runs a real browser and can wait for that content to load. For this course, scraping the featured offer is enough to cover the key concepts.
 
-```text
-https://www.amazon.com/gp/aod/ajax/ref=auto_load_aod?asin=B07ZPKBL9V&pc=dp
-```
+:::
 
-The `asin` [query parameter](https://www.branch.io/glossary/query-parameters/) matches up with our product's ASIN, which means we can use this for any product of which we have the ASIN.
-
-Here's what this page looks like:
-
-![View offers page](./images/offers-page.jpg)
-
-Wow, that's ugly. But for our scenario, this is really great. When we click the **View offers** button, we usually have to wait for the offers to load and render, which would mean we could have to switch our entire crawler to a **PuppeteerCrawler** or **PlaywrightCrawler**. The data on this page we've just found appears to be loaded statically, which means we can still use CheerioCrawler and keep the scraper as efficient as possible 😎
-
-> It's totally possible to scrape the same data as this crawler using [Puppeteer or Playwright](../../puppeteer_playwright/index.md); however, with this offers link found in Postman, we can follow the same workflow much more quickly with static HTTP requests using CheerioCrawler.
-
-First, we'll create a request for each product's offers page:
+We'll add a request to the product page for each product:
 
 ```js
 // routes.js
@@ -63,23 +51,22 @@ First, we'll create a request for each product's offers page:
 router.addHandler(labels.PRODUCT, async ({ $, crawler, request }) => {
     const { data } = request.userData;
 
-    const element = $('div#productDescription');
+    const description = $('div#productDescription').text().trim();
 
-    // Add to the request queue
     await crawler.addRequests([{
-        url: `${BASE_URL}/gp/aod/ajax/ref=auto_load_aod?asin=${data.asin}&pc=dp`,
+        url: `${BASE_URL}/dp/${data.asin}?th=1&psc=1`,
         label: labels.OFFERS,
         userData: {
             data: {
                 ...data,
-                description: element.text().trim(),
+                description,
             },
         },
     }]);
 });
 ```
 
-Finally, we can handle the offers in a separate handler:
+Then we handle it in the OFFERS handler:
 
 ```js
 // routes.js
@@ -87,16 +74,14 @@ Finally, we can handle the offers in a separate handler:
 router.addHandler(labels.OFFERS, async ({ $, request }) => {
     const { data } = request.userData;
 
-    for (const offer of $('#aod-offer')) {
-        const element = $(offer);
+    const price = $('.a-price .a-offscreen').first().text().trim();
+    const sellerName = $('#sellerProfileTriggerId, #merchant-info a').first().text().trim();
 
-        await Dataset.pushData({
-            ...data,
-            sellerName: element.find('div[id*="soldBy"] a[aria-label]').text().trim(),
-            offer: element.find('.a-price .a-offscreen').text().trim(),
-        });
-
-    }
+    await Dataset.pushData({
+        ...data,
+        sellerName,
+        offer: price,
+    });
 });
 ```
 
@@ -153,16 +138,16 @@ router.addHandler(labels.START, async ({ $, crawler, request }) => {
 router.addHandler(labels.PRODUCT, async ({ $, crawler, request }) => {
     const { data } = request.userData;
 
-    const element = $('div#productDescription');
+    const description = $('div#productDescription').text().trim();
 
     await crawler.addRequests([
         {
-            url: `${BASE_URL}/gp/aod/ajax/ref=auto_load_aod?asin=${data.asin}&pc=dp`,
+            url: `${BASE_URL}/dp/${data.asin}?th=1&psc=1`,
             label: labels.OFFERS,
             userData: {
                 data: {
                     ...data,
-                    description: element.text().trim(),
+                    description,
                 },
             },
         },
@@ -172,15 +157,14 @@ router.addHandler(labels.PRODUCT, async ({ $, crawler, request }) => {
 router.addHandler(labels.OFFERS, async ({ $, request }) => {
     const { data } = request.userData;
 
-    for (const offer of $('#aod-offer')) {
-        const element = $(offer);
+    const price = $('.a-price .a-offscreen').first().text().trim();
+    const sellerName = $('#sellerProfileTriggerId, #merchant-info a').first().text().trim();
 
-        await Dataset.pushData({
-            ...data,
-            sellerName: element.find('div[id*="soldBy"] a[aria-label]').text().trim(),
-            offer: element.find('.a-price .a-offscreen').text().trim(),
-        });
-    }
+    await Dataset.pushData({
+        ...data,
+        sellerName,
+        offer: price,
+    });
 });
 ```
 

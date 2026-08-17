@@ -42,3 +42,6 @@ properties:
   teamAccountSeatCount:
     type: integer
     examples: [5]
+  scheduleCount:
+    type: integer
+    examples: [77]

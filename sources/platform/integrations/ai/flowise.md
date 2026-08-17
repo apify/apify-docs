@@ -2,11 +2,16 @@
 title: Flowise integration
 description: Learn how to integrate Apify with Flowise to use Actors as data sources in customized LLM flows built with the open-source Flowise visual tool.
 sidebar_label: Flowise
-sidebar_position: 10
 slug: /integrations/flowise
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+
+:::danger Flowise development ended
+
+The Flowise team has [discontinued the project](https://flowiseai.com/sunset). The code stays open source, so existing deployments keep working, but there are no further releases or official support. Consider another integration before you invest time in a new Flowise setup.
+
+:::
 
 [Flowise](https://flowiseai.com/) is an open-source UI visual tool to build customized LLM flows using LangChain.
 

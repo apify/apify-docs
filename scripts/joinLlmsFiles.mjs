@@ -13,22 +13,34 @@ const CURATED_FILE = path.resolve('scripts/llms-external-curated.txt');
 // Do NOT add these to the plugin's `excludeRoutes` in docusaurus.config.js -
 // that would also drop the generated .md file from the build output.
 const LLMS_INDEX_EXCLUDE_PATTERNS = [
-    // API: drop deprecated act-* endpoints
+    // API: legacy act-* slugs no longer exist as pages (all 301-redirect to their renamed
+    // actor-*/actors-* equivalents), so this pattern is a safety net only
     '/api/v2/act-*',
     // API: drop individual CRUD endpoint pages (keep Introduction pages)
+    '/api/v2/actor-get',
+    '/api/v2/actor-put',
+    '/api/v2/actor-delete',
+    '/api/v2/actor-openapi-json-get',
+    '/api/v2/actor-validate-input-post',
+    '/api/v2/actor-webhooks-get',
+    '/api/v2/actor-version-*',
+    '/api/v2/actor-versions-*',
     '/api/v2/actor-build-abort-post',
+    '/api/v2/actor-build-default-get',
     '/api/v2/actor-build-delete',
     '/api/v2/actor-build-get',
     '/api/v2/actor-build-log-get',
     '/api/v2/actor-build-openapi-json-get',
     '/api/v2/actor-builds-get',
     '/api/v2/actor-run-*',
-    '/api/v2/actor-runs-get',
+    '/api/v2/actor-runs-*',
     '/api/v2/actor-task-*',
     '/api/v2/actor-tasks-get',
     '/api/v2/actor-tasks-post',
-    '/api/v2/acts-get',
-    '/api/v2/acts-post',
+    '/api/v2/actors-get',
+    '/api/v2/actors-post',
+    '/api/v2/actors-run*',
+    '/api/v2/actors-build*',
     '/api/v2/dataset-*',
     '/api/v2/datasets-*',
     '/api/v2/key-value-store-*',
@@ -83,6 +95,11 @@ const isExcludedRoute = createMatcher(LLMS_INDEX_EXCLUDE_PATTERNS);
 const EXTERNAL_FETCH_URLS = [
     'https://docs.apify.com/api/client/js/llms-full.txt',
     'https://docs.apify.com/api/client/python/llms-full.txt',
+    'https://raw.githubusercontent.com/apify/apify-client-rust/refs/heads/master/README.md',
+    'https://raw.githubusercontent.com/apify/apify-client-go/refs/heads/master/README.md',
+    'https://raw.githubusercontent.com/apify/apify-client-php/refs/heads/master/README.md',
+    'https://raw.githubusercontent.com/apify/apify-client-java/refs/heads/master/README.md',
+    'https://raw.githubusercontent.com/apify/apify-client-dotnet/refs/heads/master/README.md',
     'https://docs.apify.com/sdk/js/llms-full.txt',
     'https://docs.apify.com/sdk/python/llms-full.txt',
     'https://docs.apify.com/cli/llms-full.txt',
@@ -113,10 +130,11 @@ const SECTION_ORDER = [
     'Apify API',
     'Apify API client for JavaScript',
     'Apify API client for Python',
+    'Experimental API clients',
     'Apify SDK for JavaScript',
     'Apify SDK for Python',
     'Apify CLI',
-    'Apify academy',
+    'Apify Academy',
     'Legal documents',
 ];
 
