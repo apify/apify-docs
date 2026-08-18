@@ -1,5 +1,5 @@
 ---
-title: Run Actors
+title: Running Actors
 description: Start an Actor from Apify Console or via API. Learn about Actor lifecycles, how to specify settings and version, provide input, and resurrect finished runs.
 sidebar_position: 1
 sidebar_label: Run
