@@ -21,15 +21,20 @@ The [Apify plugin for Qoder](https://github.com/apify/apify-qoder-plugin) adds A
 
 - [An Apify account](https://console.apify.com/sign-up) - sign up for free if you don't have one.
 - [QoderWork](https://qoder.com) - installed and signed in.
-- A local copy of the [Apify plugin for Qoder](https://github.com/apify/apify-qoder-plugin) - download the plugin bundle so you can upload it.
 
-## Upload the plugin
+## Install the plugin
 
-1. Open **Plugins**, select **+ Add**, then select **Upload plugin**.
+QoderWork doesn't list the Apify plugin in its in-app marketplace yet, so you download the plugin package from the web marketplace and upload it.
 
-    ![QoderWork Plugins page with the Add menu open and Upload plugin selected](images/qoder-work/1-upload-plugin.webp)
+1. Open the [Apify plugin on the Qoder Marketplace](https://qoder.com/marketplace/plugin?id=bbbdb1cb-8bad-441e-b42f-ce0e33e3a521). Under **For Human**, select the download icon to download the plugin package.
 
-1. Select the Apify plugin bundle from your local copy. The `apify` plugin is installed for local use and appears under your custom plugins.
+    ![Apify plugin page on the Qoder Marketplace with the For Human download option](images/qoder-work/1-marketplace.webp)
+
+1. In QoderWork, open **Plugins**, select **+ Add**, then select **Upload plugin**.
+
+    ![QoderWork Plugins page with the Add menu open and Upload plugin selected](images/qoder-work/2-upload-plugin.webp)
+
+1. Select the plugin package you downloaded. The `apify` plugin is installed for local use and appears under your custom plugins.
 
 ## Authenticate the Apify connector
 
@@ -37,11 +42,11 @@ The plugin adds Apify as a connector. Read-only tools like searching Apify Store
 
 1. Open the `apify` plugin. Under **Connectors**, the Apify connector shows **Authentication required**. Select **Auth**.
 
-    ![Apify connector showing Authentication required with the Auth action](images/qoder-work/2-activate-login.webp)
+    ![Apify connector showing Authentication required with the Auth action](images/qoder-work/3-activate-login.webp)
 
 1. Complete the Apify OAuth flow in your browser and allow access. The connector then reports its available tools.
 
-    ![Apify connector connected and listing its tools](images/qoder-work/3-tools-list.webp)
+    ![Apify connector connected and listing its tools](images/qoder-work/4-tools-list.webp)
 
 The connection stays authenticated for future sessions. You can revoke access at any time in [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations).
 
@@ -49,13 +54,13 @@ The connection stays authenticated for future sessions. You can revoke access at
 
 1. On the plugin page, turn on **Enable in chat**. The plugin's quick commands and connector become available in tasks and chat.
 
-    ![Apify plugin page with quick commands, the Apify connector, and Enable in chat](images/qoder-work/4-activate-plugin.webp)
+    ![Apify plugin page with quick commands, the Apify connector, and Enable in chat](images/qoder-work/5-activate-plugin.webp)
 
 1. Start a task or chat and describe what you want. The `apify` agent routes the request to the right tool or skill.
 
     > List available Apify tools.
 
-    ![QoderWork chat listing the available Apify tools](images/qoder-work/5-chat-list-tools.webp)
+    ![QoderWork chat listing the available Apify tools](images/qoder-work/6-chat-list-tools.webp)
 
 ## Bundled skills
 
@@ -82,10 +87,6 @@ Open the `apify` plugin, select **Auth** on the Apify connector, and complete th
 ### Tools don't appear in chat
 
 Confirm **Enable in chat** is turned on for the `apify` plugin and that the Apify connector is authenticated. Reopen the task or chat after enabling the plugin.
-
-### Actor runs time out
-
-Long-running Actors may exceed the time a single tool call waits for completion. Reduce the scope or split the work across multiple prompts.
 
 ## Limitations
 

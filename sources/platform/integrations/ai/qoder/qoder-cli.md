@@ -60,37 +60,41 @@ The Apify MCP server registers when the Qoder CLI starts, not on `/plugins reloa
 
 :::
 
+Alternatively, install from the [Apify plugin on the Qoder Marketplace](https://qoder.com/marketplace/plugin?id=bbbdb1cb-8bad-441e-b42f-ce0e33e3a521). Under **Qoder CLI**, copy the install command - it looks like `qodercli plugin install <url>` - and run it in your terminal, then restart the Qoder CLI so the MCP server registers.
+
+![Apify plugin page on the Qoder Marketplace with the Qoder CLI install command](images/qoder-cli/07-marketplace-install.webp)
+
 ## Authenticate to Apify
 
 The plugin bundles the Apify MCP server. Read-only tools like searching Apify Store and fetching Actor details work without signing in, but you need to authenticate to run Actors and access your account data.
 
 1. Run `/mcp` to open the MCP server manager and select **Plugin** to list plugin-provided servers.
 
-    ![MCP server manager listing plugin:apify:apify under the Plugin tab](images/qoder-cli/07-find-mcp.webp)
+    ![MCP server manager listing plugin:apify:apify under the Plugin tab](images/qoder-cli/08-find-mcp.webp)
 
 1. Select **plugin:apify:apify** to open its details. The status reads **needs authentication**. Select **Authenticate**.
 
-    ![plugin:apify:apify server detail with a needs authentication status and the Authenticate option](images/qoder-cli/08-mcp-authenticate.webp)
+    ![plugin:apify:apify server detail with a needs authentication status and the Authenticate option](images/qoder-cli/09-mcp-authenticate.webp)
 
 1. At the consent prompt, select **Yes** to open the Apify authentication page in your browser.
 
-    ![Consent prompt asking whether to continue with authentication](images/qoder-cli/09-consent.webp)
+    ![Consent prompt asking whether to continue with authentication](images/qoder-cli/10-consent.webp)
 
 1. The Qoder CLI waits for the browser callback. If the browser doesn't open automatically, copy the full URL shown in the terminal and paste it into your browser.
 
-    ![Terminal waiting for the browser callback and showing the fallback OAuth URL](images/qoder-cli/10-authenticating.webp)
+    ![Terminal waiting for the browser callback and showing the fallback OAuth URL](images/qoder-cli/11-authenticating.webp)
 
 1. In the browser, review the permissions and allow access. A confirmation page tells you to close the window and return to the Qoder CLI.
 
-    ![Browser page confirming authentication was successful](images/qoder-cli/11-browser-success.webp)
+    ![Browser page confirming authentication was successful](images/qoder-cli/12-browser-success.webp)
 
 1. Back in the terminal, the server status changes to **ready** and the Apify tools become available.
 
-    ![plugin:apify:apify server detail showing a ready status with 11 tools](images/qoder-cli/12-mcp-ready.webp)
+    ![plugin:apify:apify server detail showing a ready status and the available tools](images/qoder-cli/13-mcp-ready.webp)
 
-To see what the agent can call, select **View tools** on the server detail. The Apify MCP server exposes 11 tools, each labeled read-only, destructive, or open-world.
+To see what the agent can call, select **View tools** on the server detail. The list shows each tool's annotations, such as read-only, destructive, or open-world.
 
-![Tools view listing the 11 Apify MCP tools with their annotations](images/qoder-cli/13-view-tools.webp)
+![Tools view listing the Apify MCP tools with their annotations](images/qoder-cli/14-view-tools.webp)
 
 :::tip Session persistence
 
@@ -106,7 +110,7 @@ Describe what you want in natural language. The `apify` agent routes the request
 
 The agent lists the Apify MCP tools and skills it can call, grouped by purpose.
 
-![Qoder CLI listing the available Apify MCP tools and skills](images/qoder-cli/14-test.webp)
+![Qoder CLI listing the available Apify MCP tools and skills](images/qoder-cli/15-test.webp)
 
 To go further, ask it to find an Actor for a task:
 
@@ -122,17 +126,17 @@ To go further, ask it to find an Actor for a task:
 | `apify-generate-output-schema` | Generates dataset and key-value store schemas for existing Actors. |
 | `apify-sdk-integration` | Integrates Actor execution into applications using the `apify-client` package. |
 
-Example prompts that route to specific skills:
+Example prompts that route to specific skills.
 
-_Ultimate scraper:_
+To run `apify-ultimate-scraper`:
 
 > Find 10 highly rated coffee shops in Seattle with name, address, rating, phone, and website.
 
-_Actor development:_
+To run `apify-actor-development`:
 
 > Create an Apify Actor that accepts a `startUrl` and `maxPages` input, crawls the site, and stores each page title and URL.
 
-_SDK integration:_
+To run `apify-sdk-integration`:
 
 > Add Apify to this project. The Node.js API route should run an Actor and return dataset items as JSON.
 
@@ -154,7 +158,7 @@ Plugins require a local installation of the Qoder CLI. Install or update the Qod
 
 If the browser doesn't open automatically, copy the OAuth URL shown in the terminal and paste it into your browser manually.
 
-If you're running the Qoder CLI in a headless environment (SSH, remote container) or the OAuth flow still fails, authenticate with an API token instead. Copy your token from [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations) and set it before starting the Qoder CLI:
+If you're running the Qoder CLI in a headless environment (SSH or a remote container) or the OAuth flow still fails, authenticate with an API token instead. Copy your token from [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations) and set it before starting the Qoder CLI:
 
 ```bash
 export APIFY_TOKEN=<YOUR_API_TOKEN>
