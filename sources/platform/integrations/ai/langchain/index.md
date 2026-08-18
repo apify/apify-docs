@@ -159,7 +159,7 @@ print("answer:", answer)
 print("source:", sources)
 ```
 
-### Complete example
+### Run the complete example
 
 If you want to test the whole example, you can simply create a new file, `langchain_integration.py`, and copy the whole code into it.
 
@@ -411,6 +411,7 @@ result = tool.invoke({"run_input": {"searchTerms": ["web scraping", "data extrac
 
 ## Resources
 
+- [Apify Actors](/actors)
 - [LangChain quickstart](https://docs.langchain.com/oss/python/langchain/quickstart)
 - [LangChain Apify provider page](https://docs.langchain.com/oss/python/integrations/providers/apify)
 - [langchain-apify repository](https://github.com/apify/langchain-apify)
