@@ -19,7 +19,7 @@ This guide will demonstrate how to use Apify Actors with LangGraph by building a
 
 - **Apify API token**: To use Apify Actors in LangGraph, you need an Apify API token. If you don't have one, you can learn how to obtain it in the [Apify documentation](https://docs.apify.com/integrations/api).
 
-- **OpenAI API key**: In order to work with agents in LangGraph, you need an OpenAI API key. If you don't have one, you can get it from the [OpenAI platform](https://.openai.com/account/api-keys).
+- **OpenAI API key**: In order to work with agents in LangGraph, you need an OpenAI API key. If you don't have one, you can get it from the [OpenAI platform](https://platform.openai.com/account/api-keys).
 
 - **Python packages**:  You need to install the following Python packages:
 
