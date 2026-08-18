@@ -194,9 +194,9 @@ The table below describes the available parameters.
         <td>Required</td>
         <td>
             Set proxied requests to use servers from the selected groups:
-            <br/>- <code>groups-[group name]</code> or <code>auto</code> when using datacenter proxies.
-            <br/>- <code>groups-RESIDENTIAL</code> when using residential proxies.
-            <br/>- <code>groups-GOOGLE_SERP</code> when using Google SERP proxies.
+            <br/>- <code>groups-[group name]</code> or <code>auto</code> when using [datacenter proxies](./datacenter_proxy.md).
+            <br/>- <code>groups-RESIDENTIAL</code> when using [residential proxies](./residential_proxy.md).
+            <br/>- <code>groups-GOOGLE_SERP</code> when using [Google SERP proxies](./google_serp_proxy.md).
             <br/>- <code>groups-UNBLOCKER</code> when using [Unblocker proxy](./unblocker_proxy.md).
         </td>
     </tr>
