@@ -5,7 +5,7 @@ description: Learn how to deploy your Actor to the Apify platform using the Apif
 slug: /actors/development/deployment
 ---
 
-Deploying an Actor involves uploading your [source code](/platform/actors/development/actor-definition) and [building](/platform/actors/development/builds-and-runs/builds) it on the Apify platform. Once deployed, you can run and scale your Actor in the cloud.
+Deploying an Actor involves uploading your [source code](/actors/development/actor-definition) and [building](/actors/development/builds-and-runs/builds) it on the Apify platform. Once deployed, you can run and scale your Actor in the cloud.
 
 ## Deploy using the Apify CLI
 

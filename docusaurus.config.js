@@ -32,7 +32,7 @@ module.exports = {
     projectName: 'apify-docs',
     scripts: ['/js/custom.js', ...(config.scripts ?? [])],
     future: {
-        experimental_faster: {
+        faster: {
             // swcJsLoader: true,
             swcJsMinimizer: true,
             swcHtmlMinimizer: true,
@@ -120,10 +120,11 @@ module.exports = {
                     showLastUpdateTime: false,
                     editUrl: 'https://github.com/apify/apify-docs/edit/master/',
                     path: './sources/platform',
-                    routeBasePath: 'platform',
+                    routeBasePath: '/',
                     sidebarPath: require.resolve('./sources/platform/sidebars.js'),
                     rehypePlugins: [externalLinkProcessor],
                 },
+                blog: false,
                 sitemap: {
                     filename: 'sitemap_base.xml',
                 },
@@ -433,6 +434,7 @@ module.exports = {
                 'go',
                 'csharp',
                 'powershell',
+                'rust',
                 'dart',
                 'objectivec',
                 'ocaml',

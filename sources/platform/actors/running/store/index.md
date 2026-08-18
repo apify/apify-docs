@@ -10,7 +10,7 @@ toc_max_heading_level: 4
 
 :::info Publishing and monetizing Actors
 
-Anyone is welcome to [publish Actors](/platform/actors/publishing) in the store, and you can even [monetize your Actors](/platform/actors/publishing/monetize). For more information about how to monetize your Actor, best practices, SEO, and promotion tips and tricks, head over to the [Marketing checklist](/academy/actor-marketing-playbook/promote-your-actor/checklist) section of the Apify Developers Academy.
+Anyone is welcome to [publish Actors](/actors/publishing) in the store, and you can even [monetize your Actors](/actors/publishing/monetize). For more information about how to monetize your Actor, best practices, SEO, and promotion tips and tricks, head over to the [Marketing checklist](/academy/actor-marketing-playbook/promote-your-actor/checklist) section of the Apify Developers Academy.
 
 :::
 
@@ -18,7 +18,7 @@ import RentalSunset from '../../../../_partials/_rental-sunsetting.mdx';
 
 ## Pricing models
 
-All Actors in [Apify Store](https://apify.com/store) fall into one of the four pricing models:
+All Actors in [Apify Store](https://apify.com/store) fall into one of the three pricing models:
 
 1. [**Pay per event**](#pay-per-event) - you pay for specific events the Actor creator defines, such as generating a single result or starting the Actor. Most Actors include platform usage in the price, but some may charge it separately - check the Actor's pricing for details.
 1. [**Pay per usage**](#pay-per-usage) - you only pay for the platform resources (compute units, data transfer, etc.) the
@@ -31,15 +31,15 @@ After a run finishes, any interactions with the dataset - such as reading or wri
 
 ### Pay per event
 
-With pay per event pricing, you pay for specific events defined by the Actor creator, such as producing a single result, uploading a file, or starting an Actor. These events and their prices are always described on each Actor's page.
+With pay-per-event pricing, you pay for specific events defined by the Actor creator, such as producing a single result, uploading a file, or starting an Actor. These events and their prices are always described on each Actor's page.
 
 [//]: # (TODO: also show the screenshot from Apify Store on Web)
 
-![Example pay per event Actor](../images/store/pay_per_event_example_actor.png)
+![Example of a pay-per-event Actor](../images/store/pay_per_event_example_actor.png)
 
 :::caution Some Actors charge platform usage separately
 
-Most pay per event Actors include [platform usage](../usage_and_resources.md) in the event price. However, some Actors may require you to pay for platform usage separately. Always check the Actor's pricing section to understand what's included.
+Most pay-per-event Actors include [platform usage](../usage_and_resources.md) in the event price. However, some Actors may require you to pay for platform usage separately. Always check the Actor's pricing section to understand what's included.
 
 :::
 
@@ -47,19 +47,19 @@ Most pay per event Actors include [platform usage](../usage_and_resources.md) in
 
 When starting a run, you can define a maximum charge limit. The Actor terminates gracefully when it reaches that limit - and even if it does not stop immediately, you are never charged for produced events over the defined limit.
 
-![Pay per event Actor - max charge per run](../images/store/pay_per_event_max_charge_per_run.png)
+![Pay-per-event Actor - max charge per run](../images/store/pay_per_event_max_charge_per_run.png)
 
 Your charges appear on your invoices and in the [Historical usage tab](https://console.apify.com/billing/historical-usage) in the Billing section of Apify Console. The cost of each run also appears on the run detail page.
 
-![Pay per event Actor - historical usage tab](../images/store/pay_per_event_historical_usage_tab.png)
+![Pay-per-event Actor - historical usage tab](../images/store/pay_per_event_historical_usage_tab.png)
 
-![Pay per event Actor - run detail](../images/store/pay_per_event_price_on_run_detail.png)
+![Pay-per-event Actor - run detail](../images/store/pay_per_event_price_on_run_detail.png)
 
 If charges seem incorrect, contact the Actor author or the Apify support team. You can also open an issue directly on the Actor's detail page in Apify Console.
 
 ### Pay per usage
 
-When you use a pay per usage Actor, you are only charged for the platform usage that the runs of this Actor generate. [Platform usage](../usage_and_resources.md) includes components such as compute units, operations on [storages](/platform/storage), and usage of [residential proxies](/platform/proxy/residential-proxy) or [SERPs](/platform/proxy/google-serp-proxy).
+When you use a pay per usage Actor, you are only charged for the platform usage that the runs of this Actor generate. [Platform usage](../usage_and_resources.md) includes components such as compute units, operations on [storages](/storage), and usage of [residential proxies](/proxy/residential-proxy) or [SERPs](/proxy/google-serp-proxy).
 
 ![Pay for usage Actor example](../images/store/pay_per_usage_actor_example.png)
 

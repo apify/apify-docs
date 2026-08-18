@@ -8,7 +8,7 @@ slug: /integrations/mcp-connectors/use-in-actors
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This guide explains how to build Actors that accept [MCP connectors](/platform/integrations/mcp-connectors) as input, connect to them at runtime, and constrain which tools they can call.
+This guide explains how to build Actors that accept [MCP connectors](/integrations/mcp-connectors) as input, connect to them at runtime, and constrain which tools they can call.
 
 ## Declare connectors in the input schema
 
@@ -287,7 +287,7 @@ Every Actor run receives two environment variables for MCP connector access.
 
 | Variable | Description |
 | --- | --- |
-| `APIFY_MCP_PROXY_URL` | Base URL of the Apify MCP Proxy. Connect to a connector at `${APIFY_MCP_PROXY_URL}/<connectorId>`. |
+| `ACTOR_MCP_CONNECTOR_BASE_URL` | Base URL of the Apify MCP Proxy. Connect to a connector at `${ACTOR_MCP_CONNECTOR_BASE_URL}/<connectorId>`. |
 | `APIFY_TOKEN` | API token of the user who started the Actor. Use it as the bearer token for proxy requests. |
 
 The Actor uses a standard MCP client to connect to the proxy URL with the token as a bearer credential. No Apify-specific MCP SDK is required.
@@ -312,7 +312,7 @@ const input = await Actor.getInputOrThrow<{ slackConnector: string }>();
 const connectorId = input.slackConnector;
 
 const transport = new StreamableHTTPClientTransport(
-    new URL(`${process.env.APIFY_MCP_PROXY_URL}/${connectorId}`),
+    new URL(`${process.env.ACTOR_MCP_CONNECTOR_BASE_URL}/${connectorId}`),
     {
         requestInit: {
             headers: {
@@ -360,7 +360,7 @@ async def main():
         input_data = await Actor.get_input()
         connector_id = input_data['slack_connector']
 
-        proxy_url = os.environ['APIFY_MCP_PROXY_URL']
+        proxy_url = os.environ['ACTOR_MCP_CONNECTOR_BASE_URL']
         token = os.environ['APIFY_TOKEN']
 
         async with httpx.AsyncClient(
@@ -400,7 +400,7 @@ const connectorIds: string[] = input.mcpConnectors;
 const clients = await Promise.all(
     connectorIds.map(async (connectorId) => {
         const transport = new StreamableHTTPClientTransport(
-            new URL(`${process.env.APIFY_MCP_PROXY_URL}/${connectorId}`),
+            new URL(`${process.env.ACTOR_MCP_CONNECTOR_BASE_URL}/${connectorId}`),
             {
                 requestInit: {
                     headers: { Authorization: `Bearer ${process.env.APIFY_TOKEN}` },
@@ -448,7 +448,7 @@ For the full schema, see [The `mcpServers` rule list](#the-mcpservers-rule-list)
 
 ## Related pages
 
-- [MCP connectors overview](/platform/integrations/mcp-connectors)
-- [Input schema specification - resource type](/platform/actors/development/actor-definition/input-schema/specification/v1#resource-type)
-- [Account settings - MCP connectors](/platform/console/settings#mcp-connectors)
-- [Apify environment variables](/platform/actors/development/programming-interface/environment-variables#system-environment-variables)
+- [MCP connectors overview](/integrations/mcp-connectors)
+- [Input schema specification - resource type](/actors/development/actor-definition/input-schema/specification/v1#resource-type)
+- [Account settings - MCP connectors](/account/settings#mcp-connectors)
+- [Apify environment variables](/actors/development/programming-interface/environment-variables#system-environment-variables)

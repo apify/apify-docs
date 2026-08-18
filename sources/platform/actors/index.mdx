@@ -1,7 +1,8 @@
 ---
 title: Actors
 description: Learn how to develop, run and share serverless cloud programs. Create your own web scraping and automation tools and publish them on the Apify platform.
-sidebar_position: 7
+sidebar_label: Overview
+sidebar_position: 0
 category: platform
 slug: /actors
 ---
@@ -9,7 +10,7 @@ slug: /actors
 import Card from "@site/src/components/Card";
 import CardGrid from "@site/src/components/CardGrid";
 
-Actors are serverless cloud programs that take a structured JSON input, perform a task (web scraping, browser automation, data processing, and more), and optionally produce a structured output. Run them manually in [Apify Console](https://console.apify.com/actors), through the [API](/api) or [CLI](/cli), or on a [schedule](/platform/schedules), and combine them into larger automations.
+Actors are serverless cloud programs that take a structured JSON input, perform a task (web scraping, browser automation, data processing, and more), and optionally produce a structured output. Run them manually in [Apify Console](https://console.apify.com/actors), through the [API](/api) or [CLI](/cli), or on a [schedule](/actors/running/schedules), and combine them into larger automations.
 
 :::info Additional context
 
@@ -23,17 +24,17 @@ For more context, read the [Actor whitepaper](https://whitepaper.actor/).
     <Card
         title="Running Actors"
         desc="In this section, you learn how to run Apify Actors. You will learn about their configuration, versioning, data retention, usage, and pricing."
-        to="/platform/actors/running"
+        to="/actors/running"
     />
     <Card
         title="Actor development"
         desc="Read about the technical part of building Apify Actors. Learn to define Actor inputs, build new versions, persist Actor state, and choose base Docker images."
-        to="/platform/actors/development"
+        to="/actors/development"
     />
     <Card
         title="Publishing and monetization"
         desc="Learn about publishing, and monetizing your Actors on the Apify platform."
-        to="/platform/actors/publishing"
+        to="/actors/publishing"
     />
 </CardGrid>
 
@@ -53,4 +54,4 @@ The documentation and input/output schemas help people understand what the Actor
 
 ## Public and private Actors
 
-Actors can be [public](/platform/actors/running/actors-in-store) or private. Private Actors are yours to use and keep; no one will see them if you don't want them to. Public Actors are available to everyone in [Apify Store](https://apify.com/store). You can make them free to use, or you can [charge for them](https://blog.apify.com/make-regular-passive-income-developing-web-automation-actors-b0392278d085/).
+Actors can be [public](/actors/running/actors-in-store) or private. Private Actors are yours to use and keep; no one will see them if you don't want them to. Public Actors are available to everyone in [Apify Store](https://apify.com/store). You can make them free to use, or you can [charge for them](https://blog.apify.com/make-regular-passive-income-developing-web-automation-actors-b0392278d085/).

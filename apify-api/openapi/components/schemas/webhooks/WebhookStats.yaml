@@ -1,6 +1,4 @@
 title: WebhookStats
-required:
-  - totalDispatches
 type: object
 properties:
   totalDispatches:

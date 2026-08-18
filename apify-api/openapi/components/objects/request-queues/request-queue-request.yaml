@@ -37,6 +37,8 @@ sharedGet: &sharedGet
         application/json:
           schema:
             $ref: ../../schemas/request-queues/RequestResponse.yaml
+    "402":
+      $ref: ../../responses/PaymentRequired.yaml
     <<: *commonErrors
   deprecated: false
 
@@ -80,7 +82,7 @@ getLastRun:
 
     This endpoint is a shortcut for getting the last run's `defaultRequestQueueId` and then using the
     [Get request](/api/v2/request-queue-request-get) endpoint.
-  operationId: act_runs_last_requestQueue_request_get
+  operationId: actor_runs_last_requestQueue_request_get
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
     - $ref: "../../parameters/lastRunParameters.yaml#/status"
@@ -172,7 +174,7 @@ putLastRun:
 
     This endpoint is a shortcut for getting the last run's `defaultRequestQueueId` and then using the
     [Update request](/api/v2/request-queue-request-put) endpoint.
-  operationId: act_runs_last_requestQueue_request_put
+  operationId: actor_runs_last_requestQueue_request_put
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
     - $ref: "../../parameters/lastRunParameters.yaml#/status"
@@ -244,7 +246,7 @@ deleteLastRun:
 
     This endpoint is a shortcut for getting the last run's `defaultRequestQueueId` and then using the
     [Delete request](/api/v2/request-queue-request-delete) endpoint.
-  operationId: act_runs_last_requestQueue_request_delete
+  operationId: actor_runs_last_requestQueue_request_delete
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
     - $ref: "../../parameters/lastRunParameters.yaml#/status"

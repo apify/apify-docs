@@ -184,7 +184,7 @@ If you encounter a bug or have a feature request, [open an issue](https://github
 ## Resources
 
 - [OpenClaw documentation](https://docs.openclaw.ai/) - Official OpenClaw docs
-- [Apify Actors documentation](https://docs.apify.com/platform/actors) - Learn about Apify Actors
+- [Apify Actors documentation](https://docs.apify.com/actors) - Learn about Apify Actors
 - [Apify Store](https://apify.com/store) - Browse pre-built Actors
 - [Apify API reference](https://docs.apify.com/api/v2) - Full API documentation
 - [Apify OpenClaw plugin on GitHub](https://github.com/apify/apify-openclaw-plugin) - Source code and issue tracker

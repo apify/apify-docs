@@ -1,0 +1,9 @@
+title: ActorNotice
+type: [string, "null"]
+description: A warning displayed on the Actor's page in Apify Store and Console.
+  Can be set by the Actor's developer or automatically by Apify's quality checks.
+enum:
+  - NONE
+  - RESIDENTIAL_PROXY_REQUIRED
+  - UNDER_MAINTENANCE
+examples: [UNDER_MAINTENANCE]

@@ -52,14 +52,14 @@ If, instead of data, you see an error saying `Authentication token is not valid`
 
 Now that we have our guzzle client ready to go, we can run some Actors. Let's try the **Contact Details Scraper** ([vdrmota/contact-info-scraper](https://apify.com/vdrmota/contact-info-scraper)).
 
-The [API reference](/api/v2/act-runs-post) states that an Actor's input should be passed as JSON in the request body. Other options are passed as query parameters.
+The [API reference](/api/v2/actors-runs-post) states that an Actor's input should be passed as JSON in the request body. Other options are passed as query parameters.
 
 ```php
 // To run the Actor, we make a POST request to its run's endpoint
 // To identify the Actor, you can use its ID, but you can also pass
 // the full Actor name [username]~[actorName] or just ~[actorName] for
 // your own Actors
-$response = $client->post('acts/vdrmota~contact-info-scraper/runs', [
+$response = $client->post('actors/vdrmota~contact-info-scraper/runs', [
   // Actors usually accept JSON as input. When using the `json` key in
   // a POST request's options, guzzle sets proper request headers
   // and serializes the array we pass in
@@ -79,7 +79,7 @@ $data = $parsedResponse['data'];
 echo \json_encode($data, JSON_PRETTY_PRINT);
 ```
 
-You should see information about the run, including its ID and the ID of its default [dataset](/platform/storage/dataset). Take note of these, we will need them later.
+You should see information about the run, including its ID and the ID of its default [dataset](/storage/dataset). Take note of these, we will need them later.
 
 ## Getting the results from dataset
 
@@ -125,10 +125,10 @@ All the available parameters are described in [our API reference](/api/v2/datase
 
 ## Getting the results from key-value stores
 
-Datasets are great for structured data, but are not suited for binary files like images or PDFs. In these cases, Actors store their output in [key-value stores](/platform/storage/key-value-store). One such Actor is the **HTML String To PDF** ([mhamas/html-string-to-pdf](https://apify.com/mhamas/html-string-to-pdf)) converter. Let's run it.
+Datasets are great for structured data, but are not suited for binary files like images or PDFs. In these cases, Actors store their output in [key-value stores](/storage/key-value-store). One such Actor is the **HTML String To PDF** ([mhamas/html-string-to-pdf](https://apify.com/mhamas/html-string-to-pdf)) converter. Let's run it.
 
 ```php
-$response = $client->post('acts/mhamas~html-string-to-pdf/runs', [
+$response = $client->post('actors/mhamas~html-string-to-pdf/runs', [
     'json' => [
         'htmlString' => '<html><body><h1>Hello World</h1></body></html>'
     ],
@@ -183,7 +183,7 @@ It takes some time for an Actor to generate its output. Some even have Actors th
 For Actors that are expected to be quick, we can use the `waitForFinish` parameter. Then, the running Actor's endpoint does not respond immediately but waits until the run finishes (up to the given limit). Let's try this with the HTML String to PDF Actor.
 
 ```php
-$response = $client->post('acts/mhamas~html-string-to-pdf/runs', [
+$response = $client->post('actors/mhamas~html-string-to-pdf/runs', [
     'json' => [
         'htmlString' => '<html><body><h1>Hi World</h1></body></html>'
     ],
@@ -202,7 +202,7 @@ file_put_contents(__DIR__ . '/hi-world.pdf', $response->getBody());
 
 ## Webhooks
 
-For Actors that take longer to run, we can use [webhooks](/platform/integrations/webhooks). A webhook is an HTML POST request that is sent to a specified URL when an Actor's status changes. We can use them as a kind of notification that is sent when your run finishes. You can set them up using query parameters. If we used webhooks in the example above, it would look like this:
+For Actors that take longer to run, we can use [webhooks](/integrations/webhooks). A webhook is an HTML POST request that is sent to a specified URL when an Actor's status changes. We can use them as a kind of notification that is sent when your run finishes. You can set them up using query parameters. If we used webhooks in the example above, it would look like this:
 
 ```php
 // Webhooks need to be passed as a base64-encoded JSON string
@@ -217,7 +217,7 @@ $webhooks = \base64_encode(\json_encode([
         'requestUrl' => '<WEBHOOK_ENDPOINT_URL>',
     ],
 ]));
-$response = $client->post('acts/mhamas~html-string-to-pdf/runs', [
+$response = $client->post('actors/mhamas~html-string-to-pdf/runs', [
     'json' => [
         'htmlString' => '<html><body><h1>Hello World</h1></body></html>'
     ],
@@ -227,7 +227,7 @@ $response = $client->post('acts/mhamas~html-string-to-pdf/runs', [
 
 ## How to use Apify Proxy
 
-Let's use another important feature: [proxy](/platform/proxy). If you want to make sure that your server's IP address won't get blocked somewhere when making requests, you can use the automatic proxy selection mode.
+Let's use another important feature: [proxy](/proxy). If you want to make sure that your server's IP address won't get blocked somewhere when making requests, you can use the automatic proxy selection mode.
 
 ```php
 $client = new \GuzzleHttp\Client([
@@ -258,7 +258,7 @@ $response = $client->get("https://api.apify.com/v2/browser-info");
 echo $response->getBody();
 ```
 
-[See the proxy docs](/platform/proxy) for more details on using specific proxies.
+[See the proxy docs](/proxy) for more details on using specific proxies.
 
 ## Feedback
 

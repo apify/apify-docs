@@ -34,7 +34,7 @@ Monetizing your Actor on the Apify platform involves several key steps:
 
 :::info Pass platform usage costs to users
 
-Optionally, you can [pass costs associated with the platform usage](../../../platform/actors/publishing/monetize/pay-per-event#pass-platform-usage-to-users) to the users.
+Optionally, you can [pass costs associated with the platform usage](/actors/publishing/monetize/pay-per-event#platform-usage-costs) to the users.
 
 Profit calculation: `profit = 0.8 * revenue`
 
@@ -62,7 +62,7 @@ Profit calculation: `profit = 0.8 * revenue`
 
 :::info Pay-per-event details
 
-If you want more details about PPE pricing, refer to our [PPE documentation](/platform/actors/publishing/monetize/pay-per-event).
+If you want more details about PPE pricing, refer to our [PPE documentation](/actors/publishing/monetize/pay-per-event).
 
 :::
 
@@ -80,7 +80,7 @@ If you want more details about PPE pricing, refer to our [PPE documentation](/pl
 
 :::info Rental pricing details
 
-If you want more details about rental pricing, refer to our [rental pricing documentation](/platform/actors/publishing/monetize/rental).
+If you want more details about rental pricing, refer to our [rental pricing documentation](/actors/publishing/monetize/rental).
 
 :::
 
@@ -95,15 +95,14 @@ If you want more details about rental pricing, refer to our [rental pricing docu
 
 ### Changing monetization
 
-Some monetization updates are applied immediately. However, significant pricing changes require a 14-day notice period.
+Monetization changes fall into two categories:
 
-Significant changes include:
+- Non-significant changes that take effect immediately: decreasing prices, removing events, updating descriptions
+- Significant changes that require a 14-day notice period: increasing prices, adding new paid events, changing the pricing model
 
-- Increasing prices
-- Adding a new paid pricing event (PPE)
-- Changing the pricing model
+When you submit a significant change, your users receive a notification and the current pricing stays active for 14 days. You can only make significant changes once per month per Actor. To cancel a planned change, [contact Apify support](https://apify.com/contact).
 
-You can make these significant changes only once per month.
+This means roughly one month passes between your first significant change and when you can make the next one. Plan your pricing carefully before committing.
 
 ### Tracking and promotion
 
@@ -126,11 +125,11 @@ Also, remember that your Actor is a package deal with the Apify platform. All th
 
 Apify Store is like any other marketplace, so take a look at your competition there. Are you the first in your lane, or are there other similar tools? What makes yours stand out? Remember, your README is your first impression - communicate your tool's benefits clearly and offer something unique. Competing with other developers is great, but collaborations can drive even better results 😉
 
-Learn more about what makes a good readme here: [How to create an Actor README](/academy/actor-marketing-playbook/actor-basics/how-to-create-an-actor-readme)
+Learn more about what makes a good readme: [Create an Actor README](/actors/publishing/actor-readme).
 
 ### Adapt when needed
 
-Don’t be afraid to experiment with pricing, especially at the start. You can monitor your results in the dashboard and adjust if necessary. You can also choose to [pass platform usage costs to users](/platform/actors/publishing/monetize/pay-per-event#pass-platform-usage-to-users) while you’re still figuring out the right price.
+Don’t be afraid to experiment with pricing, especially at the start. You can monitor your results in the dashboard and adjust if necessary. You can also choose to [pass platform usage costs to users](/actors/publishing/monetize/pay-per-event#platform-usage-costs) while you’re still figuring out the right price.
 
 To estimate pricing, run a few test runs and review the statistics in the Actor [**Analytics**](https://console.apify.com/actors?tab=analytics) tab.
 
@@ -157,8 +156,8 @@ Example of useful pricing estimates from the **Analytics** tab:
 ## Resources
 
 - Learn about [incentives behind monetization](https://apify.com/partners/actor-developers)
-- Detailed guide to [setting up monetization models](/platform/actors/publishing/monetize)
-- Guide to [publishing Actors](/platform/actors/publishing)
+- Detailed guide to [setting up monetization models](/actors/publishing/monetize)
+- Guide to [publishing Actors](/actors/publishing)
 - Watch our webinar on how to [build, publish and monetize Actors](https://www.youtube.com/watch?v=4nxStxC1BJM)
 - Read a blog post from our CEO on the [reasoning behind monetizing Actors](https://blog.apify.com/make-regular-passive-income-developing-web-automation-actors-b0392278d085/)
 - Learn about the [Creator plan](https://apify.com/pricing/creator-plan), which allows you to create and freely test your own Actors for $1

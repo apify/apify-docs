@@ -86,13 +86,13 @@ attachment:
 Content-Encoding:
   name: Content-Encoding
   in: header
-  description: ""
+  description: Compression encoding of the request body.
   required: false
   style: simple
   schema:
     enum:
+      - br
       - gzip
       - deflate
-      - br
       - identity
     type: string

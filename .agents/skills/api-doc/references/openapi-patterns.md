@@ -85,9 +85,13 @@ Rules:
 | `/request-queues` | GET | `requestQueues_get` |
 | `/request-queues/{queueId}` | GET | `requestQueue_get` |
 | `/request-queues/{queueId}` | PUT | `requestQueue_put` |
-| `/acts/{actorId}/runs` | POST | `act_runs_post` |
-| `/acts/{actorId}/runs` | GET | `act_runs_get` |
-| `/acts/{actorId}/runs/{runId}` | GET | `act_run_get` |
+| `/actors/{actorId}/runs` | POST | `actors_runs_post` |
+| `/actors/{actorId}/builds` | GET | `actors_builds_get` |
+| `/actors/{actorId}/runs/last` | GET | `actor_runs_last_get` |
+
+Uniqueness beats the singular rule, because the operation ID becomes the page slug. GET `/actors/{actorId}/runs` can't be `actor_runs_get` - the account-wide GET `/actor-runs` already owns the `actor-runs-get` slug and the two are different scopes. So Actor-scoped `/runs` and `/builds` use plural `actors_`, while `runs/last` has no clash and stays singular. Matching redirects: `nginx.conf`.
+
+Never rewrite the `act_*` fragments in `x-legacy-doc-urls` or in-description links pointing at them. They're backward-compatibility anchors, not operation ID references. `docusaurus.config.js` turns every `x-legacy-doc-urls` hash into a `data-altids` sidebar attribute, and `redirectOpenApiDocs()` in `apify-docs-theme/static/js/custom.js` matches an incoming `#tag/` or `#/reference/` hash against those altids - an unmatched hash hard-bounces to `/search?...&not-found=1`. Rewrite `act_version_put` to `actor_version_put` and the old link breaks, because no page carries the new id.
 
 ## Code sample examples
 

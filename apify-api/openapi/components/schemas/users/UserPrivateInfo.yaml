@@ -1,7 +1,6 @@
 title: UserPrivateInfo
 required:
   - username
-  - proxy
   - plan
   - effectivePlatformFeatures
   - isPaying

@@ -18,7 +18,7 @@ get:
     You can also sort by your last run by using the `sortBy=stats.lastRunStartedAt` query parameter.
     In this case, descending order means the most recently run Actor appears first.
 
-  operationId: acts_get
+  operationId: actors_get
   parameters:
     - name: my
       in: query
@@ -97,7 +97,7 @@ post:
     JSON in the POST payload.
 
     Returns the full `Actor` object, the same as the
-    [Get Actor](/api/v2/act-get) endpoint.
+    [Get Actor](/api/v2/actor-get) endpoint.
 
     In the HTTP request, set the `Content-Type` header to `application/json`.
 
@@ -113,7 +113,7 @@ post:
     - Provide `title` and `categories`. For reference, see [constants from the `apify-shared-js`
     package](https://github.com/apify/apify-shared-js/blob/2d43ebc41ece9ad31cd6525bd523fb86939bf860/packages/consts/src/consts.ts#L452-L471)
 
-  operationId: acts_post
+  operationId: actors_post
   requestBody:
     description: ""
     content:

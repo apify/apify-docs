@@ -18,3 +18,18 @@ properties:
     anyOf:
       - $ref: ../actors/ActorStandby.yaml
       - type: "null"
+  publicConfig:
+    description: |
+      Configuration that controls how the published task appears on its public landing page.
+      Editing this object requires write permission to the Actor that the task belongs to.
+
+      The fields you send are merged into the stored configuration, so you only need to include
+      the ones you're changing. To clear a field, set it to `null`. Sending `publicConfig: null`
+      is rejected, so the object as a whole can't be cleared.
+    $ref: ./TaskPublicConfig.yaml
+  isPublic:
+    type: boolean
+    description: |
+      Set to `true` to publish the task on its public landing page, or `false` to unpublish it.
+      Sending the value the task already has does nothing.
+    examples: [true]

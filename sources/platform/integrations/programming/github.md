@@ -5,7 +5,7 @@ sidebar_label: GitHub
 slug: /integrations/github
 ---
 
-With the Apify integration for [GitHub](https://github.com/), you can create an Actor from a public or private repository, rebuild it automatically on every push, and trigger workflows in your repo when an Actor run fails, succeeds, or times out. To run automated tests and multi-branch builds with GitHub Actions, see [Continuous integration for Actors](/platform/actors/development/deployment/continuous-integration).
+With the Apify integration for [GitHub](https://github.com/), you can create an Actor from a public or private repository, rebuild it automatically on every push, and trigger workflows in your repo when an Actor run fails, succeeds, or times out. To run automated tests and multi-branch builds with GitHub Actions, see [Continuous integration for Actors](/actors/development/deployment/continuous-integration).
 
 ## Create an Actor from a GitHub repository
 
@@ -22,11 +22,9 @@ To use the GitHub integration, you need:
 
 In [Apify Console](https://console.apify.com/actors), go to **Actors** and click **Develop new**.
 
-![Let's build a new Actor page in Apify Console](../images/apify-git-repository.png)
-
 ### Step 2: Connect your GitHub account
 
-Under **Link a Git repository**, click **GitHub**. Follow the prompts on github.com to authorize Apify. You can grant access to your personal account, an organization, or specific repositories.
+Select **Import from Git**, then select **GitHub**. Follow the prompts on github.com to authorize Apify. You can grant access to your personal account, an organization, or specific repositories.
 
 ![Authorize Apify on GitHub](../images/apify-git-repository-add.png)
 
@@ -44,7 +42,7 @@ Apify creates the Actor as soon as you select a repository, links its source to 
 
 :::tip Private repositories
 
-For private repositories, configure a [deployment key](/platform/actors/development/deployment/source-types#private-repositories) so Apify can clone the code.
+For private repositories, configure a [deployment key](/actors/development/deployment/source-types#private-repositories) so Apify can clone the code.
 
 :::
 
@@ -55,7 +53,7 @@ After you link an Actor to a GitHub repository, add a webhook in GitHub to trigg
 1. In Apify Console, open the Actor's **API** dropdown and select **API endpoints**. Copy the **Build Actor** endpoint URL. It has this format:
 
     ```text
-    https://api.apify.com/v2/acts/YOUR-ACTOR-NAME/builds?token=YOUR-TOKEN&version=0.0&tag=latest&waitForFinish=60
+    https://api.apify.com/v2/actors/YOUR-ACTOR-NAME/builds?token=YOUR-TOKEN&version=0.0&tag=latest&waitForFinish=60
     ```
 
     :::note API token
@@ -69,7 +67,7 @@ After you link an Actor to a GitHub repository, add a webhook in GitHub to trigg
 
 Every push to the repository now triggers a build of the linked Actor version.
 
-For automated tests and multi-branch workflows (for example, separate `latest` and `beta` tags), follow the [Continuous integration for Actors](/platform/actors/development/deployment/continuous-integration) guide.
+For automated tests and multi-branch workflows (for example, separate `latest` and `beta` tags), follow the [Continuous integration for Actors](/actors/development/deployment/continuous-integration) guide.
 
 ## Create a GitHub issue when an Actor run fails
 
@@ -129,7 +127,7 @@ Enable **Interpolate variables in string fields**, then set **Payload template**
 }
 ```
 
-For the full list of variables you can use, see [Webhook actions](/platform/integrations/webhooks/actions#available-variables).
+For the full list of variables you can use, see [Webhook actions](/integrations/webhooks/actions#available-variables).
 
 ### Step 4: Save and test the webhook
 
@@ -141,6 +139,6 @@ If the test fails, check the webhook **Dispatches** log for the response from Gi
 
 ## Resources
 
-- [Source types for Actors](/platform/actors/development/deployment/source-types) - Configure the Git URL, branch, and monorepo paths.
-- [Continuous integration for Actors](/platform/actors/development/deployment/continuous-integration) - Run tests and trigger builds with GitHub Actions.
-- [Webhook events](/platform/integrations/webhooks/events) and [actions](/platform/integrations/webhooks/actions) - Reference for available events and the payload template.
+- [Source types for Actors](/actors/development/deployment/source-types) - Configure the Git URL, branch, and monorepo paths.
+- [Continuous integration for Actors](/actors/development/deployment/continuous-integration) - Run tests and trigger builds with GitHub Actions.
+- [Webhook events](/integrations/webhooks/events) and [actions](/integrations/webhooks/actions) - Reference for available events and the payload template.
