@@ -124,6 +124,7 @@ Confirm the plugin is installed and enabled under **Settings > Plugins**, then r
 
 ## Related integrations
 
+- [VS Code integration](/integrations/vscode) - Install the same plugin from the VS Code plugin marketplace
 - [GitHub Copilot CLI integration](/integrations/github-copilot-cli) - Install the Apify plugin in the GitHub Copilot CLI
 - [MCP server integration](/integrations/mcp) - Use the Apify MCP server with other clients
 

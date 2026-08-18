@@ -164,6 +164,7 @@ Start from the `apify` agent. It automatically detects the right transport and r
 
 ## Related integrations
 
+- [VS Code integration](/integrations/vscode) - Install the same plugin from the VS Code plugin marketplace
 - [GitHub Copilot desktop app integration](/integrations/github-copilot-desktop) - Install the Apify plugin in the GitHub Copilot desktop app
 - [MCP server integration](/integrations/mcp) - Use the Apify MCP server with other clients
 

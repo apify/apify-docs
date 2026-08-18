@@ -15,7 +15,7 @@ The [Apify plugin](https://github.com/apify/apify-github-copilot-plugin) is publ
 - An `apify` routing agent that picks the right tool or skill from a natural-language request.
 - Five built-in skills for common workflows (see [Bundled skills](#bundled-skills) below).
 
-This guide covers installation from the plugin marketplace in VS Code.
+This guide covers installation from the plugin marketplace in VS Code. It's the same plugin that powers the [GitHub Copilot CLI](/integrations/github-copilot-cli) and the [GitHub Copilot desktop app](/integrations/github-copilot-desktop) - install it once per client you use.
 
 <ThirdPartyDisclaimer />
 
@@ -143,7 +143,9 @@ Start from the **apify** agent. It is the single entry point that detects the av
 
 ## Related integrations
 
-- [GitHub Copilot integration](/integrations/github-copilot) - Install the same plugin from its source repository in VS Code
+- [GitHub Copilot hub](/integrations/github-copilot) - Every client that runs the Apify plugin for GitHub Copilot
+- [GitHub Copilot CLI integration](/integrations/github-copilot-cli) - Install the same plugin in your terminal
+- [GitHub Copilot desktop app integration](/integrations/github-copilot-desktop) - Install the same plugin in the desktop app
 - [Cursor integration](/integrations/cursor) - Install the Apify plugin in Cursor
 - [MCP server integration](/integrations/mcp) - Use the Apify MCP server with other clients
 

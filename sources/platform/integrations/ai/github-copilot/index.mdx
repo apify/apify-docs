@@ -1,6 +1,6 @@
 ---
 title: GitHub Copilot
-description: Use Apify Actors with GitHub Copilot - install the Apify plugin in the GitHub Copilot CLI or the GitHub Copilot desktop app to discover, run, and build Actors.
+description: Use Apify Actors with GitHub Copilot - install the Apify plugin in VS Code, the GitHub Copilot CLI, or the Copilot desktop app to discover and run Actors.
 sidebar_label: GitHub Copilot
 slug: /integrations/github-copilot
 ---
@@ -8,11 +8,19 @@ slug: /integrations/github-copilot
 import Card from '@site/src/components/Card';
 import CardGrid from '@site/src/components/CardGrid';
 
-The [Apify plugin for GitHub Copilot](https://github.com/apify/apify-github-copilot-plugin) connects [GitHub Copilot](https://github.com/features/copilot) to Apify's library of [Actors](https://apify.com/store). It works in two places: the GitHub Copilot CLI in your terminal and the GitHub Copilot desktop app. Both bundle the Apify MCP server, an `apify` routing agent, and skills for common scraping and Actor-building workflows.
+The [Apify plugin for GitHub Copilot](https://github.com/apify/apify-github-copilot-plugin) connects [GitHub Copilot](https://github.com/features/copilot) to Apify's library of [Actors](https://apify.com/store). It works in three places: VS Code, the GitHub Copilot CLI in your terminal, and the GitHub Copilot desktop app. All three bundle the Apify MCP server, an `apify` routing agent, and skills for common scraping and Actor-building workflows.
 
-## What you can build
+## Where you can use it
 
 <CardGrid>
+    <Card
+        title="VS Code"
+        desc="Install the Apify plugin from the VS Code plugin marketplace to discover, run, and build Actors in your editor."
+        to="/integrations/vscode"
+        imageUrl="/img/platform/integrations/vscode.svg"
+        imageUrlDarkTheme="/img/platform/integrations/vscode-white.svg"
+        smallImage
+    />
     <Card
         title="GitHub Copilot CLI"
         desc="Install the Apify plugin in the GitHub Copilot CLI to discover, run, and build Actors from your terminal."
