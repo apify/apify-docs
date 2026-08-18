@@ -32,6 +32,10 @@ To learn more about Apify's security practices, data protection measures, and co
 
 For a comprehensive description of how the Apify platform is built and operated to protect your data, read the [Apify Security Whitepaper](https://apify.com/security-whitepaper.pdf).
 
+## Shared responsibility
+
+Security on the Apify platform is a partnership: Apify secures the platform, and you secure what you build and run on it. See the [shared responsibility model](./shared-responsibility.md) for the full division of duties and practical guidance for securing your account and workloads.
+
 ## Vulnerability disclosure {#vulnerability-disclosure-policy}
 
 If you believe you have found a security vulnerability in the Apify platform or Apify's open-source projects, report it to [security@apify.com](mailto:security@apify.com). Good-faith research within scope is covered by safe harbor. See the [vulnerability disclosure policy](./vulnerability-disclosure.md) for the full scope, testing guidelines, and reporting process.
