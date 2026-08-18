@@ -15,7 +15,7 @@ Security on the Apify platform is a partnership. Apify is responsible for the se
 | Network infrastructure | ✅ | | |
 | Hosts and operating systems | ✅ | | |
 | Actor runtime isolation | ✅ | | |
-| Platform services (Console, API, storages, proxy) | ✅ | | |
+| Platform services (Console, API, storages, Apify Proxy) | ✅ | | |
 | Platform vulnerability management and patching | ✅ | | |
 | Apify-maintained Actors | ✅ | | |
 | Community Actors | | ✅ | |
@@ -30,7 +30,7 @@ Security on the Apify platform is a partnership. Apify is responsible for the se
 
 ## Apify responsibility
 
-Apify secures the platform itself. For a comprehensive description of how these controls are implemented, see the [Apify Security Whitepaper](https://apify.com/security-whitepaper.pdf).
+Apify secures the platform itself. For how these controls are implemented, see the [Apify Security Whitepaper](https://apify.com/security-whitepaper.pdf).
 
 ### Physical, network, and host layers
 
@@ -42,7 +42,7 @@ Every Actor run executes in an isolated container. Apify enforces this isolation
 
 ### Platform services
 
-Apify secures Apify Console, the Apify API, storages (datasets, key-value stores, and request queues), the scheduler, and Apify Proxy. Traffic is encrypted in transit and data is encrypted at rest.
+Apify secures Apify Console, the Apify API, storages (datasets, key-value stores, and request queues), the scheduler, and Apify Proxy. Apify encrypts traffic in transit and data at rest.
 
 ### Vulnerability management and patching
 
@@ -93,7 +93,7 @@ Apify provides the controls: two-factor authentication, SSO, scoped tokens, orga
 
 ### Incident response
 
-If Apify detects an incident affecting your data, Apify investigates, contains it, and notifies you in line with contractual and legal obligations. You handle the response on your side: rotate affected credentials, notify your own users where required, and act on the guidance provided. In reverse, if you detect a compromise of your account or tokens, revoke them immediately and contact support via built-in chat or [support@apify.com](mailto:support@apify.com). Subscribe to [status.apify.com](https://status.apify.com) to receive notifications about incidents affecting your workloads.
+If Apify detects an incident affecting your data, Apify investigates, contains it, and notifies you in line with contractual and legal obligations. You handle the response on your side: rotate affected credentials, notify your own users where required, and act on the guidance. In reverse, if you detect a compromise of your account or tokens, revoke them immediately and contact support via built-in chat or [support@apify.com](mailto:support@apify.com). Subscribe to [status.apify.com](https://status.apify.com) to receive notifications about incidents affecting your workloads.
 
 ## Questions
 
