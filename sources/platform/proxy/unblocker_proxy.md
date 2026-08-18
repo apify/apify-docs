@@ -12,7 +12,7 @@ Unblocker proxy is designed for scraping websites protected by anti-bot and anti
 
 This makes it a good choice for accessing websites with advanced bot protection while keeping your scraping code simple.
 
-Pricing is based on Unblocker units, which are separate from [compute units](/actors/running/usage-and-resources#what-is-a-compute-unit). Each request costs 10 units. Units are priced per 1,000 at a rate that depends on your plan, and your consumption is displayed on your [proxy usage dashboard](https://console.apify.com/proxy/usage) in Apify Console.
+Pricing is based on Unblocker units, which are separate from [compute units](/actors/running/usage-and-resources#what-is-a-compute-unit). Each successful request costs 10 units. Units are priced per 1,000 at a rate that depends on your plan, and your consumption is displayed on your [proxy usage dashboard](https://console.apify.com/proxy/usage) in Apify Console.
 
 ## Connect to Unblocker proxy
 
