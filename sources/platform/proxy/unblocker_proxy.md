@@ -12,23 +12,28 @@ Unblocker proxy is designed for scraping websites protected by anti-bot and anti
 
 This makes it a good choice for accessing websites with advanced bot protection while keeping your scraping code simple.
 
-**Pricing is based on units.** Each request through Unblocker proxy is currently billed at 10 units.
+Unblocker proxy uses its own pricing unit, separate from [compute units](/actors/running/usage-and-resources#what-is-a-compute-unit). Pricing is per 1,000 units, and the rate depends on your subscription plan. Each request is billed 10 units.
 
 ## Connect to Unblocker proxy
 
-Connecting to Unblocker proxy works the same way as [datacenter proxy](./datacenter_proxy.md), with one difference: the `groups` [username parameter](./index.md#username-parameters) should always specify `UNBLOCKER`.
+Connecting to Unblocker proxy works the same way as [datacenter proxy](./datacenter_proxy.md), with two differences:
+
+- The `groups` [username parameter](./index.md#username-parameters) must always specify `UNBLOCKER`.
+- Unblocker proxy selects the country automatically, so you rarely need to set `country`.
+
+Unlike [datacenter](./datacenter_proxy.md) or [residential](./residential_proxy.md) proxies, Unblocker proxy has no [session](./index.md#sessions) parameter, so you can't keep the same IP address across requests.
 
 ### How to set a proxy group
 
 When using [standard libraries and languages](./datacenter_proxy.md), specify the `groups` parameter in the [username](./index.md#username-parameters) as `groups-UNBLOCKER`.
 
-For example, your **proxy URL** when using the [got-scraping](https://www.npmjs.com/package/got-scraping) JavaScript library will look like this:
+For example, your proxy URL when using the [got-scraping](https://www.npmjs.com/package/got-scraping) JavaScript library will look like this:
 
 ```js
 const proxyUrl = 'http://groups-UNBLOCKER:<YOUR_PROXY_PASSWORD>@proxy.apify.com:8000';
 ```
 
-In the [Apify SDK](/sdk) you set the **groups** in your proxy configuration:
+In the [Apify SDK](/sdk) you set `groups` in your proxy configuration:
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">

@@ -39,7 +39,7 @@ Each proxy type has distinct advantages, disadvantages, and pricing. Use them to
     <Card
         title="Unblocker proxy"
         desc="Automatically bypasses anti-bot and anti-captcha systems using built-in smart routing, so you don't need to detect or solve challenges yourself."
-        to="/platform/proxy/unblocker-proxy"
+        to="/proxy/unblocker-proxy"
     />
 </CardGrid>
 
@@ -197,7 +197,7 @@ The table below describes the available parameters.
             <br/>- <code>groups-[group name]</code> or <code>auto</code> when using datacenter proxies.
             <br/>- <code>groups-RESIDENTIAL</code> when using residential proxies.
             <br/>- <code>groups-GOOGLE_SERP</code> when using Google SERP proxies.
-            <br/>- <code>groups-UNBLOCKER</code> when using <a href="./unblocker_proxy">Unblocker proxy</a>.
+            <br/>- <code>groups-UNBLOCKER</code> when using [Unblocker proxy](./unblocker_proxy.md).
         </td>
     </tr>
     <tr>
