@@ -77,7 +77,7 @@ put:
     The response is the [EnvVar object](#/reference/actors/environment-variable-object) as returned by the
     [Get environment variable](#/reference/actors/environment-variable-object/get-environment-variable)
     endpoint.
-  operationId: act_version_envVar_put
+  operationId: actor_version_envVar_put
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/environment-variable-object/update-environment-variable
     - https://docs.apify.com/api/v2#/reference/actors/update-environment-variable
@@ -91,7 +91,7 @@ post:
     object](#/reference/actors/environment-variable-object)
     passed as JSON in the POST payload.
     This endpoint is an alias for the [`PUT` update environment variable](#tag/ActorsEnvironment-variable-object/operation/act_version_envVar_put) method and behaves identically.
-  operationId: act_version_envVar_post
+  operationId: actor_version_envVar_post
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/environment-variable-object/update-environment-variable
     - https://docs.apify.com/api/v2#/reference/actors/update-environment-variable

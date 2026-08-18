@@ -8,8 +8,9 @@ properties:
   condition:
     $ref: ../webhooks/WebhookCondition.yaml
   requestUrl:
-    type: string
+    type: [string, "null"]
     format: uri
+    description: URL of the HTTP request sent by the webhook. It is `null` for hook actions other than the conventional HTTP case (e.g. Slack or email notifications).
     examples: ["https://example.com/webhook"]
   isAdHoc:
     type: boolean

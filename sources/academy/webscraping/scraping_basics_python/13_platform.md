@@ -2,7 +2,7 @@
 title: Using a scraping platform with Python
 sidebar_label: Using a platform
 description: Lesson about building a Python application for watching prices. Using the Apify platform to deploy a scraper.
-slug: /scraping-basics-python/
+slug: /scraping-basics-python/platform
 ---
 
 **In this lesson, we'll deploy our application to a scraping platform that automatically runs it daily. We'll also use the platform's API to retrieve and work with the results.**

@@ -5,7 +5,7 @@ get:
   description: |
     Get the OpenAPI definition for Actor builds. Two similar endpoints are available:
 
-    - [First endpoint](/api/v2/act-openapi-json-get): Requires both `actorId` and `buildId`. Use `default` as the `buildId` to get the OpenAPI schema for the default Actor build.
+    - [First endpoint](/api/v2/actor-openapi-json-get): Requires both `actorId` and `buildId`. Use `default` as the `buildId` to get the OpenAPI schema for the default Actor build.
 
     - [Second endpoint](/api/v2/actor-build-openapi-json-get): Requires only `buildId`.
 
@@ -19,7 +19,7 @@ get:
     You can also use the [`/api/v2/actor-build-openapi-json-get`](/api/v2/actor-build-openapi-json-get) endpoint to get the OpenAPI definition for a build.
 
     :::
-  operationId: act_openapi_json_get
+  operationId: actor_openapi_json_get
   security: []
   parameters:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"

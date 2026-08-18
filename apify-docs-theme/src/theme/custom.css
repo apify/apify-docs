@@ -519,6 +519,13 @@ aside .icon svg[class*='iconExternalLink'] {
     transition: all ease-in 0.12s;
 }
 
+/* Keep multi-word navbar labels (e.g. "Get started") on a single line so they
+   don't wrap and overflow the fixed-height navbar row. Scoped to navbar links
+   only - the docs sidebar uses .menu__link and must stay free to wrap. */
+.navbar__link {
+    white-space: nowrap;
+}
+
 .menu__link:hover {
     background: var(--color-Neutral_Hover);
     color: unset;
@@ -987,6 +994,18 @@ div[class*='searchBox'] {
 
     .navbar__item.dropdown {
         display: flex;
+    }
+}
+
+/*
+ * Just above the mobile breakpoint the two halves of the nav link row run out of room and
+ * collide. The switch to the mobile sidebar is pinned to 996px in Docusaurus (both Infima
+ * and the JS `useWindowSize`), so the row has to fit down to that width instead: tighten
+ * the spacing between the right-hand links until the layout has room again.
+ */
+@media (min-width: 997px) and (max-width: 1100px) {
+    .navbar__inner--subnavbar .navbar__items--right {
+        gap: 0.4rem;
     }
 }
 

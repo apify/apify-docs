@@ -1,6 +1,6 @@
 post:
   tags:
-    - Tools
+    - Tools/Encoding
   summary: Decode and verify object
   description: |
     Decodes and verifies an encoded value previously created by the

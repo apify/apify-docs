@@ -15,18 +15,23 @@ properties:
   id:
     type: string
     examples: [zdc3Pyhyz3m8vjDeM]
+    description: The ID of the Actor.
   userId:
     type: string
     examples: [wRsJZtadYvn4mBZmm]
+    description: The ID of the user who owns the Actor.
   name:
     type: string
-    examples: [MyActor]
+    examples: [google-search-extractor]
+    description: The name of the Actor.
   username:
     type: string
-    examples: [jane35]
+    examples: [compass]
+    description: The username of the Actor owner.
   description:
     type: [string, "null"]
-    examples: [My favourite actor!]
+    examples: [Extract data from hundreds of places fast.]
+    description: Short description of the Actor, displayed in Apify Store and Console.
   restartOnError:
     type: boolean
     examples: [false]
@@ -34,23 +39,27 @@ properties:
   isPublic:
     type: boolean
     examples: [false]
+    description: Whether the Actor is available to users in Apify Store.
   actorPermissionLevel:
     $ref: ./ActorPermissionLevel.yaml
   createdAt:
     type: string
     format: date-time
     examples: ["2019-07-08T11:27:57.401Z"]
+    description: The date and time the Actor was created. Follows the ISO 8601 format.
   modifiedAt:
     type: string
     format: date-time
     examples: ["2019-07-08T14:01:05.546Z"]
+    description: The date and time the Actor was last modified. Follows the ISO 8601 format.
   stats:
     $ref: ./ActorStats.yaml
   versions:
     type: array
     items:
       $ref: ./Version.yaml
-    description: ""
+    description: "An array of `Version` objects. Each object represents a specific version of the
+      Actor's source code: its location, builds, and environment configuration."
   pricingInfos:
     type: array
     items:
@@ -64,12 +73,15 @@ properties:
   isDeprecated:
     type: [boolean, "null"]
     examples: [false]
+    description: Whether the Actor is deprecated.
   deploymentKey:
     type: string
     examples: [ssh-rsa AAAA ...]
+    description: The Actor's public SSH key, used as a deployment key for private Git repositories.
   title:
     type: [string, "null"]
-    examples: [My Actor]
+    examples: [Google Search Extractor]
+    description: Human-readable name of the Actor, displayed in Apify Store and Console.
   taggedBuilds:
     anyOf:
       - $ref: ./TaggedBuilds.yaml
@@ -80,36 +92,49 @@ properties:
       - type: "null"
   readmeSummary:
     type: string
-    description: A brief, LLM-generated readme summary
+    description: An AI-generated Markdown summary of the Actor's README, optimized for search and
+      AI agents. Contains an overview and a list of use cases. Generated only for public Actors.
   seoTitle:
     type: [string, "null"]
     examples: [Web Scraper]
+    description: Name of the Actor to display by search engines such as Google.
+      Can be different from the Actor's name displayed in Apify Store and Console.
   seoDescription:
     type: [string, "null"]
     examples: ["Crawls websites using Chrome and extracts data from pages using JavaScript."]
+    description: Description of the Actor to display by search engines such as Google.
   pictureUrl:
     type: [string, "null"]
     examples: ["https://apify-image-uploads-prod.s3.amazonaws.com/.../actor-picture.png"]
+    description: URL of the Actor's icon, displayed on the Actor's page in Apify Store and Console.
   standbyUrl:
     type: [string, "null"]
-    examples: ["https://my-actor.apify.actor"]
+    examples: ["https://jane35--my-actor.apify.actor"]
+    description: |
+      URL for sending requests to the Actor in Standby mode.
+      `null` if the Standby mode isn't enabled.
   notice:
-    type: [string, "null"]
-    examples: [NONE]
+    $ref: ./ActorNotice.yaml
   categories:
     type: array
     items:
       type: string
     examples: [["DEVELOPER_TOOLS", "OPEN_SOURCE"]]
+    description: A list of categories that best define the Actor. Reflected in Apify Store's search and filtering options.
   isCritical:
     type: boolean
     examples: [false]
+    description: Whether the Actor is maintained by Apify.
   isGeneric:
     type: boolean
     examples: [false]
+    description: Whether the Actor is intended for developers. Set by Apify.
   isSourceCodeHidden:
     type: boolean
-    examples: [false]
+    default: true
+    examples: [true]
+    description: Whether the Actor's source files are hidden on its detail page.
   hasNoDataset:
     type: boolean
     examples: [false]
+    description: Whether the Actor stores results in a dataset. Set by Apify.

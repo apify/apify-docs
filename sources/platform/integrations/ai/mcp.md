@@ -27,6 +27,22 @@ This page covers the Apify MCP server, which exposes Apify Actors as tools to ou
 
 :::
 
+## Apify AI vs the MCP server
+
+The Apify MCP server and [Apify AI](/account/apify-ai) share the same Actor search and execution backend, but they serve different audiences:
+
+- _MCP server_ - a programmatic interface for external AI agents, IDEs, and CLIs. Use it when you build or operate your own agent.
+- _Apify AI_ - the conversational interface inside [Apify Console](https://console.apify.com) for users who interact with Apify through a chat UI rather than their own agent.
+
+Actor ranking on both surfaces uses parameters similar to those evaluated by the [Actor quality score](/actors/publishing/quality-score), so Actors with higher quality scores tend to rank higher.
+
+## Excluded Actors
+
+The MCP server intentionally excludes two categories of Actors from search and execution:
+
+- _Full-permission Actors_ - excluded for security. Running a [full-permission Actor](/actors/running/permissions#full-permission-actors) is a decision you approve personally, so an LLM can't make it on your behalf.
+- _Rental Actors_ - excluded because their subscription-based model doesn't fit the sporadic, on-demand way the MCP server runs Actors.
+
 ## Prerequisites
 
 Before connecting your AI to Apify, you'll need three things:
@@ -326,36 +342,26 @@ If the `tools` parameter includes any other tool, or you connect to the default 
 | `get-key-value-store-record` | storage | | Get the value associated with a specific key in a key-value store |
 | `get-dataset-list` | storage | | List all available datasets for the user |
 | `get-key-value-store-list` | storage | | List all available key-value stores for the user |
-| `add-actor`* | experimental | ❔ | Add an Actor as a new tool for the user to call |
 | `get-actor-output`* | - | ✅ | Retrieve the output from an Actor call which is not included in the output preview of the Actor tool. |
 
 :::note Retrieving full output
 
-The `get-actor-output` tool is automatically included with any Actor-related tool, such as `call-actor`, `add-actor`, or specific Actor tools like `apify-slash-rag-web-browser`. When you call an Actor, you receive an output preview. Depending on the output format and length, the preview may contain the complete output or only a limited version to avoid overwhelming the LLM. To retrieve the full output, use the `get-actor-output` tool with the `datasetId` from the Actor call. This tool supports limit, offset, and field filtering.
+The `get-actor-output` tool is automatically included with any Actor-related tool, such as `call-actor` or specific Actor tools like `apify-slash-rag-web-browser`. When you call an Actor, you receive an output preview. Depending on the output format and length, the preview may contain the complete output or only a limited version to avoid overwhelming the LLM. To retrieve the full output, use the `get-actor-output` tool with the `datasetId` from the Actor call. This tool supports limit, offset, and field filtering.
 
 :::
 
-#### Dynamic tool discovery
+#### Find and call any Actor on demand
 
-One of the most powerful features is the ability to discover and use new Actors on demand.
-It can search Apify Store for relevant Actors using the `search-actors` tool, inspect Actor details to understand required inputs, add the Actor as a new tool, and execute it with appropriate parameters.
-
-This dynamic discovery means your AI can adapt to new tasks without manual configuration.
-Each discovered Actor becomes immediately available for future use in the conversation.
-
-:::note Dynamic tool discovery
-
-When you use the `actors` tool category, clients that support dynamic tool discovery (such as Claude.ai web and VS Code) will automatically receive the `add-actor` tool instead of `call-actor` for enhanced Actor discovery capabilities.
-For a detailed overview of client support for dynamic discovery, see the [MCP client capabilities package](https://github.com/apify/mcp-client-capabilities).
-
-:::
+Your AI can search Apify Store for relevant Actors using the `search-actors` tool, inspect Actor details to understand required inputs, and call any Actor by name using `call-actor` - without needing to pre-configure it. This means your AI can adapt to new tasks without manual configuration.
 
 ## Agentic payments
 
-Agentic payments allow AI agents to autonomously pay for Actor runs without requiring an Apify API token. The Apify MCP server supports two payment methods:
+Agentic payments allow AI agents to autonomously pay for Actor runs without requiring an Apify API token:
 
-- [x402 protocol](/integrations/x402) - Direct on-chain payments using USDC on the [Base](https://www.base.org/) blockchain via the open [x402](https://www.x402.org/) standard.
-- [Skyfire](/integrations/skyfire) - Managed payment tokens through the [Skyfire](https://www.skyfire.xyz/) payment platform.
+- [AGI](/integrations/x402) - buy a prepaid Apify API token from [Apify AGI](https://agi.apify.com) with an x402 or MPP payment, then use it against this MCP server or the Apify API directly. Recommended for most agents - works for any Actor, not just Pay Per Event ones.
+- [Skyfire](/integrations/skyfire) - managed payment tokens through the [Skyfire](https://www.skyfire.xyz/) payment platform.
+
+The MCP server also has its own Direct x402 support (per-request, no minted token, Pay Per Event Actors only) via [`mcpc`](https://github.com/apify/mcp-cli) - see the [Apify MCP Server README](https://github.com/apify/apify-mcp-server#-agentic-payments) for setup.
 
 For setup instructions and details, see the individual integration pages.
 

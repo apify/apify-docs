@@ -1,6 +1,6 @@
 post:
   tags:
-    - Tools
+    - Tools/Encoding
   summary: Encode and sign object
   description: |
     Encodes and signs any JSON object. The encoded value includes a signature

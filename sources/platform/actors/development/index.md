@@ -1,8 +1,8 @@
 ---
-title: Actor development
+title: Develop Actors
 description: Read about the technical part of building Apify Actors. Learn to define Actor inputs, build new versions, persist Actor state, and choose base Docker images.
-sidebar_label: Development
-sidebar_position: 7.4
+sidebar_label: Develop
+sidebar_position: 2
 slug: /actors/development
 ---
 
@@ -22,6 +22,11 @@ import Card from "@site/src/components/Card";
 import CardGrid from "@site/src/components/CardGrid";
 
 <CardGrid>
+    <Card
+        title="Quick start"
+        to="/actors/development/quick-start"
+        desc="Create your first Actor in minutes - locally with the CLI, in the web IDE, or with AI assistance."
+    />
     <Card
         title="Actor definition"
         to="/actors/development/actor-definition"

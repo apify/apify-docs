@@ -1,7 +1,8 @@
 ---
-title: Running Actors
+title: Run Actors
 description: Start an Actor from Apify Console or via API. Learn about Actor lifecycles, how to specify settings and version, provide input, and resurrect finished runs.
-sidebar_position: 7.1
+sidebar_position: 1
+sidebar_label: Run
 slug: /actors/running
 ---
 
@@ -55,7 +56,7 @@ Now you can go back to the **Input** tab and try again with different settings, 
 
 ## Run Actors with the Apify API
 
-To invoke Actors with the Apify API, send an HTTP POST request to the [Run Actor](/api/v2/act-runs-post) endpoint. For example:
+To invoke Actors with the Apify API, send an HTTP POST request to the [Run Actor](/api/v2/actors-runs-post) endpoint. For example:
 
 ```text
 https://api.apify.com/v2/actors/compass~crawler-google-places/runs?token=<YOUR_API_TOKEN>
@@ -116,4 +117,4 @@ print(dataset_items)
 
 The newly started Actor runs under the account associated with the provided `token`, so all consumed resources are charged to this user account.
 
-Internally, the `call()` function invokes the [Run Actor](/api/v2/act-runs-post) API endpoint, waits for the Actor to finish, and reads its results from the default dataset using the [Get dataset items](/api/v2/dataset-items-get) API endpoint.
+Internally, the `call()` function invokes the [Run Actor](/api/v2/actors-runs-post) API endpoint, waits for the Actor to finish, and reads its results from the default dataset using the [Get dataset items](/api/v2/dataset-items-get) API endpoint.
