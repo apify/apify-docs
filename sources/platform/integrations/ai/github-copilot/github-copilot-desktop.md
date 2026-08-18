@@ -26,7 +26,13 @@ This guide covers installation in the GitHub Copilot desktop app.
 
 ## Install the plugin
 
-1. Open **Settings**, select the **Plugins** tab, and search for `Apify`. The `apify` plugin appears in the results. Select **Install**.
+1. Open **Settings**.
+
+1. Select the **Plugins** tab.
+
+1. Search for `Apify`. The `apify` plugin appears in the results, under the `awesome-copilot` marketplace.
+
+1. Select **Install**.
 
     ![GitHub Copilot desktop app Plugins settings with the apify plugin in the search results](images/github-copilot-desktop/01-plugins-search-install.webp)
 
@@ -52,7 +58,7 @@ The connection stays authenticated for future sessions. You can revoke access at
 
 :::
 
-## Select the apify agent
+## Select the `apify` agent
 
 Open the agent picker in the chat composer and select the `apify` agent.
 
@@ -92,9 +98,17 @@ _SDK integration:_
 
 > Add Apify to this project. The Node.js API route should run an Actor and return dataset items as JSON.
 
+## Authentication paths
+
+The `apify` agent picks the right transport for each task. Each transport authenticates differently:
+
+- For MCP tools (search, run, retrieve data), authenticate with OAuth through the browser, as described in [Connect the Apify MCP server](#connect-the-apify-mcp-server). You don't need to set up a token.
+- For the Apify CLI (building Actors, actorization, CLI fallback), run `apify login` once, or set `APIFY_TOKEN` in headless environments. Get your token from [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations).
+- For SDK integration with `apify-client`, set the `APIFY_TOKEN` environment variable in your application's environment.
+
 ## Troubleshooting
 
-### The apify plugin doesn't appear in search
+### The `apify` plugin doesn't appear in search
 
 If the `apify` plugin doesn't appear when you search for `Apify`:
 
@@ -112,7 +126,7 @@ If the `apify` plugin doesn't appear when you search for `Apify`:
 
 Open **Settings > MCP servers**, confirm `apify-mcp-server` uses the `HTTP` transport, and select **Sign in** to restart the OAuth flow. Read-only tools work without signing in, so run a search prompt first to confirm the server is connected.
 
-### The apify agent isn't available
+### The `apify` agent isn't available
 
 Confirm the plugin is installed and enabled under **Settings > Plugins**, then reopen the agent picker in the chat composer. The `apify` agent appears once the plugin is active.
 

@@ -26,7 +26,7 @@ This guide covers installation in the GitHub Copilot CLI.
 
 ## Install the plugin and sign in
 
-The plugin lives in an Apify marketplace that you add to Copilot with a repository URL. Installing the plugin also sets up the bundled Apify MCP server and signs you in, so there's no separate authentication step.
+The plugin lives in an Apify marketplace that you add to Copilot with a repository URL. The CLI doesn't register that marketplace by default, so add it before you install - unlike [VS Code](/integrations/vscode) and the [desktop app](/integrations/github-copilot-desktop), which find the plugin in a marketplace they already know about. Installing the plugin also sets up the bundled Apify MCP server and signs you in, so there's no separate authentication step.
 
 1. In a Copilot session, add the Apify marketplace:
 

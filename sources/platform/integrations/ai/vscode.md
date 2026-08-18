@@ -27,7 +27,7 @@ This guide covers installation from the plugin marketplace in VS Code. It's the 
 
 ## Install the plugin
 
-1. Open the Extensions view (`Ctrl+Shift+X`, or `Cmd+Shift+X` on macOS) and enter `@agentPlugins` in the search field. Alternatively, run **Chat: Plugins** from the Command Palette (`Ctrl+Shift+P`, or `Cmd+Shift+P` on macOS).
+1. Open the Extensions view (<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>X</kbd>, or <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>X</kbd> on macOS) and enter `@agentPlugins` in the search field. Alternatively, run **Chat: Plugins** from the Command Palette (<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>, or <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> on macOS).
 
 1. Find the **apify** plugin in the list. Type `apify` after the filter to narrow the results.
 
@@ -89,6 +89,14 @@ _SDK integration:_
 
 > Add Apify to this project. The Node.js API route should run an Actor and return dataset items as JSON.
 
+## Authentication paths
+
+The `apify` agent picks the right transport for each task. Each transport authenticates differently:
+
+- For MCP tools (search, run, retrieve data), authenticate with OAuth through the browser, as described in [Authenticate to Apify](#authenticate-to-apify). You don't need to set up a token.
+- For the Apify CLI (building Actors, actorization, CLI fallback), run `apify login` once, or set `APIFY_TOKEN` in headless environments. Get your token from [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations).
+- For SDK integration with `apify-client`, set the `APIFY_TOKEN` environment variable in your application's environment.
+
 ## Manage the plugin
 
 - To update the plugin, run **Extensions: Check for Extension Updates** from the Command Palette. VS Code also checks every 24 hours when `extensions.autoUpdate` is enabled.
@@ -97,14 +105,15 @@ _SDK integration:_
 
 ## Troubleshooting
 
-### The apify plugin doesn't appear in the list
+### The `apify` plugin doesn't appear in the list
 
-Confirm that `chat.plugins.enabled` is set to `true` and that you're running VS Code 1.120 or newer. If you overrode the `chat.plugins.marketplaces` setting, add the marketplace back:
+Confirm that `chat.plugins.enabled` is set to `true` and that you're running VS Code 1.120 or newer. If you overrode the `chat.plugins.marketplaces` setting, restore both marketplaces that VS Code registers by default:
 
-```json
+```json5
 // settings.json
 "chat.plugins.marketplaces": [
-    "github/awesome-copilot"
+    "github/awesome-copilot",
+    "github/copilot-plugins"
 ]
 ```
 
@@ -136,7 +145,6 @@ Start from the **apify** agent. It is the single entry point that detects the av
 
 ## Limitations
 
-- Agent plugin support in VS Code is a preview feature, so its settings and behavior may change between releases.
 - Long-running Actors may exceed the time a single tool call waits for completion. Reduce the scope or split the work across multiple prompts.
 - Each Actor run consumes Apify platform usage from your plan in addition to any VS Code usage. See [Billing](/account/billing) for details.
 - Skills that edit files in your project (Actor development, actorization, SDK integration) make local changes - review them before deploying or committing.
