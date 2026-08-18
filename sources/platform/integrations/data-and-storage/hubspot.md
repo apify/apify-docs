@@ -34,22 +34,16 @@ The app is now connected to both your HubSpot portal and your Apify account.
 
 ## Add the CRM card
 
-After installation, add the Apify card to your CRM record pages:
+After installation, add the Apify card to your company record pages:
 
-1. In HubSpot, go to **CRM** > **Contacts** (or **Companies**).
-1. Open any contact or company record.
+1. In HubSpot, go to **CRM** > **Companies**.
+1. Open any company record.
 1. Select the **Customize** button on the right side of the record page.
 1. Select the **Default view**.
 1. Select **Add card**, then go to the **Card Library**.
 1. Search for **Apify** and select **Add card**.
 
-The Apify card now appears on the right sidebar of your CRM record pages.
-
-:::note Card operates on companies
-
-The card is designed for company record pages. When viewing a contact record, the card uses the parent company's data for enrichment operations.
-
-:::
+The Apify card now appears on the right sidebar of your company record pages.
 
 ## Create a lead enrichment
 
@@ -244,10 +238,6 @@ Yes. Select the **Abort** button that appears next to the status badge on any ru
 
 Yes. Running the Contact Details Scraper consumes your Apify account credits based on the number of websites scraped and contacts extracted. Check your Apify Console for usage and billing details.
 
-### How do I uninstall?
-
-Remove the Apify app from your HubSpot account through HubSpot's app management settings. Your enriched contact data remains in HubSpot - only the app connection is removed.
-
 ## Troubleshooting
 
 ### Missing website URL
@@ -287,6 +277,14 @@ Select the info icon on the errored run to see the specific error message. You c
 - No contacts matching your filters (department, deduplication mode) were found.
 
 Try re-running with different filters or verify the company website is accessible.
+
+## Uninstall the integration
+
+To remove the Apify integration from HubSpot, select the settings icon in the top-right of the Apify card, then select **Uninstall**.
+
+![Uninstall option in the Apify card settings menu](../images/hubspot/hubspot_uninstall_guide.webp)
+
+Your enriched contact data remains in HubSpot - only the app connection is removed.
 
 ## Next steps
 

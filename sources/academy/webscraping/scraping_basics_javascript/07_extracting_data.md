@@ -8,8 +8,8 @@ slug: /scraping-basics-javascript/extracting-data
 import CodeBlock from '@theme/CodeBlock';
 import LegacyJsCourseAdmonition from '@site/src/components/LegacyJsCourseAdmonition';
 import Exercises from '../scraping_basics/_exercises.mdx';
-import WarehouseUnitsExercise from '!!raw-loader!roa-loader!./exercises/warehouse_units.mjs';
-import WarehouseUnitsRegexExercise from '!!raw-loader!roa-loader!./exercises/warehouse_units_regex.mjs';
+import IkeaDimensionsExercise from '!!raw-loader!roa-loader!./exercises/ikea_dimensions.mjs';
+import IkeaDimensionsRegexExercise from '!!raw-loader!roa-loader!./exercises/ikea_dimensions_regex.mjs';
 import GuardianPublishDatesExercise from '!!raw-loader!roa-loader!./exercises/guardian_publish_dates.mjs';
 
 <LegacyJsCourseAdmonition />
@@ -227,45 +227,33 @@ Well, not to spoil the excitement, but in its current form, the data isn't very 
 
 <Exercises />
 
-### Scrape units on stock
+### Scrape dimensions and prices from IKEA
 
-Change our scraper so that it extracts how many units of each product are on stock. Your program should print the following. Note the unit amounts at the end of each line:
+Download the [IKEA JONAXEL system page](https://www.ikea.com/se/en/cat/jonaxel-system-45730/) and parse it with Cheerio. Print each product's width, depth, height, and price.
+
+![IKEA product listing](../scraping_basics/images/exercise-ikea.webp)
+
+Skip products that don't list all three dimensions. For example, the top shelf in the image lists only its width and depth, so your program shouldn't print it. Your output should resemble the following (prices are in [SEK](https://www.google.com/search?q=1%20sek)):
 
 ```text
-JBL Flip 4 Waterproof Portable Bluetooth Speaker | 672
-Sony XBR-950G BRAVIA 4K HDR Ultra HD TV | 77
-Sony SACS9 10" Active Subwoofer | 7
-Sony PS-HX500 Hi-Res USB Turntable | 15
-Klipsch R-120SW Powerful Detailed Home Speaker - Unit | 0
-Denon AH-C720 In-Ear Headphones | 236
-...
+50 | 51 | 104 ... 599 SEK
+99 | 51 | 173 ... 1496 SEK
+50 | 51 | 104 ... 349 SEK
 ```
 
 <details>
   <summary>Solution</summary>
-  <CodeBlock language="js">{WarehouseUnitsExercise.code}</CodeBlock>
-
-  :::tip Conditional (ternary) operator
-
-  For brevity, the solution uses the [conditional (ternary) operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_operator). You can achieve the same with a plain `if` and `else` block.
-
-  :::
+  <CodeBlock language="js">{IkeaDimensionsExercise.code}</CodeBlock>
 
 </details>
 
 ### Use regular expressions
 
-Simplify the code from previous exercise. Use [regular expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions) to parse the number of units. You can match digits using a range like `[0-9]` or by a special sequence `\d`. To match more characters of the same type you can use `+`.
+Simplify the code from the previous exercise. Use a [regular expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions) to parse the width, depth, and height. Match digits with `[0-9]` or `\d`, and use `+` to match one or more digits.
 
 <details>
   <summary>Solution</summary>
-  <CodeBlock language="js">{WarehouseUnitsRegexExercise.code}</CodeBlock>
-
-  :::tip Conditional (ternary) operator
-
-  For brevity, the solution uses the [conditional (ternary) operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_operator). You can achieve the same with a plain `if` and `else` block.
-
-  :::
+  <CodeBlock language="js">{IkeaDimensionsRegexExercise.code}</CodeBlock>
 
 </details>
 

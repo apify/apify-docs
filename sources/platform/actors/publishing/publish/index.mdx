@@ -1,0 +1,60 @@
+---
+title: Publish your Actor
+description: Prepare your Actor for publication on Apify Store.
+slug: /actors/publishing/publish
+sidebar_position: 1
+---
+
+By publishing your Actor, you make it available to the public on [Apify Store](https://apify.com/store). Publishing turns your Actor into a product with its own dedicated page, where users can read its documentation, run it, and review it.
+
+## Before you start
+
+Before you publish your Actor, update its README file. The README becomes your Actor's public detail page on Apify Store. It's where users can learn about your Actor and how to use it.
+
+For details, see [Create an Actor README](/actors/publishing/actor-readme).
+
+## Make your Actor public
+
+To make your Actor available on Apify Store:
+
+1. Log in to [Apify Console](https://console.apify.com).
+1. In the left-side panel, go to **Development** > **My Actors**.
+1. From the table, select the Actor you want to publish.
+1. Go to the **Publication** tab.
+
+Complete all required fields in the following sections:
+
+1. In the **Display information** section, add an Actor logo and [description](/academy/actor-marketing-playbook/actor-basics/actor-description).
+1. In the **Monetization** section, [set up monetization](/actors/publishing/monetize) for your Actor.
+1. In the **Sample output** section, add a sample output for your Actor. If the [input schema](/actors/development/actor-definition/input-schema) already includes the sample output, it's added automatically.
+1. In the **Output schema** section, define the [output schema](/actors/development/actor-definition/output-schema) of your Actor. Optionally, define also the following schemas:
+    - [Dataset schema](/storage/dataset-schema)
+    - [Key-value store schema](/storage/key-value-store-schema)
+    - [Live-view web server OpenAPI schema](/actors/development/actor-definition/web-server-schema)
+1. In **Actor permissions**, define the [permission level](/actors/development/permissions) that your Actor requires.
+
+Once all sections are marked as completed, select **Publish on Store**.
+
+## Verify the publication
+
+To verify that your Actor has been published:
+
+1. Go to the [Apify Store](https://apify.com/store).
+1. Search for your Actor's name.
+1. Select your Actor's card and review its dedicated page.
+
+## Publish Actor's source code
+
+By default, the source code of your Actor is hidden from the public.
+
+By making the source files and non-secret [environment variables](/actors/development/programming-interface/environment-variables) of your Actor publicly visible, you make your Actor open source and eligible for payouts through the [Apify Open Source Fair Share program](https://apify.com/partners/open-source-fair-share).
+
+To publish your Actor's source code:
+
+1. Log in to [Apify Console](https://console.apify.com).
+1. In the left-side panel, go to **Development** > **My Actors**.
+1. From the table, select the Actor whose source code you want to publish.
+1. Go to the **Publication** tab.
+1. In **Display information**, uncheck **Hide source files from Actor detail**.
+
+You can't publish the source code of an Actor that you build from a private repository. Secret environment variables are never exposed.

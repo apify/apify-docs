@@ -2,8 +2,8 @@ get:
   tags:
     - Actors
   summary: Get Actor
-  description: Gets an object that contains all the details about a specific Actor.
-  operationId: act_get
+  description: Gets an object that contains all the details about the Actor with the specified ID.
+  operationId: actor_get
   parameters:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
   responses:
@@ -18,9 +18,9 @@ get:
             data:
               id: zdc3Pyhyz3m8vjDeM
               userId: wRsJZtadYvn4mBZmm
-              name: MyActor
+              name: instagram-scraper
               username: jane35
-              description: My favourite Actor!
+              description: Extract data from Instagram.
               isPublic: false
               createdAt: "2019-07-08T11:27:57.401Z"
               modifiedAt: "2019-07-08T14:01:05.546Z"
@@ -68,7 +68,7 @@ get:
                 contentType: application/json; charset=utf-8
               isDeprecated: false
               deploymentKey: ssh-rsa AAAA ...
-              title: My Actor
+              title: Instagram Scraper
               taggedBuilds:
                 latest:
                   buildId: z2EryhbfhgSyqj6Hn
@@ -106,7 +106,7 @@ put:
     passed as JSON in the POST payload. Only the fields specified in the request body are updated.
 
     Returns the full `Actor` object, the same as the
-    [Get Actor](/api/v2/act-get) endpoint.
+    [Get Actor](/api/v2/actor-get) endpoint.
 
     In the HTTP request, set the `Content-Type` header to `application/json`.
 
@@ -161,7 +161,7 @@ put:
     }
     ```
 
-  operationId: act_put
+  operationId: actor_put
   parameters:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
   requestBody:
@@ -329,7 +329,7 @@ delete:
     - Actors
   summary: Delete Actor
   description: Deletes an Actor with the specified ID.
-  operationId: act_delete
+  operationId: actor_delete
   parameters:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
   responses:

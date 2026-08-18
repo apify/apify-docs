@@ -209,7 +209,7 @@ curl -s \
 
 Not all Actors in Apify Store can be run using agentic payments. To be eligible, an Actor must:
 
-- Use the [pay per event](/actors/publishing/monetize/pay-per-event) pricing model. Rental and pay-per-usage Actors are not supported.
+- Use the [pay-per-event](/actors/publishing/monetize/pay-per-event) pricing model. Rental and pay-per-usage Actors are not supported.
 - Run with [limited permissions](/actors/development/permissions). Actors that request full permissions are excluded.
 - Not use [Standby](/actors/running/standby) mode for now. Standby support is coming later.
 

@@ -1,12 +1,12 @@
 actorId:
   name: actorId
   in: path
-  description: Actor ID or a tilde-separated owner's username and Actor name.
+  description: Actor ID or the username of the Actor owner and the Actor name, separated by a tilde (`~`).
   required: true
   style: simple
   schema:
     type: string
-    example: janedoe~my-actor
+    example: compass~google-maps-extractor
 
 actorTaskId:
   name: actorTaskId

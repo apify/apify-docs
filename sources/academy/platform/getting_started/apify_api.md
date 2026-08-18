@@ -47,7 +47,7 @@ Let's say we want to run our **adding-actor** via API and view its results in CS
 https://api.apify.com/v2/actors/YOUR_USERNAME~adding-actor/run-sync-get-dataset-items?token=YOUR_TOKEN_HERE&format=csv
 ```
 
-Additional parameters can be passed to this endpoint. You can learn about them in our [API documentation](/api/v2/act-run-sync-get-dataset-items-post)
+Additional parameters can be passed to this endpoint. You can learn about them in our [API documentation](/api/v2/actor-run-sync-get-dataset-items-post)
 
 :::caution Token security
 
@@ -71,7 +71,7 @@ And there it is! The Actor was run with our inputs of **num1** and **num2**, the
 
 ## Apify API's many features {#api-many-features}
 
-What we've done in this lesson only scratches the surface of what the Apify API can do. Right from Insomnia, or from any HTTP client, you can manage [datasets](/api/v2/storage-datasets) and [key-value stores](/api/v2/storage-key-value-stores), add to [request queues](/api/v2/storage-request-queues), [update Actors](/api/v2/act-put), and much more! Basically, whatever you can do on the platform's web interface, you also do through the API.
+What we've done in this lesson only scratches the surface of what the Apify API can do. Right from Insomnia, or from any HTTP client, you can manage [datasets](/api/v2/storage-datasets) and [key-value stores](/api/v2/storage-key-value-stores), add to [request queues](/api/v2/storage-request-queues), [update Actors](/api/v2/actor-put), and much more! Basically, whatever you can do on the platform's web interface, you also do through the API.
 
 ## Next up {#next}
 

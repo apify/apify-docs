@@ -32,7 +32,7 @@ Each build might have different features, input, or output. By fixing the build 
 
 On top of the number, some builds are also tagged. For example, _latest_ or _beta_.
 
-Tags make it easier to specify which build to use when running an Actor. To reassign a tag to a different build, use the [Actor update](/api/v2/act-put) API endpoint.
+Tags make it easier to specify which build to use when running an Actor. To reassign a tag to a different build, use the [Actor update](/api/v2/actor-put) API endpoint.
 
 ## Runs
 
@@ -100,27 +100,27 @@ flowchart LR
 
 ---
 
-| Status     | Type         | Description                                 |
-|:-----------|:-------------|:--------------------------------------------|
-| READY      | initial      | Started but not allocated to any worker yet |
-| RUNNING    | transitional | Executing on a worker machine               |
-| SUCCEEDED  | terminal     | Finished successfully                       |
-| FAILED     | terminal     | Run failed                                  |
-| TIMING-OUT | transitional | Timing out now                              |
-| TIMED-OUT  | terminal     | Timed out                                   |
-| ABORTING   | transitional | Being aborted by the user                   |
-| ABORTED    | terminal     | Aborted by the user                         |
+| Status | Type | Description |
+| --- | --- | --- |
+| READY | initial | Started but not allocated to any worker yet |
+| RUNNING | transitional | Executing on a worker machine |
+| SUCCEEDED | terminal | Finished successfully |
+| FAILED | terminal | Run failed |
+| TIMING-OUT | transitional | Timing out now |
+| TIMED-OUT | terminal | Timed out |
+| ABORTING | transitional | Run is being aborted |
+| ABORTED | terminal | Run aborted |
 
-### Aborting runs
+### Abort a run
 
 You can abort runs with the statuses **READY**, **RUNNING**, or **TIMING-OUT** in two ways:
 
-- _Immediately_ - this is the default option. The Actor process is killed immediately with no grace period.
-- _Gracefully_ - the Actor run receives a signal about aborting via the `aborting` event and is granted a 30-second window to finish in-progress tasks before getting aborted. This is helpful in cases where you plan to resurrect the run later because it gives the Actor a chance to persist its state. When resurrected, the Actor can restart where it left off.
+- Immediately (default). The Actor process is killed with no grace period.
+- Gracefully. The Actor run receives a signal about aborting with the `aborting` event and is granted a 30-second window to finish in-progress tasks before getting terminated. If you plan to resurrect the run later, a graceful abort gives the Actor a chance to persist its state. When resurrected, the Actor can restart where it left off.
 
-You can abort a run in Apify Console using the **Abort** button or via API using the [Abort run](/api/v2/actor-run-abort-post) endpoint.
+To abort a run, use the **Abort** button in Apify Console or the [Abort run](/api/v2/actor-run-abort-post) API endpoint.
 
-### Resurrection of finished run
+### Resurrect a finished run
 
 Any Actor run in a terminal state, i.e., run with status **FINISHED**, **FAILED**, **ABORTED**, and **TIMED-OUT**, might be resurrected back to a **RUNNING** state. This is helpful in many cases, for example, when the timeout for an Actor run was too low or in case of an unexpected error.
 
@@ -130,7 +130,7 @@ The whole process of resurrection looks as follows:
 - Updated duration will not include the time when the Actor was not running.
 - Timeout will be counted from the point when this Actor run was resurrected.
 
-Resurrection can be performed in Apify Console using the **resurrect** button or via API using the [Resurrect run](/api/v2/act-run-resurrect-post) API endpoint.
+Resurrection can be performed in Apify Console using the **resurrect** button or via API using the [Resurrect run](/api/v2/actor-run-resurrect-post) API endpoint.
 
 :::info Settings adjustments
 You can also adjust timeout and memory or change Actor build before the resurrection. This is especially helpful in case of an error in the Actor's source code as it enables you to:

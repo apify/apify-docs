@@ -1,0 +1,77 @@
+{
+  "source_file": "sources/platform/account/console.md",
+  "assertions": [
+    {
+      "id": "sign-up-route",
+      "kind": "route",
+      "target": "/sign-up",
+      "page_context": "Sign-up page for creating an Apify account",
+      "source_quote": "create an account at the [sign-up page](https://console.apify.com/sign-up)",
+      "source_line": 13,
+      "needs_auth": false
+    },
+    {
+      "id": "sign-in-route",
+      "kind": "route",
+      "target": "/sign-in",
+      "page_context": "Sign-in page for existing Apify accounts",
+      "source_quote": "you can visit the [sign-in page](https://console.apify.com/sign-in)",
+      "source_line": 25,
+      "needs_auth": false
+    },
+    {
+      "id": "resend-verification-email-button",
+      "kind": "element_button",
+      "target": "Resend verification email",
+      "page_context": "Email verification page reached from the sign-in flow",
+      "source_quote": "you can click on the **Resend verification email** button to send the email again",
+      "source_line": 25,
+      "needs_auth": true
+    },
+    {
+      "id": "login-privacy-route",
+      "kind": "route",
+      "target": "/settings/security",
+      "page_context": "Account settings, Login & Privacy section for managing authentication methods",
+      "source_quote": "go to the [Login & Privacy](https://console.apify.com/settings/security) section of your account settings",
+      "source_line": 38,
+      "needs_auth": true
+    },
+    {
+      "id": "dashboard-section-heading",
+      "kind": "element_text",
+      "target": "Dashboard",
+      "page_context": "Landing page after signing in to Apify Console",
+      "source_quote": "you land on the **Dashboard** section that provides an overview of your account",
+      "source_line": 46,
+      "needs_auth": true
+    },
+    {
+      "id": "dashboard-recently-viewed",
+      "kind": "element_text",
+      "target": "Recently viewed",
+      "page_context": "Dashboard overview section",
+      "source_quote": "**Recently viewed**: Displays Actors you have recently accessed.",
+      "source_line": 48,
+      "needs_auth": true
+    },
+    {
+      "id": "dashboard-suggested-actors",
+      "kind": "element_text",
+      "target": "Suggested Actors for you",
+      "page_context": "Dashboard overview section",
+      "source_quote": "**Suggested Actors for you**: Recommends Actors that might interest you",
+      "source_line": 50,
+      "needs_auth": true
+    },
+    {
+      "id": "dashboard-actor-runs",
+      "kind": "element_text",
+      "target": "Actor runs",
+      "page_context": "Dashboard overview section",
+      "source_quote": "**Actor runs**: Shows your recent Actor runs, as well as scheduled runs and tasks.",
+      "source_line": 52,
+      "needs_auth": true
+    }
+  ]
+}

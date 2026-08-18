@@ -12,7 +12,7 @@ slug: /affiliate-program-terms-and-conditions
 <!-- vale off -->
 <!-- markdownlint-disable -->
 
-Last updated: February 24, 2026
+Last updated: July 27, 2026
 
 ---
 
@@ -38,13 +38,22 @@ Terms starting with a capital letter used in these Affiliate Program Terms have 
 
 3.2. Tracking of the potential Referred Customer is performed by cookies lasting 45 days. If the cookies expire or are deleted, a customer may not be recognised as a Referred Customer.
 
-3.3. If the Affiliate Partner identifies any customer that, in their opinion, shall be considered Referred Customer but has not been recognised by the tracking, the Affiliate Partner may report this information to Apify together with sufficient evidence. Apify shall in its discretion in good faith consider the Affiliate Partner's report and evidence, and decide whether or not such a customer shall be deemed Referred Customer.
+3.3. If the Affiliate Partner identifies any customer that, in their opinion, shall be considered a Referred Customer but has not been recognised by the tracking, the Affiliate Partner may report this information to Apify together with sufficient evidence. Apify shall in its discretion in good faith consider the Affiliate Partner's report and evidence, and decide whether or not such a customer shall be deemed a Referred Customer.
 
-3.4. In case of any uncertain or suspicious circumstances, Apify shall have the right to ultimately decide whether a customer is to be deemed Referred Customer or not, in its sole discretion.
+3.4. In case of any uncertain or suspicious circumstances, Apify shall have the right to ultimately decide whether a customer is to be deemed a Referred Customer or not, in its sole discretion.
 
 ## 4. Commission
 
-4.1. Unless agreed otherwise, the Commission shall be computed as 20% of all payments made by each Referred Customer to Apify in the first 3 months from the date when that Referred Customer started paying for Services (as defined in the General Terms) and then increased to 30% for all payments made by each Referred Customer to Apify, up to 2,500 USD per Referred Customer.
+4.1. Unless agreed otherwise, the Commission shall be computed as 20% of all payments made by each Referred Customer to Apify in the first 3 months from the date when that Referred Customer started paying for Services (as defined in the General Terms) and then increased to 30% for all payments made by each Referred Customer to Apify, in each case up to the “**Commission Cap**” applicable to that Referred Customer under Sections 4.2. to 4.4., depending on the respective Affiliate Partner’s tier.
+
+4.2. The Affiliate Partner's tier determines the Commission Cap that applies to each of its Referred Customers:
+(a) **Starter tier**: 0 to 49 Referred Customers with Commission Cap: 2,500 USD per Referred Customer;
+(b) **Performer tier**: 50 or more Referred Customers with Commission Cap: 5,000 USD per Referred Customer;
+(c) **Elite tier**: an Affiliate Partner admitted to the Elite tier by Apify on an individual basis. The Commission rate and Commission Cap for an Elite Affiliate Partner are those set out in a separate written arrangement between Apify and that Affiliate Partner.
+
+4.3. An Affiliate Partner moves between the Starter and Performer tiers automatically as its number of currently active paying Referred Customers rises to or falls below the threshold in Section 4.2(b). The Commission Cap for a given Referred Customer is fixed at the Commission Cap of the tier the Affiliate Partner was in at the time that person or company became a Referred Customer, and does not change afterward, even if the Affiliate Partner's tier later changes.
+
+4.4. On a launch date of August 1, 2026, Affiliate Partners with 50 or more Referred Customers are moved to the Performer tier automatically. Any Referred Customer who was referred before the Launch Date remains subject to a Commission Cap of 2,500 USD, the cap under which they were originally referred. Only a Referred Customer on or after the Launch Date is subject to the Performer Commission Cap of 5,000 USD.
 
 ## 5. Payment terms
 

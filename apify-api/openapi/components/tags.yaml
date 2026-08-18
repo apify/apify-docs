@@ -8,11 +8,13 @@
     - "#/reference/actors/actor-object"
     - "#tag/ActorsActor-object"
   description: |
-    The API endpoints in this section allow you to manage Apify Actors. For more details about Actors, refer to the [Actor documentation](https://docs.apify.com/platform/actors).
+    The API endpoints in this section allow you to manage [Apify Actors](https://docs.apify.com/platform/actors).
 
-    For API endpoints that require the `actorId` parameter to identify an Actor, you can provide either:
-    - The Actor ID (e.g., `HG7ML7M8z78YcAPEB`), or
-    - A tilde-separated combination of the Actor owner's username and the Actor name (e.g., `janedoe~my-actor`).
+    ## Identify an Actor
+
+    For API endpoints that require the `actorId` parameter, provide one of the following:
+    - The Actor ID. It's part of the Actor's URL in Apify Console: `https://console.apify.com/actors/<ACTOR_ID>`. For example, `reGe1ST3OBgYZSsZJ`.
+    - The username of the Actor owner plus the Actor name, separated by a tilde (`~`). For example, `apify~instagram-scraper`.
 
 - name: Actors/Actor versions
   x-displayName: Actor versions

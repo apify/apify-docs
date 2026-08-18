@@ -75,7 +75,7 @@ byActorRunId:
 
     For more information, see the [Actor
     docs](https://docs.apify.com/platform/actors/running/runs-and-builds#resurrection-of-finished-run).
-  operationId: act_run_resurrect_post
+  operationId: actor_run_resurrect_post
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
     - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"

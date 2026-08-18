@@ -81,7 +81,7 @@ listLastRun:
 
     This endpoint is a shortcut for getting the last run's `defaultKeyValueStoreId` and then using the
     [Download records](/api/v2/key-value-store-records-get) endpoint.
-  operationId: act_runs_last_keyValueStore_records_get
+  operationId: actor_runs_last_keyValueStore_records_get
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
     - $ref: "../../parameters/lastRunParameters.yaml#/status"

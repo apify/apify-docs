@@ -27,7 +27,7 @@ If the Actor being run via API takes 5 minutes or less to complete a typical run
 
 > If you are unsure about the differences between an Actor and a task, you can read about them in the [tasks](/actors/running/tasks) documentation. In brief, tasks are pre-configured inputs for Actors.
 
-The API endpoints and usage (for both sync and async) for [Actors](/api/v2#tag/ActorsRun-collection/operation/act_runs_post) and [tasks](/api/v2/actor-task-runs-post) are essentially the same.
+The API endpoints and usage (for both sync and async) for [Actors](/api/v2/actors-runs-post) and [tasks](/api/v2/actor-task-runs-post) are essentially the same.
 
 To run, or **call**, an Actor/task, you will need a few things:
 
@@ -45,7 +45,7 @@ The URL of [POST request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Meth
 https://api.apify.com/v2/actors/ACTOR_NAME_OR_ID/runs?token=YOUR_TOKEN
 ```
 
-For tasks, we can switch the path from **acts** to **actor-tasks** and keep the rest the same:
+For tasks, we can switch the path from **actors** to **actor-tasks** and keep the rest the same:
 
 ```cURL
 https://api.apify.com/v2/actor-tasks/TASK_NAME_OR_ID/runs?token=YOUR_TOKEN
@@ -85,7 +85,7 @@ If we press **Send**, it will immediately return some info about the run. The `s
 
 ![Actor run info in Postman](./images/run-info-postman.png)
 
-We will later use this **run info** JSON to retrieve the run's output data. This info about the run can also be retrieved with another call to the [**Get run**](/api/v2/act-run-get) endpoint.
+We will later use this **run info** JSON to retrieve the run's output data. This info about the run can also be retrieved with another call to the [**Get run**](/api/v2/actor-run-get) endpoint.
 
 ## JavaScript and Python client {#javascript-and-python-client}
 
@@ -149,7 +149,7 @@ If your synchronous run exceeds the 5-minute time limit, the response will be a 
 
 ### Synchronous runs with dataset output {#synchronous-runs-with-dataset-output}
 
-Most Actor runs will store their data in the default [dataset](/storage/dataset). The Apify API provides **run-sync-get-dataset-items** endpoints for [Actors](/api/v2/act-run-sync-get-dataset-items-post) and [tasks](/api/v2/actor-task-run-sync-get-dataset-items-post), which allow you to run an Actor and receive the items from the default dataset once the run has finished.
+Most Actor runs will store their data in the default [dataset](/storage/dataset). The Apify API provides **run-sync-get-dataset-items** endpoints for [Actors](/api/v2/actor-run-sync-get-dataset-items-post) and [tasks](/api/v2/actor-task-run-sync-get-dataset-items-post), which allow you to run an Actor and receive the items from the default dataset once the run has finished.
 
 Here is a Node.js example of calling a task via the API and logging the dataset items to the console:
 
@@ -186,7 +186,7 @@ items.forEach((item) => {
 
 ### Synchronous runs with key-value store output {#synchronous-runs-with-key-value-store-output}
 
-[Key-value stores](/storage/key-value-store) are useful for storing files like images, HTML snapshots, or JSON data. The Apify API provides **run-sync** endpoints for [Actors](/api/v2/act-run-sync-post) and [tasks](/api/v2/actor-task-run-sync-post), which allow you to run a specific task and receive the output. By default, they return the `OUTPUT` record from the default key-value store.
+[Key-value stores](/storage/key-value-store) are useful for storing files like images, HTML snapshots, or JSON data. The Apify API provides **run-sync** endpoints for [Actors](/api/v2/actor-run-sync-post) and [tasks](/api/v2/actor-task-run-sync-post), which allow you to run a specific task and receive the output. By default, they return the `OUTPUT` record from the default key-value store.
 
 ## Asynchronous flow {#asynchronous-flow}
 
@@ -239,7 +239,7 @@ When we run the Actor with the [usual API call](#run-an-actor-or-task) shown abo
 Replace the `RUN_ID` in the following URL with the ID you extracted earlier:
 
 ```cURL
-https://api.apify.com/v2/actors/ACTOR_NAME_OR_ID/runs/RUN_ID
+https://api.apify.com/v2/actor-runs/RUN_ID
 ```
 
 Once a status of `SUCCEEDED` or `FAILED` has been received, we know the run has finished and can cancel the interval and finally [collect the data](#collect-the-data).
