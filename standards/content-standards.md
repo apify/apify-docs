@@ -18,7 +18,7 @@ slug: /path/to/page
 ### Required fields
 
 - **title**: Sentence case, present tense (e.g., "Create your first Actor")
-- **description**: 140-160 characters for SEO, clear and actionable
+- **description**: 140-160 characters for SEO, clear and actionable. Use action-oriented phrasing, avoid repeating the same keyword, and don't use the word "documentation"
 - **sidebar_position**: Decimal number for ordering (1.0, 1.1, 2.0, etc.)
 - **slug**: URL path starting with `/` (e.g., `/platform/actors/running`)
 
@@ -189,6 +189,10 @@ All images must include meaningful alt text describing the content:
 ![Apify Console showing the Actor creation dialog](./images/create-actor.webp)
 ```
 
+### When to use a screenshot
+
+Keep screenshots to a minimum. If an image only shows what the prose already describes, leave it out. Screenshots go stale with every UI change, so add one when it carries information the text can't.
+
 ### Theme
 
 Screenshots should use:
@@ -198,10 +202,11 @@ Screenshots should use:
 
 ### Visual indicators
 
-Use red boxes or arrows to highlight important UI elements:
-- **Red border**: Highlight clickable elements (buttons, fields)
-- **Red arrow**: Point to specific areas
-- **Red circle**: Highlight small elements
+Highlight UI elements with the `#F86606` (Apify orange) color:
+- **Border**: Highlight clickable elements (buttons, fields)
+- **Circle**: Highlight small elements
+
+Don't use arrows.
 
 ### Image format
 
