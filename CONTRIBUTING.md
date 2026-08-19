@@ -295,9 +295,9 @@ Add languages by adding new folders at the appropriate path level.
 
 ## Pull request process
 
-1. Follow [Conventional Commits](https://www.conventionalcommits.org/)
-2. Pass all CI checks
-3. Include comprehensive documentation updates
+1. Title follows [Conventional Commits](https://www.conventionalcommits.org/) - CI enforces it
+2. Description is one or two sentences: what changed and why. Skip boilerplate headings (`## Summary`, `## Changes`) and bullet lists that restate the diff - the diff is the record of what changed, the description explains the why. [`.github/pull_request_template.md`](.github/pull_request_template.md) repeats this as a reminder in the PR form
+3. All CI checks pass
 
 ## Deployment
 
