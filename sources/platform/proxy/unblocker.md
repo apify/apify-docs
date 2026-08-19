@@ -1,27 +1,27 @@
 ---
-title: Unblocker proxy
+title: Unblocker
 description: Bypass anti-bot and anti-captcha systems automatically when scraping, without building or maintaining your own bypass logic for blocked websites.
 sidebar_position: 10.5
-slug: /proxy/unblocker-proxy
+slug: /proxy/unblocker
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Unblocker proxy is designed for scraping websites protected by anti-bot and anti-captcha systems. Instead of building and maintaining your own detection and bypass logic, you can route requests through Unblocker proxy, which automatically handles many common protection mechanisms.
+Unblocker is a proxy service designed for scraping websites protected by anti-bot and anti-captcha systems. Instead of building and maintaining your own detection and bypass logic, you can route requests through Unblocker, which automatically handles many common protection mechanisms.
 
 This makes it a good choice for accessing websites with advanced bot protection while keeping your scraping code simple.
 
 Pricing is based on Unblocker units, which are separate from [compute units](/actors/running/usage-and-resources#what-is-a-compute-unit). Each successful request costs 10 units. Units are priced per 1,000 at a rate that depends on your plan, and your consumption is displayed on your [proxy usage dashboard](https://console.apify.com/proxy/usage) in Apify Console.
 
-## Connect to Unblocker proxy
+## Connect to Unblocker
 
-Connecting to Unblocker proxy works the same way as [datacenter proxy](./datacenter_proxy.md), with two differences:
+Connecting to Unblocker works the same way as [datacenter proxy](./datacenter_proxy.md), with two differences:
 
 - The `groups` [username parameter](./index.md#username-parameters) must always specify `UNBLOCKER`.
-- Unblocker proxy selects the country automatically, so you rarely need to set `country`.
+- Unblocker selects the country automatically, so you rarely need to set `country`.
 
-Unlike [datacenter](./datacenter_proxy.md) or [residential](./residential_proxy.md) proxies, Unblocker proxy has no [session](./index.md#sessions) parameter, so you can't keep the same IP address across requests.
+Unlike [datacenter](./datacenter_proxy.md) or [residential](./residential_proxy.md) proxies, Unblocker has no [session](./index.md#sessions) parameter, so you can't keep the same IP address across requests.
 
 ### How to set a proxy group
 
@@ -68,13 +68,13 @@ async def main():
 
 ### How to set a proxy country
 
-Unblocker proxy selects the best available country automatically based on the target website. You don't need to set a country in most cases.
+Unblocker selects the best available country automatically based on the target website. You don't need to set a country in most cases.
 
 If you need requests to come from a specific country, specify the `country` [username parameter](./index.md#username-parameters) as `country-COUNTRY-CODE`. For example, to target Japan, set the username to `groups-UNBLOCKER,country-JP`.
 
-:::tip Let Unblocker proxy decide
+:::tip Let Unblocker decide
 
-Only set a country when your use case requires it (for example, geo-restricted content). Setting a country limits the pool of available IP addresses and can reduce how effectively Unblocker proxy bypasses anti-bot protection.
+Only set a country when your use case requires it (for example, geo-restricted content). Setting a country limits the pool of available IP addresses and can reduce how effectively Unblocker bypasses anti-bot protection.
 
 :::
 
