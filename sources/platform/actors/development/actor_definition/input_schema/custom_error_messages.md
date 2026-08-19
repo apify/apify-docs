@@ -72,8 +72,8 @@ You can define custom error messages for any validation keyword supported by the
 | `string`           | `type`, `pattern`, `minLength`, `maxLength`, `enum`                         |
 | `number`/`integer` | `type`, `minimum`, `maximum`                                                |
 | `boolean`          | `type`                                                                      |
-| `array`            | `type`, `minItems`, `maxItems`, `uniqueItems`, `patternKey`, `patternValue` |
-| `object`           | `type`, `minProperties`, `maxProperties`, `patternKey`, `patternValue`      |
+| `array`            | `type`, `minItems`, `maxItems`, `uniqueItems`                               |
+| `object`           | `type`, `minProperties`, `maxProperties`                                    |
 
 #### Nested properties
 
