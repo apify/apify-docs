@@ -8,7 +8,7 @@ slug: /proxy/unblocker
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Unblocker is a proxy service designed for scraping websites protected by anti-bot and anti-captcha systems. Instead of building and maintaining your own detection and bypass logic, you can route requests through Unblocker, which automatically handles many common protection mechanisms.
+Unblocker is a proxy service designed to scrape any website - from pages without protections to those heavily protected by bot detection and CAPTCHA challenges. Instead of building and maintaining your own detection-bypass logic, you can route requests through Unblocker, which automatically handles many common protection mechanisms.
 
 This makes it a good choice for accessing websites with advanced bot protection while keeping your scraping code simple.
 
