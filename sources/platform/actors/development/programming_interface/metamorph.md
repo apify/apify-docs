@@ -1,5 +1,6 @@
 ---
-title: Metamorph
+title: Actor metamorph
+sidebar_label: Metamorph
 description: Use metamorph to transform an Actor run into another Actor with new input, preserving default storages and enabling seamless Actor chaining.
 slug: /actors/development/programming-interface/metamorph
 sidebar_position: 8

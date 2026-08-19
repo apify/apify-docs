@@ -1,5 +1,6 @@
 ---
-title: Monitoring
+title: Actor and task monitoring
+sidebar_label: Monitoring
 description: Learn how to make sure your Actors and tasks perform as expected and retrieve correct results. Get alerts when jobs or their metrics fall short.
 sidebar_position: 12
 category: guides
