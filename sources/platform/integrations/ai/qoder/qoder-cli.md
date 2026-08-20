@@ -24,6 +24,18 @@ The [Apify plugin for Qoder](https://github.com/apify/apify-qoder-plugin) connec
 
 ## Install the plugin
 
+You can install the plugin two ways: run the install command from the Qoder Marketplace, or add the plugin repository as a marketplace source in the Qoder CLI.
+
+### Install from the Qoder Marketplace
+
+1. Open the [Apify plugin on the Qoder Marketplace](https://qoder.com/marketplace/plugin?id=bbbdb1cb-8bad-441e-b42f-ce0e33e3a521). Under **Qoder CLI**, copy the install command - it looks like `qodercli plugin install <url>`.
+
+    ![Apify plugin page on the Qoder Marketplace with the Qoder CLI install command](images/qoder-cli/01-marketplace-install.webp)
+
+1. Run the command in your terminal, then restart the Qoder CLI so the bundled MCP server registers.
+
+### Install from the plugin repository
+
 1. In the Qoder CLI, run `/plugins` to open the plugin manager.
 
 1. Open the **Marketplaces** tab and select **+ Add marketplace**.
@@ -38,21 +50,17 @@ The [Apify plugin for Qoder](https://github.com/apify/apify-qoder-plugin) connec
 
 1. Review the plugin details and trust warning, then select **Install (user scope)** and press Enter.
 
-    ![apify plugin detail with the install scope options and a trust warning](images/qoder-cli/01-install-plugin.webp)
+    ![apify plugin detail with the install scope options and a trust warning](images/qoder-cli/02-install-plugin.webp)
 
-1. Run `/plugins reload` to apply the changes, then restart the Qoder CLI so the bundled MCP server registers (see the tip below).
+1. Run `/plugins reload` to apply the changes, then restart the Qoder CLI so the bundled MCP server registers.
 
 1. Open the **Installed** tab to confirm the `apify` plugin is enabled and its MCP server shows as connected.
 
 :::tip Restart the CLI so the MCP server registers
 
-The Apify MCP server registers when the Qoder CLI starts, not on `/plugins reload`. If `/mcp` shows no Apify server after installing, fully quit and reopen the Qoder CLI.
+The Apify MCP server registers when the Qoder CLI starts, not on `/plugins reload`. Whichever method you used, if `/mcp` shows no Apify server after installing, fully quit and reopen the Qoder CLI.
 
 :::
-
-Alternatively, install from the [Apify plugin on the Qoder Marketplace](https://qoder.com/marketplace/plugin?id=bbbdb1cb-8bad-441e-b42f-ce0e33e3a521). Under **Qoder CLI**, copy the install command - it looks like `qodercli plugin install <url>` - and run it in your terminal, then restart the Qoder CLI so the MCP server registers.
-
-![Apify plugin page on the Qoder Marketplace with the Qoder CLI install command](images/qoder-cli/02-marketplace-install.webp)
 
 ## Authenticate to Apify
 
