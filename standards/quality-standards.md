@@ -80,7 +80,8 @@ Before submitting documentation, verify:
 
 - [ ] All images include meaningful alt text
 - [ ] Screenshots use light theme
-- [ ] Red indicators used to highlight UI elements
+- [ ] UI highlights use a `#F86606` border, no arrows or circles
+- [ ] Screenshots earn their place (no image that only repeats the prose)
 - [ ] Images stored in `images/` subdirectory
 - [ ] Image format is appropriate (WebP for screenshots, SVG for logos, icons, and product images)
 
