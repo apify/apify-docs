@@ -1,5 +1,6 @@
 ---
-title: Web IDE
+title: Develop Actors in the web IDE
+sidebar_label: Web IDE
 sidebar_position: 2
 description: Create and run your first Actor using the web IDE in Apify Console, from writing your first lines of code to deploying it live in the cloud.
 slug: /actors/development/quick-start/web-ide
