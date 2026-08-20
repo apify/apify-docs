@@ -10,7 +10,7 @@ Every documentation file needs YAML front matter:
 ---
 title: Page title
 description: A clear description of the page content (140-160 characters)
-sidebar_position: 1.0
+sidebar_position: 1
 slug: /path/to/page
 ---
 ```
@@ -19,13 +19,14 @@ slug: /path/to/page
 
 - `title` - Sentence case, present tense, as in "Create your first Actor"
 - `description` - 140-160 characters for SEO, clear and actionable. Use action-oriented phrasing, avoid repeating the same keyword, and don't use the word "documentation"
-- `sidebar_position` - Decimal number for ordering (1.0, 1.1, 2.0)
+- `sidebar_position` - Number controlling order in the sidebar. Whole numbers are the norm; use a decimal (2.1) only to slot a page between two existing ones
 - `slug` - URL path starting with `/`, as in `/platform/actors/running`
 
 Vale ignores front matter, so nothing here is checked automatically. The description length in particular is on you.
 
 ### Optional fields
 
+- `category` - Groups the page in navigation, for example `platform` or `build-and-publish`. Match the value used by sibling pages
 - `sidebar_label` - Shorter version of the title for sidebar navigation
 - `toc_min_heading_level` - Minimum heading level in the table of contents (default: 2)
 - `toc_max_heading_level` - Maximum heading level in the table of contents (default: 3)
@@ -38,7 +39,7 @@ Documentation page:
 ---
 title: Store and manage data
 description: Learn how to store and manage data in Apify datasets, key-value stores, and request queues.
-sidebar_position: 3.0
+sidebar_position: 3
 slug: /platform/storage
 ---
 ```
@@ -49,7 +50,7 @@ Tutorial:
 ---
 title: Build a web scraper
 description: Step-by-step guide to building your first web scraper with Apify and Playwright.
-sidebar_position: 1.0
+sidebar_position: 1
 slug: /academy/tutorials/web-scraper
 ---
 ```

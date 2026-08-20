@@ -13,7 +13,7 @@ Report tool output and judgment separately. Tool findings are facts with a rule 
 
 | Check | Result |
 | --- | --- |
-| `vale` | [N errors, N warnings, N suggestions, or "not installed, prose coverage skipped"] |
+| `vale --minAlertLevel=suggestion` | [N errors, N warnings, N suggestions, or "not installed, prose coverage skipped"] |
 | `pnpm lint:md` | [pass, or N issues] |
 | `check-frontmatter.sh` | [PASS/FAIL with the character count] |
 

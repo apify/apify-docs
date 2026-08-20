@@ -11,11 +11,11 @@ Agent-agnostic workflow for reviewing Apify documentation.
 
 These are objective - no judgment needed. Report all failures. Run in the main process (not in subagents).
 
-- `vale "<file>"` (prose style: voice, tone, terminology, grammar, headings, link text)
+- `vale --minAlertLevel=suggestion "<file>"` (prose style: voice, tone, terminology, grammar, headings, link text)
 - `pnpm lint:md` (markdownlint: heading hierarchy, double spaces, list numbering)
 - `.agents/skills/review-docs/scripts/check-frontmatter.sh "<file>"` (description char count)
 
-Vale carries most of the style guide, about 70 rules from the `apify/vale-rules` package. Run it and report what it says. Don't re-check its ground by hand, and don't delegate it to a subagent, which is slower and less reliable than the linter at the same job. If `vale` isn't installed, note in the output that prose-style coverage was skipped rather than substituting a subagent pass.
+Vale carries most of the style guide, about 70 rules from the `apify/vale-rules` package. Run it at suggestion level, because the default hides suggestions and some documented rules ship at that level. Report what it says. Don't re-check its ground by hand, and don't delegate it to a subagent, which is slower and less reliable than the linter at the same job. If `vale` isn't installed, note in the output that prose-style coverage was skipped rather than substituting a subagent pass.
 
 The repo-level PR check runs Vale at `--minAlertLevel=error` on changed files only, so it gates a much smaller set than a local run. Don't treat a green PR check as equivalent.
 

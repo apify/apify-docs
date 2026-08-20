@@ -12,7 +12,7 @@ argument-hint: file-path
 
 1. **Verify file version** - `git status` to confirm you have the latest
 2. **Run deterministic checks** (main process) - these are objective, no judgment needed:
-   - `vale "<file>"` (prose style: voice, tone, terminology, grammar, headings, link text)
+   - `vale --minAlertLevel=suggestion "<file>"` (prose style: voice, tone, terminology, grammar, headings, link text)
    - `pnpm lint:md` (heading hierarchy, list numbering, spacing)
    - `.agents/skills/review-docs/scripts/check-frontmatter.sh "<file>"` (description char count)
 
