@@ -25,12 +25,12 @@ Two Vale rules are dead but cost nothing, because markdownlint covers the same g
 
 Spawn subagents only for what no tool can check. Each reads the file being reviewed plus one standards file, and returns findings with line numbers and suggested fixes.
 
-- Subagent 1, `standards/style-guide.md`: parallel structure in lists, Oxford commas, article usage with Apify products
+- Subagent 1, `standards/style-guide.md`: bold used for anything other than a UI element or critical warning, link text that isn't genuinely descriptive, parallel structure in lists, Oxford commas, article usage with Apify products
 - Subagent 2, `standards/page-structure.md`: information ordering (no concept used before it's explained), whether each screenshot earns its place and follows the treatment rules (light theme, `#F86606` border, no arrows or circles), and whether the admonition type fits its content
 
 Why these two and nothing else: everything else in the standards files is either enforced by Vale or checked by the scripts above. Subagents are for judgment that no rule can express, such as whether an image carries information the prose doesn't, or whether `:::caution` is the right severity.
 
-Why one file each: the judgment residue happens to divide evenly, three items per file, so no subagent has to read two files or navigate to a section of one. Subagent 1 asks whether the prose is right, subagent 2 asks whether the page is built right.
+Why one file each: every judgment item lives wholly in one standards file, so no subagent has to read two files or navigate to a section of another. Subagent 1 asks whether the prose is right, subagent 2 asks whether the page is built right.
 
 Why subagents rather than one pass: each gets a focused read. A single review that also has to cover content accuracy tends to skim the judgment calls.
 
@@ -43,8 +43,6 @@ Run in the main process. Focus on what neither deterministic tools nor standards
 - [ ] Content structure (clear intro, logical progression, next steps)
 - [ ] Technical accuracy (code examples correct, API endpoints current)
 - [ ] Completeness (prerequisites listed, edge cases addressed)
-- [ ] Text formatting judgment (is bold usage for a UI element or misuse?)
-- [ ] Link quality beyond "click here" (is the text genuinely descriptive?)
 - [ ] Code example quality (complete, runnable, commented where needed)
 
 ## Step 5: Format output
