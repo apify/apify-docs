@@ -89,7 +89,7 @@ Confirm **Enable in chat** is turned on for the `apify` plugin and that the Apif
 ## Related integrations
 
 - [Qoder CLI integration](/integrations/qoder-cli) - Install the same plugin in the Qoder CLI
-- [Qoder IDE integration](/integrations/qoder-ide) - Import the plugin in the Qoder IDE
+- [Qoder IDE integration](/integrations/qoder-ide) - Install the plugin in the Qoder IDE
 - [MCP server integration](/integrations/mcp) - Use the Apify MCP server with other clients
 
 ## Resources

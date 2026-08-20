@@ -64,7 +64,7 @@ The plugin bundles the Apify MCP server. Read-only tools like searching Apify St
 
 1. At the consent prompt, select **Yes** to open the Apify authentication page in your browser.
 
-1. The Qoder CLI waits for the browser callback. If the browser doesn't open automatically, copy the full URL shown in the terminal and paste it into your browser.
+1. The Qoder CLI waits for the browser callback. If the browser doesn't open automatically, copy the full URL shown in the terminal and paste it into your browser. The URL wraps across several lines, so make sure you copy all of it - in most terminals, triple-clicking selects the whole URL.
 
     ![Terminal waiting for the browser callback and showing the fallback OAuth URL](images/qoder-cli/03-authenticating.webp)
 
@@ -73,8 +73,6 @@ The plugin bundles the Apify MCP server. Read-only tools like searching Apify St
 1. Back in the terminal, the server status changes to **ready** and the Apify tools become available.
 
 To see what the agent can call, select **View tools** on the server detail. The list shows each tool's annotations, such as read-only, destructive, or open-world.
-
-![Tools view listing the Apify MCP tools with their annotations](images/qoder-cli/04-view-tools.webp)
 
 :::tip Session persistence
 
@@ -90,7 +88,7 @@ Describe what you want in natural language. The `apify` agent routes the request
 
 The agent lists the Apify MCP tools and skills it can call, grouped by purpose.
 
-![Qoder CLI listing the available Apify MCP tools and skills](images/qoder-cli/05-test.webp)
+![Qoder CLI listing the available Apify MCP tools and skills](images/qoder-cli/04-test.webp)
 
 To go further, ask it to find an Actor for a task:
 
@@ -100,13 +98,13 @@ To go further, ask it to find an Actor for a task:
 
 | Skill | Description |
 | --- | --- |
-| `apify-ultimate-scraper` | CLI-driven extraction using existing Actors for multi-step scraping and lead-generation workflows. |
+| `apify-ultimate-scraper` | Extraction using existing Actors for multi-step scraping and lead-generation workflows. |
 | `apify-actor-development` | Full Actor lifecycle - template selection, development, local testing, and deployment with `apify push`. |
 | `apify-actorization` | Converts existing JavaScript, TypeScript, Python, or CLI projects into Apify Actors. |
 | `apify-generate-output-schema` | Generates dataset and key-value store schemas for existing Actors. |
 | `apify-sdk-integration` | Integrates Actor execution into applications using the `apify-client` package. |
 
-Example prompts that route to specific skills.
+These prompts route to specific skills.
 
 To run `apify-ultimate-scraper`:
 
@@ -152,7 +150,7 @@ export APIFY_TOKEN=<YOUR_API_TOKEN>
 
 ## Related integrations
 
-- [Qoder IDE integration](/integrations/qoder-ide) - Import the same plugin in the Qoder IDE
+- [Qoder IDE integration](/integrations/qoder-ide) - Install the same plugin in the Qoder IDE
 - [QoderWork integration](/integrations/qoder-work) - Upload the plugin in QoderWork
 - [MCP server integration](/integrations/mcp) - Use the Apify MCP server with other clients
 

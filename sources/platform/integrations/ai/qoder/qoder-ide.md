@@ -50,8 +50,6 @@ If you're on an older version or prefer to install from a file:
 
 After installing with either method, select **MCP Server** to confirm the `apify` server is registered from the plugin. It connects to `https://mcp.apify.com` and exposes the Apify tools.
 
-![MCP Server page listing the apify server from the plugin with its tools](images/qoder-ide/2-mcp.webp)
-
 ## Authenticate to Apify
 
 Read-only tools like searching Apify Store and fetching Actor details work without signing in, but you need to authenticate to run Actors and access your account data.
@@ -66,7 +64,7 @@ Open the chat and describe what you want in natural language. The `apify` agent 
 
 The agent lists the Apify MCP tools and skills it can call.
 
-![Qoder IDE chat listing the available Apify tools and skills](images/qoder-ide/3-test.webp)
+![Qoder IDE chat listing the available Apify tools and skills](images/qoder-ide/2-test.webp)
 
 ## Bundled skills
 
