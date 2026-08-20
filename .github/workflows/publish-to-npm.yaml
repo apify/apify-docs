@@ -21,18 +21,18 @@ jobs:
         outputs:
             theme_changed: ${{ steps.changed-theme-files.outputs.any_changed }}
         steps:
-            -   uses: actions/checkout@v7
+            -   uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
                 with:
                     fetch-depth: 0
 
             -   name: Use Node.js
-                uses: actions/setup-node@v7
+                uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
                 with:
                     node-version: 24
 
             -   name: Check changes in theme
                 id: changed-theme-files
-                uses: tj-actions/changed-files@v47
+                uses: tj-actions/changed-files@24d32ffd492484c1d75e0c0b894501ddb9d30d62 # v47.0.0
                 with:
                     since_last_remote_commit: "true"
                     files: |
@@ -43,12 +43,12 @@ jobs:
         if: ${{ needs.look_for_change.outputs.theme_changed == 'true' || github.event_name == 'workflow_dispatch' }}
         runs-on: ubuntu-latest
         steps:
-            -   uses: actions/checkout@v7
+            -   uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
                 with:
                     token: ${{ secrets.APIFY_SERVICE_ACCOUNT_GITHUB_TOKEN }}
 
             -   name: Use Node.js
-                uses: actions/setup-node@v7
+                uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
                 with:
                     node-version: 24
                     registry-url: 'https://registry.npmjs.org'
