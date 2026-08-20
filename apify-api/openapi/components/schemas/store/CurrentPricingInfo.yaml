@@ -9,6 +9,10 @@ properties:
   apifyMarginPercentage:
     type: number
     examples: [0.2]
+    description: >
+        Apify's share of the revenue generated under this pricing info record,
+        as a fraction between 0 and 1. Set by the Apify platform: 0.2 for pricing models that generate
+        revenue, 0 for pay-per-usage pricing model.
   createdAt:
     type: string
     format: date-time
