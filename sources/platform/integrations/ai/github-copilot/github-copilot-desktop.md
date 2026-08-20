@@ -38,8 +38,6 @@ This guide covers installation in the GitHub Copilot desktop app.
 
 1. The plugin appears under **Installed** with its toggle enabled.
 
-    ![GitHub Copilot desktop app showing the apify plugin installed and enabled](images/github-copilot-desktop/02-plugin-installed.webp)
-
 ## Connect the Apify MCP server
 
 The plugin connects to the Apify MCP server (`https://mcp.apify.com/`) using HTTP transport. Read-only tools like searching Apify Store and fetching Actor details work without signing in. To run Actors and access your account data, you need to authenticate.
@@ -48,9 +46,7 @@ The plugin connects to the Apify MCP server (`https://mcp.apify.com/`) using HTT
 
     ![GitHub Copilot desktop app MCP servers settings with the apify-mcp-server Sign in button](images/github-copilot-desktop/03-mcp-server-signin.webp)
 
-1. Complete the Apify OAuth flow in your browser and choose the account to connect.
-
-    ![Browser window confirming the Apify authorization was successful](images/github-copilot-desktop/04-authorization-successful.webp)
+1. Complete the Apify OAuth flow in your browser and choose the account to connect. The browser confirms the authorization and prompts you to return to the desktop app.
 
 :::tip Session persistence
 
@@ -72,7 +68,7 @@ With the `apify` agent selected, describe what you want in plain language.
 
 The agent searches Apify Store, fetches the top Actor's details, and summarizes its inputs, pricing, and output - without running the Actor.
 
-![GitHub Copilot desktop app listing what the Apify plugin can do](images/github-copilot-desktop/06-example-prompt.webp)
+To check what's available, ask the agent to list what it can do with the Apify plugin. It replies with the tools it can call and the skill behind each workflow.
 
 ## Bundled skills
 
@@ -138,7 +134,7 @@ Confirm the plugin is installed and enabled under **Settings > Plugins**, then r
 
 ## Related integrations
 
-- [VS Code integration](/integrations/vscode) - Install the same plugin from the VS Code plugin marketplace
+- [Visual Studio Code (VS Code) integration](/integrations/vscode) - Install the same plugin from the VS Code plugin marketplace
 - [GitHub Copilot CLI integration](/integrations/github-copilot-cli) - Install the Apify plugin in the GitHub Copilot CLI
 - [MCP server integration](/integrations/mcp) - Use the Apify MCP server with other clients
 

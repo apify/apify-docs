@@ -7,7 +7,7 @@ slug: /integrations/vscode
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
-[VS Code](https://code.visualstudio.com/) is Microsoft's code editor. Its [agent plugins](https://code.visualstudio.com/docs/agent-customization/agent-plugins) are prepackaged bundles of agent customizations - skills, agents, and MCP servers - that you install from a plugin marketplace and use in chat.
+[Visual Studio Code (VS Code)](https://code.visualstudio.com/) is Microsoft's code editor. Its [agent plugins](https://code.visualstudio.com/docs/agent-customization/agent-plugins) are prepackaged bundles of agent customizations - skills, agents, and MCP servers - that you install from a plugin marketplace and use in chat.
 
 The [Apify plugin](https://github.com/apify/apify-github-copilot-plugin) is published in the [Awesome Copilot](https://awesome-copilot.github.com/plugins) marketplace, which VS Code registers by default. It connects VS Code to Apify's library of [Actors](https://apify.com/store) and bundles:
 
@@ -29,11 +29,9 @@ This guide covers installation from the plugin marketplace in VS Code. It's the 
 
 1. Open the Extensions view (<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>X</kbd>, or <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>X</kbd> on macOS) and enter `@agentPlugins` in the search field. Alternatively, run **Chat: Plugins** from the Command Palette (<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>, or <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> on macOS).
 
-1. Find the **apify** plugin in the list. Type `apify` after the filter to narrow the results.
+1. Find the **apify** plugin in the list. Type `apify` after the filter to narrow the results. The entry is labeled `github/awesome-copilot#marketplace`.
 
-1. Select **Install**.
-
-    ![The Agent Plugins view in the VS Code Extensions sidebar with the apify plugin from the awesome-copilot marketplace and its Install button](./images/vscode/agent-plugins-apify.webp)
+1. Select **Install** on the **apify** entry.
 
 1. The first time you install a plugin from a marketplace, VS Code shows a trust prompt. Review the source and confirm.
 
