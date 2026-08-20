@@ -280,9 +280,16 @@ Add languages by adding new folders at the appropriate path level.
 
 3. **Prose**:
 
-    - Use [Vale](https://vale.sh/) for content linting
-    - Run `vale sync` to download styles
-    - Configure exceptions in `accepts.txt`
+    [Vale](https://vale.sh/) checks prose against the rules in [`standards/`](standards/README.md), using the [apify/vale-rules](https://github.com/apify/vale-rules) package pinned in `.vale.ini`.
+
+    Installing it locally is optional. The [Vale action](.github/workflows/vale.yaml) runs on every pull request and annotates changed files. It only fails on errors, though, so a local run tells you more:
+
+    ```bash
+    vale sync              # first time only, downloads the rule packages
+    vale "path/to/file.md" # everything, including warnings and suggestions
+    ```
+
+    To allow a word the spelling rules reject, add it to `.github/styles/config/vocabularies/Docs/accept.txt`.
 
 ### Testing
 
