@@ -19,7 +19,7 @@ Vale carries most of the style guide, about 70 rules from the `apify/vale-rules`
 
 The repo-level PR check runs Vale at `--minAlertLevel=error` on changed files only, so it gates a much smaller set than a local run. Don't treat a green PR check as equivalent.
 
-Two rules the package should enforce currently don't: empty alt text (`Apify.ImageAltText` was dropped in the move to the package, and `Apify.AltTextFilename` only fires when alt text looks like a filename) and bare code fences (`Apify.CodeFenceLanguage` declares `tokens:` under `scope: raw` where working raw rules use `raw:`, so it never fires). Both are fixes for `apify/vale-rules`, not for this skill. Until they land, neither is checked anywhere.
+Two Vale rules are dead but cost nothing, because markdownlint covers the same ground. `Apify.ImageAltText` was dropped in the move to the package and `Apify.AltTextFilename` only fires when alt text looks like a filename, so empty alt text passes Vale, but `MD045` catches it. `Apify.CodeFenceLanguage` declares `tokens:` under `scope: raw` where working raw rules use `raw:`, so it never fires, but `MD040` catches bare fences. Worth cleaning up in `apify/vale-rules`, not worth a workaround here.
 
 ## Step 3: Delegated review
 
