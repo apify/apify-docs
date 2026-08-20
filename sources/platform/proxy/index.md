@@ -37,9 +37,9 @@ Each proxy type has distinct advantages, disadvantages, and pricing. Use them to
         to="/proxy/google-serp-proxy"
     />
     <Card
-        title="Unblocker proxy"
+        title="Unblocker"
         desc="Automatically bypasses anti-bot and anti-captcha systems using built-in smart routing, so you don't need to detect or solve challenges yourself."
-        to="/proxy/unblocker-proxy"
+        to="/proxy/unblocker"
     />
 </CardGrid>
 
@@ -102,7 +102,7 @@ For more examples connecting to Apify Proxy from the SDKs and other libraries:
 * [Datacenter proxy](./datacenter_proxy.md#examples)
 * [Residential proxy](./residential_proxy.md#connecting-to-residential-proxy)
 * [Google SERP proxy](./google_serp_proxy.md#examples)
-* [Unblocker proxy](./unblocker_proxy.md#connect-to-unblocker-proxy)
+* [Unblocker](./unblocker.md#connect-to-unblocker)
 * [Apify SDK JavaScript](/sdk/js/docs/guides/proxy-management)
 * [Apify SDK Python](/sdk/python/docs/concepts/proxy-management)
 * [Crawlee](https://crawlee.dev/docs/guides/proxy-management)
@@ -197,7 +197,7 @@ The table below describes the available parameters.
             <br/>- <code>groups-[group name]</code> or <code>auto</code> when using [datacenter proxies](./datacenter_proxy.md).
             <br/>- <code>groups-RESIDENTIAL</code> when using [residential proxies](./residential_proxy.md).
             <br/>- <code>groups-GOOGLE_SERP</code> when using [Google SERP proxies](./google_serp_proxy.md).
-            <br/>- <code>groups-UNBLOCKER</code> when using [Unblocker proxy](./unblocker_proxy.md).
+            <br/>- <code>groups-UNBLOCKER</code> when using [Unblocker](./unblocker.md).
         </td>
     </tr>
     <tr>
