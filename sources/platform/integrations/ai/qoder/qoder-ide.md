@@ -48,19 +48,15 @@ If you're on an older version or prefer to install from a file:
 
 1. In the Qoder IDE, open the account menu and select **Qoder Settings**.
 
-    ![Qoder IDE account menu with Qoder Settings selected](images/qoder-ide/4-settings.webp)
-
 1. Select **Plugins**, then under **Custom** select **Import** and choose the plugin package you downloaded.
 
-    ![Qoder Settings Plugins page with the Plugins section and the Import action](images/qoder-ide/5-import.webp)
+    ![Qoder Settings Plugins page with the Plugins section and the Import action](images/qoder-ide/4-import.webp)
 
 1. The **Apify Qoder Plugin** appears under **Custom**. Make sure it's enabled.
 
-    ![Plugins page showing the imported Apify Qoder Plugin enabled under Custom](images/qoder-ide/6-plugin-listed.webp)
-
 After installing with either method, select **MCP Server** to confirm the `apify` server is registered from the plugin. It connects to `https://mcp.apify.com` and exposes the Apify tools.
 
-![MCP Server page listing the apify server from the plugin with its tools](images/qoder-ide/7-mcp.webp)
+![MCP Server page listing the apify server from the plugin with its tools](images/qoder-ide/5-mcp.webp)
 
 ## Authenticate to Apify
 
@@ -76,7 +72,7 @@ Open the chat and describe what you want in natural language. The `apify` agent 
 
 The agent lists the Apify MCP tools and skills it can call.
 
-![Qoder IDE chat listing the available Apify tools and skills](images/qoder-ide/8-test.webp)
+![Qoder IDE chat listing the available Apify tools and skills](images/qoder-ide/6-test.webp)
 
 ## Bundled skills
 
