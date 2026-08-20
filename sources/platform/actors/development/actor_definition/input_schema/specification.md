@@ -994,7 +994,7 @@ The same declaration acts as both eligibility filter (the input picker only offe
 ### Deprecation of `patternKey` and `patternValue`
 
 ::::warning Removed properties
-**The following properties are no longer supported:**
+**The following properties were deprecated, with support ending on June 30, 2026, and are no longer supported:**
 
 - `patternKey` - Used to validate keys in objects and arrays
 - `patternValue` - Used to validate values in objects and arrays
