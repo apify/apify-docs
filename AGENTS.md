@@ -168,7 +168,7 @@ Key rules at a glance:
 - Bold for UI elements only; `code` for filenames, commands, variables
 - All admonitions require titles
 - 140-160 character descriptions in front matter, action-oriented, without the word "documentation"
-- Screenshots only when they add something the prose doesn't; light theme, `#F86606` highlights, no arrows
+- Screenshots only when they add something the prose doesn't; light theme, `#F86606` borders to highlight, no arrows or circles
 - See `standards/terminology.md` for Apify product name capitalization
 - Don't use em dashes (—) - use hyphen with spaces ( - ) instead
 

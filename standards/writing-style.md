@@ -131,7 +131,7 @@ Acceptable uses of "our" - direct team actions or invitations:
 
 | Avoid                        | Prefer                  |
 | ---------------------------- | ----------------------- |
-| How to run an Actor          | Run an Actor            |
+| How to run an Actor?         | Run an Actor            |
 | What is a request queue?     | Request queues          |
 
 ## Text formatting

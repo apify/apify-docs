@@ -202,11 +202,7 @@ Screenshots should use:
 
 ### Visual indicators
 
-Highlight UI elements with the `#F86606` (Apify orange) color:
-- **Border**: Highlight clickable elements (buttons, fields)
-- **Circle**: Highlight small elements
-
-Don't use arrows.
+Highlight UI elements - buttons, fields, and other clickable areas - with a `#F86606` (Apify orange) border. Don't use arrows or circles.
 
 ### Image format
 
