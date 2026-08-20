@@ -1,6 +1,7 @@
 import ruamel.yaml
 import csv
 import json
+import os
 from slugify import slugify
 from ruamel.yaml.scalarstring import LiteralScalarString
 import re
@@ -41,7 +42,10 @@ for path, ref in openapi_yaml.get('paths').items():
     print(f'Working with path: {path}')
 
     # Get the yaml file for the path and parse it
-    path_path = '../openapi/' + ref.get('$ref')
+    base_dir = os.path.realpath('../openapi')
+    path_path = os.path.realpath(os.path.join('../openapi', ref.get('$ref')))
+    if not path_path.startswith(base_dir + os.sep):
+        raise ValueError(f'Path traversal detected: {path_path}')
     with open(path_path, 'r') as file:
         path_yaml = yaml.load(file)
 
