@@ -11,21 +11,26 @@ Agent-agnostic workflow for reviewing Apify documentation.
 
 These are objective - no judgment needed. Report all failures. Run in the main process (not in subagents).
 
+- `vale "<file>"` (prose style: voice, tone, terminology, grammar, headings, link text)
 - `pnpm lint:md` (markdownlint: heading hierarchy, double spaces, list numbering)
 - `.agents/skills/review-docs/scripts/check-frontmatter.sh "<file>"` (description char count)
 
-Vale is not part of this skill. It runs as a repo-level PR check and via the TW's local editor extension, but devs aren't expected to install it, so shipping it in the per-file review flow would create dead weight. Prose-style coverage comes from the delegated standards review in step 3.
+Vale carries most of the style guide, about 70 rules from the `apify/vale-rules` package. Run it and report what it says. Don't re-check its ground by hand, and don't delegate it to a subagent, which is slower and less reliable than the linter at the same job. If `vale` isn't installed, note in the output that prose-style coverage was skipped rather than substituting a subagent pass.
 
-## Step 3: Delegated standards review
+The repo-level PR check runs Vale at `--minAlertLevel=error` on changed files only, so it gates a much smaller set than a local run. Don't treat a green PR check as equivalent.
 
-Spawn one subagent per standards file to check compliance in parallel. Each subagent reads the file being reviewed plus one standards file, and returns violations with line numbers and suggested fixes.
+Two rules the package should enforce currently don't: empty alt text (`Apify.ImageAltText` was dropped in the move to the package, and `Apify.AltTextFilename` only fires when alt text looks like a filename) and bare code fences (`Apify.CodeFenceLanguage` declares `tokens:` under `scope: raw` where working raw rules use `raw:`, so it never fires). Both are fixes for `apify/vale-rules`, not for this skill. Until they land, neither is checked anywhere.
 
-- Subagent 1: check against `standards/writing-style.md` (voice, tone, headings, links)
-- Subagent 2: check against `standards/content-standards.md` (front matter, admonitions, code blocks)
-- Subagent 3: check against `standards/terminology.md` (product names, article usage)
-- Subagent 4: check against `standards/grammar-rules.md` (hyphenation, punctuation, brand spelling)
+## Step 3: Delegated review
 
-Why subagents: each standards file gets dedicated attention. A single-pass review with a summary tends to miss edge cases (comma rules, article usage, brand spelling) that a focused read catches.
+Spawn subagents only for what no tool can check. Each reads the file being reviewed plus its assigned standards section, and returns findings with line numbers and suggested fixes.
+
+- Subagent 1: information ordering (no concept used before it's explained), parallel structure in lists, Oxford commas, article usage with Apify products - `standards/style-guide.md` and the information ordering section of `standards/page-structure.md`
+- Subagent 2: whether each screenshot earns its place, screenshot treatment (light theme, `#F86606` border, no arrows or circles), and whether the admonition type fits its content - `standards/page-structure.md`
+
+Why these two and nothing else: everything else in the standards files is either enforced by Vale or checked by the scripts above. Subagents are for judgment that no rule can express, such as whether an image carries information the prose doesn't, or whether `:::caution` is the right severity.
+
+Why subagents rather than one pass: each gets a focused read. A single review that also has to cover content accuracy tends to skim the judgment calls.
 
 Why not deterministic tools in subagents: subagents may have sandbox restrictions that prevent running Bash commands. Keep all tool execution in the main process.
 
@@ -44,9 +49,10 @@ Run in the main process. Focus on what neither deterministic tools nor standards
 
 Merge deterministic results + subagent findings + content review into structured output per `.agents/skills/review-docs/references/review-format.md`.
 
-- Tool findings are objective facts
-- Standards findings are rule-based judgment calls
+- Tool findings go in their own section, verbatim, with rule names and line numbers
+- Subagent findings are judgment calls against a documented rule
 - Content findings are subjective judgment calls
+- Never restate a tool finding as a judgment finding. If `vale` reported it, it belongs in the automated section only
 - Prioritize by impact: critical → important → minor
 
 ## Edge cases
@@ -61,4 +67,4 @@ Check that both JavaScript and Python examples are present and functionally equi
 
 ### Markdownlint false positives on admonitions
 
-Markdownlint doesn't understand Docusaurus `:::` syntax natively. Check `.markdownlint.json` for configured exceptions. Rely on the delegated standards review for prose-style judgment.
+Markdownlint doesn't understand Docusaurus `:::` syntax natively. Check `.markdownlint.json` for configured exceptions. Vale covers admonition titles via `ApifyDocs.AdmonitionTitle`.
