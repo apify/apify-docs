@@ -19,9 +19,9 @@ argument-hint: file-path
    Vale carries most of the style guide, so don't re-check its ground by hand. If `vale` isn't installed, say so in the output and note that prose-style coverage was skipped.
 
    Reviewing a pull request rather than one page: run all three over every changed `.md` and `.mdx` file, and report per file. `git diff --name-only origin/master...HEAD -- '*.md' '*.mdx'` gets the list.
-3. **Delegated review** - spawn subagents only for what no tool can check. Each reads the file plus its assigned standards section, and returns findings with line numbers and suggested fixes:
-   - Subagent 1: information ordering (no concept used before it's explained), parallel structure in lists, Oxford commas, article usage with Apify products - `standards/style-guide.md` and the information ordering section of `standards/page-structure.md`
-   - Subagent 2: whether each screenshot earns its place, screenshot treatment (light theme, `#F86606` border, no arrows or circles), and whether the admonition type fits its content - `standards/page-structure.md`
+3. **Delegated review** - spawn subagents only for what no tool can check. Each reads the file plus one standards file, and returns findings with line numbers and suggested fixes:
+   - Subagent 1, `standards/style-guide.md`: parallel structure in lists, Oxford commas, article usage with Apify products
+   - Subagent 2, `standards/page-structure.md`: information ordering (no concept used before it's explained), whether each screenshot earns its place and follows the treatment rules (light theme, `#F86606` border, no arrows or circles), and whether the admonition type fits its content
    Launch both in parallel.
 4. **Content review** (main process) - focus on what neither tools nor standards cover:
    - Content structure (clear intro, logical flow, next steps)

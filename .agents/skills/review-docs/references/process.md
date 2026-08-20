@@ -23,12 +23,14 @@ Two Vale rules are dead but cost nothing, because markdownlint covers the same g
 
 ## Step 3: Delegated review
 
-Spawn subagents only for what no tool can check. Each reads the file being reviewed plus its assigned standards section, and returns findings with line numbers and suggested fixes.
+Spawn subagents only for what no tool can check. Each reads the file being reviewed plus one standards file, and returns findings with line numbers and suggested fixes.
 
-- Subagent 1: information ordering (no concept used before it's explained), parallel structure in lists, Oxford commas, article usage with Apify products - `standards/style-guide.md` and the information ordering section of `standards/page-structure.md`
-- Subagent 2: whether each screenshot earns its place, screenshot treatment (light theme, `#F86606` border, no arrows or circles), and whether the admonition type fits its content - `standards/page-structure.md`
+- Subagent 1, `standards/style-guide.md`: parallel structure in lists, Oxford commas, article usage with Apify products
+- Subagent 2, `standards/page-structure.md`: information ordering (no concept used before it's explained), whether each screenshot earns its place and follows the treatment rules (light theme, `#F86606` border, no arrows or circles), and whether the admonition type fits its content
 
 Why these two and nothing else: everything else in the standards files is either enforced by Vale or checked by the scripts above. Subagents are for judgment that no rule can express, such as whether an image carries information the prose doesn't, or whether `:::caution` is the right severity.
+
+Why one file each: the judgment residue happens to divide evenly, three items per file, so no subagent has to read two files or navigate to a section of one. Subagent 1 asks whether the prose is right, subagent 2 asks whether the page is built right.
 
 Why subagents rather than one pass: each gets a focused read. A single review that also has to cover content accuracy tends to skim the judgment calls.
 
