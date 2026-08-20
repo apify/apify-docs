@@ -77,16 +77,15 @@ You should be able to open https://docs.apify.loc in your browser and run all th
 
 ## Documentation style guide
 
-The style guide lives in [`standards/`](standards/), which is the single source of truth for both people and AI assistants. Rules aren't repeated here, so there's nothing to keep in sync:
+The style guide lives in [`standards/`](standards/README.md), which is the single source of truth for both people and AI assistants. Rules aren't repeated here, so there's nothing to keep in sync:
 
-- [`standards/writing-style.md`](standards/writing-style.md) - US English, active and inclusive voice, headings, text emphasis, links, numbers
-- [`standards/content-standards.md`](standards/content-standards.md) - Front matter, admonitions, code blocks and code tabs, images and screenshots
-- [`standards/terminology.md`](standards/terminology.md) - Apify product names, capitalization, article usage
-- [`standards/grammar-rules.md`](standards/grammar-rules.md) - Hyphenation, punctuation, numbers, brand spelling
-- [`standards/file-organization.md`](standards/file-organization.md) - File naming (kebab-case) and directory structure
+- [`standards/style-guide.md`](standards/style-guide.md) - Voice and tone, headings, text formatting, links, numbers, grammar, Apify terminology
+- [`standards/page-structure.md`](standards/page-structure.md) - Front matter, admonitions, code blocks and code tabs, images, lists, file naming
 - [`standards/quality-standards.md`](standards/quality-standards.md) - Checklist to run through before opening a pull request
 
-[`AGENTS.md`](AGENTS.md) condenses these into the rules an AI assistant loads first. Change a rule in `standards/`, not in `AGENTS.md` or here.
+Most of these rules run in CI through Vale. Run `vale "<file>"` on what you changed before opening a pull request.
+
+[`AGENTS.md`](AGENTS.md) points at the same files rather than restating them, so change a rule in `standards/`, not in `AGENTS.md` or here.
 
 ## AI assistant rules structure
 
