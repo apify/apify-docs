@@ -32,8 +32,6 @@ QoderWork doesn't list the Apify plugin in its in-app marketplace yet, so you do
 
 1. In QoderWork, open **Plugins**, select **+ Add**, then select **Upload plugin**.
 
-    ![QoderWork Plugins page with the Add menu open and Upload plugin selected](images/qoder-work/2-upload-plugin.webp)
-
 1. Select the plugin package you downloaded. The `apify` plugin is installed for local use and appears under your custom plugins.
 
 ## Authenticate the Apify connector
@@ -42,11 +40,7 @@ The plugin adds Apify as a connector. Read-only tools like searching Apify Store
 
 1. Open the `apify` plugin. Under **Connectors**, the Apify connector shows **Authentication required**. Select **Auth**.
 
-    ![Apify connector showing Authentication required with the Auth action](images/qoder-work/3-activate-login.webp)
-
 1. Complete the Apify OAuth flow in your browser and allow access. The connector then reports its available tools.
-
-    ![Apify connector connected and listing its tools](images/qoder-work/4-tools-list.webp)
 
 The connection stays authenticated for future sessions. You can revoke access at any time in [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations).
 
@@ -54,13 +48,11 @@ The connection stays authenticated for future sessions. You can revoke access at
 
 1. On the plugin page, turn on **Enable in chat**. The plugin's quick commands and connector become available in tasks and chat.
 
-    ![Apify plugin page with quick commands, the Apify connector, and Enable in chat](images/qoder-work/5-activate-plugin.webp)
-
 1. Start a task or chat and describe what you want. The `apify` agent routes the request to the right tool or skill.
 
     > List available Apify tools.
 
-    ![QoderWork chat listing the available Apify tools](images/qoder-work/6-chat-list-tools.webp)
+    ![QoderWork chat listing the available Apify tools](images/qoder-work/2-chat-list-tools.webp)
 
 ## Bundled skills
 
