@@ -71,7 +71,7 @@ By using deployment keys, you enable secure, automated builds of your Actor from
 
 :::info Key usage limitations
 
-Remember that each key can only be used once per Git hosting service (GitHub, Bitbucket, GitLab)
+Apify generates a unique deployment key for each Actor, so you don't need to reuse a key across Actors. GitHub requires a [dedicated key pair per repository](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/managing-deploy-keys), so add an Actor's key to a single repository. [GitLab](https://docs.gitlab.com/user/project/deploy_keys/) and [Bitbucket](https://support.atlassian.com/bitbucket-cloud/kb/why-am-i-not-able-to-add-an-ssh-key-in-bitbucket-cloud/) allow the same key on multiple projects.
 
 :::
 
