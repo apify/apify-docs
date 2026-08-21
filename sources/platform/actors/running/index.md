@@ -54,7 +54,7 @@ Now you can go back to the **Input** tab and try again with different settings, 
 
 ## Run Actors with the Apify API
 
-To invoke Actors with the Apify API, send an HTTP POST request to the [Run Actor](/api/v2/actors-runs-post) endpoint. For example:
+To invoke Actors with the [Apify API](/api), send an HTTP POST request to the [Run Actor](/api/v2/actors-runs-post) endpoint. For example:
 
 ```text
 https://api.apify.com/v2/actors/compass~crawler-google-places/runs?token=<YOUR_API_TOKEN>
