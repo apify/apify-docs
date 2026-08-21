@@ -74,7 +74,7 @@ Actor `name`, `version`, `buildTag`, and `environmentVariables` are currently on
 | --- | --- | --- |
 | `actorSpecification` | Required | The version of the Actor specification. This property must be set to `1`, which is the only version available. |
 | `name` | Required | The name of the Actor. |
-| `title` | Optional | The display title of the Actor. This is the human-readable title shown in Apify Console and Apify Store. If not specified, the `name` property is used as the title. |
+| `title` | Optional | The `title` property defines the human-readable display title of the Actor, shown in Apify Console and Apify Store. If not specified, the `name` property is used as the title. |
 | `description` | Optional | The description of the Actor. |
 | `version` | Required | The version of the Actor, specified in the format `[Number].[Number]`, e.g., `0.1`, `0.3`, `1.0`, `1.3`, etc. |
 | `buildTag` | Optional | The tag name to be applied to a successful build of the Actor. If not specified, defaults to `latest`. Refer to the [builds](../builds_and_runs/builds.md) for more information. |
@@ -93,5 +93,5 @@ Actor `name`, `version`, `buildTag`, and `environmentVariables` are currently on
 | `minMemoryMbytes` | Optional | Specifies the minimum amount of memory in megabytes required by the Actor to run. Requires an _integer_ value. If both `minMemoryMbytes` and `maxMemoryMbytes` are set, then `minMemoryMbytes` must be equal or lower than `maxMemoryMbytes`. Refer to the [Usage and resources](https://docs.apify.com/actors/running/usage-and-resources#memory) for more details about memory allocation. |
 | `maxMemoryMbytes` | Optional | Specifies the maximum amount of memory in megabytes required by the Actor to run. It can be used to control the costs of run. Requires an _integer_ value. Refer to the [Usage and resources](https://docs.apify.com/actors/running/usage-and-resources#memory) for more details about memory allocation. |
 | `usesStandbyMode` | Optional | Boolean specifying whether the Actor will have [Standby mode](../programming_interface/actor_standby.md) enabled. |
-| `webServerSchema` | Optional | Defines an OpenAPI v3 schema for the web server running in the Actor. This can be either an embedded object or a path to a JSON schema file. Use this when your Actor starts its own HTTP server and you want to describe its interface. |
+| `webServerSchema` | Optional | The `webServerSchema` property defines an OpenAPI v3 schema for the web server running in the Actor. Set the property to an embedded OpenAPI schema object or a path to a JSON schema file. Define the schema when your Actor starts its own HTTP server and you want to describe its interface. |
 | `webServerMcpPath` | Optional | The HTTP endpoint path where the Actor exposes its MCP (Model Context Protocol) server functionality. When set, the Actor is recognized as an MCP server. For example, setting `"/mcp"` designates the `/mcp` endpoint as the MCP interface. This path becomes part of the Actor's stable URL when [Standby mode](../programming_interface/actor_standby.md) is enabled. |
