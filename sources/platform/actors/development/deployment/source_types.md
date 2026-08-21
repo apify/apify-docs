@@ -30,9 +30,11 @@ For more information on creating custom Dockerfiles or using Apify's base images
 
 Hosting your Actor's source code in a Git repository allows for multiple files and directories, a custom `Dockerfile` for build process control, and a user description fetched from `README.md`. Specify the repository location using the **Git URL** setting with `https`, `git`, or `ssh` protocols.
 
-To deploy an Actor from GitHub, set the **Source Type** to **Git repository** and enter the GitHub repository URL in the **Git URL** field. You can optionally specify a branch or tag by adding a URL fragment (e.g., `#develop`).
+To deploy an Actor from GitHub, open the Actor's **Source** tab, set **Source type** to **Git repository**, and enter the GitHub repository URL in the **Git URL** field. You can optionally specify a branch or tag by adding a URL fragment (e.g., `#develop`).
 
 To use a specific directory, add it after the branch/tag, separated by a colon (e.g., `#develop:some/dir`)
+
+Above **Git URL**, the **Provider** row shows which Git provider the Actor uses. Select **Change** to connect GitHub, GitLab, Bitbucket, or another Git provider. For the GitHub flow, see [creating an Actor from a GitHub repository](/integrations/github#create-an-actor-from-a-github-repository).
 
 :::note GitHub integration
 
@@ -54,11 +56,16 @@ Deployment keys are unique SSH keys that allow Apify to clone and build your Act
 
 To configure the deployment key for your Actor's source code you need to:
 
-1. In your Actor's settings, find the **Git URL** input field
-2. Click the **deployment key** link below the input field
-3. Follow the instruction to add the key to your Git hosting service.
+1. In [Apify Console](https://console.apify.com/actors), open your Actor and go to the **Source** tab.
+2. Set **Source type** to **Git repository**.
+3. Below the **Git URL** field, select **deployment key**.
+4. Copy the public SSH key and add it to your repository. The dialog links to instructions for GitHub, Bitbucket, and GitLab.
 
-![Deployment keys instruction window](./images/deployment-keys.png)
+A private repository's **Git URL** must use the SSH format:
+
+- `git@github.com:username/repo-name.git`
+- `git@bitbucket.org:username/repo-name.git`
+- `git@gitlab.com:username/repo-name.git`
 
 By using deployment keys, you enable secure, automated builds of your Actor from private repositories.
 
