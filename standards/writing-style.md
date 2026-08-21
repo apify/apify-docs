@@ -134,6 +134,28 @@ Acceptable uses of "our" - direct team actions or invitations:
 | How to run an Actor?         | Run an Actor            |
 | What is a request queue?     | Request queues          |
 
+### Spacing
+
+**Never stack two headings.** Every heading must be followed by at least one paragraph of body text before the next heading. This also applies to the page title (the H1 from front matter) - open the page with an introductory paragraph, not a heading. If you have nothing to say between two headings, the first heading is redundant - remove it or merge the sections.
+
+Avoid:
+
+```markdown
+## Run your first Actor
+
+### Prerequisites
+```
+
+Prefer:
+
+```markdown
+## Run your first Actor
+
+To get started, try one of the existing Actors from Apify Store.
+
+### Prerequisites
+```
+
 ## Text formatting
 
 ### Bold

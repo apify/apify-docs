@@ -9,15 +9,13 @@ slug: /actors/running
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Run your first Apify Actor
-
 To get started, we recommend trying one of the existing Actors from [Apify Store](https://apify.com/store). For details on building your own, see [Actor development](./development).
 
-### Prerequisites
+## Prerequisites
 
 To complete this tutorial, you need an Apify account. If you don't have it yet, [sign up for free](https://console.apify.com/sign-up).
 
-### 1. Choose your Actor
+## 1. Choose your Actor
 
 To find an Actor in Apify Store:
 
@@ -27,7 +25,7 @@ To find an Actor in Apify Store:
 
 For this tutorial, let's choose [Website Content Crawler](https://console.apify.com/actors/aYG0l9s7dbB7j3gbS/information/version-0/readme).
 
-### 2. Configure and run your Actor
+## 2. Configure and run your Actor
 
 Once you select the Actor, you will be taken to the Actor's detail page.
 
@@ -37,7 +35,7 @@ To run the Actor, click **Start**.
 
 ![Website Content Crawler in Apify Console. Input tab is open and the Start button is highlighted](./images/configure-and-run-actor.svg)
 
-### 3. Wait for the results
+## 3. Wait for the results
 
 The Actor might take a while to gather results and finish its run. While waiting, let's explore the remaining options:
 
@@ -46,7 +44,7 @@ The Actor might take a while to gather results and finish its run. While waiting
 
 ![Website Content Crawler in Apify Console. Output tab is open and the API and Export buttons are highlighted](./images/results-of-actor-run.svg)
 
-### 4. Save the results
+## 4. Save the results
 
 The results of the Actor run appear in the **Output** tab. To save the data, click **Export**. You can choose from multiple formats.
 
