@@ -9,7 +9,7 @@ slug: /actors/running
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-To get started, we recommend trying one of the existing Actors from [Apify Store](https://apify.com/store). For details on building your own, see [Actor development](./development).
+To run your first Apify Actor, we recommend trying one of the existing Actors from [Apify Store](https://apify.com/store). For details on building your own, see [Actor development](./development).
 
 ## Prerequisites
 
