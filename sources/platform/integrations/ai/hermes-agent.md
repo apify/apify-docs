@@ -6,7 +6,7 @@ slug: /integrations/hermes-agent
 toc_min_heading_level: 2
 ---
 
-import ThirdPartyDisclaimer from '@site/sources/\_partials/\_third-party-integration.mdx';
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
 [Hermes Agent](https://hermes-agent.nousresearch.com) is an open-source autonomous AI agent from [Nous Research](https://nousresearch.com/). The Apify plugin for Hermes Agent gives your agent access to thousands of pre-built AI tools, called Actors. The plugin comes with three tools: `apify_discover`, `apify_start`, and `apify_collect`, which your agent can use autonomously.
 
@@ -21,7 +21,7 @@ Before integrating Apify with Hermes Agent, you'll need:
 - _An Apify account_ - If you don't have one, [sign up here](https://console.apify.com/sign-up).
 - _Apify API token_ - Get your token from the **API & Integrations** section in [Apify Console](https://console.apify.com/settings/integrations).
 - _Hermes Agent_ - Install the CLI from the [official documentation](https://hermes-agent.nousresearch.com/docs).
-- _Python 3.11+_ - Required to install the plugin.
+- _Python 3.11 - 3.13_ - Required to install the plugin.
 
 ## Set up the Apify plugin
 
@@ -91,7 +91,7 @@ Actor execution time varies depending on the task complexity. `apify_collect` re
 
 :::note Dataset results are untrusted content
 
-`apify_collect` wraps returned dataset items between `<<<EXTERNAL_UNTRUSTED_CONTENT>>>` markers, since scraped data comes from external websites and Actors, not from you or Hermes Agent. Results are also capped at 50,000 characters per run - if `may_have_more` is `true` in the response, re-call `apify_collect` with a higher `limit`.
+`apify_collect` wraps returned dataset items between `<<<EXTERNAL_UNTRUSTED_CONTENT>>>` markers, since scraped data comes from external websites and Actors, not from you or Hermes Agent. Results are also capped at 50,000 characters per run. If `may_have_more` is `true` in the response, re-call `apify_collect` with a higher `limit`, though the 50,000-character cap still applies regardless of `limit`.
 
 :::
 
@@ -110,7 +110,7 @@ Actor execution time varies depending on the task complexity. `apify_collect` re
 
 ### Plugin or tool not available
 
-- _Check plugin enablement_ - Run `hermes plugins enable apify` to confirm the plugin is enabled. If that fails with `Plugin 'apify' is not installed or bundled.`, your Hermes Agent predates `0.18.1`, when entry-point plugin discovery was fixed upstream - update with `pip install --upgrade hermes-agent`. If you can't upgrade, add `apify` under `plugins.enabled` in `~/.hermes/config.yaml` manually instead:
+- _Check plugin enablement_ - Re-run `hermes plugins enable apify`. If it fails with `Plugin 'apify' is not installed or bundled.`, your Hermes Agent predates version 0.18.1, when entry-point plugin discovery was fixed upstream - update with `pip install --upgrade hermes-agent`. If you can't upgrade, add `apify` under `plugins.enabled` in `~/.hermes/config.yaml` manually instead:
 
     ```yaml
     plugins:
