@@ -68,7 +68,7 @@ http://www.google.com/search?q=wikipedia&start=10   # results 11-20
 http://www.google.com/search?q=wikipedia&start=20   # results 21-30
 ```
 
-Each request is priced as a single request.
+Each page you fetch counts as one request.
 
 :::caution Unsupported parameters
 
