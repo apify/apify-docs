@@ -208,7 +208,7 @@ curl -s \
 
 ### Supported Actors
 
-Not all Actors in Apify Store can be run using agentic payments.
+Not all Actors in Apify Store are eligible.
 
 <AgenticPaymentsEligibility />
 
