@@ -22,11 +22,9 @@ To use the GitHub integration, you need:
 
 In [Apify Console](https://console.apify.com/actors), go to **Actors** and click **Develop new**.
 
-![Let's build a new Actor page in Apify Console](../images/apify-git-repository.png)
-
 ### Step 2: Connect your GitHub account
 
-Under **Link a Git repository**, click **GitHub**. Follow the prompts on github.com to authorize Apify. You can grant access to your personal account, an organization, or specific repositories.
+Select **Import from Git**, then select **GitHub**. Follow the prompts on github.com to authorize Apify. You can grant access to your personal account, an organization, or specific repositories.
 
 ![Authorize Apify on GitHub](../images/apify-git-repository-add.png)
 

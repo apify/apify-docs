@@ -1,6 +1,0 @@
-extends: existence
-message: "Admonitions must have titles (e.g., ':::note My title')."
-level: error
-scope: raw
-raw:
-  - ":::(note|tip|info|caution|danger)\\s*\\n"

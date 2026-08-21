@@ -14,7 +14,7 @@ In addition to this, the tab features a **Plan Consumption** Graph. It shows how
 
 Apart from the platform usage breakdown graph, this tab provides more detailed information on the usage of different platform services. You can explore the sections under the graph. You can access detailed statistics related to **Actors**, **Data transfer**, **Proxy**, and **Storage**.
 
-![Apify Console current period view](./images/console-billing-current-period.png)
+![Apify Console current period view](../images/console-billing-current-period.png)
 
 ## Historical usage
 
@@ -26,11 +26,11 @@ The tab features an adjustable bar chart. This chart can be customized to displa
 Since billing cycles can shift, the data in the **Historical usage** tab is shown for calendar months.
 :::
 
-![Apify Console historical usage view](./images/console-billing-historical-usage.png)
+![Apify Console historical usage view](../images/console-billing-historical-usage.png)
 
 Below the bar chart, there is a table titled **Usage by Actors**. This table presents a detailed breakdown of the Compute units used per Actor and the associated costs. It clearly explains how each Actor contributes to your overall platform usage and expenses.
 
-![Apify Console historical usage by Actor view](./images/console-billing-historical-usage-by-actors.png)
+![Apify Console historical usage by Actor view](../images/console-billing-historical-usage-by-actors.png)
 
 ## Subscription
 
@@ -54,19 +54,19 @@ Navigate to [Subscription](https://console.apify.com/billing/subscription) secti
 
 :::
 
-![Apify Console subscription view](./images/console-billing-subscription.png)
+![Apify Console subscription view](../images/console-billing-subscription.png)
 
 ## Pricing
 
 The **Pricing** tab offers a way to quickly check all unit pricing for various platform services related to Apify usage for your account.
 
-![Apify Console pricing view](./images/console-billing-pricing.png)
+![Apify Console pricing view](../images/console-billing-pricing.png)
 
 ## Invoices
 
 The **Invoices** tab is where you can find your current and previous invoices for Apify platform usage. This is your source of truth for any questions regarding previous charges and subscriptions.
 
-![Apify Console invoices view](./images/console-billing-invoices.png)
+![Apify Console invoices view](../images/console-billing-invoices.png)
 
 ## Limits
 
@@ -80,4 +80,4 @@ If your overage platform usage reaches the threshold for your plan before your n
 
 :::
 
-![Apify Console limits view](./images/console-billing-limits.png)
+![Apify Console limits view](../images/console-billing-limits.png)

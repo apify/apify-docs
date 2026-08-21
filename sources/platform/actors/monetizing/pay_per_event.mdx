@@ -1,5 +1,5 @@
 ---
-title: Pay-per-event pricing model
+title: Actor pay-per-event pricing model
 description: Learn how to monetize your Actor with pay-per-event (PPE) pricing, charging users for specific actions like Actor starts, dataset items, or API calls.
 slug: /actors/publishing/monetize/pay-per-event
 sidebar_position: 1.1
@@ -104,7 +104,7 @@ Charging platform usage separately is less transparent for users and may discour
 
 To pass platform usage costs on to users:
 
-1. Go to the **Actor pricing** step of the [monetization setup](/actors/publishing/monetize#set-up-monetization).
+1. Go to the **Actor pricing** step of the [monetization setup](/actors/monetize/set-up-monetization).
 1. In **Additional options**, switch on the **Pay per event + usage** toggle.
 
 Turning this option on takes 14 days to take effect. However, you can turn it off immediately, as it is a positive change for users.
@@ -127,7 +127,7 @@ To protect your profits, finish the Actor run once charges reach the user's limi
 
 :::tip Set a minimum for the user limit
 
-To prevent users from setting the maximum cost for the run too low, set the minimum value during the [monetization setup](/actors/publishing/monetize#set-up-monetization). For example, you can use it to cover the price of starting the Actor and producing one result.
+To prevent users from setting the maximum cost for the run too low, set the minimum value during the [monetization setup](/actors/monetize/set-up-monetization). For example, you can use it to cover the price of starting the Actor and producing one result.
 
 The minimum value is stored by the `minimalMaxTotalChargeUsd` property.
 
@@ -314,7 +314,7 @@ For new Actors, the `apify-actor-start` event is added automatically.
 
 For existing Actors, you can add this event manually:
 
-1. Access your Actor's [monetization setup](/actors/publishing/monetize#set-up-monetization).
+1. Access your Actor's [monetization setup](/actors/monetize/set-up-monetization).
 1. In the **Actor pricing** step, under **Event name**, add `apify-actor-start`.
 1. Complete the remaining event details: title, description, and price.
 
