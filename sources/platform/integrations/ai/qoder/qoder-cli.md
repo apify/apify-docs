@@ -48,7 +48,7 @@ You can install the plugin two ways: run the install command from the Qoder Mark
 
 1. Open the **Discover** tab. The `apify` plugin appears in the list. Press Enter to view its details.
 
-1. Review details, choose an install scope (e.g., **Install (user scope)**), and press Enter.
+1. Review details, choose an install scope such as **Install (user scope)**, and press Enter.
 
     ![apify plugin detail with the install scope options and a trust warning](images/qoder-cli/02-install-plugin.webp)
 
@@ -66,7 +66,7 @@ The Apify MCP server registers when the Qoder CLI starts, not on `/plugins reloa
 
 The plugin bundles the Apify MCP server. Read-only tools like searching Apify Store and fetching Actor details work without signing in, but you need to authenticate to run Actors and access your account data.
 
-1. Run `/mcp` to open the MCP server manager and select **Plugin tab** to list plugin-provided servers.
+1. Run `/mcp` to open the MCP server manager and select the **Plugin** tab to list plugin-provided servers.
 
 1. Select **plugin:apify:apify** to open its details. The status reads **needs authentication**. Select **Authenticate**.
 
