@@ -26,8 +26,6 @@ For more information on creating custom Dockerfiles or using Apify's base images
 
 ## Git repository
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/NEzT_p_RE1Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
 Hosting your Actor's source code in a Git repository allows for multiple files and directories, a custom `Dockerfile` for build process control, and a user description fetched from `README.md`. Specify the repository location using the **Git URL** setting with `https`, `git`, or `ssh` protocols.
 
 To deploy an Actor from GitHub, open the Actor's **Source** tab, set **Source type** to **Git repository**, and enter the GitHub repository URL in the **Git URL** field. You can optionally specify a branch or tag by adding a URL fragment (e.g., `#develop`).
