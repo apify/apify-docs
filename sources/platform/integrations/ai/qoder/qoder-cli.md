@@ -48,7 +48,7 @@ You can install the plugin two ways: run the install command from the Qoder Mark
 
 1. Open the **Discover** tab. The `apify` plugin appears in the list. Press Enter to view its details.
 
-1. Review the plugin details and trust warning, then select **Install (user scope)** and press Enter.
+1. Review details, choose an install scope (e.g., **Install (user scope)**), and press Enter.
 
     ![apify plugin detail with the install scope options and a trust warning](images/qoder-cli/02-install-plugin.webp)
 
@@ -66,13 +66,13 @@ The Apify MCP server registers when the Qoder CLI starts, not on `/plugins reloa
 
 The plugin bundles the Apify MCP server. Read-only tools like searching Apify Store and fetching Actor details work without signing in, but you need to authenticate to run Actors and access your account data.
 
-1. Run `/mcp` to open the MCP server manager and select **Plugin** to list plugin-provided servers.
+1. Run `/mcp` to open the MCP server manager and select **Plugin tab** to list plugin-provided servers.
 
 1. Select **plugin:apify:apify** to open its details. The status reads **needs authentication**. Select **Authenticate**.
 
 1. At the consent prompt, select **Yes** to open the Apify authentication page in your browser.
 
-1. The Qoder CLI waits for the browser callback. If the browser doesn't open automatically, copy the full URL shown in the terminal and paste it into your browser. The URL wraps across several lines, so make sure you copy all of it - in most terminals, triple-clicking selects the whole URL.
+1. The Qoder CLI waits for the browser callback. If the browser doesn't open automatically, copy and paste the full URL from the terminal into your browser (triple-click to select the whole URL).
 
     ![Terminal waiting for the browser callback and showing the fallback OAuth URL](images/qoder-cli/03-authenticating.webp)
 
@@ -136,15 +136,15 @@ Run `/mcp` and check the **Plugin** list. If no Apify server is shown, the plugi
 
 Run `/plugins`, open the **Installed** tab, select the `apify` plugin, and enable it. Run `/plugins reload` to apply the change in the current session.
 
-### The `/plugins` command isn't available
+### The `apify` command isn't available
 
-Plugins require a local installation of the Qoder CLI. Install or update the Qoder CLI locally, then run `/plugins` again.
+Check which scope you installed the plugin in (user, project, or local) and make sure you're running the CLI from the matching directory. Then run `/plugins reload` or restart the CLI so it picks up the plugin.
 
 ### Browser doesn't open, or OAuth fails
 
-If the browser doesn't open automatically, copy the OAuth URL shown in the terminal and paste it into your browser manually.
+If the browser doesn't open automatically, copy the OAuth URL shown in the terminal and paste it into any browser. In a headless environment, complete the sign-in in the browser, then return to the terminal to confirm the CLI received the callback.
 
-If you're running the Qoder CLI in a headless environment (SSH or a remote container) or the OAuth flow still fails, authenticate with an API token instead. Copy your token from [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations) and set it before starting the Qoder CLI:
+If the OAuth flow still fails, authenticate with an API token instead. Copy your token from [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations) and set it before starting the Qoder CLI:
 
 ```bash
 export APIFY_TOKEN=<YOUR_API_TOKEN>
