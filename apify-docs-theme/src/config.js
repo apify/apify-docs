@@ -203,41 +203,11 @@ const themeConfig = {
             },
             {
                 label: 'AI tools',
-                type: 'dropdown',
                 href: `${absoluteUrl}/ai-tools`,
-                to: `${absoluteUrl}/ai-tools`,
-                // Keeps the MCP page highlighting this item, as the previous `MCP` link did,
-                // while also covering the new /ai-tools section.
-                activeBaseRegex: '^/(ai-tools|integrations/mcp)(/|$)',
+                activeBasePath: 'ai-tools',
                 position: 'right',
                 target: '_self',
                 rel: 'dofollow',
-                items: [
-                    {
-                        label: 'MCP server',
-                        href: `${absoluteUrl}/integrations/mcp`,
-                        target: '_self',
-                        rel: 'dofollow',
-                    },
-                    {
-                        label: 'Plugin',
-                        href: `${absoluteUrl}/ai-tools/plugin`,
-                        target: '_self',
-                        rel: 'dofollow',
-                    },
-                    {
-                        label: 'Agent Skills',
-                        href: `${absoluteUrl}/ai-tools/skills`,
-                        target: '_self',
-                        rel: 'dofollow',
-                    },
-                    {
-                        label: 'Docs for agents',
-                        href: `${absoluteUrl}/ai-tools/docs-for-agents`,
-                        target: '_self',
-                        rel: 'dofollow',
-                    },
-                ],
             },
         ],
     },
