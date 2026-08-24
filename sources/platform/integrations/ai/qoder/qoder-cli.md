@@ -142,9 +142,7 @@ Check which scope you installed the plugin in (user, project, or local) and make
 
 ### Browser doesn't open, or OAuth fails
 
-If the browser doesn't open automatically, copy the OAuth URL shown in the terminal and open it in a browser on any device, then return to the terminal once it confirms the callback.
-
-If you can't reach a browser at all or the OAuth flow still fails, authenticate with an API token instead. Copy your token from [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations) and set it before starting the Qoder CLI:
+If the browser doesn't open automatically, copy the OAuth URL from the terminal and open it in your browser. If that doesn't work, use an API token instead: copy your token from [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations) and set it before starting the Qoder CLI.
 
 ```bash
 export APIFY_TOKEN=<YOUR_API_TOKEN>
