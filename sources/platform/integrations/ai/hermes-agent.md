@@ -20,8 +20,8 @@ Before integrating Apify with Hermes Agent, you'll need:
 
 - _An Apify account_ - If you don't have one, [sign up here](https://console.apify.com/sign-up).
 - _Apify API token_ - Get your token from the **API & Integrations** section in [Apify Console](https://console.apify.com/settings/integrations).
-- _Hermes Agent_ - Install the CLI from the [official documentation](https://hermes-agent.nousresearch.com/docs).
-- _Python 3.11 - 3.13_ - Required to install the plugin.
+- _Hermes Agent_ - Version 0.18.1 or later. Install the CLI from the [official documentation](https://hermes-agent.nousresearch.com/docs).
+- _Python 3.11 to 3.13_ - Required to install the plugin.
 
 ## Set up the Apify plugin
 
@@ -91,7 +91,7 @@ Actor execution time varies depending on the task complexity. `apify_collect` re
 
 :::note Dataset results are untrusted content
 
-`apify_collect` wraps returned dataset items between `<<<EXTERNAL_UNTRUSTED_CONTENT>>>` markers, since scraped data comes from external websites and Actors, not from you or Hermes Agent. Results are also capped at 50,000 characters per run. If `may_have_more` is `true` in the response, re-call `apify_collect` with a higher `limit`, though the 50,000-character cap still applies regardless of `limit`.
+`apify_collect` wraps returned dataset items between `<<<EXTERNAL_UNTRUSTED_CONTENT>>>` and `<<<END_EXTERNAL_UNTRUSTED_CONTENT>>>` markers, since scraped data comes from external websites and Actors, not from you or Hermes Agent. Results are also capped at 50,000 characters per run, which a higher `limit` can't lift. If `may_have_more` is `true` in the response, re-call `apify_collect` with a higher `limit` to fetch more items.
 
 :::
 
