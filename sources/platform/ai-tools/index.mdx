@@ -1,0 +1,100 @@
+---
+title: Apify AI tools
+sidebar_label: Overview
+description: Connect an AI coding agent to Apify. Compare the MCP server, plugins, Agent Skills, and machine-readable docs, then pick the setup for your client.
+sidebar_position: 0
+slug: /ai-tools
+---
+
+import Card from '@site/src/components/Card';
+import CardGrid from '@site/src/components/CardGrid';
+
+AI agents reach Apify through a live connection over the [MCP server](/integrations/mcp), a one-step [plugin](/ai-tools/plugin) for supported clients, [Agent Skills](/ai-tools/skills) that carry procedural knowledge, and [machine-readable documentation](/ai-tools/docs-for-agents). These stack rather than compete, and most setups use more than one.
+
+If you want the shortest path from zero to a first Actor run, start with the [agent quickstart](/get-started/agent-onboarding). This page explains which pieces exist and when each one is the right choice.
+
+## Key concepts
+
+| Piece | What it is | Reach for it when |
+| :--- | :--- | :--- |
+| MCP server | A live connection between your agent and the Apify platform, exposing tools to search [Apify Store](https://apify.com/store), run Actors, and read datasets. | Your agent needs to act on Apify: find an Actor, run it, get structured data back. |
+| Plugin | A single install that bundles the MCP server, an `apify` routing agent, and Agent Skills for one specific client. | Your client is supported and you want the whole setup in one step. |
+| Agent Skills | Instructions your agent loads on demand when it needs Apify-specific procedural knowledge, such as building an Actor or routing a scraping request. | Your agent already connects to Apify and you want it to follow proven multi-step workflows. |
+| Client libraries and CLI | The [JavaScript](https://docs.apify.com/api/client/js) and [Python](https://docs.apify.com/api/client/python) clients, the [REST API](/api/v2), and the [Apify CLI](/cli). | You're writing application code or scripts rather than prompting an agent. |
+| Machine-readable docs | Every documentation page as Markdown, plus `llms.txt` indexes and MCP documentation tools. | Your agent needs to read Apify documentation accurately instead of guessing. |
+
+The distinction that matters most: the MCP server gives an agent *capability*, and Agent Skills give it *procedure*. An agent with MCP alone can call any tool but has to work out the sequence itself. An agent with skills follows a workflow Apify already validated. Skills are not a separate integration method; they layer on top of a connection you already have.
+
+## Choose a path
+
+- If your coding agent has a [plugin](/ai-tools/plugin), install that. It configures MCP and skills together, so there's nothing else to wire up.
+- For a chat client or an agent framework, connect the [MCP server](/integrations/mcp) directly. LangChain, CrewAI, the Vercel AI SDK, and other frameworks have their own guides under [AI integrations](/integrations/ai).
+- To call Apify from your own application code, use a [client library or the REST API](/get-started/agent-onboarding#choose-your-integration-method).
+
+<CardGrid>
+    <Card
+        title="Plugin"
+        desc="One install that bundles the MCP server, the apify routing agent, and Agent Skills."
+        to="/ai-tools/plugin"
+        imageUrl="/img/platform/integrations/emoji-pluggable.svg"
+        smallImage
+    />
+    <Card
+        title="Agent Skills"
+        desc="Procedural knowledge your agent loads on demand for Apify workflows."
+        to="/ai-tools/skills"
+        imageUrl="/img/platform/integrations/emoji-actor-to-actor.svg"
+        smallImage
+    />
+    <Card
+        title="Docs for agents"
+        desc="Markdown endpoints, llms.txt indexes, and every other machine-readable surface."
+        to="/ai-tools/docs-for-agents"
+        imageUrl="/img/platform/integrations/emoji-api.svg"
+        smallImage
+    />
+</CardGrid>
+
+## Pick your client
+
+Clients with a dedicated Apify plugin:
+
+| Client | Guide |
+| :--- | :--- |
+| Claude Code CLI | [Claude Code CLI integration](/integrations/claude-code-cli) |
+| Cursor | [Cursor integration](/integrations/cursor) |
+| GitHub Copilot | [GitHub Copilot integration](/integrations/github-copilot) |
+| Codex in the ChatGPT desktop app | [Codex app integration](/integrations/codex-app) |
+| Codex CLI | [Codex CLI integration](/integrations/codex-cli) |
+| OpenCode | [OpenCode integration](/integrations/opencode) |
+| OpenClaw | [OpenClaw integration](/integrations/openclaw) |
+
+Clients that connect through the MCP server directly:
+
+| Client | Guide |
+| :--- | :--- |
+| Claude Desktop | [Claude Desktop integration](/integrations/claude-desktop) |
+| ChatGPT | [ChatGPT integration](/integrations/chatgpt) |
+| Manus | [Manus integration](/integrations/manus) |
+| Any other MCP-capable client | [Apify MCP server](/integrations/mcp) |
+
+:::tip Generate a client config
+
+The [MCP configurator](https://mcp.apify.com) produces a ready-to-paste configuration for most clients, including ones without a dedicated guide.
+
+:::
+
+## Build agents on Apify
+
+The pages above cover agents that *call* Apify. Three adjacent topics are easy to confuse with them:
+
+- [Develop AI agents on Apify](/actors/development/quick-start/develop-ai-agents) - build an agent that runs as an Actor on the platform, rather than connecting an external agent to it.
+- [MCP connectors](/integrations/mcp-connectors) - let an Actor you built act on a user's third-party accounts, such as Notion, Slack, or GitHub, without handling raw credentials.
+- [Agentic payments](/integrations/x402) - let an agent pay for Actor runs through the x402 protocol. The [Apify Agent General Interface](https://agi.apify.com) is the entry point for agents that need a prepaid, spend-capped API token.
+
+## Related resources
+
+- [Agent quickstart](/get-started/agent-onboarding) - run your first Actor from an agent
+- [Apify MCP server](/integrations/mcp) - full MCP reference, including tool selection and production practices
+- [AI integrations](/integrations/ai) - frameworks, vector databases, and every AI integration Apify supports
+- [Build Actors with AI](/actors/development/quick-start/build-with-ai) - use a coding agent to build an Actor
