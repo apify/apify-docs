@@ -6,7 +6,7 @@ sidebar_position: 1
 slug: /ai-tools/plugin
 ---
 
-The Apify plugin is the shortest way to connect a coding agent to Apify. Instead of configuring an MCP server and installing skills separately, you install one plugin and get both, already wired together.
+The Apify plugin is the shortest way to connect a coding agent to Apify: one install configures the MCP server and Agent Skills together, instead of setting each up separately.
 
 Apify maintains a plugin per client, because each client has its own plugin format and install flow. What the plugins bundle differs slightly, so check [what your client gets](#coverage-by-client) before you start.
 

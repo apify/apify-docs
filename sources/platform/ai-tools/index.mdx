@@ -11,7 +11,7 @@ import CardGrid from '@site/src/components/CardGrid';
 
 AI agents reach Apify through a live connection over the [MCP server](/integrations/mcp), a one-step [plugin](/ai-tools/plugin) for supported clients, [Agent Skills](/ai-tools/skills) that carry procedural knowledge, and [machine-readable documentation](/ai-tools/docs-for-agents). These stack rather than compete, and most setups use more than one.
 
-If you want the shortest path from zero to a first Actor run, start with the [agent quickstart](/get-started/agent-onboarding). This page explains which pieces exist and when each one is the right choice.
+If you want the shortest path from zero to a first Actor run, start with the [agent quickstart](/get-started/agent-onboarding).
 
 ## Key concepts
 
@@ -23,7 +23,7 @@ If you want the shortest path from zero to a first Actor run, start with the [ag
 | Client libraries and CLI | The [JavaScript](https://docs.apify.com/api/client/js) and [Python](https://docs.apify.com/api/client/python) clients, the [REST API](/api/v2), and the [Apify CLI](/cli). | You're writing application code or scripts rather than prompting an agent. |
 | Machine-readable docs | Every documentation page as Markdown, plus `llms.txt` indexes and MCP documentation tools. | Your agent needs to read Apify documentation accurately instead of guessing. |
 
-The distinction that matters most: the MCP server gives an agent *capability*, and Agent Skills give it *procedure*. An agent with MCP alone can call any tool but has to work out the sequence itself. An agent with skills follows a workflow Apify already validated. Skills are not a separate integration method; they layer on top of a connection you already have.
+The MCP server gives an agent *capability*; Agent Skills give it *procedure*. An agent with MCP alone can call any tool but has to work out the sequence itself. An agent with skills follows a workflow Apify already validated. Skills are not a separate integration method; they layer on top of a connection you already have.
 
 ## Choose a path
 

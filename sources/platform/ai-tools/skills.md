@@ -8,7 +8,7 @@ slug: /ai-tools/skills
 
 Agent Skills are instructions your agent loads on demand when it needs Apify-specific procedural knowledge. Each skill describes a multi-step workflow that Apify has already validated, so the agent follows a known-good sequence instead of improvising one.
 
-Skills are not a separate way to connect to Apify. They layer on top of a connection you already have, whether that's a [plugin](/ai-tools/plugin) or the [MCP server](/integrations/mcp) on its own.
+Skills layer on top of a connection you already have, whether that's a [plugin](/ai-tools/plugin) or the [MCP server](/integrations/mcp) on its own. See [Apify AI tools](/ai-tools) for how they relate to the other pieces.
 
 ## Skills or MCP tools
 
@@ -20,7 +20,7 @@ The two solve different halves of the same problem:
 | When they load | Available for the whole session | On demand, when the agent recognizes a matching task |
 | How you get them | Configured once with the MCP server | Installed with a plugin or the skills CLI |
 
-An agent with MCP tools alone can call anything but has to work out the sequence itself. That's fine for one-step requests like "search for a Google Maps scraper" and unreliable for "build an Actor that crawls this site and deploy it".
+In practice, MCP tools handle one-step requests like "search for a Google Maps scraper", while a skill carries multi-step work like "build an Actor that crawls this site and deploy it".
 
 ## Available skills
 
