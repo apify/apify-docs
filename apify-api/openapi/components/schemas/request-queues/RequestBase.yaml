@@ -1,5 +1,8 @@
 title: RequestBase
 type: object
+required:
+  - uniqueKey
+  - url
 properties:
   uniqueKey:
     $ref: ./SharedProperties.yaml#/UniqueKey

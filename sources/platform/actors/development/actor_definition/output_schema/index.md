@@ -35,7 +35,7 @@ You can organize the files using one of these structures:
     "actorSpecification": 1,
     "name": "files-scraper",
     "title": "Files scraper",
-    "version": "1.0.0",
+    "version": "1.0",
     "output": {
         "actorOutputSchemaVersion": 1,
         "title": "Output schema of the files scraper",
@@ -51,7 +51,7 @@ You can organize the files using one of these structures:
     "actorSpecification": 1,
     "name": "files-scraper",
     "title": "Files scraper",
-    "version": "1.0.0",
+    "version": "1.0",
     "output": "./output_schema.json"
 }
 ```
@@ -149,7 +149,7 @@ To specify that the Actor is using output schema, update the `.actor/actor.json`
     "actorSpecification": 1,
     "name": "Actor Name",
     "title": "Actor Title",
-    "version": "1.0.0",
+    "version": "1.0",
     "output": "./output_schema.json"
 }
 ```
@@ -216,7 +216,7 @@ To specify that the Actor is using output schema, update the `.actor/actor.json`
     "actorSpecification": 1,
     "name": "Actor Name",
     "title": "Actor Title",
-    "version": "1.0.0",
+    "version": "1.0",
     "output": "./output_schema.json"
 }
 ```

@@ -8,6 +8,7 @@ slug: /integrations/skyfire
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+import AgenticPaymentsEligibility from '@site/sources/_partials/_agentic-payments-eligibility.mdx';
 
 Agentic payments enable AI agents to autonomously run Apify Actors using third-party payment providers, without requiring traditional Apify user accounts. This allows agents to discover, execute, and pay for web scraping and automation tasks independently.
 
@@ -207,11 +208,9 @@ curl -s \
 
 ### Supported Actors
 
-Not all Actors in Apify Store can be run using agentic payments. To be eligible, an Actor must:
+Not all Actors in Apify Store are eligible.
 
-- Use the [pay-per-event](/actors/publishing/monetize/pay-per-event) pricing model. Rental and pay-per-usage Actors are not supported.
-- Run with [limited permissions](/actors/development/permissions). Actors that request full permissions are excluded.
-- Not use [Standby](/actors/running/standby) mode for now. Standby support is coming later.
+<AgenticPaymentsEligibility />
 
 Apify maintains a curated list of Actors approved for agentic payments. To check if an Actor supports agentic payments, use the `allowsAgenticUsers=true` query parameter when [searching the store via API](https://docs.apify.com/api/v2#/reference/store/store-actors-collection/get-list-of-actors-in-store).
 

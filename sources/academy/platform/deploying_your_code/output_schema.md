@@ -17,7 +17,7 @@ In this quick tutorial, you will learn how to set up an output tab for your own 
 
 ## Implementation
 
-Firstly, create a `.actor` folder in the root of your Actor's source code. Then, create a `actor.json` file in this folder, after which you'll have .actor/actor.json.
+First, create an `.actor` folder in the root of your Actor's source code. Then, create an `actor.json` file in this folder, after which you'll have `.actor/actor.json`.
 
 ![.actor/actor.json](./images/actor-json-example.webp)
 
@@ -28,7 +28,7 @@ Next, copy-paste the following template code into your `actor.json` file.
     "actorSpecification": 1,
     "name": "___ENTER_ACTOR_NAME____",
     "title": "___ENTER_ACTOR_TITLE____",
-    "version": "1.0.0",
+    "version": "1.0",
     "storages": {
         "dataset": {
             "actorSpecification": 1,
@@ -77,7 +77,7 @@ For reference, you can use the [Zappos Scraper source code](https://github.com/P
     "name": "zappos-scraper",
     "title": "Zappos Scraper",
     "description": "",
-    "version": "1.0.0",
+    "version": "1.0",
     "storages": {
         "dataset": {
             "actorSpecification": 1,
