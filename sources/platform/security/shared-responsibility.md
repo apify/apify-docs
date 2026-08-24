@@ -38,7 +38,7 @@ Apify operates the platform on Amazon Web Services (AWS) in the us-east-1 region
 
 ### Actor runtime isolation
 
-Every Actor run executes in an isolated container. Apify enforces this isolation so that one customer's runs cannot access another customer's runs, data, or credentials.
+Every Actor run executes in an isolated environment. Apify enforces this isolation so that one customer's runs cannot access another customer's runs, data, or credentials.
 
 ### Platform services
 
