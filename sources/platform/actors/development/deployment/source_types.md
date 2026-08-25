@@ -28,11 +28,16 @@ For more information on creating custom Dockerfiles or using Apify's base images
 
 Hosting your Actor's source code in a Git repository allows for multiple files and directories, a custom `Dockerfile` for build process control, and a user description fetched from `README.md`. Specify the repository location using the **Git URL** setting with `https`, `git`, or `ssh` protocols.
 
-To deploy an Actor from GitHub, open the Actor's **Source** tab, set **Source type** to **Git repository**, and enter the GitHub repository URL in the **Git URL** field. You can optionally specify a branch or tag by adding a URL fragment (e.g., `#develop`).
+To deploy an Actor from a Git repository:
 
-To use a specific directory, add it after the branch/tag, separated by a colon (e.g., `#develop:some/dir`)
+1. In [Apify Console](https://console.apify.com/actors), open your Actor and go to the **Source** tab.
+2. Set **Source type** to **Git repository**.
+3. Select **Change** in the **Provider** row and connect GitHub, GitLab, Bitbucket, or another Git provider.
+4. Enter the repository URL in the **Git URL** field.
 
-Above **Git URL**, the **Provider** row shows which Git provider the Actor uses. Select **Change** to connect GitHub, GitLab, Bitbucket, or another Git provider. For the GitHub flow, see [creating an Actor from a GitHub repository](/integrations/github#create-an-actor-from-a-github-repository).
+To build from a specific branch or tag, add it to the URL as a fragment, for example `#develop`. To build from a directory, add the directory after the branch or tag, separated by a colon, for example `#develop:some/dir`.
+
+For the full GitHub flow, including authorizing Apify and rebuilding on every push, see [creating an Actor from a GitHub repository](/integrations/github#create-an-actor-from-a-github-repository).
 
 :::note GitHub integration
 
@@ -56,7 +61,7 @@ To configure the deployment key for your Actor's source code you need to:
 
 1. In [Apify Console](https://console.apify.com/actors), open your Actor and go to the **Source** tab.
 2. Set **Source type** to **Git repository**.
-3. Below the **Git URL** field, select **deployment key**.
+3. Select **deployment key**.
 4. Copy the public SSH key and add it to your repository. The dialog links to instructions for GitHub, Bitbucket, and GitLab.
 
 A private repository's **Git URL** must use the SSH format:
