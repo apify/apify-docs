@@ -28,13 +28,13 @@ The **Login & Privacy** tab (**Security & Privacy** for organization accounts) c
 
 Here you can manage:
 
-* sign-in methods (email/password, Google, GitHub)
-* password reset
-* [two-factor authentication](/account/two-factor-authentication)
-* session information and configuration
-* general resource access
-* [Actor permissions approval](/actors/running/permissions#full-permission-actors) (require or skip approval when running full-permission Actors)
-* share of run data with developers
+- sign-in methods (email/password, Google, GitHub)
+- password reset
+- [two-factor authentication](/account/two-factor-authentication)
+- session information and configuration
+- general resource access
+- [Actor permissions approval](/actors/running/permissions#full-permission-actors) (require or skip approval when running full-permission Actors)
+- share of run data with developers
 
 ### Session
 
@@ -63,9 +63,9 @@ The **MCP connectors** section lets you authorize third-party MCP servers (such 
 
 1. Choose an authentication method:
 
-    * _API key or bearer token_ - the MCP server uses a static API key or personal access token. Enter the key. Apify verifies it by connecting to the MCP server.
-    * _OAuth_ - the server supports OAuth and Apify can either register an OAuth client automatically (Dynamic Client Registration) or use an Apify-managed OAuth client. A consent screen opens in a popup. Grant access and close the popup.
-    * _Own OAuth client_ - the server supports OAuth but you need to register your own OAuth app with the provider (see below). Enter your client ID, client secret, authorization URL, and token URL, then complete the OAuth consent flow.
+    - _API key or bearer token_ - the MCP server uses a static API key or personal access token. Enter the key. Apify verifies it by connecting to the MCP server.
+    - _OAuth_ - the server supports OAuth and Apify can either register an OAuth client automatically (Dynamic Client Registration) or use an Apify-managed OAuth client. A consent screen opens in a popup. Grant access and close the popup.
+    - _Own OAuth client_ - the server supports OAuth but you need to register your own OAuth app with the provider (see below). Enter your client ID, client secret, authorization URL, and token URL, then complete the OAuth consent flow.
 
 1. Review the discovered tools. Once authorized, the platform connects to the MCP server and discovers the tools it exposes. You can see them by expanding the connector card and restrict which ones the connector permits.
 
@@ -83,10 +83,10 @@ For providers without Apify-managed OAuth client setup (GitHub, Slack, Google, M
 
 1. Copy the client ID and client secret.
 1. In the connector creation modal, select **Own OAuth client** and provide:
-    * Client ID
-    * Client secret
-    * Authorization URL (for example, `https://github.com/login/oauth/authorize`)
-    * Token URL (for example, `https://github.com/login/oauth/access_token`)
+    - Client ID
+    - Client secret
+    - Authorization URL (for example, `https://github.com/login/oauth/authorize`)
+    - Token URL (for example, `https://github.com/login/oauth/access_token`)
 
 This is the same approach used by Claude Code, VS Code, and ChatGPT integrations.
 
