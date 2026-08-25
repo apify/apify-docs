@@ -46,7 +46,7 @@ For detailed information on which pricing model might work for your Actor, refer
 There are two types of Actors on Apify Store:
 
 - Maintained by Apify. These Actors are created and supported by the Apify team.
-- Maintained by Community. These Actors are created and managed by independent developers from the community.
+- Maintained by the community. These Actors are created and managed by independent developers from the community.
 
 For details, see [Actor developers](/actors/running/store/actor-developers).
 
