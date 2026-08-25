@@ -127,8 +127,12 @@ module.exports = {
                     // are collected on /integrations/all instead.
                     async sidebarItemsGenerator({ defaultSidebarItemsGenerator, ...args }) {
                         const items = await defaultSidebarItemsGenerator(args);
-                        const isUnlisted = (item) => item.type === 'doc'
-                            && args.docs.find((doc) => doc.id === item.id)?.frontMatter?.sidebar_custom_props?.unlisted === true;
+                        const unlistedDoc = (id) => args.docs
+                            .find((doc) => doc.id === id)?.frontMatter?.sidebar_custom_props?.unlisted === true;
+                        // A category whose index page is unlisted is dropped with its children,
+                        // so multi-page integrations such as Gumloop disappear as a unit.
+                        const isUnlisted = (item) => (item.type === 'doc' && unlistedDoc(item.id))
+                            || (item.type === 'category' && item.link?.type === 'doc' && unlistedDoc(item.link.id));
                         const strip = (list) => list
                             .filter((item) => !isUnlisted(item))
                             .map((item) => (item.type === 'category' ? { ...item, items: strip(item.items) } : item));
