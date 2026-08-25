@@ -6,15 +6,21 @@ category: platform
 slug: /account/settings
 ---
 
+Your Apify account settings allow you to configure your profile, manage API tokens, and set your preferences. To access your account settings:
+
+1. Log in to [Apify Console](https://console.apify.com).
+1. In the left-side panel, go to **Settings**.
+
+![Account settings in Apify Console](../images/account-settings.svg)
+
 ## Account
 
-By clicking the **Settings** tab on the side menu, you will be presented with an Account page where you can view and edit various settings regarding your account, such as:
+In the **Account** tab, you can do the following:
 
-* account email
-* username
-* profile information
-* theme
-* account delete
+- Change your username.
+- Provide and update your profile information.
+- Switch between light and dark theme.
+- Delete your account.
 
 ## Login & Privacy
 
@@ -24,10 +30,10 @@ Here you can manage:
 
 * sign-in methods (email/password, Google, GitHub)
 * password reset
-* two-factor authentication
+* [two-factor authentication](/account/two-factor-authentication)
 * session information and configuration
 * general resource access
-* [Actor permissions approval](../actors/running/permissions.md#full-permission-actors) (require or skip approval when running full-permission Actors)
+* [Actor permissions approval](/actors/running/permissions#full-permission-actors) (require or skip approval when running full-permission Actors)
 * share of run data with developers
 
 ### Session
