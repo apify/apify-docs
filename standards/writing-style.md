@@ -136,7 +136,7 @@ Acceptable uses of "our" - direct team actions or invitations:
 
 ### Spacing
 
-**Never stack two headings.** Every heading must be followed by at least one paragraph of body text before the next heading. This also applies to the page title (the H1 from front matter) - open the page with an introductory paragraph, not a heading. If you have nothing to say between two headings, the first heading is redundant - remove it or merge the sections.
+**Never stack two headings.** Every heading must be followed by at least one paragraph of body text before the next heading. This also applies to the page title (the H1 from front matter) - open the page with an introductory paragraph, not a heading. A parent heading that groups its subsections still needs a lead: add an orienting sentence that tells the reader what the section covers or why it matters. If there is genuinely nothing to say, consider merging the sections instead.
 
 Avoid:
 
