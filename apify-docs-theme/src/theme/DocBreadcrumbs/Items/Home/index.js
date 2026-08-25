@@ -22,10 +22,10 @@ export default function HomeBreadcrumbItem() {
     const { pathname } = useLocation();
     const { navbar } = useThemeConfig();
 
-    // When several items match (e.g. Integrations and MCP), the most specific one wins.
-    const activeItem = navbar.items
-        .filter((item) => item.label && (item.href || item.to) && isItemActive(item, pathname))
-        .sort((a, b) => (b.activeBasePath?.length ?? 0) - (a.activeBasePath?.length ?? 0))[0];
+    // When several items match (e.g. Integrations and MCP), the first one in navbar order wins.
+    const activeItem = navbar.items.find(
+        (item) => item.label && (item.href || item.to) && isItemActive(item, pathname),
+    );
 
     if (!activeItem) {
         return null;
