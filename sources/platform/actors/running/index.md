@@ -9,7 +9,7 @@ slug: /actors/running
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-You can run Actors manually in Apify Console, with the Apify API, or programmatically from your own applications. To run your first Apify Actor, we recommend trying one of the existing Actors from [Apify Store](https://apify.com/store). For details on building your own, see [Actor development](./development).
+You can run Actors manually in Apify Console, with the Apify API, programmatically from your own applications, or from AI agents. To run your first Apify Actor, we recommend trying one of the existing Actors from [Apify Store](https://apify.com/store). For details on building your own, see [Actor development](./development).
 
 ## Run Actors manually in Apify Console
 
@@ -120,3 +120,7 @@ print(dataset_items)
 The newly started Actor runs under the account associated with the provided `token`, so all consumed resources are charged to this user account.
 
 Internally, the `call()` function invokes the [Run Actor](/api/v2/actors-runs-post) API endpoint, waits for the Actor to finish, and reads its results from the default dataset using the [Get dataset items](/api/v2/dataset-items-get) API endpoint.
+
+## Run Actors from AI agents
+
+AI agents can discover and run Actors on their own. Connect your agent to the platform through the [Apify MCP server](/integrations/mcp), call the [Apify API](/api) directly, or add [Apify Agent Skills](/get-started/agent-onboarding#agent-skills) for pre-built workflows. For a complete guide, see [Apify for AI agents](/get-started/agent-onboarding).
