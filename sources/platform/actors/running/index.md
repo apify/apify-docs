@@ -11,15 +11,13 @@ import TabItem from '@theme/TabItem';
 
 You can run Actors manually in Apify Console, with the Apify API, programmatically from your own applications, or from AI agents. To run your first Apify Actor, we recommend trying one of the existing Actors from [Apify Store](https://apify.com/store). For details on building your own, see [Actor development](./development).
 
+In all cases, you need an Apify account - [sign up for free](https://console.apify.com/sign-up) if you don't have one yet.
+
 ## Run Actors manually in Apify Console
 
 This tutorial covers a complete first run without any code, by choosing an Actor in [Apify Store](https://apify.com/store) and running it.
 
-### Prerequisites
-
-To complete this tutorial, you need an Apify account. If you don't have it yet, [sign up for free](https://console.apify.com/sign-up).
-
-### 1. Choose your Actor
+### 1. Choose an Actor
 
 To find an Actor in Apify Store:
 
@@ -29,11 +27,11 @@ To find an Actor in Apify Store:
 
 For this tutorial, let's choose [Website Content Crawler](https://console.apify.com/actors/aYG0l9s7dbB7j3gbS/information/version-0/readme).
 
-### 2. Configure and run your Actor
+### 2. Configure and run the Actor
 
 Once you select the Actor, you will be taken to the Actor's detail page.
 
-In the **Input** tab, you can customize your Actor's behavior. Website Content Crawler is pre-configured to run without extra input, so you don't need to change anything.
+In the **Input** tab, you can customize the Actor's behavior. Website Content Crawler is pre-configured to run without extra input, so you don't need to change anything.
 
 To run the Actor, click **Start**.
 
