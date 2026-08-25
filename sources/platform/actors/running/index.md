@@ -13,7 +13,7 @@ You can run Actors manually in Apify Console, with the Apify API, or programmati
 
 ## Run Actors manually in Apify Console
 
-The easiest way to run an Actor is directly in [Apify Console](https://console.apify.com). The following tutorial takes you through your first run, from choosing an Actor to exporting its results.
+This tutorial covers a complete first run without any code, by choosing an Actor in [Apify Store](https://apify.com/store) and running it.
 
 ### Prerequisites
 
