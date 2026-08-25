@@ -33,7 +33,13 @@ export default function HomeBreadcrumbItem() {
 
     return (
         <li className="breadcrumbs__item">
-            <Link className="breadcrumbs__link" href={activeItem.href ?? activeItem.to}>
+            {/* The item href is absolute, so pass its target through - Link would default it to _blank. */}
+            <Link
+                className="breadcrumbs__link"
+                href={activeItem.href ?? activeItem.to}
+                target={activeItem.target ?? '_self'}
+                rel={activeItem.rel}
+            >
                 {activeItem.label}
             </Link>
         </li>
