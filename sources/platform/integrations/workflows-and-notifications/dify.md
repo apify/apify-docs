@@ -3,6 +3,8 @@ title: Dify integration
 description: Connect Apify with Dify to automate workflows by running Actors, extracting data, and responding to Apify events.
 sidebar_label: Dify
 slug: /integrations/dify
+sidebar_custom_props:
+  unlisted: true
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';

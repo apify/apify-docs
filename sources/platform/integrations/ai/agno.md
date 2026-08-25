@@ -3,6 +3,8 @@ title: Agno Integration
 sidebar_label: Agno
 description: Learn how to integrate Apify with Agno to power your AI agents with real-time web scraping and automation tools available in Apify Store.
 slug: /integrations/agno
+sidebar_custom_props:
+  unlisted: true
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';

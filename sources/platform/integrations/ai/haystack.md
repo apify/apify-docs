@@ -3,6 +3,8 @@ title: Haystack integration
 sidebar_label: Haystack
 description: Learn how to integrate Apify with Haystack to crawl websites, compute text embeddings, and build retrieval-augmented generation pipelines with ease.
 slug: /integrations/haystack
+sidebar_custom_props:
+  unlisted: true
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';

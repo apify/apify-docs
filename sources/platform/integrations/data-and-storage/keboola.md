@@ -3,6 +3,8 @@ title: Keboola integration
 description: Integrate Apify Actors with Keboola to extract data from various sources and load it into Keboola for processing, transformation, and further integration.
 sidebar_label: Keboola
 slug: /integrations/keboola
+sidebar_custom_props:
+  unlisted: true
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';

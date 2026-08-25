@@ -3,6 +3,8 @@ title: Slack integration
 description: Learn how to integrate your Apify Actors with Slack, from installation through setting up notifications and running Actors directly from Slack.
 sidebar_label: Slack
 slug: /integrations/slack
+sidebar_custom_props:
+  unlisted: true
 ---
 
 Run Apify Actors, get notified about run status, and receive scraped results straight in [Slack](https://slack.com/) - without leaving the app or opening a browser.

@@ -3,6 +3,8 @@ title: Lindy integration
 description: Learn how to integrate Apify with Lindy to run Actors inside AI-powered automation workflows and extract real-time web data without writing code.
 sidebar_label: Lindy
 slug: /integrations/lindy
+sidebar_custom_props:
+  unlisted: true
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';

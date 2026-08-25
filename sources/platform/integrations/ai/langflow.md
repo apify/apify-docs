@@ -3,6 +3,8 @@ title: Langflow integration
 sidebar_label: Langflow
 description: Learn how to integrate Apify with Langflow low-code tool to build powerful AI agents and workflows that can use any API, model, or database.
 slug: /integrations/langflow
+sidebar_custom_props:
+  unlisted: true
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';

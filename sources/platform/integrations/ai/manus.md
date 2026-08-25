@@ -3,6 +3,8 @@ title: Manus integration
 sidebar_label: Manus
 description: Learn how to connect Manus to the Apify MCP server to give your agent sessions access to real-time web data and thousands of Actor-powered automation tools.
 slug: /integrations/manus
+sidebar_custom_props:
+  unlisted: true
 ---
 
 [Manus](https://manus.im) is a general-purpose AI agent that can autonomously browse the web, write code, and complete multi-step tasks on your behalf.

@@ -3,6 +3,8 @@ title: OpenAI Assistants integration
 sidebar_label: OpenAI Assistants
 description: Learn how to integrate Apify with OpenAI Assistants to provide real-time web search data and store scraped Actor results in OpenAI Vector Store.
 slug: /integrations/openai-assistants
+sidebar_custom_props:
+  unlisted: true
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';

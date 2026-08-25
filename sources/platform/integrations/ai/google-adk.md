@@ -3,6 +3,8 @@ title: Google ADK integration
 sidebar_label: Google ADK
 description: Learn how to integrate Apify Actors as tools for AI agents built with Google Agent Development Kit to access real-time web scraping data and automation.
 slug: /integrations/google-adk
+sidebar_custom_props:
+  unlisted: true
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';

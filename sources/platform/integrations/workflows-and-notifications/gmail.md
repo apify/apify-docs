@@ -3,6 +3,8 @@ title: Gmail integration
 description: Learn how to integrate Apify Actors with Gmail to send automated email notifications with Actor run results to any Gmail address you choose.
 sidebar_label: Gmail
 slug: /integrations/gmail
+sidebar_custom_props:
+  unlisted: true
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';

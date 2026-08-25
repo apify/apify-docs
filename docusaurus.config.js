@@ -122,6 +122,18 @@ module.exports = {
                     path: './sources/platform',
                     routeBasePath: '/',
                     sidebarPath: require.resolve('./sources/platform/sidebars.js'),
+                    // POC: keep the page and its URL, but drop it from the sidebar when its
+                    // front matter sets `sidebar_custom_props.unlisted: true`. Unlisted pages
+                    // are collected on /integrations/all instead.
+                    async sidebarItemsGenerator({ defaultSidebarItemsGenerator, ...args }) {
+                        const items = await defaultSidebarItemsGenerator(args);
+                        const isUnlisted = (item) => item.type === 'doc'
+                            && args.docs.find((doc) => doc.id === item.id)?.frontMatter?.sidebar_custom_props?.unlisted === true;
+                        const strip = (list) => list
+                            .filter((item) => !isUnlisted(item))
+                            .map((item) => (item.type === 'category' ? { ...item, items: strip(item.items) } : item));
+                        return strip(items);
+                    },
                     rehypePlugins: [externalLinkProcessor],
                 },
                 blog: false,

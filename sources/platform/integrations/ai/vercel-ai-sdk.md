@@ -3,6 +3,8 @@ title: 🔺 Vercel AI SDK integration
 sidebar_label: Vercel AI SDK
 description: Learn how to integrate Apify Actors as tools for AI agents built with Vercel AI SDK to access real-time web data in your TypeScript applications.
 slug: /integrations/vercel-ai-sdk
+sidebar_custom_props:
+  unlisted: true
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';

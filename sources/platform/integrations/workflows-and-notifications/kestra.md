@@ -3,6 +3,8 @@ title: Kestra integration
 description: Connect Apify with Kestra to orchestrate workflows declaratively in YAML - run Actors, extract structured data, and react to Actor or task events.
 sidebar_label: Kestra
 slug: /integrations/kestra
+sidebar_custom_props:
+  unlisted: true
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';

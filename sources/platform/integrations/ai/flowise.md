@@ -3,6 +3,8 @@ title: Flowise integration
 description: Learn how to integrate Apify with Flowise to use Actors as data sources in customized LLM flows built with the open-source Flowise visual tool.
 sidebar_label: Flowise
 slug: /integrations/flowise
+sidebar_custom_props:
+  unlisted: true
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';

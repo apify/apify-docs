@@ -3,6 +3,8 @@ title: Mastra MCP integration
 sidebar_label: Mastra
 description: Learn how to build AI agents with Mastra and the Apify Actors MCP server to access web scraping and automation tools from any LLM you choose.
 slug: /integrations/mastra
+sidebar_custom_props:
+  unlisted: true
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';

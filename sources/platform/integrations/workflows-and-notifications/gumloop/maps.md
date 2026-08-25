@@ -3,6 +3,8 @@ title: Gumloop - Google maps Actor integration
 description: Use the Gumloop Google Maps node powered by Apify to search places, get reviews, and extract business details without managing API keys or tasks.
 sidebar_label: Google Maps
 slug: /integrations/gumloop/maps
+sidebar_custom_props:
+  unlisted: true
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';

@@ -4,6 +4,8 @@ sidebar_label: OpenClaw
 description: Learn how to integrate Apify with OpenClaw to give your AI agents access to web scraping, data extraction, and automation using pre-built Actors.
 slug: /integrations/openclaw
 toc_min_heading_level: 2
+sidebar_custom_props:
+  unlisted: true
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
