@@ -991,7 +991,7 @@ The `mcpConnector` resource type does not use `resourcePermissions`. Instead, el
 
 The same declaration acts as both eligibility filter (the input picker only offers compatible connectors) and runtime ceiling (the proxy rejects tool calls outside the declared set). For the full `mcpServers` schema, behavioral hints, and code samples, see [Build Actors with MCP connectors](/integrations/mcp-connectors/use-in-actors).
 
-### Deprecation of `patternKey` and `patternValue`
+### Removal of `patternKey` and `patternValue` {#deprecation-of-patternkey-and-patternvalue}
 
 ::::warning Removed properties
 **The following properties were deprecated, with support ending on June 30, 2026, and are no longer supported:**
