@@ -15,11 +15,9 @@ These are objective - no judgment needed. Report all failures. Run in the main p
 - `pnpm lint:md` (markdownlint: heading hierarchy, double spaces, list numbering)
 - `.agents/skills/review-docs/scripts/check-frontmatter.sh "<file>"` (description char count)
 
-Vale carries most of the style guide, about 70 rules from the `apify/vale-rules` package. Run it at suggestion level, because the default hides suggestions and some documented rules ship at that level. Report what it says. Don't re-check its ground by hand, and don't delegate it to a subagent, which is slower and less reliable than the linter at the same job. If `vale` isn't installed, note in the output that prose-style coverage was skipped rather than substituting a subagent pass.
+Vale carries most of the style guide. Run it at suggestion level, since the default hides suggestions and some documented rules ship at that level. Report what it says rather than re-checking its ground by hand or handing it to a subagent.
 
-The repo-level PR check runs Vale at `--minAlertLevel=error` on changed files only, so it gates a much smaller set than a local run. Don't treat a green PR check as equivalent.
-
-Two Vale rules are dead but cost nothing, because markdownlint covers the same ground. `Apify.ImageAltText` was dropped in the move to the package and `Apify.AltTextFilename` only fires when alt text looks like a filename, so empty alt text passes Vale, but `MD045` catches it. `Apify.CodeFenceLanguage` declares `tokens:` under `scope: raw` where working raw rules use `raw:`, so it never fires, but `MD040` catches bare fences. Worth cleaning up in `apify/vale-rules`, not worth a workaround here.
+If `vale` isn't installed, say so in the output. Don't substitute a subagent pass. The PR check runs at error level on changed files only, so a green check is not equivalent to a local run.
 
 ## Step 3: Delegated review
 
@@ -28,21 +26,9 @@ Spawn subagents only for what no tool can check. Each reads the file being revie
 - Subagent 1, `standards/style-guide.md`: bold used for anything other than a UI element or critical warning, link text that isn't genuinely descriptive, parallel structure in lists, Oxford commas, legacy vs alternative vs deprecated used precisely, and acronyms expanded on first use
 - Subagent 2, `standards/page-structure.md`: information ordering (no concept used before it's explained), whether each screenshot earns its place and follows the treatment rules (light theme, `#F86606` border, no arrows or circles), and whether the admonition type fits its content
 
-### Terminology
+Everything else in the standards files is either enforced by Vale or checked by the scripts above. Subagents are only for judgment no rule can express, like whether an image carries information the prose doesn't, or whether `:::caution` is the right severity.
 
-Vale enforces terminology. Probing one violation per rule in the terminology section found the package covering 9 of 38, and [apify/vale-rules#3](https://github.com/apify/vale-rules/issues/3) closes 27 of the 29 gaps: product-name casing, feature and concept terms, generic technical terms, crawler and scraper casing, version shorthand, and the products that require "the".
-
-**This skill assumes that issue is resolved.** Until it is, those rules are unenforced, so this change must not merge before the rules ship.
-
-Two terminology rules stay with subagent 1 permanently, because no pattern can express them. Whether legacy, alternative, or deprecated is the accurate word depends on the feature's real status. Whether an acronym was expanded on first use depends on the whole document, not one line.
-
-Why these two and nothing else: everything else in the standards files is either enforced by Vale or checked by the scripts above. Subagents are for judgment that no rule can express, such as whether an image carries information the prose doesn't, or whether `:::caution` is the right severity.
-
-Why one file each: every judgment item lives wholly in one standards file, so no subagent has to read two files or navigate to a section of another. Subagent 1 asks whether the prose is right, subagent 2 asks whether the page is built right.
-
-Why subagents rather than one pass: each gets a focused read. A single review that also has to cover content accuracy tends to skim the judgment calls.
-
-Why not deterministic tools in subagents: subagents may have sandbox restrictions that prevent running Bash commands. Keep all tool execution in the main process.
+Keep tool execution in the main process. Subagents may have sandbox restrictions that stop them running Bash.
 
 ## Step 4: Content review
 
