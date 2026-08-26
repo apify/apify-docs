@@ -25,8 +25,19 @@ Two Vale rules are dead but cost nothing, because markdownlint covers the same g
 
 Spawn subagents only for what no tool can check. Each reads the file being reviewed plus one standards file, and returns findings with line numbers and suggested fixes.
 
-- Subagent 1, `standards/style-guide.md`: bold used for anything other than a UI element or critical warning, link text that isn't genuinely descriptive, parallel structure in lists, Oxford commas, article usage with Apify products
+- Subagent 1, `standards/style-guide.md`: bold used for anything other than a UI element or critical warning, link text that isn't genuinely descriptive, parallel structure in lists, Oxford commas, plus the terminology Vale doesn't reach (see below)
 - Subagent 2, `standards/page-structure.md`: information ordering (no concept used before it's explained), whether each screenshot earns its place and follows the treatment rules (light theme, `#F86606` border, no arrows or circles), and whether the admonition type fits its content
+
+### Terminology Vale doesn't reach
+
+The package covers the Apify product-name cluster: `ApifyProductNames`, `ActorCapitalization`, `ApifyBrandCasing`, `TechnologyNames`. It covers nothing else in the terminology section, verified by probing one violation per documented rule. Subagent 1 owns the remainder:
+
+- Feature and concept terms in lowercase: task, run, build, dataset, key-value store, request queue, schedule, web scraping
+- Generic technical terms in lowercase: AI agent, MCP server, API endpoint, web scraper, proxy server
+- "crawler" and "scraper" capitalized only as part of an Actor name
+- legacy vs alternative vs deprecated used precisely
+- "version 22" in prose, not "v22" or "ver 22"
+- Products that require "the": the Apify SDK, the Apify CLI, the Apify API, the Apify platform. `ApifyProductNames` only catches the opposite direction, where an article must be removed
 
 Why these two and nothing else: everything else in the standards files is either enforced by Vale or checked by the scripts above. Subagents are for judgment that no rule can express, such as whether an image carries information the prose doesn't, or whether `:::caution` is the right severity.
 

@@ -20,7 +20,7 @@ argument-hint: file-path
 
    Reviewing a pull request rather than one page: run all three over every changed `.md` and `.mdx` file, and report per file. `git diff --name-only origin/master...HEAD -- '*.md' '*.mdx'` gets the list.
 3. **Delegated review** - spawn subagents only for what no tool can check. Each reads the file plus one standards file, and returns findings with line numbers and suggested fixes:
-   - Subagent 1, `standards/style-guide.md`: bold used for anything other than a UI element or critical warning, link text that isn't genuinely descriptive, parallel structure in lists, Oxford commas, article usage with Apify products
+   - Subagent 1, `standards/style-guide.md`: bold used for anything other than a UI element or critical warning, link text that isn't genuinely descriptive, parallel structure in lists, Oxford commas, and the terminology Vale doesn't reach - feature and concept terms in lowercase (task, run, build, dataset, key-value store, request queue, schedule, web scraping), generic technical terms in lowercase (AI agent, MCP server, API endpoint, web scraper, proxy server), crawler and scraper capitalized only inside an Actor name, legacy vs alternative vs deprecated used precisely, "version 22" not "v22", and the products that require "the" (the Apify SDK, CLI, API, platform)
    - Subagent 2, `standards/page-structure.md`: information ordering (no concept used before it's explained), whether each screenshot earns its place and follows the treatment rules (light theme, `#F86606` border, no arrows or circles), and whether the admonition type fits its content
    Launch both in parallel.
 4. **Content review** (main process) - focus on what neither tools nor standards cover:
