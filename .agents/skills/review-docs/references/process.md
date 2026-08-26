@@ -25,19 +25,16 @@ Two Vale rules are dead but cost nothing, because markdownlint covers the same g
 
 Spawn subagents only for what no tool can check. Each reads the file being reviewed plus one standards file, and returns findings with line numbers and suggested fixes.
 
-- Subagent 1, `standards/style-guide.md`: bold used for anything other than a UI element or critical warning, link text that isn't genuinely descriptive, parallel structure in lists, Oxford commas, plus the terminology Vale doesn't reach (see below)
+- Subagent 1, `standards/style-guide.md`: bold used for anything other than a UI element or critical warning, link text that isn't genuinely descriptive, parallel structure in lists, Oxford commas, legacy vs alternative vs deprecated used precisely, and acronyms expanded on first use
 - Subagent 2, `standards/page-structure.md`: information ordering (no concept used before it's explained), whether each screenshot earns its place and follows the treatment rules (light theme, `#F86606` border, no arrows or circles), and whether the admonition type fits its content
 
-### Terminology Vale doesn't reach
+### Terminology
 
-The package covers the Apify product-name cluster: `ApifyProductNames`, `ActorCapitalization`, `ApifyBrandCasing`, `TechnologyNames`. It covers nothing else in the terminology section, verified by probing one violation per documented rule. Subagent 1 owns the remainder:
+Vale enforces terminology. Probing one violation per rule in the terminology section found the package covering 9 of 38, and [apify/vale-rules#3](https://github.com/apify/vale-rules/issues/3) closes 27 of the 29 gaps: product-name casing, feature and concept terms, generic technical terms, crawler and scraper casing, version shorthand, and the products that require "the".
 
-- Feature and concept terms in lowercase: task, run, build, dataset, key-value store, request queue, schedule, web scraping
-- Generic technical terms in lowercase: AI agent, MCP server, API endpoint, web scraper, proxy server
-- "crawler" and "scraper" capitalized only as part of an Actor name
-- legacy vs alternative vs deprecated used precisely
-- "version 22" in prose, not "v22" or "ver 22"
-- Products that require "the": the Apify SDK, the Apify CLI, the Apify API, the Apify platform. `ApifyProductNames` only catches the opposite direction, where an article must be removed
+**This skill assumes that issue is resolved.** Until it is, those rules are unenforced, so this change must not merge before the rules ship.
+
+Two terminology rules stay with subagent 1 permanently, because no pattern can express them. Whether legacy, alternative, or deprecated is the accurate word depends on the feature's real status. Whether an acronym was expanded on first use depends on the whole document, not one line.
 
 Why these two and nothing else: everything else in the standards files is either enforced by Vale or checked by the scripts above. Subagents are for judgment that no rule can express, such as whether an image carries information the prose doesn't, or whether `:::caution` is the right severity.
 
