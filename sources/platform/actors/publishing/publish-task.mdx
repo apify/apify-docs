@@ -69,12 +69,13 @@ Once your task runs reliably and produces the output you want users to see, publ
 
 This section controls how your task appears on the landing page and in search results.
 
+- **Title:** the heading shown on the landing page. Required to publish.
+- **Description:** the summary shown under the heading on the landing page. Required to publish.
 - **Slug:** the URL path for your task's landing page (lowercase, hyphens, no spaces).
-- **SEO title:** appears as the heading on the landing page and as the page title in search results.
-- **SEO description:** appears under the title on the landing page and as the meta description in search results.
-- **Use case:** categorizes your task for Store browsing and search filtering. Required.
+- **SEO title:** the page title in search results. Falls back to the task title when empty.
+- **SEO description:** the meta description in search results. Falls back to the task description when empty.
 
-Use the AI icon next to each field to generate the SEO title and description from your task configuration.
+Use the AI icon next to each field to generate its copy from your task configuration.
 
 The preview on the right updates as you type:
 
@@ -134,6 +135,92 @@ Unpublishing removes the landing page, but your task and its configuration stay 
 <!-- TODO: capture task-unpublish-dialog.webp screenshot -->
 
 To see which tasks are published, filter by **Publish status** in the Tasks list in the sidebar.
+
+## Publish tasks programmatically
+
+Apify Console is the quickest way to publish your first task. If you maintain many tasks, you can do the same thing through the API, which lets you publish in bulk instead of completing the form for each task.
+
+Publishing takes three steps, because creating a task and configuring its page never publish it on their own:
+
+1. Create the task with its input.
+1. Set the task's `title` and `description`, and its public display configuration (`publicConfig`).
+1. Publish by setting `isPublic` to `true`.
+
+### Requirements
+
+A task can only be published when all of the following hold:
+
+- The task's Actor is public.
+- The task has a `title` (3 to 63 characters) and a `description` (up to 400 characters). The landing page renders these.
+- `publicConfig.inputSchemaFields` names at least one field that exists in the task's input. These are the input values shown on the page.
+- `publicConfig.datasetView` is one of the view keys declared in the Actor's [dataset schema](/storage/dataset-schema).
+- You have write access to both the task and its Actor.
+- The Actor has fewer than 50 published tasks.
+
+If any requirement is unmet, the request fails and none of the update is applied, so the task never ends up half-configured.
+
+### Publish with an AI agent
+
+The [Apify MCP server](/integrations/mcp) exposes task publishing as tools, so you can describe what you want in your AI client and let the agent do the work: `create-actor-task`, `get-actor-task`, `update-actor-task`, `publish-actor-task`, and `unpublish-actor-task`.
+
+These tools are in the `tasks` category, which is not enabled by default. Include it in your connection URL:
+
+```text
+https://mcp.apify.com?tools=actors,docs,tasks
+```
+
+The requirements above still apply. The agent fills in the display configuration with `update-actor-task` first, then publishes with `publish-actor-task`.
+
+### Publish with the API
+
+Create the task with [Create task](/api/v2/actor-tasks-post), then configure and publish it with [Update task](/api/v2/actor-task-put):
+
+```http
+PUT /v2/actor-tasks/{taskId}
+Content-Type: application/json
+
+{
+    "title": "Track competitors' store locations",
+    "description": "Collects store addresses and opening hours for a list of competitor brands.",
+    "isPublic": true,
+    "publicConfig": {
+        "seoTitle": "Competitor store location tracker",
+        "seoDescription": "Get addresses and opening hours for any list of competitor brands.",
+        "inputSchemaFields": ["searchStringsArray", "maxCrossedDistance"],
+        "datasetView": "overview"
+    }
+}
+```
+
+The fields you send in `publicConfig` are merged into the stored configuration, so you only need to include what you are changing. To clear a field, set it to `null`. `publicConfig.publishedAt` is read-only: publish and unpublish by setting `isPublic`.
+
+To unpublish, send `isPublic: false`. The display configuration is preserved, so you can republish later without re-entering it.
+
+### Publish with the JavaScript client
+
+The [JavaScript client](/api/client/js) wraps the same endpoints, with `publish()` and `unpublish()` for the publication state:
+
+```javascript
+const task = await client.tasks().create({
+    actId: 'nwua9Gu5YrADL7ZDj',
+    name: 'competitor-store-locations',
+    title: "Track competitors' store locations",
+    description: 'Collects store addresses and opening hours for a list of competitor brands.',
+    input: { searchStringsArray: ['coffee shop'], maxCrossedDistance: 1000 },
+});
+
+await client.task(task.id).update({
+    publicConfig: {
+        seoTitle: 'Competitor store location tracker',
+        inputSchemaFields: ['searchStringsArray', 'maxCrossedDistance'],
+        datasetView: 'overview',
+    },
+});
+
+await client.task(task.id).publish();
+```
+
+Once published, the task gets its [landing page](#url-structure) and appears in the Actor's **Example tasks** tab.
 
 ## Task landing page
 
