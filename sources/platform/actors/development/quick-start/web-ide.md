@@ -1,6 +1,6 @@
 ---
 title: Develop Actors in the web IDE
-sidebar_label: Web IDE
+sidebar_label: Develop in the web IDE
 sidebar_position: 2
 description: Create and run your first Actor using the web IDE in Apify Console, from writing your first lines of code to deploying it live in the cloud.
 slug: /actors/development/quick-start/web-ide
@@ -12,36 +12,41 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-This guide walks you through the full lifecycle of an Actor using the web IDE in Apify Console: create an Actor from a code template, build it, configure its input, and run it in the cloud.
+With the web IDE in Apify Console, you can write, build, and run your code entirely in a
+browser. This guide explains the full lifecycle of an Actor: how to start with a template for a working crawler, build it, configure its input, and run it in the cloud.
 
 ## Before you start
 
-To complete this tutorial, you need an Apify account. If you don't have it yet, [sign up for free](https://console.apify.com/sign-up).
+To complete this tutorial, you need an Apify account. [Sign up for free](https://console.apify.com/sign-up).
 
-## Step 1: Create your Actor
+## 1. Create your Actor
 
 To create an Actor from a code template:
 
 1. Log in to [Apify Console](https://console.apify.com).
 1. In the left-side panel, go to **Development** > **My Actors**.
-1. Select **Develop new**.
+1. Select **Develop new**, then **Get started**.
 1. In the first step, choose a type of Actor you want to create: web scraper, AI agent, API and data pipeline, or browser automation. Let's select **web scraper**.
 1. In the second step, choose the programming language: TypeScript, JavaScript, or Python. Let's select **JavaScript**.
 1. Based on your choice, Apify suggests Actor templates. For this tutorial, let's use the recommended **Crawlee + Cheerio**.
 
-:::tip Explore Actor templates
+    :::tip Explore Actor templates
 
-To find a template that best suits your needs, browse the [full list of templates](https://apify.com/templates).
+    To find a template that best suits your needs, browse the [full list of templates](https://apify.com/templates).
 
-:::
+    :::
 
-Once you choose the template, your Actor is automatically named and you're redirected to its page.
+1. In the last step, choose where to host your Actor code. Let's select **Host on Apify**.
 
-## Step 2: Explore the Actor
+Once done, your Actor is automatically named and you're redirected to its page.
 
-The provided boilerplate code utilizes the [Apify SDK](https://docs.apify.com/sdk/js/) combined with [Crawlee](https://crawlee.dev/), Apify's popular open-source Node.js web scraping library.
+## 2. Explore the Actor
 
-By default, the code crawls the [apify.com](https://apify.com) website, but you can change it to any website.
+The **Crawlee + Cheerio** template that you selected uses the [Apify SDK](https://docs.apify.com/sdk/js/) combined with [Crawlee](https://crawlee.dev/), Apify's popular open-source Node.js web scraping library. By default, the code crawls the [apify.com](https://apify.com) website.
+
+To explore the structure and contents of the template, go to the **Source** tab > **Code**.
+
+![Source code of an Actor in the web IDE in Apify Console](./images/explore-actor-in-web-ide.svg)
 
 :::info Crawlee
 
@@ -49,20 +54,22 @@ By default, the code crawls the [apify.com](https://apify.com) website, but you 
 
 :::
 
-## Step 3: Build the Actor
+## 3. Build the Actor
 
-The next step it to build the Actor:
+By building the Actor, you package the code and its dependencies into a Docker image that the Apify platform can run. Each build is versioned.
+
+To build the Actor:
 
 1. Go to **Source** tab > **Code**.
-1. Click **Build**.
+1. Select **Build**.
 
-Once the build starts, you're redirected to the **Last build** tab. Here you can check the build progress and view Docker build logs.
+When the build starts, you're redirected to the **Last build** tab. Here, you can check the build progress and view Docker build logs.
 
-![Source code of an Actor in the web IDE](./images/build-actor-in-web-ide.svg)
+![Web IDE in Apify Console with the Last build tab and Build button highlighted](./images/build-actor-in-web-ide.svg)
 
-## Step 4: Run the Actor
+## 4. Run the Actor
 
-Finally, it's time to run the Actor:
+Once your Actor is built, run it:
 <!-- vale off -->
 1. Go to **Source** tab > **Input**.
 1. Set the **Start URL** to the URL you want to crawl or use the default value.
@@ -71,75 +78,18 @@ Finally, it's time to run the Actor:
    - **Timeout** – set the timeout for the run in seconds.
    - **Memory limit** – allocate the memory for the run. For details, see [Usage and resources](/actors/running/usage-and-resources).
    - **Maximum cost per run**.
-1. Click **Start**.
+1. Select **Start**.
 <!-- vale on -->
-Once the run starts, you can monitor its progress and view the logs in real-time. To view the results of the Actor's execution, go to the **Output** tab.
+When the run starts, you can monitor its progress and view the logs in real time. To view the results of the Actor's execution, go to the **Output** tab.
 
-To stop the run, click **Abort**.
+![Actor run options in the web IDE in Apify Console](./images/run-actor-in-web-ide.svg)
 
-## Step 5: Pull the Actor
+## 5. Iterate
 
-To continue development locally, pull the Actor's source code to your machine.
-
-:::note Prerequisites
-
-Install <code>[apify-cli](https://docs.apify.com/cli/)</code> :
-
-<Tabs>
-  <TabItem value="macOS/Linux" label="macOS/Linux">
-
-  ```bash
-  brew install apify-cli
-  ```
-
-  </TabItem>
-  <TabItem value="other platforms" label="Other platforms">
-
-  ```bash
-  npm -g install apify-cli
-  ```
-
-  </TabItem>
-</Tabs>
-
-:::
-
-To pull your Actor:
-
-1. Log in to the Apify platform
-
-    ```bash
-    apify login
-    ```
-
-2. Pull your Actor:
-
-    ```bash
-    apify pull your-actor-name
-    ```
-
-    Or with a specific version:
-
-    ```bash
-    apify pull your-actor-name --version [version_number]
-    ```
-
-    As `your-actor-name`, you can use either:
-
-    - The unique name of the Actor (e.g., `apify/hello-world`)
-    - The ID of the Actor (e.g., `E2jjCZBezvAZnX8Rb`)
-
-You can find both by clicking on the Actor title at the top of the page, which will open a new window containing the Actor's unique name and ID.
-
-## Step 6: It's time to iterate!
-
-After pulling the Actor's source code to your local machine, you can modify and customize it to match your specific requirements. Leverage your preferred code editor or development environment to make the necessary changes and enhancements.
-
-Once you've made the desired changes, you can push the updated code back to the Apify platform for deployment & execution, leveraging the platform's scalability and reliability.
+Now it's time to iterate. Each change follows the same cycle: edit the code, build a new version of the Actor, and run it to check the result.
 
 ## Next steps
 
-- Visit the [Apify Academy](/academy) to access a comprehensive collection of tutorials, documentation, and learning resources.
+- If you need inspiration, see [Find ideas for new Actors](/academy/build-and-publish/actor-ideas/find-actor-ideas).
 - To understand Actors in detail, read the [Actor Whitepaper](https://whitepaper.actor/).
-- Check [Continuous integration](/actors/development/deployment/continuous-integration) documentation to automate your Actor development process.
-- After you finish building your first Actor, you can [share it with other users and even monetize it](/actors/publishing).
+- When your first Actor is ready, you can [publish](/actors/publishing) it on Apify Store and [monetize](/actors/publishing/monetize) it to earn revenue.
