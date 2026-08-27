@@ -15,20 +15,13 @@ import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integrati
 
 The `langchain-apify` package connects Apify Actors to LangChain. Use it to pull live web data into a vector index for retrieval, or to give an agent a set of scraping tools it can call on its own.
 
+Start with the [quick start](#quick-start) to scrape a single URL and confirm your setup. Then [load web data into a vector index](#load-web-data-into-a-vector-index) to crawl a site and answer questions from it, [use Actors as LangChain tools](#use-actors-as-langchain-tools) to bind search, crawling, and social media tools to an agent, or browse the [tool reference](#tool-reference) to list all 19 tools and the Actor each one wraps. For stateful or multi-agent workflows, see the [LangGraph integration](/integrations/langgraph), which uses the same package.
+
 :::info Python only
 
 The `langchain-apify` package is currently available for Python only.
 
 :::
-
-## What's on this page
-
-- [Quick start](#quick-start) - scrape a single URL to confirm your setup works.
-- [Load web data into a vector index](#load-web-data-into-a-vector-index) - crawl a site with `ApifyWrapper`, then answer questions from the crawled documents.
-- [Use Actors as LangChain tools](#use-actors-as-langchain-tools) - bind dedicated tools for web search, crawling, and social media to an agent.
-- [Tool reference](#tool-reference) - all 19 tools and the Actor each one wraps.
-
-For stateful or multi-agent workflows, see the [LangGraph integration](/integrations/langgraph), which uses the same package.
 
 ## Quick start
 
