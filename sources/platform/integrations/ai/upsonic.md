@@ -3,6 +3,8 @@ title: Upsonic integration
 sidebar_label: Upsonic
 description: Learn how to integrate Apify Actors with Upsonic to give your AI agents real-time web scraping, data extraction, and automation capabilities from the Apify Store.
 slug: /integrations/upsonic
+sidebar_custom_props:
+  unlisted: true
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';

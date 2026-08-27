@@ -3,6 +3,8 @@ title: Google Drive integration
 description: Automatically save Apify Actor run results to Google Drive. Set up the integration on an Actor or saved task to upload files after each successful run.
 sidebar_label: Google Drive
 slug: /integrations/drive
+sidebar_custom_props:
+  unlisted: true
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';

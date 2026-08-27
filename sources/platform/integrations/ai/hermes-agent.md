@@ -4,6 +4,8 @@ sidebar_label: Hermes Agent
 description: Learn how to integrate Apify with Hermes Agent to give your AI agent access to thousands of pre-built AI tools, called Actors, for scraping and automation.
 slug: /integrations/hermes-agent
 toc_min_heading_level: 2
+sidebar_custom_props:
+  unlisted: true
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';

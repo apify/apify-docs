@@ -3,6 +3,8 @@ title: IFTTT integration
 description: Connect Apify Actors with IFTTT to build Applets that trigger on Actor run events, retrieve data from datasets, and start runs from any IFTTT trigger.
 sidebar_label: IFTTT
 slug: /integrations/ifttt
+sidebar_custom_props:
+  unlisted: true
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';

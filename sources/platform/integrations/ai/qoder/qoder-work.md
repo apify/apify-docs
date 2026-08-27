@@ -3,6 +3,8 @@ title: QoderWork integration
 sidebar_label: QoderWork
 description: Learn how to upload the Apify plugin in QoderWork to discover, run, and build Actors with the Apify MCP server connector, skills, and a routing agent.
 slug: /integrations/qoder-work
+sidebar_custom_props:
+  unlisted: true
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';

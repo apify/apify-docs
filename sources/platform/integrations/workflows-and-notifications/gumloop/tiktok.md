@@ -3,6 +3,8 @@ title: Gumloop - TikTok Actor integration
 description: Use the Gumloop TikTok node powered by Apify to extract videos, profile data, followers, and search results without managing API tokens or tasks.
 sidebar_label: TikTok
 slug: /integrations/gumloop/tiktok
+sidebar_custom_props:
+  unlisted: true
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';

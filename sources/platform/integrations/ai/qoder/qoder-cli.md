@@ -3,6 +3,8 @@ title: Qoder CLI integration
 sidebar_label: Qoder CLI
 description: Learn how to install the Apify plugin for the Qoder CLI to discover, run, and build Actors with the Apify MCP server, skills, and a routing agent.
 slug: /integrations/qoder-cli
+sidebar_custom_props:
+  unlisted: true
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';

@@ -3,6 +3,8 @@ title: OpenCode integration
 sidebar_label: OpenCode
 description: Learn how to install the Apify plugin for OpenCode to discover, search, run, and build Actors with the Apify MCP server directly from your terminal.
 slug: /integrations/opencode
+sidebar_custom_props:
+  unlisted: true
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';

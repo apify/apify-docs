@@ -3,6 +3,8 @@ title: viaSocket integration
 description: Learn how to connect Apify with viaSocket, configure triggers, authenticate with API tokens, and build automation workflows across your apps.
 sidebar_label: viaSocket
 slug: /integrations/viasocket
+sidebar_custom_props:
+  unlisted: true
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/\_partials/\_third-party-integration.mdx';

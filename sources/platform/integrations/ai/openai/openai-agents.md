@@ -3,6 +3,8 @@ title: OpenAI Agents SDK integration
 sidebar_label: OpenAI Agents SDK
 description: Learn how to integrate Apify with the OpenAI Agents SDK via the Apify MCP server to give your AI agents real-time web data and Actor access.
 slug: /integrations/openai-agents
+sidebar_custom_props:
+  unlisted: true
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';

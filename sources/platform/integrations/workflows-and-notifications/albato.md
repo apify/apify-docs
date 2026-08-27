@@ -4,6 +4,8 @@ description: Connect Apify Actors to over 1,000 apps with Albato. Trigger workfl
 sidebar_label: Albato
 sidebar_position: 7
 slug: /integrations/albato
+sidebar_custom_props:
+  unlisted: true
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';

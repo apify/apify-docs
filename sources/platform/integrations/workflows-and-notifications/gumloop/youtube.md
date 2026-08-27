@@ -3,6 +3,8 @@ title: Gumloop - YouTube Actor integration
 description: Use the Gumloop YouTube node powered by Apify to extract video details, channel data, playlists, and search results without managing API keys or tasks.
 sidebar_label: YouTube
 slug: /integrations/gumloop/youtube
+sidebar_custom_props:
+  unlisted: true
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';

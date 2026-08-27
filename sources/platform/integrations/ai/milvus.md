@@ -5,6 +5,8 @@ sidebar_label: Milvus
 slug: /integrations/milvus
 toc_min_heading_level: 2
 toc_max_heading_level: 4
+sidebar_custom_props:
+  unlisted: true
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';

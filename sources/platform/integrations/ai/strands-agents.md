@@ -5,6 +5,8 @@ description: >-
   Integrate Apify with the Strands Agents SDK to give your AI agents web
   scraping, search, crawling, and social media capabilities through 18 prebuilt tools.
 slug: /integrations/strands-agents
+sidebar_custom_props:
+  unlisted: true
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
