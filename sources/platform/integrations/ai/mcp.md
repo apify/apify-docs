@@ -143,7 +143,20 @@ To add Apify MCP server to Cursor manually:
     }
     ```
 
-    To authorize with a bearer token instead, add the `Authorization` header shown in [Streamable HTTP with OAuth](#streamable-http-with-oauth-recommended).
+    To use a bearer token instead of signing in, add an `Authorization` header with your [Apify API token](https://console.apify.com/settings/integrations):
+
+    ```json
+    {
+      "mcpServers": {
+        "apify": {
+          "url": "https://mcp.apify.com",
+          "headers": {
+            "Authorization": "Bearer <APIFY_TOKEN>"
+          }
+        }
+      }
+    }
+    ```
 
 </TabItem>
 <TabItem value="vscode" label="VS Code">
@@ -171,7 +184,20 @@ VS Code supports MCP through GitHub Copilot's agent mode (requires Copilot subsc
     }
     ```
 
-    To authorize with a bearer token instead, add the `Authorization` header shown in [Streamable HTTP with OAuth](#streamable-http-with-oauth-recommended).
+    To use a bearer token instead of signing in, add an `Authorization` header with your [Apify API token](https://console.apify.com/settings/integrations):
+
+    ```json
+    {
+      "mcpServers": {
+        "apify": {
+          "url": "https://mcp.apify.com",
+          "headers": {
+            "Authorization": "Bearer <APIFY_TOKEN>"
+          }
+        }
+      }
+    }
+    ```
 
 </TabItem>
 <TabItem value="claude-desktop" label="Claude Desktop">
