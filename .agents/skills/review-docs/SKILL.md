@@ -19,7 +19,7 @@ argument-hint: file-path
    Vale carries most of the style guide, so don't re-check its ground by hand. If it isn't installed, say so and note that prose coverage was skipped.
 
    For a pull request, run all three over every changed `.md` and `.mdx` file and report per file.
-3. **Delegated review** - spawn two subagents in parallel, for what no tool can check. Each reads the page plus one standards file, and returns findings with line numbers and suggested fixes:
+3. **Delegated review** - spawn two subagents in parallel, for what no tool can check. Each reads the page being reviewed plus one standards file, and returns findings with line numbers and suggested fixes:
    - Subagent 1, `standards/style-guide.md`: bold outside UI elements and warnings, weak link text, non-parallel lists, missing serial commas, legacy vs alternative vs deprecated, acronyms unexpanded on first use
    - Subagent 2, `standards/page-structure.md`: concepts used before they're explained, screenshots that don't earn their place or break the treatment rules, admonition types that don't fit their content
 4. **Content review** (main process) - focus on what neither tools nor standards cover:

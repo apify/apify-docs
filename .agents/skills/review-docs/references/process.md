@@ -21,7 +21,7 @@ If `vale` isn't installed, say so in the output. Don't substitute a subagent pas
 
 ## Step 3: Delegated review
 
-Spawn subagents only for what no tool can check. Each reads the file being reviewed plus one standards file, and returns findings with line numbers and suggested fixes.
+Spawn subagents only for what no tool can check. Each reads the page being reviewed plus one standards file, and returns findings with line numbers and suggested fixes.
 
 - Subagent 1, `standards/style-guide.md`: bold used for anything other than a UI element or critical warning, link text that isn't genuinely descriptive, parallel structure in lists, Oxford commas, legacy vs alternative vs deprecated used precisely, and acronyms expanded on first use
 - Subagent 2, `standards/page-structure.md`: information ordering (no concept used before it's explained), whether each screenshot earns its place and follows the treatment rules (light theme, `#F86606` border, no arrows or circles), and whether the admonition type fits its content
@@ -61,4 +61,4 @@ Check that both JavaScript and Python examples are present and functionally equi
 
 ### Markdownlint false positives on admonitions
 
-Markdownlint doesn't understand Docusaurus `:::` syntax natively. Check `.markdownlint.json` for configured exceptions. Vale covers admonition titles via `ApifyDocs.AdmonitionTitle`.
+Markdownlint doesn't understand Docusaurus `:::` syntax natively. Check `.markdownlint.json` for configured exceptions. Missing admonition titles are Vale's job, so they show up in the tool output rather than here.

@@ -58,7 +58,7 @@ Vale reports most style violations with a rule name and line number, so this sec
 
 ### Non-descriptive links
 
-`Apify.ClickHere` catches a literal "click here". It can't tell whether other link text is genuinely descriptive.
+Vale catches a literal "click here". It can't tell whether other link text is genuinely descriptive.
 
 ```markdown
 # Bad
