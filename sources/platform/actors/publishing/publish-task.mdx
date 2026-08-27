@@ -196,6 +196,28 @@ The fields you send in `publicConfig` are merged into the stored configuration, 
 
 To unpublish, send `isPublic: false`. The display configuration is preserved, so you can republish later without re-entering it.
 
+### Publish with the CLI
+
+The [Apify CLI](/cli) publishes and unpublishes an existing task by name:
+
+```bash
+apify task publish my-task
+apify task unpublish my-task
+```
+
+Pass `username/my-task` to target a task owned by someone else, provided you have write access to it and its Actor.
+
+There is no dedicated command for the display configuration yet, so set it through the API with `apify api`. Prefix the task name with `~` so the API resolves it against your own tasks rather than reading it as a task ID:
+
+```bash
+apify api PUT actor-tasks/~my-task -d '{
+    "publicConfig": {
+        "inputSchemaFields": ["searchStringsArray"],
+        "datasetView": "overview"
+    }
+}'
+```
+
 ### Publish with the JavaScript client
 
 The [JavaScript client](/api/client/js) wraps the same endpoints, with `publish()` and `unpublish()` for the publication state:
