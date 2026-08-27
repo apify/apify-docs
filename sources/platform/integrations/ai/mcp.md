@@ -69,12 +69,12 @@ The hosted Apify MCP server at `https://mcp.apify.com` supports _output schema i
 
 ### Streamable HTTP with OAuth (recommended)
 
-Provide the server URL `https://mcp.apify.com`, then authorize with OAuth or a bearer token.
+Add `https://mcp.apify.com` to your MCP client. On first connection, your browser opens so you can sign in to Apify and approve access. To authorize without signing in, use your Apify API token instead.
 
 <Tabs>
 <TabItem value="OAuth" label="OAuth" >
 
-When you connect for the first time, your browser opens so you can sign in to Apify and approve the connection. This flow authorizes the server without putting your API token in the client configuration.
+This flow authorizes the server without putting your API token in the client configuration.
 
 ```json
 {
