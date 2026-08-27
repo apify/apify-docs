@@ -1,5 +1,6 @@
 ---
-title: Dockerfile
+title: Actor Dockerfile and base images
+sidebar_label: Dockerfile
 description: Learn about Docker base images for Apify Actors and how to choose the right image based on your Actor's requirements and programming language.
 slug: /actors/development/actor-definition/dockerfile
 sidebar_position: 8
