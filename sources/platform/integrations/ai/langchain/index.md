@@ -5,8 +5,6 @@ description: Learn how to integrate Apify with LangChain to feed vector database
 slug: /integrations/langchain
 ---
 
-import Card from '@site/src/components/Card';
-import CardGrid from '@site/src/components/CardGrid';
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
 > For more information on LangChain visit its [documentation](https://docs.langchain.com/oss/python/langchain/overview). The Apify integration lives in the [langchain-apify](https://github.com/apify/langchain-apify) repository.
@@ -368,15 +366,7 @@ result = tool.invoke({"run_input": {"searchTerms": ["web scraping", "data extrac
 
 ## Next steps
 
-<CardGrid>
-    <Card
-        title="LangGraph"
-        desc="Bind Apify tools to a stateful ReAct agent and stream its steps."
-        to="/integrations/langgraph"
-        imageUrl="/img/platform/integrations/langgraph.png"
-        smallImage
-    />
-</CardGrid>
+To bind these tools to a stateful agent and stream its steps as it works, continue to the [LangGraph integration](/integrations/langgraph).
 
 ## Resources
 
