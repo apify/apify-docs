@@ -224,4 +224,5 @@ agent_executor = create_react_agent(llm, [trends])
 - [Apify Actors](/actors)
 - [LangChain integration](/integrations/langchain) - installation, full tool reference, loaders, and retrievers
 - [LangGraph documentation](https://docs.langchain.com/oss/python/langgraph/overview)
+- [Agents in LangChain](https://docs.langchain.com/oss/python/langchain/agents) - the current guide to building ReAct-style agents
 - [LangChain Apify provider page](https://docs.langchain.com/oss/python/integrations/providers/apify)
