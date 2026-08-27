@@ -140,7 +140,7 @@ Tool Calls:
   apify_tiktok_scraper (call_yQ0mLqXvRp8bT3nZKcWuHsAe)
  Call ID: call_yQ0mLqXvRp8bT3nZKcWuHsAe
   Args:
-    search_query: https://www.tiktok.com/@openai
+    search_query: openai
     search_type: user
     max_results: 5
 
@@ -191,24 +191,30 @@ for state in agent_executor.stream(
     state["messages"][-1].pretty_print()
 ```
 
-### Bind a whole tool set
+## Bind a whole tool set
 
 Instead of importing tools one by one, you can give the agent an entire category. Each list holds tool *classes*, so instantiate them before passing them to the agent:
 
 ```python
 from langchain_apify import APIFY_SEARCH_TOOLS, APIFY_SOCIAL_TOOLS
+from langchain_openai import ChatOpenAI
+from langgraph.prebuilt import create_react_agent
 
+llm = ChatOpenAI(model="gpt-5.4-mini")
 tools = [tool_cls() for tool_cls in APIFY_SEARCH_TOOLS + APIFY_SOCIAL_TOOLS]
 agent_executor = create_react_agent(llm, tools)
 ```
 
-### Run any other Actor
+## Run any other Actor
 
 Actors without a dedicated tool go through [`ApifyActorsTool`](/integrations/langchain#run-any-other-actor), which binds to an agent the same way:
 
 ```python
 from langchain_apify import ApifyActorsTool
+from langchain_openai import ChatOpenAI
+from langgraph.prebuilt import create_react_agent
 
+llm = ChatOpenAI(model="gpt-5.4-mini")
 trends = ApifyActorsTool("apify/google-trends-scraper")
 agent_executor = create_react_agent(llm, [trends])
 ```
