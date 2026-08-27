@@ -42,7 +42,7 @@ The rest of this page builds on that: [several tools with streamed steps](#build
 
 ## How to use Apify with LangGraph
 
-This guide will demonstrate how to use Apify Actors with LangGraph by building a ReAct agent that searches the web for TikTok profiles and extracts data from them, using two dedicated Apify tools: `ApifyRAGWebBrowserTool` for the search and `ApifyTikTokScraperTool` for the profile data.
+This guide shows how to use Apify Actors with LangGraph by building a ReAct agent that searches the web for TikTok profiles and extracts data from them, using two dedicated Apify tools: `ApifyRAGWebBrowserTool`, which wraps [RAG Web Browser](https://apify.com/apify/rag-web-browser), for the search and `ApifyTikTokScraperTool`, which wraps [TikTok Scraper](https://apify.com/clockworks/tiktok-scraper), for the profile data.
 
 ### Prerequisites
 
