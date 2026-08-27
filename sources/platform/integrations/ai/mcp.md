@@ -51,7 +51,7 @@ Before connecting your AI to Apify, you'll need three things:
 - _Apify API token_ - Get your API token from the **API & Integrations** section in [Apify Console](https://console.apify.com/settings/integrations). This token authorizes the MCP server to run Actors on your behalf. Make sure to keep it secure.
 - _MCP client_ - An AI agent or client that supports Model Context Protocol (MCP) This could be Anthropic's Claude for Desktop, a VS Code extension with MCP support, or any application that implements the MCP specification. The [official MCP documentation](https://modelcontextprotocol.io/clients) maintains a list of compatible clients.
 
-## Quick start
+## Connect and authorize
 
 You can connect to the Apify MCP server in two ways: use our hosted service for a quick and easy setup using [Streamable HTTP with OAuth](#streamable-http-with-oauth-recommended), or run the server locally for development and testing using [local stdio](#local-stdio).
 
@@ -69,13 +69,12 @@ The hosted Apify MCP server at `https://mcp.apify.com` supports _output schema i
 
 ### Streamable HTTP with OAuth (recommended)
 
-Provide the server URL `https://mcp.apify.com`. You will be redirected to your browser to sign in to your Apify account and approve the connection.
+Provide the server URL `https://mcp.apify.com`, then authorize with OAuth or a bearer token.
 
 <Tabs>
 <TabItem value="OAuth" label="OAuth" >
 
-When you connect for the first time, you'll be redirected to your browser to sign in to Apify and authorize the connection. This OAuth flow ensures secure
-authentication without exposing your API token.
+When you connect for the first time, your browser opens so you can sign in to Apify and approve the connection. This flow authorizes the server without putting your API token in the client configuration.
 
 ```json
 {
