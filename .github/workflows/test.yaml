@@ -97,7 +97,7 @@ jobs:
                         extra_args=("$@")
                         response=$(curl -s -D - -o "$body_sink" -w "\n%{http_code}" "${retry_opts[@]}" "${extra_args[@]}" "$url" 2>/dev/null)
                         status=$(echo "$response" | tail -1)
-                        location=$(echo "$response" | grep -i "^location:" | tr -d '\r' || true)
+                        location=$(echo "$response" | grep -i "^location:" | tr -d '\r' | tail -1 || true)
                         echo "→ $url → HTTP $status ${location:+(${location})}"
                         if [ "$status" = "301" ] || [ "$status" = "302" ]; then
                             echo "❌ Got redirect for $url: $location" && exit 1
@@ -128,7 +128,8 @@ jobs:
                     function assert_html_md_alternate() {
                         url=$1
                         expected_href=$2
-                        curl -s -o "$body_sink" "${retry_opts[@]}" "$url"
+                        : > "$body_sink"
+                        curl -s -o "$body_sink" "${retry_opts[@]}" "$url" || true
                         matched=$(grep -oE '<link [^>]*type="?text/markdown[^>]*>' "$body_sink" | grep -F "$expected_href" || true)
                         echo "→ $url → ${matched:-no match}"
                         if [ -z "$matched" ]; then
