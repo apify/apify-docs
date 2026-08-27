@@ -1,5 +1,6 @@
 ---
-title: Custom error messages
+title: Custom error messages for Actor input
+sidebar_label: Custom error messages
 description: Learn how to define custom error messages for input validation in your Actor's input schema. Make validation feedback clearer and more user-friendly.
 sidebar_position: 3
 slug: /actors/development/actor-definition/input-schema/custom-error-messages

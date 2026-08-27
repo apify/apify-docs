@@ -1,5 +1,6 @@
 ---
-title: Runs
+title: Actor runs
+sidebar_label: Runs
 sidebar_position: 8
 description: Learn about Actor runs, how to start them via the console, API, or scheduler, and how to configure input, timeouts, and manage their lifecycle.
 slug: /actors/development/builds-and-runs/runs

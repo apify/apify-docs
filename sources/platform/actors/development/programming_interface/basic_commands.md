@@ -1,5 +1,6 @@
 ---
-title: Basic commands
+title: Basic Actor commands
+sidebar_label: Basic commands
 description: Use the core Apify SDK commands in JavaScript and Python to initialize your Actor, read and write storage, and exit cleanly after execution.
 slug: /actors/development/programming-interface/basic-commands
 sidebar_position: 2
