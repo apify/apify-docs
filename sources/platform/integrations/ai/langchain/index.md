@@ -297,31 +297,7 @@ Most tools return a JSON string with two keys: `run` (run metadata such as `stat
 
 ### Give the tools to an agent
 
-To let a model decide when to call the tools, bind a tool list to an agent. The example below uses LangGraph's prebuilt ReAct agent, so install it alongside the previous dependencies. For a fuller walkthrough of multi-tool agents and streaming, see the [LangGraph integration](/integrations/langgraph).
-
-```bash
-pip install langgraph
-```
-
-```python
-import os
-
-from langchain_apify import APIFY_SEARCH_TOOLS
-from langchain_openai import ChatOpenAI
-from langgraph.prebuilt import create_react_agent
-
-os.environ["OPENAI_API_KEY"] = "Your OpenAI API key"
-os.environ["APIFY_TOKEN"] = "Your Apify API token"
-
-model = ChatOpenAI(model="gpt-5.4-mini")
-tools = [tool_cls() for tool_cls in APIFY_SEARCH_TOOLS]
-agent = create_react_agent(model, tools)
-
-response = agent.invoke(
-    {"messages": [("human", "Search the web and tell me what Apify is.")]}
-)
-print(response["messages"][-1].content)
-```
+To let a model decide when to call the tools, bind a tool list to an agent. The [LangGraph integration](/integrations/langgraph) covers that end to end: installing `langgraph`, binding one tool or a whole set, and streaming the agent's steps as it works.
 
 ### Retrieve documents for RAG
 
