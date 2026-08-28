@@ -16,6 +16,8 @@ An Actor takes a structured JSON input, performs a job - scraping a website, aut
 
 Because every Actor shares this input > run > output model, they compose. One Actor's output can feed another, results flow into [integrations](/integrations) like Make, Zapier, or n8n, and you can call any Actor from your code like a regular API.
 
+For how the platform itself is built - the control and execution planes, what happens during a run, and how workloads stay isolated - see [Platform architecture](/get-started/architecture).
+
 ## How Actors get to Apify Store
 
 [Apify Store](https://apify.com/store) holds thousands of public Actors built by Apify and the community. Each one started as code that a developer wrote, deployed to the platform, and published - optionally setting a price, since Store Actors can [earn their developers money](/actors/publishing).
