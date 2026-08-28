@@ -54,6 +54,8 @@ Actors published under the `apify` account in Apify Store are treated as part of
 
 ## Customer responsibility
 
+The following areas are yours to secure.
+
 ### Accounts, credentials, and API tokens
 
 Use a strong password, enable two-factor authentication, and assign organization members the lowest role they need. Treat API tokens like passwords: prefer scoped tokens, never commit them to code or repositories, and rotate or revoke them when in doubt.
@@ -82,6 +84,8 @@ You decide what to scrape and how to use the results. Compliance with applicable
 Secure your webhook endpoints, validate incoming payloads, protect credentials configured in integrations, and secure the devices and systems that consume Apify data.
 
 ## Shared responsibility
+
+In these areas Apify provides the controls, and you decide how to apply them.
 
 ### Community Actors
 
