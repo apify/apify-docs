@@ -19,6 +19,8 @@ properties:
       - type: "null"
   title:
     type: [string, "null"]
+  description:
+    type: [string, "null"]
   actorStandby:
     anyOf:
       - $ref: ../actors/ActorStandby.yaml
