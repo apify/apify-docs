@@ -1,7 +1,7 @@
 ---
 title: Platform architecture
 sidebar_label: Architecture
-sidebar_position: 4
+sidebar_position: 3
 slug: /get-started/architecture
 description: How the Apify platform is built - control and execution planes, what happens during an Actor run, how workloads stay isolated, and how storage works.
 ---
