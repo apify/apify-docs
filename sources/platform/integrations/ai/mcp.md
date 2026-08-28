@@ -51,9 +51,9 @@ Before connecting your AI to Apify, you'll need three things:
 - _Apify API token_ - Get your API token from the **API & Integrations** section in [Apify Console](https://console.apify.com/settings/integrations). This token authorizes the MCP server to run Actors on your behalf. Make sure to keep it secure.
 - _MCP client_ - An AI agent or client that supports Model Context Protocol (MCP) This could be Anthropic's Claude for Desktop, a VS Code extension with MCP support, or any application that implements the MCP specification. The [official MCP documentation](https://modelcontextprotocol.io/clients) maintains a list of compatible clients.
 
-## Quick start
+## Connect and authorize
 
-You can connect to the Apify MCP server in two ways: use our hosted service for a quick and easy setup using [Streamable HTTP with OAuth](#streamable-http-with-oauth-recommended), or run the server locally for development and testing using [local stdio](#local-stdio).
+You can connect to the Apify MCP server in two ways: use our hosted service using [Streamable HTTP with OAuth](#streamable-http-with-oauth-recommended), or run the server locally for development and testing using [local stdio](#local-stdio).
 
 :::caution SSE transport deprecated
 
@@ -69,13 +69,12 @@ The hosted Apify MCP server at `https://mcp.apify.com` supports _output schema i
 
 ### Streamable HTTP with OAuth (recommended)
 
-Provide the server URL `https://mcp.apify.com`. You will be redirected to your browser to sign in to your Apify account and approve the connection.
+Add `https://mcp.apify.com` to your MCP client. On first connection, your browser opens so you can sign in to Apify and approve access. To authorize without signing in, use your Apify API token instead.
 
 <Tabs>
 <TabItem value="OAuth" label="OAuth" >
 
-When you connect for the first time, you'll be redirected to your browser to sign in to Apify and authorize the connection. This OAuth flow ensures secure
-authentication without exposing your API token.
+This flow authorizes the server without putting your API token in the client configuration.
 
 ```json
 {
@@ -134,9 +133,6 @@ To add Apify MCP server to Cursor manually:
 1. Create or open the `.cursor/mcp.json` file.
 1. Add the following to the configuration file:
 
-    <Tabs>
-    <TabItem value="OAuth" label="OAuth" >
-
     ```json
     {
       "mcpServers": {
@@ -147,12 +143,7 @@ To add Apify MCP server to Cursor manually:
     }
     ```
 
-    When you connect for the first time, you'll be redirected to your browser to sign in to Apify and authorize the connection. This OAuth flow ensures secure authentication without exposing your API token.
-
-    </TabItem>
-    <TabItem value="Bearer token" label="Bearer token">
-
-    You can also use your Apify token directly, instead of OAuth, by setting the `Authorization: Bearer <APIFY_TOKEN>` header in the MCP server configuration.
+    To use a bearer token instead of signing in, add an `Authorization` header with your [Apify API token](https://console.apify.com/settings/integrations):
 
     ```json
     {
@@ -166,11 +157,6 @@ To add Apify MCP server to Cursor manually:
       }
     }
     ```
-
-    Replace `<APIFY_TOKEN>` with your actual Apify API token from the [API & Integrations section](https://console.apify.com/settings/integrations).
-
-    </TabItem>
-    </Tabs>
 
 </TabItem>
 <TabItem value="vscode" label="VS Code">
@@ -188,9 +174,6 @@ VS Code supports MCP through GitHub Copilot's agent mode (requires Copilot subsc
    - This will open `mcp.json` file in your user profile. If the file does not exist, VS Code creates it for you.
 1. Add the following to the configuration file:
 
-    <Tabs>
-    <TabItem value="OAuth" label="OAuth" >
-
     ```json
     {
       "mcpServers": {
@@ -201,12 +184,7 @@ VS Code supports MCP through GitHub Copilot's agent mode (requires Copilot subsc
     }
     ```
 
-    When you connect for the first time, you'll be redirected to your browser to sign in to Apify and authorize the connection. This OAuth flow ensures secure authentication without exposing your API token.
-
-    </TabItem>
-    <TabItem value="Bearer token" label="Bearer token">
-
-    You can also use your Apify token directly, instead of OAuth, by setting the `Authorization: Bearer <APIFY_TOKEN>` header in the MCP server configuration.
+    To use a bearer token instead of signing in, add an `Authorization` header with your [Apify API token](https://console.apify.com/settings/integrations):
 
     ```json
     {
@@ -220,11 +198,6 @@ VS Code supports MCP through GitHub Copilot's agent mode (requires Copilot subsc
       }
     }
     ```
-
-    Replace `<APIFY_TOKEN>` with your actual Apify API token from the [API & Integrations section](https://console.apify.com/settings/integrations).
-
-    </TabItem>
-    </Tabs>
 
 </TabItem>
 <TabItem value="claude-desktop" label="Claude Desktop">
