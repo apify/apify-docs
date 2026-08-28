@@ -6,8 +6,6 @@ slug: /integrations/mcp
 toc_max_heading_level: 4
 ---
 
-<!-- markdownlint-disable MD024 -->
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
@@ -43,23 +41,13 @@ The MCP server intentionally excludes two categories of Actors from search and e
 - _Full-permission Actors_ - excluded for security. Running a [full-permission Actor](/actors/running/permissions#full-permission-actors) is a decision you approve personally, so an LLM can't make it on your behalf.
 - _Rental Actors_ - excluded because their subscription-based model doesn't fit the sporadic, on-demand way the MCP server runs Actors.
 
-## Prerequisites
-
-Before connecting your AI to Apify, you'll need three things:
-
-- _An Apify account_ - Sign up for an Apify account, if you don't have one.
-- _Apify API token_ - Get your API token from the **API & Integrations** section in [Apify Console](https://console.apify.com/settings/integrations). This token authorizes the MCP server to run Actors on your behalf. Make sure to keep it secure.
-- _MCP client_ - An AI agent or client that supports Model Context Protocol (MCP) This could be Anthropic's Claude for Desktop, a VS Code extension with MCP support, or any application that implements the MCP specification. The [official MCP documentation](https://modelcontextprotocol.io/clients) maintains a list of compatible clients.
-
 ## Quick start
 
-You can connect to the Apify MCP server in two ways: use our hosted service for a quick and easy setup using [Streamable HTTP with OAuth](#streamable-http-with-oauth-recommended), or run the server locally for development and testing using [local stdio](#local-stdio).
+The server URL is `https://mcp.apify.com`. All you need to connect is an MCP client - an AI agent, IDE, or CLI that implements the Model Context Protocol. The [official MCP documentation](https://modelcontextprotocol.io/clients) maintains a list of compatible clients.
 
-:::caution SSE transport deprecated
+Discovering Actors and reading documentation needs no account. Running Actors and reading storage data needs authentication. Start with [anonymous discovery](#anonymous-discovery), then add credentials when you're ready to execute.
 
-Server-Sent Events (SSE) transport will be removed on April 1, 2026. The Apify MCP server now uses Streamable HTTP, in line with the official MCP specification. Visit [mcp.apify.com](https://mcp.apify.com/) to update your client configuration.
-
-:::
+If your client doesn't support remote MCP servers, run the server [locally over stdio](#local-stdio) instead.
 
 :::tip Structured output schemas
 
@@ -67,15 +55,42 @@ The hosted Apify MCP server at `https://mcp.apify.com` supports _output schema i
 
 :::
 
-### Streamable HTTP with OAuth (recommended)
+### Anonymous discovery
 
-Provide the server URL `https://mcp.apify.com`. You will be redirected to your browser to sign in to your Apify account and approve the connection.
+The MCP server accepts requests without an API token when the `tools` query parameter (see [Tool selection](#tool-selection)) contains only tools enabled for unauthenticated use. These tools cover Actor discovery and documentation lookup:
 
-<Tabs>
-<TabItem value="OAuth" label="OAuth" >
+- `search-actors`
+- `fetch-actor-details`
+- `search-apify-docs`
+- `fetch-apify-docs`
 
-When you connect for the first time, you'll be redirected to your browser to sign in to Apify and authorize the connection. This OAuth flow ensures secure
-authentication without exposing your API token.
+Connect to this URL and no credentials are required:
+
+`https://mcp.apify.com?tools=search-actors,fetch-actor-details,search-apify-docs,fetch-apify-docs`
+
+```json
+{
+  "mcpServers": {
+    "apify": {
+      "url": "https://mcp.apify.com?tools=search-actors,fetch-actor-details,search-apify-docs,fetch-apify-docs"
+    }
+  }
+}
+```
+
+Use this to browse Apify Store, inspect Actor input and output schemas, and search the documentation. To run an Actor or read its results, authenticate first.
+
+If the `tools` parameter includes any other tool, or you connect to the default endpoint, the server requires an API token.
+
+### Authentication
+
+Running Actors, reading run data, and accessing storage all require an Apify account. Sign up for one if you don't have it yet.
+
+Choose one of two methods. OAuth is recommended - it never exposes your API token to the client. Use a bearer token when your client can't complete a browser-based flow.
+
+#### Hosted OAuth (recommended)
+
+Provide the server URL `https://mcp.apify.com` with no credentials in the configuration:
 
 ```json
 {
@@ -87,10 +102,11 @@ authentication without exposing your API token.
 }
 ```
 
-</TabItem>
-<TabItem value="Bearer token" label="Bearer token">
+When you connect for the first time, you'll be redirected to your browser to sign in to Apify and authorize the connection. This OAuth flow ensures secure authentication without exposing your API token.
 
-You can also use your Apify token directly, instead of OAuth, by setting the `Authorization: Bearer <APIFY_TOKEN>` header in the MCP server configuration.
+#### Bearer token
+
+If your client can't complete the OAuth flow, pass your Apify token directly by setting the `Authorization: Bearer <APIFY_TOKEN>` header:
 
 ```json
 {
@@ -105,20 +121,11 @@ You can also use your Apify token directly, instead of OAuth, by setting the `Au
 }
 ```
 
-Replace `<APIFY_TOKEN>` with your actual Apify API token from the [API & Integrations section](https://console.apify.com/settings/integrations).
+Replace `<APIFY_TOKEN>` with your API token from the **API & Integrations** section of [Apify Console](https://console.apify.com/settings/integrations). This token authorizes the MCP server to run Actors on your behalf, so keep it secure.
 
-</TabItem>
-</Tabs>
+### Client configuration
 
-:::tip Quick setup options
-
-_MCP server configuration for other clients_: Use the [UI configuration tool](https://mcp.apify.com/) to select Actors and tools, then copy the configuration to your client.
-
-:::
-
-#### Client configuration
-
-Here's how to add the Apify MCP server to popular text editors and AI assistants:
+The configuration below uses OAuth. To use a token instead, add the `Authorization` header described in [Bearer token](#bearer-token).
 
 <Tabs>
 <TabItem value="cursor" label="Cursor">
@@ -129,13 +136,10 @@ The [Apify UI configurator](https://mcp.apify.com/) offers a one-click install b
 
 :::
 
-To add Apify MCP server to Cursor manually:
+To add the Apify MCP server to Cursor manually:
 
 1. Create or open the `.cursor/mcp.json` file.
 1. Add the following to the configuration file:
-
-    <Tabs>
-    <TabItem value="OAuth" label="OAuth" >
 
     ```json
     {
@@ -146,31 +150,6 @@ To add Apify MCP server to Cursor manually:
       }
     }
     ```
-
-    When you connect for the first time, you'll be redirected to your browser to sign in to Apify and authorize the connection. This OAuth flow ensures secure authentication without exposing your API token.
-
-    </TabItem>
-    <TabItem value="Bearer token" label="Bearer token">
-
-    You can also use your Apify token directly, instead of OAuth, by setting the `Authorization: Bearer <APIFY_TOKEN>` header in the MCP server configuration.
-
-    ```json
-    {
-      "mcpServers": {
-        "apify": {
-          "url": "https://mcp.apify.com",
-          "headers": {
-            "Authorization": "Bearer <APIFY_TOKEN>"
-          }
-        }
-      }
-    }
-    ```
-
-    Replace `<APIFY_TOKEN>` with your actual Apify API token from the [API & Integrations section](https://console.apify.com/settings/integrations).
-
-    </TabItem>
-    </Tabs>
 
 </TabItem>
 <TabItem value="vscode" label="VS Code">
@@ -183,13 +162,10 @@ The [Apify UI configurator](https://mcp.apify.com/) offers a one-click install b
 
 VS Code supports MCP through GitHub Copilot's agent mode (requires Copilot subscription):
 
-1. Ensure you have GitHub Copilot installed
-1. Open Command Palette (<kbd>CMD</kbd>/<kbd>CTRL</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>) and run _MCP: Open User Configuration_ command.
+1. Ensure you have GitHub Copilot installed.
+1. Open Command Palette (<kbd>CMD</kbd>/<kbd>CTRL</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>) and run the _MCP: Open User Configuration_ command.
    - This will open `mcp.json` file in your user profile. If the file does not exist, VS Code creates it for you.
 1. Add the following to the configuration file:
-
-    <Tabs>
-    <TabItem value="OAuth" label="OAuth" >
 
     ```json
     {
@@ -200,31 +176,6 @@ VS Code supports MCP through GitHub Copilot's agent mode (requires Copilot subsc
       }
     }
     ```
-
-    When you connect for the first time, you'll be redirected to your browser to sign in to Apify and authorize the connection. This OAuth flow ensures secure authentication without exposing your API token.
-
-    </TabItem>
-    <TabItem value="Bearer token" label="Bearer token">
-
-    You can also use your Apify token directly, instead of OAuth, by setting the `Authorization: Bearer <APIFY_TOKEN>` header in the MCP server configuration.
-
-    ```json
-    {
-      "mcpServers": {
-        "apify": {
-          "url": "https://mcp.apify.com",
-          "headers": {
-            "Authorization": "Bearer <APIFY_TOKEN>"
-          }
-        }
-      }
-    }
-    ```
-
-    Replace `<APIFY_TOKEN>` with your actual Apify API token from the [API & Integrations section](https://console.apify.com/settings/integrations).
-
-    </TabItem>
-    </Tabs>
 
 </TabItem>
 <TabItem value="claude-desktop" label="Claude Desktop">
@@ -263,6 +214,12 @@ apify mcp install vscode --tools search-actors,apify/rag-web-browser
 </TabItem>
 </Tabs>
 
+:::tip Configuration for other clients
+
+Use the [UI configuration tool](https://mcp.apify.com/) to select Actors and tools, then copy the configuration to your client.
+
+:::
+
 ### Local stdio
 
 If your client doesn't support remote MCP servers using the `https://mcp.apify.com` URL, you can run the server locally instead. This method uses the stdio transport to connect directly through your local environment.
@@ -287,8 +244,7 @@ The server will download automatically on first use and connect using your API t
 
 ## Tool selection
 
-By default, the MCP server loads essential tools for Actor discovery, documentation search, and the RAG Web Browser Actor. You can customize which tools
-are available by adding parameters to the server URL:
+By default, the MCP server loads the `actors` and `docs` tool categories, the `apify/rag-web-browser` Actor, and `report-problem`. You can customize which tools are available by adding parameters to the server URL:
 
 `https://mcp.apify.com?tools=actors,docs,apify/rag-web-browser`
 
@@ -306,47 +262,53 @@ Use the UI configurator `https://mcp.apify.com/` to select your tools visually, 
 
 :::
 
-### Anonymous access
-
-The Apify MCP server accepts requests without an API token when the `tools` query parameter contains only tools enabled for unauthenticated use. These tools cover Actor discovery and documentation lookup:
-
-- `search-actors`
-- `fetch-actor-details`
-- `search-apify-docs`
-- `fetch-apify-docs`
-
-For example, the following URL connects without authentication:
-
-`https://mcp.apify.com?tools=search-actors,fetch-actor-details,search-apify-docs,fetch-apify-docs`
-
-If the `tools` parameter includes any other tool, or you connect to the default endpoint, the server requires an API token. Running Actors and accessing storage or run data always requires authentication.
-
 ### Available tools
 
-| Tool name | Category | Enabled by default | Description |
+The server groups tools into five categories: `actors`, `docs`, `runs`, `storage`, and `dev`.
+
+:::caution The tools parameter replaces the defaults
+
+The `tools` parameter does not add to the default selection - it replaces it. Connecting to `https://mcp.apify.com?tools=storage` gives you the storage tools and nothing else, without `search-actors` or `call-actor`. List every category you want: `https://mcp.apify.com?tools=actors,docs,storage`.
+
+The `apify/rag-web-browser` Actor is part of the defaults but isn't part of any category, so listing every category - even `?tools=actors,docs` - still drops it. Add it explicitly: `?tools=actors,docs,apify/rag-web-browser`.
+
+:::
+
+The server automatically adds tools marked _auto-injected_ whenever `call-actor` or a specific Actor tool is loaded, even if you didn't select them. They cover the run and result lookups an agent needs immediately after starting a run, so a default configuration exposes them too.
+
+| Tool name | Category | Loaded by default | Description |
 | :--- | :--- | :--- | :--- |
 | `search-actors` | actors | ✅ | Search for Actors in Apify Store |
 | `fetch-actor-details` | actors | ✅ | Retrieve detailed information about a specific Actor, including its input and output schema, README (summary when available, full otherwise), and pricing |
-| `call-actor`* | actors | ❔ | Call an Actor and get its run results |
+| `call-actor` | actors | ✅ | Run an Actor and wait up to `waitSecs` (0-45, default 30) for it to finish. Returns the run status, storage IDs, and field metadata - not the results themselves |
 | [`apify/rag-web-browser`](https://apify.com/apify/rag-web-browser) | Actor | ✅ | Browse and extract web data |
 | `search-apify-docs` | docs | ✅ | Search the Apify documentation for relevant pages |
 | `fetch-apify-docs` | docs | ✅ | Fetch the full content of an Apify documentation page by its URL |
-| `get-actor-run` | runs | | Get detailed information about a specific Actor run |
+| `get-actor-run` | runs | Auto-injected | Get detailed information about a specific Actor run |
 | `get-actor-run-list` | runs | | Get a list of an Actor's runs, filterable by status |
 | `get-actor-log` | runs | | Retrieve the logs for a specific Actor run |
+| `abort-actor-run` | runs | Auto-injected | Abort a running Actor run |
 | `get-dataset` | storage | | Get metadata about a specific dataset |
-| `get-dataset-items` | storage | | Retrieve items from a dataset with support for filtering and pagination |
+| `get-dataset-items` | storage | Auto-injected | Retrieve items from a dataset with support for filtering and pagination |
 | `get-dataset-schema` | storage | | Generate a JSON schema from dataset items |
 | `get-key-value-store` | storage | | Get metadata about a specific key-value store |
 | `get-key-value-store-keys` | storage | | List the keys within a specific key-value store |
-| `get-key-value-store-record` | storage | | Get the value associated with a specific key in a key-value store |
+| `get-key-value-store-record` | storage | Auto-injected | Get the value associated with a specific key in a key-value store |
 | `get-dataset-list` | storage | | List all available datasets for the user |
 | `get-key-value-store-list` | storage | | List all available key-value stores for the user |
-| `get-actor-output`* | - | ✅ | Retrieve the output from an Actor call which is not included in the output preview of the Actor tool. |
+| `report-problem` | dev | ✅ | Report a problem with the MCP server to Apify |
 
-:::note Retrieving full output
+#### Retrieve Actor results
 
-The `get-actor-output` tool is automatically included with any Actor-related tool, such as `call-actor` or specific Actor tools like `apify-slash-rag-web-browser`. When you call an Actor, you receive an output preview. Depending on the output format and length, the preview may contain the complete output or only a limited version to avoid overwhelming the LLM. To retrieve the full output, use the `get-actor-output` tool with the `datasetId` from the Actor call. This tool supports limit, offset, and field filtering.
+`call-actor` returns the run's status and storage IDs, not its output. To read the results, call `get-dataset-items` with the `datasetId` from the run. This is why the run and storage tools are auto-injected alongside `call-actor` - an agent needs them to finish the job. Runs that haven't reached a terminal state also include a `nextStep` with polling instructions.
+
+#### Actor tool names
+
+Actors selected with the `tools` parameter become tools of their own, named `{username}--{actor-name}`. For example, `apify/rag-web-browser` is exposed as `apify--rag-web-browser`. Usernames containing a dot use `-dot-` in place of the dot, and names longer than 64 characters are truncated with a hash suffix to keep them unique.
+
+:::note Client-specific tool availability
+
+`report-problem` loads by default, but the server withholds it when telemetry is disabled or when your client is on the exclusion list. If you connect with telemetry off using `telemetry-enabled=false`, you won't see it.
 
 :::
 

@@ -80,11 +80,11 @@ Try asking Manus something like:
 
 > "Search for 'best project management tools' on Google and summarize the top 10 results"
 
-Manus will call `search-actors` to find [Google Search Scraper](https://apify.com/apify/google-search-scraper), use `call-actor` to run it, and then `get-actor-output` to retrieve and summarize the results.
+Manus will call `search-actors` to find [Google Search Scraper](https://apify.com/apify/google-search-scraper), use `call-actor` to run it, and then `get-dataset-items` to retrieve and summarize the results.
 
 ## Configure tools
 
-After connecting, the Apify MCP server exposes a default set of tools for Actor discovery (`search-actors`, `fetch-actor-details`, `call-actor`, `get-actor-output`), web browsing (`apify/rag-web-browser`), and documentation search (`search-apify-docs`, `fetch-apify-docs`). See the [full tool reference](/integrations/mcp#available-tools) for the complete list.
+After connecting, the Apify MCP server exposes a default set of tools for Actor discovery (`search-actors`, `fetch-actor-details`, `call-actor`), web browsing (`apify/rag-web-browser`), and documentation search (`search-apify-docs`, `fetch-apify-docs`), plus the run and storage tools that are auto-injected alongside `call-actor`. See the [full tool reference](/integrations/mcp#available-tools) for the complete list.
 
 To control which tools are available, append a `tools=` query parameter to the server URL:
 
