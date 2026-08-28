@@ -6,7 +6,7 @@ slug: /get-started/architecture
 description: How the Apify platform is built - control and execution planes, what happens during an Actor run, how workloads stay isolated, and how storage works.
 ---
 
-This page describes how the Apify platform is built: how it is structured, what happens when an Actor runs, how workloads stay isolated, and how data is stored. It's written for developers and technical teams who want a single technical overview of the platform.
+This page describes how the Apify platform is built: how it is structured, what happens when an Actor runs, how workloads stay isolated, and how data is stored. It is written for developers and technical teams who want a single technical overview of the platform.
 
 For how the platform is secured, see [Security](/security) and the [Apify Security Whitepaper](https://apify.com/security-whitepaper.pdf).
 
@@ -15,7 +15,7 @@ For how the platform is secured, see [Security](/security) and the [Apify Securi
 A few principles shape most of the decisions described below:
 
 - Isolation by default. Every Actor run executes in its own isolated environment, and one account cannot reach another account's data.
-- The API is the single access path. All reads and writes to platform data go through the authenticated, authorized Apify API. There is no side channel to storage.
+- Single access path. All reads and writes to platform data go through the authenticated, authorized Apify API. There is no side channel to storage.
 - One region, multiple zones. The platform runs in a single AWS region spread across multiple Availability Zones, which keeps the system resilient without the complexity of cross-region operation.
 
 ## Control plane and execution plane
@@ -23,11 +23,16 @@ A few principles shape most of the decisions described below:
 The platform has two logical planes:
 
 - Control plane. Apify Console, the Apify API, and the supporting services. This is where you and your integrations manage Actors, tasks, schedules, storage, and billing.
-- Execution plane. Where Actor runs execute, together with the storage that holds their inputs and results.
+- Execution plane. Actor runs execute here, together with the storage that holds their inputs and results.
 
-The two planes run as separate systems. The execution plane still depends on the API to authenticate, read inputs, and store results, so every action a run takes against platform data passes through the API's authorization checks rather than reaching storage directly.
+The two planes run as separate systems. The execution plane still depends on the API to authenticate, read inputs, and store results. Every action a run takes against platform data therefore passes through the API's authorization checks rather than reaching storage directly.
 
-As a developer, you interact with the platform through a few surfaces: Apify Console for the UI, the [Apify API](/api/v2) for programmatic access, [Apify Proxy](/proxy) for outbound requests, and [storage](/storage) for inputs and results.
+As a developer, you interact with the platform through a few surfaces:
+
+- Apify Console for the UI
+- The [Apify API](/api/v2) for programmatic access
+- [Apify Proxy](/proxy) for outbound requests
+- [Storage](/storage) for inputs and results
 
 ## Cloud infrastructure
 
@@ -40,12 +45,12 @@ For the specific region and what it means for data residency, see the [shared re
 A single Actor run moves through the platform in the following steps:
 
 1. Request and authentication. A run starts from Apify Console, the Apify API, a schedule, or an integration. The request reaches the Apify API, which authenticates the caller and confirms the caller is allowed to start the run.
-1. Scheduling and placement. The run is queued and placed onto the compute that runs Actors. An orchestrator keeps startup times low, so runs begin quickly even under load.
-1. Startup and scoped token. The run executes in its own isolated environment and receives an API token tied to the owning account. For most Actors this token is limited to the run's own inputs and storages. Full-permission Actors receive broader access and require one-time owner approval.
+1. Scheduling and placement. An orchestrator queues the run and places it on the compute that runs Actors, and is tuned to minimize startup latency even under load.
+1. Startup and scoped token. The run executes in its own isolated environment and receives an API token tied to the owning account. For most Actors, this token is limited to the run's own inputs and storages. Full-permission Actors receive broader access and require one-time owner approval.
 1. Input. The Actor reads its input and any referenced storages through the API.
 1. Execution and outbound traffic. The Actor does its work. When it fetches target websites, that traffic egresses through Apify Proxy, so target sites see proxy IP addresses rather than internal infrastructure.
-1. Output. Results are written back to storage (a dataset, key-value store, or request queue) through the API. Status is tracked throughout, so you can watch the run live or fetch results after it finishes.
-1. Teardown. When the run finishes, the environment is destroyed. No run state persists on the worker node.
+1. Output. The Actor writes results back to storage (a dataset, key-value store, or request queue) through the API. The platform tracks status throughout, so you can watch the run live or fetch results after it finishes.
+1. Teardown. When the run finishes, the platform destroys the environment. No run state persists on the worker node.
 
 For the states a run passes through and how builds relate to runs, see [Runs and builds](/actors/running/runs-and-builds).
 
@@ -56,7 +61,7 @@ Platform services and customer workloads run in separate, isolated compute envir
 - Process and filesystem isolation. Every run executes in its own environment with its own filesystem, memory, and CPU. Runs cannot see each other's processes or data.
 - Resource limits. Memory and CPU are capped per run, so one workload cannot starve another. See [Usage and resources](/actors/running/usage-and-resources).
 - Scoped credentials by default. Each run receives an API token tied to the owning account. Most Actors run with limited permissions, so the token only lets them read their inputs and read or write their own storages. Some Actors need full account access to do their job. These carry a permissions badge, and running one for the first time requires the account owner's explicit, one-time approval. See [Actor permissions](/actors/running/permissions).
-- Ephemeral compute. Environments are destroyed after each run, so no customer state persists on the worker nodes.
+- Ephemeral compute. The platform destroys the environment after each run, so no customer state persists on the worker nodes.
 
 One account cannot reach another account's data. For how this isolation is tested and treated as a security priority, see [Security](/security).
 
@@ -72,7 +77,7 @@ Actor runs read and write three storage primitives, all held in managed, encrypt
 - [Key-value store](/storage/key-value-store). Arbitrary files and records, including an Actor's input and output.
 - [Request queue](/storage/request-queue). The URLs an Actor still needs to process. The queue persists the state of each request (pending or handled), so a run can retry or resume without losing its place.
 
-Data retention depends on the storage: named storages persist until you delete them, and unnamed storages are removed automatically after a retention period. For the current retention rules, see the [storage documentation](/storage).
+Data retention depends on the storage: named storages persist until you delete them, and unnamed storages are removed automatically after a retention period. For the current retention rules, see [Storage](/storage).
 
 ## Availability and resilience
 
@@ -83,10 +88,10 @@ The platform is deployed across multiple AWS Availability Zones (physically sepa
 - Load balancing and redundancy. Platform services run as multiple redundant instances behind load balancers, so a failed instance is routed around automatically.
 - Health checks and self-healing. Unhealthy instances are detected and replaced automatically.
 
-Incidents are published on the [Apify status page](https://status.apify.com), where subscribed users are notified automatically.
+Apify publishes incidents on the [status page](https://status.apify.com) and notifies subscribed users automatically.
 
 ## Integrations and the API
 
-Everything programmatic goes through the [Apify API](/api/v2), which authenticates and authorizes each request. Integrations build on that same API: webhooks push run events to external systems, the API clients for JavaScript and Python let applications drive the platform, and third-party connectors reuse the API's authentication. AI agents can discover and run Actors and read results through the [Apify MCP server](/integrations/mcp).
+Everything programmatic goes through the [Apify API](/api/v2), which authenticates and authorizes each request. Integrations build on that same API. Webhooks push run events to external systems, the API clients for JavaScript and Python let applications drive the platform, and third-party connectors reuse the API's authentication. AI agents can discover and run Actors and read results through the [Apify MCP server](/integrations/mcp).
 
-For the full list, see the [integrations documentation](/integrations).
+For the full list, see [Integrations](/integrations).

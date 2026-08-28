@@ -46,7 +46,7 @@ Apify secures Apify Console, the Apify API, storages (datasets, key-value stores
 
 ### Vulnerability management and patching
 
-As a SaaS provider, Apify identifies and fixes vulnerabilities across the platform stack, from infrastructure to application code. Apify maintains a security program covering secure development, regular penetration testing, and a public [vulnerability disclosure policy](./vulnerability-disclosure.md). Customers do not patch anything at the platform level.
+As a SaaS provider, Apify identifies and fixes vulnerabilities across the platform stack, from infrastructure to application code. Apify maintains a security program covering secure development, regular penetration testing, and a public [vulnerability disclosure policy](/security/vulnerability-disclosure). Customers do not patch anything at the platform level.
 
 ### Apify-maintained Actors
 
@@ -66,8 +66,8 @@ If you develop Actors, private or published, you own their security: the code, t
 
 Actor input is stored with the run, so plaintext input fields are not the place for credentials. Use the mechanisms designed for secrets:
 
-- Mark sensitive input fields as secret (`"isSecret": true` in the input schema). Their values are encrypted and hidden in Apify Console. See [encrypted input](../actors/development/actor_definition/input_schema/secret_input.md).
-- Store credentials for your own Actors in [secure environment variables](../actors/development/programming_interface/environment_variables.md).
+- Mark sensitive input fields as secret (`"isSecret": true` in the input schema). Their values are encrypted and hidden in Apify Console. See [encrypted input](/actors/development/actor-definition/input-schema/secret-input).
+- Store credentials for your own Actors in [secure environment variables](/actors/development/programming-interface/environment-variables).
 
 ### Data you collect and store
 
@@ -97,4 +97,4 @@ If Apify detects an incident affecting your data, Apify investigates, contains i
 
 ## Questions
 
-For security questions or to report a vulnerability, contact [security@apify.com](mailto:security@apify.com) or see the [security overview](./index.md). For general account support, contact [support@apify.com](mailto:support@apify.com).
+For security questions or to report a vulnerability, contact [security@apify.com](mailto:security@apify.com) or see the [security overview](/security). For general account support, contact [support@apify.com](mailto:support@apify.com).
