@@ -53,7 +53,7 @@ Before connecting your AI to Apify, you'll need three things:
 
 ## Connect and authorize
 
-You can connect to the Apify MCP server in two ways: use our hosted service for a quick and easy setup using [Streamable HTTP with OAuth](#streamable-http-with-oauth-recommended), or run the server locally for development and testing using [local stdio](#local-stdio).
+You can connect to the Apify MCP server in two ways: use our hosted service using [Streamable HTTP with OAuth](#streamable-http-with-oauth-recommended), or run the server locally for development and testing using [local stdio](#local-stdio).
 
 :::caution SSE transport deprecated
 
