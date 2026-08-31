@@ -7,7 +7,7 @@ slug: /integrations/kimi-code-cli
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
-[Kimi Code CLI](https://www.kimi.com/code/docs/en/kimi-code-cli/customization/plugins.html) is Moonshot AI's agentic coding tool that runs in your terminal. It reads and edits your codebase, runs commands, and completes multi-step development tasks.
+[Kimi Code CLI](https://www.kimi.com/code/docs/en/kimi-code-cli/guides/getting-started.html) is Moonshot AI's agentic coding tool that runs in your terminal. It reads and edits your codebase, runs commands, and completes multi-step development tasks.
 
 The [Apify plugin for Kimi Code](https://github.com/apify/apify-kimi-code-plugin) connects Kimi Code to Apify's library of [Actors](https://apify.com/store) and bundles:
 
@@ -22,7 +22,7 @@ This guide covers installation from the Kimi Code third-party plugin marketplace
 ## Prerequisites
 
 - [An Apify account](https://console.apify.com/sign-up) - sign up for free if you don't have one.
-- [Kimi Code CLI](https://www.kimi.com/code/docs/en/kimi-code-cli/customization/plugins.html) - installed and authenticated locally, running Node.js 22.19.0 or later.
+- [Kimi Code CLI](https://www.kimi.com/code/docs/en/kimi-code-cli/guides/getting-started.html) - installed and authenticated locally, running Node.js 22.19.0 or later.
 
 :::caution Kimi Code CLI, not the legacy kimi-cli
 
