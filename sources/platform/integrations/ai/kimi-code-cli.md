@@ -26,7 +26,7 @@ This guide covers installation from the Kimi Code third-party plugin marketplace
 
 :::caution Kimi Code CLI, not the legacy kimi-cli
 
-The plugin targets Kimi Code CLI (version `0.x`). Run `kimi --version` to check. It doesn't work with the legacy Python `kimi-cli` (version `1.4x`), which uses a different plugin format.
+The plugin targets Kimi Code CLI (version `0.x`). Run `kimi --version` to check. It doesn't work with the legacy Python `kimi-cli` (version `1.x.x`), which uses a different plugin format.
 
 :::
 
@@ -43,8 +43,6 @@ The plugin targets Kimi Code CLI (version `0.x`). Run `kimi --version` to check.
 1. Press Tab to switch to the **Curated** tab.
 
 1. Select **Apify** from the list and press Enter.
-
-    <!-- ![Third-party plugin list with the Apify plugin entry](./images/kimi-code-cli/third-party-tab-apify-plugin.webp) -->
 
 1. Kimi Code shows a trust prompt because the plugin comes from a third-party publisher. Select **Trust and install**.
 
