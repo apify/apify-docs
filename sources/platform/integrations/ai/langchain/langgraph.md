@@ -1,6 +1,7 @@
 ---
 title: LangGraph integration
 sidebar_label: LangGraph
+sidebar_position: 2
 description: Learn how to build stateful multi-agent AI workflows with LangGraph and Apify Actors to search, extract, and analyze real-time web data at scale.
 slug: /integrations/langgraph
 ---
@@ -40,7 +41,7 @@ print(result["messages"][-1].content)
 
 The rest of this page builds on that: [several tools with streamed steps](#build-the-tiktok-profile-search-and-analysis-agent), [a whole tool set at once](#bind-a-whole-tool-set), and [any other Actor](#run-any-other-actor).
 
-## How to use Apify with LangGraph
+## Use Apify with LangGraph
 
 This guide shows how to use Apify Actors with LangGraph by building a ReAct agent that searches the web for TikTok profiles and extracts data from them, using two dedicated Apify tools: `ApifyRAGWebBrowserTool`, which wraps [RAG Web Browser](https://apify.com/apify/rag-web-browser), for the search and `ApifyTikTokScraperTool`, which wraps [TikTok Scraper](https://apify.com/clockworks/tiktok-scraper), for the profile data.
 

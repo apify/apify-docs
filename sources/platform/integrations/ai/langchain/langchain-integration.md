@@ -1,6 +1,7 @@
 ---
 title: LangChain integration
 sidebar_label: LangChain
+sidebar_position: 1
 description: Learn how to integrate Apify with LangChain to feed vector databases and large language models with web data crawled from the web using Actors.
 slug: /integrations/langchain
 ---
@@ -38,12 +39,12 @@ Find your token in [Apify Console](https://console.apify.com/settings/integratio
 
 ## Load web data into a vector index
 
-In this example, we'll use the [Website Content Crawler](https://apify.com/apify/website-content-crawler) Actor, which can deeply crawl websites such as documentation, knowledge bases, help centers, or blogs and extract text content from the web pages.
-Then we feed the documents into a vector index and answer questions from it.
+This example uses the [Website Content Crawler](https://apify.com/apify/website-content-crawler) Actor, which can deeply crawl websites such as documentation, knowledge bases, help centers, or blogs and extract text content from the web pages.
+You then feed the documents into a vector index and answer questions from it.
 
 ### Install the packages
 
-Before we start with the integration, we need to install all dependencies:
+Install all dependencies first:
 
 ```bash
 pip install langchain-openai langchain-apify
