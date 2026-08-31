@@ -77,7 +77,15 @@ Actor runs read and write three storage primitives, all held in managed, encrypt
 - [Key-value store](/storage/key-value-store). Arbitrary files and records, including an Actor's input and output.
 - [Request queue](/storage/request-queue). The URLs an Actor still needs to process. The queue persists the state of each request (pending or handled), so a run can retry or resume without losing its place.
 
-Data retention depends on the storage: named storages persist until you delete them, and unnamed storages are removed automatically after a retention period. For the current retention rules, see [Storage](/storage).
+Data retention depends on the storage: named storages persist until you delete them, and unnamed storages are removed automatically after a retention period. For the current retention rules, see [Data retention](/storage#data-retention).
+
+## Data durability and backups
+
+The platform protects your data with redundancy, backups, and safeguards against accidental deletion
+
+- Redundancy. The data your Actors collect (datasets, key-value stores, request queues) lives in Amazon S3 and DynamoDB, replicated across multiple Availability Zones - S3 is designed for 99.999999999% (11 nines) durability. The primary database runs as a replicated cluster across zones too, so the loss of a node or zone loses no data.
+- Backups. The primary database is backed up automatically by the managed database service it runs on. These backups let the platform recover from a serious failure; they are not an archive of individual accounts.
+- Deletion safeguards. Data stores carry deletion protection at the infrastructure level, and customer data is erased in two monitored phases: first marked as deleted, then removed permanently. Nothing is destroyed by accident, and deletion completes on time, for example when you delete your account.
 
 ## Availability and resilience
 
