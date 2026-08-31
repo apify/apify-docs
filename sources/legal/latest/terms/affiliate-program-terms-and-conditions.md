@@ -12,7 +12,7 @@ slug: /affiliate-program-terms-and-conditions
 <!-- vale off -->
 <!-- markdownlint-disable -->
 
-Last updated: July 27, 2026
+Last updated: August 18, 2026
 
 ---
 
@@ -47,8 +47,8 @@ Terms starting with a capital letter used in these Affiliate Program Terms have 
 4.1. Unless agreed otherwise, the Commission shall be computed as 20% of all payments made by each Referred Customer to Apify in the first 3 months from the date when that Referred Customer started paying for Services (as defined in the General Terms) and then increased to 30% for all payments made by each Referred Customer to Apify, in each case up to the “**Commission Cap**” applicable to that Referred Customer under Sections 4.2. to 4.4., depending on the respective Affiliate Partner’s tier.
 
 4.2. The Affiliate Partner's tier determines the Commission Cap that applies to each of its Referred Customers:
-(a) **Starter tier**: 0 to 49 Referred Customers with Commission Cap: 2,500 USD per Referred Customer;
-(b) **Performer tier**: 50 or more Referred Customers with Commission Cap: 5,000 USD per Referred Customer;
+(a) **Starter tier**: 0 to 49 currently active paying Referred Customers with Commission Cap: 2,500 USD per Referred Customer;
+(b) **Performer tier**: 50 or more currently active paying Referred Customers with Commission Cap: 5,000 USD per Referred Customer;
 (c) **Elite tier**: an Affiliate Partner admitted to the Elite tier by Apify on an individual basis. The Commission rate and Commission Cap for an Elite Affiliate Partner are those set out in a separate written arrangement between Apify and that Affiliate Partner.
 
 4.3. An Affiliate Partner moves between the Starter and Performer tiers automatically as its number of currently active paying Referred Customers rises to or falls below the threshold in Section 4.2(b). The Commission Cap for a given Referred Customer is fixed at the Commission Cap of the tier the Affiliate Partner was in at the time that person or company became a Referred Customer, and does not change afterward, even if the Affiliate Partner's tier later changes.

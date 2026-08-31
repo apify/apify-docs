@@ -9,8 +9,10 @@ sidebar_label: Monetize
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import RentalSunset from '../../../_partials/_rental-sunsetting.mdx';
+import AgenticPaymentsEligibility from '../../../_partials/_agentic-payments-eligibility.mdx';
 
-Apify Store allows you to monetize your web scraping, automation, and AI agent projects by publishing them as paid Actors.
+
+You can monetize your automation, AI agent, and web scraping projects by publishing them as paid Actors on [Apify Store](https://apify.com/store).
 
 ## Pricing models
 
@@ -21,83 +23,13 @@ You can publish Actors on Apify Store under one of the following pricing models:
 
 For a detailed comparison of pricing models from the perspective of your users, see [Actors in Store](/actors/running/actors-in-store).
 
-## Set up monetization
-
-To set up monetization for your Actor, first complete your billing and payment details. Then, you can define the pricing for your Actor:
-
-1. Log in to [Apify Console](https://console.apify.com).
-1. In the left-side panel, go to **Development** > **My Actors**.
-1. From the table, select the Actor you want to monetize.
-1. Go to the **Publication** tab.
-1. In **Monetization** section, select **Set up monetization**.
-
-The monetization setup consists of three steps:
-
-1. In the **Actor pricing** step, you can:
-    - Modify or delete the [`apify-actor-start`](/actors/publishing/monetize/pay-per-event#synthetic-start-event) event.
-    - Modify or delete the [`apify-default-dataset-item`](/actors/publishing/monetize/pay-per-event#synthetic-default-dataset-item-event) event.
-    - Define [custom events](/actors/publishing/monetize/pay-per-event#actor-events) and their prices.
-    - [Transfer the platform usage costs on to users](/actors/publishing/monetize/pay-per-event#platform-usage-costs).
-    - Set the minimal cost that users can choose as max cost per run.
-1. In the **Primary event** step, select the event that best represents the main value of your Actor. By default, the dataset event or the only existing event is used.
-1. In the **Review** step, verify the final pricing for your Actor before confirming.
-
-![Publication tab in Apify Console](./images/monetization.svg)
-
-### Change monetization
-
-You can change the monetization setting of your Actor by using the same wizard as for the setup in the **Monetization** section of your Actor's **Publication** tab.
-
-Changes are split into two categories: _significant_ and _non-significant_. Non-significant changes take effect immediately, while significant changes require a 14-day notice period to give your users time to adjust.
-
-#### Significant changes
-
-The following changes are considered significant and require a _14-day notice period_:
-
-- Changing the pricing model (e.g., from rental to pay-per-event)
-- Increasing prices
-- Adding new paid events
-
-When you submit a significant change, users of your Actor are notified and the change is scheduled to take effect after 14 days. During this waiting period, the current pricing remains active.
-
-#### Non-significant changes
-
-The following changes take effect **immediately**:
-
-- Decreasing prices
-- Removing events
-- Updating event descriptions
-- Adjusting other non-pricing settings
-
-#### Restrictions on significant changes
-
-:::caution You cannot cancel a planned change
-
-Once you commit to a significant change, you cannot cancel or modify it yourself. If you need to revert a planned change, contact [Apify support](https://apify.com/contact).
-
-:::
-
-Significant changes are limited to _once per month_ per Actor. After submitting a significant change, you must wait for the full cycle to complete before making another one:
-
-1. You submit a significant change. For example, a price increase.
-1. The change takes effect after _14 days_.
-1. You can then submit your next significant change, which also takes _14 days_ to apply.
-
-This means approximately _one month_ passes between committing to one significant change and having the next one take effect. Plan your pricing strategy carefully before committing.
-
-For full details on the rules governing monetization changes, refer to the [Store publishing terms and conditions](/legal/store-publishing-terms-and-conditions).
-
 ## Make your Actor eligible for agentic payments
 
 Agentic payments let AI agents discover, run, and pay for your Actor without an Apify account, using protocols such as [x402](/integrations/x402) and [Skyfire](/integrations/skyfire). Eligible Actors are flagged with `allowsAgenticUsers=true` and surface in agentic discovery, for example when [searching the store via API](https://docs.apify.com/api/v2#/reference/store/store-actors-collection/get-list-of-actors-in-store) with `allowsAgenticUsers=true`.
 
-To be eligible for agentic payments, your Actor must:
+<AgenticPaymentsEligibility />
 
-- Use the [pay-per-event](/actors/publishing/monetize/pay-per-event) pricing model. Rental and pay-per-usage Actors are not supported.
-- Run with [limited permissions](/actors/development/permissions). Actors that request full permissions are excluded.
-- Not use [Standby](/actors/running/standby) mode for now. Standby support is coming later.
-
-Actors that meet these criteria become available to agentic users automatically - there is no separate opt-in.
+Actors that meet these requirements become available to agentic users automatically - there is no separate opt-in.
 
 ## Handle free users
 

@@ -154,7 +154,7 @@
     - "#tag/Actor-tasksLast-run-object-and-its-storages"
   description: |
     The API endpoints described in this section enable you to create, manage, delete, and run Apify Actor tasks.
-    For more information, see the [Actor tasts documentation](https://docs.apify.com/platform/actors/running/tasks).
+    For more information, see the [Actor tasks documentation](https://docs.apify.com/platform/actors/running/tasks).
 
     :::note
 

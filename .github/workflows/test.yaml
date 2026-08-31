@@ -11,10 +11,10 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             -   name: Checkout Source code
-                uses: actions/checkout@v7
+                uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
             -   name: Use Node.js 24
-                uses: actions/setup-node@v7
+                uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
                 with:
                     node-version: 24
 
@@ -63,13 +63,20 @@ jobs:
             -   name: Run header assertions
                 run: |
                     set -euo pipefail
+                    # Child repo paths proxy through to live GitHub Pages, so retry
+                    # transient upstream failures instead of failing the whole job.
+                    # The body must go to a real file, not /dev/null: curl cannot
+                    # rewind /dev/null between retries and exits 23 instead.
+                    body_sink=$(mktemp)
+                    retry_opts=(--retry 3 --retry-all-errors --retry-delay 2 --max-time 30)
+
                     function assert_header() {
                         url=$1
                         header=$2
                         expected=$3
                         shift 3
                         extra_args=("$@")
-                        actual=$(curl -s -D - -o /dev/null "${extra_args[@]}" "$url" | grep -i "^$header" | tr -d '\r' || true)
+                        actual=$(curl -s -D - -o "$body_sink" "${retry_opts[@]}" "${extra_args[@]}" "$url" | grep -i "^$header" | tr -d '\r' | tail -1 || true)
                         echo "→ $url → $actual"
                         echo "$actual" | grep -q "$expected" || (echo "❌ Expected '$expected' in '$header' for $url" && exit 1)
                     }
@@ -79,7 +86,7 @@ jobs:
                         expected=$2
                         shift 2
                         extra_args=("$@")
-                        actual=$(curl -s -o /dev/null -w "%{http_code}" "${extra_args[@]}" "$url")
+                        actual=$(curl -s -o "$body_sink" -w "%{http_code}" "${retry_opts[@]}" "${extra_args[@]}" "$url")
                         echo "→ $url → HTTP $actual"
                         [ "$actual" = "$expected" ] || (echo "❌ Expected HTTP $expected but got $actual for $url" && exit 1)
                     }
@@ -88,9 +95,9 @@ jobs:
                         url=$1
                         shift
                         extra_args=("$@")
-                        response=$(curl -s -D - -o /dev/null -w "\n%{http_code}" "${extra_args[@]}" "$url" 2>/dev/null)
+                        response=$(curl -s -D - -o "$body_sink" -w "\n%{http_code}" "${retry_opts[@]}" "${extra_args[@]}" "$url" 2>/dev/null)
                         status=$(echo "$response" | tail -1)
-                        location=$(echo "$response" | grep -i "^location:" | tr -d '\r' || true)
+                        location=$(echo "$response" | grep -i "^location:" | tr -d '\r' | tail -1 || true)
                         echo "→ $url → HTTP $status ${location:+(${location})}"
                         if [ "$status" = "301" ] || [ "$status" = "302" ]; then
                             echo "❌ Got redirect for $url: $location" && exit 1
@@ -107,7 +114,7 @@ jobs:
                         expected=$2
                         shift 2
                         extra_args=("$@")
-                        actual=$(curl -s -L -o /dev/null -w "%{content_type}" "${extra_args[@]}" "$url")
+                        actual=$(curl -s -L -o "$body_sink" -w "%{content_type}" "${retry_opts[@]}" "${extra_args[@]}" "$url")
                         echo "→ $url → final Content-Type: $actual"
                         echo "$actual" | grep -q "$expected" || (echo "❌ Expected '$expected' in final Content-Type for $url, got '$actual'" && exit 1)
                     }
@@ -121,7 +128,9 @@ jobs:
                     function assert_html_md_alternate() {
                         url=$1
                         expected_href=$2
-                        matched=$(curl -s "$url" | grep -oE '<link [^>]*type="?text/markdown[^>]*>' | grep -F "$expected_href" || true)
+                        : > "$body_sink"
+                        curl -s -o "$body_sink" "${retry_opts[@]}" "$url" || true
+                        matched=$(grep -oE '<link [^>]*type="?text/markdown[^>]*>' "$body_sink" | grep -F "$expected_href" || true)
                         echo "→ $url → ${matched:-no match}"
                         if [ -z "$matched" ]; then
                             echo "❌ Expected <link rel=\"alternate\" type=\"text/markdown\" href=\"$expected_href\"> in HTML for $url"
@@ -237,18 +246,18 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             -   name: Checkout Source code
-                uses: actions/checkout@v7
+                uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
             -   name: Get changed files
                 id: changed-files
-                uses: tj-actions/changed-files@v47
+                uses: tj-actions/changed-files@24d32ffd492484c1d75e0c0b894501ddb9d30d62 # v47.0.0
                 with:
                     files: '**/*.{md,mdx}'
                     files_ignore: '!sources/api/*.{md,mdx}'
                     separator: ","
 
             -   name: Use Node.js 24
-                uses: actions/setup-node@v7
+                uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
                 with:
                     node-version: 24
 
@@ -269,10 +278,10 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             -   name: Checkout Source code
-                uses: actions/checkout@v7
+                uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
             -   name: Use Node.js 24
-                uses: actions/setup-node@v7
+                uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
                 with:
                     node-version: 24
 
@@ -289,11 +298,11 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             -   name: Checkout Source code
-                uses: actions/checkout@v7
+                uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
             -   name: Get changed unoptimized image files in sources
                 id: changed-files
-                uses: tj-actions/changed-files@v47
+                uses: tj-actions/changed-files@24d32ffd492484c1d75e0c0b894501ddb9d30d62 # v47.0.0
                 with:
                     files: |
                         sources/**/*.{png,jpg,jpeg,gif,bmp,tif,tiff,avif}
