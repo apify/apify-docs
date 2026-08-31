@@ -40,7 +40,7 @@ The plugin targets Kimi Code CLI (version `0.x`). Run `kimi --version` to check.
 
 1. Run `/plugins` to open the plugin manager.
 
-1. Press Tab to switch to the **Third-party** tab.
+1. Press Tab to switch to the **Curated** tab.
 
 1. Select **Apify** from the list and press Enter.
 
