@@ -7,11 +7,13 @@ category: platform
 slug: /security
 ---
 
-Apify runs customer code and handles scraped data at scale. Platform security is built around strict tenant isolation, protection of your secrets and data, and a hardened software supply chain. This section covers how the platform is built, Apify's compliance posture, how the platform is secured, and how to report a vulnerability.
+Apify runs customer code and handles scraped data at scale. Platform security is built around strict tenant isolation, protection of your secrets and data, and a hardened software supply chain.
 
-## Platform architecture
+- [Platform architecture](/security/architecture) - how the platform is built and what happens during an Actor run
+- [Shared responsibility model](/security/shared-responsibility) - which security duties are Apify's and which are yours
+- [Vulnerability disclosure policy](/security/vulnerability-disclosure) - scope, safe harbor, and how to report an issue
 
-For how the platform is built - the control and execution planes, what happens during an Actor run, and how workloads stay isolated - see [Platform architecture](/security/architecture).
+Apify's compliance posture and audit reports are covered below.
 
 ## SOC 2 Type II compliance
 
@@ -35,15 +37,3 @@ To learn more about Apify's security practices, data protection measures, and co
 ## Security whitepaper
 
 For a comprehensive description of how the Apify platform is built and operated to protect your data, read the [Apify Security Whitepaper](https://apify.com/security-whitepaper.pdf).
-
-## Shared responsibility
-
-Security on the Apify platform is a partnership: Apify secures the platform, and you secure what you build and run on it. See the [shared responsibility model](/security/shared-responsibility) for the full division of duties and practical guidance for securing your account and workloads.
-
-## Vulnerability disclosure {#vulnerability-disclosure-policy}
-
-If you believe you have found a security vulnerability in the Apify platform or Apify's open-source projects, report it to [security@apify.com](mailto:security@apify.com). Good-faith research within scope is covered by safe harbor. See the [vulnerability disclosure policy](/security/vulnerability-disclosure) for the full scope, testing guidelines, and reporting process.
-
-## Secure your data
-
-The Apify platform gives you several ways to secure your data. Use [encrypted environment variables](/actors/development/programming-interface/environment-variables) for configuration secrets and [encrypted input](/actors/development/actor-definition/input-schema/secret-input) for Actor input parameters.
