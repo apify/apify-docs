@@ -14,9 +14,9 @@ Security controls and the division of responsibilities are covered separately in
 
 A few principles shape most of the decisions described below:
 
-- Isolation by default. Every Actor run executes in its own isolated environment, and one account cannot reach another account's data.
+- Isolation by default. Every Actor run executes in its own isolated environment.
 - Single access path. All reads and writes to platform data go through the authenticated, authorized Apify API. There is no side channel to storage.
-- One region, multiple zones. The platform runs in a single AWS region spread across multiple Availability Zones, which keeps the system resilient without the complexity of cross-region operation.
+- One region, multiple zones. The platform trades the complexity of cross-region operation for resilience within a single region.
 
 ## Control plane and execution plane
 
@@ -38,14 +38,14 @@ As a developer, you interact with the platform through a few surfaces:
 
 The platform runs on Amazon Web Services (AWS) in a single region, spread across multiple Availability Zones. Compute, storage, and queueing are built on managed AWS services, with Linux and containers as the core stack. The primary application database is a MongoDB Atlas cluster, and operational data (request queues, datasets, and key-value stores) is held in Apify storage systems built on DynamoDB and S3.
 
-For the specific region and what it means for data residency, see the [shared responsibility model](/security/shared-responsibility).
+For the specific region, see the [shared responsibility model](/security/shared-responsibility).
 
 ## Anatomy of an Actor run
 
 A single Actor run moves through the platform in the following steps:
 
 1. Request and authentication. A run starts from Apify Console, the Apify API, a schedule, or an integration. The request reaches the Apify API, which authenticates the caller and confirms the caller is allowed to start the run.
-1. Scheduling and placement. An orchestrator queues the run and places it on the compute that runs Actors, and is tuned to minimize startup latency even under load.
+1. Scheduling and placement. An orchestrator queues the run and places it on the compute that runs Actors. The orchestrator is tuned to minimize startup latency even under load.
 1. Startup and scoped token. The run executes in its own isolated environment and receives an API token tied to the owning account. For most Actors, this token is limited to the run's own inputs and storages. Full-permission Actors receive broader access and require one-time owner approval.
 1. Input. The Actor reads its input and any referenced storages through the API.
 1. Execution and outbound traffic. The Actor does its work. When it fetches target websites, that traffic egresses through Apify Proxy, so target sites see proxy IP addresses rather than internal infrastructure.
@@ -89,7 +89,7 @@ The platform protects your data with redundancy, backups, and safeguards against
 
 ## Availability and resilience
 
-The platform is deployed across multiple AWS Availability Zones (physically separate data centers within the region), so the loss of a single zone does not take the platform down. Availability rests on several mechanisms:
+The loss of a single Availability Zone does not take the platform down. Availability rests on several mechanisms:
 
 - Autoscaling. Capacity for both platform services and customer workloads scales up and down with demand, so traffic spikes do not exhaust resources.
 - Rate limiting and throttling. The API enforces per-account rate limits, which contain runaway usage and keep one account's traffic from degrading service for others.
