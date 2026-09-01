@@ -11,7 +11,7 @@ Apify runs customer code and handles scraped data at scale. Platform security is
 
 - [Platform architecture](/security/architecture) - how the platform is built and what happens during an Actor run
 - [Shared responsibility model](/security/shared-responsibility) - which security duties are Apify's and which are yours
-- [Vulnerability disclosure policy](/security/vulnerability-disclosure) - scope, safe harbor, and how to report an issue
+- [Vulnerability disclosure policy](/security/vulnerability-disclosure) - scope, safe harbor, and how to report an issue to [security@apify.com](mailto:security@apify.com)
 
 Apify's compliance posture and audit reports are covered below.
 

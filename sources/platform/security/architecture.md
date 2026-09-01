@@ -14,7 +14,7 @@ Security controls and the division of responsibilities are covered separately in
 
 A few principles shape most of the decisions described below:
 
-- Isolation by default. Every Actor run executes in its own isolated environment.
+- Isolation by default. Every Actor run executes in its own isolated environment, and one account cannot reach another account's data.
 - Single access path. All reads and writes to platform data go through the authenticated, authorized Apify API. There is no side channel to storage.
 - One region, multiple zones. The platform trades the complexity of cross-region operation for resilience within a single region.
 
@@ -89,7 +89,7 @@ The platform protects your data with redundancy, backups, and safeguards against
 
 ## Availability and resilience
 
-The loss of a single Availability Zone does not take the platform down. Availability rests on several mechanisms:
+The loss of a single Availability Zone - a physically separate data center within the region - does not take the platform down. Availability rests on several mechanisms:
 
 - Autoscaling. Capacity for both platform services and customer workloads scales up and down with demand, so traffic spikes do not exhaust resources.
 - Rate limiting and throttling. The API enforces per-account rate limits, which contain runaway usage and keep one account's traffic from degrading service for others.
