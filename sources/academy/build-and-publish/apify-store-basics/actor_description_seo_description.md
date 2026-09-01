@@ -58,7 +58,7 @@ Learn more about search intent here: [SEO](/academy/actor-marketing-playbook/pro
 
 ## Where can Actor descriptions be set?
 
-Both descriptions can be found and edited on the very right **Publication tab →  Display information.** It has to be done separately for each Actor.
+Both descriptions can be found and edited on the very right **Publishing** tab →  **Display information**. It has to be done separately for each Actor.
 
 :::note
 
