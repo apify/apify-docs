@@ -1,14 +1,14 @@
 ---
 title: Platform architecture
 sidebar_label: Architecture
-sidebar_position: 3
-slug: /get-started/architecture
+sidebar_position: 2
+slug: /security/architecture
 description: How the Apify platform is built - control and execution planes, what happens during an Actor run, how workloads stay isolated, and how storage works.
 ---
 
 This page describes how the Apify platform is built: how it is structured, what happens when an Actor runs, how workloads stay isolated, and how data is stored. It is written for developers and technical teams who want a single technical overview of the platform.
 
-For how the platform is secured, see [Security](/security) and the [Apify Security Whitepaper](https://apify.com/security-whitepaper.pdf).
+Security controls and the division of responsibilities are covered separately in the [shared responsibility model](/security/shared-responsibility) and the [Apify Security Whitepaper](https://apify.com/security-whitepaper.pdf).
 
 ## Design principles
 
@@ -63,7 +63,7 @@ Platform services and customer workloads run in separate, isolated compute envir
 - Scoped credentials by default. Each run receives an API token tied to the owning account. Most Actors run with limited permissions, so the token only lets them read their inputs and read or write their own storages. Some Actors need full account access to do their job. These carry a permissions badge, and running one for the first time requires the account owner's explicit, one-time approval. See [Actor permissions](/actors/running/permissions).
 - Ephemeral compute. The platform destroys the environment after each run, so no customer state persists on the worker nodes.
 
-One account cannot reach another account's data. For how this isolation is tested and treated as a security priority, see [Security](/security).
+One account cannot reach another account's data. Cross-tenant data exposure and Actor sandbox escape are treated as priority vulnerability classes in the [vulnerability disclosure policy](/security/vulnerability-disclosure).
 
 ## Apify Proxy
 
@@ -81,7 +81,7 @@ Data retention depends on the storage: named storages persist until you delete t
 
 ## Data durability and backups
 
-The platform protects your data with redundancy, backups, and safeguards against accidental deletion
+The platform protects your data with redundancy, backups, and safeguards against accidental deletion:
 
 - Redundancy. The data your Actors collect (datasets, key-value stores, request queues) lives in Amazon S3 and DynamoDB, replicated across multiple Availability Zones - S3 is designed for 99.999999999% (11 nines) durability. The primary database runs as a replicated cluster across zones too, so the loss of a node or zone loses no data.
 - Backups. The primary database is backed up automatically by the managed database service it runs on. These backups let the platform recover from a serious failure; they are not an archive of individual accounts.

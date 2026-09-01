@@ -7,7 +7,11 @@ category: platform
 slug: /security
 ---
 
-Apify runs customer code and handles scraped data at scale. Platform security is built around strict tenant isolation, protection of your secrets and data, and a hardened software supply chain. This section covers Apify's compliance posture, how the platform is secured, and how to report a vulnerability.
+Apify runs customer code and handles scraped data at scale. Platform security is built around strict tenant isolation, protection of your secrets and data, and a hardened software supply chain. This section covers how the platform is built, Apify's compliance posture, how the platform is secured, and how to report a vulnerability.
+
+## Platform architecture
+
+For how the platform is built - the control and execution planes, what happens during an Actor run, and how workloads stay isolated - see [Platform architecture](/security/architecture).
 
 ## SOC 2 Type II compliance
 
