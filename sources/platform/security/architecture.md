@@ -6,7 +6,7 @@ slug: /security/architecture
 description: How the Apify platform is built - control and execution planes, what happens during an Actor run, how workloads stay isolated, and how storage works.
 ---
 
-This page describes how the Apify platform is built: how it is structured, what happens when an Actor runs, how workloads stay isolated, and how data is stored. It is written for developers and technical teams who want a single technical overview of the platform.
+This page describes how the Apify platform is built: how it is structured, what happens when an Actor runs, how workloads stay isolated, and how data is stored.
 
 Security controls and the division of responsibilities are covered separately in the [shared responsibility model](/security/shared-responsibility) and the [Apify Security Whitepaper](https://apify.com/security-whitepaper.pdf).
 
@@ -36,7 +36,7 @@ As a developer, you interact with the platform through a few surfaces:
 
 ## Cloud infrastructure
 
-The platform runs on Amazon Web Services (AWS) in a single region, spread across multiple Availability Zones. Compute, storage, and queueing are built on managed AWS services, with Linux and containers as the core stack. The primary application database is a MongoDB Atlas cluster, and operational data (request queues, datasets, and key-value stores) is held in Apify storage systems built on DynamoDB and S3.
+The platform runs on Amazon Web Services (AWS) in a single region, spread across multiple Availability Zones. Compute, storage, and queueing are built on managed AWS services, with Linux and containers as the core stack. The primary application database is a MongoDB Atlas cluster, and Apify storage systems built on DynamoDB and S3 hold operational data (request queues, datasets, and key-value stores).
 
 For the specific region, see the [shared responsibility model](/security/shared-responsibility).
 
@@ -59,7 +59,7 @@ For the states a run passes through and how builds relate to runs, see [Runs and
 Platform services and customer workloads run in separate, isolated compute environments, so a customer workload cannot run alongside or interfere with the services that operate the platform. Each run is isolated at several levels:
 
 - Process and filesystem isolation. Every run executes in its own environment with its own filesystem, memory, and CPU. Runs cannot see each other's processes or data.
-- Resource limits. Memory and CPU are capped per run, so one workload cannot starve another. See [Usage and resources](/actors/running/usage-and-resources).
+- Resource limits. The platform caps memory and CPU per run, so one workload cannot starve another. See [Usage and resources](/actors/running/usage-and-resources).
 - Scoped credentials by default. Each run receives an API token tied to the owning account. Most Actors run with limited permissions, so the token only lets them read their inputs and read or write their own storages. Some Actors need full account access to do their job. These carry a permissions badge, and running one for the first time requires the account owner's explicit, one-time approval. See [Actor permissions](/actors/running/permissions).
 - Ephemeral compute. The platform destroys the environment after each run, so no customer state persists on the worker nodes.
 
@@ -93,8 +93,8 @@ The loss of a single Availability Zone - a physically separate data center withi
 
 - Autoscaling. Capacity for both platform services and customer workloads scales up and down with demand, so traffic spikes do not exhaust resources.
 - Rate limiting and throttling. The API enforces per-account rate limits, which contain runaway usage and keep one account's traffic from degrading service for others.
-- Load balancing and redundancy. Platform services run as multiple redundant instances behind load balancers, so a failed instance is routed around automatically.
-- Health checks and self-healing. Unhealthy instances are detected and replaced automatically.
+- Load balancing and redundancy. Platform services run as multiple redundant instances behind load balancers, which route around a failed instance automatically.
+- Health checks and self-healing. The platform detects unhealthy instances and replaces them automatically.
 
 Apify publishes incidents on the [status page](https://status.apify.com) and notifies subscribed users automatically.
 
