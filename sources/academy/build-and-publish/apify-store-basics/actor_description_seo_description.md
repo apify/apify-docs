@@ -14,11 +14,7 @@ Learn about Actor description and meta description. Where to set them and best p
 
 First impressions are important, especially when it comes to tools. Actor descriptions are the first connection potential users have with your Actor. You can set two kinds of descriptions: _regular description_ (in Apify Store) and _SEO description_ (on Google search), along with their respective names: regular name and SEO name.
 
-:::tip
-
 You can change descriptions and names as many times as you want.
-
-:::
 
 ## Regular description vs. SEO description
 
@@ -60,11 +56,7 @@ Learn more about search intent here: [SEO](/academy/actor-marketing-playbook/pro
 
 Both descriptions can be found and edited on the very right **Publishing** tab →  **Display information**. It has to be done separately for each Actor.
 
-:::note
-
 Setting the SEO description and SEO name is optional. If not set, the description will just be duplicated.
-
-:::
 
 ![changing seo name](images/changing__SEO_name.png)
 
