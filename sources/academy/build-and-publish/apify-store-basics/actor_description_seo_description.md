@@ -22,7 +22,7 @@ You can change descriptions and names as many times as you want.
 | --- | --- | --- |
 | Name length | 40-50 characters | 40-50 characters |
 | Description length | 300 characters | 145-155 characters |
-| Visibility  | Visible on Store | Visible on Google |
+| Visibility | Visible on Store | Visible on Google |
 
 ### Description & Actor name
 
