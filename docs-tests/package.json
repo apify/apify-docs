@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.1",
   "type": "module",
-  "packageManager": "pnpm@11.9.0",
+  "packageManager": "pnpm@11.11.0",
   "description": "Docs-as-tests: extract Console-UI claims from sources/platform docs and verify them against staging with Playwright.",
   "scripts": {
     "extract": "bash scripts/extract.sh",
