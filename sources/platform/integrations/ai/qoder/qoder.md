@@ -221,7 +221,7 @@ export APIFY_TOKEN=<YOUR_API_TOKEN>
 
 ## Related integrations
 
-- [Qwen Code integration](/integrations/qwen-code) - Qwen Code uses the same Apify plugin
+- [Qwen integration](/integrations/qwen) - Use Apify in Qwen Code and QwenWork
 - [MCP server integration](/integrations/mcp) - Use the Apify MCP server with other clients
 
 ## Resources

@@ -1,6 +1,6 @@
 ---
 title: Alibaba ecosystem
-description: Use Apify Actors with Alibaba's Qoder and Qwen Code - install the Apify plugin in the Qoder CLI, the Qoder IDE, QoderWork, or Qwen Code to run Actors as tools.
+description: Use Apify Actors with Alibaba's Qoder and Qwen tools - install the Apify plugin in the Qoder CLI, IDE, Desktop app, or QoderWork, in Qwen Code, or in QwenWork.
 sidebar_label: Alibaba ecosystem
 slug: /integrations/qoder
 ---
@@ -8,7 +8,7 @@ slug: /integrations/qoder
 import Card from '@site/src/components/Card';
 import CardGrid from '@site/src/components/CardGrid';
 
-Apify integrates with two [Alibaba](https://www.alibabagroup.com) coding tools through a single Apify plugin: [Qoder](https://qoder.com), an agentic coding platform available as the Qoder CLI, IDE, Desktop app, and QoderWork, and [Qwen Code](https://github.com/QwenLM/qwen-code), an open-source terminal agent. Qwen Code installs Qoder plugins, so it reuses the same plugin with no separate build. Each gives the tool a way to call Apify Actors and read their results.
+Apify integrates with [Alibaba](https://www.alibabagroup.com)'s two agent families. [Qoder](https://qoder.com) is an agentic coding platform available as the Qoder CLI, IDE, Desktop app, and QoderWork. The Qwen family covers [Qwen Code](https://github.com/QwenLM/qwen-code), an open-source terminal coding agent, and [QwenWork](https://qwenwork.ai), a workplace AI agent for documents and knowledge work. Qoder and Qwen Code install the same Apify plugin, while QwenWork connects to the Apify MCP server and skills directly. Each gives the tool a way to call Apify Actors and read their results.
 
 ## What you can build
 
@@ -21,9 +21,9 @@ Apify integrates with two [Alibaba](https://www.alibabagroup.com) coding tools t
         smallImage
     />
     <Card
-        title="Qwen Code"
-        desc="Install the same Apify plugin in Qwen Code to discover, run, and build Actors from the terminal."
-        to="/integrations/qwen-code"
+        title="Qwen"
+        desc="Install the Apify plugin in Qwen Code, or connect the Apify MCP server and skills in QwenWork."
+        to="/integrations/qwen"
         imageUrl="/img/platform/integrations/qwen-code.png"
         smallImage
     />
