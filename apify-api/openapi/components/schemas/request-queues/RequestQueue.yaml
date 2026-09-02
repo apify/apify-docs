@@ -49,4 +49,6 @@ properties:
   stats:
     $ref: ./RequestQueueStats.yaml
   generalAccess:
-    $ref: ../common/GeneralAccess.yaml
+    anyOf:
+      - $ref: ../common/GeneralAccess.yaml
+      - type: "null"

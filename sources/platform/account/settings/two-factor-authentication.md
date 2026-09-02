@@ -1,7 +1,7 @@
 ---
 title: Two-factor authentication
 description: Enable two-factor authentication on your Apify Console account using an authenticator app to add a second layer of security against unauthorized access.
-sidebar_position: 5
+sidebar_position: 1
 category: platform
 slug: /account/two-factor-authentication
 ---
@@ -17,7 +17,7 @@ Thanks to this additional second step, it’s more difficult for an unauthorized
 
 Before you start setting up 2FA, download and configure an authenticator app on your phone. We recommend [Google Authenticator](https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&hl=en_US) or [Authy](https://www.authy.com/).
 
-![Overview of two-factor authentication settings in Apify Console](./images/two-factor-authentication.svg)
+![Overview of two-factor authentication settings in Apify Console](../images/two-factor-authentication.svg)
 
 ### 1. Enable 2FA in Apify Console
 
