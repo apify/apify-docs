@@ -117,7 +117,7 @@ The plugin bundles the Apify MCP server. Read-only tools like searching Apify St
 - **IDE and Desktop:** on the first action that needs your account, the app opens a browser tab for the Apify OAuth flow.
 - **QoderWork:** open the `apify` plugin, and under **Connectors** select **Auth** on the Apify connector.
 
-Review the permissions and allow access to finish signing in. The connection stays authenticated for future sessions, and you can revoke access at any time in [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations).
+Review the permissions and allow access to finish signing in. The connection stays authenticated for future sessions, and you can revoke access at any time in [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations?utm_source=qoder&utm_medium=integrations).
 
 ## Run your first prompt
 
@@ -173,7 +173,7 @@ QoderWake runs digital employees called Wakers. Add the Apify MCP server as a cu
 
 1. Restart QoderWake again. The connector status changes to connected, and the Waker can call the Apify tools.
 
-The Waker gains the Apify MCP tools for searching Apify Store, running Actors, and retrieving datasets. To revoke access later, select **Reset authorization** on the connector, or manage the connection in [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations).
+The Waker gains the Apify MCP tools for searching Apify Store, running Actors, and retrieving datasets. To revoke access later, select **Reset authorization** on the connector, or manage the connection in [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations?utm_source=qoder&utm_medium=integrations).
 
 ### JetBrains plugin
 
@@ -207,7 +207,7 @@ Increase the request timeout for the `apify` server. See [Limitations](#limitati
 
 ### Browser doesn't open, or OAuth fails
 
-If the browser doesn't open automatically, copy the OAuth URL shown by the surface and open it manually. If sign-in still fails, use an API token from [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations):
+If the browser doesn't open automatically, copy the OAuth URL shown by the surface and open it manually. If sign-in still fails, use an API token from [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations?utm_source=qoder&utm_medium=integrations):
 
 ```bash
 export APIFY_TOKEN=<YOUR_API_TOKEN>

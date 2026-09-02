@@ -1,7 +1,7 @@
 ---
 title: Qwen integration
 sidebar_label: Qwen
-description: Use Apify Actors from Alibaba's Qwen tools - install the Apify plugin in Qwen Code, or add the Apify MCP server and upload the skills in QwenWork.
+description: Use Apify Actors with Alibaba's Qwen tools - install the Apify plugin in Qwen Code, or add the Apify MCP server and upload the skills in QwenWork.
 slug: /integrations/qwen
 ---
 
@@ -9,8 +9,8 @@ import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integrati
 
 Alibaba ships two agent tools under the Qwen name, and both can call Apify [Actors](https://apify.com/store). They connect to Apify in different ways:
 
-- **[Qwen Code](#qwen-code)** is an open-source agentic coding tool that runs in your terminal. It installs Qoder plugins, so it reuses the full [Apify plugin built for Qoder](https://github.com/apify/apify-qoder-plugin) - the Apify MCP server, the `apify` routing agent, and five skills - with no separate build.
-- **[QwenWork](#qwenwork)** is an all-in-one workplace AI agent for documents, data, and knowledge work, available as a desktop and web app. It is not a plugin host, so you connect the [Apify MCP server](/integrations/mcp) as a custom connector and upload the Apify skills individually.
+- **[Qwen Code](#qwen-code)** is an open-source agentic coding tool that runs in your terminal. It supports the Qoder plugin format, so it installs the full [Apify plugin built for Qoder](https://github.com/apify/apify-qoder-plugin) - the Apify MCP server, the `apify` routing agent, and five skills - with no separate build.
+- **[QwenWork](#qwenwork)** is an all-in-one workplace AI agent for documents, data, and knowledge work, available as desktop and web apps. It is not a plugin host, so you connect the [Apify MCP server](/integrations/mcp) as a custom connector and upload the Apify skills individually.
 
 <ThirdPartyDisclaimer />
 
@@ -47,7 +47,7 @@ Qwen Code installs the Apify plugin from its ZIP archive with the `qwen extensio
     qwen extensions install ./apify-qoder-plugin-<version>.zip
     ```
 
-    Qwen Code converts the Qoder manifest to its own `qwen-extension.json`, registers the bundled skills and the `apify` agent, and adds the Apify MCP server from the plugin's root `.mcp.json`.
+    Qwen Code converts the Qoder manifest to its own `qwen-extension.json`. It registers the bundled skills and the `apify` agent, then adds the Apify MCP server from the plugin's root `.mcp.json`.
 
 1. Restart Qwen Code so the extension and its MCP server load.
 
@@ -71,7 +71,7 @@ The plugin bundles the Apify MCP server and connects to its default endpoint, wh
 
 1. Back in the terminal, the `apify` server status changes to connected and the Apify tools become available.
 
-The connection stays authenticated for future sessions. You can revoke access at any time in [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations).
+The connection stays authenticated for future sessions. You can revoke access at any time in [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations?utm_source=qwen&utm_medium=integrations).
 
 ### Run your first prompt
 
@@ -115,7 +115,7 @@ Add the Apify MCP server under **Extensions > Connectors**. It authenticates thr
 
 1. Sign in to Apify and allow access. The browser redirects back to QwenWork, and the connector connects.
 
-The Apify tools for searching Apify Store, running Actors, and retrieving datasets are then available in tasks and chat. You can also paste a JSON configuration instead of filling the form. To revoke access later, remove the connector or manage the connection in [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations).
+The Apify tools for searching Apify Store, running Actors, and retrieving datasets are then available in tasks and chat. You can also paste a JSON configuration instead of filling in the form. To revoke access later, remove the connector or manage the connection in [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations?utm_source=qwen&utm_medium=integrations).
 
 ### Add the Apify skills
 
@@ -138,6 +138,10 @@ QwenWork uses an installed skill automatically when a task matches the trigger c
 With the connector added, describe a task in natural language and QwenWork calls the Apify tools:
 
 > Use Apify to find 10 highly rated coffee shops in Seattle with name, address, rating, phone, and website.
+
+To scope a source directly, name the Actor's target:
+
+> Use Apify to scrape the latest 50 posts from a public Instagram profile and return them as a table.
 
 ## Bundled skills
 
@@ -177,15 +181,12 @@ This affects Qwen Code. An older plugin build declared the MCP endpoint only und
 
 ### Browser doesn't open, or OAuth fails
 
-In Qwen Code, if the browser doesn't open automatically, copy the authorization URL from the terminal and open it manually. If the flow still fails, authenticate the `apify` server with an API token by adding an `Authorization: Bearer <APIFY_TOKEN>` header to its configuration - see [Bearer token authentication](/integrations/mcp) for the exact shape. Copy your token from [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations).
+If the sign-in page doesn't open or the server stays disconnected:
 
-In QwenWork, the connector signs in through OAuth. If the authorization page doesn't open or the connector stays disconnected, remove the connector and add it again to restart the sign-in.
+- **Qwen Code:** copy the authorization URL from the terminal and open it manually. If sign-in still fails, add an `Authorization: Bearer <APIFY_TOKEN>` header to the `apify` server in `~/.qwen/settings.json` under `mcpServers` - see [Bearer token authentication](/integrations/mcp) for the shape.
+- **QwenWork:** remove the connector and add it again. If OAuth still won't complete, re-add it with an `Authorization` header set to `Bearer <APIFY_TOKEN>`.
 
-Setting `APIFY_TOKEN` in your shell doesn't authenticate the MCP server. It covers the Apify CLI and `apify-client`, which the Actor development, actorization, and SDK integration skills use, so those skills keep working without MCP access. For them, run `apify login` once, or set the variable in a headless environment:
-
-```bash
-export APIFY_TOKEN=<YOUR_API_TOKEN>
-```
+Get the token from [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations?utm_source=qwen&utm_medium=integrations). Setting `APIFY_TOKEN` in your shell doesn't authenticate the MCP server; it only covers the Apify CLI and `apify-client` used by the Actor development, actorization, and SDK integration skills, so run `apify login` once for those.
 
 ## Limitations
 
