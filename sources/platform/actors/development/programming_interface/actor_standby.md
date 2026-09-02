@@ -170,23 +170,25 @@ async def main() -> None:
 </TabItem>
 </Tabs>
 
+## Run lifecycle in Standby mode
+
+The platform starts and stops Standby runs automatically based on the incoming request load. A run that receives no requests within the idle timeout is terminated, and a new run starts when requests arrive again. Don't keep data only in the run's memory: persist anything you need to a [storage](../../../storage/index.md). To learn how scaling works and how to configure it, see the [scaling](../../running/actor_standby.md#is-there-any-scaling-to-accommodate-the-incoming-requests) and [Standby configuration](../../running/actor_standby.md#how-do-i-customize-standby-configuration) sections.
+
 ## Timeouts
 
 When you send a request to an Actor in Standby mode, the total timeout for receiving the first response is _5 minutes_. Before the platform forwards the request to a specific Actor run, it performs a _run selection_ process to determine the specific Actor run that will handle it. This process has internal timeout of _2 minutes_.
-
-The platform automatically starts and stops Standby runs based on the incoming request load. Runs that receive no requests within the configured idle timeout are terminated, so make sure your Actor [persists its state](./system_events.md) if it needs to survive restarts. To learn how the scaling works and how to configure it, see the [scaling](../../running/actor_standby.md#is-there-any-scaling-to-accommodate-the-incoming-requests) and [Standby configuration](../../running/actor_standby.md#how-do-i-customize-standby-configuration) sections.
 
 ## Getting the URL of the Standby Actor
 
 The URL is exposed as an environment variable `ACTOR_STANDBY_URL`. You can also use `Actor.config`, where the `standbyUrl` option is available.
 
-The Standby URL is based on the Actor owner's username and the Actor name, for example:
+The URL is based on the Actor owner's username and the Actor name, for example:
 
 ```text
 https://jane-doe--my-actor.apify.actor
 ```
 
-Unlike the URL of the [container web server](./container_web_server.md), which is unique to each run and stops working when the run finishes, the Standby URL is the same for all runs of the Actor. You can share it publicly, for example in your Actor's README or in an external application that calls the Actor. Always read the URL from the environment variable or the SDK configuration instead of constructing it yourself, as the exact format can vary.
+Unlike the [container web server](./container_web_server.md) URL, which changes with every run, the Standby URL stays the same for all runs of the Actor. You can share it publicly or hardcode it in applications that call the Actor. Note that the exact hostname format differs for some Actors, so always read the URL from the environment variable or the SDK configuration instead of building it from the username and Actor name.
 
 Requests to the Standby URL are authenticated with the caller's Apify API token. To learn how users authenticate their requests, see the [Actor Standby](../../running/actor_standby.md#how-do-i-authenticate-my-requests) page.
 
