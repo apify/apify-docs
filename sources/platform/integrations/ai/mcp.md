@@ -315,6 +315,11 @@ If the `tools` parameter includes any other tool, or you connect to the default 
 | `get-key-value-store-record` | storage | | Get the value associated with a specific key in a key-value store |
 | `get-dataset-list` | storage | | List all available datasets for the user |
 | `get-key-value-store-list` | storage | | List all available key-value stores for the user |
+| `get-actor-task` | tasks | | Get a saved Actor task, its publication state, and its public display configuration |
+| `create-actor-task` | tasks | | Create a saved Actor task: a named, reusable Actor configuration |
+| `update-actor-task` | tasks | | Update a task's input, run options, or the display configuration of its landing page |
+| `publish-actor-task` | tasks | | Publish a task on its public landing page |
+| `unpublish-actor-task` | tasks | | Unpublish a task from its public landing page |
 | `get-actor-output`* | - | ✅ | Retrieve the output from an Actor call which is not included in the output preview of the Actor tool. |
 
 :::note Retrieving full output
