@@ -62,14 +62,14 @@ Before we start, let's do a quick recap of the data we chose to scrape:
    5. **Last modification date** - When the Actor was last modified.
    6. **Number of runs** - How many times the Actor was run.
 
-![$1](https://raw.githubusercontent.com/apify/actor-scraper/master/docs/img/scraping-practice.webp)
+![Actor detail page in Apify Store showing the data points to scrape](./images/scraping-practice.jpg)
 
 We've already scraped numbers 1 and 2 in the [Getting started with Apify scrapers](/academy/apify-scrapers/getting-started)
 tutorial, so let's get to the next one on the list: title.
 
 ### Title
 
-![$1](https://raw.githubusercontent.com/apify/actor-scraper/master/docs/img/title.webp)
+![DevTools showing the title h1 element inside the header tag](./images/title.jpg)
 
 By using the element selector tool, we find out that the title is there under an `<h1>` tag, as titles should be.
 Maybe surprisingly, we find that there are actually two `<h1>` tags on the detail page. This should get us thinking.
@@ -108,7 +108,7 @@ is automatically passed back to the Node.js context, so we receive an actual `st
 Getting the Actor's description is a little more involved, but still pretty straightforward. We cannot search for a `<p>` tag, because there's a lot of them in the page. We need to narrow our search down a little. Using the DevTools we find that the Actor description is nested within
 the `<header>` element too, same as the title. Moreover, the actual description is nested inside a `<span>` tag with a class `actor-description`.
 
-![$1](https://raw.githubusercontent.com/apify/actor-scraper/master/docs/img/description.webp)
+![DevTools showing the description span element inside the header](./images/description.jpg)
 
 ```js
 async function pageFunction(context) {
@@ -426,7 +426,7 @@ div.show-more > button
 
 > Don't forget to confirm our assumption in the DevTools finder tool (CTRL/CMD + F).
 
-![$1](https://raw.githubusercontent.com/apify/actor-scraper/master/docs/img/waiting-for-the-button.webp)
+![DevTools confirming the Show more button selector](./images/waiting-for-the-button.jpg)
 
 Now that we know what to wait for, we plug it into the `waitFor()` function.
 
@@ -579,7 +579,7 @@ through all the Actors and then scrape all of their data. After it succeeds, ope
 You've successfully scraped Apify Store. And if not, no worries, go through the code examples again,
 it's probably just a typo.
 
-![$1](https://raw.githubusercontent.com/apify/actor-scraper/master/docs/img/plugging-it-into-the-pagefunction.webp)
+![Dataset preview showing all scraped Actor data](./images/plugging-it-into-the-pagefunction.jpg)
 
 ## Downloading the scraped data
 
