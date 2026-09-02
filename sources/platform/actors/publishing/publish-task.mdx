@@ -144,9 +144,7 @@ Creating a task never publishes it. There are three steps:
 
 1. Create the task with its input.
 1. Fill in the task's `title` and `description`, and its public display configuration (`publicConfig`).
-1. Publish it by setting `isPublic` to `true`, or by calling `publish()` in the clients.
-
-Steps 2 and 3 can go in one request, as in the example below.
+1. Publish it by setting `isPublic` to `true`, or by calling `publish()` in the API clients.
 
 ### Requirements
 
@@ -177,7 +175,7 @@ The requirements above still apply. The agent fills in the display configuration
 
 ### Publish with the API
 
-Create the task with [Create task](/api/v2/actor-tasks-post), then configure and publish it with [Update task](/api/v2/actor-task-put):
+Create the task with [Create task API endpoint](/api/v2/actor-tasks-post), then configure and publish it with [Update task API endpoint](/api/v2/actor-task-put):
 
 ```http
 PUT /v2/actor-tasks/{actorTaskId}
