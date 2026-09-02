@@ -52,9 +52,9 @@ Variables prefixed with `ACTOR_` are defined by the [Actor specification](https:
 | `ACTOR_BUILD_NUMBER` | Build number of the Actor build used in the run. |
 | `ACTOR_BUILD_TAGS` | A comma-separated list of tags of the Actor build used in the run. Note that this environment variable is assigned at the time of start of the Actor and doesn't change over time, even if the assigned build tags change. |
 | `ACTOR_TASK_ID` | ID of the Actor task. Empty if Actor is run outside of any task, e.g. directly using the API. |
-| `ACTOR_WEB_SERVER_URL` | Unique public URL for accessing the Actor run web server from the outside world. |
+| `ACTOR_WEB_SERVER_URL` | Unique public URL for accessing the Actor run web server from the outside world. Each run gets its own URL, which stops working when the run finishes. |
 | `ACTOR_WEB_SERVER_PORT` | TCP port for the Actor to start an HTTP server on. This server can be used to receive external messages or expose monitoring and control interfaces. The server also receives messages from the [Actor Standby](/actors/development/programming-interface/standby) mode. |
-| `ACTOR_STANDBY_URL` | URL for accessing web servers of Actor runs in the [Actor Standby](/actors/development/programming-interface/standby) mode. |
+| `ACTOR_STANDBY_URL` | Public URL of the Actor in [Actor Standby](/actors/development/programming-interface/standby) mode. Unlike `ACTOR_WEB_SERVER_URL`, this URL is the same for all runs of the Actor and is intended to be shared publicly. |
 | `ACTOR_EVENTS_WEBSOCKET_URL` | Websocket URL where Actor may listen for [events](/actors/development/programming-interface/system-events) from Actor platform. |
 | `ACTOR_MCP_CONNECTOR_BASE_URL` | Base URL of the Apify MCP Proxy. Connect to an [MCP connector](/integrations/mcp-connectors) at `${ACTOR_MCP_CONNECTOR_BASE_URL}/<connectorId>` using `APIFY_TOKEN` as the bearer token. |
 
