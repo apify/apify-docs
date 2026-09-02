@@ -8,9 +8,11 @@ slug: /ai-tools/plugin
 
 The Apify plugin is the shortest way to connect a coding agent to Apify: one install configures the MCP server and Agent Skills together, instead of setting each up separately.
 
-Apify maintains a plugin per client, because each client has its own plugin format and install flow. What the plugins bundle differs slightly, so check [what your client gets](#coverage-by-client) before you start.
+Apify maintains a plugin per client, because each client has its own plugin format and install flow. What the plugins bundle differs by client, so check [what your client gets](#coverage-by-client) before you start.
 
 ## What a plugin bundles
+
+Most plugins bundle three things:
 
 - The [Apify MCP server](/integrations/mcp) (`https://mcp.apify.com`) for the live connection to the platform. Its configuration ships inside the plugin, so you never edit an MCP config file by hand.
 - An `apify` routing agent that picks the right tool or skill from a natural-language request, so you don't have to name tools yourself.
@@ -27,6 +29,12 @@ Apify maintains a plugin per client, because each client has its own plugin form
 | [Codex CLI](/integrations/codex-cli) | [`apify/apify-codex-plugin`](https://github.com/apify/apify-codex-plugin) | Yes | No | Yes |
 | [OpenCode](/integrations/opencode) | [`opencode-apify`](https://www.npmjs.com/package/opencode-apify) | Yes | No | No |
 | [OpenClaw](/integrations/openclaw) | `@apify/apify-openclaw-plugin` | Yes | No | No |
+| [Qoder CLI](/integrations/qoder-cli) | [`apify/apify-qoder-plugin`](https://github.com/apify/apify-qoder-plugin) | Yes | Yes | Yes |
+| [Qoder IDE](/integrations/qoder-ide) | [`apify/apify-qoder-plugin`](https://github.com/apify/apify-qoder-plugin) | Yes | Yes | Yes |
+| [QoderWork](/integrations/qoder-work) | [`apify/apify-qoder-plugin`](https://github.com/apify/apify-qoder-plugin) | Yes | Yes | Yes |
+| [Hermes Agent](/integrations/hermes-agent) | `apify-hermes-agent-plugin` | No | No | No |
+
+Hermes Agent is the exception to the pattern above. Its plugin doesn't carry the MCP server. It registers three dedicated tools instead - `apify_discover`, `apify_start`, and `apify_collect` - which the agent calls directly.
 
 If your client isn't listed, connect the [MCP server](/integrations/mcp) directly and install [Agent Skills](/ai-tools/skills) separately. The [MCP configurator](https://mcp.apify.com) generates a config for most clients.
 
@@ -40,6 +48,8 @@ Install flows differ per client. Some use a plugin marketplace, some a command p
 - [Codex app](/integrations/codex-app) and [Codex CLI](/integrations/codex-cli) - add the marketplace with the `/plugins` command.
 - [OpenCode](/integrations/opencode) - `opencode plugin opencode-apify`.
 - [OpenClaw](/integrations/openclaw) - `openclaw plugins install @apify/apify-openclaw-plugin`.
+- [Qoder CLI](/integrations/qoder-cli), [Qoder IDE](/integrations/qoder-ide), and [QoderWork](/integrations/qoder-work) - install from the Qoder Marketplace.
+- [Hermes Agent](/integrations/hermes-agent) - `pip install apify-hermes-agent-plugin`, then `hermes plugins enable apify`.
 
 Every plugin needs authentication before it can run Actors. Read-only tools such as searching Apify Store and fetching Actor details work without signing in.
 
