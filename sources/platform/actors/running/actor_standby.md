@@ -15,6 +15,7 @@ in the background, waiting for the incoming HTTP requests. In a sense, the Actor
 You will know that the Actor is enabled for Standby mode if you see the **Standby** tab on the Actor's detail page.
 In the tab, you will find the hostname of the server, the description of the Actor's endpoints,
 the parameters they accept, and what they return in the Actor README.
+If the Actor defines a [web server schema](../development/actor_definition/web_server_schema/index.md), the tab also shows an interactive list of its endpoints, where you can send requests directly from the browser.
 
 To use the Actor in Standby mode, you don't need to click a start button or not need to do anything else. Simply use the provided hostname and endpoint in your application,
 hit the API endpoint and get results.
