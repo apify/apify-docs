@@ -1,5 +1,5 @@
 ---
-title: 🦜🔗 LangChain integration
+title: LangChain integration
 sidebar_label: LangChain
 description: Learn how to integrate Apify with LangChain to feed vector databases and large language models with web data crawled from the web using Actors.
 slug: /integrations/langchain
@@ -7,28 +7,49 @@ slug: /integrations/langchain
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
-> For more information on LangChain visit its [documentation](https://docs.langchain.com/oss/python/langchain/overview). The Apify integration lives in the [langchain-apify](https://github.com/apify/langchain-apify) repository.
+[LangChain](https://docs.langchain.com/oss/python/langchain/overview) is a framework for building applications on top of large language models. The `langchain-apify` package connects Apify Actors to it. Use it to pull live web data into a vector index for retrieval, or to give an agent a set of scraping tools it can call on its own. The package lives in the [langchain-apify](https://github.com/apify/langchain-apify) repository and is currently available for Python only.
+
+Start with the [quick start](#quick-start) to scrape a single URL and confirm your setup. Then [load web data into a vector index](#load-web-data-into-a-vector-index) to crawl a site and answer questions from it, [use Actors as LangChain tools](#use-actors-as-langchain-tools) to bind search, crawling, and social media tools to an agent, or browse the [tool reference](#tool-reference), which lists all 19 tools and the Actor each one wraps. For stateful or multi-agent workflows, see the [LangGraph integration](/integrations/langgraph), which uses the same package.
 
 <ThirdPartyDisclaimer />
 
-In this example, we'll use the [Website Content Crawler](https://apify.com/apify/website-content-crawler) Actor, which can deeply crawl websites such as documentation, knowledge bases, help centers, or blogs and extract text content from the web pages.
-Then we feed the documents into a vector index and answer questions from it.
+## Quick start
 
-This example demonstrates how to integrate Apify with LangChain in Python.
+Install the package:
 
-:::info Python only
+```bash
+pip install langchain-apify
+```
 
-The `langchain-apify` package is currently available for Python only.
+Then scrape a page to markdown with a single tool. This needs no LLM and no OpenAI key:
 
-:::
+```python
+import os
 
-Before we start with the integration, we need to install all dependencies:
+from langchain_apify import ApifyScrapeUrlTool
+
+os.environ["APIFY_TOKEN"] = "Your Apify API token"
+
+tool = ApifyScrapeUrlTool()
+print(tool.invoke({"url": "https://docs.apify.com"}))
+```
+
+Find your token in [Apify Console](https://console.apify.com/settings/integrations). The tool returns a JSON string holding the run's metadata and the scraped markdown, in the single item's `content` field.
+
+## Load web data into a vector index
+
+This example uses the [Website Content Crawler](https://apify.com/apify/website-content-crawler) Actor, which can deeply crawl websites such as documentation, knowledge bases, help centers, or blogs and extract text content from the web pages.
+You then feed the documents into a vector index and answer questions from it.
+
+### Install the packages
+
+Install all dependencies first:
 
 ```bash
 pip install langchain-openai langchain-apify
 ```
 
-After successful installation of all dependencies, we can start writing code.
+### Import the packages
 
 First, import all required packages:
 
@@ -43,16 +64,18 @@ from langchain_openai import ChatOpenAI
 from langchain_openai.embeddings import OpenAIEmbeddings
 ```
 
-Find your [Apify API token](https://console.apify.com/settings/integrations) and [OpenAI API key](https://platform.openai.com/account/api-keys) and initialize these into environment variable:
+### Set the environment variables
+
+Find your [Apify API token](https://console.apify.com/settings/integrations) and [OpenAI API key](https://platform.openai.com/account/api-keys) and initialize them as environment variables:
 
 ```python
 os.environ["OPENAI_API_KEY"] = "Your OpenAI API key"
 os.environ["APIFY_TOKEN"] = "Your Apify API token"
 ```
 
-Run the Actor, wait for it to finish, and fetch its results from the Apify dataset into a LangChain document loader.
+### Crawl a website
 
-Note that if you already have some results in an Apify dataset, you can load them directly using `ApifyDatasetLoader`, as shown in [this notebook](https://github.com/langchain-ai/langchain/blob/fe1eb8ca5f57fcd7c566adfc01fa1266349b72f3/docs/modules/indexes/document_loaders/examples/apify_dataset.ipynb). In that notebook, you'll also find the explanation of the `dataset_mapping_function`, which is used to map fields from the Apify dataset records to LangChain `Document` fields.
+Run the Actor, wait for it to finish, and fetch its results from the Apify dataset into a LangChain document loader:
 
 ```python
 apify = ApifyWrapper()
@@ -72,6 +95,27 @@ loader = apify.call_actor(
 The Actor call may take some time as it crawls the LangChain documentation website.
 
 :::
+
+The `dataset_mapping_function` converts each raw Apify dataset item into a LangChain `Document`, mapping dataset fields (for example `text` and `url`) onto the `Document`'s `page_content` and `metadata`. Whatever keys the function assigns to `metadata` are the ones available downstream.
+
+#### Load results from an existing dataset
+
+If the results are already in an Apify dataset, skip the Actor call and load them directly with `ApifyDatasetLoader`, passing the dataset ID and the same kind of mapping function:
+
+```python
+from langchain_apify import ApifyDatasetLoader
+from langchain_core.documents import Document
+
+loader = ApifyDatasetLoader(
+    dataset_id="your-dataset-id",
+    dataset_mapping_function=lambda item: Document(
+        page_content=item["text"] or "", metadata={"source": item["url"]}
+    ),
+)
+documents = loader.load()
+```
+
+### Build and query the vector index
 
 Initialize the vector index from the crawled documents:
 
@@ -97,6 +141,8 @@ sources = ", ".join({doc.metadata["source"] for doc in docs})
 print("answer:", answer)
 print("source:", sources)
 ```
+
+### Run the complete example
 
 If you want to test the whole example, you can simply create a new file, `langchain_integration.py`, and copy the whole code into it.
 
@@ -151,8 +197,7 @@ answer: LangChain is a framework designed for developing applications powered by
 source: https://docs.langchain.com/oss/python/langchain/quickstart
 ```
 
-LangChain is a standard interface through which you can interact with a variety of large language models (LLMs).
-It provides modules you can use to build language model applications as well as chains and agents with memory capabilities.
+### Use a different Actor
 
 You can use all of Apify’s Actors as document loaders in LangChain.
 For example, to incorporate web browsing functionality, you can use the [RAG-Web-Browser Actor](https://apify.com/apify/rag-web-browser).
@@ -242,31 +287,7 @@ Most tools return a JSON string with two keys: `run` (run metadata such as `stat
 
 ### Give the tools to an agent
 
-To let a model decide when to call the tools, bind a tool list to an agent. The example below uses LangGraph's prebuilt ReAct agent, so install it alongside the previous dependencies:
-
-```bash
-pip install langgraph
-```
-
-```python
-import os
-
-from langchain_apify import APIFY_SEARCH_TOOLS
-from langchain_openai import ChatOpenAI
-from langgraph.prebuilt import create_react_agent
-
-os.environ["OPENAI_API_KEY"] = "Your OpenAI API key"
-os.environ["APIFY_TOKEN"] = "Your Apify API token"
-
-model = ChatOpenAI(model="gpt-5.4-mini")
-tools = [tool_cls() for tool_cls in APIFY_SEARCH_TOOLS]
-agent = create_react_agent(model, tools)
-
-response = agent.invoke(
-    {"messages": [("human", "Search the web and tell me what Apify is.")]}
-)
-print(response["messages"][-1].content)
-```
+To let a model decide when to call the tools, bind a tool list to an agent. The [LangGraph integration](/integrations/langgraph) covers that end to end: installing `langgraph`, binding one tool or a whole set, and streaming the agent's steps as it works.
 
 ### Retrieve documents for RAG
 
@@ -335,7 +356,13 @@ tool = ApifyActorsTool("apify/google-trends-scraper")
 result = tool.invoke({"run_input": {"searchTerms": ["web scraping", "data extraction"]}})
 ```
 
+## Next steps
+
+To bind these tools to a stateful agent and stream its steps as it works, continue to the [LangGraph integration](/integrations/langgraph).
+
 ## Resources
 
+- [Apify Actors](/actors)
 - [LangChain quickstart](https://docs.langchain.com/oss/python/langchain/quickstart)
+- [LangChain Apify provider page](https://docs.langchain.com/oss/python/integrations/providers/apify)
 - [langchain-apify repository](https://github.com/apify/langchain-apify)
