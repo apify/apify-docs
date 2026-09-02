@@ -157,9 +157,9 @@ A task can only be published when all of the following hold:
 - `publicConfig.inputSchemaFields` names at least one field that exists in the task's input. These are the input values shown on the page.
 - `publicConfig.datasetView` is one of the view keys declared in the Actor's [dataset schema](/storage/dataset-schema). Set `publicConfig.datasetName` too if the Actor declares more than one dataset.
 - You have write access to both the task and its Actor.
-- The Actor has fewer than 50 published tasks.
+- The Actor has fewer than 10 published tasks.
 
-`publicConfig.seoTitle` (up to 60 characters) and `publicConfig.seoDescription` (up to 160 characters) are optional. They feed search results only, and fall back to the task's title and description when empty.
+`publicConfig.seoTitle` (up to 60 characters) and `publicConfig.seoDescription` (up to 160 characters) are optional. They appear in search results only and fall back to the task's title and description when empty. Search engines display only that much text, so they cut a longer title or 400-character description if you leave these fields empty.
 
 If any requirement is unmet, the request fails and none of the update is applied, so the task never ends up half-configured.
 
@@ -185,10 +185,9 @@ Content-Type: application/json
 
 {
     "title": "Track competitors' store locations",
-    "description": "Collects store addresses and opening hours for a list of competitor brands.",
+    "description": "Looks up each brand name you provide on Google Maps and collects its store addresses, opening hours, and coordinates. Use the results to compare competitor coverage in a city or region and to find gaps in your own network.",
     "isPublic": true,
     "publicConfig": {
-        "seoTitle": "Competitor store location tracker",
         "seoDescription": "Get addresses and opening hours for any list of competitor brands.",
         "inputSchemaFields": ["searchStringsArray", "maxCrossedDistance"],
         "datasetView": "overview"
@@ -233,13 +232,13 @@ const task = await client.tasks().create({
     actId: 'nwua9Gu5YrADL7ZDj',
     name: 'competitor-store-locations',
     title: "Track competitors' store locations",
-    description: 'Collects store addresses and opening hours for a list of competitor brands.',
+    description: 'Looks up each brand name you provide on Google Maps and collects its store addresses, opening hours, and coordinates. Use the results to compare competitor coverage in a city or region and to find gaps in your own network.',
     input: { searchStringsArray: ['coffee shop'], maxCrossedDistance: 1000 },
 });
 
 await client.task(task.id).update({
     publicConfig: {
-        seoTitle: 'Competitor store location tracker',
+        seoDescription: "Get addresses and opening hours for any list of competitor brands.",
         inputSchemaFields: ['searchStringsArray', 'maxCrossedDistance'],
         datasetView: 'overview',
     },
