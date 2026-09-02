@@ -1,15 +1,15 @@
 ---
-title: Apify AI tools
+title: Apify agent tools
 sidebar_label: Overview
 description: Connect an AI coding agent to Apify. Compare the MCP server, plugins, Agent Skills, and machine-readable docs, then pick the setup for your client.
 sidebar_position: 0
-slug: /ai-tools
+slug: /agent-tools
 ---
 
 import Card from '@site/src/components/Card';
 import CardGrid from '@site/src/components/CardGrid';
 
-AI agents reach Apify through a live connection over the [MCP server](/integrations/mcp), a one-step [plugin](/ai-tools/plugin) for supported clients, [Agent Skills](/ai-tools/skills) that carry procedural knowledge, and [machine-readable documentation](/ai-tools/docs-for-agents). These stack rather than compete, and most setups use more than one.
+AI agents reach Apify through a live connection over the [MCP server](/integrations/mcp), a one-step [plugin](/agent-tools/plugin) for supported clients, [Agent Skills](/agent-tools/skills) that carry procedural knowledge, and [machine-readable documentation](/agent-tools/docs-for-agents). These stack rather than compete, and most setups use more than one.
 
 If you want the shortest path from zero to a first Actor run, start with the [agent quickstart](/get-started/agent-onboarding).
 
@@ -27,7 +27,7 @@ The MCP server gives an agent *capability*; Agent Skills give it *procedure*. An
 
 ## Choose a path
 
-- If your coding agent has a [plugin](/ai-tools/plugin), install that. It configures MCP and skills together, so there's nothing else to wire up.
+- If your coding agent has a [plugin](/agent-tools/plugin), install that. It configures MCP and skills together, so there's nothing else to wire up.
 - For a chat client or an agent framework, connect the [MCP server](/integrations/mcp) directly. LangChain, CrewAI, the Vercel AI SDK, and other frameworks have their own guides under [AI integrations](/integrations/ai).
 - To call Apify from your own application code, use a [client library or the REST API](/get-started/agent-onboarding#choose-your-integration-method).
 
@@ -35,21 +35,21 @@ The MCP server gives an agent *capability*; Agent Skills give it *procedure*. An
     <Card
         title="Plugin"
         desc="One install that bundles the MCP server, the apify routing agent, and Agent Skills."
-        to="/ai-tools/plugin"
+        to="/agent-tools/plugin"
         imageUrl="/img/platform/integrations/emoji-pluggable.svg"
         smallImage
     />
     <Card
         title="Agent Skills"
         desc="Procedural knowledge your agent loads on demand for Apify workflows."
-        to="/ai-tools/skills"
+        to="/agent-tools/skills"
         imageUrl="/img/platform/integrations/emoji-actor-to-actor.svg"
         smallImage
     />
     <Card
         title="Docs for agents"
         desc="Markdown endpoints, llms.txt indexes, and every other machine-readable surface."
-        to="/ai-tools/docs-for-agents"
+        to="/agent-tools/docs-for-agents"
         imageUrl="/img/platform/integrations/emoji-api.svg"
         smallImage
     />

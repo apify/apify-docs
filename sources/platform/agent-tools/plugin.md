@@ -3,7 +3,7 @@ title: Apify plugin for AI coding agents
 sidebar_label: Plugin
 description: Install the Apify plugin to give a coding agent the MCP server, the apify routing agent, and Agent Skills in one step. Compare coverage per client.
 sidebar_position: 1
-slug: /ai-tools/plugin
+slug: /agent-tools/plugin
 ---
 
 The Apify plugin is the shortest way to connect a coding agent to Apify: one install configures the MCP server and Agent Skills together, instead of setting each up separately.
@@ -16,7 +16,7 @@ Most plugins bundle three things:
 
 - The [Apify MCP server](/integrations/mcp) (`https://mcp.apify.com`) for the live connection to the platform. Its configuration ships inside the plugin, so you never edit an MCP config file by hand.
 - An `apify` routing agent that picks the right tool or skill from a natural-language request, so you don't have to name tools yourself.
-- [Agent Skills](/ai-tools/skills) covering scraping, Actor development, actorization, output schemas, and SDK integration.
+- [Agent Skills](/agent-tools/skills) covering scraping, Actor development, actorization, output schemas, and SDK integration.
 
 ## Coverage by client
 
@@ -36,7 +36,7 @@ Most plugins bundle three things:
 
 Hermes Agent is the exception to the pattern above. Its plugin doesn't carry the MCP server. It registers three dedicated tools instead - `apify_discover`, `apify_start`, and `apify_collect` - which the agent calls directly.
 
-If your client isn't listed, connect the [MCP server](/integrations/mcp) directly and install [Agent Skills](/ai-tools/skills) separately. The [MCP configurator](https://mcp.apify.com) generates a config for most clients.
+If your client isn't listed, connect the [MCP server](/integrations/mcp) directly and install [Agent Skills](/agent-tools/skills) separately. The [MCP configurator](https://mcp.apify.com) generates a config for most clients.
 
 ## Install
 
@@ -76,6 +76,6 @@ Choose the separate route when your client has no plugin, when you need a narrow
 
 ## Related resources
 
-- [Agent Skills](/ai-tools/skills) - what the bundled skills do and how to install them standalone
+- [Agent Skills](/agent-tools/skills) - what the bundled skills do and how to install them standalone
 - [Apify MCP server](/integrations/mcp) - tool reference, authentication, and production practices
-- [Apify AI tools](/ai-tools) - how plugins, MCP, and skills fit together
+- [Apify agent tools](/agent-tools) - how plugins, MCP, and skills fit together

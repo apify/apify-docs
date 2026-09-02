@@ -3,12 +3,12 @@ title: Apify Agent Skills
 sidebar_label: Agent Skills
 description: Install Apify Agent Skills to give a coding agent proven workflows for scraping, Actor development, actorization, output schemas, and SDK integration.
 sidebar_position: 2
-slug: /ai-tools/skills
+slug: /agent-tools/skills
 ---
 
 Agent Skills are instructions your agent loads on demand when it needs Apify-specific procedural knowledge. Each skill describes a multi-step workflow that Apify has already validated, so the agent follows a known-good sequence instead of improvising one.
 
-Skills layer on top of a connection you already have, whether that's a [plugin](/ai-tools/plugin) or the [MCP server](/integrations/mcp) on its own. See [Apify AI tools](/ai-tools) for how they relate to the other pieces.
+Skills layer on top of a connection you already have, whether that's a [plugin](/agent-tools/plugin) or the [MCP server](/integrations/mcp) on its own. See [Apify agent tools](/agent-tools) for how they relate to the other pieces.
 
 ## Skills or MCP tools
 
@@ -36,7 +36,7 @@ For the canonical list and each skill's contents, see the [Apify skills registry
 
 ## Install
 
-The simplest route is a [plugin](/ai-tools/plugin), which ships the skills already installed. Claude Code CLI, Cursor, GitHub Copilot, and both Codex clients get them this way.
+The simplest route is a [plugin](/agent-tools/plugin), which ships the skills already installed. Claude Code CLI, Cursor, GitHub Copilot, and both Codex clients get them this way.
 
 To install the skills on their own - for a client without a plugin, or alongside a hand-configured MCP server - use the skills CLI:
 
@@ -72,7 +72,7 @@ The Actor development, actorization, and SDK integration skills write to your pr
 
 ## Related resources
 
-- [Apify plugin](/ai-tools/plugin) - get the skills, the MCP server, and the routing agent in one install
+- [Apify plugin](/agent-tools/plugin) - get the skills, the MCP server, and the routing agent in one install
 - [Apify MCP server](/integrations/mcp) - the tools skills call
 - [Build Actors with AI](/actors/development/quick-start/build-with-ai) - what an agent can do across the Actor lifecycle
 - [Apify skills registry](https://skills.sh/apify/agent-skills) - source of every published skill

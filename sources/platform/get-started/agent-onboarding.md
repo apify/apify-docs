@@ -269,7 +269,7 @@ Full reference: [Apify API v2](/api/v2).
 
 ## Agent Skills
 
-Once you connect an agent via MCP or a coding assistant, [Apify Agent Skills](/ai-tools/skills) add pre-built workflows on top - guiding the agent through multi-step scraping pipelines and Actor development tasks. Skills are not a separate integration method; they layer over your existing connection.
+Once you connect an agent via MCP or a coding assistant, [Apify Agent Skills](/agent-tools/skills) add pre-built workflows on top - guiding the agent through multi-step scraping pipelines and Actor development tasks. Skills are not a separate integration method; they layer over your existing connection.
 
 Install into Claude Code, Cursor, Gemini CLI, or OpenAI Codex:
 
@@ -277,17 +277,17 @@ Install into Claude Code, Cursor, Gemini CLI, or OpenAI Codex:
 npx skills add apify/agent-skills
 ```
 
-Coding agents with an [Apify plugin](/ai-tools/plugin) get the skills already installed. For the five available skills and the prompts that trigger them, see [Agent Skills](/ai-tools/skills).
+Coding agents with an [Apify plugin](/agent-tools/plugin) get the skills already installed. For the five available skills and the prompts that trigger them, see [Agent Skills](/agent-tools/skills).
 
 ## Documentation access for agents
 
 Apify documentation is available in formats optimized for programmatic consumption: append `.md` to any documentation or Apify Store URL, request a page with the `Accept: text/markdown` header, discover pages through [`docs.apify.com/llms.txt`](https://docs.apify.com/llms.txt), or search from an MCP connection with `search-apify-docs` and `fetch-apify-docs`.
 
-For the complete list, including the agent-facing surfaces outside the documentation, see [Docs for agents](/ai-tools/docs-for-agents).
+For the complete list, including the agent-facing surfaces outside the documentation, see [Docs for agents](/agent-tools/docs-for-agents).
 
 ## Useful resources
 
-- [Apify AI tools](/ai-tools) - How the MCP server, plugins, Agent Skills, and machine-readable docs fit together
+- [Apify agent tools](/agent-tools) - How the MCP server, plugins, Agent Skills, and machine-readable docs fit together
 - [MCP server integration](/integrations/mcp) - Tool customization, dynamic Actor discovery, and advanced configuration
 - [CLI documentation](/cli) - Complete command reference
 - [API reference](/api/v2) - All REST API endpoints

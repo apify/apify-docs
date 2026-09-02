@@ -29,7 +29,7 @@ This page covers the Apify MCP server, which exposes Apify Actors as tools to ou
 
 :::tip Connecting a coding agent
 
-For Claude Code, Cursor, GitHub Copilot, Codex, and other coding agents, an [Apify plugin](/ai-tools/plugin) installs this server together with [Agent Skills](/ai-tools/skills) in one step. See [Apify AI tools](/ai-tools) for how the pieces fit together.
+For Claude Code, Cursor, GitHub Copilot, Codex, and other coding agents, an [Apify plugin](/agent-tools/plugin) installs this server together with [Agent Skills](/agent-tools/skills) in one step. See [Apify agent tools](/agent-tools) for how the pieces fit together.
 
 :::
 

@@ -3,7 +3,7 @@ title: Apify docs for AI agents
 sidebar_label: Docs for agents
 description: Read Apify documentation programmatically through Markdown endpoints, llms.txt indexes, and MCP tools, and find every agent-facing surface Apify runs.
 sidebar_position: 3
-slug: /ai-tools/docs-for-agents
+slug: /agent-tools/docs-for-agents
 ---
 
 Every page on `docs.apify.com` is available as Markdown, and several indexes exist so an agent can discover pages before it reads them. Point your agent at these instead of letting it work from training data, which goes stale between releases.
@@ -66,6 +66,6 @@ Apify runs several entry points outside the documentation. Agents rarely find th
 
 ## Related resources
 
-- [Apify AI tools](/ai-tools) - how documentation access fits with MCP, plugins, and skills
+- [Apify agent tools](/agent-tools) - how documentation access fits with MCP, plugins, and skills
 - [Apify MCP server](/integrations/mcp) - the documentation tools and everything else MCP exposes
 - [Agent quickstart](/get-started/agent-onboarding) - connect an agent and run an Actor
