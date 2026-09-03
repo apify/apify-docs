@@ -1,0 +1,32 @@
+---
+title: LangChain ecosystem
+description: Use Apify Actors across the LangChain ecosystem - wrap Actors as LangChain tools and document loaders, or bind them to stateful LangGraph agents.
+sidebar_label: LangChain ecosystem
+slug: /integrations/langchain-ecosystem
+---
+
+import Card from '@site/src/components/Card';
+import CardGrid from '@site/src/components/CardGrid';
+
+Apify integrates with the LangChain ecosystem in two places: LangChain itself, for loading web data and calling Actors as tools, and LangGraph, for stateful, multi-agent workflows. Both ship in the same [`langchain-apify`](https://github.com/apify/langchain-apify) package, so one install covers both.
+
+## What you can build
+
+Both pages cover the same package. Pick the one that matches how you want to call Actors:
+
+<CardGrid>
+    <Card
+        title="LangChain"
+        desc="Wrap Apify Actors as LangChain tools, load crawled pages into a vector index, and retrieve documents for RAG."
+        to="/integrations/langchain"
+        imageUrl="/img/platform/integrations/langchain.png"
+        smallImage
+    />
+    <Card
+        title="LangGraph"
+        desc="Bind Apify tools to stateful, multi-agent LangGraph workflows and stream an agent's steps as it works."
+        to="/integrations/langgraph"
+        imageUrl="/img/platform/integrations/langgraph.png"
+        smallImage
+    />
+</CardGrid>
