@@ -41,9 +41,7 @@ Add the remote server as a [custom connector](https://support.claude.com/en/arti
 
 :::
 
-1. Open your Claude settings and go to **Connectors**. The path depends on your plan:
-    - Pro and Max - **Customize > Connectors**.
-    - Team and Enterprise - **Organization settings > Connectors**. Only organization owners can add connectors.
+1. In Claude, open **Settings > Connectors**. On Team and Enterprise plans, only organization owners can add connectors.
 1. Select **Add custom connector**. You can also open the [add custom connector dialog](https://claude.ai/new?modal=add-custom-connector#settings/customize-connectors) directly.
 1. Enter a name for the connector, for example `Apify`.
 1. Enter `https://mcp.apify.com` as the remote MCP server URL.
