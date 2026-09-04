@@ -35,19 +35,22 @@ The remote server at `https://mcp.apify.com` is the recommended way to connect. 
 
 Add the remote server as a [custom connector](https://support.claude.com/en/articles/11175166). The steps are the same in Claude Desktop and in Claude on the web:
 
-1. Open [Settings > Connectors](https://claude.ai/new?modal=add-custom-connector#settings/customize-connectors) and select **Add custom connector**.
+:::tip Connect only the tools you need
+
+`https://mcp.apify.com` exposes the default tool set. To expose specific Actors or MCP tools instead, build your setup in the [Apify MCP server configurator](https://mcp.apify.com), copy the URL it generates, and use it as the server URL below. For the full list of options, read about [tool selection](/integrations/mcp#tool-selection).
+
+:::
+
+1. Open your Claude settings and go to **Connectors**:
+    - In Claude on the web, select your profile icon in the bottom-left corner, then select **Settings > Connectors**.
+    - In Claude Desktop, open **Settings** from the app menu, then select **Connectors**.
+1. Select **Add custom connector**. You can also open the [add custom connector dialog](https://claude.ai/new?modal=add-custom-connector#settings/customize-connectors) directly.
 1. In **Name**, enter a name for the connector, for example `Apify`.
 1. In **Remote MCP server URL**, enter `https://mcp.apify.com`.
 1. Select **Continue**.
 1. Keep the recommended settings and select **Add**.
 
 On first connection, your browser opens to sign in to Apify and authorize the connection.
-
-:::tip Connect only the tools you need
-
-`https://mcp.apify.com` exposes the default tool set. To expose specific Actors or MCP tools instead, build your setup in the [Apify MCP server configurator](https://mcp.apify.com), copy the URL it generates, and use that URL in step 3. For the full list of options, see [Apify MCP server](/integrations/mcp).
-
-:::
 
 ### One-click installation
 
