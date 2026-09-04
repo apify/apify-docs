@@ -2,9 +2,9 @@
 
 Markdown, Docusaurus, and file layout rules for Apify documentation. For voice, wording, and naming, see [style-guide.md](style-guide.md).
 
-## Front matter
+## Frontmatter
 
-Every documentation file needs YAML front matter:
+Every documentation file needs YAML frontmatter:
 
 ```yaml
 ---
@@ -22,7 +22,7 @@ slug: /path/to/page
 - `sidebar_position` - Number controlling order in the sidebar. Whole numbers are the norm; use a decimal (2.1) only to slot a page between two existing ones
 - `slug` - URL path starting with `/`, as in `/platform/actors/running`
 
-Vale ignores front matter, so nothing here is checked automatically. The description length in particular is on you.
+Vale ignores frontmatter, so nothing here is checked automatically. The description length in particular is on you.
 
 ### Optional fields
 
@@ -57,7 +57,7 @@ slug: /academy/tutorials/web-scraper
 
 ## Headings
 
-Follow the hierarchy H2 to H3 to H4. Never skip levels. H1 is the page title, set in front matter, so don't write one in the body.
+Follow the hierarchy H2 to H3 to H4. Never skip levels. H1 is the page title, set in frontmatter, so don't write one in the body.
 
 ```markdown
 ## Main section (H2)

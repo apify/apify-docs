@@ -80,7 +80,7 @@ You should be able to open https://docs.apify.loc in your browser and run all th
 The style guide lives in [`standards/`](standards/README.md), which is the single source of truth for both people and AI assistants. Rules aren't repeated here, so there's nothing to keep in sync:
 
 - [`standards/style-guide.md`](standards/style-guide.md) - Voice and tone, headings, text formatting, links, numbers, grammar, Apify terminology
-- [`standards/page-structure.md`](standards/page-structure.md) - Front matter, admonitions, code blocks and code tabs, images, lists, file naming
+- [`standards/page-structure.md`](standards/page-structure.md) - Frontmatter, admonitions, code blocks and code tabs, images, lists, file naming
 - [`standards/quality-standards.md`](standards/quality-standards.md) - Checklist to run through before opening a pull request
 
 Most of these rules run in CI through Vale. Run `vale "<file>"` on what you changed before opening a pull request.

@@ -1,6 +1,6 @@
 # Style guide
 
-Voice, wording, and naming rules for Apify documentation. For front matter, admonitions, code blocks, images, and file layout, see [page-structure.md](page-structure.md).
+Voice, wording, and naming rules for Apify documentation. For frontmatter, admonitions, code blocks, images, and file layout, see [page-structure.md](page-structure.md).
 
 Most of these rules run in CI through Vale. Run `vale "<file>"` on what you changed rather than working from memory.
 

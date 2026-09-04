@@ -11,7 +11,7 @@ argument-hint: topic
 
 1. **Identify tutorial type** - platform tutorial, academy tutorial, or integration tutorial
 2. **Research** - read related docs, check existing tutorials for style reference
-3. **Create front matter** - title (sentence case), description (140-160 chars), sidebar_position, slug
+3. **Create frontmatter** - title (sentence case), description (140-160 chars), sidebar_position, slug
 4. **Write 8-section structure**:
    1. Introduction with learning objectives
    2. Prerequisites (tools, accounts, knowledge)

@@ -3,5 +3,5 @@ description: Content formatting standards for markdown and MDX files
 globs: ["sources/**/*.md", "sources/**/*.mdx"]
 alwaysApply: true
 ---
-For content formatting rules (front matter, admonitions, code blocks, images, lists), see `standards/page-structure.md`.
+For content formatting rules (frontmatter, admonitions, code blocks, images, lists), see `standards/page-structure.md`.
 For writing style rules (headings, tone, links, numbers), see `standards/style-guide.md`.

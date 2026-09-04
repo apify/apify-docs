@@ -1,5 +1,5 @@
 #!/bin/bash
-# Validates front matter description is 140-160 characters.
+# Validates frontmatter description is 140-160 characters.
 # Usage: check-frontmatter.sh <file-path>
 
 set -euo pipefail
@@ -16,11 +16,11 @@ if [ ! -f "$FILE" ]; then
     exit 1
 fi
 
-# Extract description from YAML front matter
+# Extract description from YAML frontmatter
 DESCRIPTION=$(awk '/^---$/{if(++c==2)exit}c==1&&/^description:/{sub(/^description:\s*/, ""); gsub(/^["'\''"]|["'\''"]$/, ""); print}' "$FILE")
 
 if [ -z "$DESCRIPTION" ]; then
-    echo "FAIL: No description found in front matter"
+    echo "FAIL: No description found in frontmatter"
     exit 1
 fi
 

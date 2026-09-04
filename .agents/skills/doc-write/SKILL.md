@@ -11,7 +11,7 @@ argument-hint: topic
 
 1. **Determine doc type** - platform docs, guide, or reference (tutorials → use `/tutorial`)
 2. **Research** - read related existing pages, check `standards/style-guide.md` for product names
-3. **Create front matter** - title (sentence case), description (140-160 chars), sidebar_position, slug
+3. **Create frontmatter** - title (sentence case), description (140-160 chars), sidebar_position, slug
 4. **Write content** following the structure for the doc type:
    - **Platform docs**: intro → prerequisites → main content → code examples → next steps
    - **Guides**: intro with goal → step-by-step instructions → verification → troubleshooting

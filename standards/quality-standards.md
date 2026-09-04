@@ -43,9 +43,9 @@ Before submitting documentation, verify:
 
 ### Formatting and structure
 
-- [ ] Front matter follows [page-structure.md](page-structure.md) (title, description 140-160 chars, sidebar_position, slug)
+- [ ] Frontmatter follows [page-structure.md](page-structure.md) (title, description 140-160 chars, sidebar_position, slug)
 - [ ] Headings use sentence case (not title case) and no gerunds (-ing forms)
-- [ ] Heading hierarchy is correct (H2 → H3 → H4, no skipped levels; H1 comes from front matter title)
+- [ ] Heading hierarchy is correct (H2 → H3 → H4, no skipped levels; H1 comes from frontmatter title)
 - [ ] Bold used only for UI elements and critical warnings (not for structure or list intros)
 - [ ] Code formatting uses backticks for file names, commands, config keys
 - [ ] All admonitions have titles (required by [page-structure.md](page-structure.md))

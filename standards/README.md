@@ -15,7 +15,7 @@ Writing and formatting rules for Apify documentation. This is the source of trut
 ## Files
 
 - [style-guide.md](style-guide.md) - Voice and tone, headings, text formatting, links, numbers, grammar, and Apify terminology
-- [page-structure.md](page-structure.md) - Front matter, heading hierarchy, admonitions, code examples, images, lists, and file layout
+- [page-structure.md](page-structure.md) - Frontmatter, heading hierarchy, admonitions, code examples, images, lists, and file layout
 - [quality-standards.md](quality-standards.md) - Verification steps and the pre-submission checklist
 
 The split is by moment of use. You reach for the style guide while writing a sentence, page structure while building a page, and the checklist once before opening a pull request.
@@ -35,7 +35,7 @@ Run `vale` rather than working from a summary. It names the rule it fired, so it
 
 Some rules no linter can check, so a reviewer has to:
 
-- Front matter description length, because Vale ignores front matter
+- Frontmatter description length, because Vale ignores frontmatter
 - Screenshot treatment, and whether an image earns its place at all
 - Which admonition type fits
 - Sentence case in headings, which Vale reports only as a suggestion, so CI won't stop Title Case
