@@ -1,6 +1,6 @@
 ---
 title: Request queue
-description: Queue URLs for an Actor to visit in its run. Learn how to share your queues between Actor runs. Access and manage request queues from Apify Console or via API.
+description: Queue URLs for an Actor to visit in its run. Add requests in batches, lock them across runs, and manage request queues from Apify Console or via API.
 toc_max_heading_level: 4
 sidebar_position: 9.4
 slug: /storage/request-queue
@@ -108,13 +108,13 @@ Example payload:
 
 :::note `clientKey` parameter
 
-When adding or updating requests, you can optionally provide a `clientKey` parameter to your request. It must be a string between 1 and 32 characters in length. This identifier is used to determine whether the queue was accessed by [multiple clients](#sharing). If `clientKey` is not provided, the system considers this API call to come from a new client. See the `hadMultipleClients` field returned by the [`Get head`](/api/v2/request-queue-head-get) operation for details.
+When adding or updating requests, you can optionally provide a `clientKey` parameter to your request. It must be a string between 1 and 32 characters in length. This identifier is used to determine whether the queue was accessed by [multiple clients](./share-between-runs.md). If `clientKey` is not provided, the system considers this API call to come from a new client. See the `hadMultipleClients` field returned by the [`Get head`](/api/v2/request-queue-head-get) operation for details.
 
 Example: `client-abc`
 
 :::
 
-For further details and a breakdown of each storage API endpoint, refer to the [API documentation](/api/v2/storage-key-value-stores).
+For further details and a breakdown of each storage API endpoint, refer to the [API documentation](/api/v2/storage-request-queues).
 
 ### Apify API Clients
 
