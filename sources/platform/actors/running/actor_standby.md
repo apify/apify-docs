@@ -66,7 +66,7 @@ the system starts new Actor runs, which you will see in the Actor runs tab, with
 
 ## Health checks and stuck runs
 
-The platform checks a Standby run's readiness once, before marking it ready to receive requests. After that, no further health checks run for the lifetime of the run.
+The platform checks a Standby run's readiness once, before marking it ready to receive requests. After that, the run is considered healthy and no further health checks are performed for the lifetime of the run.
 
 A Standby run restarts only when its process exits or the run is migrated to a different machine. If the server stays alive but stops responding, the platform does not detect the failure. For related Actor build guidance, see the [Standby development guide](../development/programming_interface/actor_standby.md#readiness-probe).
 
