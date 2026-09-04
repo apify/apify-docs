@@ -23,7 +23,7 @@ When multiple runs write to a storage simultaneously, the order of writes is not
 
 :::info Accessing restricted storage resources between runs
 
-If a storage resource access is set to **Restricted**, the run from which it's accessed must have explicit access to it. Learn how restricted access works in [General resource access](/account/collaboration/general-resource-access).
+If a storage resource access is set to **Restricted**, the run from which it's accessed must have explicit access to it. Learn how restricted access works in [General resource access](/account/collaboration/general-resource-access), and how to grant it in [Share storage](./share.md).
 
 :::
 
@@ -79,7 +79,7 @@ other_dataset_client = apify_client.dataset('jane-doe/old-dataset')
 </TabItem>
 </Tabs>
 
-The same applies for the [Apify API](/storage/dataset#apify-api) - you can use the same endpoints as you would normally do.
+The same applies for the [Apify API](./dataset/index.md#apify-api) - you can use the same endpoints as you would normally do.
 
 ## Key-value stores
 
@@ -133,7 +133,7 @@ other_store_client = apify_client.key_value_store('jane-doe/old-store')
 </TabItem>
 </Tabs>
 
-The same applies for the [Apify API](/storage/key-value-store#apify-api) - you can use the same endpoints as you would normally do.
+The same applies for the [Apify API](./key_value_store/index.md#apify-api) - you can use the same endpoints as you would normally do.
 
 ## Request queues
 
@@ -187,4 +187,4 @@ other_queue_client = apify_client.request_queue('jane-doe/old-queue')
 </TabItem>
 </Tabs>
 
-The same applies for the [Apify API](/storage/request-queue#apify-api) - you can use the same endpoints as you would normally do.
+The same applies for the [Apify API](./request_queue.md#apify-api) - you can use the same endpoints as you would normally do.

@@ -565,7 +565,7 @@ A detailed tutorial on how to process one request queue with multiple Actor runs
 
 ## Share
 
-You can grant access rights to your request queue, share it by link, or generate a time-limited pre-signed URL for specific records. See [Share storage](./share.md).
+You can grant access rights to your request queue, share it by link, or generate a time-limited pre-signed URL for one-off access. See [Share storage](./share.md).
 
 ## Use from another run
 

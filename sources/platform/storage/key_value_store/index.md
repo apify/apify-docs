@@ -291,7 +291,7 @@ Key-value storage uses the [AWS S3](https://aws.amazon.com/s3/) service. Accordi
 
 Operations on a single record ([get](/api/v2/key-value-store-record-get), [put](/api/v2/key-value-store-record-put), [delete](/api/v2/key-value-store-record-delete)) and [getting the list of keys](/api/v2/key-value-store-keys-get) are limited to _200 requests per second_ per store.
 
-[Getting the list of records](/api/v2/key-value-store-records-get) is limited to _100 requests per second_ per store.
+[Downloading all records](/api/v2/key-value-store-records-get) as a ZIP archive is limited to _100 requests per second_ per store.
 
 All other key-value store [API endpoints](/api/v2/storage-key-value-stores) use the default limit of _60 requests per second_ per store.
 

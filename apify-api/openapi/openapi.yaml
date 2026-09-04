@@ -442,7 +442,7 @@ info:
 
     These endpoints have a rate limit of _100 requests per second per resource_:
 
-    * [Get list of records](#/reference/key-value-stores/record-collection/get-list-of-records) in a key-value store
+    * Download records from a key-value store as a ZIP archive
 
     These endpoints have a rate limit of _200 requests per second per resource_:
 
@@ -466,6 +466,7 @@ info:
       in request queues
 
     These endpoints have a rate limit of _400 requests per second per resource_:
+
     * [Run Actor](#/reference/actors/run-collection/run-actor)
     * [Run Actor task asynchronously](#/reference/actor-tasks/runs-collection/run-task-asynchronously)
     * [Run Actor task synchronously](#/reference/actor-tasks/runs-collection/run-task-synchronously)

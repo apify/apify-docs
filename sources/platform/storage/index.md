@@ -155,7 +155,7 @@ Use this tool to estimate storage costs by plan and storage type.
 
 ## Rate limiting
 
-All API endpoints limit their request rate to protect Apify servers from overload. The default rate limit for storage objects is _60 requests per second_, and some endpoints allow up to _400 requests per second_. The tiers differ per storage type:
+All API endpoints limit their request rate to protect Apify servers from overload. The default rate limit for storage objects is _60 requests per second_ per storage object, and some endpoints allow more or fewer. The tiers differ per storage type:
 
 * [Datasets](/storage/dataset#rate-limiting)
 * [Key-value stores](/storage/key-value-store#rate-limiting)
@@ -181,6 +181,12 @@ You can grant access rights to other Apify users, share a storage by link, or ge
 ## Concurrent access {#share-storages-between-runs}
 
 Storage can be accessed from any [Actor](../actors/index.mdx) or [task](../actors/running/tasks.md) run, provided you have its _name_ or _ID_. Datasets and key-value stores support concurrent reads and writes, while a request queue accepts new data from multiple runs but can only be processed by one run at a time. See [Use storage from another run](./use-from-another-run.md).
+
+:::note Concurrent write order
+
+When multiple runs write to a storage simultaneously, the order of writes is not guaranteed. Data is written as each request is processed. The same applies in key-value stores and request queues: if a delete request precedes a read request for the same record, the read request fails.
+
+:::
 
 ## Delete storages
 

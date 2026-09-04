@@ -6,7 +6,7 @@ sidebar_position: 9.5
 slug: /storage/share
 ---
 
-Share a storage with other Apify users, by link, or through a time-limited URL for one-off access to a restricted resource. This applies to all three storage types: [datasets](./dataset/index.md), [key-value stores](./key_value_store/index.md), and [request queues](./request_queue.md).
+Share a storage with other Apify users, by link, or through a time-limited URL for one-off access to a restricted resource. This applies to all three storage types: [datasets](./dataset/index.md), [key-value stores](./key_value_store/index.md), and [request queues](./request_queue.md). To use a storage that belongs to a different run, see [Use storage from another run](./use-from-another-run.md).
 
 ## Grant access rights
 
@@ -18,12 +18,10 @@ In [Apify Console](https://console.apify.com/storage), open the storage's detail
 
 You can also share storages by link using their ID or name, depending on your account or resource-level general access setting. Learn how link-based access works in [General resource access](/account/collaboration/general-resource-access).
 
-For one-off sharing when access is restricted, generate time-limited pre-signed URLs. See [Sharing restricted resources with pre-signed URLs](/account/collaboration/general-resource-access#pre-signed-urls).
+For one-off sharing of specific records when access is restricted, generate time-limited pre-signed URLs. See [Sharing restricted resources with pre-signed URLs](/account/collaboration/general-resource-access#pre-signed-urls).
 
 :::tip Accessing restricted storage resources via API
 
-If your storage resource is set to _restricted_, all API calls must include a valid authentication token in the `Authorization` header. If you're using **apify-client** the header is passed in automatically.
+If your storage resource is set to _restricted_, all API calls must include a valid authentication token in the `Authorization` header. If you're using `apify-client` the header is passed in automatically.
 
 :::
-
-To read from or write to a storage from a different Actor or task run, see [Use storage from another run](./use-from-another-run.md).
