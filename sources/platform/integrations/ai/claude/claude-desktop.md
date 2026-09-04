@@ -35,7 +35,7 @@ The remote server at `https://mcp.apify.com` is the recommended way to connect. 
 
 Add the remote server as a [custom connector](https://support.claude.com/en/articles/11175166). Remote connectors run on Anthropic's servers, so the same connector works in Claude Desktop and in claude.ai:
 
-1. In Claude, open **Settings**, then select **Connectors**. On Team and Enterprise plans, only organization owners can add connectors.
+1. In Claude, open **Settings**, then select **Connectors**. On Team and Enterprise plans, an Owner or Primary Owner has to [add the connector for the whole organization](https://support.claude.com/en/articles/11175166) instead.
 1. Select **Add**, then select **Add custom connector**. You can also open the [add custom connector dialog](https://claude.ai/new?modal=add-custom-connector#settings/customize-connectors) directly.
 1. In **Name**, enter a name for the connector, for example `Apify`.
 1. In **Remote MCP server URL**, enter `https://mcp.apify.com`.
