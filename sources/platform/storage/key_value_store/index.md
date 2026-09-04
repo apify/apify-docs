@@ -284,3 +284,9 @@ Key-value storage uses the [AWS S3](https://aws.amazon.com/s3/) service. Accordi
 ## Limits
 
 - The maximum length for a key in a key-value store is 256 characters. Keys may only contain the following characters: `a-zA-Z0-9!-_.'()`.
+
+### Rate limiting
+
+Key-value store [API endpoints](/api/v2/storage-key-value-stores) use the default storage rate limit of _60 requests per second_ for each store.
+
+Check out the [API documentation](/api/v2#rate-limiting) for more information and guidance on actions to take if you exceed this rate limit.
