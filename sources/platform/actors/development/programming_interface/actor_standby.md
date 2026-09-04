@@ -173,6 +173,8 @@ async def main() -> None:
 
 The platform starts and stops Standby runs automatically based on the incoming request load. It stops a run that receives no requests within the configured idle timeout and starts a new run when requests arrive again. Don't keep data only in the run's memory: persist anything you need to a [dataset or key-value store](../../../storage/index.md). See [how Standby scaling works](../../running/actor_standby.md#is-there-any-scaling-to-accommodate-the-incoming-requests) and [how to customize the Standby configuration](../../running/actor_standby.md#how-do-i-customize-standby-configuration).
 
+Apart from the [readiness probe](#readiness-probe), the platform doesn't check your server's health while the run is alive. A run ends when its process exits, when it migrates to another machine, or when it stays idle for longer than the idle timeout. A server that stays up but stops responding keeps receiving requests, so on an unrecoverable error, exit the process instead of swallowing the error.
+
 ## Timeouts
 
 When you send a request to an Actor in Standby mode, the total timeout for receiving the first response is _5 minutes_. Before the platform forwards the request to a specific Actor run, it performs a _run selection_ process to determine the specific Actor run that will handle it. This process has internal timeout of _2 minutes_.

@@ -64,6 +64,12 @@ it well. Please head to the Actor README to learn more about the capabilities of
 When you use the Actor in Standby mode, the system automatically scales the Actor to accommodate the incoming requests. Under the hood,
 the system starts new Actor runs, which you will see in the Actor runs tab, with the origin set to Standby.
 
+## Does the platform check that Standby runs are healthy
+
+The platform checks a run's readiness once, before the run starts serving requests, and performs no health checks after that. A run ends when its process exits, when it migrates to another machine, or when it stays idle for longer than the idle timeout.
+
+If an Actor's server stays up but stops responding, the platform doesn't detect the failure, and requests keep going to that run. To learn how to handle this in your own Actors, see [Develop Actors in Standby mode](../development/programming_interface/actor_standby.md#run-lifecycle-in-standby-mode).
+
 ## What is the timeout for incoming requests
 
 For requests sent to an Actor in Standby mode, the maximum time allowed until receiving the first response is _5 minutes_. This represents the overall timeout for the operation.
