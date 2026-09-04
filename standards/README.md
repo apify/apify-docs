@@ -36,6 +36,7 @@ Run `vale` rather than working from a summary. It names the rule it fired, so it
 Some rules no linter can check, so a reviewer has to:
 
 - Frontmatter description length, because Vale ignores frontmatter
+- Stacked headings, which neither Vale nor markdownlint reports
 - Screenshot treatment, and whether an image earns its place at all
 - Which admonition type fits, and whether the page has too many of them
 - Sentence case in headings, which Vale reports only as a suggestion, so CI won't stop Title Case

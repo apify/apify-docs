@@ -57,6 +57,10 @@ slug: /academy/tutorials/web-scraper
 
 ## Headings
 
+Headings carry the structure of the page. For their casing and wording, see [style-guide.md](style-guide.md).
+
+### Hierarchy
+
 Follow the hierarchy H2 to H3 to H4. Never skip levels. H1 is the page title, set in frontmatter, so don't write one in the body.
 
 ```markdown
@@ -67,7 +71,29 @@ Follow the hierarchy H2 to H3 to H4. Never skip levels. H1 is the page title, se
 #### Detail (H4 - use sparingly)
 ```
 
-For heading casing and wording, see [style-guide.md](style-guide.md).
+### No stacked headings
+
+Never stack two headings. Every heading needs at least one paragraph of body text before the next one. This applies to the page title as well, so open a page with an introductory paragraph rather than a heading.
+
+A parent heading that only groups its subsections still needs a lead. Add an orienting sentence that tells the reader what the section covers or why it matters. If there's genuinely nothing to say, merge the sections instead.
+
+Avoid:
+
+```markdown
+## Run your first Actor
+
+### Prerequisites
+```
+
+Prefer:
+
+```markdown
+## Run your first Actor
+
+To get started, try one of the existing Actors from Apify Store.
+
+### Prerequisites
+```
 
 ## Information ordering
 

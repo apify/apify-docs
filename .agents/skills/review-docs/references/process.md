@@ -24,7 +24,7 @@ If `vale` isn't installed, say so in the output. Don't substitute a subagent pas
 Spawn subagents only for what no tool can check. Each reads the page being reviewed plus one standards file, and returns findings with line numbers and suggested fixes.
 
 - Subagent 1, `standards/style-guide.md`: bold on anything other than a UI element or a critical warning, link text that doesn't say where it goes, list items that break parallel structure, missing serial commas, and "legacy", "alternative", or "deprecated" used loosely
-- Subagent 2, `standards/page-structure.md`: concepts used before they're explained, screenshots that don't earn their place or break the treatment rules (light theme, `#F86606` border, no arrows or circles), admonition types that don't fit their content, admonitions past one per H2 section, and admonitions carrying content the prose needs
+- Subagent 2, `standards/page-structure.md`: stacked headings, concepts used before they're explained, screenshots that don't earn their place or break the treatment rules (light theme, `#F86606` border, no arrows or circles), admonition types that don't fit their content, admonitions past one per H2 section, and admonitions carrying content the prose needs
 
 Everything else in the standards files is either enforced by Vale or checked by the scripts above. Subagents are only for judgment no rule can express, like whether an image carries information the prose doesn't, or whether `:::caution` is the right severity.
 
