@@ -269,7 +269,7 @@ Full reference: [Apify API v2](/api/v2).
 
 ## Agent Skills
 
-Once you connect an agent via MCP or a coding assistant, [Apify Agent Skills](https://skills.sh/apify/agent-skills) add pre-built workflows on top - guiding the agent through multi-step scraping pipelines and Actor development tasks. Skills are not a separate integration method; they layer over your existing connection.
+Once you connect an agent via MCP or a coding assistant, [Apify Agent Skills](/agent-tools/skills) add pre-built workflows on top - guiding the agent through multi-step scraping pipelines and Actor development tasks. Skills are not a separate integration method; they layer over your existing connection.
 
 Install into Claude Code, Cursor, Gemini CLI, or OpenAI Codex:
 
@@ -277,33 +277,17 @@ Install into Claude Code, Cursor, Gemini CLI, or OpenAI Codex:
 npx skills add apify/agent-skills
 ```
 
-| Skill | What it does |
-| :--- | :--- |
-| `apify-ultimate-scraper` | Routes web scraping requests to the right Actor for multi-step data pipelines |
-| `apify-actor-development` | Guided workflow for building and deploying custom Actors |
-| `apify-actorization` | Converts an existing project into an Apify Actor |
-| `apify-generate-output-schema` | Auto-generates output schemas from Actor source code |
-| `apify-sdk-integration` | Integrates Actor execution into applications using the `apify-client` package |
-
-For the full list and details, see the [skills registry](https://skills.sh/apify/agent-skills).
+Coding agents with an [Apify plugin](/agent-tools/plugin) get the skills already installed. For the five available skills and the prompts that trigger them, see [Agent Skills](/agent-tools/skills).
 
 ## Documentation access for agents
 
-Apify documentation is available in formats optimized for programmatic consumption.
+Apify documentation is available in formats optimized for programmatic consumption: append `.md` to any documentation or Apify Store URL, request a page with the `Accept: text/markdown` header, discover pages through [`docs.apify.com/llms.txt`](https://docs.apify.com/llms.txt), or search from an MCP connection with `search-apify-docs` and `fetch-apify-docs`.
 
-| Resource | How to access |
-| :--- | :--- |
-| Specific doc page | Append `.md` to any docs URL (for example, `docs.apify.com/actors.md`) |
-| Specific doc page (alt) | Request with `Accept: text/markdown` header |
-| Docs index | [docs.apify.com/llms.txt](https://docs.apify.com/llms.txt) |
-| Full docs (large) | [docs.apify.com/llms-full.txt](https://docs.apify.com/llms-full.txt) |
-| Actor Store pages | Append `.md` to any Apify Store URL |
-| MCP docs tools | `search-apify-docs`, `fetch-apify-docs` |
-
-For targeted lookups, prefer `.md` URLs for specific pages or the MCP docs tools over the full `llms-full.txt` file. Agents with limited context windows may not load `llms-full.txt` fully.
+For the complete list, including the agent-facing surfaces outside the documentation, see [Docs for agents](/agent-tools/docs-for-agents).
 
 ## Useful resources
 
+- [Apify agent tools](/agent-tools) - How the MCP server, plugins, Agent Skills, and machine-readable docs fit together
 - [MCP server integration](/integrations/mcp) - Tool customization, dynamic Actor discovery, and advanced configuration
 - [CLI documentation](/cli) - Complete command reference
 - [API reference](/api/v2) - All REST API endpoints
