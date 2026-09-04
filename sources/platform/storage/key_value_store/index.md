@@ -6,9 +6,6 @@ sidebar_position: 9.3
 slug: /storage/key-value-store
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 The key-value store is simple storage that can be used for storing any kind of data. It can be JSON or HTML documents, zip files, images, or strings. The data are stored along with their [MIME content type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types).
 
 Each Actor run is assigned its own key-value store when it is created. The store contains the Actor's input, and, if necessary, other data such as its output.
@@ -276,69 +273,9 @@ _Using the [JavaScript SDK](/sdk/js/reference/class/KeyValueStore#setValue) or t
 
 ## Share
 
-You can grant [access rights](/account/collaboration) to your key-value store through the **Share** button under the **Actions** menu. For more details check the [full list of permissions](/account/collaboration/list-of-permissions).
+You can grant access rights to your key-value store, share it by link, or generate a time-limited pre-signed URL for specific records. See [Share storage](../share.md).
 
-You can also share key-value stores by link using their ID or name, depending on your account or resource-level general access setting. Learn how link-based access works in [General resource access](/account/collaboration/general-resource-access).
-
-For one-off sharing of specific records when access is restricted, you can generate time-limited pre-signed URLs. See [Sharing restricted resources with pre-signed URLs](/account/collaboration/general-resource-access#pre-signed-urls).
-
-### Share key-value stores between runs
-
-You can access a key-value store from any [Actor](../../actors/index.mdx) or [task](../../actors/running/tasks.md) run as long as you know its _name_ or _ID_.
-
-To access a key-value store from another run using the [Apify SDK](/sdk), open it using the same method as you would do with any other store.
-
-<Tabs groupId="main">
-<TabItem value="JavaScript" label="JavaScript">
-
-```js
-import { Actor } from 'apify';
-
-await Actor.init();
-
-const otherStore = await Actor.openKeyValueStore('old-store');
-// ...
-
-await Actor.exit();
-```
-
-</TabItem>
-<TabItem value="Python" label="Python">
-
-```python
-from apify import Actor
-
-async def main():
-    async with Actor:
-        other_store = await Actor.open_key_value_store(name='old-store')
-        # ...
-```
-
-</TabItem>
-</Tabs>
-
-In the [JavaScript API client](/api/client/js/reference/class/KeyValueStoreClient) as well as in [Python API client](/api/client/python/reference/class/KeyValueStoreClient), you can access a store using its client. Once you've opened a store, read and manage its contents like you would do with a key-value store from your current run.
-
-<Tabs groupId="main">
-<TabItem value="JavaScript" label="JavaScript">
-
-```js
-const otherStoreClient = apifyClient.keyValueStore('jane-doe/old-store');
-```
-
-</TabItem>
-<TabItem value="Python" label="Python">
-
-```python
-other_store_client = apify_client.key_value_store('jane-doe/old-store')
-```
-
-</TabItem>
-</Tabs>
-
-The same applies for the [Apify API](#apify-api) - you can use [the same endpoints](#apify-api) as you would normally do.
-
-Check out the [Storage overview](/storage#share-storages-between-runs) for details on sharing storages between runs.
+To read from or write to a key-value store from a different Actor or task run, see [Share storage between runs](../share-between-runs.md).
 
 ## Data consistency
 

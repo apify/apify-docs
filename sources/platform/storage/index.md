@@ -179,37 +179,11 @@ Go to the [API documentation](/api/v2#rate-limiting) for details and to learn wh
 
 ## Share
 
-You can grant [access rights](/account/collaboration) to other Apify users to view or modify your storages. Check the [full list of permissions](/account/collaboration/list-of-permissions).
-
-You can also share storages by link using their ID or name, depending on your account or resource-level general access setting. Learn how link-based access works in [General resource access](/account/collaboration/general-resource-access).
-
-For one-off sharing when access is restricted, generate time-limited pre-signed URLs. See [Sharing restricted resources with pre-signed URLs](/account/collaboration/general-resource-access#pre-signed-urls).
-
-:::tip Accessing restricted storage resources via API
-
-If your storage resource is set to _restricted_, all API calls must include a valid authentication token in the `Authorization` header. If you're using **apify-client** the header is passed in automatically.
-
-:::
+You can grant access rights to other Apify users, share a storage by link, or generate a time-limited pre-signed URL for one-off access to a restricted resource. See [Share storage](./share.md).
 
 ## Concurrent access {#share-storages-between-runs}
 
-Storage can be accessed from any [Actor](../actors/index.mdx) or [task](../actors/running/tasks.md) run, provided you have its _name_ or _ID_. Use the same methods and endpoints you'd use for the current run's storages.
-
-[Datasets](/storage/dataset) and [key-value stores](/storage/key-value-store) support concurrent use. Multiple Actors or tasks can write to the same dataset or key-value store, and multiple runs can read from them at the same time.
-
-[Request queues](./request_queue.md), on the other hand, only allow multiple runs to add new data. A request queue can only be processed by one Actor or task run at any one time.
-
-:::note Concurrent write order
-
-When multiple runs write to a storage simultaneously, the order of writes is not guaranteed. Data is written as each request is processed. The same applies in key-value stores and request queues: if a delete request precedes a read request for the same record, the read request fails.
-
-:::
-
-:::info Accessing restricted storage resources between runs
-
-If a storage resource access is set to **Restricted**, the run from which it's accessed must have explicit access to it. Learn how restricted access works in [General resource access](/account/collaboration/general-resource-access).
-
-:::
+Storage can be accessed from any [Actor](../actors/index.mdx) or [task](../actors/running/tasks.md) run, provided you have its _name_ or _ID_. Datasets and key-value stores support concurrent reads and writes, while a request queue accepts new data from multiple runs but can only be processed by one run at a time. See [Share storage between runs](./share-between-runs.md).
 
 ## Delete storages
 

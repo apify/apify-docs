@@ -6,9 +6,6 @@ toc_max_heading_level: 4
 slug: /storage/dataset
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 Dataset storage enables you to sequentially save and retrieve data. A unique dataset is automatically created and assigned to each Actor run when the first item is stored.
 
 Typically, datasets comprise results from web scraping, crawling, and data processing jobs. You can visualize this data in a table, where each object is forming a row and its attributes are represented as columns. You have the option to export data in various formats, including JSON, CSV, XML, Excel, HTML Table, RSS or JSONL.
@@ -418,69 +415,9 @@ By default, the whole result is wrapped in an `<items/>` element, while each pag
 
 ## Share
 
-You can grant [access rights](/account/collaboration) to your dataset through the **Share** button under the **Actions** menu. For more details, check the [full list of permissions](/account/collaboration/list-of-permissions).
+You can grant access rights to your dataset, share it by link, or generate a time-limited pre-signed URL for specific records. See [Share storage](../share.md).
 
-You can also share datasets by link using their ID or name, depending on your account or resource-level general access setting. Learn how link-based access works in [General resource access](/account/collaboration/general-resource-access).
-
-For one-off sharing of specific records when access is restricted, you can generate time-limited pre-signed URLs. See [Sharing restricted resources with pre-signed URLs](/account/collaboration/general-resource-access#pre-signed-urls).
-
-### Share datasets between runs
-
-You can access a dataset from any [Actor](../../actors/index.mdx) or [task](../../actors/running/tasks.md) run as long as you know its _name_ or _ID_.
-
-To access a dataset from another run using the [Apify SDK](/sdk), open it using the same method as you would with any other dataset.
-
-<Tabs groupId="main">
-<TabItem value="JavaScript" label="JavaScript">
-
-```js
-import { Actor } from 'apify';
-
-await Actor.init();
-
-const otherDataset = await Actor.openDataset('old-dataset');
-// ...
-
-await Actor.exit();
-```
-
-</TabItem>
-<TabItem value="Python" label="Python">
-
-```python
-from apify import Actor
-
-async def main():
-    async with Actor:
-        other_dataset = await Actor.open_dataset(name='old-dataset')
-        # ...
-```
-
-</TabItem>
-</Tabs>
-
-In the [JavaScript API client](/api/client/js/reference/class/DatasetClient) as well as in [Python API client](/api/client/python/reference/class/DatasetClient) , you can access a dataset using its client. Once you've opened the dataset, you can read its contents and add new data in the same manner as you would for a dataset from your current run.
-
-<Tabs groupId="main">
-<TabItem value="JavaScript" label="JavaScript">
-
-```js
-const otherDatasetClient = apifyClient.dataset('jane-doe/old-dataset');
-```
-
-</TabItem>
-<TabItem value="Python" label="Python">
-
-```python
-other_dataset_client = apify_client.dataset('jane-doe/old-dataset')
-```
-
-</TabItem>
-</Tabs>
-
-The same applies for the [Apify API](#apify-api) - you can use [the same endpoints](#apify-api) as you would normally do.
-
-See the [Storage overview](/storage#share-storages-between-runs) for details on sharing storages between runs.
+To read from or write to a dataset from a different Actor or task run, see [Share storage between runs](../share-between-runs.md).
 
 ## Limits
 

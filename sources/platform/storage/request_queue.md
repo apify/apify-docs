@@ -565,69 +565,9 @@ A detailed tutorial on how to process one request queue with multiple Actor runs
 
 ## Share
 
-You can grant [access rights](/account/collaboration) to your request queue through the **Share** button under the **Actions** menu. For more details check the [full list of permissions](/account/collaboration/list-of-permissions).
+You can grant access rights to your request queue, share it by link, or generate a time-limited pre-signed URL for specific records. See [Share storage](./share.md).
 
-You can also share request queues by link using their ID or name, depending on your account or resource-level general access setting. Learn how link-based access works in [General resource access](/account/collaboration/general-resource-access).
-
-For one-off sharing of specific records when access is restricted, you can generate time-limited pre-signed URLs. See [Sharing restricted resources with pre-signed URLs](/account/collaboration/general-resource-access#pre-signed-urls).
-
-### Share request queues between runs
-
-You can access a request queue from any [Actor](../actors/index.mdx) or [task](../actors/running/tasks.md) run as long as you know its _name_ or _ID_.
-
-To access a request queue from another run using the [Apify SDK](/sdk), open it using the same method like you would do with any other request queue.
-
-<Tabs groupId="main">
-<TabItem value="JavaScript" label="JavaScript">
-
-```js
-import { Actor } from 'apify';
-
-await Actor.init();
-
-const otherQueue = await Actor.openRequestQueue('old-queue');
-// ...
-
-await Actor.exit();
-```
-
-</TabItem>
-<TabItem value="Python" label="Python">
-
-```python
-from apify import Actor
-
-async def main():
-    async with Actor:
-        other_queue = await Actor.open_request_queue(name='old-queue')
-        # ...
-```
-
-</TabItem>
-</Tabs>
-
-In the [JavaScript API client](/api/client/js/reference/class/RequestQueueClient) as well as in [Python API client](/api/client/python/reference/class/RequestQueueClient), you can access a request queue using its respective client. Once you've opened the request queue, you can use it in your crawler or add new requests like you would do with a queue from your current run.
-
-<Tabs groupId="main">
-<TabItem value="JavaScript" label="JavaScript">
-
-```js
-const otherQueueClient = apifyClient.requestQueue('jane-doe/old-queue');
-```
-
-</TabItem>
-<TabItem value="Python" label="Python">
-
-```python
-other_queue_client = apify_client.request_queue('jane-doe/old-queue')
-```
-
-</TabItem>
-</Tabs>
-
-The same applies for the [Apify API](#apify-api) - you can use [the same endpoints](#apify-api) as you would normally do.
-
-Check out the [Storage overview](/storage#share-storages-between-runs) for details on sharing storages between runs.
+To add requests to a queue from a different Actor or task run, see [Share storage between runs](./share-between-runs.md).
 
 ## Limits
 
