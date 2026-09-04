@@ -33,13 +33,13 @@ The remote server at `https://mcp.apify.com` is the recommended way to connect. 
 - OAuth authentication - secure sign-in through your browser, no API token needed
 - No local dependencies - nothing to install or maintain on your machine
 
-Add the remote server as a [custom connector](https://support.claude.com/en/articles/11175166). Remote connectors run on Anthropic's servers, so the same connector works in Claude Desktop and in claude.ai:
+Add the remote server as a custom connector. Remote connectors run on Anthropic's servers, so the same connector works in Claude Desktop and in claude.ai. On Team and Enterprise plans, an Owner or Primary Owner has to [add the connector for the whole organization](https://support.claude.com/en/articles/11175166) instead.
 
-1. In Claude, open **Settings**, then select **Connectors**. On Team and Enterprise plans, an Owner or Primary Owner has to [add the connector for the whole organization](https://support.claude.com/en/articles/11175166) instead.
-1. Select **Add**, then select **Add custom connector**. You can also open the [add custom connector dialog](https://claude.ai/new?modal=add-custom-connector#settings/customize-connectors) directly.
+1. In Claude, open **Settings**, then select **Connectors**.
+1. Select **Add**, then select **Add custom connector**. In claude.ai, you can also [open the **Add custom connector** dialog](https://claude.ai/new?modal=add-custom-connector#settings/customize-connectors) directly.
 1. Fill in the dialog:
     - **Name** - A name for the connector, for example `Apify`
-    - **Remote MCP server URL** - `https://mcp.apify.com`
+    - **Remote MCP server URL** - The Apify MCP server address, `https://mcp.apify.com`, or a custom URL that exposes only selected tools
 1. Select **Continue**. Claude checks the server and pre-fills the next screen with the authentication and OAuth settings it detects.
 1. Keep the detected settings and select **Add**.
 
@@ -47,7 +47,7 @@ On first connection, your browser opens to sign in to Apify and authorize the co
 
 :::tip Connect only the tools you need
 
-`https://mcp.apify.com` exposes the default tool set. To expose specific Actors or MCP tools instead, build your setup in the [Apify MCP server configurator](https://mcp.apify.com), copy the URL it generates, and use it instead of `https://mcp.apify.com`. For the full list of options, read about [tool selection](/integrations/mcp#tool-selection).
+`https://mcp.apify.com` exposes the default tool set. To expose specific Actors or MCP tools, build your setup in the [Apify MCP server configurator](https://mcp.apify.com) and use the URL it generates as the server URL. For the full list of options, read about [tool selection](/integrations/mcp#tool-selection).
 
 :::
 
