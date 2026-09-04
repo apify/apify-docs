@@ -96,8 +96,7 @@ post:
     Creates an Actor with the settings specified in an `Actor` object passed as
     JSON in the POST payload.
 
-    Returns the full `Actor` object, the same as the
-    [Get Actor](/api/v2/actor-get) endpoint.
+    Returns the created `Actor` object.
 
     In the HTTP request, set the `Content-Type` header to `application/json`.
 
@@ -106,12 +105,10 @@ post:
     An Actor must specify at least one version of the source code.
     For details, see [Actor versions](/api/v2/actors-actor-versions).
 
-    ### Create a public Actor
+    ### Publish an Actor
 
-    To make your Actor [public](https://docs.apify.com/platform/actors/publishing):
-    - Set `isPublic` to `true`.
-    - Provide `title` and `categories`. For reference, see [constants from the `apify-shared-js`
-    package](https://github.com/apify/apify-shared-js/blob/2d43ebc41ece9ad31cd6525bd523fb86939bf860/packages/consts/src/consts.ts#L452-L471)
+    To make your Actor [public](https://docs.apify.com/platform/actors/publishing),
+    use the [Update Actor](/api/v2/actor-put) endpoint.
 
   operationId: actors_post
   requestBody:
@@ -165,12 +162,13 @@ post:
             data:
               id: zdc3Pyhyz3m8vjDeM
               userId: wRsJZtadYvn4mBZmm
-              name: MyActor
+              name: instagram-scraper
               username: jane35
-              description: My favourite Actor!
+              description: This scraper extracts posts and comments from Instagram.
               isPublic: false
               createdAt: "2019-07-08T11:27:57.401Z"
               modifiedAt: "2019-07-08T14:01:05.546Z"
+              taggedBuilds: {}
               stats:
                 totalBuilds: 9
                 totalRuns: 16
@@ -179,32 +177,13 @@ post:
                 totalUsers30Days: 6
                 totalUsers90Days: 6
                 totalMetamorphs: 2
-                lastRunStartedAt: "2019-07-08T14:01:05.546Z"
               versions:
-                - versionNumber: "0.1"
+                - versionNumber: "0.0"
                   envVars: null
                   sourceType: SOURCE_FILES
                   applyEnvVarsToBuild: false
                   buildTag: latest
                   sourceFiles: []
-                - versionNumber: "0.2"
-                  sourceType: GIT_REPO
-                  envVars: null
-                  applyEnvVarsToBuild: false
-                  buildTag: latest
-                  gitRepoUrl: "https://github.com/jane35/my-actor"
-                - versionNumber: "0.3"
-                  sourceType: TARBALL
-                  envVars: null
-                  applyEnvVarsToBuild: false
-                  buildTag: latest
-                  tarballUrl: "https://github.com/jane35/my-actor/archive/master.zip"
-                - versionNumber: "0.4"
-                  sourceType: GITHUB_GIST
-                  envVars: null
-                  applyEnvVarsToBuild: false
-                  buildTag: latest
-                  gitHubGistUrl: "https://gist.github.com/jane35/e51feb784yu89"
               defaultRunOptions:
                 build: latest
                 timeoutSecs: 3600
@@ -213,14 +192,16 @@ post:
               exampleRunInput:
                 body: '{ "helloWorld": 123 }'
                 contentType: application/json; charset=utf-8
+              categories: []
               isDeprecated: false
-              deploymentKey: ssh-rsa AAAA ...
               title: My Actor
-              taggedBuilds:
-                latest:
-                  buildId: z2EryhbfhgSyqj6Hn
-                  buildNumber: 0.0.2
-                  finishedAt: "2019-06-10T11:15:49.286Z"
+              notice: "NONE"
+              isCritical: false
+              isGeneric: false
+              hasNoDataset: false
+              isSourceCodeHidden: true
+              standbyUrl: null
+              actorPermissionLevel: "LIMITED_PERMISSIONS"
     "400":
       $ref: ../../components/responses/BadRequest.yaml
     "401":

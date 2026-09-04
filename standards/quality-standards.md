@@ -46,6 +46,7 @@ Before submitting documentation, verify:
 - [ ] Frontmatter follows [page-structure.md](page-structure.md) (title, description 140-160 chars, sidebar_position, slug)
 - [ ] Headings use sentence case (not title case) and no gerunds (-ing forms)
 - [ ] Heading hierarchy is correct (H2 → H3 → H4, no skipped levels; H1 comes from frontmatter title)
+- [ ] No stacked headings - every heading (including the page title) is followed by body text before the next heading
 - [ ] Bold used only for UI elements and critical warnings (not for structure or list intros)
 - [ ] Code formatting uses backticks for file names, commands, config keys
 - [ ] All admonitions have titles (required by [page-structure.md](page-structure.md))

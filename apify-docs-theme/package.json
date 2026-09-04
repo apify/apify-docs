@@ -1,6 +1,6 @@
 {
     "name": "@apify/docs-theme",
-    "version": "1.0.269",
+    "version": "1.0.271",
     "description": "",
     "main": "./src/index.js",
     "files": [
@@ -24,21 +24,21 @@
     },
     "dependencies": {
         "@apify/docs-search-modal": "^1.4.0",
-        "@apify/ui-icons": "^1.19.0",
-        "@apify/ui-library": "^1.156.1",
+        "@apify/ui-icons": "^1.50.0",
+        "@apify/ui-library": "^1.164.3",
         "@docusaurus/theme-common": "^3.10.2",
         "@stackql/docusaurus-plugin-hubspot": "^1.1.0",
-        "algoliasearch": "^5.19.0",
-        "algoliasearch-helper": "^3.22.6",
-        "babel-loader": "^10.0.0",
+        "algoliasearch": "^5.57.0",
+        "algoliasearch-helper": "^3.29.3",
+        "babel-loader": "^10.1.1",
         "docusaurus-gtm-plugin": "^0.0.2",
-        "postcss-preset-env": "^11.0.0",
+        "postcss-preset-env": "^11.5.1",
         "prism-react-renderer": "^2.4.1",
-        "react-hotkeys-hook": "^5.1.0",
+        "react-hotkeys-hook": "^5.3.3",
         "remark-parse": "^11.0.0",
         "remark-stringify": "^11.0.0",
         "unified": "^11.0.5",
-        "unist-util-visit-parents": "^6.0.1"
+        "unist-util-visit-parents": "^6.0.2"
     },
     "peerDependencies": {
         "clsx": "*",
