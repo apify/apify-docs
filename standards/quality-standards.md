@@ -49,6 +49,7 @@ Before submitting documentation, verify:
 - [ ] Bold used only for UI elements and critical warnings (not for structure or list intros)
 - [ ] Code formatting uses backticks for file names, commands, config keys
 - [ ] All admonitions have titles (required by [page-structure.md](page-structure.md))
+- [ ] Admonitions are sparse (at most one per H2 section) and carry asides, not content the prose needs
 - [ ] Lists use parallel structure (all items follow same grammatical pattern)
 - [ ] Numbered lists use `1.` for all items (not sequential numbers)
 

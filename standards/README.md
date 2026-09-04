@@ -37,7 +37,7 @@ Some rules no linter can check, so a reviewer has to:
 
 - Frontmatter description length, because Vale ignores frontmatter
 - Screenshot treatment, and whether an image earns its place at all
-- Which admonition type fits
+- Which admonition type fits, and whether the page has too many of them
 - Sentence case in headings, which Vale reports only as a suggestion, so CI won't stop Title Case
 
 ## Change a rule

@@ -75,7 +75,7 @@ Order sections so no concept is used before it's explained. Treat information de
 
 ## Admonitions
 
-Use Docusaurus admonitions for important information. All admonitions must have titles.
+An admonition pulls one piece of information out of the reading order. All admonitions must have titles.
 
 | Type | Use for |
 | --- | --- |
@@ -90,6 +90,23 @@ Use Docusaurus admonitions for important information. All admonitions must have 
 Content of the admonition.
 :::
 ```
+
+### How many
+
+Keep admonitions rare. One per H2 section is the ceiling, and most sections need none. Emphasis is a fixed budget: a page that boxes something under every heading teaches the reader to skip the boxes, so the one warning that mattered goes unread too.
+
+An admonition earns its place when skipping it costs the reader something concrete, such as lost data, a failed build, or an unexpected charge. Anything the reader can act on in passing belongs in the prose.
+
+### Not a substitute for prose
+
+Admonitions carry asides, not the main line of the page. Write the page so it reads correctly with every box removed.
+
+| Avoid | Prefer |
+| --- | --- |
+| A step lifted out of a procedure into a `:::note` | The step in its numbered position |
+| A `:::info` that restates the paragraph above it | The paragraph alone |
+| A `:::tip` opening a section instead of a lead sentence | A lead sentence |
+| A prerequisite hidden in a `:::note` mid-page | A prerequisites list before the steps |
 
 ## Code examples
 
