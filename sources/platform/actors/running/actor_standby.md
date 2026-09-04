@@ -12,14 +12,15 @@ in the background, waiting for the incoming HTTP requests. In a sense, the Actor
 
 ## How do I know if Standby mode is enabled
 
-You will know that the Actor is enabled for Standby mode if you see the **Standby** tab on the Actor's detail page.
+You will know that the Actor is enabled for Standby mode if you see the **Endpoints** tab on the Actor's detail page.
 In the tab, you will find the hostname of the server, the description of the Actor's endpoints,
 the parameters they accept, and what they return in the Actor README.
+If the Actor defines a [web server schema](../development/actor_definition/web_server_schema/index.md), the tab also shows an interactive list of its endpoints, where you can send requests directly from the browser.
 
 To use the Actor in Standby mode, you don't need to click a start button or not need to do anything else. Simply use the provided hostname and endpoint in your application,
 hit the API endpoint and get results.
 
-![Standby tab](./images/actor_standby/standby-tab.png)
+![Endpoints tab](./images/actor_standby/standby-tab.png)
 
 ## How do I pass input to Actors in Standby mode
 
@@ -63,6 +64,12 @@ it well. Please head to the Actor README to learn more about the capabilities of
 When you use the Actor in Standby mode, the system automatically scales the Actor to accommodate the incoming requests. Under the hood,
 the system starts new Actor runs, which you will see in the Actor runs tab, with the origin set to Standby.
 
+## Does the platform check that Standby runs are healthy
+
+The platform checks a run's readiness once, before the run starts serving requests, and performs no health checks after that. A run ends when its process exits, when it migrates to another machine, or when it stays idle for longer than the idle timeout.
+
+If an Actor's server stays up but stops responding, the platform doesn't detect the failure, and requests keep going to that run. To learn how to handle this in your own Actors, see [Develop Actors in Standby mode](../development/programming_interface/actor_standby.md#run-lifecycle-in-standby-mode).
+
 ## What is the timeout for incoming requests
 
 For requests sent to an Actor in Standby mode, the maximum time allowed until receiving the first response is _5 minutes_. This represents the overall timeout for the operation.
@@ -81,9 +88,9 @@ The Standby configuration currently consists of the following properties:
 - **Idle timeout (seconds)** - If a Standby Actor run doesn’t receive any HTTP requests within this time, the system will terminate the run. When a new request arrives, the system might need to start a new Standby Actor run to handle it, which can take a few seconds. A higher idle timeout improves responsiveness but increases costs, as the Actor remains active for a longer period.
 - **Build** - The Actor build that the runs of the Standby Actor will use. Can be either a build tag (e.g. `latest.`), or a build number (e.g. `0.1.2`).
 
-You can see these in the Standby tab of the Actor detail page. However, note that these properties are not configurable at the Actor level. If you wish to
+You can see these in the **Endpoints** tab of the Actor detail page. However, note that these properties are not configurable at the Actor level. If you wish to
 use the Actor-level hostname, this will always use the default configuration. To override this configuration, just create a new Task from the Actor.
-You can then head to the Standby tab of the created Task and modify the configuration as needed. Note that the task has a specific hostname, so make
+You can then head to the **Endpoints** tab of the created Task and modify the configuration as needed. Note that the task has a specific hostname, so make
 sure to use that in your application if you wish to use the custom configuration.
 
 ## Are the Standby runs billed differently
