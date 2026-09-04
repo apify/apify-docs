@@ -20,8 +20,8 @@ argument-hint: file-path
 
    For a pull request, run all three over every changed `.md` and `.mdx` file and report per file.
 3. **Delegated review** - spawn two subagents in parallel, for what no tool can check. Each reads the page being reviewed plus one standards file, and returns findings with line numbers and suggested fixes:
-   - Subagent 1, `standards/style-guide.md`: bold outside UI elements and warnings, weak link text, non-parallel lists, missing serial commas, legacy vs alternative vs deprecated, acronyms unexpanded on first use
-   - Subagent 2, `standards/page-structure.md`: concepts used before they're explained, screenshots that don't earn their place or break the treatment rules, admonition types that don't fit their content
+   - Subagent 1, `standards/style-guide.md`: bold outside UI elements and critical warnings, link text that doesn't say where it goes, non-parallel lists, missing serial commas, and loose use of "legacy", "alternative", or "deprecated"
+   - Subagent 2, `standards/page-structure.md`: concepts used before they're explained, screenshots that don't earn their place or break the treatment rules, admonitions that don't fit their content, outnumber one per H2 section, or carry content the prose needs
 4. **Content review** (main process) - focus on what neither tools nor standards cover:
    - Content structure (clear intro, logical flow, next steps)
    - Technical accuracy (code examples correct, API endpoints current)
