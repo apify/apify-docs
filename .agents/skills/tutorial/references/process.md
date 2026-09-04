@@ -14,7 +14,7 @@ Agent-agnostic workflow for creating structured Apify tutorials.
 - Check existing tutorials for style reference
 - Identify prerequisites the reader needs
 
-## Step 3: Create front matter
+## Step 3: Create frontmatter
 
 ```yaml
 ---
@@ -52,7 +52,7 @@ Each step should have a clear action verb, expected result, and verification. Co
 
 ### Build fails after adding tutorial
 
-Verify front matter has all required fields. Run `pnpm build` to catch broken links and slug issues.
+Verify frontmatter has all required fields. Run `pnpm build` to catch broken links and slug issues.
 
 ### Code examples don't render correctly
 

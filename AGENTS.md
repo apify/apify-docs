@@ -152,25 +152,15 @@ Use `pnpm start:dev` + nginx to serve all repos together locally. See `CONTRIBUT
 
 ## Standards
 
-Detailed writing and formatting standards are in `standards/`. This is the single source of truth for docs rules - `CONTRIBUTING.md` and `.cursor/rules/` point here instead of restating them, so a rule change lands in `standards/` only:
+Writing and formatting rules live in `standards/`, starting at [`standards/README.md`](standards/README.md). That directory is the source of truth - `CONTRIBUTING.md` and `.cursor/rules/` point there instead of restating rules, so a rule change lands in one place.
 
-- `standards/writing-style.md` - Prose voice, tone, headings, links, numbers
-- `standards/content-standards.md` - Front matter, admonitions, code blocks, images
-- `standards/terminology.md` - Product names, capitalization, article usage
-- `standards/grammar-rules.md` - Hyphenation, punctuation, numbers, brand spelling
-- `standards/file-organization.md` - File naming and directory structure
-- `standards/quality-standards.md` - Complete quality checklist before submitting
+Most of these rules run in CI through Vale, using the `apify/vale-rules` package pinned in `.vale.ini`. The check fails on errors. Run `vale "<file>"` on what you changed rather than working from a summary.
 
-Key rules at a glance:
+Rules CI won't catch, so check them yourself:
 
-- US English, active voice, imperative tone, no sales language
-- Sentence case headings, no gerunds
-- Bold for UI elements only; `code` for filenames, commands, variables
-- All admonitions require titles
-- 140-160 character descriptions in front matter, action-oriented, without the word "documentation"
-- Screenshots only when they add something the prose doesn't; light theme, `#F86606` borders to highlight, no arrows or circles
-- See `standards/terminology.md` for Apify product name capitalization
-- Don't use em dashes (—) - use hyphen with spaces ( - ) instead
+- Frontmatter descriptions run 140-160 characters, action-oriented, and avoid the word "documentation". Vale ignores frontmatter entirely
+- Screenshots use the light theme, with `#F86606` borders to highlight UI elements. No arrows or circles
+- Sentence case headings are only a Vale suggestion, so Title Case passes CI
 
 ## Skills
 
@@ -183,15 +173,6 @@ Documentation skills live in `.agents/skills/` ([AgentSkills spec](https://agent
 
 ## Review checklist
 
-When creating or reviewing documentation, verify:
+Use the checklist in [`standards/quality-standards.md`](standards/quality-standards.md). It lives there so it can't drift from the rules it checks.
 
-- [ ] Sentence case headings, no gerunds, proper hierarchy
-- [ ] Front matter complete (title, description 140-160 chars, sidebar_position, slug)
-- [ ] Bold used only for UI elements
-- [ ] All admonitions have titles
-- [ ] Code examples are complete with syntax highlighting
-- [ ] Links use descriptive text, internal links use relative paths
-- [ ] Images have alt text, use light theme and `#F86606` highlights
-- [ ] Terminology matches rules above
-- [ ] US English, active voice, no sales language
-- [ ] `pnpm lint` passes
+Before opening a pull request, run `pnpm lint` and `vale "<file>"` on the files you changed.

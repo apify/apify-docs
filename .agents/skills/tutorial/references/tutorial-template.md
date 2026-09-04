@@ -2,7 +2,7 @@
 
 Complete 8-section template for Apify tutorials. Adapt sections based on tutorial type (platform, academy, integration).
 
-## Section 1: Front matter
+## Section 1: Frontmatter
 
 ```yaml
 ---
