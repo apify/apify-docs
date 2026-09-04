@@ -27,9 +27,9 @@ If a storage resource access is set to **Restricted**, the run from which it's a
 
 :::
 
-## Datasets
+## Open a storage with the SDK
 
-To access a dataset from another run using the [Apify SDK](/sdk), open it using the same method as you would with any other dataset.
+Open the storage with the same method you would use for the current run's storage, and pass the name or ID of the one you want.
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
@@ -60,7 +60,17 @@ async def main():
 </TabItem>
 </Tabs>
 
-In the [JavaScript API client](/api/client/js/reference/class/DatasetClient) as well as in [Python API client](/api/client/python/reference/class/DatasetClient), you can access a dataset using its client. Once you've opened the dataset, you can read its contents and add new data in the same manner as you would for a dataset from your current run.
+Only the method name changes with the storage type:
+
+| Storage type    | [JavaScript SDK](/sdk/js)   | [Python SDK](/sdk/python)      |
+| --------------- | --------------------------- | ------------------------------ |
+| Dataset         | `Actor.openDataset()`       | `Actor.open_dataset()`         |
+| Key-value store | `Actor.openKeyValueStore()` | `Actor.open_key_value_store()` |
+| Request queue   | `Actor.openRequestQueue()`  | `Actor.open_request_queue()`   |
+
+## Open a storage with an API client
+
+Once you've opened the storage, read its contents and add new data exactly as you would for a storage from the current run.
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
@@ -79,112 +89,14 @@ other_dataset_client = apify_client.dataset('jane-doe/old-dataset')
 </TabItem>
 </Tabs>
 
-The same applies for the [Apify API](./dataset/index.md#apify-api) - you can use the same endpoints as you would normally do.
+Only the accessor changes with the storage type:
 
-## Key-value stores
+| Storage type    | JavaScript client                                                                   | Python client                                                                              |
+| --------------- | ----------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| Dataset         | [`apifyClient.dataset()`](/api/client/js/reference/class/DatasetClient)             | [`apify_client.dataset()`](/api/client/python/reference/class/DatasetClient)               |
+| Key-value store | [`apifyClient.keyValueStore()`](/api/client/js/reference/class/KeyValueStoreClient) | [`apify_client.key_value_store()`](/api/client/python/reference/class/KeyValueStoreClient) |
+| Request queue   | [`apifyClient.requestQueue()`](/api/client/js/reference/class/RequestQueueClient)   | [`apify_client.request_queue()`](/api/client/python/reference/class/RequestQueueClient)    |
 
-To access a key-value store from another run using the [Apify SDK](/sdk), open it using the same method as you would do with any other store.
+## Use the Apify API
 
-<Tabs groupId="main">
-<TabItem value="JavaScript" label="JavaScript">
-
-```js
-import { Actor } from 'apify';
-
-await Actor.init();
-
-const otherStore = await Actor.openKeyValueStore('old-store');
-// ...
-
-await Actor.exit();
-```
-
-</TabItem>
-<TabItem value="Python" label="Python">
-
-```python
-from apify import Actor
-
-async def main():
-    async with Actor:
-        other_store = await Actor.open_key_value_store(name='old-store')
-        # ...
-```
-
-</TabItem>
-</Tabs>
-
-In the [JavaScript API client](/api/client/js/reference/class/KeyValueStoreClient) as well as in [Python API client](/api/client/python/reference/class/KeyValueStoreClient), you can access a store using its client. Once you've opened a store, read and manage its contents like you would do with a key-value store from your current run.
-
-<Tabs groupId="main">
-<TabItem value="JavaScript" label="JavaScript">
-
-```js
-const otherStoreClient = apifyClient.keyValueStore('jane-doe/old-store');
-```
-
-</TabItem>
-<TabItem value="Python" label="Python">
-
-```python
-other_store_client = apify_client.key_value_store('jane-doe/old-store')
-```
-
-</TabItem>
-</Tabs>
-
-The same applies for the [Apify API](./key_value_store/index.md#apify-api) - you can use the same endpoints as you would normally do.
-
-## Request queues
-
-To access a request queue from another run using the [Apify SDK](/sdk), open it using the same method as you would do with any other request queue.
-
-<Tabs groupId="main">
-<TabItem value="JavaScript" label="JavaScript">
-
-```js
-import { Actor } from 'apify';
-
-await Actor.init();
-
-const otherQueue = await Actor.openRequestQueue('old-queue');
-// ...
-
-await Actor.exit();
-```
-
-</TabItem>
-<TabItem value="Python" label="Python">
-
-```python
-from apify import Actor
-
-async def main():
-    async with Actor:
-        other_queue = await Actor.open_request_queue(name='old-queue')
-        # ...
-```
-
-</TabItem>
-</Tabs>
-
-In the [JavaScript API client](/api/client/js/reference/class/RequestQueueClient) as well as in [Python API client](/api/client/python/reference/class/RequestQueueClient), you can access a request queue using its respective client. Once you've opened the request queue, you can use it in your crawler or add new requests like you would do with a queue from your current run.
-
-<Tabs groupId="main">
-<TabItem value="JavaScript" label="JavaScript">
-
-```js
-const otherQueueClient = apifyClient.requestQueue('jane-doe/old-queue');
-```
-
-</TabItem>
-<TabItem value="Python" label="Python">
-
-```python
-other_queue_client = apify_client.request_queue('jane-doe/old-queue')
-```
-
-</TabItem>
-</Tabs>
-
-The same applies for the [Apify API](./request_queue.md#apify-api) - you can use the same endpoints as you would normally do.
+Send requests to the same endpoints you would use for the current run's storages, passing the name or ID of the storage you want. See the endpoint reference for [datasets](./dataset/index.md#apify-api), [key-value stores](./key_value_store/index.md#apify-api), and [request queues](./request_queue.md#apify-api).

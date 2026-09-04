@@ -271,11 +271,9 @@ You can compress a record and use the [Content-Encoding request header](https://
 
 _Using the [JavaScript SDK](/sdk/js/reference/class/KeyValueStore#setValue) or the [JavaScript API client](/api/client/js/reference/class/KeyValueStoreClient#setRecord) automatically compresses your files._ We advise utilizing the JavaScript API client for data compression prior to server upload and decompression upon retrieval, minimizing storage costs.
 
-## Share
+## Share and reuse
 
 You can grant access rights to your key-value store, share it by link, or generate a time-limited pre-signed URL for specific records. See [Share storage](../share.md).
-
-## Use from another run
 
 To read from or write to a key-value store that belongs to a different Actor or task run, see [Use storage from another run](../use-from-another-run.md).
 
