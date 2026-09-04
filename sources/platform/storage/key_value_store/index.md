@@ -287,6 +287,8 @@ Key-value storage uses the [AWS S3](https://aws.amazon.com/s3/) service. Accordi
 
 ### Rate limiting
 
-Key-value store [API endpoints](/api/v2/storage-key-value-stores) use the default storage rate limit of _60 requests per second_ for each store.
+CRUD ([get](/api/v2/key-value-store-record-get), [put](/api/v2/key-value-store-record-put), [delete](/api/v2/key-value-store-record-delete)) operations on key-value store records are limited to _200 requests per second_ per store.
 
-Check out the [API documentation](/api/v2#rate-limiting) for more information and guidance on actions to take if you exceed this rate limit.
+All other key-value store [API endpoints](/api/v2/storage-key-value-stores) use the default limit of _60 requests per second_ per store.
+
+Check out the [API documentation](/api/v2#rate-limiting) for more information and guidance on actions to take if you exceed these rate limits.

@@ -155,7 +155,7 @@ Use this tool to estimate storage costs by plan and storage type.
 
 ## Rate limiting
 
-All API endpoints limit their request rate to protect Apify servers from overload. The default rate limit for storage objects is _60 requests per second_. Some endpoints allow up to _400 requests per second_ per storage object, and a few allow fewer. The tiers differ per storage type:
+All API endpoints limit their request rate to protect Apify servers from overload. The default rate limit for storage objects is _60 requests per second_, and some endpoints allow up to _400 requests per second_. The tiers differ per storage type:
 
 * [Datasets](/storage/dataset#rate-limiting)
 * [Key-value stores](/storage/key-value-store#rate-limiting)
