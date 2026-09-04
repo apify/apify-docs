@@ -26,4 +26,4 @@ If your storage resource is set to _restricted_, all API calls must include a va
 
 :::
 
-To read from or write to a storage from a different Actor or task run, see [Share storage between runs](./share-between-runs.md).
+To read from or write to a storage from a different Actor or task run, see [Use storage from another run](./use-from-another-run.md).

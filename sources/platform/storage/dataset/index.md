@@ -417,7 +417,9 @@ By default, the whole result is wrapped in an `<items/>` element, while each pag
 
 You can grant access rights to your dataset, share it by link, or generate a time-limited pre-signed URL for specific records. See [Share storage](../share.md).
 
-To read from or write to a dataset from a different Actor or task run, see [Share storage between runs](../share-between-runs.md).
+## Use from another run
+
+To read from or write to a dataset that belongs to a different Actor or task run, see [Use storage from another run](../use-from-another-run.md).
 
 ## Limits
 

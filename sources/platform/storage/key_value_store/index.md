@@ -275,7 +275,9 @@ _Using the [JavaScript SDK](/sdk/js/reference/class/KeyValueStore#setValue) or t
 
 You can grant access rights to your key-value store, share it by link, or generate a time-limited pre-signed URL for specific records. See [Share storage](../share.md).
 
-To read from or write to a key-value store from a different Actor or task run, see [Share storage between runs](../share-between-runs.md).
+## Use from another run
+
+To read from or write to a key-value store that belongs to a different Actor or task run, see [Use storage from another run](../use-from-another-run.md).
 
 ## Data consistency
 

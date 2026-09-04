@@ -1,9 +1,9 @@
 ---
-title: Share storage between runs
-sidebar_label: Share between runs
-description: Access a dataset, key-value store, or request queue from another Actor or task run using its name or ID, with the Apify SDK, API clients, or the API.
+title: Use storage from another run
+sidebar_label: Use from another run
+description: Open a dataset, key-value store, or request queue that belongs to another Actor or task run by its name or ID, from the SDK, API clients, or the API.
 sidebar_position: 9.6
-slug: /storage/share-between-runs
+slug: /storage/use-from-another-run
 ---
 
 import Tabs from '@theme/Tabs';

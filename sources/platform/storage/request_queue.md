@@ -108,7 +108,7 @@ Example payload:
 
 :::note `clientKey` parameter
 
-When adding or updating requests, you can optionally provide a `clientKey` parameter to your request. It must be a string between 1 and 32 characters in length. This identifier is used to determine whether the queue was accessed by [multiple clients](./share-between-runs.md). If `clientKey` is not provided, the system considers this API call to come from a new client. See the `hadMultipleClients` field returned by the [`Get head`](/api/v2/request-queue-head-get) operation for details.
+When adding or updating requests, you can optionally provide a `clientKey` parameter to your request. It must be a string between 1 and 32 characters in length. This identifier is used to determine whether the queue was accessed by [multiple clients](./use-from-another-run.md). If `clientKey` is not provided, the system considers this API call to come from a new client. See the `hadMultipleClients` field returned by the [`Get head`](/api/v2/request-queue-head-get) operation for details.
 
 Example: `client-abc`
 
@@ -567,7 +567,9 @@ A detailed tutorial on how to process one request queue with multiple Actor runs
 
 You can grant access rights to your request queue, share it by link, or generate a time-limited pre-signed URL for specific records. See [Share storage](./share.md).
 
-To add requests to a queue from a different Actor or task run, see [Share storage between runs](./share-between-runs.md).
+## Use from another run
+
+To add requests to a queue that belongs to a different Actor or task run, see [Use storage from another run](./use-from-another-run.md).
 
 ## Limits
 
