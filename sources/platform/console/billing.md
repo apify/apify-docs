@@ -34,7 +34,7 @@ Below the bar chart, there is a table titled **Usage by Actors**. This table pre
 
 ## Subscription
 
-The **Subscriptions** tab offers a central location to manage various aspects of your subscription plan. Here, you can access details about your current plan and explore options to upgrade to a different one.
+The **Subscription** tab offers a central location to manage various aspects of your subscription plan. Here, you can access details about your current plan and explore options to upgrade to a different one.
 
 :::info Unused credits
 

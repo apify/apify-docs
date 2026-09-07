@@ -45,7 +45,11 @@ properties:
   usageTotalUsd:
     type: [number, "null"]
     examples: [0.02]
+    description: >-
+      Total cost in USD for this build. Requires authentication token to access.
   usageUsd:
+    description: >-
+      Platform usage costs breakdown in USD for this build. Requires authentication token to access.
     anyOf:
       - $ref: ./BuildUsage.yaml
       - type: "null"

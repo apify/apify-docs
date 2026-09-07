@@ -6,15 +6,11 @@ sidebar_position: 2
 slug: /integrations/google-adk
 ---
 
-## What is the Google ADK
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
-[Google Agent Development Kit](https://github.com/google/adk-python) is a framework for developing and deploying AI agents.
+[Google Agent Development Kit](https://github.com/google/adk-python) (ADK) is a framework for developing and deploying AI agents. For more details, check out the [Google ADK documentation](https://google.github.io/adk-docs/).
 
-:::note Explore Google ADK
-
-For more details, check out [Google ADK documentation](https://google.github.io/adk-docs/).
-
-:::
+<ThirdPartyDisclaimer />
 
 ## How to use Apify with Google ADK
 

@@ -1,0 +1,9 @@
+title: ScheduleCreateAction
+oneOf:
+  - $ref: ./ScheduleCreateActionRunActor.yaml
+  - $ref: ./ScheduleCreateActionRunActorTask.yaml
+discriminator:
+  propertyName: type
+  mapping:
+    RUN_ACTOR: ./ScheduleCreateActionRunActor.yaml
+    RUN_ACTOR_TASK: ./ScheduleCreateActionRunActorTask.yaml

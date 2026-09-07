@@ -6,7 +6,11 @@ sidebar_position: 7
 slug: /integrations/llama-index
 ---
 
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+
 > For more information on LlamaIndex, visit its [documentation](https://developers.llamaindex.ai/python/framework/).
+
+<ThirdPartyDisclaimer />
 
 ## What is LlamaIndex?
 

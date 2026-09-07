@@ -8,7 +8,8 @@ allOf:
       - trialMinutes
     properties:
       pricingModel:
-        $ref: ./PricingModel.yaml
+        type: string
+        const: FLAT_PRICE_PER_MONTH
       trialMinutes:
         type: integer
         description: For how long this Actor can be used for free in trial period

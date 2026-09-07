@@ -7,4 +7,11 @@ swap:
   '(?<!-)python(?!-)': Python
   'typescript|Typescript|typescript': TypeScript
   'nodejs|Nodejs|node.js': Node.js
-  # Add more languages or common mistakes as needed
+  'Github': GitHub
+  'chatgpt|Chatgpt|chatGPT': ChatGPT
+  'Mongodb|mongodb': MongoDB
+  'Postgresql|postgresql|postgres': PostgreSQL
+  'vscode|VSCode|VS code': VS Code
+  'Wordpress|wordpress': WordPress
+  'N8n|N8N': n8n
+  'Langchain|langchain': LangChain

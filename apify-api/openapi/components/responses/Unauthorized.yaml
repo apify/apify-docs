@@ -5,5 +5,5 @@ content:
       $ref: ../schemas/common/ErrorResponse.yaml
     example:
       error:
-        type: token-not-valid
+        type: invalid-token
         message: Authentication token is not valid.

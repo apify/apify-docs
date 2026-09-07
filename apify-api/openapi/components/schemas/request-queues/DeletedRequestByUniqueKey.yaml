@@ -1,0 +1,9 @@
+title: DeletedRequestByUniqueKey
+description: Confirmation of a request that was successfully deleted, identified by its unique key.
+type: object
+required: [uniqueKey]
+properties:
+  uniqueKey:
+    $ref: ./SharedProperties.yaml#/UniqueKey
+  id:
+    $ref: ./SharedProperties.yaml#/RequestId

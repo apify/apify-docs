@@ -40,7 +40,6 @@ Actors on Apify Store can be public or private:
 You can monetize your Actors using three different pricing models:
 
 - Pay for usage: charge based on how much the Actor is used.
-- Pay per result: the price is based on the number of results produced, with the first few free.
 - Pay per event: the price is based on specific events triggered by the Actor.
 - Monthly billing: set a fixed monthly rental rate for using the Actor.
 

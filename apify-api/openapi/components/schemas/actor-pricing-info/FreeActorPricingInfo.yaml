@@ -6,4 +6,5 @@ allOf:
       - pricingModel
     properties:
       pricingModel:
-        $ref: ./PricingModel.yaml
+        type: string
+        const: FREE

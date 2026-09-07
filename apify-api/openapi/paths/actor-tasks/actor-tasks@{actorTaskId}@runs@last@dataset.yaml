@@ -1,0 +1,6 @@
+get:
+  $ref: "../../components/objects/datasets/dataset.yaml#/getTaskLastRun"
+put:
+  $ref: "../../components/objects/datasets/dataset.yaml#/putTaskLastRun"
+delete:
+  $ref: "../../components/objects/datasets/dataset.yaml#/deleteTaskLastRun"

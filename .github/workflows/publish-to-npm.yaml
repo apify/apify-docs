@@ -139,4 +139,4 @@ jobs:
             -   env:
                     GITHUB_TOKEN: ${{ secrets.APIFY_SERVICE_ACCOUNT_GITHUB_TOKEN }}
                 run: |
-                    gh workflow run _release_docs.yaml --repo ${{ matrix.repo }}
+                    gh workflow run manual_release_docs.yaml --repo ${{ matrix.repo }}

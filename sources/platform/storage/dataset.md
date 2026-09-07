@@ -39,9 +39,9 @@ In [Apify Console](https://console.apify.com), you can view your datasets in the
 
 To view or download a dataset:
 
-1. Click on its **Dataset ID**.
-2. Select the format & configure other options if desired in **Export dataset** section.
-3. Click **Download**.
+1. Click on its **Dataset ID** to open the dataset detail page.
+1. Browse the data in **Table** or **JSON** view.
+1. Click **Export** to download the data in your preferred format.
 
 Utilize the **Actions** menu to modify the dataset's name, which also affects its [retention period](/platform/storage/usage#data-retention), and to adjust [access rights](../collaboration/index.md). The **API** button allows you to explore and test the dataset's [API endpoints](/api/v2/storage-datasets).
 
@@ -51,7 +51,7 @@ Utilize the **Actions** menu to modify the dataset's name, which also affects it
 
 The [Apify API](/api/v2/storage-datasets) enables you programmatic access to your datasets using [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
 
-If you are accessing your datasets using the `username~store-name` [store ID format](./index.md), you will need to use your secret API token. You can find the token (and your user ID) on the [Integrations](https://console.apify.com/account#/integrations)tab of **Settings** page of your Apify account.
+If you are accessing your datasets using the `username~store-name` [store ID format](./index.md), you will need to use your secret API token. You can find the token (and your user ID) on the [API & Integrations](https://console.apify.com/settings/integrations) tab of **Settings** page of your Apify account.
 
 > When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. ([More info](../integrations/programming/api.md#authentication)).
 

@@ -1,7 +1,0 @@
-title: PricingModel
-type: string
-enum:
-  - PAY_PER_EVENT
-  - PRICE_PER_DATASET_ITEM
-  - FLAT_PRICE_PER_MONTH
-  - FREE

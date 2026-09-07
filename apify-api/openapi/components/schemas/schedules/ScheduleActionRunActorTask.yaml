@@ -1,0 +1,19 @@
+title: ScheduleActionRunActorTask
+required:
+  - id
+  - type
+  - actorTaskId
+type: object
+properties:
+  id:
+    type: string
+    examples: [c6KfSgoQzFhMk3etc]
+  type:
+    const: RUN_ACTOR_TASK
+  actorTaskId:
+    type: string
+    examples: [jF8GGEvbEg4Au3NLA]
+  input:
+    anyOf:
+      - type: object
+      - type: "null"

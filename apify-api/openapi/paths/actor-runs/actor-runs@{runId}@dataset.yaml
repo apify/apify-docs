@@ -1,0 +1,6 @@
+get:
+  $ref: "../../components/objects/datasets/dataset.yaml#/getDefault"
+put:
+  $ref: "../../components/objects/datasets/dataset.yaml#/putDefault"
+delete:
+  $ref: "../../components/objects/datasets/dataset.yaml#/deleteDefault"

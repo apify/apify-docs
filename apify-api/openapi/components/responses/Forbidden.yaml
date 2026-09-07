@@ -5,5 +5,5 @@ content:
       $ref: ../schemas/common/ErrorResponse.yaml
     example:
       error:
-        type: permission-denied
+        type: insufficient-permissions
         message: You do not have permission to perform this action.

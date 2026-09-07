@@ -1,0 +1,9 @@
+description: The HTTP request exceeded the timeout limit
+content:
+  application/json:
+    schema:
+      $ref: ../schemas/common/ErrorResponse.yaml
+    example:
+      error:
+        type: run-timeout-exceeded
+        message: Actor run exceeded the timeout of 300 seconds for this API endpoint

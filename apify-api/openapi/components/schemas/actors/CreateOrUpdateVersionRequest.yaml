@@ -11,7 +11,7 @@ properties:
   envVars:
     type: [array, "null"]
     items:
-      $ref: ./EnvVar.yaml
+      $ref: ./EnvVarRequest.yaml
     description: ""
   applyEnvVarsToBuild:
     type: [boolean, "null"]

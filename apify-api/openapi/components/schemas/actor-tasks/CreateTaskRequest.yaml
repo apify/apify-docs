@@ -1,7 +1,6 @@
 title: CreateTaskRequest
 required:
   - actId
-  - name
 type: object
 properties:
   actId:
@@ -12,7 +11,7 @@ properties:
     examples: [my-task]
   options:
     anyOf:
-      - $ref: ./TaskOptions.yaml
+      - $ref: ../common/TaskOptions.yaml
       - type: "null"
   input:
     anyOf:

@@ -6,15 +6,11 @@ sidebar_position: 11
 slug: /integrations/mastra
 ---
 
-## What is Mastra
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
-[Mastra](https://mastra.ai) is an open-source TypeScript framework for building AI applications efficiently. It provides essential tools like agents, workflows, retrieval-augmented generation (RAG), integrations, and evaluations. Supporting any LLM (e.g., GPT-4, Claude, Gemini). You can run it locally or deploy it to a serverless cloud like [Apify](https://apify.com).
+[Mastra](https://mastra.ai) is an open-source TypeScript framework for building AI applications efficiently. It provides essential tools like agents, workflows, retrieval-augmented generation (RAG), integrations, and evaluations. It supports any LLM (e.g. GPT-4, Claude, Gemini), and you can run it locally or deploy it to a serverless cloud like [Apify](https://apify.com). For more information, check out the [Mastra documentation](https://mastra.ai/docs).
 
-:::note Explore Mastra
-
-Check out the [Mastra docs](https://mastra.ai/docs) for more information.
-
-:::
+<ThirdPartyDisclaimer />
 
 ## What is MCP server
 
@@ -43,6 +39,7 @@ First, import all required packages:
 import { Agent } from '@mastra/core/agent';
 import { MastraMCPClient } from '@mastra/mcp';
 import { openai } from '@ai-sdk/openai';
+
 // For Anthropic use
 // import { anthropic } from '@ai-sdk/anthropic';
 ```

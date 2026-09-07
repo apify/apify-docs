@@ -14,51 +14,27 @@ required:
 type: object
 properties:
   id:
-    type: string
-    description: A unique identifier assigned to the request queue.
-    examples: [WkzbQMuFYuamGv3YF]
+    $ref: ./SharedProperties.yaml#/QueueId
   name:
-    type: string
+    type: [string, "null"]
     description: The name of the request queue.
     examples: [some-name]
   userId:
-    type: string
-    description: The ID of the user who owns the request queue.
-    examples: [wRsJZtadYvn4mBZmm]
+    $ref: ./SharedProperties.yaml#/QueueUserId
   createdAt:
-    type: string
-    format: date-time
-    description: The timestamp when the request queue was created.
-    examples: ["2019-12-12T07:34:14.202Z"]
+    $ref: ./SharedProperties.yaml#/QueueCreatedAt
   modifiedAt:
-    type: string
-    format: date-time
-    description: The timestamp when the request queue was last modified. Modifications include adding, updating, or removing requests, as well as locking or unlocking requests in the request queue.
-    examples: ["2030-12-13T08:36:13.202Z"]
+    $ref: ./SharedProperties.yaml#/QueueModifiedAt
   accessedAt:
-    type: string
-    format: date-time
-    description: The timestamp when the request queue was last accessed.
-    examples: ["2019-12-14T08:36:13.202Z"]
+    $ref: ./SharedProperties.yaml#/QueueAccessedAt
   totalRequestCount:
-    type: integer
-    description: The total number of requests in the request queue.
-    minimum: 0
-    examples: [870]
+    $ref: ./SharedProperties.yaml#/TotalRequestCount
   handledRequestCount:
-    type: integer
-    description: The number of requests that have been handled.
-    minimum: 0
-    examples: [100]
+    $ref: ./SharedProperties.yaml#/HandledRequestCount
   pendingRequestCount:
-    type: integer
-    description: The number of requests that are pending and have not been handled yet.
-    minimum: 0
-    examples: [670]
+    $ref: ./SharedProperties.yaml#/PendingRequestCount
   hadMultipleClients:
-    type: boolean
-    description: Whether the request queue has been accessed by multiple different clients.
-    examples: [true]
+    $ref: ./SharedProperties.yaml#/HadMultipleClients
   consoleUrl:
     type: string
     description: The URL to view the request queue in the Apify console.

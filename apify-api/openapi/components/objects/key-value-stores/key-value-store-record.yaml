@@ -1,0 +1,401 @@
+commonErrors: &commonErrors
+  "400":
+    $ref: ../../responses/BadRequest.yaml
+  "401":
+    $ref: ../../responses/Unauthorized.yaml
+  "403":
+    $ref: ../../responses/Forbidden.yaml
+  "404":
+    $ref: ../../responses/NotFound.yaml
+  "405":
+    $ref: ../../responses/MethodNotAllowed.yaml
+  "429":
+    $ref: ../../responses/TooManyRequests.yaml
+
+sharedTagById: &sharedTagById
+  tags:
+    - Storage/Key-value stores
+
+sharedTagDefault: &sharedTagDefault
+  tags:
+    - Default key-value store
+
+sharedTagLastRun: &sharedTagLastRun
+  tags:
+    - Last Actor run's default key-value store
+
+sharedTagTaskLastRun: &sharedTagTaskLastRun
+  tags:
+    - Last Actor task run's default key-value store
+
+sharedGet: &sharedGet
+  responses:
+    <<: *commonErrors
+    "200":
+      description: ""
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/key-value-stores/RecordResponse.yaml
+        "*/*":
+          schema: {}
+    "302":
+      description: ""
+      headers:
+        Location:
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: >-
+                https://apifier-key-value-store-prod.s3.amazonaws.com/tqx6jeMia43gYY6eE/INPUT?AWSAccessKeyId=NKDOUN&Expires=1502720992&Signature=DKLVPI4lDDKC
+      content: {}
+  deprecated: false
+
+sharedDelete: &sharedDelete
+  responses:
+    <<: *commonErrors
+    "204":
+      $ref: ../../responses/NoContent.yaml
+  deprecated: false
+
+sharedPutPost: &sharedPutPost
+  requestBody:
+    description: ""
+    content:
+      application/json:
+        schema:
+          $ref: ../../schemas/key-value-stores/PutRecordRequest.yaml
+      "*/*":
+        schema: {}
+    required: true
+  responses:
+    <<: *commonErrors
+    "201":
+      description: ""
+      headers:
+        Location:
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: >-
+                https://api.apify.com/v2/key-value-stores/WkzbQMuFYuamGv3YF/records/some-key
+      content:
+        application/json:
+          schema:
+            type: object
+          example: {}
+    "413":
+      $ref: ../../responses/PayloadTooLarge.yaml
+    "415":
+      $ref: ../../responses/UnsupportedMediaType.yaml
+  deprecated: false
+
+getById:
+  <<: [*sharedGet, *sharedTagById]
+  summary: Get record
+  description: |
+    Gets a value stored in the key-value store under a specific key.
+
+    The response body has the same `Content-Encoding` header as it was set in
+    [Put record](#tag/Key-value-storesRecord/operation/keyValueStore_record_put).
+
+    If the request does not define the `Accept-Encoding` HTTP header with the
+    right encoding, the record will be decompressed.
+
+    Most HTTP clients support decompression by default. After using the HTTP
+    client with decompression support, the `Accept-Encoding` header is set by
+    the client and body is decompressed automatically.
+
+    Please note that for security reasons, Apify API can perform small modifications
+    to HTML documents before they are served via this endpoint. To fetch the raw HTML
+    content without any modifications, use the `attachment` query parameter.
+  operationId: keyValueStore_record_get
+  parameters:
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/storeId"
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/recordKey"
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/attachment"
+    - $ref: "../../parameters/storageParameters.yaml#/signature"
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/key-value-stores/record/get-record
+    - https://docs.apify.com/api/v2#/reference/key-value-stores/get-record
+    - https://docs.apify.com/api/v2#tag/Key-value-storesRecord/operation/keyValueStore_record_get
+  x-js-parent: KeyValueStoreClient
+  x-js-name: getRecord
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/KeyValueStoreClient#getRecord
+  x-py-parent: KeyValueStoreClientAsync
+  x-py-name: get_record
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/KeyValueStoreClientAsync#get_record
+
+getDefault:
+  <<: [*sharedGet, *sharedTagDefault]
+  summary: Get default store's record
+  description: |
+    Gets a value stored under a specific key in the default key-value store of the Actor run.
+
+    This endpoint is a shortcut for getting the run's `defaultKeyValueStoreId` and then using the
+    [Get record](/api/v2/key-value-store-record-get) endpoint.
+  operationId: actorRun_keyValueStore_record_get
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/recordKey"
+    - $ref: "../../parameters/storageParameters.yaml#/signature"
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/attachment"
+
+getLastRun:
+  <<: [*sharedGet, *sharedTagLastRun]
+  summary: Get last run's default store's record
+  description: |
+    Gets a value stored under a specific key in the default key-value store of the last Actor run.
+
+    This endpoint is a shortcut for getting the last run's `defaultKeyValueStoreId` and then using the
+    [Get record](/api/v2/key-value-store-record-get) endpoint.
+  operationId: act_runs_last_keyValueStore_record_get
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/recordKey"
+    - $ref: "../../parameters/storageParameters.yaml#/signature"
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/attachment"
+
+getTaskLastRun:
+  <<: [*sharedGet, *sharedTagTaskLastRun]
+  summary: Get last task run's default store's record
+  description: |
+    Gets a value stored under a specific key in the default key-value store of the last Actor task run.
+
+    This endpoint is a shortcut for getting the last task run's `defaultKeyValueStoreId` and then using the
+    [Get record](/api/v2/key-value-store-record-get) endpoint.
+  operationId: actorTask_runs_last_keyValueStore_record_get
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/recordKey"
+    - $ref: "../../parameters/storageParameters.yaml#/signature"
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/attachment"
+
+headById:
+  <<: *sharedTagById
+  summary: Check if a record exists
+  description: |
+    Check if a value is stored in the key-value store under a specific key.
+  operationId: keyValueStore_record_head
+  responses:
+    "200":
+      description: The record exists
+      headers: {}
+    "404":
+      $ref: ../../responses/NotFound.yaml
+  deprecated: false
+  parameters:
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/storeId"
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/recordKey"
+  x-js-parent: KeyValueStoreClient
+  x-js-name: recordExists
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/KeyValueStoreClient#recordExists
+  x-py-parent: KeyValueStoreClientAsync
+  x-py-name: record_exists
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/KeyValueStoreClientAsync#record_exists
+
+putById:
+  <<: [*sharedPutPost, *sharedTagById]
+  summary: Store record
+  description: |
+    Stores a value under a specific key to the key-value store.
+
+    The value is passed as the PUT payload and it is stored with a MIME content
+    type defined by the `Content-Type` header and with encoding defined by the
+    `Content-Encoding` header.
+
+    To save bandwidth, storage, and speed up your upload, send the request
+    payload compressed with Gzip compression and add the `Content-Encoding: gzip`
+    header. It is possible to set up another compression type with `Content-Encoding`
+    request header.
+
+    Below is a list of supported `Content-Encoding` types.
+
+    * Gzip compression: `Content-Encoding: gzip`
+    * Deflate compression: `Content-Encoding: deflate`
+    * Brotli compression: `Content-Encoding: br`
+  operationId: keyValueStore_record_put
+  parameters:
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/storeId"
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/recordKey"
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/Content-Encoding"
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/key-value-stores/record/put-record
+    - https://docs.apify.com/api/v2#/reference/key-value-stores/put-record
+    - https://docs.apify.com/api/v2#tag/Key-value-storesRecord/operation/keyValueStore_record_put
+  x-js-parent: KeyValueStoreClient
+  x-js-name: setRecord
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/KeyValueStoreClient#setRecord
+  x-py-parent: KeyValueStoreClientAsync
+  x-py-name: set_record
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/KeyValueStoreClientAsync#set_record
+
+putDefault:
+  <<: [*sharedPutPost, *sharedTagDefault]
+  summary: Store record in default store
+  description: |
+    Stores a value under a specific key in the default key-value store of the Actor run.
+
+    This endpoint is a shortcut for getting the run's `defaultKeyValueStoreId` and then using the
+    [Store record](/api/v2/key-value-store-record-put) endpoint.
+  operationId: actorRun_keyValueStore_record_put
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/recordKey"
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/Content-Encoding"
+
+putLastRun:
+  <<: [*sharedPutPost, *sharedTagLastRun]
+  summary: Store record in last run's default store
+  description: |
+    Stores a value under a specific key in the default key-value store of the last Actor run.
+
+    This endpoint is a shortcut for getting the last run's `defaultKeyValueStoreId` and then using the
+    [Store record](/api/v2/key-value-store-record-put) endpoint.
+  operationId: act_runs_last_keyValueStore_record_put
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/recordKey"
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/Content-Encoding"
+
+putTaskLastRun:
+  <<: [*sharedPutPost, *sharedTagTaskLastRun]
+  summary: Store record in last task run's default store
+  description: |
+    Stores a value under a specific key in the default key-value store of the last Actor task run.
+
+    This endpoint is a shortcut for getting the last task run's `defaultKeyValueStoreId` and then using the
+    [Store record](/api/v2/key-value-store-record-put) endpoint.
+  operationId: actorTask_runs_last_keyValueStore_record_put
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/recordKey"
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/Content-Encoding"
+
+postById:
+  <<: [*sharedPutPost, *sharedTagById]
+  summary: Store record (POST)
+  description: |
+    Stores a value under a specific key to the key-value store.
+
+    This endpoint is an alias for the [`PUT` record](#tag/Key-value-storesRecord/operation/keyValueStore_record_put) method and behaves identically.
+  operationId: keyValueStore_record_post
+  parameters:
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/storeId"
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/recordKey"
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/Content-Encoding"
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/key-value-stores/record/put-record
+    - https://docs.apify.com/api/v2#/reference/key-value-stores/put-record
+    - https://docs.apify.com/api/v2#tag/Key-value-storesRecord/operation/keyValueStore_record_post
+
+postDefault:
+  <<: [*sharedPutPost, *sharedTagDefault]
+  summary: Store record in default store (POST)
+  description: |
+    Stores a value under a specific key in the default key-value store of the Actor run.
+
+    This endpoint is a shortcut for getting the run's `defaultKeyValueStoreId` and then using the
+    [Store record](/api/v2/key-value-store-record-post) endpoint.
+  operationId: actorRun_keyValueStore_record_post
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/recordKey"
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/Content-Encoding"
+
+postLastRun:
+  <<: [*sharedPutPost, *sharedTagLastRun]
+  summary: Store record in last run's default store (POST)
+  description: |
+    Stores a value under a specific key in the default key-value store of the last Actor run.
+
+    This endpoint is a shortcut for getting the last run's `defaultKeyValueStoreId` and then using the
+    [Store record](/api/v2/key-value-store-record-post) endpoint.
+  operationId: act_runs_last_keyValueStore_record_post
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/recordKey"
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/Content-Encoding"
+
+postTaskLastRun:
+  <<: [*sharedPutPost, *sharedTagTaskLastRun]
+  summary: Store record in last task run's default store (POST)
+  description: |
+    Stores a value under a specific key in the default key-value store of the last Actor task run.
+
+    This endpoint is a shortcut for getting the last task run's `defaultKeyValueStoreId` and then using the
+    [Store record](/api/v2/key-value-store-record-post) endpoint.
+  operationId: actorTask_runs_last_keyValueStore_record_post
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/recordKey"
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/Content-Encoding"
+
+deleteById:
+  <<: [*sharedDelete, *sharedTagById]
+  summary: Delete record
+  description: Removes a record specified by a key from the key-value store.
+  operationId: keyValueStore_record_delete
+  parameters:
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/storeId"
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/recordKey"
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/key-value-stores/record/delete-record
+    - https://docs.apify.com/api/v2#/reference/key-value-stores/delete-record
+    - https://docs.apify.com/api/v2#tag/Key-value-storesRecord/operation/keyValueStore_record_delete
+  x-js-parent: KeyValueStoreClient
+  x-js-name: deleteRecord
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/KeyValueStoreClient#deleteRecord
+  x-py-parent: KeyValueStoreClientAsync
+  x-py-name: delete_record
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/KeyValueStoreClientAsync#delete_record
+
+deleteDefault:
+  <<: [*sharedDelete, *sharedTagDefault]
+  summary: Delete default store's record
+  description: |
+    Removes a record specified by a key from the default key-value store of the Actor run.
+
+    This endpoint is a shortcut for getting the run's `defaultKeyValueStoreId` and then using the
+    [Delete record](/api/v2/key-value-store-record-delete) endpoint.
+  operationId: actorRun_keyValueStore_record_delete
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/recordKey"
+
+deleteLastRun:
+  <<: [*sharedDelete, *sharedTagLastRun]
+  summary: Delete last run's default store's record
+  description: |
+    Removes a record specified by a key from the default key-value store of the last Actor run.
+
+    This endpoint is a shortcut for getting the last run's `defaultKeyValueStoreId` and then using the
+    [Delete record](/api/v2/key-value-store-record-delete) endpoint.
+  operationId: act_runs_last_keyValueStore_record_delete
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/recordKey"
+
+deleteTaskLastRun:
+  <<: [*sharedDelete, *sharedTagTaskLastRun]
+  summary: Delete last task run's default store's record
+  description: |
+    Removes a record specified by a key from the default key-value store of the last Actor task run.
+
+    This endpoint is a shortcut for getting the last task run's `defaultKeyValueStoreId` and then using the
+    [Delete record](/api/v2/key-value-store-record-delete) endpoint.
+  operationId: actorTask_runs_last_keyValueStore_record_delete
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/keyValueStoreParameters.yaml#/recordKey"

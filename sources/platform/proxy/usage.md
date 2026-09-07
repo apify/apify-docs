@@ -107,6 +107,7 @@ The table below describes the available parameters.
         <td>Optional</td>
         <td>
             If specified, all proxied requests will use proxy servers from a selected country. Note that if there are no proxy servers from the specified country, the connection will fail. For example <code>groups-SHADER,country-US</code> uses proxies from the <code>SHADER</code> group located in the USA. By default, the proxy uses all available proxy servers from all countries.
+            <br/><br/>For <a href="./residential_proxy#how-to-set-a-state">residential proxies</a>, you can also target US states using the <a href="https://en.wikipedia.org/wiki/ISO_3166-2:US">ISO 3166-2:US</a> format: <code>country-US_XX</code>, where <code>XX</code> is the two-letter state abbreviation. For example, <code>groups-RESIDENTIAL,country-US_CA</code> targets California.
         </td>
     </tr>
     </tbody>

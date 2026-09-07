@@ -1,4 +1,4 @@
-title: ActUpdate
+title: UpdateActorRequest
 type: object
 properties:
   name:

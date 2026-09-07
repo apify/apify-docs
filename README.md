@@ -1,14 +1,14 @@
-# Apify Documentation
+# Apify documentation
 
 [![Check & Release](https://github.com/apify/apify-docs/actions/workflows/test.yaml/badge.svg)](https://github.com/apify/apify-docs/actions/workflows/test.yaml)
 
 ## Overview
 
-This repository is the home of Apify's documentation, available at [docs.apify.com](https://docs.apify.com/). The documentation uses [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) & [Docusaurus](https://docusaurus.io/).
+This repository is the home of Apify's documentation, available at [docs.apify.com](https://docs.apify.com/). The documentation uses [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) and [Docusaurus](https://docusaurus.io/).
 
 ## Documentation structure
 
-Our documentation ecosystem consists of:
+Documentation ecosystem consists of:
 
 - **Platform documentation**: Located in the [`/sources`](https://github.com/apify/apify-docs/tree/master/sources) directory
 - **Academy**: Platform-independent courses on scraping technique. Located in the [/sources](https://github.com/apify/apify-docs/tree/master/sources) directory
@@ -21,7 +21,7 @@ Our documentation ecosystem consists of:
   - [Python](https://docs.apify.com/sdk/python/)
 - **CLI documentation** - [CLI docs](https://docs.apify.com/cli/)
 
-## Getting Started
+## Getting started
 
 **Before contributing, read these essential resources:**
 
@@ -35,7 +35,7 @@ Our documentation ecosystem consists of:
 - **npm** or **pnpm**
 - **Git**
 
-### Quick Setup
+### Quick setup
 
 ```bash
 # Clone the repository
@@ -51,7 +51,7 @@ npm start
 
 The site will be available at `http://localhost:3000`
 
-### Available Scripts
+### Available scripts
 
 - `npm start` - Start development server with API docs
 - `npm run build` - Build for production
@@ -61,7 +61,7 @@ The site will be available at `http://localhost:3000`
 
 ## Documentation architecture
 
-Our documentation consists of these main sections:
+Documentation consists of these main sections:
 
 1. **Academy**: Collection of mostly platform-independent courses on scraping techniques.
 2. **Platform**: Main documentation for using Apify as a product.
@@ -69,7 +69,7 @@ Our documentation consists of these main sections:
 4. **SDK**: SDK libraries documentation.
 5. **CLI**: Documentation for building code and platform interaction.
 
-### Source Repositories
+### Source repositories
 <!-- vale off -->
 - apify-docs (this repository)
 - apify-client-js
@@ -80,15 +80,15 @@ Our documentation consists of these main sections:
 <!-- vale on -->
 ## Architecture
 
-Our documentation is built using:
+Documentation is built using:
 
-- **Docusaurus**: Powers our documentation platform
-- **Shared Theme**: Custom `@apify/docs-theme` package
-- **Automated Deployment**: CI/CD pipeline for continuous updates
+- **Docusaurus**: Powers the documentation platform
+- **Shared theme**: Custom `@apify/docs-theme` package
+- **Automated deployment**: CI/CD pipeline for continuous updates
 - **nginx routing**: Handles subdomain routing and redirects
 
 ### Need help
 
-- For contribution questions, see our [Contributing Guidelines](CONTRIBUTING.md)
+- For contribution questions, see [Contributing guidelines](CONTRIBUTING.md)
 - For technical issues, [create a GitHub issue](https://github.com/apify/apify-docs/issues/new)
 

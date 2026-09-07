@@ -16,7 +16,7 @@ You are not required to those packages - the REST API works with any HTTP client
 
 ## API token
 
-To access the Apify API in your integrations, you need to authenticate using your secret API token. You can find it on the [Integrations](https://console.apify.com/settings/integrations) page in Apify Console. Give your token a reasonable description, and never use one token for several services, much like you shouldn't use the same password for different accounts.
+To access the Apify API in your integrations, you need to authenticate using your secret API token. You can find it on the [API & Integrations](https://console.apify.com/settings/integrations) page in Apify Console. Give your token a reasonable description, and never use one token for several services, much like you shouldn't use the same password for different accounts.
 
 ![Integrations page in Apify Console](../images/api-token.png)
 
@@ -50,7 +50,7 @@ For better security awareness, the UI marks tokens identified as compromised, ma
 
 ## Organization accounts
 
-When working under an organization account, you will see two types of API tokens on the Integrations page.
+When working under an organization account, you will see two types of API tokens on the API & Integrations page.
 
 ![Integrations page in Apify Console in organization mode](../images/api-token-organization.png)
 
@@ -70,7 +70,7 @@ We do not allow scoped tokens to create or modify Actors. If you do need to crea
 
 ### How to create a scoped token
 
-Scoped tokens behave like standard API tokens and are managed through the [Integrations](https://console.apify.com/settings/integrations) page in Apify Console. When creating a token (or updating an existing one), simply toggle "Limit token permissions" to make the token scoped.
+Scoped tokens behave like standard API tokens and are managed through the [API & Integrations](https://console.apify.com/settings/integrations) page in Apify Console. When creating a token (or updating an existing one), simply toggle "Limit token permissions" to make the token scoped.
 
 Once the token is scoped, you can specify the token's permissions.
 

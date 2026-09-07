@@ -1,0 +1,6 @@
+get:
+  $ref: "../../components/objects/key-value-stores/key-value-store.yaml#/getTaskLastRun"
+put:
+  $ref: "../../components/objects/key-value-stores/key-value-store.yaml#/putTaskLastRun"
+delete:
+  $ref: "../../components/objects/key-value-stores/key-value-store.yaml#/deleteTaskLastRun"

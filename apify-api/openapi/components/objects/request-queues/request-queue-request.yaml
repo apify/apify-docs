@@ -1,0 +1,263 @@
+commonErrors: &commonErrors
+  "400":
+    $ref: ../../responses/BadRequest.yaml
+  "401":
+    $ref: ../../responses/Unauthorized.yaml
+  "403":
+    $ref: ../../responses/Forbidden.yaml
+  "404":
+    $ref: ../../responses/NotFound.yaml
+  "405":
+    $ref: ../../responses/MethodNotAllowed.yaml
+  "429":
+    $ref: ../../responses/TooManyRequests.yaml
+
+sharedTagById: &sharedTagById
+  tags:
+    - Storage/Request queues/Requests
+
+sharedTagDefault: &sharedTagDefault
+  tags:
+    - Default request queue
+
+sharedTagLastRun: &sharedTagLastRun
+  tags:
+    - Last Actor run's default request queue
+
+sharedTagTaskLastRun: &sharedTagTaskLastRun
+  tags:
+    - Last Actor task run's default request queue
+
+sharedGet: &sharedGet
+  responses:
+    "200":
+      description: ""
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/request-queues/RequestResponse.yaml
+    <<: *commonErrors
+  deprecated: false
+
+getById:
+  <<: [*sharedGet, *sharedTagById]
+  summary: Get request
+  description: Returns request from queue.
+  operationId: requestQueue_request_get
+  parameters:
+    - $ref: "../../parameters/requestQueueParameters.yaml#/queueId"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/requestId"
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/request-queues/queue/get-request
+    - https://docs.apify.com/api/v2#/reference/request-queues/get-request
+    - https://docs.apify.com/api/v2#tag/Request-queuesQueue/operation/requestQueue_request_get
+  x-js-parent: RequestQueueClient
+  x-js-name: get
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/RequestQueueClient#get
+  x-py-parent: RequestQueueClientAsync
+  x-py-name: get
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/RequestQueueClientAsync#get
+
+getDefault:
+  <<: [*sharedGet, *sharedTagDefault]
+  summary: Get request from default request queue
+  description: |
+    Returns a request from the default request queue of the Actor run.
+
+    This endpoint is a shortcut for getting the run's `defaultRequestQueueId` and then using the
+    [Get request](/api/v2/request-queue-request-get) endpoint.
+  operationId: actorRun_requestQueue_request_get
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/requestId"
+
+getLastRun:
+  <<: [*sharedGet, *sharedTagLastRun]
+  summary: Get request from last run's default request queue
+  description: |
+    Returns a request from the default request queue of the last Actor run.
+
+    This endpoint is a shortcut for getting the last run's `defaultRequestQueueId` and then using the
+    [Get request](/api/v2/request-queue-request-get) endpoint.
+  operationId: act_runs_last_requestQueue_request_get
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/requestId"
+
+getTaskLastRun:
+  <<: [*sharedGet, *sharedTagTaskLastRun]
+  summary: Get request from last task run's default request queue
+  description: |
+    Returns a request from the default request queue of the last Actor task run.
+
+    This endpoint is a shortcut for getting the last task run's `defaultRequestQueueId` and then using the
+    [Get request](/api/v2/request-queue-request-get) endpoint.
+  operationId: actorTask_runs_last_requestQueue_request_get
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/requestId"
+
+sharedPut: &sharedPut
+  requestBody:
+    description: ""
+    content:
+      application/json:
+        schema:
+          $ref: ../../schemas/request-queues/Request.yaml
+    required: true
+  responses:
+    "200":
+      description: ""
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../schemas/request-queues/UpdateRequestResponse.yaml
+    <<: *commonErrors
+    "413":
+      $ref: ../../responses/PayloadTooLarge.yaml
+    "415":
+      $ref: ../../responses/UnsupportedMediaType.yaml
+  deprecated: false
+
+putById:
+  <<: [*sharedPut, *sharedTagById]
+  summary: Update request
+  description: |
+    Updates a request in a queue. Mark request as handled by setting
+    `request.handledAt = new Date()`.
+    If `handledAt` is set, the request will be removed from head of the queue (and unlocked, if applicable).
+  operationId: requestQueue_request_put
+  parameters:
+    - $ref: "../../parameters/requestQueueParameters.yaml#/queueId"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/requestId"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/forefront"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/request-queues/queue/update-request
+    - https://docs.apify.com/api/v2#/reference/request-queues/update-request
+    - https://docs.apify.com/api/v2#tag/Request-queuesQueue/operation/requestQueue_request_put
+  x-js-parent: RequestQueueClient
+  x-js-name: update
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/RequestQueueClient#update
+  x-py-parent: RequestQueueClientAsync
+  x-py-name: update
+  x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/RequestQueueClientAsync#update
+
+putDefault:
+  <<: [*sharedPut, *sharedTagDefault]
+  summary: Update request in default request queue
+  description: |
+    Updates a request in the default request queue of the Actor run.
+
+    This endpoint is a shortcut for getting the run's `defaultRequestQueueId` and then using the
+    [Update request](/api/v2/request-queue-request-put) endpoint.
+  operationId: actorRun_requestQueue_request_put
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/requestId"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/forefront"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
+
+putLastRun:
+  <<: [*sharedPut, *sharedTagLastRun]
+  summary: Update request in last run's default request queue
+  description: |
+    Updates a request in the default request queue of the last Actor run.
+
+    This endpoint is a shortcut for getting the last run's `defaultRequestQueueId` and then using the
+    [Update request](/api/v2/request-queue-request-put) endpoint.
+  operationId: act_runs_last_requestQueue_request_put
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/requestId"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/forefront"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
+
+putTaskLastRun:
+  <<: [*sharedPut, *sharedTagTaskLastRun]
+  summary: Update request in last task run's default request queue
+  description: |
+    Updates a request in the default request queue of the last Actor task run.
+
+    This endpoint is a shortcut for getting the last task run's `defaultRequestQueueId` and then using the
+    [Update request](/api/v2/request-queue-request-put) endpoint.
+  operationId: actorTask_runs_last_requestQueue_request_put
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/requestId"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/forefront"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
+
+sharedDelete: &sharedDelete
+  responses:
+    <<: *commonErrors
+    "204":
+      $ref: ../../responses/NoContent.yaml
+  deprecated: false
+
+deleteById:
+  <<: [*sharedDelete, *sharedTagById]
+  summary: Delete request
+  description: Deletes given request from queue.
+  operationId: requestQueue_request_delete
+  parameters:
+    - $ref: "../../parameters/requestQueueParameters.yaml#/queueId"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/requestId"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
+  x-legacy-doc-urls:
+    - https://docs.apify.com/api/v2#/reference/request-queues/queue/delete-request
+    - https://docs.apify.com/api/v2#/reference/request-queues/delete-request
+    - https://docs.apify.com/api/v2#tag/Request-queuesQueue/operation/requestQueue_request_delete
+  x-js-parent: RequestQueueClient
+  x-js-name: delete
+  x-js-doc-url: https://docs.apify.com/api/client/js/reference/class/RequestQueueClient#delete
+
+deleteDefault:
+  <<: [*sharedDelete, *sharedTagDefault]
+  summary: Delete request from default request queue
+  description: |
+    Deletes a request from the default request queue of the Actor run.
+
+    This endpoint is a shortcut for getting the run's `defaultRequestQueueId` and then using the
+    [Delete request](/api/v2/request-queue-request-delete) endpoint.
+  operationId: actorRun_requestQueue_request_delete
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/requestId"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
+
+deleteLastRun:
+  <<: [*sharedDelete, *sharedTagLastRun]
+  summary: Delete request from last run's default request queue
+  description: |
+    Deletes a request from the default request queue of the last Actor run.
+
+    This endpoint is a shortcut for getting the last run's `defaultRequestQueueId` and then using the
+    [Delete request](/api/v2/request-queue-request-delete) endpoint.
+  operationId: act_runs_last_requestQueue_request_delete
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/requestId"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
+
+deleteTaskLastRun:
+  <<: [*sharedDelete, *sharedTagTaskLastRun]
+  summary: Delete request from last task run's default request queue
+  description: |
+    Deletes a request from the default request queue of the last Actor task run.
+
+    This endpoint is a shortcut for getting the last task run's `defaultRequestQueueId` and then using the
+    [Delete request](/api/v2/request-queue-request-delete) endpoint.
+  operationId: actorTask_runs_last_requestQueue_request_delete
+  parameters:
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
+    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/requestId"
+    - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"

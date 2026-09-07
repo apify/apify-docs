@@ -1,0 +1,4 @@
+post:
+  $ref: "../../components/objects/request-queues/request-queue-requests-batch.yaml#/postDefault"
+delete:
+  $ref: "../../components/objects/request-queues/request-queue-requests-batch.yaml#/deleteDefault"

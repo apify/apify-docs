@@ -1,0 +1,4 @@
+put:
+  $ref: "../../components/objects/request-queues/request-queue-request-lock.yaml#/putDefault"
+delete:
+  $ref: "../../components/objects/request-queues/request-queue-request-lock.yaml#/deleteDefault"

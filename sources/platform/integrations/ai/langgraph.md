@@ -6,15 +6,11 @@ sidebar_position: 8
 slug: /integrations/langgraph
 ---
 
-## What is LangGraph
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
-[LangGraph](https://www.langchain.com/langgraph) is a framework designed for constructing stateful, multi-agent applications with Large Language Models (LLMs), allowing developers to build complex AI agent workflows that can leverage tools, APIs, and databases.
+[LangGraph](https://www.langchain.com/langgraph) is a framework for constructing stateful, multi-agent applications with large language models (LLMs). It allows developers to build complex AI agent workflows that can leverage tools, APIs, and databases. For more details, check out the [LangGraph documentation](https://langchain-ai.github.io/langgraph/).
 
-:::note Explore LangGraph
-
-For more in-depth details on LangGraph, check out its [official documentation](https://langchain-ai.github.io/langgraph/).
-
-:::
+<ThirdPartyDisclaimer />
 
 ## How to use Apify with LangGraph
 

@@ -6,6 +6,8 @@ sidebar_position: 5
 slug: /integrations/langchain
 ---
 
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+
 > For more information on LangChain visit its [documentation](https://docs.langchain.com/oss/python/langchain/overview).
 
 In this example, we'll use the [Website Content Crawler](https://apify.com/apify/website-content-crawler) Actor, which can deeply crawl websites such as documentation, knowledge bases, help centers, or blogs and extract text content from the web pages.
@@ -33,7 +35,7 @@ from langchain_openai import ChatOpenAI
 from langchain_openai.embeddings import OpenAIEmbeddings
 ```
 
-Find your [Apify API token](https://console.apify.com/account/integrations) and [OpenAI API key](https://platform.openai.com/account/api-keys) and initialize these into environment variable:
+Find your [Apify API token](https://console.apify.com/settings/integrations) and [OpenAI API key](https://platform.openai.com/account/api-keys) and initialize these into environment variable:
 
 ```python
 os.environ["OPENAI_API_KEY"] = "Your OpenAI API key"
@@ -147,6 +149,8 @@ print("Documents:", loader.load())
 ```
 
 Similarly, you can use other Apify Actors to load data into LangChain and query the vector index.
+
+<ThirdPartyDisclaimer />
 
 ## Resources
 

@@ -6,15 +6,11 @@ sidebar_position: 2
 slug: /integrations/vercel-ai-sdk
 ---
 
-## What is the Vercel AI SDK
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
-[Vercel AI SDK](https://ai-sdk.dev/) is the TypeScript toolkit designed to help developers build AI-powered applications and agents with React, Next.js, Vue, Svelte, Node.js, and more.
+[Vercel AI SDK](https://ai-sdk.dev/) is a TypeScript toolkit designed to help developers build AI-powered applications and agents with React, Next.js, Vue, Svelte, Node.js, and more. For more details, check out the [Vercel AI SDK documentation](https://ai-sdk.dev/docs/introduction).
 
-:::note Explore Vercel AI SDK
-
-For more in-depth details, check out [Vercel AI SDK documentation](https://ai-sdk.dev/docs/introduction).
-
-:::
+<ThirdPartyDisclaimer />
 
 ## How to use Apify with Vercel AI SDK
 
@@ -37,6 +33,7 @@ First, import all required packages:
 import { experimental_createMCPClient as createMCPClient, generateText, stepCountIs } from 'ai';
 import { StreamableHTTPClientTransport } from '@modelcontextprotocol/sdk/client/streamableHttp.js';
 import { createOpenRouter } from '@openrouter/ai-sdk-provider';
+
 ```
 
 Connect to the Apify MCP server and get all available tools for the AI agent. You can use the [UI configurator](https://mcp.apify.com/) to select your tools visually and generate the configuration code below:

@@ -1,0 +1,4 @@
+put:
+  $ref: "../../components/objects/request-queues/request-queue-request-lock.yaml#/putLastRun"
+delete:
+  $ref: "../../components/objects/request-queues/request-queue-request-lock.yaml#/deleteLastRun"

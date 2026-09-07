@@ -25,7 +25,7 @@ function findPathInParentOrThrow(endPath) {
     return filePath;
 }
 
-async function generateChangelogFromGitHubReleases(paths, repo) {
+async function generateChangelogFromGitHubReleases(paths, repo, { displayedSidebar } = {}) {
     const response = await axios.get(`https://api.github.com/repos/${repo}/releases`);
     const releases = response.data;
 
@@ -40,11 +40,11 @@ async function generateChangelogFromGitHubReleases(paths, repo) {
     });
 
     paths.forEach((p) => {
-        fs.writeFileSync(path.join(p, 'changelog.md'), updateChangelog(markdown));
+        fs.writeFileSync(path.join(p, 'changelog.md'), updateChangelog(markdown, { displayedSidebar }));
     });
 }
 
-function copyChangelogFromRoot(paths, hasDefaultChangelog) {
+function copyChangelogFromRoot(paths, hasDefaultChangelog, { displayedSidebar } = {}) {
     const sourceChangelogPath = findPathInParentOrThrow('CHANGELOG.md');
 
     for (const docsPath of paths) {
@@ -57,7 +57,7 @@ function copyChangelogFromRoot(paths, hasDefaultChangelog) {
         }
 
         const changelog = fs.readFileSync(sourceChangelogPath, 'utf-8');
-        fs.writeFileSync(targetChangelogPath, updateChangelog(changelog));
+        fs.writeFileSync(targetChangelogPath, updateChangelog(changelog, { displayedSidebar }));
     }
 }
 
@@ -87,6 +87,10 @@ function theme(
                     ),
                 ];
 
+                const { changelogDisplayedSidebar: displayedSidebar } = options;
+                const displayedSidebarLine = displayedSidebar !== undefined
+                    ? `displayed_sidebar: ${displayedSidebar}\n`
+                    : '';
                 const hasDefaultChangelog = new Map();
 
                 for (const p of pathsToCopyChangelog) {
@@ -95,7 +99,7 @@ function theme(
                     fs.writeFileSync(`${p}/changelog.md`, `---
 title: Changelog
 sidebar_label: Changelog
----
+${displayedSidebarLine}---
 It seems that the changelog is not available.
 This either means that your Docusaurus setup is misconfigured, or that your GitHub repository contains no releases yet.
 `);
@@ -103,9 +107,13 @@ This either means that your Docusaurus setup is misconfigured, or that your GitH
                 }
 
                 if (options.changelogFromRoot) {
-                    copyChangelogFromRoot(pathsToCopyChangelog, hasDefaultChangelog);
+                    copyChangelogFromRoot(pathsToCopyChangelog, hasDefaultChangelog, { displayedSidebar });
                 } else {
-                    await generateChangelogFromGitHubReleases(pathsToCopyChangelog, `${context.siteConfig.organizationName}/${context.siteConfig.projectName}`);
+                    await generateChangelogFromGitHubReleases(
+                        pathsToCopyChangelog,
+                        `${context.siteConfig.organizationName}/${context.siteConfig.projectName}`,
+                        { displayedSidebar },
+                    );
                 }
             } catch (e) {
                 console.warn(`Changelog page could not be initialized: ${e.message}`);

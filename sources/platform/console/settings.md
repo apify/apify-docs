@@ -8,34 +8,43 @@ slug: /console/settings
 
 ## Account
 
-By clicking the **Settings** tab on the side menu, you will be presented with an Account page where you can view & edit various settings regarding your account, such as:
+By clicking the **Settings** tab on the side menu, you will be presented with an Account page where you can view and edit various settings regarding your account, such as:
 
 * account email
 * username
 * profile information
 * theme
-* login information
-* session information
 * account delete
 
-:::info Verify your identity
+## Login & Privacy
 
-The **Login & Privacy** tab (**Security & Privacy** for organization accounts) contains sensitive settings. As a security measure, fresh user session is required. If it has been too long since you logged in, you need to sign-in again to be able to view and edit the settings.
+The **Login & Privacy** tab (**Security & Privacy** for organization accounts) contains sensitive settings related to authentication and session management. As a security measure, a fresh user session is required. If it has been too long since you logged in, you need to sign in again to view and edit these settings.
 
-:::
+Here you can manage:
 
-### Session Information
+* sign-in methods (email/password, Google, GitHub)
+* password reset
+* two-factor authentication
+* session information and configuration
+* general resource access
+* share of run data with developers
 
-In the **Session Information** section, you can adjust the session configuration. You can modify the default session lifespan of 90 days, this customization helps ensure compliance with organization security policies.
+### Session information
 
-## Integrations
+In the **Session information** section, you can adjust the session configuration. You can modify the default session lifespan of 90 days. This customization helps ensure compliance with organization security policies.
 
-The **Integrations** tab provides essential tools for enhancing your interaction with the Apify platform. Here, you can access your **Personal API Tokens**, which are necessary for using the [REST API](https://docs.apify.com/api/v2). This page also facilitates the integration of your Slack workspace and lists your **Actor Integration Accounts**. This section represents any third-party integrations added by you or your team. For detailed guidance on utilizing these integrations, refer to the [Integrations documentation](https://docs.apify.com/platform/integrations).
+## API & Integrations
 
-## Organization
+The **API & Integrations** tab provides essential tools for accessing the Apify platform programmatically. Here, you can manage your **API tokens**, which are necessary for using the [Apify API](https://docs.apify.com/api/v2). The tab also shows **third-party apps and services** connected to your account, **account-level integrations**, and **Actor OAuth accounts**. For detailed guidance on utilizing these integrations, refer to the [Integrations documentation](https://docs.apify.com/platform/integrations).
 
-The **Organizations** tab is where you can view your accounts' current organizations, create new organizations, or convert your user account into an organization account. For more information on how to set up an organization check out this [article](https://help.apify.com/en/articles/8698948-how-to-set-up-an-organization-account).
+## Organizations
+
+The **Organizations** tab is where you can view your accounts' current organizations, create new organizations, or convert your user account into an organization account. For more information on how to set up an organization, check out this [article](https://help.apify.com/en/articles/8698948-how-to-set-up-an-organization-account).
 
 ## Notifications
 
 The **Notifications** tab allows you to customize your notification preferences. Here, you can specify the types of updates you wish to receive and select the methods by which you receive them.
+
+## Referrals
+
+The **Referrals** tab lets you share Apify with others and earn rewards. You can find your referral link and track the status of your referrals.

@@ -8,4 +8,4 @@ allOf:
       items:
         type: array
         items:
-          $ref: ./ScheduleShort.yaml
+          $ref: ./Schedule.yaml#/ScheduleShort

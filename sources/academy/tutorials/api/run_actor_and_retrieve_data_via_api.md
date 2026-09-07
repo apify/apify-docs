@@ -33,7 +33,7 @@ To run, or **call**, an Actor/task, you will need a few things:
 
 - The name or ID of the Actor/task. The name looks like `username~actorName` or `username~taskName`. The ID can be retrieved on the **Settings** page of the Actor/task.
 
-- Your [API token](/platform/integrations), which you can find on the **Integrations** page in [Apify Console](https://console.apify.com/account?tab=integrations) (do not share it with anyone!).
+- Your [API token](/platform/integrations), which you can find on the **API & Integrations** page in [Apify Console](https://console.apify.com/settings/integrations) (do not share it with anyone!).
 
 - Possibly an input, which is passed in JSON format as the request's **body**.
 
@@ -158,7 +158,7 @@ Here is a Node.js example of calling a task via the API and logging the dataset 
 import got from 'got';
 
 // Specify your API token
-// (find it at https://console.apify.com/account#/integrations)
+// (find it at https://console.apify.com/settings/integrations)
 const myToken = '<YOUR_APIFY_TOKEN>';
 
 // Start apify/google-search-scraper Actor

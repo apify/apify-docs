@@ -24,5 +24,5 @@ properties:
   actions:
     type: [array, "null"]
     items:
-      $ref: ./ScheduleCreateActions.yaml
+      $ref: ./ScheduleCreateAction.yaml
     description: ""

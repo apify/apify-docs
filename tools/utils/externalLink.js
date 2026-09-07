@@ -27,6 +27,7 @@ exports.externalLinkProcessor = () => {
                 if (!exports.isInternal(href, internalUrl)) {
                     node.properties.target = '_blank';
                     node.properties.rel = 'noopener';
+                    node.properties.className = 'external-link';
                 } else {
                     node.properties.target = null;
                     node.properties.rel = null;

@@ -6,6 +6,8 @@ sidebar_position: 7
 slug: /integrations/ifttt
 ---
 
+import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+
 [IFTTT](https://ifttt.com) is a service that helps you create automated workflows called Applets. With the [Apify integration for IFTTT](https://ifttt.com/apify), you can connect your Apify Actors to hundreds of services like Twitter, Gmail, Google Sheets, Slack, and more.
 
 This guide shows you how to integrate Apify Actors with IFTTT to build automated workflows. You'll learn how to create IFTTT Applets that can be triggered by Apify events or that can execute Apify tasks.
@@ -17,6 +19,8 @@ An IFTTT Applet consists of three key parts:
 - One or more _actions_ that execute when the Applet runs
 
 The Apify integration lets you trigger workflows when an Actor or task run finishes, start Actor or task runs from other triggers, or retrieve data from datasets and key-value stores.
+
+<ThirdPartyDisclaimer />
 
 ## Prerequisites
 

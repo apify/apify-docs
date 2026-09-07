@@ -1,4 +1,4 @@
-title: defaultRunOptions
+title: DefaultRunOptions
 type: object
 properties:
   build:

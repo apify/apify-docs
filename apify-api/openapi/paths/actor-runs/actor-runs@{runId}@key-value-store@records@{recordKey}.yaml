@@ -1,0 +1,8 @@
+get:
+  $ref: "../../components/objects/key-value-stores/key-value-store-record.yaml#/getDefault"
+put:
+  $ref: "../../components/objects/key-value-stores/key-value-store-record.yaml#/putDefault"
+post:
+  $ref: "../../components/objects/key-value-stores/key-value-store-record.yaml#/postDefault"
+delete:
+  $ref: "../../components/objects/key-value-stores/key-value-store-record.yaml#/deleteDefault"

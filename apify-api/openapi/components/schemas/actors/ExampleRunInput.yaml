@@ -1,4 +1,4 @@
-title: exampleRunInput
+title: ExampleRunInput
 type: object
 properties:
   body:

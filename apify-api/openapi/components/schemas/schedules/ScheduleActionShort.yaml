@@ -1,0 +1,9 @@
+title: ScheduleActionShort
+oneOf:
+  - $ref: ./ScheduleActionShortRunActor.yaml
+  - $ref: ./ScheduleActionShortRunActorTask.yaml
+discriminator:
+  propertyName: type
+  mapping:
+    RUN_ACTOR: ./ScheduleActionShortRunActor.yaml
+    RUN_ACTOR_TASK: ./ScheduleActionShortRunActorTask.yaml
