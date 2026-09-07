@@ -26,16 +26,16 @@ export default function SearchMetadata({ locale, version, tag }) {
         Docusaurus metadata, used by third-party search plugin
         See https://github.com/cmfcmf/docusaurus-search-local/issues/99
         */}
-            {locale && <meta name="docusaurus_locale" content={locale}/>}
-            {version && <meta name="docusaurus_version" content={version}/>}
-            {tag && <meta name="docusaurus_tag" content={tag}/>}
+            {locale && <meta name="docusaurus_locale" content={locale} />}
+            {version && <meta name="docusaurus_version" content={version} />}
+            {tag && <meta name="docusaurus_tag" content={tag} />}
 
             {/* Algolia DocSearch metadata */}
-            {language && <meta name="docsearch:language" content={language}/>}
-            {version && <meta name="docsearch:version" content={version}/>}
-            <meta name="docsearch:docusaurus_tag" content={tag}/>
-            <meta name="docsearch:section" content={section}/>
-            <meta name="docsearch:section_tag" content={sectionTag}/>
+            {language && <meta name="docsearch:language" content={language} />}
+            {version && <meta name="docsearch:version" content={version} />}
+            <meta name="docsearch:docusaurus_tag" content={tag} />
+            <meta name="docsearch:section" content={section} />
+            <meta name="docsearch:section_tag" content={sectionTag} />
         </Head>
     );
 }

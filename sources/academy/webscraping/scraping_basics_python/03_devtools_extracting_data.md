@@ -78,12 +78,12 @@ In the next lesson, we'll start with our Python project. First we'll be figuring
 
 ### Extract the price of IKEA's most expensive artificial plant
 
-At IKEA's [Artificial plants & flowers listing](https://www.ikea.com/se/en/cat/artificial-plants-flowers-20492/), use CSS selectors and HTML elements manipulation in the **Console** to extract the price of the most expensive artificial plant (sold in Sweden, as you'll be browsing their Swedish offer). Before opening DevTools, use your judgment to adjust the page to make the task as straightforward as possible. Finally, use JavaScript's [`parseInt()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt) function to convert the price text into a number.
+At IKEA's [Artificial desk plants listing](https://www.ikea.com/se/en/cat/artificial-desk-plants-700521/), use CSS selectors and HTML elements manipulation in the **Console** to extract the price of the most expensive artificial plant (sold in Sweden, as you'll be browsing their Swedish offer). Before opening DevTools, use your judgment to adjust the page to make the task as straightforward as possible. Finally, use JavaScript's [`parseInt()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt) function to convert the price text into a number.
 
 <details>
   <summary>Solution</summary>
 
-  1. Open the [Artificial plants & flowers listing](https://www.ikea.com/se/en/cat/artificial-plants-flowers-20492/).
+  1. Open the [Artificial desk plants listing](https://www.ikea.com/se/en/cat/artificial-desk-plants-700521/).
   1. Sort the products by price, from high to low, so the most expensive plant appears first in the listing.
   1. Activate the element selection tool in your DevTools.
   1. Click on the price of the first and most expensive plant.

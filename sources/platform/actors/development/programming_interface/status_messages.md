@@ -1,11 +1,10 @@
 ---
-title: Status messages
+title: Actor status messages
+sidebar_label: Status messages
 description: Learn how to set custom status messages in your Actor to clearly inform users about its current progress and activity during an ongoing run.
 slug: /actors/development/programming-interface/status-messages
 sidebar_position: 3
 ---
-
-**Learn how to use custom status messages to inform users about an Actor's progress.**
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

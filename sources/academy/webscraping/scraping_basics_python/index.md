@@ -26,7 +26,7 @@ In this course we'll use Python to create an application for watching prices. It
 - Follow links programmatically (crawling).
 - Save time and effort with frameworks, such as Crawlee, and scraping platforms, such as Apify.
 
-## Who this course is for
+## Who is this course for
 
 Anyone with basic knowledge of developing programs in Python who wants to start with web scraping can take this course. The course does not expect you to have any prior knowledge of web technologies or scraping.
 

@@ -11,7 +11,7 @@ get:
 
     By default, the records are sorted by the `createdAt` field in ascending
     order, to sort the records in descending order, use the `desc=1` parameter.
-  operationId: act_webhooks_get
+  operationId: actor_webhooks_get
   parameters:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
     - $ref: "../../components/parameters/paginationParameters.yaml#/offset"

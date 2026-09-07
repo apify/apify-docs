@@ -102,7 +102,7 @@ If you switch the input to the **JSON** display using the toggle, then you will 
 | `title` | String | Yes | Any text describing your input schema. |
 | `description` | String | No | Help text for the input that will be <br/>displayed above the UI fields. |
 | `type` | String | Yes | This is fixed and must be set <br/>to string `object`. |
-| `schemaVersion` | Integer | Yes | The version of the input schema <br/>specification against which <br/>your schema is written. <br/>Currently, only version `1` is out. |
+| `schemaVersion` | Integer | Yes | The version of the input schema <br/>specification against which <br/>your schema is written. Currently, only version `1` is out. |
 | `properties` | Object | Yes | This is an object mapping each field key <br/>to its specification. |
 | `required` | String | No | An array of field keys that are required. |
 | `additionalProperties` | Boolean | No | Controls if properties not listed in `properties` are allowed. Defaults to `true`. <br/>Set to `false` to make requests with extra properties fail. |
@@ -126,7 +126,7 @@ Each field of your input is described under its key in the `inputSchema.properti
 | `prefill` | Must match `type` property. | No | Value that will be prefilled <br/>in the Actor input interface. |
 | `example` | Must match `type` property. | No | Sample value of this field <br/>for the Actor to be displayed when <br/>Actor is published in Apify Store. |
 | `errorMessage` | Object | No | Custom error messages for validation keywords. <br/>See [custom error messages](./custom_error_messages.md) <br/>for more details. |
-| `sectionCaption` | String | No | If this property is set, <br/>then all fields following this field <br/>(this field included) will be separated <br/>into a collapsible section <br/>with the value set as its caption. <br/>The section ends at the last field <br/>or the next field which has the <br/> `sectionCaption` property set. |
+| `sectionCaption` | String | No | If this property is set, <br/>then all fields following this field <br/>(this field included) will be separated <br/>into a collapsible section <br/>with the value set as its caption. The section ends at the last field <br/>or the next field which has the <br/> `sectionCaption` property set. |
 | `sectionDescription` | String | No | If the `sectionCaption` property is set, <br/>then you can use this property to <br/>provide additional description to the section. <br/>The description will be visible right under <br/>the caption when the section is open. |
 
 ### Prefill vs. default vs. required
@@ -437,8 +437,6 @@ Properties:
 | `properties`           | Object                                                                                 | No       | Defines the sub-schema properties for the object used for validation and UI rendering (`schemaBased` editor). See more info below.                                                                                               |
 | `additionalProperties` | Boolean                                                                                | No       | Controls if sub-properties not listed in `properties` are allowed. Defaults to `true`. Set to `false` to make requests with extra properties fail.                                                                               |
 | `required`             | String array                                                                           | No       | An array of sub-properties keys that are required. <br />Note: This applies only if the object field itself is present. If the object field is optional and not included in the input, its required subfields are not validated. |
-| `patternKey`           | String                                                                                 | No       | _Deprecated_ (see [migration information](#deprecation-of-patternkey-and-patternvalue)). <br/>Regular expression that will be used to validate the keys of the object.                                                           |
-| `patternValue`         | String                                                                                 | No       | _Deprecated_ (see [migration information](#deprecation-of-patternkey-and-patternvalue)). <br/>Regular expression that will be used to validate the values of object.                                                             |
 
 #### Object fields validation
 
@@ -637,16 +635,14 @@ Properties:
 | Property           | Value                                                                                                                                                                                                                  | Required | Description                                                                                                                                                                                                                                     |
 |--------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `editor`           | One of <ul><li>`json`</li><li>`requestListSources`</li><li>`pseudoUrls`</li><li>`globs`</li><li>`keyValue`</li><li>`stringList`</li><li>`fileupload`</li><li>`select`</li><li>`schemaBased`</li><li>`hidden`</li></ul> | Yes      | UI editor used for input.                                                                                                                                                                                                                       |
-| `placeholderKey`   | String                                                                                                                                                                                                                 | No       | Placeholder displayed for <br/>key field when no value is specified. <br/>Works only with `keyValue` editor.                                                                                                                                    |
-| `placeholderValue` | String                                                                                                                                                                                                                 | No       | Placeholder displayed in value field <br/>when no value is provided. <br/>Works only with `keyValue` and <br/>`stringList` editors.                                                                                                             |
+| `placeholderKey`   | String                                                                                                                                                                                                                 | No       | Placeholder displayed for <br/>key field when no value is specified. Works only with `keyValue` editor.                                                                                                                                         |
+| `placeholderValue` | String                                                                                                                                                                                                                 | No       | Placeholder displayed in value field <br/>when no value is provided. Works only with `keyValue` and <br/>`stringList` editors.                                                                                                                  |
 | `maxItems`         | Integer                                                                                                                                                                                                                | No       | Maximum number of items <br/>the array can contain.                                                                                                                                                                                             |
 | `minItems`         | Integer                                                                                                                                                                                                                | No       | Minimum number of items <br/>the array can contain.                                                                                                                                                                                             |
 | `uniqueItems`      | Boolean                                                                                                                                                                                                                | No       | Specifies whether the array <br/>should contain only unique values.                                                                                                                                                                             |
 | `nullable`         | Boolean                                                                                                                                                                                                                | No       | Specifies whether null is <br/>an allowed value.                                                                                                                                                                                                |
 | `items`            | object                                                                                                                                                                                                                 | No       | Specifies format of the items of the array, useful mainly for multiselect and for `schemaBased` editor (see below).                                                                                                                             |
 | `isSecret`         | Boolean                                                                                                                                                                                                                | No       | Specifies whether the input field will be stored encrypted. Only available with `json` and `hidden` editors.                                                                                                                                    |
-| `patternKey`       | String                                                                                                                                                                                                                 | No       | _Deprecated_ (see [migration information](#deprecation-of-patternkey-and-patternvalue)). <br/>Regular expression that will be used to validate the keys of items in the array. <br/>Works only with `keyValue` <br/>editor.                     |
-| `patternValue`     | String                                                                                                                                                                                                                 | No       | _Deprecated_ (see [migration information](#deprecation-of-patternkey-and-patternvalue)). <br/>Regular expression that will be used to validate the values of items in the array. <br/>Works only with `keyValue` and <br/>`stringList` editors. |
 
 Usage of this field is based on the selected editor:
 
@@ -889,7 +885,8 @@ As with objects, the sub-schema feature for arrays only works for level 1 sub-pr
 ### Resource type
 
 Resource type identifies what kind of Apify Platform object is referred to in the input field. For example, the Key-value store resource type can be referred to using a string ID.
-Currently, it supports storage resources only, allowing the reference of a Dataset, Key-Value Store or Request Queue.
+
+Supported resource types are storage resources (dataset, key-value store, request queue) and [MCP connectors](/integrations/mcp-connectors), which let an Actor call third-party MCP servers using credentials the user has authorized in their account.
 
 For Actor developers, the resource input value is a string representing either the resource ID or (unique) name.
 The type of the property is either `string` or `array`. In case of `array` (for multiple resources) the return value is an array of IDs or names.
@@ -932,26 +929,26 @@ Rendered input:
 
 #### Single value properties
 
-| Property              | Value                                                                             | Required | Description                                                                                                                       |
-|-----------------------|-----------------------------------------------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------|
-| `type`                | `string`                                                                          | Yes      | Specifies the type of input - `string` for single value.                                                                          |
-| `editor`              | One of <ul><li>`resourcePicker`</li><li>`textfield`</li><li>`hidden`</li></ul>    | No       | Visual editor used for <br/>the input field. Defaults to `resourcePicker`.                                                        |
-| `resourceType`        | One of <ul><li>`dataset`</li><li>`keyValueStore`</li><li>`requestQueue`</li></ul> | Yes      | Type of Apify Platform resource                                                                                                   |
-| `resourcePermissions` | Array of strings; allowed values: <ul><li>`READ`</li><li>`WRITE`</li></ul>        | Yes      | Permissions requested for the referenced resource. Use [\"READ\"] for read-only access, or [\"READ\", \"WRITE\"] to allow writes. |
-| `pattern`             | String                                                                            | No       | Regular expression that will be used to validate the input. If validation fails, the Actor will not run.                          |
-| `minLength`           | Integer                                                                           | No       | Minimum length of the string.                                                                                                     |
-| `maxLength`           | Integer                                                                           | No       | Maximum length of the string.                                                                                                     |
+| Property | Value | Required | Description |
+| --- | --- | --- | --- |
+| `type` | `string` | Yes | Specifies the type of input - `string` for single value. |
+| `editor` | One of <ul><li>`resourcePicker`</li><li>`textfield`</li><li>`hidden`</li></ul> | No | Visual editor used for <br/>the input field. Defaults to `resourcePicker`. |
+| `resourceType` | One of <ul><li>`dataset`</li><li>`keyValueStore`</li><li>`requestQueue`</li><li>`mcpConnector`</li></ul> | Yes | Type of Apify Platform resource. Use `mcpConnector` to accept an [MCP connector](/integrations/mcp-connectors) as input. |
+| `resourcePermissions` | Array of strings; allowed values: <ul><li>`READ`</li><li>`WRITE`</li></ul> | Yes for storage resources; not used for `mcpConnector` | Permissions requested for the referenced resource. Use [\"READ\"] for read-only access, or [\"READ\", \"WRITE\"] to allow writes. |
+| `pattern` | String | No | Regular expression that will be used to validate the input. If validation fails, the Actor will not run. |
+| `minLength` | Integer | No | Minimum length of the string. |
+| `maxLength` | Integer | No | Maximum length of the string. |
 
 #### Multiple values properties
 
-| Property              | Value                                                                             | Required | Description                                                                                                                                                           |
-|-----------------------|-----------------------------------------------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `type`                | `array`                                                                           | Yes      | Specifies the type of input - `array` for multiple values.                                                                                                            |
-| `editor`              | One of <ul><li>`resourcePicker`</li><li>`hidden`</li></ul>                        | No       | Visual editor used for <br/>the input field. Defaults to `resourcePicker`.                                                                                            |
-| `resourceType`        | One of <ul><li>`dataset`</li><li>`keyValueStore`</li><li>`requestQueue`</li></ul> | Yes      | Type of Apify Platform resource                                                                                                                                       |
-| `resourcePermissions` | Array of strings; allowed values: <ul><li>`READ`</li><li>`WRITE`</li></ul>        | Yes      | Permissions requested for the referenced resources. Use [\"READ\"] for read-only access, or [\"READ\", \"WRITE\"] to allow writes. Applies to each selected resource. |
-| `minItems`            | Integer                                                                           | No       | Minimum number of items the array can contain.                                                                                                                        |
-| `maxItems`            | Integer                                                                           | No       | Maximum number of items the array can contain.                                                                                                                        |
+| Property | Value | Required | Description |
+| --- | --- | --- | --- |
+| `type` | `array` | Yes | Specifies the type of input - `array` for multiple values. |
+| `editor` | One of <ul><li>`resourcePicker`</li><li>`hidden`</li></ul> | No | Visual editor used for <br/>the input field. Defaults to `resourcePicker`. |
+| `resourceType` | One of <ul><li>`dataset`</li><li>`keyValueStore`</li><li>`requestQueue`</li><li>`mcpConnector`</li></ul> | Yes | Type of Apify Platform resource. Use `mcpConnector` to accept [MCP connectors](/integrations/mcp-connectors) as input. |
+| `resourcePermissions` | Array of strings; allowed values: <ul><li>`READ`</li><li>`WRITE`</li></ul> | Yes for storage resources; not used for `mcpConnector` | Permissions requested for the referenced resources. Use [\"READ\"] for read-only access, or [\"READ\", \"WRITE\"] to allow writes. Applies to each selected resource. |
+| `minItems` | Integer | No | Minimum number of items the array can contain. |
+| `maxItems` | Integer | No | Maximum number of items the array can contain. |
 
 #### Resource permissions
 
@@ -962,20 +959,50 @@ If your Actor runs with limited permissions, it must declare what access it need
 
 :::note Runtime behavior
 
-This setting defines runtime access only and doesn't change field visibility or whether the field is required in the UI. For array fields (`type: array`), the same permissions apply to each selected resource. Your Actor's run will fail with an insufficient-permissions error if it attempts an operation without the required permission, such as writing with read-only access. Users can see the required permissions in the [input field's tooltip](../../../running/permissions.md#recognizing-permission-levels-in-console-and-store).
+This setting defines runtime access only and doesn't change field visibility or whether the field is required in the UI. For array fields (`type: array`), the same permissions apply to each selected resource. Your Actor's run will fail with an insufficient-permissions error if it attempts an operation without the required permission, such as writing with read-only access. Users can see the required permissions in the [input field's tooltip](../../../running/permissions.md#view-permission-levels-in-apify-console-and-apify-store).
 
 :::
 
-### Deprecation of `patternKey` and `patternValue`
+#### MCP connector resource type
 
-::::warning Deprecation notice
-**The following properties are deprecated and will only be supported until June 30, 2026:**
+When `resourceType` is `mcpConnector`, the input field accepts one or more [MCP connectors](/integrations/mcp-connectors) the user has authorized in their account. The Actor receives the connector ID (or an array of IDs) as the input value and connects to the upstream MCP server through the Apify MCP Proxy at runtime.
+
+The `mcpConnector` resource type does not use `resourcePermissions`. Instead, eligibility and per-tool access are declared through a required `mcpServers` field, which lists the upstream MCP server URLs and tool constraints the Actor accepts:
+
+```json
+{
+    "slackConnector": {
+        "title": "Slack connector",
+        "description": "Read-only access to your Slack workspace",
+        "type": "string",
+        "resourceType": "mcpConnector",
+        "mcpServers": [
+            {
+                "url": "https://mcp.slack.com/mcp",
+                "tools": {
+                    "required": ["list_*", "get_*", "read_*"],
+                    "readOnly": true
+                }
+            }
+        ]
+    }
+}
+```
+
+The same declaration acts as both eligibility filter (the input picker only offers compatible connectors) and runtime ceiling (the proxy rejects tool calls outside the declared set). For the full `mcpServers` schema, behavioral hints, and code samples, see [Build Actors with MCP connectors](/integrations/mcp-connectors/use-in-actors).
+
+### Removal of `patternKey` and `patternValue` {#deprecation-of-patternkey-and-patternvalue}
+
+::::warning Removed properties
+**The following properties were deprecated, with support ending on June 30, 2026, and are no longer supported:**
 
 - `patternKey` - Used to validate keys in objects and arrays
 - `patternValue` - Used to validate values in objects and arrays
+
+Building an Actor whose input schema contains them fails with a validation error. Existing builds are not affected, but you need to migrate your input schema before you build the Actor again.
 ::::
 
-These properties are being deprecated to better align with the JSON schema specification. By moving to standard JSON schema, a more consistent experience is provided that matches industry standards while enabling more powerful validation capabilities through the ability to define sub-properties.
+These properties were removed to better align with the JSON schema specification. By moving to standard JSON schema, a more consistent experience is provided that matches industry standards while enabling more powerful validation capabilities through the ability to define sub-properties.
 
 #### Alternatives for arrays
 
@@ -1048,6 +1075,6 @@ Example of replacing both `patternKey` and `patternValue` for an array with key-
 
 #### Alternatives for objects
 
-For objects, there is currently no direct replacement for `patternKey` and `patternValue` properties. These validation features will not be supported in future versions.
+For objects, there is no direct replacement for `patternKey` and `patternValue` properties.
 
 If you need to validate object properties, consider using a predefined schema with the `properties` field instead of allowing arbitrary properties with validation patterns.

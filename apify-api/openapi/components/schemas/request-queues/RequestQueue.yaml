@@ -21,6 +21,12 @@ properties:
     examples: [some-name]
   userId:
     $ref: ./SharedProperties.yaml#/QueueUserId
+  actId:
+    type: [string, "null"]
+    description: The ID of the Actor that created this request queue.
+  actRunId:
+    type: [string, "null"]
+    description: The ID of the Actor run that created this request queue.
   createdAt:
     $ref: ./SharedProperties.yaml#/QueueCreatedAt
   modifiedAt:
@@ -43,4 +49,6 @@ properties:
   stats:
     $ref: ./RequestQueueStats.yaml
   generalAccess:
-    $ref: ../common/GeneralAccess.yaml
+    anyOf:
+      - $ref: ../common/GeneralAccess.yaml
+      - type: "null"

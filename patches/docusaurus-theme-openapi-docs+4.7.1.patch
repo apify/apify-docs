@@ -25,6 +25,43 @@ index 31bf239..6cc68a1 100644
              key: lang.language,
              attributes: {
                className: `openapi-tabs__code-item--${lang.logoClass}`,
+diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/CodeTabs/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/CodeTabs/index.js
+index a0e09d4..c74c075 100644
+--- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/CodeTabs/index.js
++++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/CodeTabs/index.js
+@@ -240,18 +240,22 @@ function TabContent({ lazy, children, selectedValue }) {
+   );
+ }
+ function TabsComponent(props) {
+-  const tabs = (0, internal_1.useTabs)(props);
++  const tabs = (0, internal_1.useTabsContextValue)(props);
+   const { className } = props;
+   return react_1.default.createElement(
+-    "div",
+-    {
+-      className: (0, clsx_1.default)(
+-        "tabs-container openapi-tabs__code-container",
+-        className
+-      ),
+-    },
+-    react_1.default.createElement(TabList, { ...props, ...tabs }),
+-    react_1.default.createElement(TabContent, { ...props, ...tabs })
++    internal_1.TabsProvider,
++    { value: tabs },
++    react_1.default.createElement(
++        "div",
++        {
++          className: (0, clsx_1.default)(
++            "tabs-container openapi-tabs__code-container",
++            className
++          ),
++        },
++        react_1.default.createElement(TabList, { ...props, ...tabs }),
++        react_1.default.createElement(TabContent, { ...props, ...tabs })
++    )
+   );
+ }
+ function CodeTabs(props) {
 diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/Export/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/Export/index.js
 index a2a4e40..f2d944d 100644
 --- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiExplorer/Export/index.js
@@ -276,28 +313,34 @@ index f6052d1..867bfd2 100644
                react_1.default.createElement(
                  "div",
 diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiTabs/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiTabs/index.js
-index 660f490..2367862 100644
+index 660f490..f86a7ae 100644
 --- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiTabs/index.js
 +++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ApiTabs/index.js
-@@ -250,12 +250,14 @@ function TabContent({ lazy, children, selectedValue }) {
+@@ -250,12 +250,18 @@ function TabContent({ lazy, children, selectedValue }) {
    );
  }
  function TabsComponent(props) {
 -  const tabs = (0, internal_1.useTabs)(props);
 +  const { isBrowser, ...rest } = props;
-+  const tabs = (0, internal_1.useTabs)(rest);
++  const tabs = (0, internal_1.useTabsContextValue)(rest);
    return react_1.default.createElement(
-     "div",
-     { className: "openapi-tabs__container" },
+-    "div",
+-    { className: "openapi-tabs__container" },
 -    react_1.default.createElement(TabList, { ...props, ...tabs }),
 -    react_1.default.createElement(TabContent, { ...props, ...tabs })
-+    // Apify: hide tab navigation during SSR for clean .md export
-+    isBrowser && react_1.default.createElement(TabList, { ...rest, ...tabs }),
-+    react_1.default.createElement(TabContent, { ...rest, ...tabs })
++    internal_1.TabsProvider,
++    { value: tabs },
++    react_1.default.createElement(
++        "div",
++        { className: "openapi-tabs__container" },
++        // Apify: hide tab navigation during SSR for clean .md export
++        isBrowser && react_1.default.createElement(TabList, { ...rest, ...tabs }),
++        react_1.default.createElement(TabContent, { ...rest, ...tabs })
++    )
    );
  }
  function ApiTabs(props) {
-@@ -268,6 +270,7 @@ function ApiTabs(props) {
+@@ -268,6 +274,7 @@ function ApiTabs(props) {
        // Remount tabs after hydration
        // Temporary fix for https://github.com/facebook/docusaurus/issues/5653
        key: String(isBrowser),
@@ -371,7 +414,7 @@ index b6bc631..f292799 100644
 +  });
  exports.ClosingArrayBracket = ClosingArrayBracket;
 diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/DiscriminatorTabs/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/DiscriminatorTabs/index.js
-index f536508..e21b36a 100644
+index f536508..95c3237 100644
 --- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/DiscriminatorTabs/index.js
 +++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/DiscriminatorTabs/index.js
 @@ -199,11 +199,35 @@ function TabList({ className, block, selectedValue, selectValue, tabValues }) {
@@ -411,25 +454,31 @@ index f536508..e21b36a 100644
    if (lazy) {
      const selectedTabItem = flattenedChildTabs.find(
        (tabItem) => tabItem.props.value === selectedValue
-@@ -228,12 +252,14 @@ function TabContent({ lazy, children, selectedValue }) {
+@@ -228,12 +252,18 @@ function TabContent({ lazy, children, selectedValue }) {
    );
  }
  function TabsComponent(props) {
 -  const tabs = (0, internal_1.useTabs)(props);
 +  const { isBrowser, ...rest } = props;
-+  const tabs = (0, internal_1.useTabs)(rest);
++  const tabs = (0, internal_1.useTabsContextValue)(rest);
    return react_1.default.createElement(
-     "div",
-     { className: "openapi-tabs__container" },
+-    "div",
+-    { className: "openapi-tabs__container" },
 -    react_1.default.createElement(TabList, { ...props, ...tabs }),
 -    react_1.default.createElement(TabContent, { ...props, ...tabs })
-+    // Apify: hide tab navigation during SSR for clean .md export
-+    isBrowser && react_1.default.createElement(TabList, { ...rest, ...tabs }),
-+    react_1.default.createElement(TabContent, { ...rest, ...tabs, isBrowser })
++    internal_1.TabsProvider,
++    { value: tabs },
++    react_1.default.createElement(
++        "div",
++        { className: "openapi-tabs__container" },
++        // Apify: hide tab navigation during SSR for clean .md export
++        isBrowser && react_1.default.createElement(TabList, { ...rest, ...tabs }),
++        react_1.default.createElement(TabContent, { ...rest, ...tabs, isBrowser })
++    )
    );
  }
  function DiscriminatorTabs(props) {
-@@ -251,6 +277,7 @@ function DiscriminatorTabs(props) {
+@@ -251,6 +281,7 @@ function DiscriminatorTabs(props) {
        // Remount tabs after hydration
        // Temporary fix for https://github.com/facebook/docusaurus/issues/5653
        key: String(isBrowser),
@@ -502,28 +551,34 @@ index 4bf9d6c..c0bffa2 100644
              "span",
              null,
 diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/MimeTabs/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/MimeTabs/index.js
-index 93c0559..785a05a 100644
+index 93c0559..e04edab 100644
 --- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/MimeTabs/index.js
 +++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/MimeTabs/index.js
-@@ -261,12 +261,14 @@ function TabContent({ lazy, children, selectedValue }) {
+@@ -261,12 +261,18 @@ function TabContent({ lazy, children, selectedValue }) {
    );
  }
  function TabsComponent(props) {
 -  const tabs = (0, internal_1.useTabs)(props);
 +  const { isBrowser, ...rest } = props;
-+  const tabs = (0, internal_1.useTabs)(rest);
++  const tabs = (0, internal_1.useTabsContextValue)(rest);
    return react_1.default.createElement(
-     "div",
-     { className: "tabs-container" },
+-    "div",
+-    { className: "tabs-container" },
 -    react_1.default.createElement(TabList, { ...props, ...tabs }),
 -    react_1.default.createElement(TabContent, { ...props, ...tabs })
-+    // Apify: hide tab navigation during SSR for clean .md export
-+    isBrowser && react_1.default.createElement(TabList, { ...rest, ...tabs }),
-+    react_1.default.createElement(TabContent, { ...rest, ...tabs })
++    internal_1.TabsProvider,
++    { value: tabs },
++    react_1.default.createElement(
++        "div",
++        { className: "tabs-container" },
++        // Apify: hide tab navigation during SSR for clean .md export
++        isBrowser && react_1.default.createElement(TabList, { ...rest, ...tabs }),
++        react_1.default.createElement(TabContent, { ...rest, ...tabs })
++    )
    );
  }
  function MimeTabs(props) {
-@@ -279,6 +281,7 @@ function MimeTabs(props) {
+@@ -279,6 +285,7 @@ function MimeTabs(props) {
        // Remount tabs after hydration
        // Temporary fix for https://github.com/facebook/docusaurus/issues/5653
        key: String(isBrowser),
@@ -531,6 +586,32 @@ index 93c0559..785a05a 100644
        ...props,
      },
      (0, internal_1.sanitizeTabsChildren)(props.children)
+diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/OperationTabs/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/OperationTabs/index.js
+index 6c7c795..b65b0ea 100644
+--- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/OperationTabs/index.js
++++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/OperationTabs/index.js
+@@ -223,12 +223,16 @@ function TabContent({ lazy, children, selectedValue }) {
+   );
+ }
+ function TabsComponent(props) {
+-  const tabs = (0, internal_1.useTabs)(props);
++  const tabs = (0, internal_1.useTabsContextValue)(props);
+   return react_1.default.createElement(
+-    "div",
+-    { className: "tabs-container" },
+-    react_1.default.createElement(TabList, { ...props, ...tabs }),
+-    react_1.default.createElement(TabContent, { ...props, ...tabs })
++    internal_1.TabsProvider,
++    { value: tabs },
++    react_1.default.createElement(
++        "div",
++        { className: "tabs-container" },
++        react_1.default.createElement(TabList, { ...props, ...tabs }),
++        react_1.default.createElement(TabContent, { ...props, ...tabs })
++    )
+   );
+ }
+ function OperationTabs(props) {
 diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ParamsDetails/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/ParamsDetails/index.js
 index b4bb17a..01ef6b8 100644
 --- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/ParamsDetails/index.js
@@ -1218,30 +1299,36 @@ index c1aa5d8..67f9e5c 100644
      collapsible ? collapsibleSchemaContent : schemaContent
    );
 diff --git a/node_modules/docusaurus-theme-openapi-docs/lib/theme/SchemaTabs/index.js b/node_modules/docusaurus-theme-openapi-docs/lib/theme/SchemaTabs/index.js
-index d1924da..4413520 100644
+index d1924da..a0791cc 100644
 --- a/node_modules/docusaurus-theme-openapi-docs/lib/theme/SchemaTabs/index.js
 +++ b/node_modules/docusaurus-theme-openapi-docs/lib/theme/SchemaTabs/index.js
-@@ -242,12 +242,16 @@ function TabContent({ lazy, children, selectedValue }) {
+@@ -242,12 +242,20 @@ function TabContent({ lazy, children, selectedValue }) {
    );
  }
  function TabsComponent(props) {
 -  const tabs = (0, internal_1.useTabs)(props);
 +  const { isBrowser, hideTabListSSR, ...rest } = props;
-+  const tabs = (0, internal_1.useTabs)(rest);
++  const tabs = (0, internal_1.useTabsContextValue)(rest);
    return react_1.default.createElement(
-     "div",
-     { className: "openapi-tabs__schema-container" },
+-    "div",
+-    { className: "openapi-tabs__schema-container" },
 -    react_1.default.createElement(TabList, { ...props, ...tabs }),
 -    react_1.default.createElement(TabContent, { ...props, ...tabs })
-+    // Apify: optionally hide tab navigation during SSR for clean .md export.
-+    // Used by ResponseSchema (Example/Schema tabs) but NOT by AnyOneOf
-+    // (anyOf/oneOf tabs) where the option list is useful in markdown.
-+    (isBrowser || !hideTabListSSR) && react_1.default.createElement(TabList, { ...rest, ...tabs }),
-+    react_1.default.createElement(TabContent, { ...rest, ...tabs })
++    internal_1.TabsProvider,
++    { value: tabs },
++    react_1.default.createElement(
++        "div",
++        { className: "openapi-tabs__schema-container" },
++        // Apify: optionally hide tab navigation during SSR for clean .md export.
++        // Used by ResponseSchema (Example/Schema tabs) but NOT by AnyOneOf
++        // (anyOf/oneOf tabs) where the option list is useful in markdown.
++        (isBrowser || !hideTabListSSR) && react_1.default.createElement(TabList, { ...rest, ...tabs }),
++        react_1.default.createElement(TabContent, { ...rest, ...tabs })
++    )
    );
  }
  function SchemaTabs(props) {
-@@ -260,6 +264,7 @@ function SchemaTabs(props) {
+@@ -260,6 +268,7 @@ function SchemaTabs(props) {
        // Remount tabs after hydration
        // Temporary fix for https://github.com/facebook/docusaurus/issues/5653
        key: String(isBrowser),

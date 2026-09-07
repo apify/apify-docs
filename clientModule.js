@@ -6,7 +6,7 @@ export function onRouteDidUpdate({ location, previousLocation }) {
     if (location.pathname !== previousLocation?.pathname) {
         // hubspot tracking page view
         // eslint-disable-next-line no-underscore-dangle, no-multi-assign
-        const _hsq = window._hsq = window._hsq || [];
+        const _hsq = (window._hsq = window._hsq || []);
         _hsq.push(['setPath', window.location.pathname]);
         _hsq.push(['trackPageView']);
     }

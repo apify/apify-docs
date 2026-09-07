@@ -9,4 +9,6 @@ enum:
   - WEBHOOK
   - ACTOR
   - CLI
+  - CI
   - STANDBY
+  - MCP

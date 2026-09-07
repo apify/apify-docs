@@ -1,2 +1,2 @@
 get:
-  $ref: "../../components/objects/request-queues/request-queue-head.yaml#/getDefault"
+  $ref: "../../components/objects/request-queues/request-queue-head.yaml#/listDefault"

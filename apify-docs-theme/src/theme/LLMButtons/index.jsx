@@ -101,10 +101,7 @@ const onOpenInChatGPTClick = () => {
     const prompt = getPrompt(window.location.href);
 
     try {
-        window.open(
-            `https://chatgpt.com/?hints=search&q=${encodeURIComponent(prompt)}`,
-            '_blank',
-        );
+        window.open(`https://chatgpt.com/?hints=search&q=${encodeURIComponent(prompt)}`, '_blank');
     } catch (error) {
         console.error('Error opening ChatGPT:', error);
     }
@@ -122,10 +119,7 @@ const onOpenInClaudeClick = () => {
     const prompt = getPrompt(window.location.href);
 
     try {
-        window.open(
-            `https://claude.ai/new?q=${encodeURIComponent(prompt)}`,
-            '_blank',
-        );
+        window.open(`https://claude.ai/new?q=${encodeURIComponent(prompt)}`, '_blank');
     } catch (error) {
         console.error('Error opening Claude:', error);
     }
@@ -143,12 +137,7 @@ const onOpenInPerplexityClick = () => {
     const prompt = getPrompt(window.location.href);
 
     try {
-        window.open(
-            `https://www.perplexity.ai/search/new?q=${encodeURIComponent(
-                prompt,
-            )}`,
-            '_blank',
-        );
+        window.open(`https://www.perplexity.ai/search/new?q=${encodeURIComponent(prompt)}`, '_blank');
     } catch (error) {
         console.error('Error opening Perplexity:', error);
     }
@@ -303,20 +292,10 @@ function getButtonText({ status }) {
     }
 }
 
-const MenuBase = ({
-    children,
-    ref,
-    copyingStatus,
-    setCopyingStatus,
-    chevronIconRef,
-    ...props
-}) => (
+const MenuBase = ({ children, ref, copyingStatus, setCopyingStatus, chevronIconRef, ...props }) => (
     <div ref={ref} className={styles.llmButtonWrapper}>
         <div className={styles.llmButton}>
-            <div
-                className={styles.copyUpIconWrapper}
-                onClick={() => onCopyAsMarkdownClick({ setCopyingStatus })}
-            >
+            <div className={styles.copyUpIconWrapper} onClick={() => onCopyAsMarkdownClick({ setCopyingStatus })}>
                 {copyingStatus === 'loading' && <LoaderIcon size={16} />}
                 {copyingStatus === 'copied' && <CheckIcon size={16} />}
                 {copyingStatus === 'idle' && <CopyIcon size={16} />}
@@ -349,12 +328,7 @@ const Option = ({ Icon, label, description, showExternalIcon }) => (
                 {description}
             </Text>
         </div>
-        {showExternalIcon && (
-            <ExternalLinkIcon
-                size={16}
-                className={styles.menuOptionExternalIcon}
-            />
-        )}
+        {showExternalIcon && <ExternalLinkIcon size={16} className={styles.menuOptionExternalIcon} />}
     </div>
 );
 
@@ -398,11 +372,7 @@ export default function LLMButtons({ isApiReferencePage = false }) {
             className={clsx(styles.llmMenu, {
                 [styles.llmMenuApiReferencePage]: isApiReferencePage,
             })}
-            onMenuOpen={(isOpen) => chevronIconRef.current?.classList.toggle(
-                styles.chevronIconOpen,
-                isOpen,
-            )
-            }
+            onMenuOpen={(isOpen) => chevronIconRef.current?.classList.toggle(styles.chevronIconOpen, isOpen)}
             components={{
                 MenuBase: (props) => (
                     <MenuBase

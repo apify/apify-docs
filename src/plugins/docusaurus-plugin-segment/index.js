@@ -7,7 +7,7 @@ module.exports = function (context, options) {
         name: 'docusaurus-plugin-segment',
 
         getClientModules() {
-            return [path.resolve(__dirname, './segment')];
+            return [path.resolve(__dirname, './segment'), path.resolve(__dirname, './linkTracking')];
         },
 
         injectHtmlTags() {

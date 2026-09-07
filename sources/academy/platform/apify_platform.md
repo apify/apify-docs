@@ -1,7 +1,7 @@
 ---
 title: Introduction to the Apify platform
 description: Learn all about the Apify platform, all of the tools it offers, and how it can improve your overall development experience.
-sidebar_position: 7
+sidebar_position: 1
 category: apify platform
 slug: /apify-platform
 ---

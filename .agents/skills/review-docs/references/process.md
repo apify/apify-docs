@@ -11,9 +11,10 @@ Agent-agnostic workflow for reviewing Apify documentation.
 
 These are objective - no judgment needed. Report all failures. Run in the main process (not in subagents).
 
-- `npm run lint:md` (markdownlint: heading hierarchy, double spaces, list numbering)
-- `vale "<file>" --minAlertLevel=error` (prose style, dashes, code fences, admonitions)
+- `pnpm lint:md` (markdownlint: heading hierarchy, double spaces, list numbering)
 - `.agents/skills/review-docs/scripts/check-frontmatter.sh "<file>"` (description char count)
+
+Vale is not part of this skill. It runs as a repo-level PR check and via the TW's local editor extension, but devs aren't expected to install it, so shipping it in the per-file review flow would create dead weight. Prose-style coverage comes from the delegated standards review in step 3.
 
 ## Step 3: Delegated standards review
 
@@ -60,4 +61,4 @@ Check that both JavaScript and Python examples are present and functionally equi
 
 ### Markdownlint false positives on admonitions
 
-Markdownlint doesn't understand Docusaurus `:::` syntax natively. Check `.markdownlint.json` for configured exceptions. Focus on Vale for prose quality.
+Markdownlint doesn't understand Docusaurus `:::` syntax natively. Check `.markdownlint.json` for configured exceptions. Rely on the delegated standards review for prose-style judgment.

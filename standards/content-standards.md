@@ -18,7 +18,7 @@ slug: /path/to/page
 ### Required fields
 
 - **title**: Sentence case, present tense (e.g., "Create your first Actor")
-- **description**: 140-160 characters for SEO, clear and actionable
+- **description**: 140-160 characters for SEO, clear and actionable. Use action-oriented phrasing, avoid repeating the same keyword, and don't use the word "documentation"
 - **sidebar_position**: Decimal number for ordering (1.0, 1.1, 2.0, etc.)
 - **slug**: URL path starting with `/` (e.g., `/platform/actors/running`)
 
@@ -186,8 +186,12 @@ FROM apify/actor-node-playwright:22
 All images must include meaningful alt text describing the content:
 
 ```markdown
-![Apify Console showing the Actor creation dialog](./images/create-actor.png)
+![Apify Console showing the Actor creation dialog](./images/create-actor.webp)
 ```
+
+### When to use a screenshot
+
+Keep screenshots to a minimum. If an image only shows what the prose already describes, leave it out. Screenshots go stale with every UI change, so add one when it carries information the text can't.
 
 ### Theme
 
@@ -198,16 +202,14 @@ Screenshots should use:
 
 ### Visual indicators
 
-Use red boxes or arrows to highlight important UI elements:
-- **Red border**: Highlight clickable elements (buttons, fields)
-- **Red arrow**: Point to specific areas
-- **Red circle**: Highlight small elements
+Highlight UI elements - buttons, fields, and other clickable areas - with a `#F86606` (Apify orange) border. Don't use arrows or circles.
 
 ### Image format
 
-- **PNG** for screenshots and diagrams
-- **JPG** for photos
-- **SVG** for logos and icons (when available)
+- **WebP** for screenshots and diagrams
+- **SVG** for logos, icons, and product images (when available)
+
+New raster images must be WebP. The `lint_images` CI check fails on PNG, JPG, and other raster formats. Convert and optimize an image - or a whole directory - with `pnpm opt:images <path>`, then update your Markdown to reference the resulting `.webp` file.
 
 ### File organization
 
@@ -218,7 +220,7 @@ platform/
 ├── actors/
 │   ├── running.md
 │   └── images/
-│       └── run-button.png
+│       └── run-button.webp
 ```
 
 ## Lists

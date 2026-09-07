@@ -37,44 +37,18 @@ Actors on Apify Store can be public or private:
 
 ## How Actor monetization works (briefly)
 
-You can monetize your Actors using three different pricing models:
-
-- Pay for usage: charge based on how much the Actor is used.
-- Pay per event: the price is based on specific events triggered by the Actor.
-- Monthly billing: set a fixed monthly rental rate for using the Actor.
+You can monetize your Actors using pay-per-event pricing, where users pay for specific events triggered by the Actor.
 
 For detailed information on which pricing model might work for your Actor, refer to [How Actor monetization works](/academy/actor-marketing-playbook/store-basics/how-actor-monetization-works).
 
 ## Actor ownership on Store
 
-Actors are either created and maintained by Apify or by members of the community:
+There are two types of Actors on Apify Store:
 
-- _Maintained by Apify_: created and supported by the Apify team.
-- _Maintained by Community_: created and managed by independent developers from the community.
+- Maintained by Apify. These Actors are created and supported by the Apify team.
+- Maintained by the community. These Actors are created and managed by independent developers from the community.
 
-To see who maintains an Actor, check the upper-right corner of the Actor's page.
-
-When it comes to managing Actors on Apify, it’s important that every potential community developer understands the differences between Apify-maintained and Community-maintained Actors. Here’s what you need to know to navigate the platform effectively and ensure your work stands out.
-
-### Community-maintained Actors
-
-✨ _Features and functionality_: offers a broader range of use cases and features, often tailored to specific needs. Great for exploring unique or niche applications.
-
-🧑‍💻 _Ownership_: created and maintained by independent developers like you.
-
-🛠 _Maintenance_: you’re responsible for all updates, bug fixes, and ongoing maintenance. Apify hosts your Actor but does not manage its code.
-
-👷‍♀️ _Reliability and testing_: it’s up to you to ensure your Actor’s reliability and performance.
-
-☝️ _Support and Issues_: Apify does not provide direct support for Community-maintained Actors. You must manage issues through the Issues tab, where you handle user queries and problems yourself.
-
-✍️ _Documentation_: you’re responsible for creating and maintaining documentation for your Actor. Make sure it’s clear and helpful for users.
-
-:::tip Test your Actor!
-
-For the best results, make sure your Actor is well-documented and thoroughly tested. Engage with users through the Issues tab to address any problems promptly. By maintaining high standards and being proactive, you’ll enhance your Actor’s reputation and usability in Apify Store.
-
-:::
+For details, see [Actor developers](/actors/running/store/actor-developers).
 
 ## Importance of Actor testing and reliability
 
@@ -100,10 +74,20 @@ Since the **Issues** tab is public, the level of activity - or lack thereof - ca
 
 Learn more about how to handle the [Issues tab](/academy/actor-marketing-playbook/interact-with-users/issues-tab)
 
+## How Apify Store search works
+
+Search ranking evaluates parameters similar to those in the [Actor quality score](/actors/publishing/quality-score). As a result, the two correlate strongly: Actors with higher quality scores tend to rank higher in [Apify Store](https://apify.com/store) search and the [Apify MCP server](/integrations/mcp) `search-actors` tool, though no specific position is guaranteed.
+
+To improve your Actor's visibility in search, focus on improving its quality score. For what the score measures and how to influence each category, see [Actor quality score](/actors/publishing/quality-score).
+
+### Search in Apify Console is personalized
+
+In [Apify Console](https://console.apify.com), search results are personalized for each user. As a result, the same query can return different Actors than in [Apify Store](https://apify.com/store). Quality score still correlates with ranking, but the order is adjusted per user.
+
 ## Resources
 
-- Best practices on setting up [testing for your Actor](https://docs.apify.com/platform/actors/publishing/test)
+- Best practices on setting up [testing for your Actor](https://docs.apify.com/actors/publishing/test)
 - What are Apify-maintained and [Community-maintained Actors](https://help.apify.com/en/articles/6999799-what-are-apify-maintained-and-community-maintained-actors)? On ownership, maintenance, features, and support
-- Step-by-step guide on how to [publish your Actor](https://docs.apify.com/platform/actors/publishing)
+- Step-by-step guide on how to [publish your Actor](https://docs.apify.com/actors/publishing)
 - Watch our webinar on how to [build, publish and monetize Actors](https://www.youtube.com/watch?v=4nxStxC1BJM)
-- Detailed [guide on pricing models](https://docs.apify.com/platform/actors/running/actors-in-store) for Actors in Store
+- Detailed [guide on pricing models](https://docs.apify.com/actors/running/actors-in-store) for Actors in Store

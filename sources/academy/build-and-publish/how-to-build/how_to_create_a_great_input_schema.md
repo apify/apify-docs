@@ -31,7 +31,7 @@ In this article, _we’ll refer to the input schema as the user interface_ of yo
 
 :::tip Understand input schemas
 
-To fully understand the recommendations in this blog post, you’ll first need to familiarize yourself with the [technical aspects of the input schema](https://docs.apify.com/platform/actors/development/actor-definition/input-schema). This context is essential to make good use of the insights shared here.
+To fully understand the recommendations in this blog post, you’ll first need to familiarize yourself with the [technical aspects of the input schema](https://docs.apify.com/actors/development/actor-definition/input-schema). This context is essential to make good use of the insights shared here.
 
 :::
 
@@ -118,7 +118,7 @@ Unfortunately, when it comes to UX, there's only so much you can achieve armed w
   - Use them to attract attention or as visual shortcuts. Use emojis consistently to invoke a user's iconic memory. The visual language should match across the whole input schema (and README) so the user can understand what section or field is referred to without reading the whole title.
     - Don't overload the schema with emojis. They attract attention, so you need to use them sparingly.
 
-:::tip
+:::tip Using emojis
 
 Read more on the use of emojis: [Actors and emojis](/academy/actor-marketing-playbook/actor-basics/actors-and-emojis)
 
@@ -170,4 +170,4 @@ The version above was the improved input schema. Here's what this tool's input s
 ## Resources
 
 - Basics of input schema: [https://docs.apify.com/academy/deploying-your-code/input-schema](https://docs.apify.com/academy/deploying-your-code/input-schema)
-- Specifications of input schema: [https://docs.apify.com/platform/actors/development/actor-definition/input-schema](https://docs.apify.com/platform/actors/development/actor-definition/input-schema)
+- Specifications of input schema: [https://docs.apify.com/actors/development/actor-definition/input-schema](https://docs.apify.com/actors/development/actor-definition/input-schema)

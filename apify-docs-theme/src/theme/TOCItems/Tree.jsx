@@ -5,12 +5,7 @@ import React from 'react';
 import styles from './styles.module.css';
 
 // Recursive component rendering the toc tree
-function TOCItemTree({
-    toc,
-    className,
-    linkClassName,
-    isChild,
-}) {
+function TOCItemTree({ toc, className, linkClassName, isChild }) {
     if (!toc.length) {
         return null;
     }
@@ -25,12 +20,7 @@ function TOCItemTree({
                         // Developer provided the HTML, so assume it's safe.
                         dangerouslySetInnerHTML={{ __html: heading.value }}
                     />
-                    <TOCItemTree
-                        isChild
-                        toc={heading.children}
-                        className={className}
-                        linkClassName={linkClassName}
-                    />
+                    <TOCItemTree isChild toc={heading.children} className={className} linkClassName={linkClassName} />
                 </li>
             ))}
         </ul>

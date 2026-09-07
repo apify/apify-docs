@@ -148,10 +148,12 @@ function clearMcpRedirectCache() {
             headers: {
                 Accept: 'text/html',
             },
-        }).then(() => {
-            // Cache cleared successfully
-        }).catch(() => {
-            // Failed to clear cache - silent fail
-        });
+        })
+            .then(() => {
+                // Cache cleared successfully
+            })
+            .catch(() => {
+                // Failed to clear cache - silent fail
+            });
     }
 }
