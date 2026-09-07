@@ -207,10 +207,12 @@ Increase the request timeout for the `apify` server. See [Limitations](#limitati
 
 ### Browser doesn't open, or OAuth fails
 
-If the browser doesn't open automatically, copy the OAuth URL shown by the surface and open it manually. If sign-in still fails, use an API token from [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations?utm_source=qoder&utm_medium=integrations):
+If the browser doesn't open automatically, copy the OAuth URL shown by the surface and open it manually. If sign-in still fails, add an `Authorization` header to the `apify` server with a token from [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations?utm_source=qoder&utm_medium=integrations):
 
-```bash
-export APIFY_TOKEN=<YOUR_API_TOKEN>
+```json
+"headers": {
+    "Authorization": "Bearer <APIFY_TOKEN>"
+}
 ```
 
 ## Limitations
