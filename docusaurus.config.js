@@ -383,7 +383,7 @@ module.exports = {
             {
                 redirects: [
                     {
-                        to: '/integrations/qoder-plugin',
+                        to: '/integrations/qoder',
                         from: [
                             '/integrations/qoder-cli',
                             '/integrations/qoder-ide',

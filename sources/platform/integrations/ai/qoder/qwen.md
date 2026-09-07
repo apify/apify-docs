@@ -198,7 +198,7 @@ Get the token from [Apify Console > Settings > Integrations](https://console.api
 
 ## Related integrations
 
-- [Qoder integration](/integrations/qoder-plugin) - Install the same plugin in the Qoder CLI, IDE, Desktop app, or QoderWork
+- [Qoder integration](/integrations/qoder) - Install the same plugin in the Qoder CLI, IDE, Desktop app, or QoderWork
 - [MCP server integration](/integrations/mcp) - Use the Apify MCP server with other clients
 
 ## Resources
