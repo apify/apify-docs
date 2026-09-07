@@ -66,8 +66,7 @@ async def main() -> None:
 </TabItem>
 </Tabs>
 
-Please make sure to describe your Actors, their endpoints, and the schema for their
-inputs and outputs in your README.
+Describe your Actor's endpoints, their parameters, and responses with a [web server schema](../actor_definition/web_server_schema/index.md) defined in the [`.actor/actor.json`](../actor_definition/actor_json.md) file. Apify Console then renders an interactive **Endpoints** tab on the Actor's detail page, where users can browse the endpoints and send requests directly from the browser. Describe the endpoints in your Actor's README as well.
 
 ### Readiness probe
 
@@ -170,13 +169,37 @@ async def main() -> None:
 </TabItem>
 </Tabs>
 
+## Run lifecycle in Standby mode
+
+The platform starts and stops Standby runs automatically based on the incoming request load. It stops a run that receives no requests within the configured idle timeout and starts a new run when requests arrive again. Don't keep data only in the run's memory: persist anything you need to a [dataset or key-value store](../../../storage/index.md). See [how Standby scaling works](../../running/actor_standby.md#is-there-any-scaling-to-accommodate-the-incoming-requests) and [how to customize the Standby configuration](../../running/actor_standby.md#how-do-i-customize-standby-configuration).
+
+Apart from the [readiness probe](#readiness-probe), the platform doesn't check your server's health while the run is alive. A run ends when its process exits, when it migrates to another machine, or when it stays idle for longer than the idle timeout. A server that stays up but stops responding keeps receiving requests, so on an unrecoverable error, exit the process instead of swallowing the error.
+
 ## Timeouts
 
 When you send a request to an Actor in Standby mode, the total timeout for receiving the first response is _5 minutes_. Before the platform forwards the request to a specific Actor run, it performs a _run selection_ process to determine the specific Actor run that will handle it. This process has internal timeout of _2 minutes_.
 
-## Getting the URL of the Standby Actor
+## Get the URL of the Standby Actor
 
 The URL is exposed as an environment variable `ACTOR_STANDBY_URL`. You can also use `Actor.config`, where the `standbyUrl` option is available.
+
+The URL typically combines the Actor owner's username and the Actor name, for example:
+
+```text
+https://jane-doe--my-actor.apify.actor
+```
+
+The Actor also responds on a URL built from its ID, which keeps working if the Actor or its owner is renamed:
+
+```text
+https://92c4oi4fpzy7rprlf.apify.actor
+```
+
+Unlike the [container web server](./container_web_server.md) URL, which changes with every run, the Standby URL stays the same for all runs of the Actor. You can share it publicly or hardcode it in applications that call the Actor: copy it from the **Endpoints** tab on the Actor's detail page rather than building it from the username and Actor name, because some Actors use a different hostname format.
+
+If the Actor exposes an MCP server, its endpoint is the Standby URL followed by the path defined in the [`webServerMcpPath`](../actor_definition/actor_json.md) property.
+
+Requests to the Standby URL require an Apify API token. See [how to authenticate your requests](../../running/actor_standby.md#how-do-i-authenticate-my-requests).
 
 ## Monetization of Actors in Standby mode
 

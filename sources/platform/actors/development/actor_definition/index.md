@@ -15,6 +15,7 @@ Actors have the following elements:
 - **[Dockerfile](./docker.md)** which specifies where is the Actor's source code, how to build it, and run it.
 - **Documentation** in the form of a **README.md** file.
 - **[Input](./input_schema/index.md)** and **[output](./output_schema/index.md)** schemas that describe what input the Actor requires and what output it produces.
+- **[Web server schema](./web_server_schema/index.md)** that describes the HTTP endpoints of the Actor's web server, if it runs one.
 - Access to an out-of-box **[storage](../../../storage/index.md)** system for Actor data, results, and files.
 
 The documentation and the input and output schemas make it possible for people to easily understand what the Actor does, enter the required inputs both in the user interface or API, and integrate the Actor's results with their other workflows. Actors can easily call and interact with each other, enabling building more complex systems on top of simple ones.
