@@ -23,7 +23,7 @@ All Apify Docker images are pre-cached on Apify servers to speed up Actor builds
 
 ### Node.js base images
 
-These images come with Node.js (versions `20`, `22`, or `24`) the [Apify SDK for JavaScript](/sdk/js), and [Crawlee](https://crawlee.dev/) preinstalled. The `latest` tag corresponds to the latest LTS version of Node.js.
+These images come with Node.js (versions `22`, `24`, or `26`), the [Apify SDK for JavaScript](/sdk/js), and [Crawlee](https://crawlee.dev/) preinstalled. The `latest` tag corresponds to the latest LTS version of Node.js.
 
 | Image | Description |
 | ----- | ----------- |
@@ -35,6 +35,16 @@ These images come with Node.js (versions `20`, `22`, or `24`) the [Apify SDK for
 | [`actor-node-playwright`](https://hub.docker.com/r/apify/actor-node-playwright/) | Ubuntu image with [`playwright`](https://github.com/microsoft/playwright) and all its browsers (Chromium, Google Chrome, Firefox, WebKit). |
 
 See the [Docker image guide](/sdk/js/docs/guides/docker-images) for more details.
+
+#### Slim images
+
+Every Node.js image is also published as a slim variant, with a `-slim` suffix appended to the tag (e.g. `24-slim`, `24-1.60.0-slim`). Slim images do not preinstall `apify`, `crawlee` or `typescript`. They only ship the browser automation library the image is built around (for example `puppeteer` or `playwright`), and `actor-node:24-slim` ships no npm packages at all. This makes them smaller and faster to pull, and your `package.json` is the single source of truth for dependency versions.
+
+Use the slim variant unless you have a reason not to. Reach for the full image when you want to run something quickly without maintaining a `package.json`, or when you rely on the exact preinstalled versions of `apify` and `crawlee`.
+
+```dockerfile
+FROM apify/actor-node-playwright-chrome:24-1.60.0-slim
+```
 
 ### Python base images
 
@@ -54,16 +64,18 @@ Docker image tags follow a consistent naming pattern that allows you to pin spec
 
 For Node.js images, the tag format is:
 
-- `{node-version}` - A Node.js version only (e.g., `20`, `22`, `24`)
+- `{node-version}` - A Node.js version only (e.g., `22`, `24`, `26`)
 - `{node-version}-{library-version}` - A Node.js version with pinned Playwright/Puppeteer version (e.g., `22-1.52.0`)
+- `{...}-slim` - Any of the above without preinstalled `apify`, `crawlee` and `typescript` (e.g., `24-slim`, `22-1.52.0-slim`)
 
 Examples:
 
 | Tag | Description |
 | --- | ----------- |
-| `20` | Node.js 20 with the Playwright/Puppeteer version that was latest when the image was built |
 | `22` | Node.js 22 with the Playwright/Puppeteer version that was latest when the image was built |
+| `24` | Node.js 24 with the Playwright/Puppeteer version that was latest when the image was built |
 | `22-1.52.0` | Node.js 22 with Playwright/Puppeteer version 1.52.0 pinned |
+| `22-1.52.0-slim` | Same as `22-1.52.0`, but without preinstalled `apify`, `crawlee` and `typescript` |
 | `latest` | Latest LTS Node.js version |
 
 ### Python images
@@ -140,6 +152,34 @@ The asterisk (`*`) tells npm to use whatever version is already installed, which
 1. Reproducibility - Your builds will behave the same way regardless of when you build them
 1. Predictability - You know exactly which version you're running
 1. Debugging - Version-specific issues are easier to track down
+
+## Package managers
+
+All Node.js images ship with npm, and [Corepack](https://github.com/nodejs/corepack) enabled with the latest pnpm preinstalled, so you can use npm, yarn or pnpm out of the box. Add a [`packageManager`](https://nodejs.org/api/packages.html#packagemanager) field to your `package.json` and Corepack will provision the exact version you pin.
+
+```json
+{
+    "packageManager": "pnpm@10.24.0"
+}
+```
+
+The images preconfigure the package managers so that:
+
+- pnpm and yarn install a flat, npm-style `node_modules` (`node-linker=hoisted` for pnpm, `nodeLinker: node-modules` for yarn) instead of a symlinked store or Plug'n'Play, so dependencies resolve without extra loaders.
+- All caches (`NPM_CONFIG_CACHE`, `YARN_CACHE_FOLDER`, pnpm store and cache, `COREPACK_HOME`) live under `/pkg-cache` instead of `$HOME`. The directory only holds throwaway data, so you can `rm -rf /pkg-cache/*` at the end of your `Dockerfile` to reclaim space without touching installed dependencies.
+
+:::note Overriding the linker
+
+These settings are applied through environment variables (`PNPM_CONFIG_NODE_LINKER`, `YARN_NODE_LINKER`), and both pnpm and yarn give environment variables precedence over `.npmrc` / `.yarnrc.yml`. To use a different linker, override the variable in your `Dockerfile` instead of the config file:
+
+```dockerfile
+# https://pnpm.io/settings#nodelinker
+ENV PNPM_CONFIG_NODE_LINKER=isolated
+# https://yarnpkg.com/configuration/yarnrc#nodeLinker
+ENV YARN_NODE_LINKER=pnp
+```
+
+:::
 
 ## Custom Dockerfile
 
