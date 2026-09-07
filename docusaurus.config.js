@@ -378,21 +378,6 @@ module.exports = {
         //         },
         //     },
         // ],
-        [
-            '@docusaurus/plugin-client-redirects',
-            {
-                redirects: [
-                    {
-                        to: '/integrations/qoder',
-                        from: [
-                            '/integrations/qoder-cli',
-                            '/integrations/qoder-ide',
-                            '/integrations/qoder-work',
-                        ],
-                    },
-                ],
-            },
-        ],
         ...config.plugins,
     ],
     markdown: {
