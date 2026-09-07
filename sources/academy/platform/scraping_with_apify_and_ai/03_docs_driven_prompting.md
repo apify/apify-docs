@@ -13,9 +13,9 @@ We made our lives easier with an AI agent. Improving our scraper now takes way l
 
 Prompting a chat or agent is quick and straightforward, but it doesn't leave much trace of our intentions:
 
-- If we want someone else to take over later, it'll be hard for them to figure out why we made some decisions and whether behavior is intentional or accidental.
-- If we get busy with other things and return after a few months, we'll basically become that “someone else” who needs to figure out the project. After a week, we might still remember why we process prices a certain way. After a year, it's mostly fuzzy memories.
-- If we want other people to use our scraper, they need simple instructions on how to run it and what to expect.
+- _Hard to hand over:_ If we want someone else to take over later, it'll be hard for them to figure out why we made some decisions and whether behavior is intentional or accidental.
+- _Easy to forget:_ If we get busy with other things and return after a few months, we'll basically become that “someone else” who needs to figure out the project. After a week, we might still remember why we process prices a certain way. After a year, it's mostly fuzzy memories.
+- _No instructions:_ If we want other people to run or even develop our scraper, they need simple instructions on how to do it and what to expect.
 
 Traditionally, we write the documentation after finishing the software. With AI, we can describe how the program should work before it's done, point the agent to that spec, and ask it to make it real.
 
