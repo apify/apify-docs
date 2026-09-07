@@ -1,5 +1,5 @@
 {
-  "source_file": "sources/platform/account/billing.md",
+  "source_file": "sources/platform/account/billing/index.md",
   "assertions": [
     {
       "id": "current-period-tab",

@@ -238,10 +238,6 @@ Yes. Select the **Abort** button that appears next to the status badge on any ru
 
 Yes. Running the Contact Details Scraper consumes your Apify account credits based on the number of websites scraped and contacts extracted. Check your Apify Console for usage and billing details.
 
-### How do I uninstall?
-
-Remove the Apify app from your HubSpot account through HubSpot's app management settings. Your enriched contact data remains in HubSpot - only the app connection is removed.
-
 ## Troubleshooting
 
 ### Missing website URL
@@ -281,6 +277,14 @@ Select the info icon on the errored run to see the specific error message. You c
 - No contacts matching your filters (department, deduplication mode) were found.
 
 Try re-running with different filters or verify the company website is accessible.
+
+## Uninstall the integration
+
+To remove the Apify integration from HubSpot, select the settings icon in the top-right of the Apify card, then select **Uninstall**.
+
+![Uninstall option in the Apify card settings menu](../images/hubspot/hubspot_uninstall_guide.webp)
+
+Your enriched contact data remains in HubSpot - only the app connection is removed.
 
 ## Next steps
 

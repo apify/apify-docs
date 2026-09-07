@@ -1,5 +1,6 @@
 ---
-title: Standby mode
+title: Develop Actors in Standby mode
+sidebar_label: Standby mode
 description: Develop Actors that run a persistent HTTP server in Standby mode, enabling fast real-time API responses without restarting the Actor each time.
 slug: /actors/development/programming-interface/standby
 sidebar_position: 9

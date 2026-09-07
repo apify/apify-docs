@@ -1,5 +1,6 @@
 ---
-title: Builds
+title: Actor builds
+sidebar_label: Builds
 description: Learn about Actor build numbers, versioning, and how to use specific Actor version in runs. Understand an Actor's lifecycle and manage its cache.
 sidebar_position: 7
 slug: /actors/development/builds-and-runs/builds

@@ -22,7 +22,7 @@ This guide will demonstrate two different ways to use Apify Actors with Langflow
 
 - **Apify API token**: To use Apify Actors in Langflow, you need an Apify API token. If you don't have one, you can learn how to get it in the [Apify documentation](https://docs.apify.com/integrations/api).
 
-- **OpenAI API key**: To work with agents in Langflow, you need an OpenAI API key. If you don't have one, you can get it from the [OpenAI platform](https://.openai.com/account/api-keys).
+- **OpenAI API key**: To work with agents in Langflow, you need an OpenAI API key. If you don't have one, you can get it from the [OpenAI platform](https://platform.openai.com/account/api-keys).
 
 #### Langflow
 
@@ -96,7 +96,7 @@ Create a new flow and add two **Apify Actors** components from the menu.
 Input your API token (learn how to get it in the [Integrations documentation](https://docs.apify.com/integrations/api)) and set the Actor ID of the first component to `apify/google-search-scraper` and the second one to `clockworks/free-tiktok-scraper`:
 ![Flow - Actors configuration](../images/langflow/apify_actors_configuration.png)
 
-Add the **Agent** component from the menu and set your OpenAI API key (get it from the [OpenAI API keys page](https://.openai.com/account/api-keys)):
+Add the **Agent** component from the menu and set your OpenAI API key (get it from the [OpenAI API keys page](https://platform.openai.com/account/api-keys)):
 
 :::tip Optimize Agent results
 

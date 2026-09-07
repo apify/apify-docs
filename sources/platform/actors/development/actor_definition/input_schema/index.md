@@ -7,6 +7,8 @@ slug: /actors/development/actor-definition/input-schema
 
 The input schema defines the input parameters for an Actor. It's a `JSON` object comprising various field types supported by the Apify platform. Based on the input schema, the Apify platform automatically generates a user interface for the Actor. It also validates the input data passed to the Actor when it's executed through the API or the Apify Console UI.
 
+To [publish your Actor to Apify Store](/actors/publishing/publish), an input schema is required.
+
 The following is an example of an auto-generated UI for the [Website Content Crawler](https://apify.com/apify/website-content-crawler) Actor.
 
 ![Website Content Crawler input UI](./images/input-ui-website-content-crawler.png)
