@@ -103,7 +103,7 @@ The Apify MCP server registers when the surface starts. If the Apify tools don't
 
 ## Authenticate to Apify
 
-The plugin bundles the Apify MCP server. Read-only tools like searching Apify Store and fetching Actor details work without signing in, but you need to authenticate to run Actors and access your account data. Each surface triggers the same Apify OAuth flow in your browser.
+The plugin bundles the Apify MCP server and connects to its default endpoint, so authenticate before your first prompt - without a token the server rejects every tool call, including Actor search. Each surface triggers the same Apify OAuth flow in your browser.
 
 - **CLI:** run `/mcp` and open the **Plugin** tab, then:
 
