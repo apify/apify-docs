@@ -13,7 +13,7 @@ The README as a source of truth for the AI agent gets us far, but it has limits:
 
 - Describing a large set of edge cases is tedious. Adding "If this tiny detail is a certain way, process it as X, otherwise as Y" for each situation is possible, but messy.
 - Sometimes the edge case lies in the page's HTML, the text format that describes its content and structure. We'd have to say, "if you encounter exactly this HTML code, process it like this." Pasting long snippets of HTML into a README isn't great.
-- After each change, we have to trust that the agent didn't break what already worked. We can prompt it to "go through the whole README and verify all the behavior," but that's slow and unreliable.
+- After each change, we have to trust that the agent didn't break what already worked. We can prompt it to go through the whole README and verify the behavior, but that's slow and unreliable.
 - Our scraper assumes a certain page structure, but that structure can change over time. The README says what data we want, not what the page looked like when everything still worked.
 
 There's a better way. We can save real-world examples of the pages we scrape, along with the data we expect to get from them. A program can then load each example, process it as if it were scraping the live page, and compare the result with our expectations.
@@ -46,7 +46,7 @@ Read the Testing section in README and set up a test suite
 covering the behavior we already have.
 ```
 
-When the AI agent gets to work, you should see it create a new directory called `tests`. It'll probably use `curl`, a command-line program for downloading files, to create an HTML snapshot of the Sales listing.
+When the AI agent gets to work, you should see it create a new directory called `tests`. To create an HTML snapshot of the Sales listing, it'll probably use `curl`, a command-line program for downloading files.
 
 When it's done, you should see several new files inside `tests`. Most likely, `sales.html` will contain the downloaded page, `sales.json` will contain the expected data, and a test file will run the checks.
 
