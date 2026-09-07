@@ -86,7 +86,7 @@ If you want more details about rental pricing, refer to our [rental pricing docu
 
 ## Setting up monetization
 
-1. _Go to your Actor page_: navigate to the **Publication** tab and open the **Monetization** section.
+1. _Go to your Actor page_: navigate to the **Publishing** tab and open the **Monetization** section.
 1. _Fill in billing details_: set up your payment details for payouts.
 1. _Choose your pricing model_: use the monetization wizard to select your model.
 1. _Define chargeable events (PPE)_: select the events users pay for (for example, per result, per API call, or per Actor start), then set clear names, descriptions, and prices.
