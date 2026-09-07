@@ -37,7 +37,7 @@ Let's start by adding a new section to the README:
 
 _JSON_ is a text format for storing structured data. A JSON file can represent the same rows and fields you see in the Apify output table, but in a form that programs can read and compare. You won't need to write these files yourself. The AI agent will create them, and you'll only check whether their contents look right.
 
-_Red-green test-driven development_, often shortened to TDD, means that whenever the AI agent modifies our project, it starts with the expectations. It runs the tests and watches them fail, which proves that they actually check something. Only then does it change the code to make them pass. This technique makes development more reliable.
+_Red-green test-driven development_, often shortened to TDD, means that whenever the AI agent modifies our project, it starts with the expectations. It runs the tests and watches them fail (red), which proves that they actually check something. Only then does it change the code to make them pass (green). This technique makes development more reliable.
 
 Now let's send this prompt to the AI agent:
 
@@ -74,7 +74,7 @@ Depending on what the agent created, your output may look different, but it shou
 
 ## Handling product variants
 
-Some prices in our data are "from" values because many items in the listing represent several product variants. Let's scrape each variant as a separate product with its actual price.
+Some prices in our data are "From" values, such as "From $1,398", because many items in the listing represent several product variants. Let's scrape each variant as a separate product with its actual price.
 
 Each product in the listing links to a _product detail page_, or PDP. If we open a product URL in the browser, such as the page for the [Sony XBR-950G BRAVIA](https://warehouse-theme-metal.myshopify.com/products/sony-xbr-65x950g-65-class-64-5-diag-bravia-4k-hdr-ultra-hd-tv), we can see its vendor name, [SKU](https://en.wikipedia.org/wiki/Stock_keeping_unit), reviews, images, variants, stock availability, description, and more.
 
