@@ -6,6 +6,8 @@ slug: /integrations/qoder
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+import ApifyPluginSkills from '@site/sources/_partials/_apify-plugin-skills.mdx';
+import ApifyPluginSkillPrompts from '@site/sources/_partials/_apify-plugin-skill-prompts.mdx';
 
 [Qoder](https://qoder.com) is an agentic coding platform from Alibaba. The same [Apify plugin for Qoder](https://github.com/apify/apify-qoder-plugin) installs across its surfaces and connects them to Apify's library of [Actors](https://apify.com/store). The plugin bundles:
 
@@ -131,27 +133,11 @@ To go further, ask it to find an Actor for a task:
 
 ## Bundled skills
 
-| Skill | Description |
-| --- | --- |
-| `apify-ultimate-scraper` | Extraction using existing Actors for multi-step scraping and lead-generation workflows. |
-| `apify-actor-development` | Full Actor lifecycle - template selection, development, local testing, and deployment with `apify push`. |
-| `apify-actorization` | Converts existing JavaScript, TypeScript, Python, or CLI projects into Apify Actors. |
-| `apify-generate-output-schema` | Generates dataset and key-value store schemas for existing Actors. |
-| `apify-sdk-integration` | Integrates Actor execution into applications using the `apify-client` package. |
+<ApifyPluginSkills />
 
 In the CLI, IDE, and Desktop app, the agent invokes these skills automatically. In QoderWork, each skill is also a quick command - type `/` in a task or chat to run one directly.
 
-To run `apify-ultimate-scraper`:
-
-> Find 10 highly rated coffee shops in Seattle with name, address, rating, phone, and website.
-
-To run `apify-actor-development`:
-
-> Create an Apify Actor that accepts a `startUrl` and `maxPages` input, crawls the site, and stores each page title and URL.
-
-To run `apify-sdk-integration`:
-
-> Add Apify to this project. The Node.js API route should run an Actor and return dataset items as JSON.
+<ApifyPluginSkillPrompts />
 
 ## Add the Apify MCP server
 

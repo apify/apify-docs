@@ -6,6 +6,8 @@ slug: /integrations/qwen
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+import ApifyPluginSkills from '@site/sources/_partials/_apify-plugin-skills.mdx';
+import ApifyPluginSkillPrompts from '@site/sources/_partials/_apify-plugin-skill-prompts.mdx';
 
 Alibaba ships two agent tools under the Qwen name, and both can call Apify [Actors](https://apify.com/store). They connect to Apify in different ways:
 
@@ -145,27 +147,11 @@ To scope a source directly, name the Actor's target:
 
 ## Bundled skills
 
-| Skill | Description |
-| --- | --- |
-| `apify-ultimate-scraper` | Extraction using existing Actors for multi-step scraping and lead-generation workflows. |
-| `apify-actor-development` | Full Actor lifecycle - template selection, development, local testing, and deployment with `apify push`. |
-| `apify-actorization` | Converts existing JavaScript, TypeScript, Python, or CLI projects into Apify Actors. |
-| `apify-generate-output-schema` | Generates dataset and key-value store schemas for existing Actors. |
-| `apify-sdk-integration` | Integrates Actor execution into applications using the `apify-client` package. |
+<ApifyPluginSkills />
 
 In Qwen Code, skills are available through the `/skills` command, and the `apify` agent appears under **Extension Agents** in the subagent manager. In QwenWork, upload the skills you want (see [Add the Apify skills](#add-the-apify-skills)), and it runs them by trigger condition. These prompts route to specific skills:
 
-To run `apify-ultimate-scraper`:
-
-> Find 10 highly rated coffee shops in Seattle with name, address, rating, phone, and website.
-
-To run `apify-actor-development`:
-
-> Create an Apify Actor that accepts a `startUrl` and `maxPages` input, crawls the site, and stores each page title and URL.
-
-To run `apify-sdk-integration`:
-
-> Add Apify to this project. The Node.js API route should run an Actor and return dataset items as JSON.
+<ApifyPluginSkillPrompts />
 
 ## Troubleshooting
 
