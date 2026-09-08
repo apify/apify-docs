@@ -190,7 +190,7 @@ Get the token from [Apify Console > Settings > Integrations](https://console.api
 
 ## Limitations
 
-- In Qwen Code, the plugin's role guide ships as `qoder.md`. Qwen Code auto-loads a root `system-prompt.md` as context, so this file is not injected automatically. The `apify` agent and skills still work; invoke the agent to get the routing behavior.
+- In Qwen Code, the plugin's role guide ships as `qoder.md`. Qwen Code auto-loads a root `system-prompt.md` as context, so `qoder.md` is not injected automatically. The `apify` agent and skills still work; invoke the agent to get the routing behavior.
 - QwenWork doesn't host the bundled `apify` agent, so it has no automatic routing. Add the skills you need and let their trigger conditions apply, or name the task clearly.
 - Long-running Actors may exceed the time a single tool call waits for completion. Reduce the scope or split the work across multiple prompts.
 - Each Actor run consumes Apify platform usage from your plan in addition to any Qwen usage. See [Billing](/account/billing) for details.
