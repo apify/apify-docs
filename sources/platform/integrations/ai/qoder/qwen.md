@@ -97,7 +97,12 @@ qwen extensions uninstall apify # remove it
 
 Inside a session, run `/extensions list` to see installed extensions or `/extensions` for the interactive manager.
 
-To move to a newer release, download the new ZIP and install it again. The `qwen extensions update` command re-reads the source an extension was installed from, so it works for an unpacked directory or a git repository but not for a ZIP, which has no source to re-read.
+To move to a newer release, uninstall the current version first, then install the new ZIP:
+
+```bash
+qwen extensions uninstall apify
+qwen extensions install ./apify-qoder-plugin-<version>.zip
+```
 
 ## QwenWork
 
