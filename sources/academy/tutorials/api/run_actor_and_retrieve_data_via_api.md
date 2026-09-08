@@ -27,7 +27,7 @@ If the Actor being run via API takes 5 minutes or less to complete a typical run
 
 > If you are unsure about the differences between an Actor and a task, you can read about them in the [tasks](/actors/running/tasks) documentation. In brief, tasks are pre-configured inputs for Actors.
 
-The API endpoints and usage (for both sync and async) for [Actors](/api/v2#tag/ActorsRun-collection/operation/act_runs_post) and [tasks](/api/v2/actor-task-runs-post) are essentially the same.
+The API endpoints and usage (for both sync and async) for [Actors](/api/v2/actors-runs-post) and [tasks](/api/v2/actor-task-runs-post) are essentially the same.
 
 To run, or **call**, an Actor/task, you will need a few things:
 
@@ -45,7 +45,7 @@ The URL of [POST request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Meth
 https://api.apify.com/v2/actors/ACTOR_NAME_OR_ID/runs?token=YOUR_TOKEN
 ```
 
-For tasks, we can switch the path from **acts** to **actor-tasks** and keep the rest the same:
+For tasks, we can switch the path from **actors** to **actor-tasks** and keep the rest the same:
 
 ```cURL
 https://api.apify.com/v2/actor-tasks/TASK_NAME_OR_ID/runs?token=YOUR_TOKEN
@@ -239,7 +239,7 @@ When we run the Actor with the [usual API call](#run-an-actor-or-task) shown abo
 Replace the `RUN_ID` in the following URL with the ID you extracted earlier:
 
 ```cURL
-https://api.apify.com/v2/actors/ACTOR_NAME_OR_ID/runs/RUN_ID
+https://api.apify.com/v2/actor-runs/RUN_ID
 ```
 
 Once a status of `SUCCEEDED` or `FAILED` has been received, we know the run has finished and can cancel the interval and finally [collect the data](#collect-the-data).

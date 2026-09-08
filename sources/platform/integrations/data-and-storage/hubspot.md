@@ -65,7 +65,7 @@ For **Apply Rules To**, you have three options:
 - **Specific companies** - pick multiple companies from a list.
 - **All companies** - target every company in your portal with a website URL.
 
-![Configuration wizard - Step 1 showing the enrichment details form with name, leads count, department, deduplication dropdown, and apply rules radio buttons](../images/hubspot/hubspot_config_wizard_step_1.webp)
+![Configuration wizard - Step 1 showing the enrichment details form with name, leads count, department, deduplication dropdown, and apply rules radio buttons](../images/HubSpot/HubSpot_config_wizard_step_1.webp)
 
 If the current company has no website URL in its HubSpot record, a warning dialog appears with two options:
 
@@ -92,10 +92,10 @@ Field mappings define which data from the scraper goes into which HubSpot contac
 Each mapping row has three settings:
 
 - **Apify FIELD (SOURCE)** - dropdown of available output fields from the scraper.
-- **HUBSPOT CONTACT FIELD (TARGET)** - dropdown of your HubSpot contact properties (both standard and custom).
+- **HubSpot CONTACT FIELD (TARGET)** - dropdown of your HubSpot contact properties (both standard and custom).
 - **WHEN ALREADY SET** - **Overwrite** (replace existing value) or **Skip if set** (keep existing non-empty values).
 
-![Configuration wizard - Step 2 showing the field mappings table with source field dropdowns, target field dropdowns, and overwrite/skip selectors](../images/hubspot/hubspot_config_wizard_step_2.webp)
+![Configuration wizard - Step 2 showing the field mappings table with source field dropdowns, target field dropdowns, and overwrite/skip selectors](../images/HubSpot/HubSpot_config_wizard_step_2.webp)
 
 - Each HubSpot property can only be used once as a target.
 - Select **Add a mapping** to add more rows.
@@ -116,7 +116,7 @@ The main card view shows all your enrichment configurations for the current HubS
 | **STATUS** | Real-time status badge. |
 | **ACTIONS** | Refresh (re-run), Edit, Delete. |
 
-![Active enrichments list view showing multiple enrichment configs with status badges and action buttons](../images/hubspot/hubspot_active_enrichments_list.webp)
+![Active enrichments list view showing multiple enrichment configs with status badges and action buttons](../images/HubSpot/HubSpot_active_enrichments_list.webp)
 
 The list updates automatically every second while any config is actively running.
 
@@ -143,7 +143,7 @@ Each run in the history table shows:
 | **Skipped** | Number of contacts intentionally skipped. |
 | **Results** | External link to view dataset in Apify Console. |
 
-![Run history view with expanded row showing per-company breakdown, field mappings used, and companies in run](../images/hubspot/hubspot_per_company_result.webp)
+![Run history view with expanded row showing per-company breakdown, field mappings used, and companies in run](../images/HubSpot/HubSpot_per_company_result.webp)
 
 Expand a row (select the arrow) to see:
 
@@ -238,17 +238,13 @@ Yes. Select the **Abort** button that appears next to the status badge on any ru
 
 Yes. Running the Contact Details Scraper consumes your Apify account credits based on the number of websites scraped and contacts extracted. Check your Apify Console for usage and billing details.
 
-### How do I uninstall?
-
-Remove the Apify app from your HubSpot account through HubSpot's app management settings. Your enriched contact data remains in HubSpot - only the app connection is removed.
-
 ## Troubleshooting
 
 ### Missing website URL
 
 **Symptom:** When creating a lead enrichment, you see a warning that the company has no website URL.
 
-![Website URL field highlighted in a HubSpot company record](../images/hubspot/hubspot_website_url.webp)
+![Website URL field highlighted in a HubSpot company record](../images/HubSpot/HubSpot_website_url.webp)
 
 **Solution:**
 
@@ -281,6 +277,14 @@ Select the info icon on the errored run to see the specific error message. You c
 - No contacts matching your filters (department, deduplication mode) were found.
 
 Try re-running with different filters or verify the company website is accessible.
+
+## Uninstall the integration
+
+To remove the Apify integration from HubSpot, select the settings icon in the top-right of the Apify card, then select **Uninstall**.
+
+![Uninstall option in the Apify card settings menu](../images/HubSpot/HubSpot_uninstall_guide.webp)
+
+Your enriched contact data remains in HubSpot - only the app connection is removed.
 
 ## Next steps
 

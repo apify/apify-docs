@@ -255,9 +255,9 @@ For HTTP-native integrations or languages without a dedicated client. Base URL: 
 | Action | Method | Endpoint |
 | :--- | :--- | :--- |
 | [Search Actors in Store](/api/v2/store-get) | `GET` | `/v2/store` |
-| [Get Actor details](/api/v2/actor-get) | `GET` | `/v2/acts/{actorId}` |
-| [Run an Actor](/api/v2/actors-runs-post) | `POST` | `/v2/acts/{actorId}/runs` |
-| [Run Actor (sync, get results)](/api/v2/actor-run-sync-get-dataset-items-post) | `POST` | `/v2/acts/{actorId}/run-sync-get-dataset-items` |
+| [Get Actor details](/api/v2/actor-get) | `GET` | `/v2/actors/{actorId}` |
+| [Run an Actor](/api/v2/actors-runs-post) | `POST` | `/v2/actors/{actorId}/runs` |
+| [Run Actor (sync, get results)](/api/v2/actor-run-sync-get-dataset-items-post) | `POST` | `/v2/actors/{actorId}/run-sync-get-dataset-items` |
 | [Get run status](/api/v2/actor-run-get) | `GET` | `/v2/actor-runs/{runId}` |
 | [Get dataset items](/api/v2/dataset-items-get) | `GET` | `/v2/datasets/{datasetId}/items` |
 
@@ -283,6 +283,7 @@ npx skills add apify/agent-skills
 | `apify-actor-development` | Guided workflow for building and deploying custom Actors |
 | `apify-actorization` | Converts an existing project into an Apify Actor |
 | `apify-generate-output-schema` | Auto-generates output schemas from Actor source code |
+| `apify-sdk-integration` | Integrates Actor execution into applications using the `apify-client` package |
 
 For the full list and details, see the [skills registry](https://skills.sh/apify/agent-skills).
 
