@@ -95,7 +95,7 @@ qwen extensions uninstall apify # remove it
 
 Inside a session, run `/extensions list` to see installed extensions or `/extensions` for the interactive manager.
 
-To move to a newer release, download the new ZIP and install it again. The `qwen extensions update` command only covers extensions installed from a local path or a git repository, so it can't update an archive install.
+To move to a newer release, download the new ZIP and install it again. The `qwen extensions update` command re-reads the source an extension was installed from, so it works for an unpacked directory or a git repository but not for a ZIP, which has no source to re-read.
 
 ## QwenWork
 
