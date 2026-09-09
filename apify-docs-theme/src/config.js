@@ -202,9 +202,9 @@ const themeConfig = {
                 ],
             },
             {
-                label: 'MCP',
-                href: `${absoluteUrl}/integrations/mcp`,
-                activeBasePath: 'integrations/mcp',
+                label: 'Agent tools',
+                href: `${absoluteUrl}/agent-tools`,
+                activeBasePath: 'agent-tools',
                 position: 'right',
                 target: '_self',
                 rel: 'dofollow',
