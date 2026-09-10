@@ -15,11 +15,11 @@ export const BUTTON_SIZES = {
     MEDIUM: 'MEDIUM',
 };
 
-type ButtonSize = typeof BUTTON_SIZES[keyof typeof BUTTON_SIZES];
-type ButtonVariant = typeof BUTTON_VARIANTS[keyof typeof BUTTON_VARIANTS];
+type ButtonSize = (typeof BUTTON_SIZES)[keyof typeof BUTTON_SIZES];
+type ButtonVariant = (typeof BUTTON_VARIANTS)[keyof typeof BUTTON_VARIANTS];
 
 interface ButtonProps extends PropsWithChildren {
-    variant?: ButtonVariant,
+    variant?: ButtonVariant;
     size?: ButtonSize;
 }
 
@@ -52,7 +52,8 @@ const BUTTON_VARIANTS_CSS = {
         background-color: ${theme.color.neutral.background};
         color: ${theme.color.neutral.text};
         border: 1px solid ${theme.color.neutral.border};
-        &:hover, &:focus {
+        &:hover,
+        &:focus {
             background-color: ${theme.color.neutral.actionSecondaryHover};
         }
         &:active {
@@ -62,7 +63,8 @@ const BUTTON_VARIANTS_CSS = {
     [BUTTON_VARIANTS.PRIMARY]: css`
         background-color: ${theme.color.primary.action};
         color: ${theme.color.neutral.textOnPrimary};
-        &:hover, &:focus {
+        &:hover,
+        &:focus {
             background-color: ${theme.color.primary.actionHover};
         }
         &:active {
@@ -72,7 +74,8 @@ const BUTTON_VARIANTS_CSS = {
     [BUTTON_VARIANTS.SUCCESS]: css`
         background-color: ${theme.color.success.action};
         color: ${theme.color.neutral.textOnPrimary};
-        &:hover, &:focus {
+        &:hover,
+        &:focus {
             background-color: ${theme.color.success.actionHover};
         }
         &:active {
@@ -100,9 +103,7 @@ const StyledButton = styled.button<ButtonProps>`
 `;
 
 const Button: React.FC<ButtonProps> = ({ children, ...rest }) => {
-    return <StyledButton {...rest}>
-        {children}
-    </StyledButton>;
+    return <StyledButton {...rest}>{children}</StyledButton>;
 };
 
 export default Button;

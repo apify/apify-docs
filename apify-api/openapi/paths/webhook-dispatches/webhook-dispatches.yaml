@@ -18,11 +18,12 @@ get:
   responses:
     "200":
       description: ""
-      headers: {}
+      headers:
+        $ref: ../../components/headers/ApifyPaginationHeaders.yaml
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/webhook-dispatches/WebhookDispatchList.yaml
+            $ref: ../../components/schemas/webhook-dispatches/ListOfWebhookDispatchesResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
     "401":

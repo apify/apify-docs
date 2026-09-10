@@ -1,13 +1,17 @@
 title: SourceCodeFile
 type: object
+description: Represents a single file in the Actor's source code.
 required:
   - name
 properties:
   format:
     $ref: ../common/SourceCodeFileFormat.yaml
+    description: Format of the file's content, `TEXT` for plain text and `BASE64` for encoded content.
   content:
     type: string
     examples: ["console.log('This is the main.js file');"]
+    description: The contents of the file. Interpreted based on the value of `format`.
   name:
     type: string
     examples: [src/main.js]
+    description: The path of the file relative to the Actor's root directory.

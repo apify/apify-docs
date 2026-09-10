@@ -7,9 +7,14 @@ properties:
     description: The ID of the build associated with this tag.
     examples: [z2EryhbfhgSyqj6Hn]
   buildNumber:
-    type: string
-    description: The build number/version string.
+    type: [string, "null"]
+    pattern: ^([0-9]|[1-9][0-9])\.([0-9]|[1-9][0-9])(\.[1-9][0-9]{0,4})$
+    description: The build number/version string. Can be `null` for legacy builds that lack a valid build number.
     examples: [0.0.2]
+  buildNumberInt:
+    type: integer
+    description: The build number encoded as a single integer.
+    examples: [42]
   finishedAt:
     type: [string, "null"]
     format: date-time

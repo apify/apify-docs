@@ -4,7 +4,7 @@
 
 1. Review this guide completely
 2. Setup you development environment
-3. Familiarize yourself with our documentation style guide
+3. Familiarize yourself with the [documentation style guide](standards/)
 
 ## Development setup
 
@@ -13,14 +13,14 @@
 1. **Git**
 2. **Node.js 22** (see [.nvmrc](.nvmrc) file)
 3. **GitHub access**
-4. **npm** or **pnpm** package manager
+4. **pnpm 10** package manager (pinned via `packageManager` in `package.json`; `corepack enable` picks it up automatically)
 
 ### Installation steps
 
 <!-- vale off -->
 1. Clone the repository
-2. Run `npm install`
-3. Start development server: `npm start`
+2. Run `pnpm install`
+3. Start development server: `pnpm start`
 <!-- vale on -->
 
 This will be enough to work on Platform, Academy and OpenAPI. If you want to work on the entire documentation set, you need to join them using nginx.
@@ -28,8 +28,8 @@ This will be enough to work on Platform, Academy and OpenAPI. If you want to wor
 #### Join all repositories with nginx
 
 1. Clone all the repositories
-2. Run `npm start:dev` instead of `npm start` from the main repository
-3. Run `npm start -- --port <number>` to start Docusaurus instance on specific port, refer to the table for each repository port
+2. Run `pnpm start:dev` instead of `pnpm start` from the main repository
+3. Run `pnpm start -- --port <number>` to start Docusaurus instance on specific port, refer to the table for each repository port
 
     |Repository|Port|
     |:---|:---|
@@ -77,56 +77,16 @@ You should be able to open https://docs.apify.loc in your browser and run all th
 
 ## Documentation style guide
 
-### Language guidelines
+The style guide lives in [`standards/`](standards/), which is the single source of truth for both people and AI assistants. Rules aren't repeated here, so there's nothing to keep in sync:
 
-- Use US English
-- Write in inclusive language
-- Avoid directional language (like "left" or "right" or instead of "see" use "check out")
-- Use active voice whenever possible
+- [`standards/writing-style.md`](standards/writing-style.md) - US English, active and inclusive voice, headings, text emphasis, links, numbers
+- [`standards/content-standards.md`](standards/content-standards.md) - Front matter, admonitions, code blocks and code tabs, images and screenshots
+- [`standards/terminology.md`](standards/terminology.md) - Apify product names, capitalization, article usage
+- [`standards/grammar-rules.md`](standards/grammar-rules.md) - Hyphenation, punctuation, numbers, brand spelling
+- [`standards/file-organization.md`](standards/file-organization.md) - File naming (kebab-case) and directory structure
+- [`standards/quality-standards.md`](standards/quality-standards.md) - Checklist to run through before opening a pull request
 
-### Formatting conventions
-
-1. Text emphasis:
-
-    - use **Bold** for UI elements
-    - use _Italics_ for emphasis
-    - use `code` for inline code, by using back-ticks (\`\`\)
-    - use code blocks with language specification
-    - use [code tabs](https://docusaurus.io/docs/markdown-features/tabs) whenever you want to include examples of implementation in more than one language
-
-2. Documentation elements:
-
-    - Use [admonitions](https://docusaurus.io/docs/2.x/markdown-features/admonitions) to emphasize crucial information, available admonitions are:
-      - note
-      - tip
-      - info
-      - caution
-      - danger
-    - Use code tabs for multiple languages
-    - Include proper metadata in front matter
-
-    Example of proper usage and formatting:
-
-    ```text
-    :::note Your Title Here
-
-    Your important message here.
-
-    :::
-    ```
-
-3. Screenshots:
-
-    - Use light theme when taking screenshots
-    - Include meaningful alt texts
-    - Use red indicators
-
-### Front matter metadata best practices
-
-- Keep descriptions between 140 and 160 characters
-- Use action-oriented phrasing
-- Avoid repetitive keywords
-- Avoid the word "documentation" in descriptions
+[`AGENTS.md`](AGENTS.md) condenses these into the rules an AI assistant loads first. Change a rule in `standards/`, not in `AGENTS.md` or here.
 
 ## AI assistant rules structure
 
@@ -189,9 +149,9 @@ We use the following tools for API documentation:
 
 ### Basic commands
 
-- `npm start` - Starts docs preview server including API reference
-- `npm run openapi:lint:redocly` - Validates OpenAPI spec with Redocly CLI
-- `npm run api:rebuild` - Regenerates API docs from OpenAPI specs
+- `pnpm start` - Starts docs preview server including API reference
+- `pnpm openapi:lint:redocly` - Validates OpenAPI spec with Redocly CLI
+- `pnpm api:rebuild` - Regenerates API docs from OpenAPI specs
 
 ### Adding new documentation
 
@@ -264,7 +224,7 @@ Examples:
 
 - `/requests-queues` GET -> `requestQueues_get`
 - `/requests-queues/{queueId}` PUT -> `requestQueue_put`
-- `/acts/{actorId}/runs` POST -> `act_runs_post`
+- `/actors/{actorId}/runs` POST -> `actors_runs_post`
 
 #### Code samples
 
@@ -277,7 +237,7 @@ Add languages by adding new folders at the appropriate path level.
 #### Submitting changes
 
 1. Make your changes following the guidelines above
-2. Test locally using provided npm commands
+2. Test locally using provided pnpm commands
 3. Submit a pull request to the `master` branch
 4. Ensure all CI checks pass
 
@@ -289,8 +249,8 @@ Add languages by adding new folders at the appropriate path level.
 
     ```bash
 
-    npm install
-    npm start
+    pnpm install
+    pnpm start
 
     ```
 
@@ -299,7 +259,7 @@ Add languages by adding new folders at the appropriate path level.
     - Clone all documentation repositories
     - Configure nginx server
     - Update hosts file
-    - Use `npm start:dev`
+    - Use `pnpm start:dev`
 
 ## Quality check
 
@@ -308,15 +268,15 @@ Add languages by adding new folders at the appropriate path level.
 1. **Markdown**:
 
     ```bash
-    npm run lint:md # Checks for any issues using markdownlint
-    npm run lint:md:fix # Applies fixes
+    pnpm lint:md # Checks for any issues using markdownlint
+    pnpm lint:md:fix # Applies fixes
     ```
 
 2. **Code**:
 
     ```bash
-    npm run lint:code # Checks .js & .ts files
-    npm run lint:code:fix # Applies fixes
+    pnpm lint:code # Checks .js & .ts files
+    pnpm lint:code:fix # Applies fixes
     ```
 
 3. **Prose**:
@@ -329,13 +289,15 @@ Add languages by adding new folders at the appropriate path level.
 
 - **Broken links**: [Periodic GitHub Action](.github/workflows/lychee.yml) checks broken links by [lychee](https://lychee.cli.rs/). If the Action fails, we manually fix the issues.
 
-- **Academy exercises**: At the end of each lesson in the academy courses, there are exercises that target real-world websites. Each exercise includes a solution, stored as a separate file containing executable code. These files are included in the docs using the `!!raw-loader` syntax. Each course has a [Bats](https://bats-core.readthedocs.io/) test file named `test.bats`. The tests run each solution as a standalone program and verify that it produces output matching the expected results. A [periodic GitHub Action](.github/workflows/test-academy.yml) runs all these tests using `npm run test:academy`. If the Action fails, we rework the exercises.
+- **API paths**: `pnpm test:api-paths` checks that every `/v2/...` route written in `sources/` exists in the bundled OpenAPI spec and isn't marked `deprecated`, so the docs can't teach a route the contract doesn't define or has already superseded. It runs in the [OpenAPI checks](.github/workflows/openapi-ci.yaml) `validate` job on every pull request. Build the bundle first (`pnpm openapi:build:json`) when running it locally. Two common failures: the legacy `/v2/acts/` prefix, which still responds but is absent from the published contract; and the Actor-scoped single-run and single-build routes such as `/v2/actors/{actorId}/runs/{runId}`, which are deprecated in favor of `/v2/actor-runs/{runId}` and `/v2/actor-builds/{buildId}`. Note that the run and build _collection_ routes (`/v2/actors/{actorId}/runs`) are current - only the singular forms moved.
+
+- **Academy exercises**: At the end of each lesson in the academy courses, there are exercises that target real-world websites. Each exercise includes a solution, stored as a separate file containing executable code. These files are included in the docs using the `!!raw-loader` syntax. Each course has a [Bats](https://bats-core.readthedocs.io/) test file named `test.bats`. The tests run each solution as a standalone program and verify that it produces output matching the expected results. A [periodic GitHub Action](.github/workflows/test-academy.yml) runs all these tests using `pnpm test:academy`. If the Action fails, we rework the exercises.
 
 ## Pull request process
 
-1. Follow [Conventional Commits](https://www.conventionalcommits.org/)
-2. Pass all CI checks
-3. Include comprehensive documentation updates
+1. Title follows [Conventional Commits](https://www.conventionalcommits.org/) - CI enforces it
+2. Description is one or two sentences: what changed and why. Skip boilerplate headings (`## Summary`, `## Changes`) and bullet lists that restate the diff - the diff is the record of what changed, the description explains the why. [`.github/pull_request_template.md`](.github/pull_request_template.md) repeats this as a reminder in the PR form
+3. All CI checks pass
 
 ## Deployment
 

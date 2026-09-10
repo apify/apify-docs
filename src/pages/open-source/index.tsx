@@ -88,10 +88,7 @@ export default function OpenSource() {
         <Layout>
             <UiLibraryWrapper>
                 <StyledWrapper>
-                    <Hero
-                        heading="Apify open source"
-                        description="Tools and libraries maintained by the Apify team."
-                    />
+                    <Hero heading="Apify open source" description="Tools and libraries maintained by the Apify team." />
                     <Section>
                         <Banner useGradientBackground={false} className="banner">
                             <div className="bannerContent">
@@ -103,12 +100,21 @@ export default function OpenSource() {
                                         </Heading>
                                     </div>
                                     <Text size="big" color={theme.color.neutral.textMuted}>
-                                        A popular library for building reliable web crawlers, scrapers, and browser automations.
+                                        A popular library for building reliable web crawlers, scrapers, and browser
+                                        automations.
                                     </Text>
                                 </div>
                                 <div className={clsx('bannerContentColumn', 'bannerContentActions')}>
-                                    <ActionCard title="JavaScript" iconSrc={useBaseUrl('/img/javascript-40x40.svg')} to="https://crawlee.dev" />
-                                    <ActionCard title="Python" iconSrc={useBaseUrl('/img/python-40x40.svg')} to="https://crawlee.dev/python/" />
+                                    <ActionCard
+                                        title="JavaScript"
+                                        iconSrc={useBaseUrl('/img/javascript-40x40.svg')}
+                                        to="https://crawlee.dev"
+                                    />
+                                    <ActionCard
+                                        title="Python"
+                                        iconSrc={useBaseUrl('/img/python-40x40.svg')}
+                                        to="https://crawlee.dev/python/"
+                                    />
                                 </div>
                             </div>
                         </Banner>

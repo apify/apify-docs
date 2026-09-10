@@ -120,7 +120,7 @@ Once you’ve saved the settings, go to the **Standby** tab, and click the **Tes
 
 Ready to monetize your Actor and start earning? Check out these guides:
 
-- [Set up monetization for your Actor](https://docs.apify.com/platform/actors/publishing/monetize)
-- [Publish your Actor on Apify Store](https://docs.apify.com/platform/actors/publishing/publish)
+- [Set up monetization for your Actor](https://docs.apify.com/actors/publishing/monetize)
+- [Publish your Actor on Apify Store](https://docs.apify.com/actors/publishing/publish)
 
 You can also extend your Actor with custom logic and leverage additional Apify platform features, such as storage or web scraping capabilities.

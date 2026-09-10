@@ -2,7 +2,6 @@
 title: n8n - Website Content Crawler by Apify
 description: Use the Website Content Crawler node in n8n to extract clean text and Markdown from websites and feed AI models, RAG pipelines, or LLM frameworks.
 sidebar_label: Website Content Crawler
-sidebar_position: 6
 slug: /integrations/n8n/website-content-crawler
 toc_max_heading_level: 4
 ---
@@ -11,7 +10,7 @@ import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integrati
 
 Website Content Crawler from [Apify](https://apify.com/apify/website-content-crawler) lets you extract text content from websites to feed AI models, LLM applications, vector databases, or Retrieval Augmented Generation (RAG) pipelines. It supports rich formatting using Markdown, cleans the HTML of irrelevant elements, downloads linked files, and integrates with AI ecosystems like Langchain, LlamaIndex, and other LLM frameworks.
 
-To use these modules, you need an [API token](https://docs.apify.com/platform/integrations/api#api-token). You can find your token in the [Apify Console](https://console.apify.com/) under **Settings > API & Integrations**. After connecting, you can automate content extraction at scale and incorporate the results into your AI workflows.
+To use these modules, you need an [API token](https://docs.apify.com/integrations/api#api-token). You can find your token in the [Apify Console](https://console.apify.com/) under **Settings > API & Integrations**. After connecting, you can automate content extraction at scale and incorporate the results into your AI workflows.
 
 <ThirdPartyDisclaimer />
 

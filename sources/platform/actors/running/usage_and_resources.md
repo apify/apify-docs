@@ -1,5 +1,6 @@
 ---
-title: Usage and resources
+title: Actor usage and resources
+sidebar_label: Usage and resources
 description: Learn about memory and processing power requirements for Apify Actors, their relationship with Docker resources, and how resource allocation affects cost.
 sidebar_position: 2
 slug: /actors/running/usage-and-resources
@@ -13,7 +14,7 @@ slug: /actors/running/usage-and-resources
 
 Assigning an Actor a specific **Memory** capacity, also determines the allocated CPU power and its disk size.
 
-Check out the [Limits](../../limits.md) page for detailed information on Actor memory, CPU limits, disk size and other limits.
+Check out the [Limits](/account/limits) page for detailed information on Actor memory, CPU limits, disk size and other limits.
 
 ### Memory
 
@@ -24,7 +25,7 @@ When invoking an Actor, the caller can specify the memory allocation for the Act
 - The maximum allowed value is `32768MB`
 - Acceptable values include: `128MB`, `256MB`, `512MB`, `1024MB`, `2048MB`, `4096MB`, `8192MB`, `16384MB`, and `32768MB`
 
-Additionally, each user has a certain total limit of memory for running Actors. The sum of memory allocated for all running Actors and builds needs to be within this limit, otherwise the user cannot start a new Actor. For more details, see [limits](../../limits.md).
+Additionally, each user has a certain total limit of memory for running Actors. The sum of memory allocated for all running Actors and builds needs to be within this limit, otherwise the user cannot start a new Actor. For more details, see [limits](/account/limits).
 
 ### CPU
 

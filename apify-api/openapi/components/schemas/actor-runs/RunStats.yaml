@@ -1,8 +1,4 @@
 title: RunStats
-required:
-  - restartCount
-  - resurrectCount
-  - computeUnits
 type: object
 properties:
   inputBodyLen:

@@ -1,7 +1,7 @@
 .containsTaskList {
-  list-style: none;
+    list-style: none;
 }
 
 :not(.containsTaskList > li) > .containsTaskList {
-  padding-left: 0;
+    padding-left: 0;
 }

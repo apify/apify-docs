@@ -51,3 +51,9 @@ properties:
     description: The ID of the Actor run that created this request queue.
   hadMultipleClients:
     $ref: ./SharedProperties.yaml#/HadMultipleClients
+  generalAccess:
+    anyOf:
+      - $ref: ../common/GeneralAccess.yaml
+      - type: "null"
+  stats:
+    $ref: ./RequestQueueStats.yaml

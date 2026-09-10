@@ -43,3 +43,15 @@ properties:
   actRunId:
     type: [string, "null"]
     examples: [HG7ML7M8z78YcAPEB]
+  title:
+    type: [string, "null"]
+    examples: [My Dataset]
+  username:
+    type: string
+    examples: [janedoe]
+  generalAccess:
+    anyOf:
+      - $ref: ../common/GeneralAccess.yaml
+      - type: "null"
+  stats:
+    $ref: ./DatasetStats.yaml

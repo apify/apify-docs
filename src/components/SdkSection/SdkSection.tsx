@@ -1,11 +1,11 @@
-import { useColorMode } from '@docusaurus/theme-common';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import CodeBlock from '@theme/CodeBlock';
 import ThemedImage from '@theme/ThemedImage';
-import GitHubButton from 'react-github-btn';
 import styled from 'styled-components';
 
 import { ActionLink, Button, theme } from '@apify/ui-library';
+
+import GitButton from '../GitButton';
 
 import { Heading } from '../Heading';
 import { Text } from '../Text';
@@ -78,7 +78,6 @@ export default function SdkSection({
     gettingStartedUrl,
     referenceUrl,
 }: SdkSectionProps) {
-    const { colorMode } = useColorMode();
     const lowerCaseLanguage = language.toLowerCase();
 
     return (
@@ -89,35 +88,35 @@ export default function SdkSection({
                         <ThemedImage
                             height={24}
                             width={24}
-                            sources={{ dark: useBaseUrl(`/img/${lowerCaseLanguage}-40x40.svg`), light: useBaseUrl(`/img/${lowerCaseLanguage}-40x40.svg`) }}
+                            sources={{
+                                dark: useBaseUrl(`/img/${lowerCaseLanguage}-40x40.svg`),
+                                light: useBaseUrl(`/img/${lowerCaseLanguage}-40x40.svg`),
+                            }}
                         />
-                        <Heading type="titleXl" style={{ verticalAlign: 'center' }}>{title}</Heading>
+                        <Heading type="titleXl" style={{ verticalAlign: 'center' }}>
+                            {title}
+                        </Heading>
                     </div>
                     <Text size="large" color={theme.color.neutral.textMuted}>
                         {description}
                     </Text>
                 </div>
-                <GitHubButton
+                <GitButton
                     href={githubRepoUrl}
-                    data-color-scheme={colorMode}
-                    data-size="large"
-                    data-show-count="true"
-                    aria-label={`Star apify/apify-sdk-${lowerCaseLanguage === 'javascript' ? 'js' : lowerCaseLanguage} on GitHub`}
-                >
-                    Star
-                </GitHubButton>
+                    ariaLabel={`Star apify/apify-sdk-${lowerCaseLanguage === 'javascript' ? 'js' : lowerCaseLanguage} on GitHub`}
+                />
                 <div className="SdkSectionActionButtons">
-                    <StyledButton hideExternalIcon color='success' to={gettingStartedUrl}>Get started</StyledButton>
-                    <ActionLink hideExternalIcon to={referenceUrl} >View reference</ActionLink>
+                    <StyledButton hideExternalIcon color="success" to={gettingStartedUrl}>
+                        Get started
+                    </StyledButton>
+                    <ActionLink hideExternalIcon to={referenceUrl}>
+                        View reference
+                    </ActionLink>
                 </div>
             </div>
             <div className="SdkSectionCodeExamples">
-                <CodeBlock language="bash">
-                    {installCodeSnippet}
-                </CodeBlock>
-                <CodeBlock language={lowerCaseLanguage}>
-                    {exampleCodeSnippet}
-                </CodeBlock>
+                <CodeBlock language="bash">{installCodeSnippet}</CodeBlock>
+                <CodeBlock language={lowerCaseLanguage}>{exampleCodeSnippet}</CodeBlock>
             </div>
         </StyledSdkSection>
     );

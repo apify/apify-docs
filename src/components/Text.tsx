@@ -1,10 +1,7 @@
 import styled, { css } from 'styled-components';
 
 import type { TextBaseProps } from '@apify/ui-library';
-import {
-    TextBaseComponent,
-    theme,
-} from '@apify/ui-library';
+import { TextBaseComponent, theme } from '@apify/ui-library';
 
 /**
  * @typedef {Object} TextProps
@@ -26,36 +23,72 @@ import {
 const TEXT_VARIANTS_CSS = {
     body: {
         large: {
-            normal: css`${theme.typography.shared.mobile.bodyL}`,
-            medium: css`${theme.typography.shared.mobile.bodyLMedium}`,
-            bold: css`${theme.typography.shared.mobile.bodyLStrong}`,
+            normal: css`
+                ${theme.typography.shared.mobile.bodyL}
+            `,
+            medium: css`
+                ${theme.typography.shared.mobile.bodyLMedium}
+            `,
+            bold: css`
+                ${theme.typography.shared.mobile.bodyLStrong}
+            `,
         },
         regular: {
-            normal: css`${theme.typography.shared.mobile.bodyM}`,
-            medium: css`${theme.typography.shared.mobile.bodyMMedium}`,
-            bold: css`${theme.typography.shared.mobile.bodyMStrong}`,
+            normal: css`
+                ${theme.typography.shared.mobile.bodyM}
+            `,
+            medium: css`
+                ${theme.typography.shared.mobile.bodyMMedium}
+            `,
+            bold: css`
+                ${theme.typography.shared.mobile.bodyMStrong}
+            `,
         },
         small: {
-            normal: css`${theme.typography.shared.mobile.bodyS}`,
-            medium: css`${theme.typography.shared.mobile.bodySMedium}`,
-            bold: css`${theme.typography.shared.mobile.bodySStrong}`,
+            normal: css`
+                ${theme.typography.shared.mobile.bodyS}
+            `,
+            medium: css`
+                ${theme.typography.shared.mobile.bodySMedium}
+            `,
+            bold: css`
+                ${theme.typography.shared.mobile.bodySStrong}
+            `,
         },
     },
     code: {
         large: {
-            normal: css`${theme.typography.shared.mobile.codeL}`,
-            medium: css`${theme.typography.shared.mobile.codeLMedium}`,
-            bold: css`${theme.typography.shared.mobile.codeLStrong}`,
+            normal: css`
+                ${theme.typography.shared.mobile.codeL}
+            `,
+            medium: css`
+                ${theme.typography.shared.mobile.codeLMedium}
+            `,
+            bold: css`
+                ${theme.typography.shared.mobile.codeLStrong}
+            `,
         },
         regular: {
-            normal: css`${theme.typography.shared.mobile.codeM}`,
-            medium: css`${theme.typography.shared.mobile.codeMMedium}`,
-            bold: css`${theme.typography.shared.mobile.codeMStrong}`,
+            normal: css`
+                ${theme.typography.shared.mobile.codeM}
+            `,
+            medium: css`
+                ${theme.typography.shared.mobile.codeMMedium}
+            `,
+            bold: css`
+                ${theme.typography.shared.mobile.codeMStrong}
+            `,
         },
         small: {
-            normal: css`${theme.typography.shared.mobile.codeS}`,
-            medium: css`${theme.typography.shared.mobile.codeSMedium}`,
-            bold: css`${theme.typography.shared.mobile.codeSStrong}`,
+            normal: css`
+                ${theme.typography.shared.mobile.codeS}
+            `,
+            medium: css`
+                ${theme.typography.shared.mobile.codeSMedium}
+            `,
+            bold: css`
+                ${theme.typography.shared.mobile.codeSStrong}
+            `,
         },
     },
 };
@@ -77,23 +110,13 @@ const getTextCss = ({ $type = 'body', $size = 'regular', $weight = 'normal' }: T
     return TEXT_VARIANTS_CSS[$type]?.[$size]?.[$weight];
 };
 
-const StyledText = styled(TextBaseComponent)<TextCssProps>`${getTextCss}`;
+const StyledText = styled(TextBaseComponent)<TextCssProps>`
+    ${getTextCss}
+`;
 
 /**
  * @param {TextProps} props
  */
-export const Text: React.FC<TextComponentProps> = ({
-    type,
-    size,
-    weight,
-    as,
-    ...rest
-}) => (
-    <StyledText
-        $type={type}
-        $size={size}
-        $weight={weight}
-        forwardedAs={as}
-        {...rest}
-    />
+export const Text: React.FC<TextComponentProps> = ({ type, size, weight, as, ...rest }) => (
+    <StyledText $type={type} $size={size} $weight={weight} forwardedAs={as} {...rest} />
 );

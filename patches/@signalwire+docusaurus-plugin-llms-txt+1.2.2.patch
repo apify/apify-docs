@@ -1,3 +1,17 @@
+diff --git a/node_modules/@signalwire/docusaurus-plugin-llms-txt/lib/discovery/content-classifier.js b/node_modules/@signalwire/docusaurus-plugin-llms-txt/lib/discovery/content-classifier.js
+index c805bbe..ea07aa4 100644
+--- a/node_modules/@signalwire/docusaurus-plugin-llms-txt/lib/discovery/content-classifier.js
++++ b/node_modules/@signalwire/docusaurus-plugin-llms-txt/lib/discovery/content-classifier.js
+@@ -89,5 +89,9 @@ export function shouldProcessRoute(route, options) {
+             return false; // Skip generated index pages when includeGeneratedIndex is false
+         }
+     }
++    // Skip pages marked as unlisted in frontmatter
++    if (route.props?.unlisted) {
++        return false;
++    }
+     return true;
+ }
 diff --git a/node_modules/@signalwire/docusaurus-plugin-llms-txt/lib/transformation/plugins/plugin-registry.js b/node_modules/@signalwire/docusaurus-plugin-llms-txt/lib/transformation/plugins/plugin-registry.js
 index f35c2df..4d8b9bd 100644
 --- a/node_modules/@signalwire/docusaurus-plugin-llms-txt/lib/transformation/plugins/plugin-registry.js

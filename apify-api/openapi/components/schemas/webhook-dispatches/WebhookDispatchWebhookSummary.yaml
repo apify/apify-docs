@@ -1,0 +1,17 @@
+title: WebhookDispatchWebhookSummary
+description: A summary of the webhook that triggered this dispatch.
+type: object
+properties:
+  actionType:
+    type: string
+    examples: [HTTP_REQUEST]
+  condition:
+    $ref: ../webhooks/WebhookCondition.yaml
+  requestUrl:
+    type: [string, "null"]
+    format: uri
+    description: URL of the HTTP request sent by the webhook. It is `null` for hook actions other than the conventional HTTP case (e.g. Slack or email notifications).
+    examples: ["https://example.com/webhook"]
+  isAdHoc:
+    type: boolean
+    examples: [false]

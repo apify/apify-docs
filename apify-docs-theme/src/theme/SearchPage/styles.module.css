@@ -1,112 +1,112 @@
 .searchQueryInput,
 .searchVersionInput {
-  border-radius: var(--ifm-global-radius);
-  border: 2px solid var(--ifm-toc-border-color);
-  font: var(--ifm-font-size-base) var(--ifm-font-family-base);
-  padding: 12.8px;
-  width: 100%;
-  background: var(--docsearch-searchbox-focus-background);
-  color: var(--docsearch-text-color);
-  margin-bottom: 8px;
-  transition: border var(--ifm-transition-fast) ease;
+    border-radius: var(--ifm-global-radius);
+    border: 2px solid var(--ifm-toc-border-color);
+    font: var(--ifm-font-size-base) var(--ifm-font-family-base);
+    padding: 12.8px;
+    width: 100%;
+    background: var(--docsearch-searchbox-focus-background);
+    color: var(--docsearch-text-color);
+    margin-bottom: 8px;
+    transition: border var(--ifm-transition-fast) ease;
 }
 
 .searchQueryInput:focus,
 .searchVersionInput:focus {
-  border-color: var(--docsearch-primary-color);
-  outline: none;
+    border-color: var(--docsearch-primary-color);
+    outline: none;
 }
 
 .searchQueryInput::placeholder {
-  color: var(--docsearch-muted-color);
+    color: var(--docsearch-muted-color);
 }
 
 .searchResultsColumn {
-  font-size: 14.4px;
-  font-weight: bold;
+    font-size: 14.4px;
+    font-weight: bold;
 }
 
 .algoliaLogo {
-  max-width: 150px;
+    max-width: 150px;
 }
 
 .algoliaLogoPathFill {
-  fill: var(--ifm-font-color-base);
+    fill: var(--ifm-font-color-base);
 }
 
 .searchResultItem {
-  padding: 16px 0;
-  border-bottom: 1px solid var(--ifm-toc-border-color);
+    padding: 16px 0;
+    border-bottom: 1px solid var(--ifm-toc-border-color);
 }
 
 .searchResultItemHeading {
-  font-weight: 400;
-  margin-bottom: 0;
+    font-weight: 400;
+    margin-bottom: 0;
 }
 
 .searchResultItemPath {
-  font-size: 12.8px;
-  color: var(--ifm-color-content-secondary);
-  --ifm-breadcrumb-separator-size-multiplier: 1;
+    font-size: 12.8px;
+    color: var(--ifm-color-content-secondary);
+    --ifm-breadcrumb-separator-size-multiplier: 1;
 }
 
 .searchResultItemSummary {
-  margin: 8px 0 0;
-  font-style: italic;
+    margin: 8px 0 0;
+    font-style: italic;
 }
 
 @media only screen and (max-width: 996px) {
-  .searchQueryColumn {
-    max-width: 60% !important;
-  }
+    .searchQueryColumn {
+        max-width: 60% !important;
+    }
 
-  .searchVersionColumn {
-    max-width: 40% !important;
-  }
+    .searchVersionColumn {
+        max-width: 40% !important;
+    }
 
-  .searchResultsColumn {
-    max-width: 60% !important;
-  }
+    .searchResultsColumn {
+        max-width: 60% !important;
+    }
 
-  .searchLogoColumn {
-    max-width: 40% !important;
-    padding-left: 0 !important;
-  }
+    .searchLogoColumn {
+        max-width: 40% !important;
+        padding-left: 0 !important;
+    }
 }
 
 @media screen and (max-width: 576px) {
-  .searchQueryColumn {
-    max-width: 100% !important;
-  }
+    .searchQueryColumn {
+        max-width: 100% !important;
+    }
 
-  .searchVersionColumn {
-    max-width: 100% !important;
-    padding-left: var(--ifm-spacing-horizontal) !important;
-  }
+    .searchVersionColumn {
+        max-width: 100% !important;
+        padding-left: var(--ifm-spacing-horizontal) !important;
+    }
 }
 
 .loadingSpinner {
-  width: 48px;
-  height: 48px;
-  border: 0.4em solid #eee;
-  border-top-color: var(--ifm-color-primary);
-  border-radius: 50%;
-  animation: loading-spin 1s linear infinite;
-  margin: 0 auto;
+    width: 48px;
+    height: 48px;
+    border: 0.4em solid #eee;
+    border-top-color: var(--ifm-color-primary);
+    border-radius: 50%;
+    animation: loading-spin 1s linear infinite;
+    margin: 0 auto;
 }
 
 @keyframes loading-spin {
-  100% {
-    transform: rotate(360deg);
-  }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .loader {
-  margin-top: 32px;
+    margin-top: 32px;
 }
 
 :global(.search-result-match) {
-  color: var(--docsearch-hit-color);
-  background: rgb(255 215 142 / 25%);
-  padding: 0.09em 0;
+    color: var(--docsearch-hit-color);
+    background: rgb(255 215 142 / 25%);
+    padding: 0.09em 0;
 }

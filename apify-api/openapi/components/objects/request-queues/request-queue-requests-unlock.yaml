@@ -79,10 +79,11 @@ postLastRun:
 
     This endpoint is a shortcut for getting the last run's `defaultRequestQueueId` and then using the
     [Unlock requests](/api/v2/request-queue-requests-unlock-post) endpoint.
-  operationId: act_runs_last_requestQueue_requests_unlock_post
+  operationId: actor_runs_last_requestQueue_requests_unlock_post
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
     - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"
 
 postTaskLastRun:
@@ -96,5 +97,6 @@ postTaskLastRun:
   operationId: actorTask_runs_last_requestQueue_requests_unlock_post
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
     - $ref: "../../parameters/requestQueueParameters.yaml#/clientKey"

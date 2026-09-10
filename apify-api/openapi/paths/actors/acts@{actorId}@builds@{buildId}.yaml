@@ -10,7 +10,7 @@ get:
 
     This endpoint does not require the authentication token. Instead, calls are authenticated using a hard-to-guess ID of the build. However,
     if you access the endpoint without the token, certain attributes, such as `usageUsd` and `usageTotalUsd`, will be hidden.
-  operationId: act_build_get
+  operationId: actors_build_get
   security: []
   parameters:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
@@ -30,6 +30,8 @@ get:
       $ref: ../../components/responses/NotFound.yaml
     "405":
       $ref: ../../components/responses/MethodNotAllowed.yaml
+    "408":
+      $ref: ../../components/responses/Timeout.yaml
     "429":
       $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: true
