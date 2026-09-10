@@ -6,13 +6,13 @@ slug: /security/architecture
 description: How the Apify platform is built - control and execution planes, what happens during an Actor run, how workloads stay isolated, and how storage works.
 ---
 
-This page describes how the Apify platform is built: how it is structured, what happens when an Actor runs, how workloads stay isolated, and how data is stored.
+Learn how the Apify platform is built: how it is structured, what happens when an Actor runs, how workloads stay isolated, and how data is stored.
 
-Security controls and the division of responsibilities are covered separately in the [shared responsibility model](/security/shared-responsibility) and the [Apify Security Whitepaper](https://apify.com/security-whitepaper.pdf).
+For security controls and the division of responsibilities, see the [shared responsibility model](/security/shared-responsibility) and the [Apify Security Whitepaper](https://apify.com/security-whitepaper.pdf).
 
 ## Design principles
 
-A few principles shape most of the decisions described below:
+Three principles shape how Apify built the platform:
 
 - Isolation by default. Every Actor run executes in its own isolated environment, and one account cannot reach another account's data.
 - Single access path. All reads and writes to platform data go through the authenticated, authorized Apify API. There is no side channel to storage.
@@ -25,9 +25,9 @@ The platform has two logical planes:
 - Control plane. Apify Console, the Apify API, and the supporting services. This is where you and your integrations manage Actors, tasks, schedules, storage, and billing.
 - Execution plane. Actor runs execute here, together with the storage that holds their inputs and results.
 
-The two planes run as separate systems. The execution plane still depends on the API to authenticate, read inputs, and store results. Every action a run takes against platform data therefore passes through the API's authorization checks rather than reaching storage directly.
+The two planes run as separate systems, but the execution plane depends on the API to authenticate, read inputs, and store results. Every action a run takes against platform data passes through the API's authorization checks. Nothing reaches storage directly.
 
-As a developer, you interact with the platform through a few surfaces:
+As a developer, you interact with the platform through:
 
 - Apify Console for the UI
 - The [Apify API](/api/v2) for programmatic access
@@ -77,7 +77,7 @@ Actor runs read and write three storage primitives, all held in managed, encrypt
 - [Key-value store](/storage/key-value-store). Arbitrary files and records, including an Actor's input and output.
 - [Request queue](/storage/request-queue). The URLs an Actor still needs to process. The queue persists the state of each request (pending or handled), so a run can retry or resume without losing its place.
 
-Data retention depends on the storage: named storages persist until you delete them, and unnamed storages are removed automatically after a retention period. For the current retention rules, see [Data retention](/storage#data-retention).
+Data retention depends on the storage: named storages persist until you delete them, and unnamed storages are removed automatically after a retention period. For retention rules, see [Data retention](/storage#data-retention).
 
 ## Data durability and backups
 
@@ -89,7 +89,7 @@ The platform protects your data with redundancy, backups, and safeguards against
 
 ## Availability and resilience
 
-The loss of a single Availability Zone - a physically separate data center within the region - does not take the platform down. Availability rests on several mechanisms:
+An Availability Zone is a physically separate data center within the region. Losing one does not take the platform down. Availability rests on several mechanisms:
 
 - Autoscaling. Capacity for both platform services and customer workloads scales up and down with demand, so traffic spikes do not exhaust resources.
 - Rate limiting and throttling. The API enforces per-account rate limits, which contain runaway usage and keep one account's traffic from degrading service for others.

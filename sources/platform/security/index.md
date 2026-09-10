@@ -23,7 +23,7 @@ The Apify platform is SOC 2 Type II compliant. An independent audit verified tha
     <img src={require("../images/security/soc2-logo.png").default} alt="SOC 2 Type II compliance badge" width="150" title="Apify SOC 2 Type II compliance" />
 </a>
 
-To learn more, read the [SOC 2 compliance announcement](https://blog.apify.com/apify-soc2/) and visit the [Trust Center](https://trust.apify.com) for additional information or to request the SOC 2 Type II report.
+Read the [SOC 2 compliance announcement](https://blog.apify.com/apify-soc2/), or visit the [Trust Center](https://trust.apify.com) to request the SOC 2 Type II report.
 
 ## Trust Center
 
@@ -36,4 +36,4 @@ To learn more about Apify's security practices, data protection measures, and co
 
 ## Security whitepaper
 
-For a comprehensive description of how the Apify platform is built and operated to protect your data, read the [Apify Security Whitepaper](https://apify.com/security-whitepaper.pdf).
+For how the Apify platform is built and operated to protect your data, read the [Apify Security Whitepaper](https://apify.com/security-whitepaper.pdf).
