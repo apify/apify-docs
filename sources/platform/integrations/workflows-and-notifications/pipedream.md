@@ -1,6 +1,6 @@
 ---
 title: Pipedream integration
-description: Connect Apify with Pipedream to automate workflows by running Actors, managing storage, and reacting to Actor or task run events.
+description: Connect Apify with Pipedream to automate workflows by running Actors, scraping single pages, managing storage, and reacting to Actor or task run events.
 sidebar_label: Pipedream
 slug: /integrations/pipedream
 ---
@@ -25,7 +25,7 @@ Before you begin, make sure you have:
 
     ![Selecting the Apify app in Pipedream](../images/pipedream/pipedream-select-app.webp)
 
-    - **Apify** - Authenticate with your Apify API token. Find it in [Apify Console](https://console.apify.com/settings/integrations) under **Settings > Integrations**.
+    - **Apify** - Authenticate with your Apify API token. Find it in [Apify Console](https://console.apify.com/settings/integrations) under **Settings > API & Integrations**.
     - **Apify (OAuth)** - Authorize access to your Apify account via OAuth.
 1. Follow the prompts to authenticate your account.
 
