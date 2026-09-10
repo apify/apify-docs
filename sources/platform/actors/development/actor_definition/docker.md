@@ -41,6 +41,7 @@ FROM apify/actor-node-playwright-chrome:24-1.60.0-slim
 | [`actor-node-playwright-firefox`](https://hub.docker.com/r/apify/actor-node-playwright-firefox/) | Debian image with Firefox and the [`playwright`](https://github.com/microsoft/playwright) library . |
 | [`actor-node-playwright-webkit`](https://hub.docker.com/r/apify/actor-node-playwright-webkit/) | Ubuntu image with WebKit and the [`playwright`](https://github.com/microsoft/playwright) library. |
 | [`actor-node-playwright`](https://hub.docker.com/r/apify/actor-node-playwright/) | Ubuntu image with [`playwright`](https://github.com/microsoft/playwright) and all its browsers (Chromium, Google Chrome, Firefox, WebKit). |
+| [`actor-node-playwright-camoufox`](https://hub.docker.com/r/apify/actor-node-playwright-camoufox/) | Debian image with [Camoufox](https://camoufox.com/), a Firefox fork hardened against bot detection, and the [`playwright`](https://github.com/microsoft/playwright), [`camoufox-js`](https://github.com/apify/camoufox-js) and [`impit`](https://github.com/apify/impit) libraries. |
 
 See the [Docker image guide](/sdk/js/docs/guides/docker-images) for more details.
 
@@ -52,6 +53,7 @@ These images come with Python (version `3.9`, `3.10`, `3.11`, `3.12`, or `3.13`)
 | ----- | ----------- |
 | [`actor-python`](https://hub.docker.com/r/apify/actor-python) | Slim Debian image with only the Apify SDK for Python. Does not include headless browsers. |
 | [`actor-python-playwright`](https://hub.docker.com/r/apify/actor-python-playwright) | Debian image with [`playwright`](https://github.com/microsoft/playwright) and all its browsers. |
+| [`actor-python-playwright-camoufox`](https://hub.docker.com/r/apify/actor-python-playwright-camoufox) | Debian image with [Camoufox](https://camoufox.com/), a Firefox fork hardened against bot detection, and the [`playwright`](https://github.com/microsoft/playwright) library. |
 | [`actor-python-selenium`](https://hub.docker.com/r/apify/actor-python-selenium) | Debian image with [`selenium`](https://github.com/seleniumhq/selenium), Google Chrome, and [ChromeDriver](https://developer.chrome.com/docs/chromedriver/). |
 
 ## Image tag naming convention
