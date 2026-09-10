@@ -117,6 +117,36 @@ To use Apify Actors directly with AI agents and MCP-compatible clients, use the 
 
 Pipedream also hosts an [MCP server for Apify](https://mcp.pipedream.com/app/apify). Because Apify provides its own MCP server, use the Pipedream one only if you want Apify available alongside your other Pipedream apps in a single MCP client.
 
+## Troubleshooting
+
+### The workflow times out before the Actor finishes
+
+**Run Actor** waits for the run inside the step, so a long run can exceed Pipedream's step limit. Set **Wait for finish** to `false` and pick the results up from a second workflow, or use **Run task**, which waits asynchronously. See [Handle long-running Actor runs](#handle-long-running-actor-runs).
+
+### The Actor dropdown is empty
+
+**Search Actors from** defaults to **Recently used Actors**, which is empty on a new Apify account. Switch it to **Apify Store Actors** to browse [Apify Store](https://apify.com/store), or enter an Actor ID or an `owner~actor-name` identifier directly.
+
+### The Actor has no builds yet
+
+An Actor cannot run until it has been built. Open the Actor in [Apify Console](https://console.apify.com/actors) and build it, or run `apify push` with the [Apify CLI](/cli), then run the step again.
+
+### Apify can't find the build you entered
+
+The **Build** dropdown lists tagged builds only, because some Actors have thousands of builds. To use an untagged build, type its build number, such as `0.1.2`, into the field instead of picking from the list.
+
+### Apify rejects the memory value
+
+**Memory (MB)** must be a power of two between 128 MB and 32 GB, and **Run Actor** narrows the list further to the range the Actor's build declares. Pick a value from the dropdown rather than typing one.
+
+### The step reports invalid JSON input
+
+Actors without an input schema take a single **Properties** field, and **Run task** takes **Override Input (JSON)**. Both must contain a valid JSON object. Use `{}` to run with the saved or default input, and copy the input from the Actor's **Input** tab in Apify Console if you are unsure of the shape.
+
+### The trigger won't deploy
+
+Both triggers need a target before they can register their Apify webhook. Select an Actor for **New finished Actor run (instant)**, or a task for **New finished task run (instant)**, then deploy again.
+
 ## Resources
 
 - [Apify integration page on Pipedream](https://pipedream.com/apps/apify)
