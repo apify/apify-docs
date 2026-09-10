@@ -80,7 +80,7 @@ For longer runs with **Run Actor**, split across two workflows:
 1. In a second workflow, use the **New finished Actor run (instant)** trigger for the same Actor.
 1. Add **Get dataset items** after the trigger.
 
-Alternatively, save the Actor configuration as a [task](/actors/running/tasks) and use **Run task**, which already handles waiting for you.
+Alternatively, save the Actor configuration as an [Actor task](/actors/running/tasks) and use **Run task**, which already handles waiting for you.
 
 ## Handle large Actor output
 
