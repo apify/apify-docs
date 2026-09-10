@@ -26,31 +26,18 @@ This guide covers installation in the GitHub Copilot CLI.
 
 ## Install the plugin and sign in
 
-The plugin lives in an Apify marketplace that you add to Copilot with a repository URL. The CLI doesn't register that marketplace by default, so add it before you install - unlike [Visual Studio Code (VS Code)](/integrations/vscode) and the [desktop app](/integrations/github-copilot-desktop), which find the plugin in a marketplace they already know about. Installing the plugin also sets up the bundled Apify MCP server and signs you in, so there's no separate authentication step. Read-only tools like searching Apify Store and fetching Actor details work without signing in, but you need to authenticate to run Actors and access your account data.
+The plugin is published in the `awesome-copilot` marketplace, which the GitHub Copilot CLI registers by default - the same marketplace [Visual Studio Code (VS Code)](/integrations/vscode) and the [desktop app](/integrations/github-copilot-desktop) use - so you can install it without adding a marketplace first. Installing the plugin also sets up the bundled Apify MCP server and signs you in, so there's no separate authentication step. Read-only tools like searching Apify Store and fetching Actor details work without signing in, but you need to authenticate to run Actors and access your account data.
 
-1. In a Copilot session, add the Apify marketplace:
+1. Install the `apify` plugin from the `awesome-copilot` marketplace:
 
-    ```text
-    /plugin marketplace add https://github.com/apify/apify-github-copilot-plugin
-    ```
-
-    Copilot confirms with `Marketplace "apify" added successfully`.
-
-1. Install the `apify` plugin from the marketplace:
-
-    ```text
-    /plugin install apify@apify
-    ```
-
-    This installs the plugin, its five [bundled skills](#bundled-skills), and the bundled Apify MCP server (`https://mcp.apify.com/`). Copilot usually opens a browser tab for the Apify sign-in automatically once the install finishes.
+    
+    This installs the plugin, its five [bundled skills](#bundled-skills), and the bundled Apify MCP server (`https://mcp.apify.com/`). Copilot then opens a browser tab for the Apify sign-in.
 
 1. Complete the Apify OAuth flow in your browser and choose the account to connect. The browser confirms the authorization, and back in the terminal `apify-mcp-server` shows as connected.
 
     ![GitHub Copilot CLI reporting the apify plugin installed with five skills and apify-mcp-server connected](images/github-copilot-cli/03-authorization-successful.webp)
 
-    On the first start, Copilot may report that `apify-mcp-server` is taking longer than expected to connect, then that it gave up waiting. The server usually finishes connecting a moment later and logs `MCP server 'apify-mcp-server' connected`, so no action is needed.
-
-    If no browser tab opens, or the server never connects, connect it yourself with the [manual steps](#connect-the-mcp-server-manually) below.
+    If no browser tab opens, or `apify-mcp-server` doesn't connect, use the [manual steps](#connect-the-mcp-server-manually) below.
 
 :::tip Session persistence
 
@@ -120,11 +107,14 @@ The `apify` agent picks the right transport for each task. Each transport authen
 
 ### The `apify` plugin isn't installed
 
-Run `/plugin marketplace add https://github.com/apify/apify-github-copilot-plugin` to add the marketplace, then `/plugin install apify@apify` to install the plugin. Confirm the marketplace was added with `/plugin marketplace browse apify`.
+Run `/plugin install apify@awesome-copilot` to install the plugin from the `awesome-copilot` marketplace, which the CLI registers by default. Browse the marketplace with `/plugin marketplace browse awesome-copilot` to confirm the `apify` plugin is listed.
 
 ### The Apify MCP server won't authenticate
 
 Installation normally signs you in automatically. If the browser prompt didn't appear or you skipped it, connect the server manually: run `/mcp`, select `apify-mcp-server`, and choose to authenticate, as described in [Connect the MCP server manually](#connect-the-mcp-server-manually). Read-only tools work without signing in, so run a search prompt first to confirm the server is connected.
+### The server is slow to connect on first start
+
+On the first start, Copilot may report that `apify-mcp-server` is taking longer than expected to connect, then that it gave up waiting. The server usually finishes connecting a moment later and logs `MCP server 'apify-mcp-server' connected`. If it doesn't, connect it with the [manual steps](#connect-the-mcp-server-manually).
 
 ### Browser doesn't open, or OAuth fails
 
