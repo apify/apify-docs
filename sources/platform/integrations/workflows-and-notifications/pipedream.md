@@ -38,7 +38,7 @@ Before you begin, make sure you have:
 
 1. [Create a new workflow](https://pipedream.com/docs/workflows) in Pipedream.
 1. Select **Add Trigger** and search for **Apify**.
-1. Select the trigger you want to use, e.g. **New Finished Actor Run (Instant)**.
+1. Select the trigger you want to use, e.g. **New finished Actor run (instant)**.
 1. Configure the trigger by selecting the Actor or task to monitor. Leave **Trigger on run states** empty to fire on every terminal state, or pick the states you care about.
 
     ![Configuring an Apify trigger in Pipedream](../images/pipedream/pipedream-trigger.webp)
@@ -54,11 +54,11 @@ Before you begin, make sure you have:
 1. Configure the action parameters:
     - Set **Search Actors from** to **Apify Store Actors** or **Recently used Actors**, then pick the Actor.
     - Fill in the Actor's input fields, which are generated from the Actor's input schema. Actors without an input schema get a single **Properties** field that accepts raw JSON.
-    - Leave **Wait for Finish** set to `true` (the default) to wait for the run and return its output, or set it to `false` to return the run details immediately. With `true`, **Output Record Key** selects which key-value store record is returned (`OUTPUT` by default).
+    - Leave **Wait for finish** set to `true` (the default) to wait for the run and return its output, or set it to `false` to return the run details immediately. With `true`, **Output Record Key** selects which key-value store record is returned (`OUTPUT` by default).
     - Set optional fields as needed: **Build** (a build tag or build number), **Timeout (seconds)**, **Memory (MB)** (powers of two from 128 MB to 32 GB), **Max Items**, **Max Total Charge USD**, and **Webhook URL**.
 
     ![Configuring an Apify action in Pipedream](../images/pipedream/pipedream-action.webp)
-1. Add another Apify step with **Get Dataset Items** to retrieve the Actor's output.
+1. Add another Apify step with **Get dataset items** to retrieve the Actor's output.
 1. Add any subsequent steps to process or store the data.
 
 :::caution Building workflows with AI
@@ -67,23 +67,49 @@ Pipedream's [Apify app page](https://pipedream.com/apps/apify) can generate a wo
 
 :::
 
+## Handle long-running Actor runs
+
+Some Actor runs can outlast a single Pipedream step.
+
+- **Run task**: waits asynchronously (webhook + 30-second polling fallback), up to one day.
+- **Run Actor**: waits inside the step and can hit step timeout.
+
+For longer runs with **Run Actor**, split across two workflows:
+
+1. In the first workflow, add **Run Actor** and set **Wait for finish** to `false`. The step returns the run details immediately.
+1. In a second workflow, use the **New finished Actor run (instant)** trigger for the same Actor.
+1. Add **Get dataset items** after the trigger.
+
+Alternatively, save the Actor configuration as a [task](/actors/running/tasks) and use **Run task**, which already handles waiting for you.
+
+## Handle large Actor output
+
+When **Run Actor** waits for a run, it returns the record named by **Output Record Key** (`OUTPUT` by default). If the record is over 256 KB, the step returns a reference instead of inline data.
+
+To read large output:
+
+- Fetch `recordUrl` in a later step, or
+- Use **Get key-value store record** with `keyValueStoreId` and `recordKey`.
+
+If the Actor writes to a dataset, use **Get dataset items**.
+
 ## Triggers
 
 Both triggers register an Apify webhook when you deploy the workflow and remove it when you disable the workflow.
 
-- **New Finished Actor Run (Instant)** - Emits an event when a run of the selected Actor finishes.
-- **New Finished Task Run (Instant)** - Emits an event when a run of the selected task finishes.
+- **New finished Actor run (instant)** - Emits an event when a run of the selected Actor finishes.
+- **New finished task run (instant)** - Emits an event when a run of the selected task finishes.
 
 Each trigger takes a **Trigger on run states** field listing the terminal run states: **Succeeded**, **Failed**, **Timed out**, and **Aborted**. Leave it empty to fire on all four, which is the default.
 
 ## Actions
 
 - **Run Actor** - Runs a selected Actor and, by default, waits for it to finish and returns its output. Input fields are generated from the Actor's input schema. Optional fields: **Build**, **Timeout (seconds)**, **Memory (MB)**, **Max Items**, **Max Total Charge USD**, **Webhook URL**, and **Output Record Key**.
-- **Run Task** - Runs a selected task and, by default, waits for it to finish. Use **Override Input (JSON)** to replace the task's saved input for a single run, and leave it empty to use the saved input. Optional fields: **Build**, **Timeout (seconds)**, and **Memory (MB)**.
-- **Scrape Single URL** - Runs a scraper on a specified URL and returns its content as HTML. Use this for extracting content from a single page, e.g. in LLM workflows. **Crawler Type** selects the engine: **Firefox (Headless Browser)** renders JavaScript and is the most resistant to blocking (the default), **Cheerio (Raw HTTP)** is the fastest and cheapest but renders no JavaScript, and **Adaptive** switches between the two per page.
-- **Get Dataset Items** - Retrieves items from a [dataset](/storage/dataset), specified by ID or name. **Limit** and **Offset** page through the items, and **Fields**, **Omit**, **Flatten**, and **Clean** shape each item.
-- **Get Key-Value Store Record** - Retrieves a record from a [key-value store](/storage/key-value-store). A JSON record is returned as parsed fields, and any other content type as a file reference.
-- **Set Key-Value Store Record** - Creates or updates a record in a [key-value store](/storage/key-value-store).
+- **Run task** - Runs a selected task and, by default, waits for it to finish. Use **Override Input (JSON)** to replace the task's saved input for a single run, and leave it empty to use the saved input. Optional fields: **Build**, **Timeout (seconds)**, and **Memory (MB)**.
+- **Scrape single URL** - Runs a scraper on a specified URL and returns its content as HTML. Use this for extracting content from a single page, e.g. in LLM workflows. **Crawler Type** selects the engine: **Firefox (Headless Browser)** renders JavaScript and is the most resistant to blocking (the default), **Cheerio (Raw HTTP)** is the fastest and cheapest but renders no JavaScript, and **Adaptive** switches between the two per page.
+- **Get dataset items** - Retrieves items from a [dataset](/storage/dataset), specified by ID or name. **Limit** and **Offset** page through the items, and **Fields**, **Omit**, **Flatten**, and **Clean** shape each item.
+- **Get key-value store record** - Retrieves a record from a [key-value store](/storage/key-value-store). A JSON record is returned as parsed fields, and any other content type as a file reference.
+- **Set key-value store record** - Creates or updates a record in a [key-value store](/storage/key-value-store).
 
 ## Use Apify with AI agents (MCP)
 
