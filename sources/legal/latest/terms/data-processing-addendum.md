@@ -17,7 +17,7 @@ Last Updated: July 8, 2026
 ---
 
 
-<i>If you wish to execute this DPA, contact us at privacy@apify.com.</i>
+<i>This data processing addendum is automatically incorporated into the Agreement and forms an integral part of it, so no separate signature is required. If you are an existing customer who still needs a countersigned copy, or if you have any questions about this DPA, contact us at privacy@apify.com.</i>
 
 ---
 
