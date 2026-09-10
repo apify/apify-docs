@@ -48,7 +48,7 @@ A single Actor run moves through the platform in the following steps:
 1. Scheduling and placement. An orchestrator queues the run and places it on the compute that runs Actors. The orchestrator is tuned to minimize startup latency even under load.
 1. Startup and scoped token. The run executes in its own isolated environment and receives an API token tied to the owning account. For most Actors, this token is limited to the run's own inputs and storages. Full-permission Actors receive broader access and require one-time owner approval.
 1. Input. The Actor reads its input and any referenced storages through the API.
-1. Execution and outbound traffic. The Actor does its work. When it fetches target websites, that traffic egresses through Apify Proxy, so target sites see proxy IP addresses rather than internal infrastructure.
+1. Execution and outbound traffic. The Actor does its work. When it fetches target websites, that traffic egresses through Apify Proxy.
 1. Output. The Actor writes results back to storage (a dataset, key-value store, or request queue) through the API. The platform tracks status throughout, so you can watch the run live or fetch results after it finishes.
 1. Teardown. When the run finishes, the platform destroys the environment. No run state persists on the worker node.
 
