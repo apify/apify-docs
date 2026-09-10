@@ -6,7 +6,7 @@ slug: /security/architecture
 description: How the Apify platform is built - control and execution planes, what happens during an Actor run, how workloads stay isolated, and how storage works.
 ---
 
-Learn how the Apify platform is built: how it is structured, what happens when an Actor runs, how workloads stay isolated, and how data is stored.
+Learn how the Apify platform is built: how it's structured, what happens when an Actor runs, how workloads stay isolated, and how data is stored.
 
 For security controls and the division of responsibilities, see the [shared responsibility model](/security/shared-responsibility) and the [Apify Security Whitepaper](https://apify.com/security-whitepaper.pdf).
 
@@ -14,7 +14,7 @@ For security controls and the division of responsibilities, see the [shared resp
 
 Three principles shape how Apify built the platform:
 
-- Isolation by default. Every Actor run executes in its own isolated environment, and one account cannot reach another account's data.
+- Isolation by default. Every Actor run executes in its own isolated environment, and one account can't reach another account's data.
 - Single access path. All reads and writes to platform data go through the authenticated, authorized Apify API. There is no side channel to storage.
 - One region, multiple zones. The platform trades the complexity of cross-region operation for resilience within a single region.
 
@@ -56,14 +56,14 @@ For the states a run passes through and how builds relate to runs, see [Runs and
 
 ## Workload isolation
 
-Platform services and customer workloads run in separate, isolated compute environments, so a customer workload cannot run alongside or interfere with the services that operate the platform. Each run is isolated at several levels:
+Platform services and customer workloads run in separate, isolated compute environments, so a customer workload can't run alongside or interfere with the services that operate the platform. Each run is isolated at several levels:
 
-- Process and filesystem isolation. Every run executes in its own environment with its own filesystem, memory, and CPU. Runs cannot see each other's processes or data.
-- Resource limits. The platform caps memory and CPU per run, so one workload cannot starve another. See [Usage and resources](/actors/running/usage-and-resources).
+- Process and filesystem isolation. Every run executes in its own environment with its own filesystem, memory, and CPU. Runs can't see each other's processes or data.
+- Resource limits. The platform caps memory and CPU per run, so one workload can't starve another. See [Usage and resources](/actors/running/usage-and-resources).
 - Scoped credentials by default. Each run receives an API token tied to the owning account. Most Actors run with limited permissions, so the token only lets them read their inputs and read or write their own storages. Some Actors need full account access to do their job. These carry a permissions badge, and running one for the first time requires the account owner's explicit, one-time approval. See [Actor permissions](/actors/running/permissions).
 - Ephemeral compute. The platform destroys the environment after each run, so no customer state persists on the worker nodes.
 
-One account cannot reach another account's data. Cross-tenant data exposure and Actor sandbox escape are treated as priority vulnerability classes in the [vulnerability disclosure policy](/security/vulnerability-disclosure).
+One account can't reach another account's data. Cross-tenant data exposure and Actor sandbox escape are treated as priority vulnerability classes in the [vulnerability disclosure policy](/security/vulnerability-disclosure).
 
 ## Apify Proxy
 
@@ -84,14 +84,14 @@ Data retention depends on the storage: named storages persist until you delete t
 The platform protects your data with redundancy, backups, and safeguards against accidental deletion:
 
 - Redundancy. The data your Actors collect (datasets, key-value stores, request queues) lives in Amazon S3 and DynamoDB, replicated across multiple Availability Zones - S3 is designed for 99.999999999% (11 nines) durability. The primary database runs as a replicated cluster across zones too, so the loss of a node or zone loses no data.
-- Backups. The primary database is backed up automatically by the managed database service it runs on. These backups let the platform recover from a serious failure; they are not an archive of individual accounts.
+- Backups. The primary database is backed up automatically by the managed database service it runs on. These backups let the platform recover from a serious failure; they aren't an archive of individual accounts.
 - Deletion safeguards. Data stores carry deletion protection at the infrastructure level, and customer data is erased in two monitored phases: first marked as deleted, then removed permanently. Nothing is destroyed by accident, and deletion completes on time, for example when you delete your account.
 
 ## Availability and resilience
 
-An Availability Zone is a physically separate data center within the region. Losing one does not take the platform down. Availability rests on several mechanisms:
+An Availability Zone is a physically separate data center within the region. Losing one doesn't take the platform down. Availability rests on several mechanisms:
 
-- Autoscaling. Capacity for both platform services and customer workloads scales up and down with demand, so traffic spikes do not exhaust resources.
+- Autoscaling. Capacity for both platform services and customer workloads scales up and down with demand, so traffic spikes don't exhaust resources.
 - Rate limiting and throttling. The API enforces per-account rate limits, which contain runaway usage and keep one account's traffic from degrading service for others.
 - Load balancing and redundancy. Platform services run as multiple redundant instances behind load balancers, which route around a failed instance automatically.
 - Health checks and self-healing. The platform detects unhealthy instances and replaces them automatically.

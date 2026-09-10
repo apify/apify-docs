@@ -38,7 +38,7 @@ Apify operates the platform on Amazon Web Services (AWS) in the us-east-1 region
 
 ### Actor runtime isolation
 
-Every Actor run executes in an isolated environment. Apify enforces this isolation so that one customer's runs cannot access another customer's runs, data, or credentials.
+Every Actor run executes in an isolated environment. Apify enforces this isolation so that one customer's runs can't access another customer's runs, data, or credentials.
 
 ### Platform services
 
@@ -46,7 +46,7 @@ Apify secures Apify Console, the Apify API, storages (datasets, key-value stores
 
 ### Vulnerability management and patching
 
-As a SaaS provider, Apify identifies and fixes vulnerabilities across the platform stack, from infrastructure to application code. Apify maintains a security program covering secure development, regular penetration testing, and a public [vulnerability disclosure policy](/security/vulnerability-disclosure). Customers do not patch anything at the platform level.
+As a SaaS provider, Apify identifies and fixes vulnerabilities across the platform stack, from infrastructure to application code. Apify maintains a security program covering secure development, regular penetration testing, and a public [vulnerability disclosure policy](/security/vulnerability-disclosure). Customers don't patch anything at the platform level.
 
 ### Apify-maintained Actors
 
@@ -66,7 +66,7 @@ If you develop Actors, private or published, you own their security: the code, t
 
 ### Secrets and Actor configuration
 
-Actor input is stored with the run, so plaintext input fields are not the place for credentials. Use the mechanisms designed for secrets:
+Actor input is stored with the run, so plaintext input fields aren't the place for credentials. Use the mechanisms designed for secrets:
 
 - Mark sensitive input fields as secret (`"isSecret": true` in the input schema). Their values are encrypted and hidden in Apify Console. See [encrypted input](/actors/development/actor-definition/input-schema/secret-input).
 - Store credentials for your own Actors in [secure environment variables](/actors/development/programming-interface/environment-variables).
@@ -89,7 +89,7 @@ In these areas Apify provides the controls, and you decide how to apply them.
 
 ### Community Actors
 
-Actors in Apify Store built by third-party developers sit in the middle. The developer owns the code and its maintenance. Apify moderates Apify Store, enforces runtime isolation, and removes malicious Actors, but moderation is not a line-by-line audit. You choose which Actors to trust: check the developer, maintenance history, reviews, and usage before feeding an Actor production credentials or sensitive input.
+Actors in Apify Store built by third-party developers sit in the middle. The developer owns the code and its maintenance. Apify moderates Apify Store, enforces runtime isolation, and removes malicious Actors, but moderation isn't a line-by-line audit. You choose which Actors to trust: check the developer, maintenance history, reviews, and usage before feeding an Actor production credentials or sensitive input.
 
 ### Identity and access management
 
