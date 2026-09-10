@@ -1,5 +1,6 @@
 ---
-title: Source types
+title: Actor source types
+sidebar_label: Source types
 description: Learn about Actor source types - Web IDE, Git repository, Zip file, and GitHub Gist - and how to configure each one as your deployment method.
 slug: /actors/development/deployment/source-types
 sidebar_position: 1

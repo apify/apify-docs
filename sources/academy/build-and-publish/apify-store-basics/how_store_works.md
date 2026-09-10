@@ -43,34 +43,12 @@ For detailed information on which pricing model might work for your Actor, refer
 
 ## Actor ownership on Store
 
-Actors are either created and maintained by Apify or by members of the community:
+There are two types of Actors on Apify Store:
 
-- _Maintained by Apify_: created and supported by the Apify team.
-- _Maintained by Community_: created and managed by independent developers from the community.
+- Maintained by Apify. These Actors are created and supported by the Apify team.
+- Maintained by the community. These Actors are created and managed by independent developers from the community.
 
-To see who maintains an Actor, check the upper-right corner of the Actor's page.
-
-When it comes to managing Actors on Apify, it’s important that every potential community developer understands the differences between Apify-maintained and Community-maintained Actors. Here’s what you need to know to navigate the platform effectively and ensure your work stands out.
-
-### Community-maintained Actors
-
-✨ _Features and functionality_: offers a broader range of use cases and features, often tailored to specific needs. Great for exploring unique or niche applications.
-
-🧑‍💻 _Ownership_: created and maintained by independent developers like you.
-
-🛠 _Maintenance_: you’re responsible for all updates, bug fixes, and ongoing maintenance. Apify hosts your Actor but does not manage its code.
-
-👷‍♀️ _Reliability and testing_: it’s up to you to ensure your Actor’s reliability and performance.
-
-☝️ _Support and Issues_: Apify does not provide direct support for Community-maintained Actors. You must manage issues through the Issues tab, where you handle user queries and problems yourself.
-
-✍️ _Documentation_: you’re responsible for creating and maintaining documentation for your Actor. Make sure it’s clear and helpful for users.
-
-:::tip Test your Actor!
-
-For the best results, make sure your Actor is well-documented and thoroughly tested. Engage with users through the Issues tab to address any problems promptly. By maintaining high standards and being proactive, you’ll enhance your Actor’s reputation and usability in Apify Store.
-
-:::
+For details, see [Actor developers](/actors/running/store/actor-developers).
 
 ## Importance of Actor testing and reliability
 

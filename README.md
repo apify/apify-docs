@@ -26,7 +26,7 @@ Documentation ecosystem consists of:
 **Before contributing, read these essential resources:**
 
 - [Contributing guidelines](CONTRIBUTING.md) - Complete setup and contribution process
-- [Documentation style guide](CONTRIBUTING.md#documentation-style-guide) - Writing standards and formatting
+- [Documentation style guide](standards/) - Writing standards and formatting, the source of truth for people and AI assistants
 - [AI Assistant Rules Structure](CONTRIBUTING.md#ai-assistant-rules-structure) - AI tool configuration
 
 ### Prerequisites

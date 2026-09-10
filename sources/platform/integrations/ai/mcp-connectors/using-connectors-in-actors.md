@@ -343,8 +343,14 @@ await Actor.exit();
 Install the [official MCP Python SDK](https://github.com/modelcontextprotocol/python-sdk):
 
 ```bash
-pip install mcp httpx apify
+pip install "mcp>=2.0.0" httpx apify
 ```
+
+:::note mcp version
+
+This example targets `mcp` 2.x. On `mcp` 1.x the transport function is named `streamablehttp_client`, takes a `headers` argument instead of `http_client`, and yields a third value.
+
+:::
 
 ```python
 import asyncio
@@ -369,7 +375,7 @@ async def main():
             async with streamable_http_client(
                 f"{proxy_url}/{connector_id}",
                 http_client=http_client,
-            ) as (read, write, _):
+            ) as (read, write):
                 async with ClientSession(read, write) as session:
                     await session.initialize()
                     tools = (await session.list_tools()).tools

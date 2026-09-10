@@ -6,4 +6,5 @@ enum:
   - NONE
   - RESIDENTIAL_PROXY_REQUIRED
   - UNDER_MAINTENANCE
+  - null # https://github.com/apify/apify-core/issues/29871, https://github.com/cdimascio/express-openapi-validator/issues/165
 examples: [UNDER_MAINTENANCE]

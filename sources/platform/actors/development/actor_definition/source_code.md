@@ -1,5 +1,6 @@
 ---
-title: Source code
+title: Actor source code
+sidebar_label: Source code
 description: Learn how to organize and structure your Actor source code, including directory placement conventions, programming language choice, and Dockerfile setup.
 slug: /actors/development/actor-definition/source-code
 sidebar_position: 2
