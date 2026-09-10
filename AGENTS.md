@@ -132,7 +132,7 @@ Use `pnpm start:dev` + nginx to serve all repos together locally. See `CONTRIBUT
 - Auto-deploy on merge to `master`
 - Preview builds on pull requests
 - PR titles must use [Conventional Commits](https://www.conventionalcommits.org/) format (`docs:`, `fix:`, `feat:`, etc.) - enforced by CI
-- Keep PR descriptions short - one or two sentences covering what changed and why. Skip boilerplate headings (`## Summary`, `## Changes`, `## Details`), bullet lists that restate the diff, and filler text. The diff is the record of what changed; the description explains the why.
+- Keep PR descriptions to one or two sentences - what changed and why. No boilerplate headings, no bullet lists restating the diff. See the pull request process in `CONTRIBUTING.md`
 
 ## Common pitfalls
 
@@ -152,7 +152,7 @@ Use `pnpm start:dev` + nginx to serve all repos together locally. See `CONTRIBUT
 
 ## Standards
 
-Detailed writing and formatting standards are in `standards/`:
+Detailed writing and formatting standards are in `standards/`. This is the single source of truth for docs rules - `CONTRIBUTING.md` and `.cursor/rules/` point here instead of restating them, so a rule change lands in `standards/` only:
 
 - `standards/writing-style.md` - Prose voice, tone, headings, links, numbers
 - `standards/content-standards.md` - Front matter, admonitions, code blocks, images
@@ -167,7 +167,8 @@ Key rules at a glance:
 - Sentence case headings, no gerunds
 - Bold for UI elements only; `code` for filenames, commands, variables
 - All admonitions require titles
-- 140-160 character descriptions in front matter
+- 140-160 character descriptions in front matter, action-oriented, without the word "documentation"
+- Screenshots only when they add something the prose doesn't; light theme, `#F86606` borders to highlight, no arrows or circles
 - See `standards/terminology.md` for Apify product name capitalization
 - Don't use em dashes (—) - use hyphen with spaces ( - ) instead
 
@@ -190,7 +191,7 @@ When creating or reviewing documentation, verify:
 - [ ] All admonitions have titles
 - [ ] Code examples are complete with syntax highlighting
 - [ ] Links use descriptive text, internal links use relative paths
-- [ ] Images have alt text, use light theme
+- [ ] Images have alt text, use light theme and `#F86606` highlights
 - [ ] Terminology matches rules above
 - [ ] US English, active voice, no sales language
 - [ ] `pnpm lint` passes

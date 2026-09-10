@@ -36,7 +36,6 @@ properties:
     $ref: ../actors/ActorNotice.yaml
   pictureUrl:
     type: [string, "null"]
-    format: uri
     examples: ["https://..."]
   userPictureUrl:
     type: [string, "null"]

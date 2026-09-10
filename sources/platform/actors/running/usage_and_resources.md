@@ -1,5 +1,6 @@
 ---
-title: Usage and resources
+title: Actor usage and resources
+sidebar_label: Usage and resources
 description: Learn about memory and processing power requirements for Apify Actors, their relationship with Docker resources, and how resource allocation affects cost.
 sidebar_position: 2
 slug: /actors/running/usage-and-resources

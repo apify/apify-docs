@@ -44,6 +44,7 @@ Before submitting documentation, verify:
 - [ ] Front matter follows **content-standards.md** (title, description 140-160 chars, sidebar_position, slug)
 - [ ] Headings use sentence case (not title case) and no gerunds (-ing forms)
 - [ ] Heading hierarchy is correct (H2 → H3 → H4, no skipped levels; H1 comes from front matter title)
+- [ ] No stacked headings - every heading (including the page title) is followed by body text before the next heading
 - [ ] Bold used only for UI elements and critical warnings (not for structure or list intros)
 - [ ] Code formatting uses backticks for file names, commands, config keys
 - [ ] All admonitions have titles (required by **content-standards.md**)
@@ -80,7 +81,8 @@ Before submitting documentation, verify:
 
 - [ ] All images include meaningful alt text
 - [ ] Screenshots use light theme
-- [ ] Red indicators used to highlight UI elements
+- [ ] UI highlights use a `#F86606` border, no arrows or circles
+- [ ] Screenshots earn their place (no image that only repeats the prose)
 - [ ] Images stored in `images/` subdirectory
 - [ ] Image format is appropriate (WebP for screenshots, SVG for logos, icons, and product images)
 

@@ -106,10 +106,10 @@ Local storage persists between runs. To clear the default storages, run `apify r
 
 ## Deploy to the Apify platform
 
-There are two ways to deploy your Actor code to the Apify platform:
+How to deploy your Actor code to the Apify platform depends on the source type you choose:
 
-- Run the `apify push` command. It uploads the directory and starts a build. To control to which version the build belongs, use `--version` and `--build-tag` flags.
-- Host your Actor's source code in a [Git repository](/actors/development/deployment/source-types#git-repository). Then, to rebuild the Actor on every push, add a webhook. For details, see [GitHub integration](/integrations/github#build-automatically-on-every-push).
+- If you host your Actor's source code on Apify, run the `apify push` command. To control to which version the build belongs, use `--version` and `--build-tag` flags.
+- If you host your Actor's source code in a [Git repository](/actors/development/deployment/source-types#git-repository), run the `git push` command. Automated builds are on by default, so every push to the repository rebuilds the Actor.
 
 ## Next steps
 

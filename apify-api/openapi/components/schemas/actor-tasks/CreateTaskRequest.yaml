@@ -16,8 +16,13 @@ properties:
   input:
     anyOf:
       - $ref: ./TaskInput.yaml
+      - type: array
+        items:
+          $ref: ./TaskInput.yaml
       - type: "null"
   title:
+    type: [string, "null"]
+  description:
     type: [string, "null"]
   actorStandby:
     anyOf:
