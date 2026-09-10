@@ -6,6 +6,7 @@ slug: /integrations/github-copilot-desktop
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+import AgentPluginLimitations from '@site/sources/_partials/_agent-plugin-limitations.mdx';
 
 The [GitHub Copilot desktop app](https://github.com/features/ai/github-app) is GitHub's standalone Copilot client. It runs agentic coding sessions in a chat interface, connects to your repositories, and supports plugins, skills, and Model Context Protocol (MCP) servers.
 
@@ -128,9 +129,7 @@ Confirm the plugin is installed and enabled under **Settings > Plugins**, then r
 
 ## Limitations
 
-- Long-running Actors may time out during a single tool call. Reduce the scope or split the work across multiple prompts.
-- Each Actor run counts toward your Apify plan usage in addition to any Copilot usage. See [Billing](/account/billing) for details.
-- Skills that edit files in your project (Actor development, actorization, SDK integration) make local changes - review them before deploying or committing.
+<AgentPluginLimitations />
 
 ## Related integrations
 

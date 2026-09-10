@@ -6,6 +6,7 @@ slug: /integrations/vscode
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+import AgentPluginLimitations from '@site/sources/_partials/_agent-plugin-limitations.mdx';
 
 [Visual Studio Code (VS Code)](https://code.visualstudio.com/) is Microsoft's code editor. Its [agent plugins](https://code.visualstudio.com/docs/agent-customization/agent-plugins) are prepackaged bundles of agent customizations - skills, agents, and MCP servers - that you install from a plugin marketplace and use in chat.
 
@@ -143,9 +144,7 @@ Start from the **apify** agent. It is the single entry point that detects the av
 
 ## Limitations
 
-- Long-running Actors may exceed the time a single tool call waits for completion. Reduce the scope or split the work across multiple prompts.
-- Each Actor run consumes Apify platform usage from your plan in addition to any VS Code usage. See [Billing](/account/billing) for details.
-- Skills that edit files in your project (Actor development, actorization, SDK integration) make local changes - review them before deploying or committing.
+<AgentPluginLimitations />
 
 ## Related integrations
 

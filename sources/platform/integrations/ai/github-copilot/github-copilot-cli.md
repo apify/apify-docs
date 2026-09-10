@@ -6,6 +6,7 @@ slug: /integrations/github-copilot-cli
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+import AgentPluginLimitations from '@site/sources/_partials/_agent-plugin-limitations.mdx';
 
 The [GitHub Copilot CLI](https://docs.github.com/en/copilot/concepts/agents/copilot-cli) is GitHub's agentic coding tool that runs in your terminal. It reads and edits your codebase, runs commands, and completes multi-step development tasks.
 
@@ -30,7 +31,10 @@ The plugin is published in the `awesome-copilot` marketplace, which the GitHub C
 
 1. Install the `apify` plugin from the `awesome-copilot` marketplace:
 
-    
+    ```text
+    /plugin install apify@awesome-copilot
+    ```
+
     This installs the plugin, its five [bundled skills](#bundled-skills), and the bundled Apify MCP server (`https://mcp.apify.com/`). Copilot then opens a browser tab for the Apify sign-in.
 
 1. Complete the Apify OAuth flow in your browser and choose the account to connect. The browser confirms the authorization, and back in the terminal `apify-mcp-server` shows as connected.
@@ -83,17 +87,11 @@ To check what's available, ask the agent to list its Apify tools.
 
 Example prompts that route to specific skills:
 
-_Ultimate scraper:_
-
-> Find 10 highly rated coffee shops in Seattle with name, address, rating, phone, and website.
-
-_Actor development:_
-
-> Create an Apify Actor that accepts a `startUrl` and `maxPages` input, crawls the site, and stores each page title and URL.
-
-_SDK integration:_
-
-> Add Apify to this project. The Node.js API route should run an Actor and return dataset items as JSON.
+| Skill | Example prompt |
+| --- | --- |
+| `apify-ultimate-scraper` | Find 10 highly rated coffee shops in Seattle with name, address, rating, phone, and website. |
+| `apify-actor-development` | Create an Apify Actor that accepts a `startUrl` and `maxPages` input, crawls the site, and stores each page title and URL. |
+| `apify-sdk-integration` | Add Apify to this project. The Node.js API route should run an Actor and return dataset items as JSON. |
 
 ## Authentication paths
 
@@ -112,6 +110,7 @@ Run `/plugin install apify@awesome-copilot` to install the plugin from the `awes
 ### The Apify MCP server won't authenticate
 
 Installation normally signs you in automatically. If the browser prompt didn't appear or you skipped it, connect the server manually: run `/mcp`, select `apify-mcp-server`, and choose to authenticate, as described in [Connect the MCP server manually](#connect-the-mcp-server-manually). Read-only tools work without signing in, so run a search prompt first to confirm the server is connected.
+
 ### The server is slow to connect on first start
 
 On the first start, Copilot may report that `apify-mcp-server` is taking longer than expected to connect, then that it gave up waiting. The server usually finishes connecting a moment later and logs `MCP server 'apify-mcp-server' connected`. If it doesn't, connect it with the [manual steps](#connect-the-mcp-server-manually).
@@ -132,9 +131,7 @@ Start from the `apify` agent. It automatically detects the right transport and r
 
 ## Limitations
 
-- Long-running Actors may time out during a single tool call. Reduce the scope or split the work across multiple prompts.
-- Each Actor run counts toward your Apify plan usage in addition to any Copilot usage. See [Billing](/account/billing) for details.
-- Skills that edit files in your project (Actor development, actorization, SDK integration) make local changes - review them before deploying or committing.
+<AgentPluginLimitations />
 
 ## Related integrations
 
