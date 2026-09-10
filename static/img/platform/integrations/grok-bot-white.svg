@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <mask id="grok-bot-face">
+      <circle cx="50" cy="50" r="44" fill="#fff"/>
+      <g fill="#000">
+        <rect x="58.4" y="32" width="7.2" height="15.2" rx="3.6" transform="rotate(14 62 39.6)"/>
+        <rect x="83.2" y="28" width="7.2" height="15.2" rx="3.6" transform="rotate(14 86.8 35.6)"/>
+      </g>
+    </mask>
+  </defs>
+  <circle cx="50" cy="50" r="44" fill="#fff" mask="url(#grok-bot-face)"/>
+</svg>
