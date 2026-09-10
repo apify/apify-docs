@@ -47,7 +47,7 @@ See the [Docker image guide](/sdk/js/docs/guides/docker-images) for more details
 
 ### Python base images
 
-These images come with Python (version `3.9`, `3.10`, `3.11`, `3.12`, or `3.13`) and the [Apify SDK for Python](/sdk/python) preinstalled. The `latest` tag corresponds to the latest Python 3 version supported by the Apify SDK.
+These images come with Python (version `3.10`, `3.11`, `3.12`, `3.13`, or `3.14`) and the [Apify SDK for Python](/sdk/python) preinstalled. The `latest` tag corresponds to the latest Python 3 version supported by the Apify SDK.
 
 | Image | Description |
 | ----- | ----------- |
@@ -82,7 +82,7 @@ Examples:
 
 For Python images, the tag format is:
 
-- `{python-version}` - A Python version only (e.g., `3.11`, `3.12`, `3.13`)
+- `{python-version}` - A Python version only (e.g., `3.12`, `3.13`, `3.14`)
 - `{python-version}-{library-version}` - A Python version with pinned Playwright/Selenium version
 
 ### Available tags

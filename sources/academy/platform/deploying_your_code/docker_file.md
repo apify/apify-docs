@@ -90,7 +90,7 @@ COPY . ./
 ```Dockerfile
 # First, specify the base Docker image.
 # You can also use any other image from Docker Hub.
-FROM apify/actor-python:3.9
+FROM apify/actor-python:3.14
 
 # Second, copy just requirements.txt into the Actor image,
 # since it should be the only file that affects "pip install" in the next step,
