@@ -83,9 +83,9 @@ Data retention depends on the storage: named storages persist until you delete t
 
 The platform protects your data with redundancy, backups, and safeguards against accidental deletion:
 
-- Redundancy. The data your Actors collect (datasets, key-value stores, request queues) lives in Amazon S3 and DynamoDB, replicated across multiple Availability Zones - S3 is designed for 99.999999999% (11 nines) durability. The primary database runs as a replicated cluster across zones too, so the loss of a node or zone loses no data.
+- Redundancy. The data your Actors collect (datasets, key-value stores, request queues) lives in Amazon S3 and DynamoDB, replicated across multiple Availability Zones for high durability. The primary database runs as a replicated cluster across zones too, so the loss of a node or zone loses no data.
 - Backups. The primary database is backed up automatically by the managed database service it runs on. These backups let the platform recover from a serious failure; they aren't an archive of individual accounts.
-- Deletion safeguards. Data stores carry deletion protection at the infrastructure level, and customer data is erased in two monitored phases: first marked as deleted, then removed permanently. Nothing is destroyed by accident, and deletion completes on time, for example when you delete your account.
+- Deletion safeguards. Data stores carry deletion protection at the infrastructure level, and customer data is erased in two monitored phases: first marked as deleted, then removed permanently. Deletion completes on time, for example when you delete your account.
 
 ## Availability and resilience
 
