@@ -2,7 +2,6 @@
 title: Slack integration
 description: Learn how to integrate your Apify Actors with Slack, from installation through setting up notifications and running Actors directly from Slack.
 sidebar_label: Slack
-sidebar_position: 5
 slug: /integrations/slack
 ---
 
@@ -49,13 +48,13 @@ You're all set! If you have questions or need help, reach out on the [Apify Disc
 
 The **Message** field on the Slack integration setup screen accepts a [Handlebars](https://handlebarsjs.com/) template. When the integration fires, Apify renders the template with data from the triggering event and posts the result to the configured channel.
 
-The Slack integration uses Handlebars, so all built-in helpers (`{{#if}}`, `{{#each}}`, `{{#unless}}`, and so on) work in your template. [Webhook actions](/platform/integrations/webhooks/actions) use a separate JSON payload template engine; don't mix the two.
+The Slack integration uses Handlebars, so all built-in helpers (`{{#if}}`, `{{#each}}`, `{{#unless}}`, and so on) work in your template. [Webhook actions](/integrations/webhooks/actions) use a separate JSON payload template engine; don't mix the two.
 
 A few rules apply to every template:
 
 - The template must be between 2 and 4000 characters long.
 - The text supports [Slack's mrkdwn syntax](https://api.slack.com/reference/surfaces/formatting), which uses single-asterisk bold (`*bold*`) and `<url|label>` for links rather than the standard Markdown `[label](url)`.
-- Apify automatically appends a "Sent by Apify" attribution line that links to apify.com, so you don't need to add one yourself.
+- Apify automatically appends a "Sent by Apify" attribution line that links to the integration's settings page in Apify Console, so you don't need to add one yourself.
 - `TEST` events ignore the template and post a fixed test message. Use them to verify channel delivery.
 - An empty template falls back to Apify's built-in run-status preset.
 
@@ -66,7 +65,7 @@ The following variables are available in every template. Reference nested fields
 | Variable      | Type     | Description                                                                                                                |
 |---------------|----------|----------------------------------------------------------------------------------------------------------------------------|
 | `userId`      | string   | ID of the Apify user who owns the integration.                                                                             |
-| `eventType`   | string   | Type of the trigger event. See [Webhook events](/platform/integrations/webhooks/events) for the full list.                 |
+| `eventType`   | string   | Type of the trigger event. See [Webhook events](/integrations/webhooks/events) for the full list.                          |
 | `createdAt`   | string   | ISO 8601 timestamp of when the event was dispatched.                                                                       |
 | `eventData`   | object   | Identifiers of the entities involved in the event.                                                                         |
 | `resource`    | object   | Full snapshot of the triggering resource (an Actor run or an Actor build).                                                 |
@@ -127,8 +126,8 @@ For `ACTOR.BUILD.*` events, `resource` is the build document - the same object r
 
 The `resource.status` field uses these values:
 
-- Actor run: `READY`, `RUNNING`, `SUCCEEDED`, `FAILED`, `ABORTED`, `TIMED-OUT`, `ABORTING`.
-- Actor build: `READY`, `RUNNING`, `SUCCEEDED`, `FAILED`, `ABORTED`, `TIMED-OUT`.
+- Actor run: `READY`, `RUNNING`, `SUCCEEDED`, `FAILED`, `TIMING-OUT`, `TIMED-OUT`, `ABORTING`, `ABORTED`.
+- Actor build: `READY`, `RUNNING`, `SUCCEEDED`, `FAILED`, `TIMING-OUT`, `TIMED-OUT`, `ABORTING`, `ABORTED`.
 
 :::tip Full resource object
 

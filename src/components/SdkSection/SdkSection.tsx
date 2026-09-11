@@ -1,11 +1,11 @@
-import { useColorMode } from '@docusaurus/theme-common';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import CodeBlock from '@theme/CodeBlock';
 import ThemedImage from '@theme/ThemedImage';
-import GitHubButton from 'react-github-btn';
 import styled from 'styled-components';
 
 import { ActionLink, Button, theme } from '@apify/ui-library';
+
+import GitButton from '../GitButton';
 
 import { Heading } from '../Heading';
 import { Text } from '../Text';
@@ -78,7 +78,6 @@ export default function SdkSection({
     gettingStartedUrl,
     referenceUrl,
 }: SdkSectionProps) {
-    const { colorMode } = useColorMode();
     const lowerCaseLanguage = language.toLowerCase();
 
     return (
@@ -102,15 +101,10 @@ export default function SdkSection({
                         {description}
                     </Text>
                 </div>
-                <GitHubButton
+                <GitButton
                     href={githubRepoUrl}
-                    data-color-scheme={colorMode}
-                    data-size="large"
-                    data-show-count="true"
-                    aria-label={`Star apify/apify-sdk-${lowerCaseLanguage === 'javascript' ? 'js' : lowerCaseLanguage} on GitHub`}
-                >
-                    Star
-                </GitHubButton>
+                    ariaLabel={`Star apify/apify-sdk-${lowerCaseLanguage === 'javascript' ? 'js' : lowerCaseLanguage} on GitHub`}
+                />
                 <div className="SdkSectionActionButtons">
                     <StyledButton hideExternalIcon color="success" to={gettingStartedUrl}>
                         Get started

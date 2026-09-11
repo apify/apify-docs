@@ -5,7 +5,7 @@ get:
   description: |
     Gets the list of environment variables for a specific version of an Actor.
     The response is a JSON object with the list of [EnvVar objects](#/reference/actors/environment-variable-object), where each contains basic information about a single environment variable.
-  operationId: act_version_envVars_get
+  operationId: actor_version_envVars_get
   parameters:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/versionNumber"
@@ -60,7 +60,7 @@ post:
     object](#/reference/actors/environment-variable-object) as returned by the [Get environment
     variable](#/reference/actors/environment-variable-object/get-environment-variable)
     endpoint.
-  operationId: act_version_envVars_post
+  operationId: actor_version_envVars_post
   parameters:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/versionNumber"

@@ -1,17 +1,13 @@
 import Link from '@docusaurus/Link';
 import { useColorMode } from '@docusaurus/theme-common';
 import clsx from 'clsx';
-import { useEffect, useState } from 'react';
 
 import styles from './Cards.module.css';
 
 // TODO: Better sizing for logo images (in integrations)
 const Card = ({ to, imageUrl, imageUrlDarkTheme, title, desc, smallImage }) => {
-    const [themeIsDark, setThemeIsDark] = useState(true);
-    const isDark = useColorMode().isDarkTheme;
-    useEffect(() => {
-        setThemeIsDark(isDark);
-    }, [isDark]);
+    const { colorMode } = useColorMode();
+    const themeIsDark = colorMode === 'dark';
 
     return (
         <div className={clsx(styles.card, styles['card-hoverable'])}>

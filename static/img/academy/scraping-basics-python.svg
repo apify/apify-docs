@@ -12,12 +12,12 @@
     }
     @media (prefers-color-scheme: dark) {
       :root {
-      --color-01: #242528;
-      --color-02: #3D3F43;
-      --color-03: #161718;
-      --color-04: #1F2123;
-      --color-05: #3D3F43;
-      --color-06: #1B1C1D;
+      --color-01: #0F0F0F;
+      --color-02: #2A2A2A;
+      --color-03: #020202;
+      --color-04: #0F0F0F;
+      --color-05: #2A2A2A;
+      --color-06: #0F0F0F;
       --color-07: url(#paint0_linear_4051_9751);
       --color-08: url(#paint1_linear_4051_9751);
       }

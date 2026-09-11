@@ -1,56 +1,77 @@
 title: ActorStats
 type: object
+description: Usage statistics and Apify Store metrics for the Actor.
 properties:
   totalBuilds:
     type: integer
     examples: [9]
+    description: The total number of builds of the Actor.
   totalRuns:
     type: integer
     examples: [16]
+    description: The total number of runs of the Actor.
   totalUsers:
     type: integer
     examples: [6]
+    description: The total number of Actor users, including its owner.
   totalUsers7Days:
     type: integer
     examples: [2]
+    description: The number of active users of the Actor in the last 7 days.
   totalUsers30Days:
     type: integer
     examples: [6]
+    description: The number of active users of the Actor in the last 30 days.
   totalUsers90Days:
     type: integer
     examples: [6]
+    description: The number of active users of the Actor in the last 90 days.
   totalMetamorphs:
     type: integer
     examples: [2]
+    description: The total number of times a run of another Actor was
+      [metamorphed](https://docs.apify.com/platform/actors/development/programming-interface/metamorph)
+      into this Actor.
   lastRunStartedAt:
     type: string
     format: date-time
     examples: ["2019-07-08T14:01:05.546Z"]
+    description: The date and time the most recent run of the Actor started.
   actorReviewCount:
     type: integer
     examples: [69]
+    description: The number of reviews the Actor has received in Apify Store.
   actorReviewRating:
     type: number
     examples: [4.7]
+    description: The average rating of the Actor in Apify Store.
   bookmarkCount:
     type: integer
     examples: [1269]
+    description: The number of users who bookmarked the Actor in Apify Store.
   publicActorRunStats30Days:
     type: object
-    description: Run status counts over the past 30 days.
+    description: |
+     Run status counts from the last 30 days. Only for public Actors.
+     Excludes runs started by the Actor's owner.
     properties:
       ABORTED:
         type: integer
         examples: [2542]
+        description: The number of runs that were aborted.
       FAILED:
         type: integer
         examples: [1234]
+        description: The number of runs that failed.
       SUCCEEDED:
         type: integer
         examples: [732805]
+        description: The number of runs that succeeded.
       "TIMED-OUT":
         type: integer
         examples: [12556]
+        description: The number of runs that timed out.
       TOTAL:
         type: integer
         examples: [749137]
+        description: The total number of runs.

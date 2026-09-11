@@ -99,7 +99,7 @@ byActorRunId:
     `INPUT-METAMORPH-1` key in the same default key-value store.
 
     For more information, see the [Actor docs](https://docs.apify.com/platform/actors/development/programming-interface/metamorph).
-  operationId: act_run_metamorph_post
+  operationId: actors_run_metamorph_post
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
     - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
@@ -122,10 +122,11 @@ lastRunByActor:
 
     This endpoint is a shortcut for [Metamorph run](#/reference/actor-runs/metamorph-run/metamorph-run)
     on the Actor's last run.
-  operationId: act_runs_last_metamorph_post
+  operationId: actor_runs_last_metamorph_post
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
     - $ref: "../../parameters/runAndBuildParameters.yaml#/targetActorId"
     - *buildQueryParameter
 
@@ -143,6 +144,7 @@ lastRunByActorTask:
   operationId: actorTask_runs_last_metamorph_post
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
     - $ref: "../../parameters/runAndBuildParameters.yaml#/targetActorId"
     - *buildQueryParameter

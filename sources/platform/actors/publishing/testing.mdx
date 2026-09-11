@@ -1,5 +1,6 @@
 ---
-title: Automated testing
+title: Actor testing in Apify Store
+sidebar_label: Automated testing
 description: Learn how the Apify QA system tests Actors, what causes an Actor to be flagged as under maintenance or deprecated, and how to restore a healthy status.
 slug: /actors/publishing/test
 sidebar_position: 3
@@ -12,7 +13,7 @@ This helps us to flag Actors that temporarily don't work as expected `under main
 
 ## How we test
 
-The test runs the Actor with its default input (defined by the [**prefill**](https://docs.apify.com/platform/actors/development/actor-definition/input-schema/specification/v1#prefill-vs-default-vs-required) option in the input schema file)
+The test runs the Actor with its default input (defined by the [**prefill**](https://docs.apify.com/actors/development/actor-definition/input-schema/specification/v1#prefill-vs-default-vs-required) option in the input schema file)
 and expects it to finish with a **Succeeded** status and non-empty default dataset within 5 minutes of the beginning of the run.
 
 ![Actor page](./images/actor-test.webp)

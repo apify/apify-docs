@@ -2,7 +2,6 @@
 title: Haystack integration
 sidebar_label: Haystack
 description: Learn how to integrate Apify with Haystack to crawl websites, compute text embeddings, and build retrieval-augmented generation pipelines with ease.
-sidebar_position: 4
 slug: /integrations/haystack
 ---
 

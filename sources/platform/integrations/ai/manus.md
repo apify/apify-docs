@@ -2,7 +2,6 @@
 title: Manus integration
 sidebar_label: Manus
 description: Learn how to connect Manus to the Apify MCP server to give your agent sessions access to real-time web data and thousands of Actor-powered automation tools.
-sidebar_position: 20
 slug: /integrations/manus
 ---
 
@@ -85,7 +84,7 @@ Manus will call `search-actors` to find [Google Search Scraper](https://apify.co
 
 ## Configure tools
 
-After connecting, the Apify MCP server exposes a default set of tools for Actor discovery (`search-actors`, `fetch-actor-details`, `call-actor`, `get-actor-output`), web browsing (`apify/rag-web-browser`), and documentation search (`search-apify-docs`, `fetch-apify-docs`). See the [full tool reference](/platform/integrations/mcp#available-tools) for the complete list.
+After connecting, the Apify MCP server exposes a default set of tools for Actor discovery (`search-actors`, `fetch-actor-details`, `call-actor`, `get-actor-output`), web browsing (`apify/rag-web-browser`), and documentation search (`search-apify-docs`, `fetch-apify-docs`). See the [full tool reference](/integrations/mcp#available-tools) for the complete list.
 
 To control which tools are available, append a `tools=` query parameter to the server URL:
 
@@ -110,6 +109,7 @@ Available skills include:
 | `apify-actor-development` | Full Actor lifecycle: template selection, development, testing, and deployment |
 | `apify-actorization` | Converts existing projects into Apify Actors |
 | `apify-generate-output-schema` | Generates dataset and key-value store schemas from Actor source code |
+| `apify-sdk-integration` | Integrates Actor execution into applications using the `apify-client` package |
 
 ### Import a skill from GitHub
 
@@ -187,8 +187,8 @@ If the OAuth prompt fails or you can't complete the login flow, you can connect 
 
 ## Related integrations
 
-- [ChatGPT integration](/platform/integrations/chatgpt) - Connect the Apify MCP server to ChatGPT
-- [MCP server integration](/platform/integrations/mcp) - Use the Apify MCP server with Claude Desktop, VS Code, and other clients
+- [ChatGPT integration](/integrations/chatgpt) - Connect the Apify MCP server to ChatGPT
+- [MCP server integration](/integrations/mcp) - Use the Apify MCP server with Claude Desktop, VS Code, and other clients
 
 ## Resources
 

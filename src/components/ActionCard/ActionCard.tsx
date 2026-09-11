@@ -5,12 +5,15 @@ import styled from 'styled-components';
 import { HorizontalTile, theme } from '@apify/ui-library';
 
 import ArrowRight20 from '../../pages/img/arrow-right-20.svg';
+import { cardHoverStyles } from '../cardHoverStyles';
 import { Heading } from '../Heading';
 import { Text } from '../Text';
 import styles from './styles.module.css';
 
 const StyledHorizontalTile = styled(HorizontalTile)`
     height: 100%;
+    ${cardHoverStyles}
+
     & > * {
         display: inherit;
     }
@@ -49,7 +52,7 @@ export default function ActionCard({ title, description, to, width, iconSrc, tit
                 </div>
             }
             isClickable
-            action={<ArrowRight20 strokeWidth={1.5} />}
+            action={<ArrowRight20 style={{ color: 'var(--color-neutral-icon)' }} />}
         />
     );
 

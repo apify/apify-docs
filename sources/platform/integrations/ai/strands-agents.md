@@ -4,7 +4,6 @@ sidebar_label: Strands Agents SDK
 description: >-
   Integrate Apify with the Strands Agents SDK to give your AI agents web
   scraping, search, crawling, and social media capabilities through 18 prebuilt tools.
-sidebar_position: 20
 slug: /integrations/strands-agents
 ---
 
@@ -353,7 +352,7 @@ Fetch the first 50 items from dataset ID 'abc123' and summarize the key findings
 
 #### `apify_run_task`
 
-Run a saved [Actor task](/platform/actors/running/tasks) with optional input overrides. Tasks are pre-configured Actor runs saved in Apify Console.
+Run a saved [Actor task](/actors/running/tasks) with optional input overrides. Tasks are pre-configured Actor runs saved in Apify Console.
 
 | Parameter | Type | Default | Description |
 | --- | --- | --- | --- |

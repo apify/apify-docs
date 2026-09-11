@@ -92,23 +92,15 @@ schema:
 
 ### Python API client model generation
 
-OpenAPI spec changes in this repo automatically trigger Pydantic model regeneration in `apify-client-python`. The pipeline:
+`apify-client-python` generates its Pydantic models from the **published** spec, and it pulls them on its own schedule - this repo does not push anything to it:
 
-1. **This repo** (`.github/workflows/openapi-ci.yaml`):
-   - On PR with changes to `apify-api/openapi/**`: lint, build, and validate the bundled spec
-   - Upload `static/api/openapi.{json,yaml}` as artifacts
-   - `trigger-client-model-regeneration` job calls `gh workflow run manual_regenerate_models.yaml` in `apify/apify-client-python`, passing `docs_pr_number` and `docs_workflow_run_id`
-   - On PR close: `cleanup-client-model-pr` job closes the corresponding PR in `apify-client-python` and deletes its branch
+1. **This repo** (`.github/workflows/openapi-ci.yaml`): on a PR touching `apify-api/openapi/**`, lints, builds, and validates the bundled spec. Once merged and deployed, the bundle is served at `https://docs.apify.com/api/openapi.json`.
 
-2. **apify-client-python** (`.github/workflows/manual_regenerate_models.yaml`):
-   - Triggered via `workflow_dispatch` (automatically from this repo's CI or manually from GitHub UI)
-   - Downloads the OpenAPI spec artifact from this repo's workflow run (or fetches from `https://docs.apify.com/api/openapi.json` for manual runs)
-   - Runs `datamodel-codegen` to generate Pydantic models into `src/apify_client/_models.py`
-   - Runs `scripts/postprocess_generated_models.py` to fix known codegen issues (e.g. camelCase discriminator fields)
-   - Commits to branch `update-models-docs-pr-{PR_NUMBER}`, creates/updates a PR
-   - Posts a cross-repo comment on the original docs PR linking to the generated client PR
+2. **apify-client-python** (`.github/workflows/on_schedule_regenerate_models.yaml`): nightly at 02:00 UTC, downloads the spec from that URL, regenerates the models, and opens a PR when they change. Only the spec's version is recorded on that side, not the spec itself.
 
-Branch naming convention `update-models-docs-pr-{N}` links the two PRs.
+A spec change therefore reaches the Python client within a day of being deployed, with no coordination needed on this side. Nothing here needs to be merged in lockstep with a client PR.
+
+This used to be a cross-repo dispatch that opened a companion client PR per docs PR. It was removed: the client can only generate from the published spec anyway, and having two mechanisms write the same generated files made them diverge.
 
 ### Theme system
 
@@ -140,7 +132,7 @@ Use `pnpm start:dev` + nginx to serve all repos together locally. See `CONTRIBUT
 - Auto-deploy on merge to `master`
 - Preview builds on pull requests
 - PR titles must use [Conventional Commits](https://www.conventionalcommits.org/) format (`docs:`, `fix:`, `feat:`, etc.) - enforced by CI
-- Keep PR descriptions short - one or two sentences covering what changed and why. Skip boilerplate headings (`## Summary`, `## Changes`, `## Details`), bullet lists that restate the diff, and filler text. The diff is the record of what changed; the description explains the why.
+- Keep PR descriptions to one or two sentences - what changed and why. No boilerplate headings, no bullet lists restating the diff. See the pull request process in `CONTRIBUTING.md`
 
 ## Common pitfalls
 
@@ -160,7 +152,7 @@ Use `pnpm start:dev` + nginx to serve all repos together locally. See `CONTRIBUT
 
 ## Standards
 
-Detailed writing and formatting standards are in `standards/`:
+Detailed writing and formatting standards are in `standards/`. This is the single source of truth for docs rules - `CONTRIBUTING.md` and `.cursor/rules/` point here instead of restating them, so a rule change lands in `standards/` only:
 
 - `standards/writing-style.md` - Prose voice, tone, headings, links, numbers
 - `standards/content-standards.md` - Front matter, admonitions, code blocks, images
@@ -175,7 +167,8 @@ Key rules at a glance:
 - Sentence case headings, no gerunds
 - Bold for UI elements only; `code` for filenames, commands, variables
 - All admonitions require titles
-- 140-160 character descriptions in front matter
+- 140-160 character descriptions in front matter, action-oriented, without the word "documentation"
+- Screenshots only when they add something the prose doesn't; light theme, `#F86606` borders to highlight, no arrows or circles
 - See `standards/terminology.md` for Apify product name capitalization
 - Don't use em dashes (—) - use hyphen with spaces ( - ) instead
 
@@ -198,7 +191,7 @@ When creating or reviewing documentation, verify:
 - [ ] All admonitions have titles
 - [ ] Code examples are complete with syntax highlighting
 - [ ] Links use descriptive text, internal links use relative paths
-- [ ] Images have alt text, use light theme
+- [ ] Images have alt text, use light theme and `#F86606` highlights
 - [ ] Terminology matches rules above
 - [ ] US English, active voice, no sales language
 - [ ] `pnpm lint` passes

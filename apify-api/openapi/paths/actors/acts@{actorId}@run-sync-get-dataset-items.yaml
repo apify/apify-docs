@@ -27,7 +27,7 @@ post:
 
     To run the Actor asynchronously, use the [Run
     Actor](#/reference/actors/run-collection/run-actor) API endpoint instead.
-  operationId: act_runSyncGetDatasetItems_post
+  operationId: actor_runSyncGetDatasetItems_post
   parameters:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/timeout"
@@ -86,23 +86,17 @@ post:
             - myValue: some value
               myOtherValue: some other value
     "400":
-      description: ""
-      headers: {}
-      content:
-        application/json:
-          schema:
-            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorRunFailedError"
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
     "402":
       $ref: ../../components/responses/PaymentRequired.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
     "404":
       $ref: ../../components/responses/NotFound.yaml
     "408":
-      description: ""
-      headers: {}
-      content:
-        application/json:
-          schema:
-            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorRunTimeoutExceededError"
+      $ref: ../../components/responses/Timeout.yaml
     "429":
       $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
@@ -132,7 +126,7 @@ get:
 
     To run the Actor asynchronously, use the [Run
     Actor](#/reference/actors/run-collection/run-actor) API endpoint instead.
-  operationId: act_runSyncGetDatasetItems_get
+  operationId: actor_runSyncGetDatasetItems_get
   parameters:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/timeout"
@@ -180,21 +174,19 @@ get:
             - myValue: some value
               myOtherValue: some other value
     "400":
-      description: ""
-      headers: {}
-      content:
-        application/json:
-          schema:
-            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorRunFailedError"
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "402":
+      $ref: ../../components/responses/PaymentRequired.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
     "404":
       $ref: ../../components/responses/NotFound.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
     "408":
-      description: ""
-      headers: {}
-      content:
-        application/json:
-          schema:
-            $ref: "../../components/schemas/common/errors/ActorErrors.yaml#/ActorRunTimeoutExceededError"
+      $ref: ../../components/responses/Timeout.yaml
     "429":
       $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false

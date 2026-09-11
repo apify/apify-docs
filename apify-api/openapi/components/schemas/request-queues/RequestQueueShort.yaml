@@ -52,6 +52,8 @@ properties:
   hadMultipleClients:
     $ref: ./SharedProperties.yaml#/HadMultipleClients
   generalAccess:
-    $ref: ../common/GeneralAccess.yaml
+    anyOf:
+      - $ref: ../common/GeneralAccess.yaml
+      - type: "null"
   stats:
     $ref: ./RequestQueueStats.yaml

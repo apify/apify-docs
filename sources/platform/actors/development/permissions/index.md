@@ -1,5 +1,6 @@
 ---
-title: Permissions
+title: Actor permissions
+sidebar_label: Permissions
 description: Learn how to declare and manage permissions for your Actor, what access levels mean, and how to build secure, trusted Actors for Apify users.
 sidebar_position: 7.5
 slug: /actors/development/permissions

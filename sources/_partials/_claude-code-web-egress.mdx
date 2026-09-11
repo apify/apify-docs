@@ -1,0 +1,18 @@
+:::info Allow Apify in Claude Code on the web
+
+If you're using Claude Code on the web, your cloud sessions run inside a network-restricted sandbox. By default, the sandbox blocks outbound requests to `*.apify.com`, making documentation, the API, and the MCP server unreachable.
+
+To grant access, add `*.apify.com` to a cloud environment's allowed domains:
+
+1. Open the environment selector and select **Add environment**.
+1. Set **Network access** to **Custom**.
+1. Check **Also include default list of common package managers** so existing functionality stays intact.
+1. Add `*.apify.com` to the **Allowed domains** list.
+
+Alternatively, set **Network access** to **Full** to allow any domain.
+
+For more details, see [Claude Code on the web: Network access](https://code.claude.com/docs/en/claude-code-on-the-web#network-access).
+
+Codex Cloud uses a similar default-deny sandbox. See [Codex Cloud internet access](https://developers.openai.com/codex/cloud/internet-access) for the equivalent configuration.
+
+:::

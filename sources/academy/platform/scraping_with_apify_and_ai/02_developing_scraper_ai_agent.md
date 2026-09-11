@@ -253,8 +253,7 @@ apify run
 It runs, that's nice! But looking at the output, we can't really verify what exactly gets scraped! While we're at it, let's change that with another prompt:
 
 ```text
-In the output of the scraper I want to see
-how the items being saved look like.
+I want the scraper to log each item before it's saved.
 ```
 
 We'll approve all changes and go to the command line again:
@@ -263,7 +262,7 @@ We'll approve all changes and go to the command line again:
 apify run
 ```
 
-Now, the output of the scraper contains the actual items being scraped and we can verify we've been successful in changing the format of the prices (they appear at the very end of each line):
+Now, the scraper prints the actual items being scraped and we can verify we've been successful in changing the format of the prices. They appear at the end of each line:
 
 ```text
 ...
@@ -307,7 +306,7 @@ We've done it, the prices save as numbers!
 
 :::tip Specifying output schema
 
-If we didn't want to always click on **All fields** to see full items, we need to specify an [output schema](https://docs.apify.com/platform/actors/development/actor-definition/output-schema) so that the platform knows what it can expect and how it should display it in the interface. With Cursor, such change is just a single prompt away:
+If we didn't want to always click on **All fields** to see full items, we need to specify an [output schema](https://docs.apify.com/actors/development/actor-definition/output-schema) so that the platform knows what it can expect and how it should display it in the interface. With Cursor, such change is just a single prompt away:
 
 ```text
 Change the output schema of the Actor

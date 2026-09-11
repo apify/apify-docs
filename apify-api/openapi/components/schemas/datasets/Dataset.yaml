@@ -50,7 +50,7 @@ properties:
     description: ""
   schema:
     type: [object, "null"]
-    description: Defines the schema of items in your dataset, the full specification can be found in [Apify docs](/platform/actors/development/actor-definition/dataset-schema)
+    description: Defines the schema of items in your dataset, the full specification can be found in [Apify docs](/storage/dataset-schema)
     example:
       actorSpecification: 1
       title: My dataset
@@ -79,6 +79,8 @@ properties:
     type: [string, "null"]
     description: A secret key for generating signed public URLs. It is only provided to clients with WRITE permission for the dataset.
   generalAccess:
-    $ref: ../common/GeneralAccess.yaml
+    anyOf:
+      - $ref: ../common/GeneralAccess.yaml
+      - type: "null"
   stats:
     $ref: ./DatasetStats.yaml

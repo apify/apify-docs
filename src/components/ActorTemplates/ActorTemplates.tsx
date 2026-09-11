@@ -44,6 +44,22 @@ const ActorTemplatesWrapper = styled.div`
     }
 `;
 
+const StyledActorTemplateCardWrapper = styled.div`
+    display: flex;
+    height: 100%;
+
+    & > * {
+        flex: 1;
+        background-color: var(--color-neutral-card-background) !important;
+        border-color: var(--color-neutral-border) !important;
+    }
+
+    &:hover > * {
+        background-color: var(--color-neutral-card-background-hover) !important;
+        border-color: var(--color-neutral-border) !important;
+    }
+`;
+
 export const ActorTemplates: React.FC<ActorTemplatesProps> = ({
     numberOfDisplayedTemplates = NUMBER_OF_DISPLAYED_TEMPLATES_DEFAULT,
     displayedTemplatesIds = [],
@@ -115,14 +131,16 @@ export const ActorTemplates: React.FC<ActorTemplatesProps> = ({
 
                 return (
                     <Link key={id} to={new URL(`https://apify.com/templates/${id}`, siteConfig.url).href}>
-                        <ActorTemplateCard
-                            id={id}
-                            label={label}
-                            description={description}
-                            icons={iconsSources.map((icon) => (
-                                <img key={icon.alt} src={icon.src} alt={icon.alt} />
-                            ))}
-                        />
+                        <StyledActorTemplateCardWrapper>
+                            <ActorTemplateCard
+                                id={id}
+                                label={label}
+                                description={description}
+                                icons={iconsSources.map((icon) => (
+                                    <img key={icon.alt} src={icon.src} alt={icon.alt} />
+                                ))}
+                            />
+                        </StyledActorTemplateCardWrapper>
                     </Link>
                 );
             })}

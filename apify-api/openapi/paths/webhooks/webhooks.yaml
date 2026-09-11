@@ -18,7 +18,8 @@ get:
   responses:
     "200":
       description: ""
-      headers: {}
+      headers:
+        $ref: ../../components/headers/ApifyPaginationHeaders.yaml
       content:
         application/json:
           schema:
@@ -127,6 +128,8 @@ post:
       $ref: ../../components/responses/Unauthorized.yaml
     "403":
       $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      $ref: ../../components/responses/NotFound.yaml
     "405":
       $ref: ../../components/responses/MethodNotAllowed.yaml
     "413":

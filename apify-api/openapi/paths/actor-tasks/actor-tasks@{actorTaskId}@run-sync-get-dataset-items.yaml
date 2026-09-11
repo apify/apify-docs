@@ -28,7 +28,7 @@ get:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/timeout"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/memory"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/maxItems"
-    # XXX: do we support maxTotalChargeUsd for task runs?
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/maxTotalChargeUsd"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/build"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/webhooks"
     - $ref: "../../components/parameters/datasetParameters.yaml#/format"
@@ -67,6 +67,8 @@ get:
       $ref: ../../components/responses/BadRequest.yaml
     "401":
       $ref: ../../components/responses/Unauthorized.yaml
+    "402":
+      $ref: ../../components/responses/PaymentRequired.yaml
     "403":
       $ref: ../../components/responses/Forbidden.yaml
     "404":
@@ -74,7 +76,7 @@ get:
     "405":
       $ref: ../../components/responses/MethodNotAllowed.yaml
     "408":
-      $ref: ../../components/responses/RunTimeout.yaml
+      $ref: ../../components/responses/Timeout.yaml
     "429":
       $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
@@ -175,12 +177,16 @@ post:
       $ref: ../../components/responses/BadRequest.yaml
     "401":
       $ref: ../../components/responses/Unauthorized.yaml
+    "402":
+      $ref: ../../components/responses/PaymentRequired.yaml
     "403":
       $ref: ../../components/responses/Forbidden.yaml
     "404":
       $ref: ../../components/responses/NotFound.yaml
     "405":
       $ref: ../../components/responses/MethodNotAllowed.yaml
+    "408":
+      $ref: ../../components/responses/Timeout.yaml
     "413":
       $ref: ../../components/responses/PayloadTooLarge.yaml
     "415":

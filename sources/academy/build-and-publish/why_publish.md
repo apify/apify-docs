@@ -58,11 +58,11 @@ Apify Store is a growing library of thousands of Actors, most created by communi
 
 ### Maintain quality
 
-Public Actors require higher standards than private ones. Since users depend on your Actor, you'll need to commit to regular maintenance - reserve approximately 2 hours per week for bug fixes, updates, and user support. Thorough documentation is essential; write clear README files using simple language since users may not be developers. Set up automated testing or use manual testing to prevent user issues, and respond promptly to issues through the Issues tab, where your response time is publicly visible. Learn more about metrics determining quality in [Actor quality score documentation](/platform/actors/publishing/quality-score).
+Public Actors require higher standards than private ones. Since users depend on your Actor, you'll need to commit to regular maintenance - reserve approximately 2 hours per week for bug fixes, updates, and user support. Thorough documentation is essential; write clear README files using simple language since users may not be developers. Set up automated testing or use manual testing to prevent user issues, and respond promptly to issues through the Issues tab, where your response time is publicly visible. Learn more about metrics determining quality in [Actor quality score documentation](/actors/publishing/quality-score).
 
 ### When you need to change things
 
-If you need to make breaking changes to your Actor, contact [community@apify.com](mailto:community@apify.com) beforehand. Major pricing changes require 14-day notice and are limited to once per month. The platform helps communicate changes to your users.
+If you need to make breaking changes to your Actor, contact [community@apify.com](mailto:community@apify.com) beforehand. Significant pricing changes require a 14-day notice period and are limited to once per month. The platform helps communicate changes to your users.
 
 ## Getting started
 
@@ -78,4 +78,4 @@ Learn more:
 
 - [How to build Actors](/academy/actor-marketing-playbook/store-basics/how-to-build-actors)
 - [How Apify Store works](/academy/actor-marketing-playbook/store-basics/how-store-works)
-- [Publish your Actor](/platform/actors/publishing/publish)
+- [Publish your Actor](/actors/publishing/publish)

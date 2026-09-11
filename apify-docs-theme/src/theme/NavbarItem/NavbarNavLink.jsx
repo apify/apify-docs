@@ -6,11 +6,14 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { usePluginData } from '@docusaurus/useGlobalData';
 import IconExternalLink from '@theme/Icon/ExternalLink';
+import clsx from 'clsx';
 import React from 'react';
 
 export default function NavbarNavLink({
     activeBasePath,
     activeBaseRegex,
+    activeClassName = 'navbar__link--active',
+    className,
     to,
     href,
     label,
@@ -30,7 +33,6 @@ export default function NavbarNavLink({
     // TODO all this seems hacky
     // {to: 'version'} should probably be forbidden, in favor of {to: '/version'}
     const toUrl = useBaseUrl(to);
-    const activeBaseUrl = useBaseUrl(activeBasePath);
     const normalizedHref = useBaseUrl(href, { forcePrependBaseUrl: true });
     const { siteConfig } = useDocusaurusContext();
     const isInternalUrl = (url) => {
@@ -63,16 +65,18 @@ export default function NavbarNavLink({
             .some((item) => (item.to || item.href).endsWith(location.pathname));
 
     if (href) {
+        // `Link` drops `isActive`/`activeClassName` for absolute URLs (they only work with the
+        // React Router link), so the active class has to be resolved here instead.
+        const isActive =
+            (activeBaseRegex && isRegexpStringMatch(activeBaseRegex, location.pathname)) ||
+            (activeBasePath && location.pathname.startsWith(`/${activeBasePath}`)) ||
+            dropDownHasActiveItem;
+
         return (
             <Link
                 href={prependBaseUrlToHref ? normalizedHref : href}
                 {...props}
-                {...(activeBaseUrl && {
-                    className:
-                        location.pathname.startsWith(`/${activeBasePath}`) || dropDownHasActiveItem
-                            ? 'navbar__item navbar__link navbar__link--active'
-                            : 'navbar__item navbar__link',
-                })}
+                className={clsx(className, isActive && activeClassName)}
                 {...linkContentProps}
             />
         );
@@ -82,13 +86,14 @@ export default function NavbarNavLink({
         <Link
             to={toUrl}
             isNavLink
+            className={className}
             {...((activeBasePath || activeBaseRegex) && {
                 // eslint-disable-next-line no-shadow
                 isActive: (_match, location) =>
                     activeBaseRegex
                         ? isRegexpStringMatch(activeBaseRegex, location.pathname) || dropDownHasActiveItem
                         : location.pathname.startsWith(`/${activeBasePath}`),
-                activeClassName: 'navbar__link--active',
+                activeClassName,
             })}
             {...props}
             {...linkContentProps}
