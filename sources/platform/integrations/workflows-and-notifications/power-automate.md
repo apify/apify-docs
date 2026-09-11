@@ -24,7 +24,7 @@ The Apify connector is available in the Power Automate connector library, publis
 
 :::note Premium connector in preview
 
-Power Automate lists the Apify connector as a premium connector, so your plan must include premium connectors. The connector is currently labeled as preview.
+Power Automate labels the Apify connector **Premium**, so your plan must include premium connectors. The connector is also labeled **Preview**.
 
 :::
 
@@ -197,6 +197,8 @@ This action starts the Actor and returns the run details right away, not the scr
 
 ## Handle long-running scrapes
 
+If a run finishes within a minute, set **Wait for Finish** to `60` in **Run Actor** or **Run task**. The action waits for the run and returns it with a final status, so you need neither of the patterns below.
+
 **Wait for Finish** accepts at most 60 seconds, so a longer run won't have finished when the action returns. Start such runs asynchronously and collect the results separately: set **Wait for Finish** to `0` in **Run Actor** or **Run task**, then use one of the two patterns below.
 
 ### React to the finished run in a second flow
@@ -207,15 +209,22 @@ Build a second flow that starts with the **Actor run finished** or **Actor task 
 
 This keeps everything in a single flow, at the cost of more steps:
 
-1. Add **Run Actor** and set **Wait for Finish** to `0`.
-1. Add **Initialize variable** to hold the result, and leave it empty.
-1. Add a **Do until** loop that runs while the variable is empty.
-1. Inside the loop, add **Get dataset items** to check whether the results are ready.
-1. Add **Set variable** to store the result, which ends the loop.
-1. Add **Delay** so the loop waits a few seconds between checks.
-1. After the loop, use the variable in the rest of the flow.
+1. Add **Run Actor** or **Run task** and set **Wait for Finish** to `0`.
+1. Add **Initialize variable**, set **Type** to **Array**, and leave the value empty.
+1. Add a **Do until** loop that stops when the variable is no longer empty.
+1. Inside the loop:
+    1. Add **Get dataset items** and set **Dataset** to the dataset ID from the run output.
+    1. Add **Set variable** and set it to the items collection from **Get dataset items**, not the whole action output.
+    1. Add **Delay** and set it to around 10 seconds, so the loop doesn't burn through its iterations.
+1. After the loop, check that the variable isn't empty, then use it in the rest of the flow.
 
-![A Power Automate flow with Run Actor, Initialize variable, and a Do until loop containing Get dataset items, Set variable, and Delay](../images/power-automate/polling-flow-do-until-loop.webp)
+![A Power Automate flow with Run Actor, Initialize variable, and a Do until loop containing Get dataset items, Set variable, and Delay, with the loop set to stop when the variable is not an empty array](../images/power-automate/polling-flow-do-until-loop.webp)
+
+:::caution This loop doesn't wait for the run to finish
+
+The loop stops when **Get dataset items** returns at least one item, not when the run finishes. An Actor that writes items as it goes can exit the loop with a partial dataset. An Actor that returns no items keeps polling until **Count** or **Timeout**, and the loop still succeeds, so check that the variable isn't empty before you use it.
+
+:::
 
 ## Example use cases
 
