@@ -20,11 +20,11 @@ To use the Apify integration with Power Automate, you need:
 
 ## Find the Apify connector
 
-The Apify connector is available in the Power Automate connector library, published by Apify.
+Apify publishes the connector in the Power Automate connector library.
 
 :::note Premium connector in preview
 
-Power Automate lists the Apify connector as a premium connector, so your plan must include premium connectors. The connector is currently labeled as preview.
+Power Automate lists the Apify connector as a premium connector, so your plan must include premium connectors. It also labels the connector as preview.
 
 :::
 
@@ -48,8 +48,8 @@ The Apify connector authenticates with OAuth 2.0. It doesn't accept an API token
 1. Select **Sign in**.
 1. Sign in to Apify Console in the window that opens.
 1. Authorize the connector. It requests two scopes:
-   - `profile` to read your account details.
-   - `full_api_access` to run Actors and tasks, read datasets and key-value stores, and manage webhooks.
+   - `profile` to read your account details
+   - `full_api_access` to run Actors and tasks, read datasets and key-value stores, and manage webhooks
 
 After you authorize, Power Automate returns to the **Connections** page and the connection shows as **Connected**.
 
@@ -65,7 +65,7 @@ Most Apify triggers and actions let you pick a resource from a dropdown populate
 - **Apify Store Actors** lists Actors from Apify Store.
 - **Enter custom value** lets you type an Actor ID or name directly.
 
-Actor and task input is JSON. **Run Actor** takes the full input object in **Input Body (JSON)**. **Run task** takes an optional JSON object that overrides fields in the task's saved input.
+Actor and task input is JSON. **[Run Actor](#run-actor)** takes the full input object in **Input Body (JSON)**. **[Run task](#run-task)** takes an optional JSON object that overrides fields in the task's saved input.
 
 :::tip Copy the input JSON from Apify Console
 
@@ -87,9 +87,9 @@ When you use **Enter custom value** instead of a dropdown, you need the resource
 
 ## Triggers
 
-A trigger starts your flow when a run finishes in your Apify account. When you save a flow that uses an Apify trigger, the connector creates a [webhook](/platform/integrations/webhooks) on your Apify account.
+A trigger starts your flow when a run finishes in your Apify account. When you save a flow that uses an Apify trigger, the connector creates a [webhook](/integrations/webhooks) on your Apify account.
 
-Both triggers choose which run statuses fire the flow through four separate Yes/No fields: **Trigger On Run Succeeded**, **Trigger On Run Failed**, **Trigger On Run Timed Out**, and **Trigger On Run Aborted**. Set each to **Yes** for the statuses you want.
+Four separate Yes/No fields control which run statuses fire the flow: **Trigger On Run Succeeded**, **Trigger On Run Failed**, **Trigger On Run Timed Out**, and **Trigger On Run Aborted**. Set each to **Yes** for the statuses you want.
 
 :::caution Delete unused webhooks
 
@@ -101,9 +101,9 @@ Turning off or deleting a flow doesn't remove the webhook it created on Apify. T
 
 Starts the flow when a run of the selected Actor finishes with one of the statuses you enabled.
 
-- **Actor**: the Actor to watch.
-- **Select Actor from**: whether the **Actor** dropdown lists recently used Actors, Apify Store Actors, or a value you type.
-- **Trigger On Run Succeeded**, **Trigger On Run Failed**, **Trigger On Run Timed Out**, **Trigger On Run Aborted**: the statuses that fire the flow.
+- **Actor**: select the Actor to watch.
+- **Select Actor from**: choose whether the **Actor** dropdown lists recently used Actors, Apify Store Actors, or a value you type.
+- **Trigger On Run Succeeded**, **Trigger On Run Failed**, **Trigger On Run Timed Out**, **Trigger On Run Aborted**: set the statuses that fire the flow.
 
 The trigger passes the finished run's webhook payload to the next step, including the run ID and the IDs of its default dataset and key-value store.
 
@@ -113,8 +113,8 @@ The trigger passes the finished run's webhook payload to the next step, includin
 
 Starts the flow when a run of the selected task finishes with one of the statuses you enabled.
 
-- **Task**: the [task](/platform/actors/running/tasks) to watch.
-- **Trigger On Run Succeeded**, **Trigger On Run Failed**, **Trigger On Run Timed Out**, **Trigger On Run Aborted**: the statuses that fire the flow.
+- **Task**: select the [task](/actors/running/tasks) to watch.
+- **Trigger On Run Succeeded**, **Trigger On Run Failed**, **Trigger On Run Timed Out**, **Trigger On Run Aborted**: set the statuses that fire the flow.
 
 Use this trigger for scheduled or recurring jobs, where the input is already saved in the task.
 
@@ -128,14 +128,14 @@ The Apify connector provides the following actions.
 
 Starts a run of the selected Actor.
 
-- **Actor**: the Actor to run.
-- **Select Actor from**: whether the **Actor** dropdown lists recently used Actors, Apify Store Actors, or a value you type.
-- **Input Body (JSON)**: the Actor's input as a JSON object.
+- **Actor**: select the Actor to run.
+- **Select Actor from**: choose whether the **Actor** dropdown lists recently used Actors, Apify Store Actors, or a value you type.
+- **Input Body (JSON)**: enter the Actor's input as a JSON object.
 - **Advanced parameters**: select **Show all** to reveal the run options.
-  - **Wait for Finish**: seconds to wait for the run to finish, up to 60. Set it to `0` to start the run and continue immediately.
-  - **Build**: a build tag or ID. Defaults to the Actor's `latest` build.
-  - **Timeout**: the run timeout in seconds.
-  - **Memory**: the memory allocated to the run, in MB.
+  - **Wait for Finish**: enter the number of seconds to wait for the run to finish, up to 60. Set it to `0` to start the run and continue immediately.
+  - **Build**: specify a build tag or ID. Defaults to the Actor's `latest` build.
+  - **Timeout**: set the run timeout in seconds.
+  - **Memory**: set the memory allocated to the run, in MB.
 
 ![The Run Actor action in Power Automate with an Actor selected, Input Body (JSON) filled in, and Wait for Finish set to 0](../images/power-automate/run-actor-action.webp)
 
@@ -143,13 +143,13 @@ Starts a run of the selected Actor.
 
 Starts a run of the selected task, optionally overriding its saved input.
 
-- **Task**: the task to run.
+- **Task**: select the task to run.
 - **Advanced parameters**: select **Show all** to reveal the input override and run options.
-  - **Input Body (JSON)**: a JSON object that overrides fields in the task's saved input. Leave it empty to run the task as saved.
-  - **Wait for Finish**: seconds to wait for the run to finish, up to 60. Set it to `0` to start the run and continue immediately.
-  - **Build**: a build tag or ID.
-  - **Timeout**: the run timeout in seconds.
-  - **Memory**: the memory allocated to the run, in MB.
+  - **Input Body (JSON)**: enter a JSON object that overrides fields in the task's saved input. Leave it empty to run the task as saved.
+  - **Wait for Finish**: enter the number of seconds to wait for the run to finish, up to 60. Set it to `0` to start the run and continue immediately.
+  - **Build**: specify a build tag or ID.
+  - **Timeout**: set the run timeout in seconds.
+  - **Memory**: set the memory allocated to the run, in MB.
 
 ![The Run task action in Power Automate with a task selected and Wait for Finish set to 0](../images/power-automate/run-task-action.webp)
 
@@ -157,35 +157,31 @@ Starts a run of the selected task, optionally overriding its saved input.
 
 Retrieves items from a dataset.
 
-- **Dataset**: the dataset to read.
+- **Dataset**: select the dataset to read.
 - **Advanced parameters**: select **Show all** to reveal pagination.
-  - **Limit**: the maximum number of items to return.
-  - **Offset**: the number of items to skip.
+  - **Limit**: set the maximum number of items to return.
+  - **Offset**: set the number of items to skip.
 
 The action returns an array of items. The connector samples the dataset to infer a schema, so the item fields appear as dynamic content in later steps.
-
-![The Get dataset items action in Power Automate with a dataset selected](../images/power-automate/get-dataset-items-action.webp)
 
 ### Get key-value store record
 
 Retrieves a single record from a key-value store.
 
-- **Store**: the key-value store to read.
-- **Key**: the record's key. The dropdown lists the keys in the selected store.
+- **Store**: select the key-value store to read.
+- **Key**: select the record's key. The dropdown lists the keys in the selected store.
 
-The action returns the record's content along with its `Content-Type`, so it handles both text records and binary ones such as screenshots.
-
-![The Get key-value store record action in Power Automate with a store and the INPUT key selected](../images/power-automate/get-key-value-store-record-action.webp)
+The action returns the record's content along with its `Content-Type`, so it handles both text records and binary ones, such as screenshots.
 
 ### Scrape single URL
 
 Scrapes one page with the [Website Content Crawler](https://apify.com/apify/website-content-crawler) Actor, without you assembling the Actor input yourself.
 
-- **URL to Scrape**: the full URL of the page.
-- **Crawler Type**: the crawling engine.
-  - **Adaptive (Recommended)** switches between a browser and raw HTTP.
-  - **Firefox** renders JavaScript in a headless browser. Slower, but the most reliable on protected sites.
-  - **Cheerio** uses a raw HTTP client. Fastest, but it doesn't run JavaScript.
+- **URL to Scrape**: enter the full URL of the page.
+- **Crawler Type**: select the crawling engine.
+  - **Adaptive (Recommended)**: switches between a browser and raw HTTP.
+  - **Firefox**: renders JavaScript in a full browser, which handles sites that block other crawler types.
+  - **Cheerio**: uses a raw HTTP client, which is faster but doesn't run JavaScript.
 
 ![The Scrape single URL action in Power Automate with a URL entered and Crawler Type set to Adaptive (Recommended)](../images/power-automate/scrape-single-url-action.webp)
 
@@ -255,9 +251,9 @@ Deleting a flow doesn't delete the webhook it created. Open the Actor's **Integr
 ## Resources
 
 - [Power Automate documentation](https://learn.microsoft.com/en-us/power-automate/)
-- [Apify webhooks](/platform/integrations/webhooks)
-- [Actor runs and builds](/platform/actors/running/runs-and-builds)
-- [Actor tasks](/platform/actors/running/tasks)
-- [Dataset](/platform/storage/dataset)
+- [Apify webhooks](/integrations/webhooks)
+- [Actor runs and builds](/actors/running/runs-and-builds)
+- [Actor tasks](/actors/running/tasks)
+- [Dataset](/storage/dataset)
 
 For questions or help, join the [Apify developer community on Discord](https://discord.com/invite/jyEM2PRvMU).
