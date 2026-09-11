@@ -2,17 +2,37 @@
 title: Actor deployment
 sidebar_label: Deployment
 sidebar_position: 6
-description: Learn how to deploy your Actor to the Apify platform using the Apify CLI or the console, and how to trigger new builds from a Git repository.
+description: Learn how Actor deployment works. Keep your code on the Apify platform and deploy with the Apify CLI, or host it in Git and build on every push.
 slug: /actors/development/deployment
 ---
 
-Deploying an Actor involves uploading your [source code](/actors/development/actor-definition) and [building](/actors/development/builds-and-runs/builds) it on the Apify platform. Once deployed, you can run and scale your Actor in the cloud.
+Deploying an Actor means defining the [source](/actors/development/deployment/source-types) for one of the Actor versions and [building](/actors/development/builds-and-runs/builds) it into a Docker image on the Apify platform.
 
-## Deploy using the Apify CLI
+Once you deploy your Actor, you can run it in the cloud.
 
-The fastest way to deploy and build your Actor is by using the [Apify CLI](/cli). If you've completed one of the tutorials from the [academy](/academy), you should have already have it installed. If not, follow the [Apify CLI installation instructions](/cli/docs/installation).
+## How deployment works
 
-To deploy your Actor using the Apify CLI:
+Every Actor must have at least one version that stores the code the platform builds from, and defines where that code lives. An Actor can have up to 10 versions.
+
+A build turns a version's source into a Docker image with a build number. You can also add a tag. A version must have a successful build for users to run your Actor.
+
+Deployment is always scoped to a version. Your Actor can have multiple versions, and each version can have a different source type. Rebuilding one version doesn't rebuild the rest.
+
+## Choose where your code lives
+
+The platform can store your code or clone it from Git at build time. For the configuration details of each type, see [Source types](/actors/development/deployment/source-types).
+
+| Where the Actor's code lives | Source type | Deployment method |
+| --- | --- | --- |
+| Apify platform | Web IDE or Zip file | [`apify push`](/cli/docs/reference#actor-deployment) |
+| Git repository | Git repository | `git push` |
+| GitHub Gist | GitHub Gist | Update the Gist and start a build |
+
+## Deploy code hosted on Apify
+
+To deploy and build your Actor, use the Apify CLI. It uploads your code to an Actor version and builds it on the platform.
+
+To deploy your Actor:
 
 1. Log in to your Apify account:
 
@@ -20,49 +40,56 @@ To deploy your Actor using the Apify CLI:
     apify login
     ```
 
-1. Navigate to the directory of your Actor on your local machine.
-
-1. Deploy your Actor by running:
+1. Navigate to your Actor's directory.
+1. Upload your Actor's source code and build it on the Apify platform:
 
     ```bash
     apify push
     ```
 
-When you deploy using the CLI, your source code is uploaded as "multiple source files" and is visible and editable in the Web IDE.
+The `apify push` command checks if your account has an Actor with the name defined in `.actor/actor.json` and creates it if none exists. Then, it creates or updates the Actor's version, uploads your code as its source, starts a build, and streams the build log.
 
-![Web IDE](./images/actor-source.png)
+### Define the version
 
-:::note Source files size limit
-
-The CLI deploys code as multiple source files up to 3 MB. Beyond that, it deploys as a Zip file.
-
-:::
-
-### Pull an existing Actor
-
-You can also pull an existing Actor from the Apify platform to your local machine using `apify pull` command
+To choose which Actor version to deploy, use the `--version` flag:
 
 ```bash
-apify pull [ACTORID]
+apify push --version=1.2
 ```
 
-This command fetches the Actor's files to your current directory. If the Actor is defined as a Git repository, it will be cloned, for Actors defined in the Web IDE, the command will fetch the files directly.
+If you skip the flag, the CLI uses the `version` field in `.actor/actor.json`, and defaults to `0.0`.
 
-You can specify a particular version of the Actor to pull by using the `--version` flag:
+To create a new Actor version, use a version number that doesn't exist yet. To replace the source of an existing version, use the number of that version.
+
+### Source type by size
+
+The CLI picks the source type by size:
+
+- If your project is smaller than 3 MB, the CLI uploads it as multiple source files. They stay visible and editable in the [web IDE](/actors/development/quick-start/web-ide).
+- If your project is 3 MB or larger, the CLI uploads it as a Zip file. The web IDE can't display it.
+
+## Deploy code hosted in Git
+
+When you host your Actor's code in a Git repository, the platform only stores the repository URL. It clones the repository at build time.
+
+### Git repository
+
+To deploy your Actor, push changes to the repository:
 
 ```bash
-apify pull [ACTORID] --version=1.2
+git push
 ```
 
-If you don't provide the `ACTORID`, the command will update the Actor in the current directory based on its name in the `.actor/actor.json` file.
+The next step depends on the build settings for the version:
 
-## Alternative deployment methods
+- If automated builds are on, a push to the repository starts a build.
+- If manual builds are on, a push only updates your repository. Start the build from Console, with the [Build Actor](/api/v2/actors-builds-post) endpoint, or with the `apify actors build` command.
 
-To deploy using other methods, first create the Actor manually through Apify CLI or Apify Console, then change its source type:
+You can configure different build settings for different versions.
 
-![Actor source types](./images/actor-source-types.png)
+### GitHub Gist
 
-You can link your Actor to a Git repository, Gist, or a Zip file.
+Gists don't support automated builds. To deploy your Actor:
 
-For more information on alternative source types, check out next chapter.
-
+1. Update the Gist.
+1. Start a build from Console, with the [Build Actor](/api/v2/actors-builds-post) endpoint, or with the `apify actors build` command.
