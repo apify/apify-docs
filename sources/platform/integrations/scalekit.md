@@ -1,20 +1,18 @@
 ---
 title: Scalekit integration
 sidebar_label: Scalekit
-description: Learn how to use Scalekit with Apify Actors to add per-user OAuth authorization, enabling access to 100+ third-party services like Notion, Gmail, and Slack.
+description: Learn how to use Scalekit with Apify Actors to add per-user OAuth authorization for more than 400 services such as Notion, Gmail, and Slack.
 sidebar_position: 21
 slug: /integrations/scalekit
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
-## What is Scalekit
-
-[Scalekit](https://scalekit.com) is auth infrastructure for AI agents. It provides a token vault and connector layer that handles OAuth 2.0 flows, token storage, automatic refresh, and API proxying for 100+ third-party services including Notion, Gmail, Slack, Google Calendar, GitHub, and more.
+[Scalekit](https://scalekit.com) is auth infrastructure for AI agents. It provides a token vault and connector layer that handles OAuth 2.0 flows, token storage, automatic refresh, and API proxying for more than 400 third-party services including Notion, Gmail, Slack, Google Calendar, GitHub, and more.
 
 With the [Scalekit Node SDK](https://www.npmjs.com/package/@scalekit-sdk/node) inside your Actor, each user who runs it can connect their own SaaS accounts. Scalekit stores the OAuth tokens server-side, refreshes them automatically, and proxies API calls on the user's behalf. Your Actor never touches a token directly.
 
-See the [AgentKit documentation](https://docs.scalekit.com/agentkit/overview) for the full API reference.
+Read the [AgentKit API reference](https://docs.scalekit.com/agentkit/overview).
 
 <ThirdPartyDisclaimer />
 
@@ -24,10 +22,12 @@ This guide shows how to add per-user OAuth to an Apify Actor using Scalekit. The
 
 ### Prerequisites
 
-- _A Scalekit account_ with your `SCALEKIT_ENV_URL`, `SCALEKIT_CLIENT_ID`, and `SCALEKIT_CLIENT_SECRET` from **Dashboard > Developers > Settings > API Credentials** - [sign up here](https://app.scalekit.com)
-- _An Apify account_ - [sign up here](https://console.apify.com/)
-- _A configured connection_ in the Scalekit dashboard - go to **Agent Auth > Connections > + Create Connection** and select the service, for example Notion
-- _Node.js 18+_
+- A [Scalekit account](https://app.scalekit.com) with your `SCALEKIT_ENV_URL`, `SCALEKIT_CLIENT_ID`, and `SCALEKIT_CLIENT_SECRET` from **Dashboard > Developers > Settings > API Credentials**
+- An [Apify account](https://console.apify.com/)
+- A configured connection in the Scalekit dashboard - go to **Agent Auth > Connections > + Create Connection** and select the service, for example Notion
+- Node.js 18+
+
+### Step 1: Install the Scalekit SDK
 
 Install the Scalekit SDK in your Actor project:
 
@@ -43,7 +43,7 @@ SCALEKIT_CLIENT_ID=skc_...
 SCALEKIT_CLIENT_SECRET=your-secret
 ```
 
-### Step 1: Initialize the Scalekit client
+### Step 2: Initialize the Scalekit client
 
 Create a Scalekit client using your environment credentials. Initialize it once and reuse it across your Actor.
 
@@ -60,7 +60,7 @@ const scalekit = new ScalekitClient(
 );
 ```
 
-### Step 2: Connect a user's account
+### Step 3: Connect a user's account
 
 Call `getOrCreateConnectedAccount` to check if a user has already authorized a service. This method is idempotent - safe to call on every Actor run.
 
@@ -73,11 +73,11 @@ const resp = await scalekit.actions.getOrCreateConnectedAccount({
   connectionName: 'notion',
   identifier: userId,
 });
-
+// The SDK returns { connectedAccount }. Fall back to resp for older SDK versions.
 let account = resp.connectedAccount ?? resp;
 ```
 
-The connected account has one of these statuses:
+The connected account has one of these statuses. The SDK returns them as numbers (`ACTIVE` is `1`):
 
 | Status | Meaning |
 | --- | --- |
@@ -85,14 +85,14 @@ The connected account has one of these statuses:
 | `INACTIVE` | User has not connected yet |
 | `EXPIRED` | Token needs re-authorization |
 
-### Step 3: Authorize the user
+### Step 4: Authorize the user
 
 If the account is not active, generate an authorization link and surface it in the Actor's status message. The user completes OAuth in their browser, and the Actor polls until the connection is active.
 
 ```javascript
-import { ConnectorStatus } from '@scalekit-sdk/node/lib/pkg/grpc/scalekit/v1/connected_accounts/connected_accounts_pb';
+const ACTIVE = 1; // ConnectorStatus.ACTIVE
 
-if (account.status !== ConnectorStatus.ACTIVE) {
+if (account.status !== ACTIVE) {
   const { link } = await scalekit.actions.getAuthorizationLink({
     connectionName: 'notion',
     identifier: userId,
@@ -110,7 +110,7 @@ if (account.status !== ConnectorStatus.ACTIVE) {
       identifier: userId,
     });
     const pollAccount = poll.connectedAccount ?? poll;
-    if (pollAccount.status === ConnectorStatus.ACTIVE) {
+    if (pollAccount.status === ACTIVE) {
       account = pollAccount;
       connected = true;
       break;
@@ -127,9 +127,9 @@ The user authorizes once. Every future Actor run for that Apify account finds an
 
 :::
 
-### Step 4: Call the API
+### Step 5: Call the API
 
-Once the account is active, call the third-party API through Scalekit. There are two approaches.
+Once the account is active, call the third-party API through Scalekit. There are two approaches. Use `executeTool` when a pre-built tool exists for your use case. Use `actions.request` for full control over the API call or to reach endpoints without a pre-built tool. Both approaches use the same connected account and the same token vault.
 
 #### Pre-built tools with `executeTool`
 
@@ -159,8 +159,6 @@ const result = await scalekit.actions.request({
 });
 ```
 
-Both approaches use the same connected account and the same token vault. Use `executeTool` when a pre-built tool exists for your use case. Use `actions.request` for full control over the API call or to reach endpoints without a pre-built tool.
-
 ## Complete example
 
 An Actor that initializes Scalekit, checks authorization, and searches the user's Notion pages:
@@ -168,12 +166,14 @@ An Actor that initializes Scalekit, checks authorization, and searches the user'
 ```javascript
 import { Actor } from 'apify';
 import { ScalekitClient } from '@scalekit-sdk/node';
-import { ConnectorStatus } from '@scalekit-sdk/node/lib/pkg/grpc/scalekit/v1/connected_accounts/connected_accounts_pb';
+
+const ACTIVE = 1; // ConnectorStatus.ACTIVE
 
 await Actor.init();
 
 try {
   const input = await Actor.getInput();
+  if (!input) throw new Error('Input is required.');
   const { task } = input;
 
   const scalekit = new ScalekitClient(
@@ -188,9 +188,10 @@ try {
     connectionName: 'notion',
     identifier: userId,
   });
+  // The SDK returns { connectedAccount }. Fall back to resp for older SDK versions.
   let account = resp.connectedAccount ?? resp;
 
-  if (account.status !== ConnectorStatus.ACTIVE) {
+  if (account.status !== ACTIVE) {
     const { link } = await scalekit.actions.getAuthorizationLink({
       connectionName: 'notion',
       identifier: userId,
@@ -212,7 +213,7 @@ try {
         identifier: userId,
       });
       const pollAccount = poll.connectedAccount ?? poll;
-      if (pollAccount.status === ConnectorStatus.ACTIVE) {
+      if (pollAccount.status === ACTIVE) {
         account = pollAccount;
         connected = true;
         break;
@@ -263,28 +264,7 @@ For a complete working example, see [Notion + YouTube Agent](https://github.com/
 
 ## Available connectors
 
-Scalekit supports 100+ connectors. Common services include:
-
-| Service | `connectionName` |
-| --- | --- |
-| Gmail | `gmail` |
-| Google Calendar | `googlecalendar` |
-| Google Drive | `googledrive` |
-| Slack | `slack` |
-| Notion | `notion` |
-| GitHub | `github` |
-| HubSpot | `hubspot` |
-| Jira | `jira` |
-| Salesforce | `salesforce` |
-| Linear | `linear` |
-| Outlook | `outlook` |
-| Zoom | `zoom` |
-| Gong | `gong` |
-| Airtable | `airtable` |
-
-Change `connectionName` in `getOrCreateConnectedAccount` and `getAuthorizationLink` to connect to a different service. The rest of the code stays the same.
-
-[Browse all connectors](https://docs.scalekit.com/agentkit/connectors)
+Scalekit supports more than 400 connectors, including Gmail, Slack, Notion, GitHub, HubSpot, and Salesforce. Change `connectionName` in `getOrCreateConnectedAccount` and `getAuthorizationLink` to connect to a different service. The rest of the code stays the same - [browse all connectors](https://docs.scalekit.com/agentkit/connectors).
 
 :::tip Multiple services per user
 
@@ -294,7 +274,7 @@ Use the same `identifier` across connectors to let your Actor access multiple se
 
 ## Resources
 
-- [AgentKit documentation](https://docs.scalekit.com/agentkit/overview)
+- [AgentKit API reference](https://docs.scalekit.com/agentkit/overview)
 - [AgentKit quickstart](https://docs.scalekit.com/agentkit/quickstart)
 - [All available connectors](https://docs.scalekit.com/agentkit/connectors)
 - [Agentic tool calling](https://docs.scalekit.com/agentkit/tools/overview)
