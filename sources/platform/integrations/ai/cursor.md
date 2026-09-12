@@ -26,6 +26,10 @@ This guide covers installation from the Cursor plugin marketplace.
 
 ## Install the plugin
 
+In the Cursor chat, run `/add-plugin apify` to install the plugin without leaving the editor.
+
+To install from the plugin marketplace instead:
+
 1. Open **Cursor** > **Preferences** > **Cursor Settings**.
 
 1. Select **Plugins**.
