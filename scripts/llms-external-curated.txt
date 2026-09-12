@@ -62,7 +62,7 @@
   - [Accept user input](https://docs.apify.com/sdk/js/docs/guides/accept-user-input.md): Accept and log user input in your Actor.
   - [Add data to dataset](https://docs.apify.com/sdk/js/docs/guides/add-data-to-dataset.md): Save data to the default dataset.
   - [Call actor](https://docs.apify.com/sdk/js/docs/guides/call-actor.md): Start an Apify Actor programmatically.
-  - [Setting up a TypeScript project](https://docs.apify.com/sdk/js/docs/guides/type-script-actor.md): TypeScript support in Apify SDK.
+  - [Setting up a TypeScript project](https://docs.apify.com/sdk/js/docs/guides/typescript-setup.md): TypeScript support in Apify SDK.
   - [Upgrading to v3](https://docs.apify.com/sdk/js/docs/upgrading/upgrading-to-v3.md): Breaking changes between Crawlee (v3) and Apify SDK (v2).
   - [Changelog](https://docs.apify.com/sdk/js/docs/changelog.md)
 - [apify reference](https://docs.apify.com/sdk/js/reference.md)
@@ -70,7 +70,7 @@
 ## Apify SDK for Python
 
 - [Overview](https://docs.apify.com/sdk/python/docs/overview.md): The official library for creating Apify Actors in Python, providing tools for web scraping, automation, and data storage integration.
-  - [Quick start](https://docs.apify.com/sdk/python/docs/introduction/quick-start.md): Get started with the Apify SDK for Python by creating your first Actor.
+  - [Quick start](https://docs.apify.com/sdk/python/docs/quick-start.md): Get started with the Apify SDK for Python by creating your first Actor.
   - [Actor lifecycle](https://docs.apify.com/sdk/python/docs/concepts/actor-lifecycle.md): How an Apify Actor starts, runs, and shuts down.
   - [Actor input](https://docs.apify.com/sdk/python/docs/concepts/actor-input.md): Read Actor input from the default key-value store.
   - [Actor configuration](https://docs.apify.com/sdk/python/docs/concepts/actor-configuration.md): Configure the Actor class using the Configuration class and environment variables.
