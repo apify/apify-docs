@@ -45,6 +45,19 @@ FROM apify/actor-node-playwright-chrome:24-1.60.0-slim
 
 See the [Docker image guide](/sdk/js/docs/guides/docker-images) for more details.
 
+:::note Testing Playwright Actors locally
+
+The `actor-node-playwright-*` base images already include all the system libraries Playwright needs (`libnss3`, `libatk1.0-0`, and so on). When developing locally, do **not** run `npx playwright install-deps` &mdash; it requires `sudo` and will fail with an error like `su: must be suid to work properly` in unprivileged environments (containers, restricted shells, CI runners without root).
+
+To iterate on a Playwright Actor without a local `sudo`-capable shell, either:
+
+- Rely on the browsers and libraries pre-installed in the base image and run your Actor inside Docker (`apify run` builds and executes it in the image), or
+- Push your Actor to Apify with `apify push` and run it remotely &mdash; the platform build already has the required system dependencies.
+
+Only `npx playwright install` (which downloads browser binaries into your user directory) is safe to run without root.
+
+:::
+
 ### Python base images
 
 These images come with Python (version `3.10`, `3.11`, `3.12`, `3.13`, or `3.14`) and the [Apify SDK for Python](/sdk/python) preinstalled. The `latest` tag corresponds to the latest Python 3 version supported by the Apify SDK.
