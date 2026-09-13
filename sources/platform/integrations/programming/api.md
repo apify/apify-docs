@@ -28,8 +28,86 @@ unless you fully understand the consequences! You can also consider  [limiting t
 
 You can authenticate the Apify API in two ways. You can either pass the token via the `Authorization` HTTP header or the URL `token` query parameter. We always recommend you use the authentication via the HTTP header as this method is more secure.
 
+Example using the HTTP header:
+
+```bash
+curl -H "Authorization: Bearer $APIFY_TOKEN" https://api.apify.com/v2/users/me
+```
+
 Note that some API endpoints, such as [Get list of keys](/api/v2/key-value-store-keys-get),
 do not require an authentication token because they contain a hard-to-guess identifier that effectively serves as an authentication key.
+
+### Apify CLI
+
+The [Apify CLI](/cli) authenticates against the same REST API using the same tokens described above. Running:
+
+```bash
+apify login
+```
+
+opens your browser and completes an OAuth flow with Apify Console. The resulting token is written to a local credentials file (typically `~/.apify/auth.json` on macOS and Linux, or `%USERPROFILE%\.apify\auth.json` on Windows). Subsequent `apify` commands read from this file automatically.
+
+For non-interactive environments (CI, containers, remote servers) pass the token explicitly. This bypasses the browser flow and is safe to script:
+
+```bash
+apify login --token "$APIFY_TOKEN"
+```
+
+The `APIFY_TOKEN` environment variable is also honored by many CLI subcommands and by the [JavaScript](/api/client/js/) and [Python](/api/client/python/) API clients, so exporting it once covers the CLI plus any client library your Actor code uses. If both `~/.apify/auth.json` and `APIFY_TOKEN` are present, the CLI prefers the credentials file for `apify` commands that require a logged-in user, so remember to `apify logout` before switching accounts on a shared machine.
+
+```bash
+export APIFY_TOKEN=apify_api_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+apify call apify/rag-web-browser -i '{"query":"Apify"}'
+```
+
+### Apify MCP server
+
+The same API token authenticates the [Apify MCP server](/platform/integrations/mcp), which exposes Actors, storages, and platform actions as [Model Context Protocol](https://modelcontextprotocol.io) tools to compatible AI clients.
+
+There are two transports, both authenticated with the same token as the REST API:
+
+- _Hosted (`mcp.apify.com`)_ - streamable HTTP endpoint at `https://mcp.apify.com`. Supports two credential flows: an OAuth handshake that lets the client obtain a token without you pasting it, or an explicit `Authorization: Bearer <APIFY_TOKEN>` header. OAuth is the default and recommended path for interactive clients.
+- _Local stdio (`@apify/actors-mcp-server`)_ - the [npm package](https://www.npmjs.com/package/@apify/actors-mcp-server) runs the server as a child process and reads the token from the `APIFY_TOKEN` environment variable.
+
+Example `mcp.json` snippet compatible with Claude Code, Cursor, VS Code, Codex, and other MCP-aware clients:
+
+```json
+{
+  "mcpServers": {
+    "apify": {
+      "url": "https://mcp.apify.com"
+    }
+  }
+}
+```
+
+Or, for clients that only speak stdio (for example Claude Desktop):
+
+```json
+{
+  "mcpServers": {
+    "apify": {
+      "command": "npx",
+      "args": ["-y", "@apify/actors-mcp-server"],
+      "env": { "APIFY_TOKEN": "YOUR_TOKEN" }
+    }
+  }
+}
+```
+
+A token used with MCP grants the MCP server access to the same set of Apify endpoints it would grant to any other API caller - Actor runs, dataset reads, key-value stores, request queues, schedules, and so on - subject to any [scoped-token](#api-tokens-with-limited-permissions) restrictions you configured. Scoped tokens work transparently with the MCP server, so restricting a token to a single Actor and its output storages is a common pattern when handing a token to an AI agent.
+
+### Apify Console (interactive login)
+
+When you click _Log in_ on [console.apify.com](https://console.apify.com), the browser completes a session-based sign-in against Apify's console backend rather than issuing you an API token. The session is stored client-side in a first-party cookie scoped to the Console origin; it is not usable as an `Authorization: Bearer` value against the public REST API.
+
+To use API tokens after logging in interactively:
+
+1. Open [Settings > API & Integrations](https://console.apify.com/settings/integrations) in Apify Console.
+1. Create a new personal token (or copy an existing one). Give each token a descriptive label so you can later identify what integration it belongs to.
+1. Optionally set an [expiration date](#expiration) or [scope](#api-tokens-with-limited-permissions), then save.
+
+The same page is used to [rotate](#rotation) a token if it is compromised, or to revoke a token you no longer need. Tokens are shown in full only at creation time; treat the copied value like any other secret. For organization contexts, see [Organization accounts](#organization-accounts) for how personal versus organization tokens differ.
 
 ## Expiration
 
