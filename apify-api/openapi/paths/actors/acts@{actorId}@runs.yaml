@@ -26,7 +26,8 @@ get:
   responses:
     "200":
       description: ""
-      headers: {}
+      headers:
+        $ref: ../../components/headers/ApifyPaginationHeaders.yaml
       content:
         application/json:
           schema:

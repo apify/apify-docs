@@ -12,8 +12,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-With the web IDE in Apify Console, you can write, build, and run your code entirely in a
-browser. This guide explains the full lifecycle of an Actor: how to start with a template for a working crawler, build it, configure its input, and run it in the cloud.
+With the web IDE in Apify Console, you can write, build, and run your code entirely in a browser. It's a great way to get familiar with the platform and see the full lifecycle of an Actor, without using any local development tools.
 
 ## Before you start
 

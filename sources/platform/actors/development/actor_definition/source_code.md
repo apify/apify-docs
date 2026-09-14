@@ -15,7 +15,7 @@ You have the flexibility to choose any programming language, technologies, and d
 Let's take a look at the example JavaScript Actor's source code. The following Dockerfile:
 
 ```dockerfile
-FROM apify/actor-node:20
+FROM apify/actor-node:24
 
 COPY package*.json ./
 
@@ -36,10 +36,10 @@ CMD npm start --silent
 
 This `Dockerfile` does the following tasks:
 
-1. Builds the Actor from the `apify/actor-node:20` base image.
+1. Builds the Actor from the `apify/actor-node:24` base image.
 
     ```dockerfile
-    FROM apify/actor-node:20
+    FROM apify/actor-node:24
     ```
 
 2. Copies the `package.json` and `package-lock.json` files to the image.
