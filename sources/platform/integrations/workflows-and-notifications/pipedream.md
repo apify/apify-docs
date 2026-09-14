@@ -54,11 +54,12 @@ Before you begin, make sure you have:
 1. Configure the action parameters:
     - Set **Search Actors from** to **Apify Store Actors** or **Recently used Actors**, then pick the Actor.
     - Fill in the Actor's input fields, which are generated from the Actor's input schema. Actors without an input schema get a single **Properties** field that accepts raw JSON.
-    - Leave **Wait for finish** set to `true` (the default) to wait for the run and return its output, or set it to `false` to return the run details immediately. With `true`, **Output Record Key** selects which key-value store record is returned (`OUTPUT` by default).
+    - Leave **Wait for finish** set to `true` (the default) to wait for the run, or set it to `false` to return run details immediately.
+    - With `true`, the step returns the key-value store record named by **Output Record Key** (`OUTPUT` by default). It does not return dataset items.
     - Set optional fields as needed: **Build** (a build tag or build number), **Timeout (seconds)**, **Memory (MB)** (powers of two from 128 MB to 32 GB), **Max Items**, **Max Total Charge USD**, and **Webhook URL**.
 
     ![Configuring an Apify action in Pipedream](../images/pipedream/pipedream-action.webp)
-1. Add another Apify step with **Get dataset items** to retrieve the Actor's output.
+1. Add a **Get dataset items** step to fetch the results. Most Actors write scraped rows to a dataset, not to `OUTPUT`.
 1. Add any subsequent steps to process or store the data.
 
 :::caution Building workflows with AI
@@ -80,7 +81,7 @@ For longer runs with **Run Actor**, split across two workflows:
 1. In a second workflow, use the **New finished Actor run (instant)** trigger for the same Actor.
 1. Add **Get dataset items** after the trigger.
 
-Alternatively, save the Actor configuration as an [Actor task](/actors/running/tasks) and use **Run task**, which already handles waiting for you.
+Alternatively, save the Actor configuration as an [Actor task](/actors/running/tasks) and use **Run task** with **Wait for finish** set to `true`.
 
 ## Handle large Actor output
 
@@ -104,9 +105,9 @@ Each trigger takes a **Trigger on run states** field listing the terminal run st
 
 ## Actions
 
-- **Run Actor** - Runs a selected Actor and, by default, waits for it to finish and returns its output. Input fields are generated from the Actor's input schema. Optional fields: **Build**, **Timeout (seconds)**, **Memory (MB)**, **Max Items**, **Max Total Charge USD**, **Webhook URL**, and **Output Record Key**.
-- **Run task** - Runs a selected task and, by default, waits for it to finish. Use **Override Input (JSON)** to replace the task's saved input for a single run, and leave it empty to use the saved input. Optional fields: **Build**, **Timeout (seconds)**, and **Memory (MB)**.
-- **Scrape single URL** - Runs a scraper on a specified URL and returns its content as HTML. Use this for extracting content from a single page, e.g. in LLM workflows. **Crawler Type** selects the engine: **Firefox (Headless Browser)** renders JavaScript and is the most resistant to blocking (the default), **Cheerio (Raw HTTP)** is the fastest and cheapest but renders no JavaScript, and **Adaptive** switches between the two per page.
+- **Run Actor** - Runs a selected Actor and, by default, waits for it to finish and returns the `OUTPUT` record. Input fields are generated from the Actor's input schema. Optional fields: **Build**, **Timeout (seconds)**, **Memory (MB)**, **Max Items**, **Max Total Charge USD**, **Webhook URL**, and **Output Record Key**.
+- **Run task** - Runs a selected task and, by default, waits for it to finish and returns the run, without its output. Use **Override Input (JSON)** to replace the task's saved input for a single run, and leave it empty to use the saved input. Optional fields: **Build**, **Timeout (seconds)**, and **Memory (MB)**.
+- **Scrape single URL** - Runs [Website Content Crawler](https://apify.com/apify/website-content-crawler) on a specified URL and returns its content as HTML. Use this for extracting content from a single page, e.g. in LLM workflows. **Crawler Type** selects the engine: **Firefox (Headless Browser)** renders JavaScript (the default), **Cheerio (Raw HTTP)** sends raw HTTP requests and renders none, and **Adaptive** switches per page.
 - **Get dataset items** - Retrieves items from a [dataset](/storage/dataset), specified by ID or name. **Limit** and **Offset** page through the items, and **Fields**, **Omit**, **Flatten**, and **Clean** shape each item.
 - **Get key-value store record** - Retrieves a record from a [key-value store](/storage/key-value-store). A JSON record is returned as parsed fields, and any other content type as a file reference.
 - **Set key-value store record** - Creates or updates a record in a [key-value store](/storage/key-value-store).
