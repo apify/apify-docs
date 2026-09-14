@@ -15,11 +15,7 @@ If you have the storage's _name_ or _ID_, you can access it from any [Actor](../
 
 [Request queues](./request_queue.md) only allow multiple runs to add new data. A request queue can be processed by one Actor or task run at a time.
 
-:::note Concurrent write order
-
 When multiple runs use the same storage at the same time, the order in which their operations are processed is not guaranteed. For example, if a delete of a key-value store record is processed before a read of the same record, the read fails.
-
-:::
 
 :::info Accessing restricted storage resources between runs
 
@@ -62,11 +58,11 @@ async def main():
 
 Only the method name changes with the storage type:
 
-| Storage type    | [JavaScript SDK](/sdk/js)   | [Python SDK](/sdk/python)      |
-| --------------- | --------------------------- | ------------------------------ |
-| Dataset         | `Actor.openDataset()`       | `Actor.open_dataset()`         |
-| Key-value store | `Actor.openKeyValueStore()` | `Actor.open_key_value_store()` |
-| Request queue   | `Actor.openRequestQueue()`  | `Actor.open_request_queue()`   |
+| Storage type    | [JavaScript SDK](/sdk/js)                                                        | [Python SDK](/sdk/python)                                                                 |
+| --------------- | -------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| Dataset         | [`Actor.openDataset()`](/sdk/js/reference/class/Actor#openDataset)               | [`Actor.open_dataset()`](/sdk/python/reference/class/Actor#open_dataset)                  |
+| Key-value store | [`Actor.openKeyValueStore()`](/sdk/js/reference/class/Actor#openKeyValueStore)   | [`Actor.open_key_value_store()`](/sdk/python/reference/class/Actor#open_key_value_store)  |
+| Request queue   | [`Actor.openRequestQueue()`](/sdk/js/reference/class/Actor#openRequestQueue)     | [`Actor.open_request_queue()`](/sdk/python/reference/class/Actor#open_request_queue)      |
 
 ## Open a storage with an API client
 
