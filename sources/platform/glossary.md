@@ -131,7 +131,7 @@ The [quality score](/actors/publishing/quality-score) rates how well a Store Act
 
 ## Rental
 
-[Rental](/actors/publishing/monetize/rental) is a pricing model that charges users a flat monthly fee to use a paid Actor, after a free trial.
+[Rental](/actors/publishing/monetize/rental) is a retiring pricing model that charges users a flat monthly fee after a free trial. Publishing new rental Actors stopped on April 1, 2026, and on October 1, 2026 the remaining ones move to pay-per-usage.
 
 ## Request queue
 
