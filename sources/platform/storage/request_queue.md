@@ -563,9 +563,9 @@ await Actor.exit();
 
 A detailed tutorial on how to process one request queue with multiple Actor runs can be found in [Academy tutorials](https://docs.apify.com/academy/node-js/multiple-runs-scrape).
 
-## Share and reuse
+## Share and reuse {#share}
 
-You can grant access rights to your request queue, share it by link, or generate a time-limited pre-signed URL for one-off access. See [Share storage](./share.md).
+You can grant access rights to your request queue or share it by link. See [Share storage](./share.md).
 
 To add requests to a queue that belongs to a different Actor or task run, see [Use storage from another run](./use-from-another-run.md).
 

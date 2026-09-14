@@ -112,11 +112,7 @@ To add data to a dataset, issue a POST request to the [Put items](/api/v2/datase
 https://api.apify.com/v2/datasets/{DATASET_ID}/items
 ```
 
-:::caution Rate limit
-
-API data push to a dataset is capped at _400 requests per second_ to avoid overloading the servers.
-
-:::
+Pushes to a dataset are rate-limited; see [Rate limiting](#rate-limiting).
 
 Example payload:
 
@@ -413,9 +409,9 @@ This feature is also useful when customizing your RSS feeds generated for variou
 
 By default, the whole result is wrapped in an `<items/>` element, while each page object is contained in an `<item/>` element. You can change this using the `xmlRoot` and `xmlRow` URL parameters when retrieving your data with a GET request.
 
-## Share and reuse
+## Share and reuse {#share}
 
-You can grant access rights to your dataset, share it by link, or generate a time-limited pre-signed URL for specific records. See [Share storage](../share.md).
+You can grant access rights to your dataset, share it by link, or generate a time-limited pre-signed URL for specific items. See [Share storage](../share.md).
 
 To read from or write to a dataset that belongs to a different Actor or task run, see [Use storage from another run](../use-from-another-run.md).
 
