@@ -119,7 +119,11 @@ An [output schema](/actors/development/actor-definition/output-schema) declares 
 
 ## Pay-per-event
 
-[Pay-per-event](/actors/publishing/monetize/pay-per-event) (PPE) is a pricing model that charges users for specific events an Actor emits, such as each result or action, rather than for compute time. The Actor triggers the events from its own code, and you choose whether platform usage costs are passed on to users.
+[Pay-per-event](/actors/publishing/monetize/pay-per-event) (PPE) is a pricing model that charges users for specific events an Actor emits, such as each result or action, rather than for compute time. The Actor triggers the events from its own code, and platform usage costs can optionally be passed on as well, as [pay per event + usage](#pay-per-event-usage).
+
+## Pay per event + usage {#pay-per-event-usage}
+
+[Pay per event + usage](/actors/publishing/monetize/pay-per-event#platform-usage-costs) is an option on the pay-per-event model, not a pricing model of its own. With it switched on, users pay an Actor's platform usage costs on top of its event charges, which lowers the Actor's [quality score](/actors/publishing/quality-score) and makes it ineligible for [agentic payments](/actors/publishing/monetize), so it suits a stopgap while you work out accurate event prices.
 
 ## Pay-per-usage
 
