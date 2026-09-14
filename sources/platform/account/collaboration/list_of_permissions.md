@@ -1,4 +1,4 @@
----
+Facebook ads ---
 title: List of permissions
 description: Learn about the access rights you can grant to other users. See all access options for Apify resources such as Actors, tasks, storage, and schedules.
 sidebar_position: 12.2
