@@ -38,7 +38,7 @@ Documentation page:
 ```yaml
 ---
 title: Store and manage data
-description: Learn how to store and manage data in Apify datasets, key-value stores, and request queues.
+description: Use Apify datasets for scraped results, key-value stores for files and crawl state, and request queues for the URLs an Actor still has left to visit.
 sidebar_position: 3
 slug: /platform/storage
 ---
@@ -49,7 +49,7 @@ Tutorial:
 ```yaml
 ---
 title: Build a web scraper
-description: Step-by-step guide to building your first web scraper with Apify and Playwright.
+description: Build your first web scraper with Apify and Playwright, from project setup and page navigation to extracting data and saving results to a dataset.
 sidebar_position: 1
 slug: /academy/tutorials/web-scraper
 ---
