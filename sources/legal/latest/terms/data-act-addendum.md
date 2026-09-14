@@ -1,7 +1,7 @@
 ---
 title: EU Data Act Addendum
 description: EU Data Act Addendum applies to EU customers only.
-sidebar_position: 5
+sidebar_position: 4
 sidebar_label: EU Data Act Addendum
 category: legal
 slug: /data-act-addendum

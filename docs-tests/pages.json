@@ -2,6 +2,6 @@
   "pages": [
     "sources/platform/account/console.md",
     "sources/platform/account/settings.md",
-    "sources/platform/account/billing.md"
+    "sources/platform/account/billing/index.md"
   ]
 }

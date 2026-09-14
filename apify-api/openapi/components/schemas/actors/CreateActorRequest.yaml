@@ -43,10 +43,6 @@ properties:
       - type: "null"
     description: "An array of `Version` objects. Each object represents a specific version of the
       Actor's source code: its location, builds, and environment configuration."
-  pricingInfos:
-    type: array
-    items:
-      $ref: ../actor-pricing-info/ActorRunPricingInfo.yaml
   categories:
     type: [array, "null"]
     examples: [["SOCIAL_MEDIA"]]

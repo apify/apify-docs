@@ -60,35 +60,24 @@ See a [full list](https://ipfs.io/ipfs/QmXoypizjW3WknFiJnKLwHCnL72vedxjQkDDP1mXW
 
 ## Fetch more than one page of results
 
-By default, Google returns up to _10 search results per page_. To retrieve additional results beyond the first page, use the `numPages` query parameter.
-
-When you specify `numPages`, the proxy makes multiple requests in the background and merges them into a single HTML response.
-
-### `numPages` parameter
-
-Add the `numPages` parameter to your search URL with a value between 1 and 10:
+Google returns up to _10 search results per page_. To get further pages, send one request per page and use Google's `start` parameter, which sets the index of the first result:
 
 ```text
-http://www.google.com/search?q=wikipedia&numPages=3
+http://www.google.com/search?q=wikipedia            # results 1-10
+http://www.google.com/search?q=wikipedia&start=10   # results 11-20
+http://www.google.com/search?q=wikipedia&start=20   # results 21-30
 ```
 
-This example fetches and combines the first 3 pages of results (up to 30 results total) into one HTML response.
+Each page you fetch counts as one request.
 
-:::caution Pricing for multi-page requests
-Each page counts as a separate request. A request with `numPages=10` is priced as 10 requests.
+:::caution Unsupported parameters
+
+The following parameters are ignored, and requests containing them return a single page of results:
+
+* `numPages` - A deprecated Apify-specific parameter that merged several result pages into one response. Use `start` instead.
+* `num` - Deprecated by Google, which no longer uses it to control the number of results per page.
+
 :::
-
-Use Google's `start` parameter to handle pagination manually. The `start` parameter specifies the index of the first result (e.g., `start=10` for page 2, `start=20` for page 3).
-
-### Deprecated `num` parameter
-
-Google has deprecated the `num` query parameter, which previously controlled the number of results displayed per page.
-
-:::caution Ignored parameter
-If you include the `num` parameter in your requests, it will be ignored. Google no longer supports this parameter, and Google SERP proxy does not process it.
-:::
-
-To retrieve more than 10 results, use the `numPages` parameter described before instead.
 
 ## Examples
 

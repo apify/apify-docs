@@ -1,5 +1,6 @@
 ---
-title: Secret input
+title: Actor secret input
+sidebar_label: Secret input
 description: Mark Actor input fields as secret so their values are encrypted at rest and only decrypted inside the Actor run, protecting passwords and API tokens.
 sidebar_position: 2
 slug: /actors/development/actor-definition/input-schema/secret-input

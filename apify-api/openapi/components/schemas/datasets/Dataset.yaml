@@ -79,6 +79,8 @@ properties:
     type: [string, "null"]
     description: A secret key for generating signed public URLs. It is only provided to clients with WRITE permission for the dataset.
   generalAccess:
-    $ref: ../common/GeneralAccess.yaml
+    anyOf:
+      - $ref: ../common/GeneralAccess.yaml
+      - type: "null"
   stats:
     $ref: ./DatasetStats.yaml

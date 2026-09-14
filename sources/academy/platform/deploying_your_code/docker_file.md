@@ -35,7 +35,7 @@ At the base level, each Docker image contains a base operating system and usuall
 Once you find the base image you need, you can add it as the initial `FROM` statement:
 
 ```Dockerfile
-FROM apify/actor-node:16
+FROM apify/actor-node:24
 ```
 
 :::tip VSCode extension
@@ -60,7 +60,7 @@ Here's the Dockerfile for our Node.js example project's Actor:
 <TabItem value="Node.js Dockerfile" label="Node.js Dockerfile">
 
 ```Dockerfile
-FROM apify/actor-node:16
+FROM apify/actor-node:24
 
 # Second, copy just package.json and package-lock.json since they are the only files
 # that affect npm install in the next step
@@ -90,7 +90,7 @@ COPY . ./
 ```Dockerfile
 # First, specify the base Docker image.
 # You can also use any other image from Docker Hub.
-FROM apify/actor-python:3.9
+FROM apify/actor-python:3.14
 
 # Second, copy just requirements.txt into the Actor image,
 # since it should be the only file that affects "pip install" in the next step,

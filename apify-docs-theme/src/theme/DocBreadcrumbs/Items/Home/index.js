@@ -1,30 +1,46 @@
 import Link from '@docusaurus/Link';
 import { useLocation } from '@docusaurus/router';
-import { translate } from '@docusaurus/Translate';
-import useBaseUrl from '@docusaurus/useBaseUrl';
-import IconHome from '@theme/Icon/Home';
+import { useThemeConfig } from '@docusaurus/theme-common';
 import React from 'react';
 
-import styles from './styles.module.css';
+function isItemActive(item, pathname) {
+    if (item.activeBaseRegex) {
+        return new RegExp(item.activeBaseRegex).test(pathname);
+    }
+    if (item.activeBasePath) {
+        const basePath = `/${item.activeBasePath.replace(/^\//, '')}`;
+        return pathname === basePath || pathname.startsWith(`${basePath}/`);
+    }
+    return false;
+}
 
+/**
+ * The docs have no single root page, so instead of a home icon the first
+ * breadcrumb shows the top navigation item selected for the current page.
+ */
 export default function HomeBreadcrumbItem() {
-    const baseUrl = useBaseUrl('/');
-    const currentPath = useLocation().pathname.replace(new RegExp(`^${baseUrl}`), '');
-    const rootSection = useBaseUrl(currentPath.split('/')[0]);
-    const homeHref = baseUrl === '/' ? rootSection : baseUrl;
+    const { pathname } = useLocation();
+    const { navbar } = useThemeConfig();
+
+    // When several items match (e.g. Integrations and MCP), the first one in navbar order wins.
+    const activeItem = navbar.items.find(
+        (item) => item.label && (item.href || item.to) && isItemActive(item, pathname),
+    );
+
+    if (!activeItem) {
+        return null;
+    }
 
     return (
         <li className="breadcrumbs__item">
+            {/* The item href is absolute, so pass its target through - Link would default it to _blank. */}
             <Link
-                aria-label={translate({
-                    id: 'theme.docs.breadcrumbs.home',
-                    message: 'Home page',
-                    description: 'The ARIA label for the home page in the breadcrumbs',
-                })}
                 className="breadcrumbs__link"
-                href={homeHref}
+                href={activeItem.href ?? activeItem.to}
+                target={activeItem.target ?? '_self'}
+                rel={activeItem.rel}
             >
-                <IconHome className={styles.breadcrumbHomeIcon} />
+                {activeItem.label}
             </Link>
         </li>
     );

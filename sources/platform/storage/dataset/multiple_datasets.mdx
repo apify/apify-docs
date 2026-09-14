@@ -25,7 +25,7 @@ Define datasets in your Actor schema using the `datasets` object:
     "actorSpecification": 1,
     "name": "my-e-commerce-scraper",
     "title": "E-Commerce Scraper",
-    "version": "1.0.0",
+    "version": "1.0",
     "storages": {
         "datasets": {
             "default": "./products_dataset_schema.json",
@@ -42,11 +42,14 @@ The keys of the `datasets` object are aliases that refer to specific datasets. T
 Requirements:
 
 - The `datasets` object must contain the `default` alias
+- Dataset aliases must match `[A-Za-z][A-Za-z0-9_]{0,100}` and start with a letter. Use letters, numbers, and underscores. Hyphens aren't supported.
 - The `datasets` and `dataset` objects are mutually exclusive (use one or the other)
 
 :::info Alias versus named dataset
 
 On the Apify platform, aliases and names behave differently. Named datasets are persistent. The automatic data retention policy doesn't apply to them. Aliased datasets follow the data retention of their run, and aliases only have meaning within a specific run.
+
+Alias naming rules are stricter than named dataset naming rules. For example, `Actor.openDataset('my-new-dataset')` creates a named dataset and accepts hyphens, but `my-new-dataset` isn't a valid `storages.datasets` alias. Use `my_new_dataset` instead.
 
 Behavior differs when an SDK runs outside the platform. See the SDK notes below.
 

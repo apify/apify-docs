@@ -7,6 +7,7 @@ type: object
 properties:
   date:
     type: string
+    format: date-time
     examples: ["2022-10-02T00:00:00.000Z"]
   serviceUsage:
     $ref: ./ServiceUsage.yaml

@@ -38,7 +38,7 @@ Place the key-value store schema in the `.actor` folder in your Actor's root dir
     "actorSpecification": 1,
     "name": "this-is-book-library-scraper",
     "title": "Book Library scraper",
-    "version": "1.0.0",
+    "version": "1.0",
     "storages": {
         "keyValueStore": {
             "actorKeyValueStoreSchemaVersion": 1,
@@ -56,7 +56,7 @@ Place the key-value store schema in the `.actor` folder in your Actor's root dir
     "actorSpecification": 1,
     "name": "this-is-book-library-scraper",
     "title": "Book Library scraper",
-    "version": "1.0.0",
+    "version": "1.0",
     "storages": {
         "keyValueStore": "./key_value_store_schema.json"
     }
@@ -123,7 +123,7 @@ To organize those records, define collections in the `.actor/actor.json` configu
     "actorSpecification": 1,
     "name": "Actor Name",
     "title": "Actor Title",
-    "version": "1.0.0",
+    "version": "1.0",
     "storages": {
         "keyValueStore": {
             "actorKeyValueStoreSchemaVersion": 1,

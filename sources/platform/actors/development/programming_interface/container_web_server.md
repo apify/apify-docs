@@ -1,5 +1,6 @@
 ---
-title: Container web server
+title: Actor container web server
+sidebar_label: Container web server
 description: Run a web server inside your Actor to expose a unique URL for external HTTP access, enabling both UI interaction and programmatic API calls.
 slug: /actors/development/programming-interface/container-web-server
 sidebar_position: 7

@@ -4,7 +4,7 @@
 
 1. Review this guide completely
 2. Setup you development environment
-3. Familiarize yourself with our documentation style guide
+3. Familiarize yourself with the [documentation style guide](standards/)
 
 ## Development setup
 
@@ -77,65 +77,16 @@ You should be able to open https://docs.apify.loc in your browser and run all th
 
 ## Documentation style guide
 
-### Language guidelines
+The style guide lives in [`standards/`](standards/), which is the single source of truth for both people and AI assistants. Rules aren't repeated here, so there's nothing to keep in sync:
 
-- Use US English
-- Write in inclusive language
-- Avoid directional language (like "left" or "right" or instead of "see" use "check out")
-- Use active voice whenever possible
+- [`standards/writing-style.md`](standards/writing-style.md) - US English, active and inclusive voice, headings, text emphasis, links, numbers
+- [`standards/content-standards.md`](standards/content-standards.md) - Front matter, admonitions, code blocks and code tabs, images and screenshots
+- [`standards/terminology.md`](standards/terminology.md) - Apify product names, capitalization, article usage
+- [`standards/grammar-rules.md`](standards/grammar-rules.md) - Hyphenation, punctuation, numbers, brand spelling
+- [`standards/file-organization.md`](standards/file-organization.md) - File naming (kebab-case) and directory structure
+- [`standards/quality-standards.md`](standards/quality-standards.md) - Checklist to run through before opening a pull request
 
-### Formatting conventions
-
-1. Text emphasis:
-
-    - use **Bold** for UI elements
-    - use _Italics_ for emphasis
-    - use `code` for inline code, by using back-ticks (\`\`\)
-    - use code blocks with language specification
-    - use [code tabs](https://docusaurus.io/docs/markdown-features/tabs) whenever you want to include examples of implementation in more than one language
-
-2. Documentation elements:
-
-    - Use [admonitions](https://docusaurus.io/docs/2.x/markdown-features/admonitions) to emphasize crucial information, available admonitions are:
-      - note
-      - tip
-      - info
-      - caution
-      - danger
-    - Use code tabs for multiple languages
-    - Include proper metadata in front matter
-    - Use concise, meaningful headings:
-      - Use sentence case.
-      - Avoid question-like titles ("How to...", "What is...").
-      - Don't use gerunds.
-
-    Example of proper usage and formatting:
-
-    ```text
-    :::note Your Title Here
-
-    Your important message here.
-
-    :::
-    ```
-
-3. Screenshots:
-
-    - Keep screenshots to a minimum. If an image shows what your prose already describes, it's probably not needed.
-    - Always include meaningful alt texts. Remember that it might be the only way for some users to understand the content.
-    - Use light theme when taking screenshots.
-    - To highlight UI elements, use `#F86606` color for indicators. Don't use arrows.
-
-### Front matter metadata best practices
-
-- Keep descriptions between 140 and 160 characters
-- Use action-oriented phrasing
-- Avoid repetitive keywords
-- Avoid the word "documentation" in descriptions
-
-### File naming conventions
-
-For file names, use lowercase letters and hyphens (kebab-case). For example `web-scraping-basics.mdx`
+[`AGENTS.md`](AGENTS.md) condenses these into the rules an AI assistant loads first. Change a rule in `standards/`, not in `AGENTS.md` or here.
 
 ## AI assistant rules structure
 
@@ -344,9 +295,9 @@ Add languages by adding new folders at the appropriate path level.
 
 ## Pull request process
 
-1. Follow [Conventional Commits](https://www.conventionalcommits.org/)
-2. Pass all CI checks
-3. Include comprehensive documentation updates
+1. Title follows [Conventional Commits](https://www.conventionalcommits.org/) - CI enforces it
+2. Description is one or two sentences: what changed and why. Skip boilerplate headings (`## Summary`, `## Changes`) and bullet lists that restate the diff - the diff is the record of what changed, the description explains the why. [`.github/pull_request_template.md`](.github/pull_request_template.md) repeats this as a reminder in the PR form
+3. All CI checks pass
 
 ## Deployment
 

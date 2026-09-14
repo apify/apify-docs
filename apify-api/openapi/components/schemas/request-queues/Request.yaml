@@ -4,8 +4,6 @@ allOf:
   - $ref: ./RequestBase.yaml
     required:
       - id
-      - uniqueKey
-      - url
   - properties:
       id:
         $ref: ./SharedProperties.yaml#/RequestId

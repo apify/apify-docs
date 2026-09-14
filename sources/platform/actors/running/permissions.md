@@ -1,5 +1,6 @@
 ---
-title: Permissions
+title: Actor permissions
+sidebar_label: Permissions
 description: "Learn how Actor permissions work for running and building Actors: available permission levels, requesting and granting permissions, and security best practices."
 sidebar_position: 5
 slug: /actors/running/permissions

@@ -75,6 +75,7 @@ Use active voice. Avoid gendered terms. Don't use directional language ("left/ri
 | The Actor is started by the user  | The user starts the Actor        |
 | He can configure his settings     | You can configure your settings  |
 | Click the button on the left      | Click the **Settings** button    |
+| See the storage guide             | Check out the storage guide      |
 
 ### Avoid "our"
 
@@ -112,7 +113,6 @@ Acceptable uses of "our" - direct team actions or invitations:
 | API Reference Documentation | API reference documentation | Keep acronyms capitalized, rest lowercase |
 | Working With Docker Containers | Work with Docker containers | "Docker" stays capitalized (product name) |
 | Extend The Base Image | Extend the base image | Lowercase "the" mid-sentence |
-| How Do I Start? | How do I start? | Capitalize "I" in questions |
 | Understanding Request Queues | Understand request queues | Lowercase feature names |
 | Enable Standby Mode | Enable standby mode | Lowercase mode names |
 | Access The Apify Console | Access Apify Console | "Apify Console" stays capitalized (product), no "the" |
@@ -126,6 +126,35 @@ Acceptable uses of "our" - direct team actions or invitations:
 **No gerunds (-ing forms).** Use noun phrases or imperatives.
 
 > Enforced by Vale (`Apify.HeadingGerund`). Run `vale "<file>"` to check.
+
+**No question-like headings.** Answer the question instead of asking it.
+
+| Avoid                        | Prefer                  |
+| ---------------------------- | ----------------------- |
+| How to run an Actor?         | Run an Actor            |
+| What is a request queue?     | Request queues          |
+
+### Spacing
+
+**Never stack two headings.** Every heading must be followed by at least one paragraph of body text before the next heading. This also applies to the page title (the H1 from front matter) - open the page with an introductory paragraph, not a heading. A parent heading that groups its subsections still needs a lead: add an orienting sentence that tells the reader what the section covers or why it matters. If there is genuinely nothing to say, consider merging the sections instead.
+
+Avoid:
+
+```markdown
+## Run your first Actor
+
+### Prerequisites
+```
+
+Prefer:
+
+```markdown
+## Run your first Actor
+
+To get started, try one of the existing Actors from Apify Store.
+
+### Prerequisites
+```
 
 ## Text formatting
 

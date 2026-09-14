@@ -13,7 +13,6 @@ required:
   - defaultKeyValueStoreId
   - defaultDatasetId
   - defaultRequestQueueId
-  - generalAccess
 type: object
 properties:
   id:
@@ -84,7 +83,9 @@ properties:
     description: Exit code of the Actor run process.
   generalAccess:
     description: General access level for the Actor run.
-    $ref: ../common/GeneralAccess.yaml
+    anyOf:
+      - $ref: ../common/GeneralAccess.yaml
+      - type: "null"
   defaultKeyValueStoreId:
     type: string
     examples: [eJNzqsbPiopwJcgGQ]

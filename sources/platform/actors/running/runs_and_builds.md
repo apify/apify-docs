@@ -1,5 +1,6 @@
 ---
-title: Runs and builds
+title: Actor runs and builds
+sidebar_label: Runs and builds
 description: Learn about Actor builds and runs, including their lifecycle, version tagging, storage assignment, sharing options, and data retention policy.
 sidebar_position: 2
 slug: /actors/running/runs-and-builds
