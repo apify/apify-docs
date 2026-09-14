@@ -15,7 +15,7 @@ Report tool output and judgment separately. Tool findings are facts with a rule 
 | --- | --- |
 | `vale --minAlertLevel=suggestion` | [N errors, N warnings, N suggestions, or "not installed, prose coverage skipped"] |
 | `pnpm lint:md` | [pass, or N issues] |
-| `check-frontmatter.sh` | [PASS/FAIL with the character count] |
+| `check-frontmatter.sh` | [PASS/WARN/FAIL with the character count] |
 
 Findings, verbatim, most severe first:
 
@@ -98,7 +98,7 @@ A document is ready for publication when:
 
 - `vale` reports no errors, and any remaining warnings are deliberate
 - `pnpm lint:md` passes
-- `check-frontmatter.sh` passes
+- `check-frontmatter.sh` passes, or warns on a description you've deliberately kept
 - The judgment items in `standards/quality-standards.md` are satisfied
 - Content is technically accurate, and examples are tested and working
 - No broken links
