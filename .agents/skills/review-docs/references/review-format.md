@@ -89,7 +89,7 @@ Click the **Save & Run** button and ensure you verify the settings.
 description: "This comprehensive documentation guide will teach you everything you need to know about creating, configuring, and deploying Actors on the Apify platform."
 
 # Good - value-focused
-description: "Build and deploy Actors efficiently, covering local setup, development, testing, and the practices that keep them reliable once they run in production."
+description: "Build and deploy Actors, from local setup through development and testing to the practices that keep them reliable once they run in production."
 ```
 
 ## Quality gate
