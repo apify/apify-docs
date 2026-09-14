@@ -42,7 +42,7 @@ You can access your datasets in several ways:
 
 In [Apify Console](https://console.apify.com), you can view your datasets in the [Storage](https://console.apify.com/storage) section under the [Datasets](https://console.apify.com/storage?tab=datasets) tab.
 
-![Datasets in app](../images/datasets-app.png)
+![Datasets in Apify Console](../images/storage-types.svg)
 
 To view or download a dataset:
 

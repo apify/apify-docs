@@ -47,7 +47,7 @@ To view your storages in [Apify Console](https://console.apify.com/storage):
 
 To view the related API endpoints, select **API** in the top right corner.
 
-![Storages in app](./images/datasets-app.png)
+![Storage types in Apify Console](./images/storage-types.svg)
 
 :::note Toggle unnamed storages
 
@@ -109,10 +109,7 @@ You can name a storage via Apify Console or through the API.
 In Apify Console:
 
 1. Open your run's details and select the **Dataset**, **Key-value store**, or **Request queue** tab as appropriate.
-1. Find the store's ID:
-
-   ![Finding your store's ID](./images/find-store-id.png)
-
+1. Find the store's ID.
 1. Click the ID to open the storage details.
 1. Click on the **Actions** menu and choose **Rename**.
 1. Enter a new name. Your storage is now preserved indefinitely.
