@@ -10,13 +10,13 @@ Share a storage with other Apify users, by link, or through a time-limited URL f
 
 ## Grant access rights
 
-You can grant [access rights](/account/collaboration) to other Apify users to view or modify your storages. Check the [full list of permissions](/account/collaboration/list-of-permissions).
+Grant [access rights](/account/collaboration) to let other Apify users view or modify your storages. For what each right allows, see the [list of permissions](/account/collaboration/list-of-permissions).
 
 In [Apify Console](https://console.apify.com/storage), open the storage's detail page and use the **Share** button under the **Actions** menu.
 
 ## Share by link
 
-You can also share storages by link using their ID or name, depending on your account or resource-level general access setting. Learn how link-based access works in [General resource access](/account/collaboration/general-resource-access).
+Share storages by link using their ID or name. Whether the link works for others depends on your account or resource-level general access setting; learn how link-based access works in [General resource access](/account/collaboration/general-resource-access).
 
 For one-off sharing of specific records when access is restricted, generate time-limited pre-signed URLs. See [Sharing restricted resources with pre-signed URLs](/account/collaboration/general-resource-access#pre-signed-urls).
 

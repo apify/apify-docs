@@ -9,15 +9,15 @@ slug: /storage/use-from-another-run
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Storage can be accessed from any [Actor](../actors/index.mdx) or [task](../actors/running/tasks.md) run, provided you have its _name_ or _ID_. Use the same methods and endpoints you'd use for the current run's storages.
+If you have the storage's _name_ or _ID_, you can access it from any [Actor](../actors/index.mdx) or [task](../actors/running/tasks.md) run. Use the same methods and endpoints you'd use for the current run's storages.
 
 [Datasets](./dataset/index.md) and [key-value stores](./key_value_store/index.md) support concurrent use. Multiple Actors or tasks can write to the same dataset or key-value store, and multiple runs can read from them at the same time.
 
-[Request queues](./request_queue.md), on the other hand, only allow multiple runs to add new data. A request queue can only be processed by one Actor or task run at any one time.
+[Request queues](./request_queue.md) only allow multiple runs to add new data. A request queue can be processed by one Actor or task run at a time.
 
 :::note Concurrent write order
 
-When multiple runs write to a storage simultaneously, the order of writes is not guaranteed. Data is written as each request is processed. The same applies in key-value stores and request queues: if a delete request precedes a read request for the same record, the read request fails.
+When multiple runs use the same storage at the same time, the order in which their operations are processed is not guaranteed. For example, if a delete of a key-value store record is processed before a read of the same record, the read fails.
 
 :::
 
@@ -70,7 +70,7 @@ Only the method name changes with the storage type:
 
 ## Open a storage with an API client
 
-Once you've opened the storage, read its contents and add new data exactly as you would for a storage from the current run.
+Construct the storage's client with the name or ID of the storage you want. To use a storage owned by another user, prefix the name with their username, as in `jane-doe/old-dataset`. Then read and write exactly as you would with the current run's storage.
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
