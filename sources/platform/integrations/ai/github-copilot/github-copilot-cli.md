@@ -7,6 +7,8 @@ slug: /integrations/github-copilot-cli
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 import AgentPluginLimitations from '@site/sources/_partials/_agent-plugin-limitations.mdx';
+import ApifyPluginSkills from '@site/sources/_partials/_apify-plugin-skills.mdx';
+import ApifyPluginSkillPrompts from '@site/sources/_partials/_apify-plugin-skill-prompts.mdx';
 
 The [GitHub Copilot CLI](https://docs.github.com/en/copilot/concepts/agents/copilot-cli) is GitHub's agentic coding tool that runs in your terminal. It reads and edits your codebase, runs commands, and completes multi-step development tasks.
 
@@ -27,7 +29,7 @@ This guide covers installation in the GitHub Copilot CLI.
 
 ## Install the plugin and sign in
 
-The plugin is published in the `awesome-copilot` marketplace, which the GitHub Copilot CLI registers by default - the same marketplace [Visual Studio Code (VS Code)](/integrations/vscode) and the [desktop app](/integrations/github-copilot-desktop) use - so you can install it without adding a marketplace first. Installing the plugin also sets up the bundled Apify MCP server and signs you in, so there's no separate authentication step. Read-only tools like searching Apify Store and fetching Actor details work without signing in, but you need to authenticate to run Actors and access your account data.
+The plugin is published in the [Awesome Copilot](https://awesome-copilot.github.com/plugins) marketplace, which the GitHub Copilot CLI registers by default, so you don't need to add a marketplace first. [Visual Studio Code (VS Code)](/integrations/vscode) and the [desktop app](/integrations/github-copilot-desktop) use the same marketplace. Installing the plugin also sets up the bundled Apify MCP server and signs you in, so there's no separate authentication step. Read-only tools like searching Apify Store and fetching Actor details work without signing in, but you need to authenticate to run Actors and access your account data.
 
 1. Install the `apify` plugin from the `awesome-copilot` marketplace:
 
@@ -77,21 +79,11 @@ To check what's available, ask the agent to list its Apify tools.
 
 ## Bundled skills
 
-| Skill | Description |
-| --- | --- |
-| `apify-ultimate-scraper` | CLI-driven extraction using existing Actors for multi-step scraping and lead-generation workflows. |
-| `apify-actor-development` | Full Actor lifecycle - template selection, development, local testing, and deployment with `apify push`. |
-| `apify-actorization` | Converts existing JavaScript, TypeScript, Python, or CLI projects into Apify Actors. |
-| `apify-generate-output-schema` | Generates dataset and key-value store schemas for existing Actors. |
-| `apify-sdk-integration` | Integrates Actor execution into applications using the `apify-client` package. |
+<ApifyPluginSkills />
 
 Example prompts that route to specific skills:
 
-| Skill | Example prompt |
-| --- | --- |
-| `apify-ultimate-scraper` | Find 10 highly rated coffee shops in Seattle with name, address, rating, phone, and website. |
-| `apify-actor-development` | Create an Apify Actor that accepts a `startUrl` and `maxPages` input, crawls the site, and stores each page title and URL. |
-| `apify-sdk-integration` | Add Apify to this project. The Node.js API route should run an Actor and return dataset items as JSON. |
+<ApifyPluginSkillPrompts />
 
 ## Authentication paths
 
@@ -105,7 +97,7 @@ The `apify` agent picks the right transport for each task. Each transport authen
 
 ### The `apify` plugin isn't installed
 
-Run `/plugin install apify@awesome-copilot` to install the plugin from the `awesome-copilot` marketplace, which the CLI registers by default. Browse the marketplace with `/plugin marketplace browse awesome-copilot` to confirm the `apify` plugin is listed.
+Run `/plugin install apify@awesome-copilot` to install the plugin from the Awesome Copilot marketplace, which the CLI registers by default. Browse the marketplace with `/plugin marketplace browse awesome-copilot` to confirm the `apify` plugin is listed.
 
 ### The Apify MCP server won't authenticate
 

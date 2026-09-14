@@ -7,6 +7,8 @@ slug: /integrations/vscode
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 import AgentPluginLimitations from '@site/sources/_partials/_agent-plugin-limitations.mdx';
+import ApifyPluginSkills from '@site/sources/_partials/_apify-plugin-skills.mdx';
+import ApifyPluginSkillPrompts from '@site/sources/_partials/_apify-plugin-skill-prompts.mdx';
 
 [Visual Studio Code (VS Code)](https://code.visualstudio.com/) is Microsoft's code editor. Its [agent plugins](https://code.visualstudio.com/docs/agent-customization/agent-plugins) are prepackaged bundles of agent customizations - skills, agents, and MCP servers - that you install from a plugin marketplace and use in chat.
 
@@ -66,27 +68,11 @@ To check what's available, ask the agent to list its Apify tools.
 
 ## Bundled skills
 
-| Skill | Description |
-| --- | --- |
-| `apify-ultimate-scraper` | CLI-driven extraction using existing Actors for multi-step scraping and lead-generation workflows. |
-| `apify-actor-development` | Full Actor lifecycle - template selection, development, local testing, and deployment with `apify push`. |
-| `apify-actorization` | Converts existing JavaScript, TypeScript, Python, or CLI projects into Apify Actors. |
-| `apify-generate-output-schema` | Generates dataset and key-value store schemas for existing Actors. |
-| `apify-sdk-integration` | Integrates Actor execution into applications using the `apify-client` package. |
+<ApifyPluginSkills />
 
 Example prompts that route to specific skills:
 
-_Ultimate scraper:_
-
-> Find 10 highly rated coffee shops in Seattle with name, address, rating, phone, and website.
-
-_Actor development:_
-
-> Create an Apify Actor that accepts a `startUrl` and `maxPages` input, crawls the site, and stores each page title and URL.
-
-_SDK integration:_
-
-> Add Apify to this project. The Node.js API route should run an Actor and return dataset items as JSON.
+<ApifyPluginSkillPrompts />
 
 ## Authentication paths
 

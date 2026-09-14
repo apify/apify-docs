@@ -7,6 +7,8 @@ slug: /integrations/github-copilot-desktop
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 import AgentPluginLimitations from '@site/sources/_partials/_agent-plugin-limitations.mdx';
+import ApifyPluginSkills from '@site/sources/_partials/_apify-plugin-skills.mdx';
+import ApifyPluginSkillPrompts from '@site/sources/_partials/_apify-plugin-skill-prompts.mdx';
 
 The [GitHub Copilot desktop app](https://github.com/features/ai/github-app) is GitHub's standalone Copilot client. It runs agentic coding sessions in a chat interface, connects to your repositories, and supports plugins, skills, and Model Context Protocol (MCP) servers.
 
@@ -31,7 +33,7 @@ This guide covers installation in the GitHub Copilot desktop app.
 
 1. Select the **Plugins** tab.
 
-1. Search for `Apify`. The `apify` plugin appears in the results, under the `awesome-copilot` marketplace.
+1. Search for `Apify`. The `apify` plugin appears in the results, under the [Awesome Copilot](https://awesome-copilot.github.com/plugins) marketplace.
 
 1. Select **Install**.
 
@@ -73,27 +75,11 @@ To check what's available, ask the agent to list what it can do with the Apify p
 
 ## Bundled skills
 
-| Skill | Description |
-| --- | --- |
-| `apify-ultimate-scraper` | CLI-driven extraction using existing Actors for multi-step scraping and lead-generation workflows. |
-| `apify-actor-development` | Full Actor lifecycle - template selection, development, local testing, and deployment with `apify push`. |
-| `apify-actorization` | Converts existing JavaScript, TypeScript, Python, or CLI projects into Apify Actors. |
-| `apify-generate-output-schema` | Generates dataset and key-value store schemas for existing Actors. |
-| `apify-sdk-integration` | Integrates Actor execution into applications using the `apify-client` package. |
+<ApifyPluginSkills />
 
 Example prompts that route to specific skills:
 
-_Ultimate scraper:_
-
-> Find 10 highly rated coffee shops in Seattle with name, address, rating, phone, and website.
-
-_Actor development:_
-
-> Create an Apify Actor that accepts a `startUrl` and `maxPages` input, crawls the site, and stores each page title and URL.
-
-_SDK integration:_
-
-> Add Apify to this project. The Node.js API route should run an Actor and return dataset items as JSON.
+<ApifyPluginSkillPrompts />
 
 ## Authentication paths
 
