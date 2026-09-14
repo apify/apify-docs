@@ -101,6 +101,22 @@ An [input schema](/actors/development/actor-definition/input-schema) is the JSON
 
 A [key-value store](/storage/key-value-store) holds unstructured or auxiliary data, such as Actor input, files, screenshots, and images.
 
+## MCP connectors
+
+[MCP connectors](/integrations/mcp-connectors) let an Actor call third-party services, such as Notion, Slack, and GitHub, over the Model Context Protocol using credentials you authorize once in your account settings. They work in the opposite direction to the Apify MCP server, which exposes Actors to outside AI clients.
+
+## MCP Proxy
+
+The [Apify MCP Proxy](/integrations/mcp-connectors) is the platform component an Actor reaches its MCP connectors through. It validates each request, injects your stored credentials server-side, and forwards it to the upstream MCP server, so the credentials never enter the Actor.
+
+## Output
+
+[Output](/actors/running/input-and-output) is the data an Actor run produces. It's stored in the run's dataset and key-value store, and readable from Apify Console or the API.
+
+## Output schema
+
+An [output schema](/actors/development/actor-definition/output-schema) declares where an Actor stores its results and how Apify Console and the run API endpoint present them. Publishing an Actor to Apify Store requires one.
+
 ## Pay-per-event
 
 [Pay-per-event](/actors/publishing/monetize/pay-per-event) (PPE) is a pricing model that charges users for specific events an Actor emits, such as each result or action, rather than for compute time.
