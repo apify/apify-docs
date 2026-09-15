@@ -13,7 +13,7 @@ If you have the storage's _name_ or _ID_, you can access it from any [Actor](../
 
 [Datasets](./dataset/index.md) and [key-value stores](./key_value_store/index.md) support concurrent use. Multiple Actors or tasks can write to the same dataset or key-value store, and multiple runs can read from them at the same time.
 
-[Request queues](./request_queue.md) only allow multiple runs to add new data. A request queue can be processed by one Actor or task run at a time.
+[Request queues](./request_queue.md) only allow multiple runs to add new data. A request queue can be processed by one Actor or task run at a time, unless you use [request locking](./request_queue.md#distributivity) to coordinate multiple runs.
 
 When multiple runs use the same storage at the same time, the order in which their operations are processed is not guaranteed. For example, if a delete of a key-value store record is processed before a read of the same record, the read fails.
 

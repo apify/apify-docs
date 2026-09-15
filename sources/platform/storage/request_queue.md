@@ -15,7 +15,7 @@ A request queue supports breadth-first and depth-first crawling and custom data 
 
 :::info Retention period
 
-Named request queues are retained indefinitely. Unnamed request queues expire after 7 days unless otherwise specified. [Learn more](/storage#named-and-unnamed-storages)
+Named request queues are retained indefinitely. Unnamed request queues expire after 7 days unless otherwise specified. [Learn more](/storage#data-retention)
 
 :::
 
@@ -27,8 +27,8 @@ You can access your request queues in several ways:
 
 - [Apify Console](https://console.apify.com) - view and manage your request queues in a visual interface.
 - [Apify API](/api/v2) - for accessing your request queues programmatically.
-- [Apify API clients](/api) - to access your request queues from any Node.js application.
-- [Apify SDK](/sdk) - when building your own JavaScript Actor.
+- [Apify API clients](/api) - to access your request queues from any Node.js/Python application.
+- [Apify SDKs](/sdk) - when building your own JavaScript/Python Actor.
 
 ### Apify Console
 
@@ -259,9 +259,9 @@ async def main():
         queue: RequestQueue = await Actor.open_request_queue()
 
         # Enqueue requests
-        await queue.add_request(request={'url': 'http:#example.com/aaa'})
-        await queue.add_request(request={'url': 'http:#example.com/foo'})
-        await queue.add_request(request={'url': 'http:#example.com/bar'}, forefront=True)
+        await queue.add_request(request={'url': 'http://example.com/aaa'})
+        await queue.add_request(request={'url': 'http://example.com/foo'})
+        await queue.add_request(request={'url': 'http://example.com/bar'}, forefront=True)
 
         # Get the next requests from queue
         request1 = await queue.fetch_next_request()
@@ -281,15 +281,12 @@ Check out the [Python SDK documentation](/sdk/python/docs/concepts/storages#work
 
 ## Features
 
-Request queue is a storage type built with scraping in mind, enabling developers to write scraping logic efficiently and scalably.
-[Crawlee](https://crawlee.dev/), the [Apify SDK for JavaScript](https://docs.apify.com/sdk/js/), and the [Apify SDK for Python](https://docs.apify.com/sdk/python/) support all these features without extra configuration.
-
-The following sections cover each of the main features in depth.
+Request queues are built for scraping workloads. The following sections cover the main features; [Crawlee](https://crawlee.dev/), the [Apify SDK for JavaScript](https://docs.apify.com/sdk/js/), and the [Apify SDK for Python](https://docs.apify.com/sdk/python/) support all of them without extra configuration.
 
 ### Persistence and retention
 
-Request queues prioritize persistence, ensuring indefinite retention of your requests in named request queues, and for the data retention period in your subscription in unnamed request queues.
-This capability facilitates incremental crawling, where you can append new URLs to the queue and resume from where you stopped in subsequent Actor runs.
+Named request queues retain requests indefinitely; unnamed queues follow your subscription's data retention period.
+This enables incremental crawling: append new URLs to the queue and resume from where you stopped in subsequent Actor runs.
 Consider the scenario of scraping an e-commerce website with thousands of products. Incremental scraping allows you to scrape only the products
 added since the last product discovery.
 
@@ -418,7 +415,7 @@ In the following example, we demonstrate how you can use locking mechanisms to a
 :::info Lock mechanism
 The lock mechanism works on the client level, as well as the run level, when running the Actor on the Apify platform.
 
-This means you can unlock or prolong the lock the locked request only if:
+This means you can unlock or prolong the lock of a locked request only if:
 
 - You are using the same client key, or
 - The operation is being called from the same Actor run.

@@ -173,7 +173,7 @@ You can grant access rights to other Apify users, share a storage by link, or ge
 
 ## Concurrent access {#share-storages-between-runs}
 
-If you have the storage's _name_ or _ID_, you can access it from any [Actor](../actors/index.mdx) or [task](../actors/running/tasks.md) run. Datasets and key-value stores support concurrent reads and writes, while a request queue accepts new data from multiple runs but can only be processed by one run at a time. See [Use storage from another run](./use-from-another-run.md).
+If you have the storage's _name_ or _ID_, you can access it from any [Actor](../actors/index.mdx) or [task](../actors/running/tasks.md) run. Datasets and key-value stores support concurrent reads and writes, while a request queue accepts new data from multiple runs but can only be processed by one run at a time, unless you use [request locking](./request_queue.md#distributivity). See [Use storage from another run](./use-from-another-run.md).
 
 ## Delete storages
 

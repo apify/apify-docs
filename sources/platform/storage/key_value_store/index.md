@@ -14,7 +14,7 @@ Key-value stores are mutable - you can both add entries and delete them.
 
 :::info Retention period
 
-Named key-value stores are retained indefinitely. Unnamed key-value stores expire after 7 days unless otherwise specified. [Learn more](/storage#named-and-unnamed-storages)
+Named key-value stores are retained indefinitely. Unnamed key-value stores expire after 7 days unless otherwise specified. [Learn more](/storage#data-retention)
 
 :::
 
@@ -282,6 +282,8 @@ Key-value storage uses the [AWS S3](https://aws.amazon.com/s3/) service. Accordi
 ## Limits
 
 - The maximum length for a key in a key-value store is 256 characters. Keys may only contain the following characters: `a-zA-Z0-9!-_.'()`.
+
+- The maximum length for a key-value store name is 63 characters.
 
 ### Rate limiting
 

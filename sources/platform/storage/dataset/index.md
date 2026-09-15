@@ -12,7 +12,7 @@ Typically, datasets hold results from web scraping, crawling, and data processin
 
 :::info Retention period
 
-Named datasets are retained indefinitely. Unnamed datasets expire after 7 days unless otherwise specified. [Learn more](/storage#named-and-unnamed-storages)
+Named datasets are retained indefinitely. Unnamed datasets expire after 7 days unless otherwise specified. [Learn more](/storage#data-retention)
 
 :::
 
@@ -136,7 +136,7 @@ For further details and a breakdown of each storage API endpoint, refer to the [
 
 #### JavaScript API client
 
-The [JavaScript API client](/api/client/js/reference/class/DatasetClient) (`apify-client`) enables you access to your datasets from any Node.js application, whether hosted on the Apify platform or externally.
+The [JavaScript API client](/api/client/js/reference/class/DatasetClient) (`apify-client`) enables you to access your datasets from any Node.js application, whether hosted on the Apify platform or externally.
 
 After importing and initializing the client, you can save each dataset to a variable for easier access.
 
@@ -156,7 +156,7 @@ Check out the [JavaScript API client documentation](/api/client/js/reference/cla
 
 #### Python API client
 
-The [Python API client](/api/client/python/reference/class/DatasetClient) (`apify-client`) enables you access to your datasets from any Python application, whether it is running on the Apify platform or externally.
+The [Python API client](/api/client/python/reference/class/DatasetClient) (`apify-client`) allows you to access your datasets from any Python application, whether it is running on the Apify platform or externally.
 
 After importing and initializing the client, you can save each dataset to a variable for easier access.
 
@@ -419,7 +419,7 @@ To read from or write to a dataset that belongs to a different Actor or task run
 
 - Data storage formats that use tabulation (like HTML, CSV, and Excel) are limited to a maximum of _2000_ columns. Data exceeding this limit will not be retrieved.
 
-- The `pushData()`method is constrained by the receiving API's size limit. It accepts objects with JSON size under _9MB_. While individual objects within an array must not exceed _9MB_, the overall size has no restriction.
+- The `pushData()` method is constrained by the receiving API's size limit. It accepts objects with JSON size under _9MB_. While individual objects within an array must not exceed _9MB_, the overall size has no restriction.
 
 - The maximum length for dataset names is 63 characters.
 
@@ -427,6 +427,6 @@ To read from or write to a dataset that belongs to a different Actor or task run
 
 The rate limit for pushing data to a dataset through the [API](/api/v2/dataset-items-post) is capped at _400 requests per second_ for each dataset, a measure to prevent overloading Apify servers.
 
-For all other dataset [API endpoints](/api/v2/storage-datasets) , the rate limit is _60 requests per second_ for each dataset.
+For all other dataset [API endpoints](/api/v2/storage-datasets), the rate limit is _60 requests per second_ for each dataset.
 
 Check out the [API documentation](/api/v2#rate-limiting) for more information and guidance on actions to take if you exceed these rate limits.
