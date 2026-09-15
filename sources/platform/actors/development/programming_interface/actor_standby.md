@@ -66,7 +66,7 @@ async def main() -> None:
 </TabItem>
 </Tabs>
 
-Describe your Actor's endpoints, their parameters, and responses with a [web server schema](../actor_definition/web_server_schema/index.md) defined in the [`.actor/actor.json`](../actor_definition/actor_json.md) file. Apify Console then renders an interactive **Endpoints** tab on the Actor's detail page, where users can browse the endpoints and send requests directly from the browser. Describe the endpoints in your Actor's README as well.
+Describe your Actor's endpoints, their parameters, and responses with a [web server schema](../actor_definition/web_server_schema/index.md) defined in the [`.actor/actor.json`](../actor_definition/actor_json.md) file. Based on that definition, Apify Console renders an interactive **Endpoints** tab on the Actor's detail page, where users can browse the endpoints and send requests directly from the browser. Describe the endpoints in your Actor's [README](../../publishing/publish/actor-readme.mdx) as well, because that's what users see in Apify Store before they ever open the Actor's detail page.
 
 ### Readiness probe
 
@@ -195,7 +195,7 @@ The Actor also responds on a URL built from its ID, which keeps working if the A
 https://92c4oi4fpzy7rprlf.apify.actor
 ```
 
-Unlike the [container web server](./container_web_server.md) URL, which changes with every run, the Standby URL stays the same for all runs of the Actor. You can share it publicly or hardcode it in applications that call the Actor: copy it from the **Endpoints** tab on the Actor's detail page rather than building it from the username and Actor name, because some Actors use a different hostname format.
+Unlike the [container web server](./container_web_server.md) URL, which changes with every run, the Standby URL stays the same for all runs of the Actor. You can share it publicly or hardcode it in applications that call the Actor: copy it from the **Endpoints** tab on the Actor's detail page. Don't build the URL from the username and Actor name, because some Actors use a different hostname format.
 
 If the Actor exposes an MCP server, its endpoint is the Standby URL followed by the path defined in the [`webServerMcpPath`](../actor_definition/actor_json.md) property.
 
