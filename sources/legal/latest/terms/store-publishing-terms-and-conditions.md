@@ -12,7 +12,7 @@ slug: /store-publishing-terms-and-conditions
 <!-- vale off -->
 <!-- markdownlint-disable -->
 
-Last updated: September 2, 2026
+Last updated: September 15, 2026
 
 ---
 
@@ -136,7 +136,7 @@ We reserve the right to modify the eligibility criteria for all Creator levels u
 
 10.2.2. Your entitlement to payout for an Actor ceases for the time that the Actor is a Faulty Actor and resumes when the Actor becomes functional again as advertised.
 
-10.2.3. Notwithstanding the payout rate set out herein, where a User accesses your Actor under a promotional activity conducted by Apify (including as a coupon holder, hackathon participant, free trial recipient, or other Apify-issued promotional credit holder) (a "**Promotional User**"), your payout for usage by that Promotional User will be calculated from the highest per-unit price you have configured for that Actor at the time of usage, regardless of the Promotional User's actual spend tier or the price paid by that Promotional User. Apify will determine in its sole discretion which Users qualify as Promotional Users.
+10.2.3. Notwithstanding the payout rate set out herein, where a User accesses your Actor under a promotional activity conducted by Apify (including as a coupon holder, hackathon participant, free trial recipient, or other Apify-issued promotional credit holder) (a "**Promotional User**"), your payout for usage by that Promotional User will be calculated from the highest Apify Store Discount Tier you have configured for that Actor at the time of usage, regardless of the Promotional User's actual spend tier or the price paid by that Promotional User. Apify will determine in its sole discretion which Users qualify as Promotional Users.
 
 10.3. **Payment process**.
 
