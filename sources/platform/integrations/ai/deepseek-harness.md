@@ -7,7 +7,7 @@ slug: /integrations/deepseek-harness
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
-[DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) (`dsh`) is DeepSeek's open-source agent harness. It boots a profile, an ordered stack of plugin layers, and runs the agent either in your terminal or in a local web GUI, backed by the model provider you configure.
+[DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) (`dsh`) is DeepSeek's open-source agent harness. It boots a profile, an ordered stack of plugin layers. It then runs the agent in your terminal or in a local web GUI, backed by the model provider you configure.
 
 The [Apify plugin for DeepSeek Harness](https://www.npmjs.com/package/dsh-apify-plugin) connects `dsh` to Apify's library of [Actors](https://apify.com/store) and bundles:
 
@@ -23,6 +23,13 @@ The [Apify plugin for DeepSeek Harness](https://www.npmjs.com/package/dsh-apify-
 - [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) - installed locally, running Node.js `^22.19.0 || >=24.0.0`. Older versions fail with a `node:sqlite` error.
 - [pnpm](https://pnpm.io/installation) on your `PATH` - `dsh plugin` forwards its arguments to pnpm.
 - A model provider configured in `dsh` - see [Connect a model provider](#connect-a-model-provider).
+- [Apify CLI](/cli/docs/installation) - only for the Actor development, actorization, and ultimate scraper skills.
+
+:::note Most work needs no local CLI
+
+The Apify MCP server covers Apify Store search and platform runs, so nothing has to be installed locally for them. Install the CLI only for the three skills noted above.
+
+:::
 
 ## Install the plugin
 
@@ -67,13 +74,14 @@ The plugin enables the Apify MCP server on install. Searching Apify Store, inspe
 
 :::
 
-The token is read once, at startup. Exporting it inside a running session has no effect, so restart the profile after you change it.
+`dsh` reads the token once, at startup. Exporting it inside a running session has no effect, so restart the profile after you change it.
 
 ## Connect a model provider
 
-`dsh` ships no model of its own. Open **Settings > Models** and select **Add provider**, then choose your provider and supply its API key.
+`dsh` ships no model of its own. To use DeepSeek's own models, set `DEEPSEEK_API_KEY` in the same `.env` before you start the profile.
 
-For a model served on your own machine, such as LM Studio or Ollama, add a custom provider and enter the URL and port it listens on.
+For any other provider, start the profile first, then open **Settings > Models** and select **Add provider**, choose your provider, and supply its API key.
+
 
 ## Run your first prompt
 
@@ -93,6 +101,7 @@ The router searches Apify Store, fetches the top Actor's details through the Api
 
 | Skill | Description |
 | --- | --- |
+| `apify` | Entry point that routes each request to the right tool or skill and diagnoses authentication problems. |
 | `apify-ultimate-scraper` | Extraction with existing Actors for multi-step scraping and lead-generation workflows. |
 | `apify-actor-development` | Full Actor lifecycle - template selection, development, local testing, and deployment with `apify push`. |
 | `apify-actorization` | Converts existing JavaScript, TypeScript, Python, or CLI projects into Apify Actors. |
@@ -113,15 +122,17 @@ _SDK integration:_
 
 > Add Apify to this project. The Node.js API route should run an Actor and return dataset items as JSON.
 
-The Actor development, actorization, and ultimate scraper skills call the local `apify` command. Install the Apify CLI before using them:
+## Install the Apify CLI
+
+The Actor development, actorization, and ultimate scraper skills call the local `apify` command, so install the [Apify CLI](/cli/docs/installation) before using them:
 
 ```bash
 npm install -g apify-cli
 ```
 
-## Grant the Apify CLI file access
+### Grant the Apify CLI file access
 
-The Apify CLI keeps its credentials in `~/.apify/`, which sits outside the session workspace. Under the default `workspace-write` sandbox mode, `dsh` denies that path and every `apify` command fails with `EPERM`, even when the login itself is valid.
+The CLI keeps its credentials in `~/.apify/`, which sits outside the session workspace. Under the default `workspace-write` sandbox mode, `dsh` denies that path and every `apify` command fails with `EPERM`, even when the login itself is valid.
 
 You have two ways to work around this:
 
@@ -131,6 +142,8 @@ You have two ways to work around this:
 If you'd rather keep the sandbox narrow, set `APIFY_TOKEN` instead and let the agent run Actors through the Apify MCP server, which needs no local file access.
 
 ## Troubleshooting
+
+The failures below cover missing or invalid tokens, sandbox denials, and profile mismatches.
 
 ### The agent says it can't run an Actor
 
@@ -157,8 +170,8 @@ Check that you installed into the profile you actually launch. Installing into `
 ## Limitations
 
 - `dsh` sends static MCP headers and has no OAuth flow, so the Apify MCP server authenticates with an API token only.
-- The token is read at startup, so a change to `.env` needs a restart of the profile.
-- A tool call waits up to five minutes for an Actor run. Longer runs need a narrower scope, or the Apify CLI to start the run and poll for its result.
+- `dsh` reads the token at startup, so a change to `.env` needs a restart of the profile.
+- A tool call waits up to 5 minutes for an Actor run. Longer runs need a narrower scope, or the Apify CLI to start the run and poll for its result.
 - Each Actor run consumes Apify platform usage from your plan in addition to any model provider costs. See [Billing](/account/billing) for details.
 - Skills that edit files in your project (Actor development, actorization, SDK integration) make local changes - review them before deploying or committing.
 
