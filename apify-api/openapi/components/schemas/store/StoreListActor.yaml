@@ -26,9 +26,10 @@ properties:
     type: [string, "null"]
     examples: [My public actor!]
   categories:
-    type: array
+    type: [array, "null"]
     items:
       type: string
+    description: A list of categories that best define the Actor. Reflected in Apify Store's search and filtering options. Can be `null` for Actors that have no categories stored.
     example:
       - MARKETING
       - LEAD_GENERATION
