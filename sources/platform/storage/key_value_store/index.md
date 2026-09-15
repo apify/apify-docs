@@ -33,7 +33,7 @@ You can access key-value stores through several methods
 
 In [Apify Console](https://console.apify.com), you can view your key-value stores in the [Storage](https://console.apify.com/storage) section under the [Key-value stores](https://console.apify.com/storage?tab=keyValueStores) tab.
 
-![Key-value stores in app](../images/key-value-stores-app.png)
+![Key-value stores in Apify Console](../images/storage-types-kvs.svg)
 
 To view a key-value store's content, click on its **Store ID**. Under the **Actions** menu, you can rename your store (which extends its [retention period](/storage#named-and-unnamed-storages)) and grant [access rights](/account/collaboration) using the **Share** button.
 Click on the **API** button to view and test a store's [API endpoints](/api/v2/storage-key-value-stores).

@@ -34,7 +34,7 @@ You can access your request queues in several ways:
 
 In the [Apify Console](https://console.apify.com), you can view your request queues in the [Storage](https://console.apify.com/storage) section under the [Request queues](https://console.apify.com/storage?tab=requestQueues) tab.
 
-![Request queues in app](./images/request-queue-app.png)
+![Request queues in Apify Console](./images/storage-types-rq.svg)
 
 To view a request queue, click on its **Queue ID**.
 Under the **Actions** menu, you can rename your queue's name (and, in turn, its
