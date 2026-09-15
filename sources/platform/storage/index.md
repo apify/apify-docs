@@ -51,21 +51,13 @@ To view the related API endpoints, select **API** in the top right corner.
 
 :::note Toggle unnamed storages
 
-Use the **Include unnamed storages** checkbox to either display or hide unnamed storages. By default Apify Console displays them.
+Use the **Include unnamed storages** checkbox to show or hide unnamed storages. By default, Apify Console shows them.
 
 :::
 
 To rename a store, open the **Actions** menu and select **Rename**.
 
 To share a storage, select **Share** in the **Actions** menu and provide an email, username, or user ID.
-
-These URLs link to API _endpoints_ where your data is stored. _Read_ endpoints don't require an [authentication token](/api/v2#authentication). Calls are authenticated by a hard-to-guess ID, which keeps sharing secure. Operations such as _update_ or _delete_ do require the token.
-
-:::caution Token security
-
-Never share a URL containing your authentication token. It can compromise your account's security. If the data you want to share requires a token, download it first and share it as a file.
-
-:::
 
 ### Apify API
 
@@ -81,6 +73,12 @@ For read (GET) requests, the alphanumerical ID alone is enough, since it's hard 
 
 For other request types, and when using `username~store-name`, provide your secret API token in the request's [`Authorization`](/api/v2#authentication) header or as a query parameter. Find your token on the [API & Integrations](https://console.apify.com/settings/integrations) page of your Apify account.
 
+:::caution Token security
+
+Never share a URL containing your authentication token. It can compromise your account's security. If the data you want to share requires a token, download it first and share it as a file.
+
+:::
+
 For a breakdown of each storage endpoint, see the [API documentation](/api/v2/storage-datasets).
 
 ### Apify API clients
@@ -94,13 +92,13 @@ For more details, see the [API client docs](/api).
 The Apify SDKs are JavaScript and Python libraries for building your own Actors.
 
 * JavaScript SDK requires [Node.js](https://nodejs.org/en/) 16 or later.
-* Python SDK requires [Python](https://www.python.org/downloads/release/python-380/) 3.8 or above.
+* Python SDK requires [Python](https://www.python.org/downloads/) 3.10 or above.
 
 ## Named and unnamed storages
 
 The default storages for an Actor run are unnamed, identified only by an _ID_. Naming a storage ensures indefinite retention regardless of plan; unnamed storages follow the [data retention](#data-retention) rules below.
 
-Named and unnamed storages are identical except for their retention period. Named storages are easier to identify and confirm. The names `janedoe~my-storage-1` and `janedoe~web-scrape-results` are easier to tell apart than the IDs `cAbcYOfuXemTPwnIB` and `CAbcsuZbp7JHzkw1B`. Storage names can be up to 63 characters long.
+Named and unnamed storages are identical except for their retention period. Named storages are easier to identify. The names `janedoe~my-storage-1` and `janedoe~web-scrape-results` are easier to tell apart than the IDs `cAbcYOfuXemTPwnIB` and `CAbcsuZbp7JHzkw1B`. Storage names can be up to 63 characters long.
 
 ### Name a storage
 
@@ -137,8 +135,6 @@ Unnamed storages beyond the 10 most recent runs are deleted when the retention p
 
 ## Estimate your costs
 
-Use this tool to estimate storage costs by plan and storage type.
-
 <details>
   <summary>Estimate your storage costs</summary>
 
@@ -152,7 +148,7 @@ Use this tool to estimate storage costs by plan and storage type.
 
 ## Rate limiting
 
-All API endpoints limit their request rate to protect Apify servers from overload. The default rate limit for storage objects is _60 requests per second_ per storage object, and some endpoints allow more or fewer. The tiers differ per storage type:
+All API endpoints limit their request rate to protect Apify servers from overload. The default rate limit for storage objects is _60 requests per second_ per storage object, and some endpoints have higher or lower limits. The tiers differ per storage type:
 
 * [Datasets](/storage/dataset#rate-limiting)
 * [Key-value stores](/storage/key-value-store#rate-limiting)
@@ -178,12 +174,6 @@ You can grant access rights to other Apify users, share a storage by link, or ge
 ## Concurrent access {#share-storages-between-runs}
 
 If you have the storage's _name_ or _ID_, you can access it from any [Actor](../actors/index.mdx) or [task](../actors/running/tasks.md) run. Datasets and key-value stores support concurrent reads and writes, while a request queue accepts new data from multiple runs but can only be processed by one run at a time. See [Use storage from another run](./use-from-another-run.md).
-
-:::note Concurrent write order
-
-When multiple runs write to a storage simultaneously, the order of writes is not guaranteed. Data is written as each request is processed. The same applies in key-value stores and request queues: if a delete request precedes a read request for the same record, the read request fails.
-
-:::
 
 ## Delete storages
 
