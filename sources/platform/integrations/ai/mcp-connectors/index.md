@@ -44,7 +44,9 @@ MCP connectors are designed so that the Actor never holds your credentials, and 
 - You control which connectors an Actor can access. An Actor can only use connectors you explicitly provide in the input. It cannot reach your other connectors.
 - Actors are held to what they declare. The proxy enforces that an Actor can only call tools it explicitly declared in its input schema. It cannot use your connector to call anything beyond that, regardless of what the connector supports.
 - Access ends when the run ends. The proxy session expires as soon as the Actor run finishes.
-- You control which tools a connector permits. The restriction applies to every Actor using the connector, on top of each Actor's own declared tool constraints.
+- You control which tools a connector permits. When you edit the connector in [Account settings](/account/settings#mcp-connectors), you can restrict which of its tools are allowed. The restriction applies to every Actor using the connector, on top of each Actor's own declared tool constraints.
+
+![Edit connector dialog with the Allowed tools list restricting a Notion connector to two selected tools](../../images/mcp-connectors-allowed-tools.png)
 
 For the developer-side controls and tool-permission model, see [Build Actors with MCP connectors](/integrations/mcp-connectors/use-in-actors#tool-permissions).
 
@@ -67,6 +69,8 @@ Create and manage your connectors in [Settings > API & Integrations > MCP connec
 ## Run an Actor with a connector
 
 When you run an Actor that accepts MCP connectors, the input form shows a connector picker filtered to those compatible with the Actor's requirements. Pick one of your authorized connectors, or create a new one inline. To set connectors up in advance, see [Account settings - MCP connectors](/account/settings#mcp-connectors).
+
+![Connector picker in an Actor input form, open and listing the user's authorized Notion and Sentry connectors](../../images/mcp-connectors-input-picker.png)
 
 ## Use cases
 

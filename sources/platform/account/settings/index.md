@@ -48,6 +48,8 @@ The **API & Integrations** tab provides essential tools for accessing the Apify 
 
 The **MCP connectors** section lets you authorize third-party MCP servers (such as Notion, Slack, GitHub, or Supabase) once and reuse those connections across any Actor that accepts them. For an overview of the feature, see [MCP connectors](/integrations/mcp-connectors).
 
+![MCP connectors section in account settings, listing authorized connectors with edit and delete controls](../images/mcp-connectors-list.png)
+
 #### Create a connector
 
 1. Open **Settings > API & Integrations > MCP connectors** and select **Add connector**.
@@ -66,6 +68,8 @@ The **MCP connectors** section lets you authorize third-party MCP servers (such 
     - _API key or bearer token_ - the MCP server uses a static API key or personal access token. Enter the key. Apify verifies it by connecting to the MCP server.
     - _OAuth_ - the server supports OAuth and Apify can either register an OAuth client automatically (Dynamic Client Registration) or use an Apify-managed OAuth client. A consent screen opens in a popup. Grant access and close the popup.
     - _Own OAuth client_ - the server supports OAuth but you need to register your own OAuth app with the provider (see below). Enter your client ID, client secret, authorization URL, and token URL, then complete the OAuth consent flow.
+
+    ![Add new MCP connector dialog with the MCP server URL verified and OAuth selected as the authentication method](../images/mcp-connectors-add-connector.png)
 
 1. Review the discovered tools. Once authorized, the platform connects to the MCP server and discovers the tools it exposes. You can see them by expanding the connector card and restrict which ones the connector permits.
 
