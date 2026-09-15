@@ -6,9 +6,6 @@ sidebar_position: 9.3
 slug: /storage/key-value-store
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 The key-value store is simple storage that can be used for storing any kind of data. It can be JSON or HTML documents, zip files, images, or strings. The data are stored along with their [MIME content type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types).
 
 Each Actor run is assigned its own key-value store when it is created. The store contains the Actor's input, and, if necessary, other data such as its output.
@@ -17,7 +14,7 @@ Key-value stores are mutable - you can both add entries and delete them.
 
 :::info Retention period
 
-Named key-value stores are retained indefinitely. Unnamed key-value stores expire after 7 days unless otherwise specified. [Learn more](/storage#named-and-unnamed-storages)
+Named key-value stores are retained indefinitely. Unnamed key-value stores expire after 7 days unless otherwise specified. [Learn more](/storage#data-retention)
 
 :::
 
@@ -25,9 +22,9 @@ Named key-value stores are retained indefinitely. Unnamed key-value stores expir
 
 ## Basic usage
 
-You can access key-value stores through several methods
+You can access your key-value stores in several ways:
 
-- [Apify Console](https://console.apify.com) - provides an easy-to-understand interface.
+- [Apify Console](https://console.apify.com) - view and manage your key-value stores in a visual interface.
 - [Apify API](/api/v2) - for accessing your key-value stores programmatically.
 - [Apify API clients](/api) - to access your key-value stores from any Node.js/Python application.
 - [Apify SDKs](/sdk) - when building your own JavaScript/Python Actor.
@@ -36,9 +33,9 @@ You can access key-value stores through several methods
 
 In [Apify Console](https://console.apify.com), you can view your key-value stores in the [Storage](https://console.apify.com/storage) section under the [Key-value stores](https://console.apify.com/storage?tab=keyValueStores) tab.
 
-![Key-value stores in app](../images/key-value-stores-app.png)
+![Key-value stores in Apify Console](../images/storage-types-kvs.svg)
 
-To view a key-value store's content, click on its **Store ID**. Under the **Actions** menu, you can rename your store (which extends its [retention period](/storage#named-and-unnamed-storages)) and grant [access rights](/account/collaboration) using the **Share** button.
+To view a key-value store's content, click on its **Store ID**. Under the **Actions** menu, you can rename your store (which affects its [retention period](/storage#named-and-unnamed-storages)) and grant [access rights](/account/collaboration) using the **Share** button.
 Click on the **API** button to view and test a store's [API endpoints](/api/v2/storage-key-value-stores).
 
 ![Key-value stores detail](../images/key-value-stores-detail-header.png)
@@ -55,7 +52,7 @@ At the bottom of the page, you can work with records in your key-value store:
 
 ### Apify API
 
-The [Apify API](/api/v2/storage-key-value-stores) enables you programmatic access to your key-value stores using [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
+The [Apify API](/api/v2/storage-key-value-stores) gives you programmatic access to your key-value stores using [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
 
 If you are accessing your key-value stores using the `username~store-name` [store ID format](../index.md), you will need to use your secret API token. You can find the token (and your user ID) on the [API & Integrations](https://console.apify.com/settings/integrations) tab of **Settings** page of your Apify account.
 
@@ -112,7 +109,7 @@ For further details and a breakdown of each storage API endpoint, refer to the [
 
 The Apify [JavaScript API client](/api/client/js/reference/class/KeyValueStoreClient) (`apify-client`) enables you to access your key-value stores from any Node.js application, whether hosted on the Apify platform or externally.
 
-After importing and initiating the client, you can save each key-value store to a variable for easier access.
+After importing and initializing the client, you can save each key-value store to a variable for easier access.
 
 ```js
 const myKeyValStoreClient = apifyClient.keyValueStore(
@@ -128,7 +125,7 @@ Check out the [JavaScript API client documentation](/api/client/js/reference/cla
 
 The Apify [Python API client](/api/client/python/reference/class/KeyValueStoreClient) (`apify-client`) allows you to access your key-value stores from any Python application, whether it is running on the Apify platform or externally.
 
-After importing and initiating the client, you can save each key-value store to a variable for easier access.
+After importing and initializing the client, you can save each key-value store to a variable for easier access.
 
 ```python
 my_key_val_store_client = apify_client.key_value_store('jane-doe/my-key-val-store')
@@ -142,11 +139,9 @@ Check out the [Python API client documentation](/api/client/python/reference/cla
 
 #### JavaScript SDK
 
-When working with a JavaScript [Actor](../../actors/index.mdx), the [JavaScript SDK](/sdk/js/docs/guides/result-storage#key-value-store) is an essential tool, especially for key-value store management. The primary class for this purpose is the [`KeyValueStore`](/sdk/js/reference/class/KeyValueStore). This class allows you to decide whether your data will be stored locally or in the Apify cloud. For data manipulation, it offers the [`getValue()`](/sdk/js/reference/class/KeyValueStore#getValue) and [`setValue()`](/sdk/js/reference/class/KeyValueStore#setValue) methods to retrieve and assign values, respectively.
+In JavaScript [Actors](../../actors/index.mdx), manage key-value stores with the JavaScript SDK's [`KeyValueStore`](/sdk/js/reference/class/KeyValueStore) class. It works both locally and on the Apify platform. To read and write records, use the [`getValue()`](/sdk/js/reference/class/KeyValueStore#getValue) and [`setValue()`](/sdk/js/reference/class/KeyValueStore#setValue) methods; to iterate over keys, use [`forEachKey()`](/sdk/js/reference/class/KeyValueStore#forEachKey).
 
-Additionally, you can iterate over the keys in your store using the [`forEachKey()`](/sdk/js/reference/class/KeyValueStore#forEachKey) method.
-
-Every Actor run is linked to a default key-value store that is automatically created for that specific run. If you're running your Actors and opt to store data locally, you can easily supply the [input](../../actors/running/input_and_output.md) by placing an _INPUT.json_ file in the corresponding directory of the default key-value store. This method ensures that your Actor has all the necessary data readily available for its execution.
+Every Actor run is linked to a default key-value store, created automatically for that run. When you run your Actor locally, you can supply its [input](../../actors/running/input_and_output.md) by placing an _INPUT.json_ file in the default key-value store's directory.
 
 You can find _INPUT.json_ and other key-value store files in the location below.
 
@@ -212,9 +207,9 @@ Check out the [JavaScript SDK documentation](/sdk/js/docs/guides/result-storage#
 
 #### Python SDK
 
-For Python [Actor](../../actors/index.mdx), the [Python SDK](/sdk/python/docs/concepts/storages#working-with-key-value-stores) is essential. The key-value store is represented by a [`KeyValueStore`](/sdk/python/reference/class/KeyValueStore) class. You can use this class to specify whether your data is stored locally or in the Apify cloud. For further data manipulation it offers [`get_value()`](/sdk/python/reference/class/KeyValueStore#get_value) and [`set_value()`](/sdk/python/reference/class/KeyValueStore#set_value) methods to retrieve and assign values, respectively.
+In Python [Actors](../../actors/index.mdx), manage key-value stores with the Python SDK's [`KeyValueStore`](/sdk/python/reference/class/KeyValueStore) class. It works both locally and on the Apify platform. To read and write records, use the [`get_value()`](/sdk/python/reference/class/KeyValueStore#get_value) and [`set_value()`](/sdk/python/reference/class/KeyValueStore#set_value) methods.
 
-Every Actor run is linked to a default key-value store that is automatically created for that specific run. If you're running your Actors and opt to store data locally, you can easily supply the [input](../../actors/running/input_and_output.md) by placing an _INPUT.json_ file in the corresponding directory of the default key-value store. This method ensures that your Actor has all the necessary data readily available for its execution.
+Every Actor run is linked to a default key-value store, created automatically for that run. When you run your Actor locally, you can supply its [input](../../actors/running/input_and_output.md) by placing an _INPUT.json_ file in the default key-value store's directory.
 
 You can find _INPUT.json_ and other key-value store files in the location below.
 
@@ -268,77 +263,17 @@ Check out the [Python SDK documentation](/sdk/python/docs/concepts/storages#work
 
 ## Compression
 
-Previously, when using the [Store record](/api/v2/key-value-store-record-put) endpoint, every record was automatically compressed with Gzip before being uploaded. However, this process has been updated. _Now, records are stored exactly as you upload them._ This change means that it is up to you whether the record is stored compressed or uncompressed.
+Records are stored exactly as you upload them, compressed or uncompressed.
 
 You can compress a record and use the [Content-Encoding request header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Encoding) to let the platform know which compression it uses. We recommend compressing large key-value records to save storage space and network traffic.
 
-_Using the [JavaScript SDK](/sdk/js/reference/class/KeyValueStore#setValue) or the [JavaScript API client](/api/client/js/reference/class/KeyValueStoreClient#setRecord) automatically compresses your files._ We advise utilizing the JavaScript API client for data compression prior to server upload and decompression upon retrieval, minimizing storage costs.
+The [JavaScript SDK](/sdk/js/reference/class/KeyValueStore#setValue) and the [JavaScript API client](/api/client/js/reference/class/KeyValueStoreClient#setRecord) compress and decompress records automatically.
 
-## Share
+## Share and reuse {#share}
 
-You can grant [access rights](/account/collaboration) to your key-value store through the **Share** button under the **Actions** menu. For more details check the [full list of permissions](/account/collaboration/list-of-permissions).
+You can grant access rights to your key-value store, share it by link, or generate a time-limited pre-signed URL for specific records. See [Share storage](../share.md).
 
-You can also share key-value stores by link using their ID or name, depending on your account or resource-level general access setting. Learn how link-based access works in [General resource access](/account/collaboration/general-resource-access).
-
-For one-off sharing of specific records when access is restricted, you can generate time-limited pre-signed URLs. See [Sharing restricted resources with pre-signed URLs](/account/collaboration/general-resource-access#pre-signed-urls).
-
-### Share key-value stores between runs
-
-You can access a key-value store from any [Actor](../../actors/index.mdx) or [task](../../actors/running/tasks.md) run as long as you know its _name_ or _ID_.
-
-To access a key-value store from another run using the [Apify SDK](/sdk), open it using the same method as you would do with any other store.
-
-<Tabs groupId="main">
-<TabItem value="JavaScript" label="JavaScript">
-
-```js
-import { Actor } from 'apify';
-
-await Actor.init();
-
-const otherStore = await Actor.openKeyValueStore('old-store');
-// ...
-
-await Actor.exit();
-```
-
-</TabItem>
-<TabItem value="Python" label="Python">
-
-```python
-from apify import Actor
-
-async def main():
-    async with Actor:
-        other_store = await Actor.open_key_value_store(name='old-store')
-        # ...
-```
-
-</TabItem>
-</Tabs>
-
-In the [JavaScript API client](/api/client/js/reference/class/KeyValueStoreClient) as well as in [Python API client](/api/client/python/reference/class/KeyValueStoreClient), you can access a store using its client. Once you've opened a store, read and manage its contents like you would do with a key-value store from your current run.
-
-<Tabs groupId="main">
-<TabItem value="JavaScript" label="JavaScript">
-
-```js
-const otherStoreClient = apifyClient.keyValueStore('jane-doe/old-store');
-```
-
-</TabItem>
-<TabItem value="Python" label="Python">
-
-```python
-other_store_client = apify_client.key_value_store('jane-doe/old-store')
-```
-
-</TabItem>
-</Tabs>
-
-The same applies for the [Apify API](#apify-api) - you can use [the same endpoints](#apify-api) as you would normally do.
-
-Check out the [Storage overview](/storage#share-storages-between-runs) for details on sharing storages between runs.
+To read from or write to a key-value store that belongs to a different Actor or task run, see [Use storage from another run](../use-from-another-run.md).
 
 ## Data consistency
 
@@ -347,3 +282,15 @@ Key-value storage uses the [AWS S3](https://aws.amazon.com/s3/) service. Accordi
 ## Limits
 
 - The maximum length for a key in a key-value store is 256 characters. Keys may only contain the following characters: `a-zA-Z0-9!-_.'()`.
+
+- The maximum length for a key-value store name is 63 characters.
+
+### Rate limiting
+
+Operations on a single record ([get](/api/v2/key-value-store-record-get), [put](/api/v2/key-value-store-record-put), [delete](/api/v2/key-value-store-record-delete)) and [getting the list of keys](/api/v2/key-value-store-keys-get) are limited to _200 requests per second_ per store.
+
+[Downloading all records](/api/v2/key-value-store-records-get) as a ZIP archive is limited to _100 requests per second_ per store.
+
+All other key-value store [API endpoints](/api/v2/storage-key-value-stores) use the default limit of _60 requests per second_ per store.
+
+Check out the [API documentation](/api/v2#rate-limiting) for more information and guidance on actions to take if you exceed these rate limits.
