@@ -48,7 +48,7 @@ For private repositories, configure a [deployment key](/actors/development/deplo
 
 ## Build automatically on every push
 
-After you link an Actor to a GitHub repository, add a webhook in GitHub to trigger a new build on every push:
+By default, a linked Actor rebuilds only when you trigger a build manually. To rebuild it automatically whenever you push to the repository, add a webhook in GitHub that calls the Actor's **Build Actor** API endpoint:
 
 1. In Apify Console, open the Actor's **API** dropdown and select **API endpoints**. Copy the **Build Actor** endpoint URL. It has this format:
 

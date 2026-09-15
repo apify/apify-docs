@@ -7,35 +7,70 @@ slug: /integrations/airbyte
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
-Airbyte is an open-source data integration platform that allows you to move your data between different sources and destinations using pre-built connectors, which are maintained either by Airbyte itself or by its community.
-One of these connectors is the Apify Dataset connector, which makes it simple to move data from Apify datasets to any supported destination.
+[Airbyte](https://airbyte.com) is an open-source data integration platform that moves data between sources and destinations using pre-built connectors, maintained by Airbyte or its community. The Apify Dataset connector lets you move data from your Apify datasets to any Airbyte-supported destination.
 
-To use Airbyte's Apify connector you need to:
-
-* Have an Apify account.
-* Have an Airbyte account.
+This guide shows you how to set up Apify datasets as a source in Airbyte and, optionally, trigger a sync automatically after every Actor run.
 
 <ThirdPartyDisclaimer />
 
-## Set up Apify connector in Airbyte
+## Prerequisites
 
-Once you have all the necessary accounts set up, you need to set up the Apify connector.
-To do so, you will need to navigate to **Sources** tab in Airbyte and select **Apify Dataset**
+* An [Apify account](https://console.apify.com).
+* An [Airbyte account](https://airbyte.com).
+
+## Set up the Apify Dataset source in Airbyte
+
+In Airbyte, open the **Sources** tab and select **Apify Dataset**.
 
 ![Airbyte sources tab](../images/airbyte-sources.png)
 
-You will need to provide a **dataset ID** and your Apify API Token. You can find both of these in [Apify Console](https://console.apify.com).
+Enter your **dataset ID** and **Apify API token**. You can find both in [Apify Console](https://console.apify.com).
 
 ![Airbyte source setup](../images/airbyte-source-setup.png)
 
-To find your **dataset ID**, you need to navigate to the **Storage** tab in Apify Console. Copy it and paste it in Airbyte.
+To find your **dataset ID**, open the **Storage** tab in Apify Console and copy the ID of the dataset you want to use.
 
-![Datasets in app](../images/datasets-app.png)
+![Datasets in Apify Console](../images/datasets-app.png)
 
-To find your Apify API token, you need to navigate to the **Settings** tab and select **API & Integrations**. Copy it and paste it in the relevant field in Airbyte.
+To find your **Apify API token**, open **Settings > API & Integrations** in Apify Console and copy the token.
 
-![Integrations token](../images/apify-integrations-token.png)
+![API & Integrations token in Apify Console](../images/apify-integrations-token.png)
 
-And that's it! You now have Apify datasets set up as a Source, and you can use Airbyte to transfer your datasets to one of the available destinations.
+Your Apify dataset is now available as a source. Next, connect it to a destination so Airbyte knows where to move the data.
 
-To learn more about how to setup a Connection, visit [Airbyte's documentation](https://docs.airbyte.com/using-airbyte/getting-started/set-up-a-connection)
+## Connect the source to a destination
+
+Setting up the source only tells Airbyte where your data comes from. To actually move it, create a _connection_: an Airbyte pipeline that links your Apify Dataset source to a destination and controls how and when the data syncs. To set one up, follow [Set up a connection](https://docs.airbyte.com/using-airbyte/getting-started/set-up-a-connection) in the Airbyte documentation.
+
+## Trigger a sync automatically after an Actor run
+
+Instead of syncing on a schedule, you can start an Airbyte sync as soon as an Actor run finishes. Use an Apify [webhook](/integrations/webhooks) to call the Airbyte API and refresh the connection whenever new data is scraped.
+
+To set this up, you need an Airbyte connection that uses your Apify Dataset as a source, plus Airbyte API access: an access token and the **connection ID** (copy it from the connection's URL in Airbyte). The exact endpoint and authentication depend on whether you use Airbyte Cloud or a self-managed instance, so check the [Airbyte API reference](https://reference.airbyte.com/reference/createjob) for the current details.
+
+1. In [Apify Console](https://console.apify.com), open the Actor and go to the **Integrations** tab.
+1. Under **Connect with Apify**, click **HTTP webhook**.
+1. Configure the webhook:
+    * **Event types**: `Run succeeded` (`ACTOR.RUN.SUCCEEDED`)
+    * **URL**: the Airbyte API endpoint that starts a sync, for example `https://api.airbyte.com/v1/jobs`
+1. Set the **Headers template** to authenticate with your Airbyte token:
+
+    ```json
+    {
+        "Authorization": "Bearer YOUR_AIRBYTE_TOKEN",
+        "Content-Type": "application/json"
+    }
+    ```
+
+1. Set the **Payload template** to start a sync for your connection:
+
+    ```json
+    {
+        "connectionId": "YOUR_CONNECTION_ID",
+        "jobType": "sync"
+    }
+    ```
+
+1. Click **Save**, then **Test** to confirm that Airbyte starts a sync.
+
+Every successful Actor run now triggers Airbyte to move the freshly scraped data to your destination, with no manual step in between.
