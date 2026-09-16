@@ -5,6 +5,8 @@ slug: /scraping-with-apify-and-ai/developing-scraper-with-ai-agent
 unlisted: true
 ---
 
+import PromptExample from '@site/src/components/PromptExample';
+
 **In this lesson, we'll keep improving our app for tracking prices on an e-commerce website. We'll get its code onto our computer and use Cursor to streamline how we update our scraper.**
 
 ---
@@ -228,10 +230,8 @@ In the previous lesson, we noticed that the prices in our resulting dataset are 
 
 Let's change that. We'll prompt the agent like this, with a clear example of what we want:
 
-```text
-Change the code so that the Actor saves prices as numbers.
-Because some prices are "from", let's call the "price" field
-"minPrice" instead, as in minimum price. Example follows.
+<PromptExample>
+Change the code so that the Actor saves prices as numbers. Because some prices are "from", let's call the "price" field "minPrice" instead, as in minimum price. Example follows.
 
 Before:
 Sale price$74.95
@@ -242,7 +242,7 @@ After:
 74.95
 1398.00
 158.00
-```
+</PromptExample>
 
 When the agent is done, we'll approve the changes and verify in the command line that the Actor runs locally:
 
