@@ -2,9 +2,13 @@ import React, { useEffect, useRef, useState } from 'react';
 
 import styles from './PromptButton.module.css';
 
-export default function PromptButton({ prompt, title = 'Ready-to-use prompt for your AI assistant' }) {
+export default function PromptButton({
+    prompt,
+    title = 'Ready-to-use prompt for your AI assistant',
+    collapsed = false,
+}) {
     const [copied, setCopied] = useState(false);
-    const [showPrompt, setShowPrompt] = useState(false);
+    const [showPrompt, setShowPrompt] = useState(!collapsed);
     const timeoutRef = useRef(null);
 
     useEffect(() => {
@@ -51,9 +55,11 @@ export default function PromptButton({ prompt, title = 'Ready-to-use prompt for 
                     </div>
                 </div>
                 <div className={styles['button-container']}>
-                    <button className={styles['toggle-button']} onClick={togglePrompt}>
-                        {showPrompt ? 'Hide prompt' : 'Show prompt'}
-                    </button>
+                    {collapsed && (
+                        <button className={styles['toggle-button']} onClick={togglePrompt}>
+                            {showPrompt ? 'Hide prompt' : 'Show prompt'}
+                        </button>
+                    )}
                     <button className={`${styles['copy-button']} ${copied ? styles.copied : ''}`} onClick={handleCopy}>
                         {copied ? 'Copied!' : 'Copy prompt'}
                     </button>
