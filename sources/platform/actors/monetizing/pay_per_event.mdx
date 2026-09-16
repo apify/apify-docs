@@ -107,6 +107,12 @@ To pass platform usage costs on to users:
 
 Turning this option on takes 14 days to take effect. However, you can turn it off immediately, as it is a positive change for users.
 
+:::note Standby runs are always paid by users
+
+This setting applies only to standard runs. For runs in [Standby mode](/actors/running/standby), users always pay the platform usage costs in addition to the event charges, regardless of this setting.
+
+:::
+
 ## Best practices
 
 To simplify PPE implementation into you Actor, use the [Apify SDKs](/sdk). They help you handle pricing, usage tracking, idempotency keys, API errors, and event charging through an API. Without the SDKs, you must handle API integration and possible edge cases manually.

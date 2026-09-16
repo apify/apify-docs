@@ -101,6 +101,8 @@ sure to use that in your application if you wish to use the custom configuration
 No, the Standby runs are billed in the same fashion as the normal runs.
 However, running Actors in Standby mode might have unexpected costs, as the Actors run in the background and consume resources even when no requests are being sent until they are terminated after the idle timeout period.
 
+For Actors monetized with the [pay-per-event pricing model](/actors/publishing/monetize/pay-per-event), you pay the platform usage costs of the Standby runs in addition to the event charges.
+
 ## Are the Standby runs shared among users
 
 No, even if you use the Actor-level hostname with the default configuration, the background Actor runs for your requests are not shared with other users.
