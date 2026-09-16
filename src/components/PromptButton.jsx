@@ -4,7 +4,7 @@ import styles from './PromptButton.module.css';
 
 export default function PromptButton({
     prompt,
-    title = 'Use pre-built prompt for your AI assistant',
+    title = 'Ready-to-use prompt for your AI assistant',
 }) {
     const [copied, setCopied] = useState(false);
     const [showPrompt, setShowPrompt] = useState(false);
