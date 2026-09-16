@@ -74,9 +74,11 @@ If an Actor's server stays up but stops responding, the platform doesn't detect 
 
 For requests sent to an Actor in Standby mode, the maximum time allowed until receiving the first response is _5 minutes_. This represents the overall timeout for the operation.
 
+Within this window, the platform first selects an Actor run to handle the request, which can take up to _2 minutes_, for example when a new run needs to start. If no run becomes available within that time, the request fails with a `429` error.
+
 ## What is the rate limit for incoming requests
 
-The rate limit for incoming requests to a Standby Actor is _2000 requests per second_ per user account.
+Incoming requests to Standby Actors are rate-limited per user account. The exact limit depends on your subscription plan and is returned in the `X-RateLimit-Limit` response header. When you exceed the limit, the platform responds with a `429` error.
 
 ## How do I customize Standby configuration
 
@@ -88,10 +90,11 @@ The Standby configuration currently consists of the following properties:
 - **Idle timeout (seconds)** - If a Standby Actor run doesn’t receive any HTTP requests within this time, the system will terminate the run. When a new request arrives, the system might need to start a new Standby Actor run to handle it, which can take a few seconds. A higher idle timeout improves responsiveness but increases costs, as the Actor remains active for a longer period.
 - **Build** - The Actor build that the runs of the Standby Actor will use. Can be either a build tag (e.g. `latest.`), or a build number (e.g. `0.1.2`).
 
-You can see these in the **Endpoints** tab of the Actor detail page. However, note that these properties are not configurable at the Actor level. If you wish to
-use the Actor-level hostname, this will always use the default configuration. To override this configuration, just create a new Task from the Actor.
+You can see these in the **Endpoints** tab of the Actor detail page. If you own the Actor, you can change its default Standby configuration in the **Settings** tab.
+
+If you use an Actor built by someone else, the Actor-level hostname always uses the developer's default configuration. To override it, create a new Task from the Actor.
 You can then head to the **Endpoints** tab of the created Task and modify the configuration as needed. Note that the task has a specific hostname, so make
-sure to use that in your application if you wish to use the custom configuration.
+sure to use that in your application if you wish to use the custom configuration. Also note that the Actor's developer can lock the Standby configuration, in which case the task-level settings have no effect.
 
 ## Are the Standby runs billed differently
 
