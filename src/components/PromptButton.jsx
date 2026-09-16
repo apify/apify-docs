@@ -47,7 +47,7 @@ export default function PromptButton({
 
     return (
         <>
-            <div className={styles['prompt-card']}>
+            <div className={`${styles['prompt-card']} ${showPrompt ? styles.open : ''}`}>
                 <div className={styles['prompt-content']}>
                     <div className={styles['prompt-text']}>
                         <span>{title}</span>
