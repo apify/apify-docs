@@ -70,7 +70,7 @@ export default function PromptButton({
                 readers is controlled purely by CSS via the "visible" class below. */}
             <div className={`${styles['full-prompt-container']} ${showPrompt ? styles.visible : ''}`}>
                 <div className={styles['full-prompt']}>
-                    <pre>{prompt}</pre>
+                    <blockquote className={styles['full-prompt-blockquote']}>{prompt}</blockquote>
                 </div>
             </div>
         </>

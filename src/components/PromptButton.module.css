@@ -188,11 +188,17 @@ html[data-theme='dark'] .toggle-button:hover {
     box-shadow: none;
 }
 
-.full-prompt pre {
+.full-prompt-blockquote.full-prompt-blockquote {
+    background: var(--ifm-pre-background);
+    border: none;
+    border-radius: 4px;
+    box-shadow: none;
     margin: 0;
+    padding: var(--ifm-pre-padding);
+    color: var(--ifm-color-content);
+    font-family: var(--ifm-font-family-monospace);
     font-size: 1.3rem;
     line-height: 1.5;
-    color: var(--ifm-color-content);
     white-space: pre-wrap;
     word-wrap: break-word;
 }

@@ -13,7 +13,7 @@
     border-radius: 4px;
     box-shadow: none;
     margin: 0 0 1.2rem;
-    padding: 1rem;
+    padding: var(--ifm-pre-padding);
     color: var(--ifm-color-content);
     font-family: var(--ifm-font-family-monospace);
     font-size: 1.3rem;
