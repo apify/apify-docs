@@ -101,7 +101,7 @@ const server = http.createServer((req, res) => {
     }
 });
 
-server.listen(Actor.config.get('standbyPort'));
+server.listen(Actor.config.get('containerPort'));
 ```
 
 </TabItem>
@@ -124,7 +124,7 @@ class GetHandler(SimpleHTTPRequestHandler):
 
 async def main() -> None:
     async with Actor:
-        with HTTPServer(('', Actor.configuration.standby_port), GetHandler) as http_server:
+        with HTTPServer(('', Actor.configuration.web_server_port), GetHandler) as http_server:
             http_server.serve_forever()
 ```
 
