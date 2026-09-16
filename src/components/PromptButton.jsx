@@ -1,10 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-import { QUICK_START_PROMPT } from '../utils/quick-start-prompt';
 import styles from './PromptButton.module.css';
 
 export default function PromptButton({
-    prompt = QUICK_START_PROMPT,
+    prompt,
     title = 'Use pre-built prompt to get started faster.',
 }) {
     const [copied, setCopied] = useState(false);
