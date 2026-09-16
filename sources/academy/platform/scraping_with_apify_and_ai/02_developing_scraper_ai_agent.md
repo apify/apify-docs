@@ -228,7 +228,7 @@ In the previous lesson, we noticed that the prices in our resulting dataset are 
 
 Let's change that. We'll prompt the agent like this, with a clear example of what we want:
 
-```prompt
+```prompt title="Clean up price data prompt"
 Change the code so that the Actor saves prices as numbers. Because some prices are "from", let's call the "price" field "minPrice" instead, as in minimum price. Example follows.
 
 Before:
