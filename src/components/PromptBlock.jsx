@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-import styles from './PromptButton.module.css';
+import styles from './PromptBlock.module.css';
 
-export default function PromptButton({
+export default function PromptBlock({
     prompt,
     title = 'Ready-to-use prompt for your AI assistant',
     collapsed = false,
@@ -24,7 +24,7 @@ export default function PromptButton({
             window.analytics.track('Clicked', {
                 app: 'docs',
                 button_text: 'Copy prompt',
-                element: 'prompt-button.copyButton',
+                element: 'prompt-block.copyButton',
             });
         }
 
