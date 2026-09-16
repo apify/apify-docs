@@ -1,0 +1,57 @@
+.prompt-example-container {
+    background: var(--ifm-background-color);
+    border: 1px solid var(--ifm-color-emphasis-200);
+    border-radius: 8px;
+    padding: 1.6rem;
+    box-shadow: 0 1.5px 3px 0 rgb(0 0 0 / 15%);
+    margin-bottom: var(--ifm-leading);
+}
+
+.prompt-example.prompt-example {
+    background: var(--ifm-pre-background);
+    border: none;
+    border-radius: 4px;
+    box-shadow: none;
+    margin: 0 0 1.2rem;
+    padding: 1rem;
+    color: var(--ifm-color-content);
+    font-family: var(--ifm-font-family-monospace);
+    font-size: 1.3rem;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.copy-button {
+    width: 150px;
+    background: var(--ifm-color-primary);
+    color: var(--ifm-color-primary-contrast-background);
+    border: 1px solid var(--ifm-color-primary);
+    border-radius: 6px;
+    padding: 0.8rem 1.6rem;
+    font-size: 1.4rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--ifm-transition-fast) ease;
+    white-space: nowrap;
+}
+
+.copy-button:hover {
+    background: var(--ifm-color-primary-darker);
+    border-color: var(--ifm-color-primary-darker);
+}
+
+.copy-button.copied {
+    background: var(--ifm-color-success);
+    border-color: var(--ifm-color-success);
+}
+
+.copy-button.copied:hover {
+    background: var(--ifm-color-success-darker);
+    border-color: var(--ifm-color-success-darker);
+}
