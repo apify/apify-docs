@@ -44,10 +44,7 @@ export default function PromptExample({ children }) {
                 {children}
             </blockquote>
             <div className={styles['button-container']}>
-                <button
-                    className={`${styles['copy-button']} ${copied ? styles.copied : ''}`}
-                    onClick={handleCopy}
-                >
+                <button className={`${styles['copy-button']} ${copied ? styles.copied : ''}`} onClick={handleCopy}>
                     {copied ? 'Copied!' : 'Copy prompt'}
                 </button>
             </div>

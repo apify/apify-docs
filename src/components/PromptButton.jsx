@@ -2,10 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 
 import styles from './PromptButton.module.css';
 
-export default function PromptButton({
-    prompt,
-    title = 'Ready-to-use prompt for your AI assistant',
-}) {
+export default function PromptButton({ prompt, title = 'Ready-to-use prompt for your AI assistant' }) {
     const [copied, setCopied] = useState(false);
     const [showPrompt, setShowPrompt] = useState(false);
     const timeoutRef = useRef(null);
