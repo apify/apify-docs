@@ -56,11 +56,11 @@ When you create a connector, the platform inspects the MCP server URL you provid
 
 | Method | When to use |
 | --- | --- |
-| API key or bearer token | The MCP server uses a static API key or personal access token (PAT). |
+| API key | The MCP server uses a static API key, bearer token, or personal access token (PAT). |
 | OAuth | The server supports OAuth and either (a) supports Dynamic Client Registration (DCR), so Apify registers an OAuth client automatically, or (b) Apify provides a managed OAuth client for that service. |
-| Own OAuth client | The server uses OAuth but neither DCR nor an Apify-managed client is available. You register your own OAuth app with the provider and supply the credentials to Apify. |
+| Your own OAuth client | The server uses OAuth but neither DCR nor an Apify-managed client is available. You register your own OAuth app with the provider and supply the credentials to Apify. |
 
-Apify provides automatic OAuth client setup for Notion and Supabase. For GitHub, Slack, Google, Microsoft Entra, and other providers, register your own OAuth app and use the Own OAuth Client flow.
+Apify provides automatic OAuth client setup for Notion and Supabase. For GitHub, Slack, Google, Microsoft Entra, and other providers, register your own OAuth app and use the **Your own OAuth client** flow.
 
 Tools are discovered when you first authorize a connector. To pick up new tools added to the upstream server, re-authorize the connector.
 
@@ -68,7 +68,7 @@ Create and manage your connectors in [Settings > API & Integrations > MCP connec
 
 ## Run an Actor with a connector
 
-When you run an Actor that accepts MCP connectors, the input form shows a connector picker filtered to those compatible with the Actor's requirements. Pick one of your authorized connectors, or create a new one inline. To set connectors up in advance, see [Account settings - MCP connectors](/account/settings#mcp-connectors).
+When you run an Actor that accepts MCP connectors, the input form shows a connector picker filtered to those compatible with the Actor's requirements. The picker's label comes from the Actor's [input schema](/integrations/mcp-connectors/use-in-actors#declare-connectors-in-the-input-schema) - for example, as an **External data sources** field. Pick one of your authorized connectors, or create a new one inline. To set connectors up in advance, see [Account settings - MCP connectors](/account/settings#mcp-connectors).
 
 ![Connector picker in an Actor input form, open and listing the user's authorized Notion and Sentry connectors](./images/mcp-connectors-input-picker.webp)
 

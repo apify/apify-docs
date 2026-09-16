@@ -65,9 +65,9 @@ The **MCP connectors** section lets you authorize third-party MCP servers (such 
 
 1. Choose an authentication method:
 
-    - _API key or bearer token_ - the MCP server uses a static API key or personal access token. Enter the key. Apify verifies it by connecting to the MCP server.
+    - _API key_ - the MCP server uses a static API key, bearer token, or personal access token. Enter the key. Apify verifies it by connecting to the MCP server.
     - _OAuth_ - the server supports OAuth and Apify can either register an OAuth client automatically (Dynamic Client Registration) or use an Apify-managed OAuth client. A consent screen opens in a popup. Grant access and close the popup.
-    - _Own OAuth client_ - the server supports OAuth but you need to register your own OAuth app with the provider (see below). Enter your client ID, client secret, authorization URL, and token URL, then complete the OAuth consent flow.
+    - _Your own OAuth client_ - the server supports OAuth but you need to register your own OAuth app with the provider (see [Set up your own OAuth client](#set-up-your-own-oauth-client)). Enter your client ID, client secret, authorization URL, and token URL, then complete the OAuth consent flow.
 
     ![Add new MCP connector dialog with the MCP server URL verified and OAuth selected as the authentication method](../images/mcp-connectors-add-connector.webp)
 
@@ -86,7 +86,7 @@ For providers without Apify-managed OAuth client setup (GitHub, Slack, Google, M
     ```
 
 1. Copy the client ID and client secret.
-1. In the connector creation modal, select **Own OAuth client** and provide:
+1. In the connector creation modal, select **Your own OAuth client** and provide:
     - Client ID
     - Client secret
     - Authorization URL (for example, `https://github.com/login/oauth/authorize`)
