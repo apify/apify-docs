@@ -53,7 +53,7 @@ The methods on this page are complementary. Start with the [AI coding assistant 
 
 Use the following prompt in your AI coding assistant such as [Cursor](https://cursor.com/), [Claude Code](https://claude.com/product/claude-code), or [GitHub Copilot](https://github.com/features/copilot):
 
-<PromptButton prompt={AGENTS_PROMPT} title="Use pre-built prompt for your AI coding assistant" />
+<PromptButton prompt={AGENTS_PROMPT} />
 
 The prompt guides your AI coding assistant to create and deploy an Apify Actor step by step. It walks through setting up the Actor structure, configuring all required files, installing dependencies, running it locally, logging in, and pushing it to the Apify platform.
 
