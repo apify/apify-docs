@@ -170,8 +170,13 @@ html[data-theme='dark'] .toggle-button:hover {
 }
 
 .full-prompt-container {
+    display: none;
     margin-top: 0;
     width: 100%;
+}
+
+.full-prompt-container.visible {
+    display: block;
 }
 
 .full-prompt-container .full-prompt {

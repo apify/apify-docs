@@ -59,13 +59,14 @@ export default function PromptButton({ prompt, title = 'Ready-to-use prompt for 
                     </button>
                 </div>
             </div>
-            {showPrompt && (
-                <div className={styles['full-prompt-container']}>
-                    <div className={styles['full-prompt']}>
-                        <pre>{prompt}</pre>
-                    </div>
+            {/* Always rendered (not gated on showPrompt) so the prompt text is present in the
+                static HTML and gets picked up by the llms.txt generator; visibility for human
+                readers is controlled purely by CSS via the "visible" class below. */}
+            <div className={`${styles['full-prompt-container']} ${showPrompt ? styles.visible : ''}`}>
+                <div className={styles['full-prompt']}>
+                    <pre>{prompt}</pre>
                 </div>
-            )}
+            </div>
         </>
     );
 }
