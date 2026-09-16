@@ -107,6 +107,10 @@ For Actors monetized with the [pay-per-event pricing model](/actors/publishing/m
 
 No, even if you use the Actor-level hostname with the default configuration, the background Actor runs for your requests are not shared with other users.
 
+## Can I use Standby Actors as MCP servers
+
+Yes, if the Actor exposes a [Model Context Protocol (MCP)](../../integrations/ai/mcp.md) server. Its MCP endpoint is the Standby hostname followed by the path defined in the Actor's [`webServerMcpPath`](../development/actor_definition/actor_json.md) property. Requests to the MCP endpoint are authenticated in the same way as any other Standby request.
+
 ## How can I develop Actors using Standby mode
 
 See the [Actor Standby development section](../development/programming_interface/actor_standby.md).
