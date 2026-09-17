@@ -47,7 +47,7 @@ To deploy your Actor:
     apify push
     ```
 
-The `apify push` command checks if your account has an Actor with the name defined in `.actor/actor.json` and creates it if none exists. Then, it creates or updates the Actor's version, uploads your code as its source, starts a build, and streams the build log.
+The [`apify push`](/cli/docs/reference#apify-actors-push--apify-push) command checks if your account has an Actor with the name defined in `.actor/actor.json` and creates it if none exists. Then, it creates or updates the Actor's version, uploads your code as its source, starts a build, and streams the build log.
 
 ### Define the version
 
