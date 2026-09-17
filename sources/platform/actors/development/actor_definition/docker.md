@@ -23,7 +23,15 @@ All Apify Docker images are pre-cached on Apify servers to speed up Actor builds
 
 ### Node.js base images
 
-These images come with Node.js (versions `20`, `22`, or `24`) the [Apify SDK for JavaScript](/sdk/js), and [Crawlee](https://crawlee.dev/) preinstalled. The `latest` tag corresponds to the latest LTS version of Node.js.
+These images come with Node.js (versions `22`, `24`, or `26`). The `latest` tag corresponds to the latest LTS version of Node.js.
+
+Every image is published in two flavours. The full image preinstalls the [Apify SDK for JavaScript](/sdk/js), [Crawlee](https://crawlee.dev/) and TypeScript. The `-slim` variant (e.g. `24-slim`, `24-1.60.0-slim`) only ships the browser automation library the image is built around (for example `puppeteer` or `playwright`), and `actor-node:24-slim` ships no npm packages at all. Slim images are smaller and faster to pull, and your `package.json` is the single source of truth for dependency versions.
+
+Use the slim variant unless you have a reason not to. Reach for the full image when you want to run something quickly without maintaining a `package.json`, or when you rely on the exact preinstalled versions of `apify` and `crawlee`.
+
+```dockerfile
+FROM apify/actor-node-playwright-chrome:24-1.60.0-slim
+```
 
 | Image | Description |
 | ----- | ----------- |
@@ -33,17 +41,19 @@ These images come with Node.js (versions `20`, `22`, or `24`) the [Apify SDK for
 | [`actor-node-playwright-firefox`](https://hub.docker.com/r/apify/actor-node-playwright-firefox/) | Debian image with Firefox and the [`playwright`](https://github.com/microsoft/playwright) library . |
 | [`actor-node-playwright-webkit`](https://hub.docker.com/r/apify/actor-node-playwright-webkit/) | Ubuntu image with WebKit and the [`playwright`](https://github.com/microsoft/playwright) library. |
 | [`actor-node-playwright`](https://hub.docker.com/r/apify/actor-node-playwright/) | Ubuntu image with [`playwright`](https://github.com/microsoft/playwright) and all its browsers (Chromium, Google Chrome, Firefox, WebKit). |
+| [`actor-node-playwright-camoufox`](https://hub.docker.com/r/apify/actor-node-playwright-camoufox/) | Debian image with [Camoufox](https://camoufox.com/), a Firefox fork hardened against bot detection, and the [`playwright`](https://github.com/microsoft/playwright), [`camoufox-js`](https://github.com/apify/camoufox-js) and [`impit`](https://github.com/apify/impit) libraries. |
 
 See the [Docker image guide](/sdk/js/docs/guides/docker-images) for more details.
 
 ### Python base images
 
-These images come with Python (version `3.9`, `3.10`, `3.11`, `3.12`, or `3.13`) and the [Apify SDK for Python](/sdk/python) preinstalled. The `latest` tag corresponds to the latest Python 3 version supported by the Apify SDK.
+These images come with Python (version `3.10`, `3.11`, `3.12`, `3.13`, or `3.14`) and the [Apify SDK for Python](/sdk/python) preinstalled. The `latest` tag corresponds to the latest Python 3 version supported by the Apify SDK.
 
 | Image | Description |
 | ----- | ----------- |
 | [`actor-python`](https://hub.docker.com/r/apify/actor-python) | Slim Debian image with only the Apify SDK for Python. Does not include headless browsers. |
 | [`actor-python-playwright`](https://hub.docker.com/r/apify/actor-python-playwright) | Debian image with [`playwright`](https://github.com/microsoft/playwright) and all its browsers. |
+| [`actor-python-playwright-camoufox`](https://hub.docker.com/r/apify/actor-python-playwright-camoufox) | Debian image with [Camoufox](https://camoufox.com/), a Firefox fork hardened against bot detection, and the [`playwright`](https://github.com/microsoft/playwright) library. |
 | [`actor-python-selenium`](https://hub.docker.com/r/apify/actor-python-selenium) | Debian image with [`selenium`](https://github.com/seleniumhq/selenium), Google Chrome, and [ChromeDriver](https://developer.chrome.com/docs/chromedriver/). |
 
 ## Image tag naming convention
@@ -54,23 +64,25 @@ Docker image tags follow a consistent naming pattern that allows you to pin spec
 
 For Node.js images, the tag format is:
 
-- `{node-version}` - A Node.js version only (e.g., `20`, `22`, `24`)
+- `{node-version}` - A Node.js version only (e.g., `22`, `24`, `26`)
 - `{node-version}-{library-version}` - A Node.js version with pinned Playwright/Puppeteer version (e.g., `22-1.52.0`)
+- `{...}-slim` - Any of the above without preinstalled `apify`, `crawlee` and `typescript` (e.g., `24-slim`, `22-1.52.0-slim`)
 
 Examples:
 
 | Tag | Description |
 | --- | ----------- |
-| `20` | Node.js 20 with the Playwright/Puppeteer version that was latest when the image was built |
 | `22` | Node.js 22 with the Playwright/Puppeteer version that was latest when the image was built |
+| `24` | Node.js 24 with the Playwright/Puppeteer version that was latest when the image was built |
 | `22-1.52.0` | Node.js 22 with Playwright/Puppeteer version 1.52.0 pinned |
+| `22-1.52.0-slim` | Same as `22-1.52.0`, but without preinstalled `apify`, `crawlee` and `typescript` |
 | `latest` | Latest LTS Node.js version |
 
 ### Python images
 
 For Python images, the tag format is:
 
-- `{python-version}` - A Python version only (e.g., `3.11`, `3.12`, `3.13`)
+- `{python-version}` - A Python version only (e.g., `3.12`, `3.13`, `3.14`)
 - `{python-version}-{library-version}` - A Python version with pinned Playwright/Selenium version
 
 ### Available tags
@@ -140,6 +152,34 @@ The asterisk (`*`) tells npm to use whatever version is already installed, which
 1. Reproducibility - Your builds will behave the same way regardless of when you build them
 1. Predictability - You know exactly which version you're running
 1. Debugging - Version-specific issues are easier to track down
+
+## Node.js package managers
+
+All Node.js images ship with npm and have [Corepack](https://github.com/nodejs/corepack) enabled, so you can use yarn or pnpm as well. Neither is preinstalled: add a [`packageManager`](https://nodejs.org/api/packages.html#packagemanager) field to your `package.json` and Corepack downloads and uses the exact version you pin.
+
+```json
+{
+    "packageManager": "pnpm@10.24.0"
+}
+```
+
+The images preconfigure the package managers so that:
+
+- pnpm and yarn install a flat, npm-style `node_modules` (`node-linker=hoisted` for pnpm, `nodeLinker: node-modules` for yarn) instead of a symlinked store or Plug'n'Play, so dependencies resolve without extra loaders.
+- The yarn and pnpm caches (`YARN_CACHE_FOLDER`, `YARN_GLOBAL_FOLDER`, `PNPM_CONFIG_STORE_DIR`, `PNPM_CONFIG_CACHE_DIR`) and the Corepack cache (`COREPACK_HOME`) live under `/pkg-cache`. npm keeps its default `~/.npm` cache. Both directories only hold throwaway data, so you can `rm -rf /pkg-cache/* ~/.npm` at the end of your `Dockerfile` to reclaim space without touching installed dependencies.
+
+:::note Overriding the linker
+
+The images set the linker through the `PNPM_CONFIG_NODE_LINKER` and `YARN_NODE_LINKER` environment variables. Both pnpm and yarn give environment variables precedence over `.npmrc` or `.yarnrc.yml`, so a config file alone does not change the linker. To use a different one, override the variable in your `Dockerfile`:
+
+```dockerfile
+# https://pnpm.io/settings#nodelinker
+ENV PNPM_CONFIG_NODE_LINKER=isolated
+# https://yarnpkg.com/configuration/yarnrc#nodeLinker
+ENV YARN_NODE_LINKER=pnp
+```
+
+:::
 
 ## Custom Dockerfile
 
