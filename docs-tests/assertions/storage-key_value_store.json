@@ -1,0 +1,60 @@
+{
+  "source_file": "sources/platform/storage/key_value_store/index.md",
+  "assertions": [
+    {
+      "id": "storage-overview-route",
+      "kind": "route",
+      "target": "/storage",
+      "page_context": "Storage section of Apify Console, reached from the key-value store docs page",
+      "source_quote": "in the [Storage](https://console.apify.com/storage) section",
+      "source_line": 37,
+      "needs_auth": true
+    },
+    {
+      "id": "key-value-stores-tab-route",
+      "kind": "route",
+      "target": "/storage?tab=keyValueStores",
+      "page_context": "Key-value stores tab within the Storage section of Apify Console",
+      "source_quote": "under the [Key-value stores](https://console.apify.com/storage?tab=keyValueStores) tab.",
+      "source_line": 37,
+      "needs_auth": true
+    },
+    {
+      "id": "store-id-link",
+      "kind": "element_text",
+      "target": "Store ID",
+      "at": "/storage/key-value-stores",
+      "page_context": "Key-value stores list page, Storage section > Key-value stores tab",
+      "source_quote": "To view a key-value store's content, click on its **Store ID**.",
+      "source_line": 41,
+      "needs_auth": true
+    },
+    {
+      "id": "api-button-kv-detail",
+      "kind": "element_button",
+      "target": "API",
+      "page_context": "Key-value store detail page (Storage > Key-value stores > individual store)",
+      "source_quote": "Click on the **API** button to view and test a store's",
+      "source_line": 42,
+      "needs_auth": true
+    },
+    {
+      "id": "share-button-kv-detail",
+      "kind": "element_button",
+      "target": "Share",
+      "page_context": "Key-value store detail page, under the Actions menu",
+      "source_quote": "through the **Share** button under the **Actions** menu.",
+      "source_line": 279,
+      "needs_auth": true
+    },
+    {
+      "id": "actions-menu-kv-detail",
+      "kind": "element_button",
+      "target": "Actions",
+      "page_context": "Key-value store detail page, menu containing Share and rename options",
+      "source_quote": "through the **Share** button under the **Actions** menu.",
+      "source_line": 279,
+      "needs_auth": true
+    }
+  ]
+}

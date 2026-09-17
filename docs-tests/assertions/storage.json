@@ -1,0 +1,87 @@
+{
+  "source_file": "sources/platform/storage/index.md",
+  "assertions": [
+    {
+      "id": "storage-overview-route",
+      "kind": "route",
+      "target": "/storage",
+      "page_context": "Storage overview page in Apify Console",
+      "source_quote": "To view your storages in [Apify Console](https://console.apify.com/storage):",
+      "source_line": 42,
+      "needs_auth": true
+    },
+    {
+      "id": "storage-detail-api-button",
+      "kind": "element_button",
+      "target": "API",
+      "page_context": "Storage detail page (dataset/key-value store/request queue), top right corner",
+      "source_quote": "To view the related API endpoints, select **API** in the top right corner.",
+      "source_line": 48,
+      "needs_auth": true
+    },
+    {
+      "id": "include-unnamed-storages-label",
+      "kind": "element_text",
+      "target": "Include unnamed storages",
+      "at": "/storage",
+      "page_context": "Storage overview page, toggle for unnamed storages",
+      "source_quote": "Use the **Include unnamed storages** checkbox to either display or hide unnamed storages.",
+      "source_line": 54,
+      "needs_auth": true
+    },
+    {
+      "id": "storage-actions-menu",
+      "kind": "element_button",
+      "target": "Actions",
+      "page_context": "Storage detail page, menu for renaming/sharing/deleting a store",
+      "source_quote": "To rename a store, open the **Actions** menu and select **Rename**.",
+      "source_line": 58,
+      "needs_auth": true
+    },
+    {
+      "id": "storage-rename-option",
+      "kind": "element_button",
+      "target": "Rename",
+      "page_context": "Storage detail page, Actions menu option",
+      "source_quote": "To rename a store, open the **Actions** menu and select **Rename**.",
+      "source_line": 58,
+      "needs_auth": true
+    },
+    {
+      "id": "storage-share-option",
+      "kind": "element_button",
+      "target": "Share",
+      "page_context": "Storage detail page, Actions menu option for sharing a store",
+      "source_quote": "To share a storage, select **Share** in the **Actions** menu and provide an email, username, or user ID.",
+      "source_line": 60,
+      "needs_auth": true
+    },
+    {
+      "id": "run-dataset-tab",
+      "kind": "element_tab",
+      "target": "Dataset",
+      "page_context": "Actor run details page, storage type tab",
+      "source_quote": "Open your run's details and select the **Dataset**, **Key-value store**, or **Request queue** tab as appropriate.",
+      "source_line": 111,
+      "needs_auth": true
+    },
+    {
+      "id": "run-kv-store-tab",
+      "kind": "element_tab",
+      "target": "Key-value store",
+      "page_context": "Actor run details page, storage type tab",
+      "source_quote": "Open your run's details and select the **Dataset**, **Key-value store**, or **Request queue** tab as appropriate.",
+      "source_line": 111,
+      "needs_auth": true
+    },
+    {
+      "id": "run-request-queue-tab",
+      "kind": "element_tab",
+      "target": "Request queue",
+      "page_context": "Actor run details page, storage type tab",
+      "source_quote": "Open your run's details and select the **Dataset**, **Key-value store**, or **Request queue** tab as appropriate.",
+      "source_line": 111,
+      "needs_auth": true
+    }
+  ]
+}

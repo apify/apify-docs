@@ -57,9 +57,9 @@ map the page_context to a known route.
 | Actor analytics                      | `/actors/insights/analytics` |
 | Store                                | `/store`                  |
 | Storage overview                     | `/storage`                |
-| Datasets tab                         | `/storage?tab=datasets`   |
-| Key-value stores tab                 | `/storage?tab=keyValueStores` |
-| Request queues tab                   | `/storage?tab=requestQueues` |
+| Datasets tab                         | `/storage/datasets`       |
+| Key-value stores tab                 | `/storage/key-value-stores` |
+| Request queues tab                   | `/storage/request-queues` |
 | Schedules                            | `/schedules`              |
 | Proxy                                | `/proxy`                  |
 | Proxy groups                         | `/proxy/groups`           |
