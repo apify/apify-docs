@@ -6,7 +6,7 @@ description: Learn how Actor deployment works. Keep your code on the Apify platf
 slug: /actors/development/deployment
 ---
 
-Deploying an Actor means defining the [source](/actors/development/deployment/source-types) for one of the Actor versions and [building](/actors/development/builds-and-runs/builds) it into a Docker image on the Apify platform.
+Deploying an Actor turns your code into a Docker image that runs on the Apify platform. The process has two steps: choosing the [source](/actors/development/deployment/source-types) for an Actor version and [building](/actors/development/builds-and-runs/builds) that source into the image.
 
 Once you deploy your Actor, you can run it in the cloud.
 
