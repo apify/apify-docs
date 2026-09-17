@@ -42,7 +42,7 @@ In the **Session** section, you can adjust the session configuration. You can mo
 
 ## API & Integrations
 
-The **API & Integrations** tab provides essential tools for accessing the Apify platform programmatically. Here, you can manage your **API tokens**, which are necessary for using the [Apify API](https://docs.apify.com/api/v2). The tab also shows **third-party apps and services** connected to your account, **account-level integrations**, and **Actor OAuth accounts**. For detailed guidance on utilizing these integrations, refer to the [Integrations documentation](https://docs.apify.com/integrations).
+The **API & Integrations** tab provides essential tools for accessing the Apify platform programmatically. Here, you can manage your **API tokens**, which are necessary for using the [Apify API](https://docs.apify.com/api/v2). The tab also shows **third-party apps and services** connected to your account, **Account-level integrations**, and **Actor OAuth accounts**. For detailed guidance on utilizing these integrations, refer to the [Integrations documentation](https://docs.apify.com/integrations).
 
 ### MCP connectors
 

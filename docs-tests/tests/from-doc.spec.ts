@@ -113,8 +113,15 @@ async function runAssertion(page: Page, a: Assertion): Promise<void> {
 async function checkElement(page: Page, a: Assertion): Promise<void> {
     switch (a.kind) {
         case 'element_button': {
+            // Exact matching. Substring matching passes whenever the documented
+            // label is *contained* in what the Console renders, which hides the
+            // most common form of drift: a casing change. "Plan Consumption"
+            // matched a live "Plan consumption" and the check stayed green.
+            // Exact is still whitespace-trimmed, so only wording, casing and
+            // trailing decoration (a count badge, say) can break a target — all
+            // of which are things the docs should be updated to match.
             await page
-                .getByRole('button', { name: a.target, exact: false })
+                .getByRole('button', { name: a.target, exact: true })
                 .first()
                 .waitFor({ state: 'visible', timeout: 10_000 });
             return;
@@ -122,8 +129,8 @@ async function checkElement(page: Page, a: Assertion): Promise<void> {
         case 'element_tab': {
             // Playwright's `tab` role doesn't always match the Console's tab impl.
             // Fall back to a text match if the role lookup misses.
-            const byRole = page.getByRole('tab', { name: a.target, exact: false }).first();
-            const byText = page.getByText(a.target, { exact: false }).first();
+            const byRole = page.getByRole('tab', { name: a.target, exact: true }).first();
+            const byText = page.getByText(a.target, { exact: true }).first();
             try {
                 await byRole.waitFor({ state: 'visible', timeout: 5_000 });
             } catch {
@@ -132,7 +139,7 @@ async function checkElement(page: Page, a: Assertion): Promise<void> {
             return;
         }
         case 'element_text': {
-            await page.getByText(a.target, { exact: false }).first().waitFor({ state: 'visible', timeout: 10_000 });
+            await page.getByText(a.target, { exact: true }).first().waitFor({ state: 'visible', timeout: 10_000 });
             return;
         }
     }

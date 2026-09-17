@@ -63,10 +63,10 @@
     {
       "id": "account-level-integrations-label",
       "kind": "element_text",
-      "target": "account-level integrations",
+      "target": "Account-level integrations",
       "at": "/settings/integrations",
       "page_context": "API & Integrations tab",
-      "source_quote": "**account-level integrations**, and **Actor OAuth accounts**.",
+      "source_quote": "**Account-level integrations**, and **Actor OAuth accounts**.",
       "source_line": 45,
       "needs_auth": true
     },
