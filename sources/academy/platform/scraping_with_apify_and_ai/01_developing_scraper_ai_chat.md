@@ -11,11 +11,8 @@ unlisted: true
 
 Want to extract data from a website? Even without knowing how to code, we can open [ChatGPT](https://chatgpt.com/) and have a scraper ready. Let's say you want to track prices from [this Sales page](https://warehouse-theme-metal.myshopify.com/collections/sales). You'd type something like:
 
-```text
-Create a scraper in JavaScript which downloads
-https://warehouse-theme-metal.myshopify.com/collections/sales,
-extracts all the products in Sales and saves a CSV file,
-which contains:
+```prompt title="Initial prompt"
+Create a scraper in JavaScript which downloads https://warehouse-theme-metal.myshopify.com/collections/sales, extracts all the products in Sales and saves a CSV file, which contains:
 
 - Product name
 - Product detail page URL
@@ -96,20 +93,14 @@ In this course, we'll scrape a real e-commerce site instead of artificial playgr
 
 We'll open **New chat** in [ChatGPT](https://chatgpt.com/) and prepare a beginning of a prompt like this:
 
-```text
-I'm building an Apify Actor that will run on the Apify platform.
-I need to modify a sample template project so it downloads
-https://warehouse-theme-metal.myshopify.com/collections/sales,
-extracts all products in Sales, and returns data with
-the following information for each product:
+```prompt title="Update routes.js prompt"
+I'm building an Apify Actor that will run on the Apify platform. I need to modify a sample template project so it downloads https://warehouse-theme-metal.myshopify.com/collections/sales, extracts all products in Sales, and returns data with the following information for each product:
 
 - Product name
 - Product detail page URL
 - Price
 
-Before the program ends, it should log how many products it collected.
-Code from routes.js follows. Reply with a code block containing
-a new version of that file.
+Before the program ends, it should log how many products it collected. Code from routes.js follows. Reply with a code block containing a new version of that file.
 ```
 
 Now let's switch back to Apify. In **Source** → **Code**, where we have the Web IDE, we'll select a file called `routes.js` inside the `src` folder. We'll see code similar to this:

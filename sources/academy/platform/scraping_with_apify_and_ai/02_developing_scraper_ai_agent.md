@@ -189,7 +189,7 @@ Finally, onto some agentic coding!
 
 First, let's simplify how we can run the Actor. This will be our prompt:
 
-```text
+```prompt title="Change input URL prompt"
 Change the default input URL of the Actor
 to https://warehouse-theme-metal.myshopify.com/collections/sales
 ```
@@ -250,7 +250,7 @@ apify run
 
 It runs, that's nice! But looking at the output, we can't really verify what exactly gets scraped! While we're at it, let's change that with another prompt:
 
-```text
+```prompt title="Log items prompt"
 I want the scraper to log each item before it's saved.
 ```
 
@@ -306,10 +306,8 @@ We've done it, the prices save as numbers!
 
 If we didn't want to always click on **All fields** to see full items, we need to specify an [output schema](https://docs.apify.com/actors/development/actor-definition/output-schema) so that the platform knows what it can expect and how it should display it in the interface. With Cursor, such change is just a single prompt away:
 
-```text
-Change the output schema of the Actor
-so that it represents the items being
-saved the best way in the Apify interface.
+```prompt title="Change output schema prompt"
+Change the output schema of the Actor so that it represents the items being saved the best way in the Apify interface.
 ```
 
 :::
