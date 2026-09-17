@@ -46,7 +46,7 @@ produce and a human commits.
 
 | Kind             | Checks                                                              |
 | ---------------- | ------------------------------------------------------------------ |
-| `route`          | Documented path is reachable (HTTP < 400)                          |
+| `route`          | Documented path is reachable (HTTP < 400) — status only, see below |
 | `element_tab`    | Documented tab label exists on the page named in `at`              |
 | `element_button` | Documented button label exists on the page named in `at`          |
 | `element_text`   | Documented heading/label/field is visible on the page named in `at` |
@@ -181,11 +181,14 @@ throwaway branch).
 
 ## Known gaps (deferred)
 
-- **Coverage is a starting slice.** `pages.json` covers the account section
-  (`account/console` dashboard, `account/settings`, `account/billing`) — routes
-  and landing-page elements. (`console/store.md` was dropped: it has no bold UI
-  element labels to test.) Widening to more pages is a follow-up: add to
-  `pages.json`, re-extract, review, commit.
+- **Coverage is the Console-surface slice.** `pages.json` covers the account
+  section (dashboard, settings, 2FA, billing, promo codes, general resource
+  access, organization usage) and storage (overview, datasets, key-value
+  stores, request queues) — routes and landing-page elements. (`console/store.md`
+  was dropped: it has no bold UI element labels to test.) Widening further is a
+  follow-up: add to `pages.json`, re-extract, review, commit. Actors, tasks and
+  schedules are the obvious next section, but most of their labels sit on detail
+  pages or inside modals — see the two gaps below.
 - **Detail-page fixtures.** Assertions about Actor-detail, Schedule-detail, etc.
   need a known fixture to navigate to. The runner currently *skips* element
   assertions with no `at` route — surfacing the gap without false negatives.
@@ -195,6 +198,13 @@ throwaway branch).
   Actors/…) are a Console-wide check, not a per-page claim — not modeled yet.
 - **Multi-step flows.** The schema only supports atomic claims (one
   navigate-then-check). "Click X, then Y, then Z" sequences are not modeled.
+- **`route` checks are status-only.** A `route` assertion passes on any
+  HTTP < 400, so a documented URL that *resolves* but no longer lands where the
+  doc says still passes. Console's storage tabs are the live example: the
+  documented `/storage?tab=keyValueStores` returns 200 but redirects to
+  `/storage/datasets?tab=keyValueStores`, silently showing the Datasets tab.
+  Only the `element_*` assertions pinned to that page catch it. Prefer pairing a
+  route with at least one element claim from the page it should land on.
 - **Surface mismatch.** Some docs describe the public marketing site (e.g.
   `apify.com/store`) while the harness tests the Console (`/store`); the two can
   use different labels, so those element claims may not map. Check the surface a

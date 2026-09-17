@@ -1,0 +1,96 @@
+{
+  "source_file": "sources/platform/storage/dataset/index.md",
+  "assertions": [
+    {
+      "id": "storage-section-route",
+      "kind": "route",
+      "target": "/storage",
+      "page_context": "Storage section of Apify Console",
+      "source_quote": "you can view your datasets in the [Storage](https://console.apify.com/storage) section under the [Datasets](https://console.apify.com/storage?tab=datasets) tab.",
+      "source_line": 46,
+      "needs_auth": true
+    },
+    {
+      "id": "datasets-tab-route",
+      "kind": "route",
+      "target": "/storage?tab=datasets",
+      "page_context": "Storage page, Datasets tab",
+      "source_quote": "under the [Datasets](https://console.apify.com/storage?tab=datasets) tab.",
+      "source_line": 46,
+      "needs_auth": true
+    },
+    {
+      "id": "dataset-id-column",
+      "kind": "element_text",
+      "target": "Dataset ID",
+      "at": "/storage/datasets",
+      "page_context": "Storage page > Datasets tab, list of datasets",
+      "source_quote": "Click on its **Dataset ID** to open the dataset detail page.",
+      "source_line": 52,
+      "needs_auth": true
+    },
+    {
+      "id": "dataset-table-view-tab",
+      "kind": "element_tab",
+      "target": "Table",
+      "page_context": "Dataset detail page, data view selector",
+      "source_quote": "Browse the data in **Table** or **JSON** view.",
+      "source_line": 53,
+      "needs_auth": true
+    },
+    {
+      "id": "dataset-json-view-tab",
+      "kind": "element_tab",
+      "target": "JSON",
+      "page_context": "Dataset detail page, data view selector",
+      "source_quote": "Browse the data in **Table** or **JSON** view.",
+      "source_line": 53,
+      "needs_auth": true
+    },
+    {
+      "id": "dataset-export-button",
+      "kind": "element_button",
+      "target": "Export",
+      "page_context": "Dataset detail page",
+      "source_quote": "Click **Export** to download the data in your preferred format.",
+      "source_line": 54,
+      "needs_auth": true
+    },
+    {
+      "id": "dataset-actions-menu",
+      "kind": "element_button",
+      "target": "Actions",
+      "page_context": "Dataset detail page, menu for renaming and access rights",
+      "source_quote": "Utilize the **Actions** menu to modify the dataset's name",
+      "source_line": 56,
+      "needs_auth": true
+    },
+    {
+      "id": "dataset-api-button",
+      "kind": "element_button",
+      "target": "API",
+      "page_context": "Dataset detail page",
+      "source_quote": "The **API** button allows you to explore and test the dataset's [API endpoints](/api/v2/storage-datasets).",
+      "source_line": 56,
+      "needs_auth": true
+    },
+    {
+      "id": "clean-items-option",
+      "kind": "element_text",
+      "target": "Clean items",
+      "page_context": "Dataset export option in Apify Console (Datasets tab / dataset detail page)",
+      "source_quote": "can be downloaded from the [Apify Console](https://console.apify.com/storage?tab=datasets) using the **Clean items** option.",
+      "source_line": 339,
+      "needs_auth": true
+    },
+    {
+      "id": "dataset-share-button",
+      "kind": "element_button",
+      "target": "Share",
+      "page_context": "Dataset detail page, sharing access rights",
+      "source_quote": "through the **Share** button under the **Actions** menu.",
+      "source_line": 421,
+      "needs_auth": true
+    }
+  ]
+}

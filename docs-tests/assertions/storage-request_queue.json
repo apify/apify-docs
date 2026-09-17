@@ -1,0 +1,60 @@
+{
+  "source_file": "sources/platform/storage/request_queue.md",
+  "assertions": [
+    {
+      "id": "storage-section-route",
+      "kind": "route",
+      "target": "/storage",
+      "page_context": "Apify Console > Storage overview section",
+      "source_quote": "you can view your request queues in the [Storage](https://console.apify.com/storage) section under the [Request queues]",
+      "source_line": 35,
+      "needs_auth": true
+    },
+    {
+      "id": "request-queues-tab-route",
+      "kind": "route",
+      "target": "/storage?tab=requestQueues",
+      "page_context": "Apify Console > Storage > Request queues tab",
+      "source_quote": "under the [Request queues](https://console.apify.com/storage?tab=requestQueues) tab",
+      "source_line": 35,
+      "needs_auth": true
+    },
+    {
+      "id": "queue-id-column-list",
+      "kind": "element_text",
+      "target": "Queue ID",
+      "at": "/storage/request-queues",
+      "page_context": "Storage > Request queues tab list, identifying column/link to open a queue",
+      "source_quote": "To view a request queue, click on its **Queue ID**.",
+      "source_line": 39,
+      "needs_auth": true
+    },
+    {
+      "id": "queue-actions-menu",
+      "kind": "element_button",
+      "target": "Actions",
+      "page_context": "Request queue detail page, menu for renaming and sharing the queue",
+      "source_quote": "Under the **Actions** menu, you can rename your queue's name",
+      "source_line": 40,
+      "needs_auth": true
+    },
+    {
+      "id": "queue-share-button",
+      "kind": "element_button",
+      "target": "Share",
+      "page_context": "Request queue detail page, Actions menu option to manage access rights",
+      "source_quote": "and [access rights](/account/collaboration) using the **Share** button.",
+      "source_line": 41,
+      "needs_auth": true
+    },
+    {
+      "id": "queue-api-button",
+      "kind": "element_button",
+      "target": "API",
+      "page_context": "Request queue detail page, button to view and test API endpoints",
+      "source_quote": "Click on the **API** button to view and test a queue's [API endpoints]",
+      "source_line": 42,
+      "needs_auth": true
+    }
+  ]
+}
