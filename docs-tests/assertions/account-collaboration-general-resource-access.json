@@ -1,0 +1,34 @@
+{
+  "source_file": "sources/platform/account/collaboration/general-resource-access.md",
+  "assertions": [
+    {
+      "id": "general-resource-access-setting-name",
+      "kind": "element_text",
+      "target": "General resource access",
+      "at": "/settings/security",
+      "page_context": "Settings page > Login & Privacy tab (Security & Privacy for organization accounts) > account resource access setting",
+      "source_quote": "**General resource access** is an account setting that defines the default access policy at the account level.",
+      "source_line": 13,
+      "needs_auth": true
+    },
+    {
+      "id": "restricted-default-option",
+      "kind": "element_text",
+      "target": "Restricted",
+      "page_context": "Settings page > Login & Privacy tab > General resource access setting options",
+      "source_quote": "**Restricted (default)**: With this setting, only signed-in users with an explicit access to the resources can access them.",
+      "source_line": 16,
+      "needs_auth": true
+    },
+    {
+      "id": "share-run-data-with-developers-section",
+      "kind": "element_text",
+      "target": "Share run data with developers",
+      "at": "/settings/security",
+      "page_context": "Settings page > Login & Privacy tab > Share run data with developers section",
+      "source_quote": "can be enabled under **Settings → Login & Privacy** in the **Share run data with developers** section",
+      "source_line": 82,
+      "needs_auth": true
+    }
+  ]
+}

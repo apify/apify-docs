@@ -1,0 +1,35 @@
+{
+  "source_file": "sources/platform/account/billing/promo-codes.mdx",
+  "assertions": [
+    {
+      "id": "subscription-tab",
+      "kind": "element_tab",
+      "target": "Subscription",
+      "at": "/billing/subscription",
+      "page_context": "Billing page",
+      "source_quote": "Select the **Subscription** tab.",
+      "source_line": 16,
+      "needs_auth": true
+    },
+    {
+      "id": "special-offers-section",
+      "kind": "element_text",
+      "target": "Special offers",
+      "at": "/billing/subscription",
+      "page_context": "Billing page > Subscription tab",
+      "source_quote": "In the **Special offers** section, select **Add a promo code**.",
+      "source_line": 17,
+      "needs_auth": true
+    },
+    {
+      "id": "add-promo-code-button",
+      "kind": "element_button",
+      "target": "Add a promo code",
+      "at": "/billing/subscription",
+      "page_context": "Billing page > Subscription tab > Special offers section",
+      "source_quote": "In the **Special offers** section, select **Add a promo code**.",
+      "source_line": 17,
+      "needs_auth": true
+    }
+  ]
+}

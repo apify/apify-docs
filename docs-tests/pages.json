@@ -2,6 +2,14 @@
   "pages": [
     "sources/platform/account/console.md",
     "sources/platform/account/settings/index.md",
-    "sources/platform/account/billing/index.md"
+    "sources/platform/account/settings/two-factor-authentication.md",
+    "sources/platform/account/billing/index.md",
+    "sources/platform/account/billing/promo-codes.mdx",
+    "sources/platform/account/collaboration/general-resource-access.md",
+    "sources/platform/account/collaboration/organization/how_to_use.md",
+    "sources/platform/storage/index.md",
+    "sources/platform/storage/dataset/index.md",
+    "sources/platform/storage/key_value_store/index.md",
+    "sources/platform/storage/request_queue.md"
   ]
 }
