@@ -1,5 +1,5 @@
 {
-  "source_file": "sources/platform/account/settings.md",
+  "source_file": "sources/platform/account/settings/index.md",
   "assertions": [
     {
       "id": "settings-tab-side-menu",
@@ -7,8 +7,8 @@
       "target": "Settings",
       "at": "/settings",
       "page_context": "Side menu (global navigation) leading to the Account settings page",
-      "source_quote": "By clicking the **Settings** tab on the side menu, you will be presented with an Account page",
-      "source_line": 11,
+      "source_quote": "1. In the left-side panel, go to **Settings**.",
+      "source_line": 12,
       "needs_auth": true
     },
     {
@@ -18,7 +18,7 @@
       "at": "/settings/security",
       "page_context": "Settings page tabs",
       "source_quote": "The **Login & Privacy** tab (**Security & Privacy** for organization accounts) contains sensitive settings",
-      "source_line": 21,
+      "source_line": 27,
       "needs_auth": true
     },
     {
@@ -27,7 +27,7 @@
       "target": "Security & Privacy",
       "page_context": "Settings page tabs, label shown instead of Login & Privacy for organization accounts",
       "source_quote": "(**Security & Privacy** for organization accounts)",
-      "source_line": 21,
+      "source_line": 27,
       "needs_auth": true
     },
     {
@@ -37,7 +37,7 @@
       "at": "/settings/security",
       "page_context": "Login & Privacy tab > Session section",
       "source_quote": "In the **Session** section, you can adjust the session configuration.",
-      "source_line": 35,
+      "source_line": 41,
       "needs_auth": true
     },
     {
@@ -47,7 +47,7 @@
       "at": "/settings/integrations",
       "page_context": "Settings page tabs",
       "source_quote": "The **API & Integrations** tab provides essential tools for accessing the Apify platform programmatically.",
-      "source_line": 39,
+      "source_line": 45,
       "needs_auth": true
     },
     {
@@ -57,7 +57,7 @@
       "at": "/settings/integrations",
       "page_context": "API & Integrations tab",
       "source_quote": "you can manage your **API tokens**, which are necessary for using the",
-      "source_line": 39,
+      "source_line": 45,
       "needs_auth": true
     },
     {
@@ -67,7 +67,7 @@
       "at": "/settings/integrations",
       "page_context": "API & Integrations tab",
       "source_quote": "**account-level integrations**, and **Actor OAuth accounts**.",
-      "source_line": 39,
+      "source_line": 45,
       "needs_auth": true
     },
     {
@@ -77,7 +77,7 @@
       "at": "/settings/integrations",
       "page_context": "API & Integrations tab",
       "source_quote": "and **Actor OAuth accounts**.",
-      "source_line": 39,
+      "source_line": 45,
       "needs_auth": true
     },
     {
@@ -87,7 +87,7 @@
       "at": "/settings/integrations",
       "page_context": "API & Integrations tab > MCP connectors section",
       "source_quote": "The **MCP connectors** section lets you authorize third-party MCP servers",
-      "source_line": 43,
+      "source_line": 49,
       "needs_auth": true
     },
     {
@@ -97,7 +97,7 @@
       "at": "/settings/integrations",
       "page_context": "API & Integrations tab > MCP connectors section",
       "source_quote": "Open **Settings > API & Integrations > MCP connectors** and select **Add connector**.",
-      "source_line": 47,
+      "source_line": 53,
       "needs_auth": true
     },
     {
@@ -106,7 +106,7 @@
       "target": "Own OAuth client",
       "page_context": "MCP connector creation modal, authentication method selection, API & Integrations tab",
       "source_quote": "In the connector creation modal, select **Own OAuth client** and provide:",
-      "source_line": 79,
+      "source_line": 85,
       "needs_auth": true
     },
     {
@@ -115,7 +115,7 @@
       "target": "Authorize",
       "page_context": "MCP connector card, API & Integrations tab (shown when reauthorization is needed)",
       "source_quote": "the **Authorize** button appears on the connector card.",
-      "source_line": 89,
+      "source_line": 95,
       "needs_auth": true
     },
     {
@@ -124,7 +124,7 @@
       "target": "Delete",
       "page_context": "MCP connector card, API & Integrations tab",
       "source_quote": "Click **Delete** on the connector card.",
-      "source_line": 93,
+      "source_line": 99,
       "needs_auth": true
     },
     {
@@ -134,7 +134,7 @@
       "at": "/settings/organizations",
       "page_context": "Settings page tabs",
       "source_quote": "The **Organizations** tab is where you can view your accounts' current organizations",
-      "source_line": 97,
+      "source_line": 103,
       "needs_auth": true
     },
     {
@@ -144,7 +144,7 @@
       "at": "/settings/notifications",
       "page_context": "Settings page tabs",
       "source_quote": "The **Notifications** tab allows you to customize your notification preferences.",
-      "source_line": 101,
+      "source_line": 107,
       "needs_auth": true
     },
     {
@@ -153,7 +153,7 @@
       "target": "Referrals",
       "page_context": "Settings page tabs (no dedicated route mapping known)",
       "source_quote": "The **Referrals** tab lets you share Apify with others and earn rewards.",
-      "source_line": 105,
+      "source_line": 111,
       "needs_auth": true
     }
   ]
