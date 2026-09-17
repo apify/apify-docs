@@ -114,8 +114,21 @@ adding a single claim.
 
 1. Add the doc's repo-relative path to **`pages.json`**, e.g.
    `"sources/platform/account/notifications.md"`. Only add pages that document
-   the **Console** UI — not the public marketing site (see the surface-mismatch
-   gap below).
+   the **Console** UI.
+
+   Two whole categories are out of scope, permanently:
+
+   - **`sources/platform/integrations/**`** — these pages document *third-party*
+     interfaces (HubSpot, n8n, Make, Power Automate, …), not Console. They have
+     the highest bold-label density in the docs, so a naive scan ranks them
+     first; ignore them. The harness has no access to those products, their UIs
+     change on someone else's schedule, and a failure there would be
+     unactionable. This is roughly half of `sources/platform/`, and it is a
+     permanent ceiling on what this harness can cover — worth stating plainly
+     whenever coverage is reported as a number.
+   - **The public marketing site** (`apify.com/store` and friends) — the harness
+     points at Console, and the two use different labels (see the
+     surface-mismatch gap below).
 2. Run `pnpm extract sources/platform/account/notifications.md` (one page) or
    `pnpm extract:all` (everything). This writes `assertions/account-notifications.json`.
 3. **Review the diff** — this is the real work. The extractor is a first draft;
