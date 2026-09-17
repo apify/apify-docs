@@ -10,7 +10,7 @@ slug: /account/billing
 
 The **Current period** tab is a comprehensive resource for understanding your platform usage during the ongoing billing cycle. It provides an overview of your total usage and indicates the start and end dates of the current billing period.
 
-In addition to this, the tab features a **Plan Consumption** Graph. It shows how much of your free or paid plan has been utilized up to this point. The graph offers a broad perspective of your overall usage.
+In addition to this, the tab features a **Plan consumption** graph. It shows how much of your free or paid plan has been utilized up to this point. The graph offers a broad perspective of your overall usage.
 
 Apart from the platform usage breakdown graph, this tab provides more detailed information on the usage of different platform services. You can explore the sections under the graph. You can access detailed statistics related to **Actors**, **Data transfer**, **Proxy**, and **Storage**.
 
