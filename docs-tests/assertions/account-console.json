@@ -44,7 +44,8 @@
       "page_context": "Landing page after signing in to Apify Console",
       "source_quote": "you land on the **Dashboard** section that provides an overview of your account",
       "source_line": 46,
-      "needs_auth": true
+      "needs_auth": true,
+      "at": "/"
     },
     {
       "id": "dashboard-recently-viewed",
@@ -53,7 +54,8 @@
       "page_context": "Dashboard overview section",
       "source_quote": "**Recently viewed**: Displays Actors you have recently accessed.",
       "source_line": 48,
-      "needs_auth": true
+      "needs_auth": true,
+      "at": "/"
     },
     {
       "id": "dashboard-suggested-actors",
@@ -62,7 +64,8 @@
       "page_context": "Dashboard overview section",
       "source_quote": "**Suggested Actors for you**: Recommends Actors that might interest you",
       "source_line": 50,
-      "needs_auth": true
+      "needs_auth": true,
+      "at": "/"
     },
     {
       "id": "dashboard-actor-runs",
@@ -71,7 +74,8 @@
       "page_context": "Dashboard overview section",
       "source_quote": "**Actor runs**: Shows your recent Actor runs, as well as scheduled runs and tasks.",
       "source_line": 52,
-      "needs_auth": true
+      "needs_auth": true,
+      "at": "/"
     }
   ]
 }
