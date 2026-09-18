@@ -72,7 +72,9 @@ If you have a friend who's at least a tiny little bit tech-savvy, ask for 30 min
 
 It might sound a bit silly, but it really isn't! This is called _user testing_.
 
-Run `apify push`, give your friend the README, and open the Actor in Apify Console. Then let them take control of the computer with a single goal: run the Actor for the first time. Watch over their shoulder and take notes, but don't help. Within 30 minutes, you'll almost certainly uncover a few loose ends:
+Run `apify push` to have all your latest changes live, then open the Actor in Apify Console and leave your friend with the README.
+
+Let them take control of the computer with a single goal: run the Actor for the first time. Watch over their shoulder and take notes, but don't help. Within 30 minutes, you'll almost certainly uncover a few loose ends:
 
 - Does the README explain the quickest way to get useful results?
 - Are the input field names clear, with helpful tooltips where needed?
