@@ -54,7 +54,7 @@ Before you begin, make sure you have:
 1. Configure the action parameters:
     - Set **Search Actors from** to **Apify Store Actors** or **Recently used Actors**, then pick the Actor.
     - Fill in the Actor's input fields, which are generated from the Actor's input schema. Actors without an input schema get a single **Properties** field that accepts raw JSON.
-    - Leave **Wait for finish** set to `true` (the default) to wait for the run, or set it to `false` to return run details immediately.
+    - Leave **Wait for Finish** set to `true` (the default) to wait for the run, or set it to `false` to return run details immediately.
     - With `true`, the step returns the key-value store record named by **Output Record Key** (`OUTPUT` by default). It does not return dataset items.
     - Set optional fields as needed: **Build** (a build tag or build number), **Timeout (seconds)**, **Memory (MB)** (powers of two from 128 MB to 32 GB), **Max Items**, **Max Total Charge USD**, and **Webhook URL**.
 
@@ -77,11 +77,11 @@ Some Actor runs can outlast a single Pipedream step.
 
 For longer runs with **Run Actor**, split across two workflows:
 
-1. In the first workflow, add **Run Actor** and set **Wait for finish** to `false`. The step returns the run details immediately.
+1. In the first workflow, add **Run Actor** and set **Wait for Finish** to `false`. The step returns the run details immediately.
 1. In a second workflow, use the **New finished Actor run (instant)** trigger for the same Actor.
 1. Add **Get dataset items** after the trigger.
 
-Alternatively, save the Actor configuration as an [Actor task](/actors/running/tasks) and use **Run task** with **Wait for finish** set to `true`.
+Alternatively, save the Actor configuration as an [Actor task](/actors/running/tasks) and use **Run task** with **Wait for Finish** set to `true`, then add **Get dataset items** to fetch the results.
 
 ## Handle large Actor output
 
@@ -89,7 +89,7 @@ When **Run Actor** waits for a run, it returns the record named by **Output Reco
 
 To read large output:
 
-- Fetch `recordUrl` in a later step, or
+- Fetch `recordUrl` in a later step.
 - Use **Get key-value store record** with `keyValueStoreId` and `recordKey`.
 
 If the Actor writes to a dataset, use **Get dataset items**.
@@ -122,7 +122,7 @@ Pipedream also hosts an [MCP server for Apify](https://mcp.pipedream.com/app/api
 
 ### The workflow times out before the Actor finishes
 
-**Run Actor** waits for the run inside the step, so a long run can exceed Pipedream's step limit. Set **Wait for finish** to `false` and pick the results up from a second workflow, or use **Run task**, which waits asynchronously. See [Handle long-running Actor runs](#handle-long-running-actor-runs).
+**Run Actor** waits for the run inside the step, so a long run can exceed Pipedream's step limit. Set **Wait for Finish** to `false` and pick the results up from a second workflow, or use **Run task**, which waits asynchronously. See [Handle long-running Actor runs](#handle-long-running-actor-runs).
 
 ### The Actor dropdown is empty
 
