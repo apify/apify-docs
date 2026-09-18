@@ -101,20 +101,20 @@ In your repository, create a `.github/workflows` directory and add a workflow fi
     ```yaml title="latest.yml"
     name: Push and build latest version
     on:
-    push:
+      push:
         branches:
-        - master
-        - main
+          - master
+          - main
     jobs:
-    push-actor:
+      push-actor:
         runs-on: ubuntu-latest
         steps:
-        - uses: actions/checkout@v4
+          - uses: actions/checkout@v4
 
-        - name: Push Actor to Apify
+          - name: Push Actor to Apify
             uses: apify/push-actor-action@v1
             with:
-            token: ${{ secrets.APIFY_TOKEN }}
+              token: ${{ secrets.APIFY_TOKEN }}
     ```
 
 - To deploy the Actor code to the Apify platform, build the Actor, and add the `beta` tag to the build on every push to `develop`, use:
@@ -122,20 +122,20 @@ In your repository, create a `.github/workflows` directory and add a workflow fi
     ```yaml title="beta.yml"
     name: Push and build beta version
     on:
-    push:
+      push:
         branches:
-        - develop
+          - develop
     jobs:
-    push-actor:
+      push-actor:
         runs-on: ubuntu-latest
         steps:
-        - uses: actions/checkout@v4
+          - uses: actions/checkout@v4
 
-        - name: Push Actor to Apify
+          - name: Push Actor to Apify
             uses: apify/push-actor-action@v1
             with:
-            token: ${{ secrets.APIFY_TOKEN }}
-            build-tag: beta
+              token: ${{ secrets.APIFY_TOKEN }}
+              build-tag: beta
     ```
 
 For the full list of inputs and outputs, see the [`apify/push-actor-action` README](https://github.com/apify/push-actor-action).
