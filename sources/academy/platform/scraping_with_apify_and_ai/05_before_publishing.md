@@ -148,9 +148,9 @@ Set up [scheduled automated tests](/actors/development/automated-tests) to catch
 
 When something breaks, the AI agent can come to the rescue again. Give it as much context as possible:
 
-- The complete error from the failed run,
-- the page where the scraper failed,
-- the input that triggered the problem.
+- The complete error from the failed run.
+- The page where the scraper failed.
+- The input that triggered the problem.
 
 Ask the agent to add a test for every bug it fixes. These are called _regression tests_, and they prevent the same bugs from sneaking back in later.
 
