@@ -18,9 +18,9 @@ Our scraper works, and its behavior is backed by documentation and tests. Howeve
 
 Before publishing our Actor to the Apify Store we'll rework the README, make sure first-time users know what to do, prepare the Store listing, and decide how to keep the scraper working after launch.
 
-:::info Publishing and monetization guide
+:::info Publishing and monetization guides
 
-This lesson works as an intro, but it only scratches the surface. It's enough for a start, but if you really want your Actor to be successful on Apify Store, check out the [Publishing and monetization](/actors/publishing) and [Apify Store basics](/academy/actor-marketing-playbook/store-basics/how-store-works) guides.
+This lesson works as an intro, but it only scratches the surface. It's enough for a start, but if you really want your Actor to be successful on Apify Store, check out the [Publish your Actor](/actors/publishing/publish), [Set up Actor monetization](/actors/monetize/set-up-monetization), and [Apify Store basics](/academy/actor-marketing-playbook/store-basics/how-store-works) guides.
 
 :::
 
