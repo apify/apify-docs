@@ -1,7 +1,7 @@
 ---
 title: Continuous integration for Actors
 sidebar_label: Continuous integration
-description: Automate your Actor development process by configuring automated builds, CI pipelines, or webhooks.
+description: Learn how to automate your Actor development process by configuring automated builds, CI pipelines, or webhooks.
 slug: /actors/development/deployment/continuous-integration
 sidebar_position: 2
 ---
@@ -15,8 +15,8 @@ Automating your Actor development process can save time and reduce errors, espec
 The following methods are available:
 
 - [Automated builds](#automatic-builds). Apify rebuilds the Actor on every push to a repository.
-- [Apify CLI in a pipeline](#github-actions). A CI job runs tests and deploys the Actor.
-- [Build webhook](#api-webhook). On every push to a repository, a webhook triggers the [Build Actor](/api/v2/actors-builds-post) API endpoint
+- [Apify CLI in a pipeline](#ci-pipeline). A CI job runs tests and deploys the Actor.
+- [Build webhook](#api-webhook). On every push to a repository, a webhook triggers the [Build Actor](/api/v2/actors-builds-post) API endpoint.
 
 ## Automated builds {#automatic-builds}
 
@@ -62,7 +62,7 @@ Automatic builds are on by default if during the Actor creation process you set 
 
 If your connected account can't administer the repository, the Actor is created with manual builds on.
 
-## Deploy with a CI pipeline
+## Deploy with a CI pipeline {#ci-pipeline}
 
 You can configure a CI pipeline to deploy and rebuild your Actor on every push to a branch. Choose this method when your pipeline has to run tests before the build, or if you can't give Apify access to your repository.
 
@@ -77,7 +77,7 @@ To configure a CI pipeline, you need:
 
 Keep the token in your CI provider's protected storage and never commit it to a repository:
 
-- In GitHub, add a repository secret.
+- In GitHub, add a [repository secret](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets).
 - In GitLab, add a masked CI/CD variable.
 - In Bitbucket, add a secured repository variable.
 
