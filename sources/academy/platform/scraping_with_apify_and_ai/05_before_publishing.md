@@ -30,7 +30,7 @@ Right now, the README explains how to develop the project, how it works, and why
 
 Users want to know what data the Actor provides, what inputs it takes, and what its output looks like. When they need to understand the scraper's limitations, they might care about some technical details, but as long as the scraper delivers data they need, they'll be perfectly happy without the design documentation.
 
-Let's move the current README to a different file, such as `CONTRIBUTING.md`, and create a new `README.md` that serves as the Actor's landing page. Ask the AI agent to draft it:
+Let's move the current README to a different file. A `CONTRIBUTING.md` may be a good choice, as it is a common convention for documenting setup, design decisions, and contribution guidelines for developers. We'll then create a new `README.md` that serves as the Actor's landing page. Ask the AI agent to draft it:
 
 ```text
 Move the current README content to CONTRIBUTING.md.
