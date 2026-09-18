@@ -29,37 +29,17 @@ This guide covers installation in the ChatGPT desktop app, where you select **Co
 
     ![Codex sidebar with the Plugins entry selected](../images/codex/00-plugins.webp)
 
-1. On the **Plugins** screen, select the dropdown next to **+** and choose **Add marketplace**.
+1. In the search bar, search for **Apify**.
 
-    ![Plugins screen with the add menu open and Add marketplace available](../images/codex/01-add-marketplace.webp)
+    ![Plugins screen with Apify in the search bar and the Apify plugin listed next to a plus button](../images/codex/01-plugins-search.webp)
 
-1. In the **Add plugin marketplace** dialog, enter the Apify plugin repository in the **Source** field:
-
-    ```text
-    apify/apify-codex-plugin
-    ```
-
-    ![Add plugin marketplace dialog with the Apify repository in the Source field](../images/codex/02-marketplace-form.webp)
-
-1. Select **Add marketplace**.
-
-1. On the **Plugins** screen, open the **Personal** tab. The **Apify** plugin appears under **Apify Plugin**.
-
-    ![Plugins screen Personal tab showing the Apify plugin card](../images/codex/03-add-plugin.webp)
-
-1. Select **Add** next to **Apify**.
-
-    ![Apify plugin card with the Add button and Install plugin tooltip](../images/codex/04-install-plugin.webp)
-
-1. In the dialog, select **Add to Codex**.
-
-1. Select **Install Apify** to start the Apify MCP server setup.
+1. Select **+** next to **Apify**.
 
 ## Authenticate to Apify
 
 The plugin bundles the Apify MCP server. Read-only tools like searching Apify Store and fetching Actor details work without signing in, but you need to authenticate to run Actors and access your account data.
 
-1. After you select **Install Apify**, Codex starts the Apify MCP server setup and opens a browser tab for the Apify OAuth flow.
+1. After you select **+** next to **Apify**, Codex starts the Apify MCP server setup and opens a browser tab for the Apify OAuth flow.
 
 1. Review the permissions and select **Allow access**.
 
@@ -79,7 +59,7 @@ Describe what you want in natural language. Because this bundle exposes the MCP 
 
 Codex searches Apify Store, fetches the top Actor's details through the `apify` MCP server, and summarizes its inputs, pricing, and output - all without running the Actor.
 
-![Codex session calling the Apify MCP server and returning Google Maps Actor details](../images/codex/05-test-plugin.webp)
+![Codex session calling the Apify MCP server and returning Google Maps Actor details](../images/codex/03-test-plugin.webp)
 
 ## Bundled skills
 
@@ -109,7 +89,7 @@ _SDK integration:_
 
 ### The Apify plugin does not appear in the list
 
-Open the **Plugins** screen, switch to the **Personal** tab, and confirm the Apify marketplace was added. If the **Apify** plugin still doesn't appear, re-add the marketplace using the repository `apify/apify-codex-plugin`.
+Open the **Plugins** screen and search for **Apify**. If the plugin still doesn't appear, update Codex and reopen the **Plugins** screen.
 
 ### The Plugins screen does not appear
 
