@@ -357,6 +357,10 @@ module.exports = {
                             route: '/platform/**',
                             categoryName: 'Platform documentation',
                         },
+                        {
+                            route: '/glossary',
+                            categoryName: 'Glossary',
+                        },
                     ],
                     // Expand <Tabs> and fix Prism code language tags before HTML→markdown conversion
                     beforeDefaultRehypePlugins: [rehypeExpandTabs, rehypeFixCodeLanguage],
