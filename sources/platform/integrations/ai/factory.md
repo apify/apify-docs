@@ -132,7 +132,7 @@ export APIFY_TOKEN=<YOUR_API_TOKEN>
 
 - Long-running Actors may exceed the time a single tool call waits for completion. Reduce the scope or split the work across multiple prompts.
 - Each Actor run consumes Apify platform usage from your plan in addition to any Factory usage. See [Billing](/account/billing) for details.
-- Tool calls are confirmation-gated by your Droid autonomy level. Adjust it in your Factory settings if you want fewer confirmations.
+- Tool calls are confirmation gated by your Droid autonomy level. Adjust it in your Factory settings if you want fewer confirmations.
 - Skills that edit files in your project (Actor development, actorization, SDK integration) make local changes - review them before deploying or committing.
 
 ## Related integrations
