@@ -5,13 +5,13 @@ slug: /scraping-with-apify-and-ai/before-publishing-to-apify-store
 unlisted: true
 ---
 
-**In this lesson, we'll prepare our app for tracking prices on an e-commerce website for other people to use. We'll use Cursor to inspect and polish its first-run experience and documentation, prepare its Apify Store listing, and make a plan for keeping it reliable.**
+**In this lesson, we'll prepare our app for tracking prices on an e-commerce website for other people to use. We'll use Cursor to inspect and improve its first-run experience and documentation, prepare its Apify Store listing, and make a plan for keeping it reliable.**
 
 ---
 
 Our scraper works, and its behavior is backed by documentation and tests. However, we've built it only for ourselves. If we wanted other people to use it, they'd run into several problems:
 
-- _Wrong kind of README:_ It tells its developers how the code should behave, not users how to get useful data.
+- _Wrong kind of README:_ The file tells developers how the code should behave, not users how to get useful data.
 - _Rough first run:_ It can be the case that the scraper inputs are not designed, documented, or properly tested with a first-time user in mind.
 - _Empty storefront:_ The Actor has no convincing name, description, presentation, or clear pricing.
 - _No maintenance strategy:_ There will be failed runs, user questions, or changes to the target website. We need to be prepared.
@@ -26,9 +26,9 @@ This lesson works as an intro, but it only scratches the surface. It's enough fo
 
 ## Turning the README into a landing page
 
-Right now, the README explains how to develop the project, how it works, and why we made certain design decisions. That's useful information, but not for most users of Actors.
+Right now, the README explains how to develop the project, how it works, and why we made certain design decisions. That's useful information, but not for most of our Actor users.
 
-They want to know what data the Actor provides, what inputs it takes, and what its output looks like. When they need to understand the scraper's limitations, they might care about some technical details, but as long as the scraper delivers data they need, they'll be perfectly happy without them.
+Users want to know what data the Actor provides, what inputs it takes, and what its output looks like. When they need to understand the scraper's limitations, they might care about some technical details, but as long as the scraper delivers data they need, they'll be perfectly happy without the design documentation.
 
 Let's move the current README to a different file, such as `CONTRIBUTING.md`, and create a new `README.md` that serves as the Actor's landing page. Ask the AI agent to draft it:
 
@@ -105,7 +105,7 @@ Once you publish your Actor, Apify Store itself will join the feedback party. Ap
 
 ## Preparing the Store listing
 
-As mentioned, our Actor needs a good name. But what makes a name good? The [Name your Actor](/academy/actor-marketing-playbook/actor-basics/name-your-actor) guide has plenty of advice. Let's give it to the AI agent and brainstorm together:
+Our Actor needs a good name. But what makes a name good? The [Name your Actor](/academy/actor-marketing-playbook/actor-basics/name-your-actor) guide has plenty of advice. Let's give it to the AI agent and brainstorm together:
 
 ```text
 Read the Actor naming guide:
@@ -134,7 +134,7 @@ The result will also help us uncover caveats or missing pieces in the repository
 
 This is all good fuel for thinking about how to name, describe, and monetize your scraper. But you're still in the driver's seat, and you're responsible for the Actor, so consider every suggestion carefully.
 
-Give the AI agent too much free rein, and the result might look like generic AI slop that people won't trust. Make sure the final listing still sounds like the human you.
+Give the AI agent too much free rein, and the result might look like generic AI slop that people won't trust. Make sure the final listing still sounds like you, a human.
 
 ## Keeping your Actor reliable
 
@@ -142,7 +142,7 @@ Every scraper needs maintenance. One day, the target website changes. Another da
 
 On Apify Store, users will also [ask questions or report issues](/academy/actor-marketing-playbook/interact-with-users/issues-tab), and you'll need time to help them.
 
-The best strategy is to plan ahead. Set aside a few hours each week for your scraper. Some weeks, you'll spend that time fixing unexpected failures. In others, you'll answer questions from users.
+The best strategy is to plan ahead. Set aside a few hours each week for your scraper. Some weeks, you'll spend that time fixing unexpected failures. Others, you'll answer questions from users.
 
 Set up [scheduled automated tests](/actors/development/automated-tests) to catch problems before users notice them, or at least early enough for you to fix them quickly.
 
