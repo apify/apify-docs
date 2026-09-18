@@ -81,9 +81,7 @@ Run `apify push`, give your friend the README, and open the Actor in Apify Conso
 - Is the output consistent, with predictable fields and formats?
 - When the Actor fails, does it provide a useful, actionable error message?
 
-If you can't find such a friend, you can try the experiment yourself and pretend you're seeing the Actor for the first time, but it won't match a genuine second pair of eyes.
-
-A better alternative is to ask an AI chat or agent other than the one that wrote the README. Use this prompt as a starting point:
+If you can't find such a friend, ask an AI chat or agent other than the one that wrote the README. Use this prompt as a starting point:
 
 ```text
 Imitate a user testing session. You are an Apify Store user
