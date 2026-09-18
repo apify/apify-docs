@@ -42,7 +42,7 @@ This shapes what debugging on the platform looks like:
 
 ## Option 1: Debug in the browser with Actor debugger
 
-This option is complete on its own and needs no tunnel. The [actor-debugger](https://github.com/apify/actor-debugger) package launches your Actor under its native debugger and serves a debugger UI on the web server port. You open one URL from the run log in your browser. Nothing runs on your machine.
+The [actor-debugger](https://github.com/apify/actor-debugger) package launches your Actor under its native debugger and serves a debugger UI on the web server port. You open one URL from the run log in your browser. Nothing runs on your machine.
 
 <Tabs groupId="language">
 <TabItem value="javascript" label="JavaScript/TypeScript">
@@ -95,7 +95,7 @@ That page is a debugger UI for [debugpy](https://github.com/microsoft/debugpy). 
 
 ## Option 2: Debug from your IDE with wstunnel
 
-This option is complete on its own and doesn't use the actor-debugger package. [wstunnel](https://github.com/erebe/wstunnel) tunnels TCP over WebSocket. The server runs inside the container on the web server port. The client runs on your machine and exposes the remote debug port on `localhost`. Your IDE attaches to `localhost` as if the Actor ran there. This works for any language with a TCP debug protocol.
+[wstunnel](https://github.com/erebe/wstunnel) tunnels TCP over WebSocket. The server runs inside the container on the web server port. The client runs on your machine and exposes the remote debug port on `localhost`. Your IDE attaches to `localhost` as if the Actor ran there. This works for any language with a TCP debug protocol.
 
 ### Step 1: Add wstunnel to the image
 
