@@ -44,7 +44,7 @@ You configure the build settings for each Actor version separately:
 1. In the **Code** tab, expand the **Build settings** section.
 1. Select **Automatic builds**.
 
-With the automated builds on, you can still start builds manually from Apify Console, the Apify CLI, or with the [Build Actor](/api/v2/actors-builds-post) API endpoint.
+With the automated builds on, you can still start builds manually using Apify Console, the Apify CLI, or the [Build Actor](/api/v2/actors-builds-post) API endpoint.
 
 ### Define the branch
 
