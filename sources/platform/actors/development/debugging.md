@@ -16,8 +16,6 @@ Most bugs reproduce locally with `apify run` and your IDE's debugger. Some don't
 - **Actor debugger** - a package you install in the image. You debug from your browser, with no local tooling.
 - **wstunnel** - a generic TCP tunnel you add to the image. You debug from your local IDE.
 
-You never need both.
-
 ## Infrastructure constraints
 
 An Actor run is a Docker container on a shared worker machine. You can't open a TCP connection to the container, so there is no SSH and no port forwarding.
