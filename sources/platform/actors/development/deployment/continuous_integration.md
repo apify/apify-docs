@@ -1,7 +1,7 @@
 ---
 title: Continuous integration for Actors
 sidebar_label: Continuous integration
-description: Learn how to automate your Actor development process by configuring automated builds, CI pipelines, or webhooks.
+description: Learn how to automate your development process. Configure automated builds, CI pipelines, or webhooks to push code, build Actors, and run tests.
 slug: /actors/development/deployment/continuous-integration
 sidebar_position: 2
 ---
