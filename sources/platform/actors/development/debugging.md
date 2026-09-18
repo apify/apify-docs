@@ -11,7 +11,12 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-Most bugs reproduce locally with `apify run` and your IDE's debugger. Some don't. They depend on the platform's proxies, memory limits, environment variables, or data that exists only in a real run. This guide shows two ways to attach a debugger to an Actor run on the platform.
+Most bugs reproduce locally with `apify run` and your IDE's debugger. Some don't. They depend on the platform's proxies, memory limits, environment variables, or data that exists only in a real run. This guide shows two independent ways to attach a debugger to an Actor run on the platform. Pick one:
+
+- **Actor debugger** - a package you install in the image. You debug from your browser, with no local tooling.
+- **wstunnel** - a generic TCP tunnel you add to the image. You debug from your local IDE.
+
+You never need both.
 
 ## Infrastructure constraints
 
@@ -19,7 +24,7 @@ An Actor run is a Docker container on a shared worker machine. You can't open a 
 
 The one inbound channel is the [container web server](./programming_interface/container_web_server.md). Whatever listens on `ACTOR_WEB_SERVER_PORT` (default `4321`) inside the container is reachable at the run's container URL, `https://<run>.runs.apify.net`. The platform forwards HTTP and WebSocket traffic to that port. It doesn't forward raw TCP.
 
-Debuggers speak raw TCP. The Node.js inspector listens on port `9229`, debugpy on `5678`. Both options in this guide run a small server inside the container that bridges the debug port over WebSocket on the web server port.
+Debuggers speak raw TCP. The Node.js inspector listens on port `9229`, debugpy on `5678`. Each option in this guide solves this the same way: a small server inside the container bridges the debug port over WebSocket on the web server port.
 
 This shapes what debugging on the platform looks like:
 
@@ -30,6 +35,8 @@ This shapes what debugging on the platform looks like:
 
 ## Choose an option
 
+The two options are alternatives, not steps. Compare them and follow only the section for the one you pick.
+
 | | Actor debugger | wstunnel |
 | --- | --- | --- |
 | Setup | Change the Dockerfile `CMD` | Add a binary, start it next to the debugger |
@@ -37,9 +44,9 @@ This shapes what debugging on the platform looks like:
 | Languages | Node.js/TypeScript, Python | Anything with a TCP debug protocol |
 | Best for | Quick look at a run, no local setup | Full IDE experience |
 
-## Actor debugger
+## Option 1: Debug in the browser with Actor debugger
 
-The [actor-debugger](https://github.com/apify/actor-debugger) package launches your Actor under its native debugger and serves a debugger UI on the web server port. You open one URL from the run log in your browser. Nothing runs on your machine.
+This option is complete on its own and needs no tunnel. The [actor-debugger](https://github.com/apify/actor-debugger) package launches your Actor under its native debugger and serves a debugger UI on the web server port. You open one URL from the run log in your browser. Nothing runs on your machine.
 
 <Tabs groupId="language">
 <TabItem value="javascript" label="JavaScript/TypeScript">
@@ -90,9 +97,9 @@ That page is a debugger UI for [debugpy](https://github.com/microsoft/debugpy). 
 
 `--brk` pauses the Actor on its first line until you attach. Drop it to let the Actor run and attach mid-flight. To turn debugging off, restore the original `CMD` and rebuild.
 
-## wstunnel
+## Option 2: Debug from your IDE with wstunnel
 
-[wstunnel](https://github.com/erebe/wstunnel) tunnels TCP over WebSocket. The server runs inside the container on the web server port. The client runs on your machine and exposes the remote debug port on `localhost`. Your IDE attaches to `localhost` as if the Actor ran there. This works for any language with a TCP debug protocol.
+This option is complete on its own and doesn't use the actor-debugger package. [wstunnel](https://github.com/erebe/wstunnel) tunnels TCP over WebSocket. The server runs inside the container on the web server port. The client runs on your machine and exposes the remote debug port on `localhost`. Your IDE attaches to `localhost` as if the Actor ran there. This works for any language with a TCP debug protocol.
 
 ### Step 1: Add wstunnel to the image
 
@@ -218,7 +225,7 @@ Set a breakpoint and start the configuration. The run resumes under your debugge
 ## Keep debugging out of production
 
 :::caution Unauthenticated code execution
-Both options expose a code-execution endpoint on the container URL. The Actor debugger has no authentication. The wstunnel secret is only as protected as the run that prints or stores it.
+Either option exposes a code-execution endpoint on the container URL. The Actor debugger has no authentication. The wstunnel secret is only as protected as the run that prints or stores it.
 :::
 
 - Keep the debug `CMD` in a dedicated Actor version with its own build tag. Production builds keep their normal entrypoint.
