@@ -1,14 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-import { QUICK_START_PROMPT } from '../utils/quick-start-prompt';
-import styles from './PromptButton.module.css';
+import styles from './PromptBlock.module.css';
 
-export default function PromptButton({
-    prompt = QUICK_START_PROMPT,
-    title = 'Use pre-built prompt to get started faster.',
+export default function PromptBlock({
+    prompt,
+    title = 'Ready-to-use prompt for your AI assistant',
+    collapsed = false,
 }) {
     const [copied, setCopied] = useState(false);
-    const [showPrompt, setShowPrompt] = useState(false);
+    const [showPrompt, setShowPrompt] = useState(!collapsed);
     const timeoutRef = useRef(null);
 
     useEffect(() => {
@@ -24,7 +24,7 @@ export default function PromptButton({
             window.analytics.track('Clicked', {
                 app: 'docs',
                 button_text: 'Copy prompt',
-                element: 'prompt-button.copyButton',
+                element: 'prompt-block.copyButton',
             });
         }
 
@@ -48,28 +48,31 @@ export default function PromptButton({
 
     return (
         <>
-            <div className={styles['prompt-card']}>
+            <div className={`${styles['prompt-card']} ${showPrompt ? styles.open : ''}`}>
                 <div className={styles['prompt-content']}>
                     <div className={styles['prompt-text']}>
                         <span>{title}</span>
                     </div>
                 </div>
                 <div className={styles['button-container']}>
-                    <button className={styles['toggle-button']} onClick={togglePrompt}>
-                        {showPrompt ? 'Hide prompt' : 'Show prompt'}
-                    </button>
+                    {collapsed && (
+                        <button className={styles['toggle-button']} onClick={togglePrompt}>
+                            {showPrompt ? 'Hide prompt' : 'Show prompt'}
+                        </button>
+                    )}
                     <button className={`${styles['copy-button']} ${copied ? styles.copied : ''}`} onClick={handleCopy}>
                         {copied ? 'Copied!' : 'Copy prompt'}
                     </button>
                 </div>
             </div>
-            {showPrompt && (
-                <div className={styles['full-prompt-container']}>
-                    <div className={styles['full-prompt']}>
-                        <pre>{prompt}</pre>
-                    </div>
+            {/* Always rendered (not gated on showPrompt) so the prompt text is present in the
+                static HTML and gets picked up by the llms.txt generator; visibility for human
+                readers is controlled purely by CSS via the "visible" class below. */}
+            <div className={`${styles['full-prompt-container']} ${showPrompt ? styles.visible : ''}`}>
+                <div className={styles['full-prompt']}>
+                    <blockquote className={styles['full-prompt-blockquote']}>{prompt}</blockquote>
                 </div>
-            )}
+            </div>
         </>
     );
 }
