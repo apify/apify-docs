@@ -33,8 +33,6 @@ This shapes what debugging on the platform looks like:
 
 ## Choose an option
 
-The two options are alternatives, not steps. Compare them and follow only the section for the one you pick.
-
 | | Actor debugger | wstunnel |
 | --- | --- | --- |
 | Setup | Change the Dockerfile `CMD` | Add a binary, start it next to the debugger |
