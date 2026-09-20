@@ -300,7 +300,7 @@ If the `tools` parameter includes any other tool, or you connect to the default 
 | :--- | :--- | :--- | :--- |
 | `search-actors` | actors | ✅ | Search for Actors in Apify Store |
 | `fetch-actor-details` | actors | ✅ | Retrieve detailed information about a specific Actor, including its input and output schema, README (summary when available, full otherwise), and pricing |
-| `call-actor`* | actors | ❔ | Call an Actor and get its run results |
+| `call-actor` | actors | ❔ | Call an Actor and get its run results |
 | [`apify/rag-web-browser`](https://apify.com/apify/rag-web-browser) | Actor | ✅ | Browse and extract web data |
 | `search-apify-docs` | docs | ✅ | Search the Apify documentation for relevant pages |
 | `fetch-apify-docs` | docs | ✅ | Fetch the full content of an Apify documentation page by its URL |
@@ -320,7 +320,7 @@ If the `tools` parameter includes any other tool, or you connect to the default 
 | `update-actor-task` | tasks | | Update a task's input, run options, or the display configuration of its landing page |
 | `publish-actor-task` | tasks | | Publish a task on its public landing page |
 | `unpublish-actor-task` | tasks | | Unpublish a task from its public landing page |
-| `get-actor-output`* | - | ✅ | Retrieve the output from an Actor call which is not included in the output preview of the Actor tool. |
+| `get-actor-output` | - | ✅ | Retrieve the output from an Actor call which is not included in the output preview of the Actor tool. |
 
 :::note Retrieving full output
 
