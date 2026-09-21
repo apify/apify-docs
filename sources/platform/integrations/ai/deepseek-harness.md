@@ -23,7 +23,7 @@ The [Apify plugin for DeepSeek Harness](https://www.npmjs.com/package/dsh-apify-
 - [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) - installed locally, running Node.js `^22.19.0 || >=24.0.0`. Older versions fail with a `node:sqlite` error.
 - [pnpm](https://pnpm.io/installation) on your `PATH` - `dsh plugin` forwards its arguments to pnpm.
 - A model provider configured in `dsh` - see [Connect a model provider](#connect-a-model-provider).
-- [Apify CLI](/cli/docs/installation) - only for the Actor development, actorization, and ultimate scraper skills.
+- [The Apify CLI](/cli/docs/installation) - required only for the Actor development, actorization, and ultimate scraper skills.
 
 :::note Most work needs no local CLI
 
@@ -53,7 +53,7 @@ dsh plugin --profile web remove dsh-apify-plugin
 
 ## Connect your Apify account
 
-The plugin enables the Apify MCP server on install. Searching Apify Store, inspecting Actors, and reading Apify documentation work without a token. Running Actors, reading datasets and key-value stores, and retrieving run data need one.
+The plugin enables the Apify MCP server on install. Searching Apify Store, inspecting Actors, and reading the Apify documentation work without a token. Running Actors, reading datasets and key-value stores, and retrieving run data need one.
 
 `dsh` sends static MCP headers and has no OAuth flow, so authenticate with an API token:
 
@@ -80,8 +80,7 @@ The plugin enables the Apify MCP server on install. Searching Apify Store, inspe
 
 `dsh` ships no model of its own. To use DeepSeek's own models, set `DEEPSEEK_API_KEY` in the same `.env` before you start the profile.
 
-For any other provider, start the profile first, then open **Settings > Models** and select **Add provider**, choose your provider, and supply its API key.
-
+For any other provider, start the profile first, then open **Settings > Models**, select **Add provider**, choose your provider, and supply its API key.
 
 ## Run your first prompt
 
@@ -101,9 +100,9 @@ The router searches Apify Store, fetches the top Actor's details through the Api
 
 | Skill | Description |
 | --- | --- |
-| `apify` | Entry point that routes each request to the right tool or skill and diagnoses authentication problems. |
-| `apify-ultimate-scraper` | Extraction with existing Actors for multi-step scraping and lead-generation workflows. |
-| `apify-actor-development` | Full Actor lifecycle - template selection, development, local testing, and deployment with `apify push`. |
+| `apify` | Routes each request to the right tool or skill and diagnoses authentication problems. |
+| `apify-ultimate-scraper` | Extracts data with existing Actors for multi-step scraping and lead-generation workflows. |
+| `apify-actor-development` | Covers the full Actor lifecycle - template selection, development, local testing, and deployment with `apify push`. |
 | `apify-actorization` | Converts existing JavaScript, TypeScript, Python, or CLI projects into Apify Actors. |
 | `apify-generate-output-schema` | Generates dataset and key-value store schemas for existing Actors. |
 | `apify-sdk-integration` | Integrates Actor execution into applications using the `apify-client` package. |
@@ -173,11 +172,11 @@ Check that you installed into the profile you actually launch. Installing into `
 - `dsh` reads the token at startup, so a change to `.env` needs a restart of the profile.
 - A tool call waits up to 5 minutes for an Actor run. Longer runs need a narrower scope, or the Apify CLI to start the run and poll for its result.
 - Each Actor run consumes Apify platform usage from your plan in addition to any model provider costs. See [Billing](/account/billing) for details.
-- Skills that edit files in your project (Actor development, actorization, SDK integration) make local changes - review them before deploying or committing.
+- Skills that edit files in your project (Actor development, actorization, and SDK integration) make local changes - review them before deploying or committing.
 
 ## Related integrations
 
-- [MCP server integration](/integrations/mcp) - Use the Apify MCP server with other clients
+- [MCP server integration](/integrations/mcp) - The same MCP server with other clients
 - [Kimi Code CLI integration](/integrations/kimi-code-cli) - The equivalent plugin for Kimi Code CLI
 - [OpenCode integration](/integrations/opencode) - The equivalent plugin for OpenCode
 
@@ -186,4 +185,4 @@ Check that you installed into the profile you actually launch. Installing into `
 - [Apify plugin for DeepSeek Harness](https://www.npmjs.com/package/dsh-apify-plugin) - Plugin package and setup notes
 - [DeepSeek Harness repository](https://github.com/deepseek-ai/deepseek-harness) - Source, profiles, and plugin packaging docs
 - [Apify MCP server documentation](/integrations/mcp) - Tools, authentication, and configuration
-- [Apify Store](https://apify.com/store) - Browse Actors you can run from DeepSeek Harness
+- [Apify Store](https://apify.com/store) - Actors you can run from DeepSeek Harness
