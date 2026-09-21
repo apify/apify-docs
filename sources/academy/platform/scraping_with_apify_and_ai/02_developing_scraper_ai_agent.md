@@ -31,7 +31,7 @@ Let's head to the [Download Node.js](https://nodejs.org/en/download) page. We sh
 
 ![Download Node.js](images/nodejs-install.webp)
 
-Now let's paste it as-is into Terminal (macOS/Linux) or PowerShell (Windows) and run it with <kbd>↵</kbd>. Once the installation finishes, we should see the versions of Node.js and npm, another related tool, printed out:
+Now let's paste it as-is into Terminal (macOS/Linux) or PowerShell (Windows) and run it with <kbd>Enter ↵</kbd>. Once the installation finishes, we should see the versions of Node.js and npm, another related tool, printed out:
 
 ```text
 ...
@@ -69,7 +69,7 @@ One more thing though. Before we can do any useful work with it, we also need to
 apify login
 ```
 
-Let's confirm **Through Apify Console in your default browser** with <kbd>↵</kbd>. The command line tool opens a web page in our browser, where we'll allow it as a remote control to our Apify account. When we return back to the command line, we should see the following success message:
+Let's confirm **Through Apify Console in your default browser** with <kbd>Enter ↵</kbd>. The command line tool opens a web page in our browser, where we'll allow it as a remote control to our Apify account. When we return back to the command line, we should see the following success message:
 
 ```text
 Success: You are logged in to Apify as hjtest.

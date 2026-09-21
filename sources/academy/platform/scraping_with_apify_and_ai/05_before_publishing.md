@@ -41,7 +41,7 @@ and draft a new README focused on users.
 After a short wait, we'll have a new README ready. Cursor has a built-in Markdown preview, so let's make it easier to read:
 
 1. Open the [command palette](https://docs.cursor.com/advanced/keyboard-shortcuts) with <kbd>⌘+⇧+P</kbd> on macOS or <kbd>Ctrl+Shift+P</kbd> on Windows and Linux.
-1. Type "mark pre", select **Markdown: Open Preview**, and press <kbd>↵</kbd>.
+1. Type "mark pre", select **Markdown: Open Preview**, and press <kbd>Enter ↵</kbd>.
 
 You should see a preview of how the document would look on Apify Store, GitHub, or another service.
 
