@@ -14,6 +14,7 @@ The [Apify plugin for Factory](https://github.com/apify/apify-factory-plugin) co
 - The [Apify MCP server](/integrations/mcp) for searching Apify Store, running Actors, and retrieving datasets through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro).
 - An `apify` routing droid that picks the right tool or skill from a natural-language request.
 - Five built-in skills for common workflows (see [Bundled skills](#bundled-skills) below).
+- A `/create-actor` slash command for a guided Actor development workflow.
 
 This guide covers installation from the Factory plugin marketplace.
 
@@ -81,6 +82,8 @@ The `apify` droid searches Apify Store, fetches the top Actor's details through 
 | `apify-generate-output-schema` | Generates dataset and key-value store schemas for existing Actors. |
 | `apify-sdk-integration` | Integrates Actor execution into applications using the `apify-client` package. |
 
+For a guided Actor development workflow, run `/create-actor` in a Droid session.
+
 Example prompts that route to specific skills:
 
 _Ultimate scraper:_
@@ -123,7 +126,7 @@ Run `/mcp`, select the **apify** server, and choose **Authenticate** to re-trigg
 
 If the browser doesn't open automatically, copy the OAuth URL shown in the terminal and paste it into your browser manually.
 
-If you're running Droid in a headless environment (SSH, remote container) or the OAuth flow still fails, authenticate with an API token instead. Copy your token from [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations) and set it before starting Droid:
+If you're running Droid in a headless environment (SSH, remote container), the MCP OAuth flow can't complete. Authenticate locally first so the OAuth token is stored in your system keyring, then reconnect remotely. To keep working without MCP, use the CLI and SDK skills instead. Run `apify login`, or export an API token from [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations):
 
 ```bash
 export APIFY_TOKEN=<YOUR_API_TOKEN>
