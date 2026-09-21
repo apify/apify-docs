@@ -48,18 +48,12 @@ The MCP server intentionally excludes two categories of Actors from search and e
 Before connecting your AI to Apify, you'll need three things:
 
 - _An Apify account_ - Sign up for an Apify account, if you don't have one.
-- _Apify API token_ - Get your API token from the **API & Integrations** section in [Apify Console](https://console.apify.com/settings/integrations). This token authorizes the MCP server to run Actors on your behalf. Make sure to keep it secure.
+- _Apify API token_ - Only needed for the [local stdio server](#local-stdio) or the Bearer token option. The recommended remote connection signs you in with OAuth instead. Get your token from the **API & Integrations** section in [Apify Console](https://console.apify.com/settings/integrations) and keep it secure.
 - _MCP client_ - An AI agent or client that supports Model Context Protocol (MCP) This could be Anthropic's Claude for Desktop, a VS Code extension with MCP support, or any application that implements the MCP specification. The [official MCP documentation](https://modelcontextprotocol.io/clients) maintains a list of compatible clients.
 
 ## Connect and authorize
 
 You can connect to the Apify MCP server in two ways: use our hosted service using [Streamable HTTP with OAuth](#streamable-http-with-oauth-recommended), or run the server locally for development and testing using [local stdio](#local-stdio).
-
-:::caution SSE transport deprecated
-
-Server-Sent Events (SSE) transport will be removed on April 1, 2026. The Apify MCP server now uses Streamable HTTP, in line with the official MCP specification. Visit [mcp.apify.com](https://mcp.apify.com/) to update your client configuration.
-
-:::
 
 :::tip Structured output schemas
 
@@ -260,7 +254,7 @@ The server will download automatically on first use and connect using your API t
 
 ## Tool selection
 
-By default, the MCP server loads essential tools for Actor discovery, documentation search, and the RAG Web Browser Actor. You can customize which tools
+By default, the MCP server loads the `actors` and `docs` tool categories plus two Actors, RAG Web Browser and Web Fetch. `call-actor` brings the run and storage tools it needs, so a default session can also poll runs and read dataset items. The remaining tools are opt-in through the `tools` parameter. You can customize which tools
 are available by adding parameters to the server URL:
 
 `https://mcp.apify.com?tools=actors,docs,apify/rag-web-browser`
@@ -300,13 +294,15 @@ If the `tools` parameter includes any other tool, or you connect to the default 
 | :--- | :--- | :--- | :--- |
 | `search-actors` | actors | ✅ | Search for Actors in Apify Store |
 | `fetch-actor-details` | actors | ✅ | Retrieve detailed information about a specific Actor, including its input and output schema, README (summary when available, full otherwise), and pricing |
-| `call-actor`* | actors | ❔ | Call an Actor and get its run results |
+| `call-actor` | actors | ✅ | Call an Actor and get its run results |
 | [`apify/rag-web-browser`](https://apify.com/apify/rag-web-browser) | Actor | ✅ | Browse and extract web data |
+| [`apify/web-fetch`](https://apify.com/apify/web-fetch) | Actor | ✅ | Fetch a URL and return its content as Markdown, text, HTML, or links |
 | `search-apify-docs` | docs | ✅ | Search the Apify documentation for relevant pages |
 | `fetch-apify-docs` | docs | ✅ | Fetch the full content of an Apify documentation page by its URL |
 | `get-actor-run` | runs | | Get detailed information about a specific Actor run |
 | `get-actor-run-list` | runs | | Get a list of an Actor's runs, filterable by status |
 | `get-actor-log` | runs | | Retrieve the logs for a specific Actor run |
+| `abort-actor-run` | runs | | Abort a running Actor run |
 | `get-dataset` | storage | | Get metadata about a specific dataset |
 | `get-dataset-items` | storage | | Retrieve items from a dataset with support for filtering and pagination |
 | `get-dataset-schema` | storage | | Generate a JSON schema from dataset items |
@@ -320,13 +316,6 @@ If the `tools` parameter includes any other tool, or you connect to the default 
 | `update-actor-task` | tasks | | Update a task's input, run options, or the display configuration of its landing page |
 | `publish-actor-task` | tasks | | Publish a task on its public landing page |
 | `unpublish-actor-task` | tasks | | Unpublish a task from its public landing page |
-| `get-actor-output`* | - | ✅ | Retrieve the output from an Actor call which is not included in the output preview of the Actor tool. |
-
-:::note Retrieving full output
-
-The `get-actor-output` tool is automatically included with any Actor-related tool, such as `call-actor` or specific Actor tools like `apify-slash-rag-web-browser`. When you call an Actor, you receive an output preview. Depending on the output format and length, the preview may contain the complete output or only a limited version to avoid overwhelming the LLM. To retrieve the full output, use the `get-actor-output` tool with the `datasetId` from the Actor call. This tool supports limit, offset, and field filtering.
-
-:::
 
 #### Find and call any Actor on demand
 

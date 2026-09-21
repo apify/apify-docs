@@ -80,11 +80,11 @@ Try asking Manus something like:
 
 > "Search for 'best project management tools' on Google and summarize the top 10 results"
 
-Manus will call `search-actors` to find [Google Search Scraper](https://apify.com/apify/google-search-scraper), use `call-actor` to run it, and then `get-actor-output` to retrieve and summarize the results.
+Manus will call `search-actors` to find [Google Search Scraper](https://apify.com/apify/google-search-scraper), use `call-actor` to run it, and then `get-dataset-items` to retrieve and summarize the results.
 
 ## Configure tools
 
-After connecting, the Apify MCP server exposes a default set of tools for Actor discovery (`search-actors`, `fetch-actor-details`, `call-actor`, `get-actor-output`), web browsing (`apify/rag-web-browser`), and documentation search (`search-apify-docs`, `fetch-apify-docs`). See the [full tool reference](/integrations/mcp#available-tools) for the complete list.
+After connecting, the Apify MCP server exposes a default set of tools for Actor discovery (`search-actors`, `fetch-actor-details`, `call-actor`, `get-dataset-items`), web browsing (`apify/rag-web-browser`, `apify/web-fetch`), and documentation search (`search-apify-docs`, `fetch-apify-docs`). See the [full tool reference](/integrations/mcp#available-tools) for the complete list.
 
 To control which tools are available, append a `tools=` query parameter to the server URL:
 
@@ -109,7 +109,7 @@ Available skills include:
 | `apify-actor-development` | Full Actor lifecycle: template selection, development, testing, and deployment |
 | `apify-actorization` | Converts existing projects into Apify Actors |
 | `apify-generate-output-schema` | Generates dataset and key-value store schemas from Actor source code |
-| `apify-sdk-integration` | Integrates Actor execution into applications using the `apify-client` package |
+| `apify-integration-development` | Builds an official Apify integration for another product: workflow-automation apps, agent plugins, AI framework packages, or `apify-client` application code |
 
 ### Import a skill from GitHub
 
