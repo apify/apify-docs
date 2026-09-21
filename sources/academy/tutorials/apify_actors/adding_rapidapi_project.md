@@ -114,7 +114,7 @@ Actors can run in two modes: as batch processing jobs that execute a single task
 
 :::
 
-Once you’ve saved the settings, go to the **Standby** tab, and click the **Test endpoint** button. It will start the Actor, and you can test it. Once the Actor is running, you're done with the migration!
+Once you’ve saved the settings, go to the **Endpoints** tab, and click the **Test endpoint** button. It will start the Actor, and you can test it. Once the Actor is running, you're done with the migration!
 
 ## Next steps
 
