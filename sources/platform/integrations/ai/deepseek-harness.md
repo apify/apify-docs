@@ -86,17 +86,25 @@ The plugin enables the Apify MCP server on install. Searching Apify Store, inspe
 
 `dsh` reads the token once, at startup. Exporting it inside a running session has no effect, so restart the profile after you change it.
 
-## Connect a model provider
-
-`dsh` ships no model of its own. Start the profile, then open **Settings > Models**, select **Add provider**, choose your provider, and supply its API key. Keys saved here live in `~/.dsh/.credentials.yaml` and take effect without a restart. To set a DeepSeek key before launch, put `DEEPSEEK_API_KEY` in the same `.env` file as `APIFY_TOKEN`.
-
-## Run your first prompt
-
-Start the profile:
+## Start the profile
 
 ```bash
 dsh web
 ```
+
+Open the URL `dsh` prints. It carries a one-time token, so the bare address doesn't authenticate.
+
+On first launch, no workspace exists. Select **Add workspace** in the workspace menu and choose the folder you want the agent to work in.
+
+## Connect a model provider
+
+`dsh` ships no model of its own. Open **Settings > Models**, select **Add provider**, choose your provider, and supply its API key. DeepSeek has a card there from the start; other providers you add yourself. Keys saved here live in `~/.dsh/.credentials.yaml` and take effect without a restart.
+
+For a model served on your own machine, such as LM Studio or Ollama, select **Add a custom provider** and enter the URL and port it listens on.
+
+To set a DeepSeek key before launch instead, put `DEEPSEEK_API_KEY` in the same `.env` file as `APIFY_TOKEN`.
+
+## Run your first prompt
 
 Describe what you want in natural language. The `apify` skill loads on Apify requests and routes them, so you don't need to name tools yourself.
 
@@ -144,7 +152,9 @@ The CLI keeps its credentials in `~/.apify/`, which sits outside the session wor
 You have two ways to work around this:
 
 - Approve the escalation prompt that the agent raises when a command is denied. It applies to that one command.
-- Switch the session to **Full access** sandbox mode before you start, which applies for the whole session.
+- Switch the session to **Full access** in the permission menu, which reads **Workspace Write** by default. You can switch at any point, and the change takes effect on the next command the agent runs.
+
+To change the default mode for new sessions, use **Settings > General > Permission**.
 
 If you'd rather keep the sandbox narrow, set `APIFY_TOKEN` instead and let the agent run Actors through the Apify MCP server, which needs no local file access.
 
