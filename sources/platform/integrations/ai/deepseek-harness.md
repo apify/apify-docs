@@ -33,7 +33,7 @@ The Apify MCP server covers Apify Store search and platform runs, so nothing has
 
 ## Install the plugin
 
-Install the plugin into the profile you launch. The `web` profile backs the web GUI (`dsh web`), and `tui` backs the terminal app:
+Install the plugin into the profile you launch. The `web` profile backs the web GUI (`dsh web`), and `headless` answers a single task in the terminal and exits:
 
 ```bash
 dsh plugin --profile web add dsh-apify-plugin
@@ -50,6 +50,16 @@ To uninstall:
 ```bash
 dsh plugin --profile web remove dsh-apify-plugin
 ```
+
+:::note Install into every profile you use
+
+A profile gets the plugin only if you add it there. To use the terminal as well, repeat the command with `--profile headless`, then run a one-off task:
+
+```bash
+dsh --profile headless "Find an Actor for scraping Google Maps places"
+```
+
+:::
 
 ## Connect your Apify account
 
@@ -70,7 +80,7 @@ The plugin enables the Apify MCP server on install. Searching Apify Store, inspe
 
 :::tip Where the token is read from
 
-`dsh` reads `.env` from the launch directory only, without searching parent directories. A `.env` in `$DSH_HOME` acts as a machine-wide fallback, and a variable already exported in your shell takes precedence over both. Add `.env` to your `.gitignore` so the token stays out of version control.
+`dsh` reads `.env` from the launch directory only, without searching parent directories. A `.env` in the harness home (`~/.dsh` by default, or `$DSH_HOME` if you set it) acts as a machine-wide fallback, and a variable already exported in your shell takes precedence over both. Add `.env` to your `.gitignore` so the token stays out of version control.
 
 :::
 
@@ -78,9 +88,7 @@ The plugin enables the Apify MCP server on install. Searching Apify Store, inspe
 
 ## Connect a model provider
 
-`dsh` ships no model of its own. To use DeepSeek's own models, set `DEEPSEEK_API_KEY` in the same `.env` before you start the profile.
-
-For any other provider, start the profile first, then open **Settings > Models**, select **Add provider**, choose your provider, and supply its API key.
+`dsh` ships no model of its own. Start the profile, then open **Settings > Models**, select **Add provider**, choose your provider, and supply its API key. Keys saved here live in `~/.dsh/.credentials.yaml` and take effect without a restart. To set a DeepSeek key before launch, put `DEEPSEEK_API_KEY` in the same `.env` file as `APIFY_TOKEN`.
 
 ## Run your first prompt
 
@@ -164,13 +172,13 @@ Print the composed profile tree and confirm the plugin's rows are in it:
 dsh --profile web --dump-config
 ```
 
-Check that you installed into the profile you actually launch. Installing into `web` doesn't affect the `tui` profile.
+Check that you installed into the profile you actually launch. Installing into `web` doesn't affect `headless`, and the reverse.
 
 ## Limitations
 
 - `dsh` sends static MCP headers and has no OAuth flow, so the Apify MCP server authenticates with an API token only.
 - `dsh` reads the token at startup, so a change to `.env` needs a restart of the profile.
-- A tool call waits up to 5 minutes for an Actor run. Longer runs need a narrower scope, or the Apify CLI to start the run and poll for its result.
+- The plugin raises the MCP tool call timeout from the `dsh` default of 60 seconds to 5 minutes. Longer runs need a narrower scope, or the Apify CLI to start the run and poll for its result.
 - Each Actor run consumes Apify platform usage from your plan in addition to any model provider costs. See [Billing](/account/billing) for details.
 - Skills that edit files in your project (Actor development, actorization, and SDK integration) make local changes - review them before deploying or committing.
 
