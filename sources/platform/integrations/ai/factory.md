@@ -23,6 +23,7 @@ This guide covers installation from the Factory plugin marketplace.
 
 - [An Apify account](https://console.apify.com/sign-up) - sign up for free if you don't have one.
 - [Factory](https://factory.ai) - the `droid` CLI installed and authenticated locally.
+- [Apify CLI](https://docs.apify.com/cli/docs/installation) - needed by the Actor development, actorization, and ultimate scraper skills.
 
 ## Install the plugin
 
