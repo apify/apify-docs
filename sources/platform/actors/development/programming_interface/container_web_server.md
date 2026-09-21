@@ -37,6 +37,8 @@ The web server inside the container must listen on the port specified by the `AC
 
 Check out [Custom environment variables](./environment_variables.md) for more details.
 
+You can describe the web server's API with a [web server schema](../actor_definition/web_server_schema/index.md) in the Actor definition.
+
 ## Example: Start a simple web server
 
 <Tabs groupId="main">
