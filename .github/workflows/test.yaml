@@ -138,6 +138,29 @@ jobs:
                         fi
                     }
 
+                    # Asserts that the body at $url contains $required and does not
+                    # contain $forbidden. Sends Accept-Encoding: gzip on purpose: the
+                    # sub_filter rewrite only works when nginx strips that header
+                    # before proxying, so this also guards the Accept-Encoding reset.
+                    function assert_body() {
+                        url=$1
+                        required=$2
+                        forbidden=$3
+                        shift 3
+                        extra_args=("$@")
+                        : > "$body_sink"
+                        curl -s --compressed -o "$body_sink" "${retry_opts[@]}" -H "Accept-Encoding: gzip" "${extra_args[@]}" "$url" || true
+                        echo "→ $url → $(wc -c < "$body_sink") bytes"
+                        if ! grep -qF "$required" "$body_sink"; then
+                            echo "❌ Expected '$required' in body for $url"
+                            exit 1
+                        fi
+                        if grep -qF "$forbidden" "$body_sink"; then
+                            echo "❌ Found '$forbidden' in body for $url"
+                            exit 1
+                        fi
+                    }
+
                     echo "🧪 Checking open redirect protection..."
                     # Backslash URLs must not produce redirects (the redirect Location
                     # would contain \, which browsers normalize to /, creating
@@ -229,6 +252,27 @@ jobs:
                     assert_header "http://localhost:8080/cli/docs/changelog" "Content-Type" "text/markdown" -H "Accept: text/markdown"
                     assert_header "http://localhost:8080/cli/llms.txt" "Content-Type" "text/markdown"
                     assert_header "http://localhost:8080/cli/llms-full.txt" "Content-Type" "text/markdown"
+
+                    echo "🧪 Checking doubled section prefix workaround..."
+                    # Regression tests for the llms-txt plugin workaround in nginx.conf.
+                    # Doubled prefixes redirect to the canonical URL and keep the query
+                    # string, and the proxied Markdown has the doubled links rewritten.
+                    # Remove together with the workaround.
+                    assert_status "http://localhost:8080/sdk/js/sdk/js/docs/introduction/quick-start" "301"
+                    assert_header "http://localhost:8080/sdk/js/sdk/js/docs/introduction/quick-start" "Location" "^Location: http://[^/]*/sdk/js/docs/introduction/quick-start$"
+                    assert_header "http://localhost:8080/sdk/js/sdk/js/docs/introduction/quick-start.md?x=1" "Location" "^Location: http://[^/]*/sdk/js/docs/introduction/quick-start.md?x=1$"
+                    assert_header "http://localhost:8080/sdk/python/sdk/python/docs/changelog" "Location" "^Location: http://[^/]*/sdk/python/docs/changelog$"
+                    assert_header "http://localhost:8080/api/client/js/api/client/js/docs/changelog" "Location" "^Location: http://[^/]*/api/client/js/docs/changelog$"
+                    assert_header "http://localhost:8080/api/client/python/api/client/python/docs/changelog" "Location" "^Location: http://[^/]*/api/client/python/docs/changelog$"
+                    assert_header "http://localhost:8080/cli/cli/docs/changelog" "Location" "^Location: http://[^/]*/cli/docs/changelog$"
+                    assert_body "http://localhost:8080/sdk/js/llms-full.txt" "docs.apify.com/sdk/js/" "docs.apify.com/sdk/js/sdk/js/"
+                    assert_body "http://localhost:8080/sdk/js/docs/introduction/quick-start.md" "docs.apify.com/sdk/js/" "docs.apify.com/sdk/js/sdk/js/"
+                    assert_body "http://localhost:8080/sdk/python/llms-full.txt" "docs.apify.com/sdk/python/" "docs.apify.com/sdk/python/sdk/python/"
+                    assert_body "http://localhost:8080/sdk/python/docs/changelog" "docs.apify.com/sdk/python/" "docs.apify.com/sdk/python/sdk/python/" -H "Accept: text/markdown"
+                    assert_body "http://localhost:8080/api/client/js/llms-full.txt" "docs.apify.com/api/client/js/" "docs.apify.com/api/client/js/api/client/js/"
+                    assert_body "http://localhost:8080/api/client/python/llms-full.txt" "docs.apify.com/api/client/python/" "docs.apify.com/api/client/python/api/client/python/"
+                    assert_body "http://localhost:8080/cli/llms-full.txt" "docs.apify.com/cli/" "docs.apify.com/cli/cli/"
+                    assert_body "http://localhost:8080/cli/docs/integrating-scrapy.md" "docs.apify.com/cli/" "docs.apify.com/cli/cli/"
 
                     echo "✅ All Nginx header checks passed."
 
