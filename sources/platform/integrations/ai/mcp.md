@@ -55,12 +55,6 @@ Before connecting your AI to Apify, you'll need three things:
 
 You can connect to the Apify MCP server in two ways: use our hosted service using [Streamable HTTP with OAuth](#streamable-http-with-oauth-recommended), or run the server locally for development and testing using [local stdio](#local-stdio).
 
-:::caution SSE transport deprecated
-
-Server-Sent Events (SSE) transport will be removed on April 1, 2026. The Apify MCP server now uses Streamable HTTP, in line with the official MCP specification. Visit [mcp.apify.com](https://mcp.apify.com/) to update your client configuration.
-
-:::
-
 :::tip Structured output schemas
 
 The hosted Apify MCP server at `https://mcp.apify.com` supports _output schema inference_ for structured Actor results. Actor tools automatically include inferred output schemas with field-level type information. This helps AI agents understand the expected result structure before calling an Actor. The local stdio server does not support this feature.
@@ -260,7 +254,7 @@ The server will download automatically on first use and connect using your API t
 
 ## Tool selection
 
-By default, the MCP server loads essential tools for Actor discovery, documentation search, and the RAG Web Browser Actor. You can customize which tools
+By default, the MCP server loads the `actors` and `docs` tool categories, the `apify/rag-web-browser` and `apify/web-fetch` Actors, and `report-problem`. You can customize which tools
 are available by adding parameters to the server URL:
 
 `https://mcp.apify.com?tools=actors,docs,apify/rag-web-browser`
@@ -300,13 +294,15 @@ If the `tools` parameter includes any other tool, or you connect to the default 
 | :--- | :--- | :--- | :--- |
 | `search-actors` | `actors` | ✅ | Search for Actors in Apify Store |
 | `fetch-actor-details` | `actors` | ✅ | Retrieve detailed information about a specific Actor, including its input and output schema, README (summary when available, full otherwise), and pricing |
-| `call-actor` | `actors` | ❔ | Call an Actor and get its run results |
+| `call-actor` | `actors` | ✅ | Run an Actor and wait up to `waitSecs` (0-45, default 30) for it to finish. Returns the run status and storage IDs, not the results themselves |
 | [`apify/rag-web-browser`](https://apify.com/apify/rag-web-browser) | Actor | ✅ | Browse and extract web data |
+| [`apify/web-fetch`](https://apify.com/apify/web-fetch) | Actor | ✅ | Fetch one http(s) URL and return its full content, rendering JavaScript and bypassing anti-bot protection |
 | `search-apify-docs` | `docs` | ✅ | Search the Apify documentation for relevant pages |
 | `fetch-apify-docs` | `docs` | ✅ | Fetch the full content of an Apify documentation page by its URL |
 | `get-actor-run` | `runs` | | Get detailed information about a specific Actor run |
 | `get-actor-run-list` | `runs` | | Get a list of an Actor's runs, filterable by status |
-| `get-actor-log` | `runs` | | Retrieve the logs for a specific Actor run |
+| `get-actor-run-log` | `runs` | | Retrieve the logs for a specific Actor run |
+| `abort-actor-run` | `runs` | | Abort a running Actor run |
 | `get-dataset` | `storage` | | Get metadata about a specific dataset |
 | `get-dataset-items` | `storage` | | Retrieve items from a dataset with support for filtering and pagination |
 | `get-dataset-schema` | `storage` | | Generate a JSON schema from dataset items |
@@ -320,11 +316,17 @@ If the `tools` parameter includes any other tool, or you connect to the default 
 | `update-actor-task` | `tasks` | | Update a task's input, run options, or the display configuration of its landing page |
 | `publish-actor-task` | `tasks` | | Publish a task on its public landing page |
 | `unpublish-actor-task` | `tasks` | | Unpublish a task from its public landing page |
-| `get-actor-output` | - | ✅ | Retrieve the output from an Actor call which is not included in the output preview of the Actor tool. |
+| `create-schedule` | `schedules` | | Create a schedule that runs Actors and tasks on a cron cadence |
+| `get-schedule` | `schedules` | | Get a schedule's cron expression, time zone, state, and next run |
+| `update-schedule` | `schedules` | | Change a schedule's cron expression, time zone, state, or actions |
+| `delete-schedule` | `schedules` | | Delete a schedule permanently |
+| `report-problem` | `dev` | ✅ | Report a problem with the MCP server to Apify |
 
-:::note Retrieving full output
+:::note Retrieving Actor results
 
-The `get-actor-output` tool is automatically included with any Actor-related tool, such as `call-actor` or specific Actor tools like `apify-slash-rag-web-browser`. When you call an Actor, you receive an output preview. Depending on the output format and length, the preview may contain the complete output or only a limited version to avoid overwhelming the LLM. To retrieve the full output, use the `get-actor-output` tool with the `datasetId` from the Actor call. This tool supports limit, offset, and field filtering.
+`call-actor` returns the run's status and storage IDs, not its output. To read the results, use `get-dataset-items` with the `datasetId` from the run. It supports limit, offset, and field filtering.
+
+Whenever `call-actor` or a specific Actor tool such as `apify--rag-web-browser` is loaded, the server also adds `get-actor-run`, `get-dataset-items`, `get-key-value-store-record`, and `abort-actor-run`, even if you didn't select them. A default configuration therefore exposes them too.
 
 :::
 
