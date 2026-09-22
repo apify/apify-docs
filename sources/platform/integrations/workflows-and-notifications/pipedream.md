@@ -39,7 +39,7 @@ Before you begin, make sure you have:
 1. [Create a new workflow](https://pipedream.com/docs/workflows) in Pipedream.
 1. Select **Add Trigger** and search for **Apify**.
 1. Select the trigger you want to use, e.g. **New finished Actor run (instant)**.
-1. Configure the trigger by selecting the Actor or task to monitor. Leave **Trigger on run states** empty to fire on every terminal state, or pick the states you care about.
+1. Configure the trigger by selecting the Actor or task to monitor. Leave **Trigger on run states** empty to fire on every terminal state (**Succeeded**, **Failed**, **Timed out**, and **Aborted**), or pick the states you care about.
 
     ![Configuring an Apify trigger in Pipedream](../images/pipedream/pipedream-trigger.webp)
 1. Add subsequent steps to process the output.
@@ -85,7 +85,7 @@ Alternatively, save the Actor configuration as an [Actor task](/actors/running/t
 
 ## Handle large Actor output
 
-When **Run Actor** waits for a run, it returns the record named by **Output Record Key** (`OUTPUT` by default). If the record is over 256 KB, the step returns a reference instead of inline data.
+When **Run Actor** waits for a run, it returns the record named by **Output Record Key** (`OUTPUT` by default). The connector caps inline output at 256 KB to stay within Pipedream's step output size, so a larger record comes back as a reference object with `recordUrl`, `keyValueStoreId`, and `recordKey`.
 
 To read large output:
 
