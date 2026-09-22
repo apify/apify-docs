@@ -84,7 +84,7 @@ Manus will call `search-actors` to find [Google Search Scraper](https://apify.co
 
 ## Configure tools
 
-After connecting, the Apify MCP server exposes a default set of tools for Actor discovery (`search-actors`, `fetch-actor-details`, `call-actor`, `get-dataset-items`), web browsing (`apify/rag-web-browser`, `apify/web-fetch`), and documentation search (`search-apify-docs`, `fetch-apify-docs`). See the [full tool reference](/integrations/mcp#available-tools) for the complete list.
+After connecting, the Apify MCP server exposes a default set of tools for Actor discovery (`search-actors`, `fetch-actor-details`, `call-actor`), web browsing (`apify/rag-web-browser`, `apify/web-fetch`), and documentation search (`search-apify-docs`, `fetch-apify-docs`). See the [full tool reference](/integrations/mcp#available-tools) for the complete list.
 
 To control which tools are available, append a `tools=` query parameter to the server URL:
 
