@@ -277,7 +277,7 @@ To read from or write to a key-value store that belongs to a different Actor or 
 
 ## Data consistency
 
-Key-value storage uses the [AWS S3](https://aws.amazon.com/s3/) service. According to the [S3 documentation](https://aws.amazon.com/s3/consistency/), it provides _strong read-after-write_ consistency.
+Key-value storage uses the [AWS S3](https://aws.amazon.com/s3/) service. According to the [S3 documentation](https://aws.amazon.com/s3/consistency/), it provides strong read-after-write consistency.
 
 ## Limits
 

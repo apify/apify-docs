@@ -51,7 +51,7 @@ To view the related API endpoints, select **API** in the top right corner.
 
 :::note Toggle unnamed storages
 
-Use the **Include unnamed storages** checkbox to show or hide unnamed storages. By default, Apify Console shows them.
+To show or hide unnamed storages, check **Include unnamed storages**. By default, Apify Console shows them.
 
 :::
 
@@ -75,7 +75,7 @@ For other request types, and when using `username~store-name`, provide your secr
 
 :::caution Token security
 
-Never share a URL containing your authentication token. It can compromise your account's security. If the data you want to share requires a token, download it first and share it as a file.
+Never share a URL containing your authentication token. It can compromise your account's security. If the data you want to share requires a token, download the token first and share it as a file.
 
 :::
 
@@ -148,7 +148,7 @@ Unnamed storages beyond the 10 most recent runs are deleted when the retention p
 
 ## Rate limiting
 
-All API endpoints limit their request rate to protect Apify servers from overload. The default rate limit for storage objects is _60 requests per second_ per storage object, and some endpoints have higher or lower limits. The tiers differ per storage type:
+All API endpoints limit their request rate to protect Apify servers from overload. The default rate limit for storage objects is 60 requests per second per storage object, and some endpoints have higher or lower limits. The tiers differ per storage type:
 
 * [Datasets](/storage/dataset#rate-limiting)
 * [Key-value stores](/storage/key-value-store#rate-limiting)
@@ -169,11 +169,11 @@ Go to the [API documentation](/api/v2#rate-limiting) for details and to learn wh
 
 ## Share
 
-You can grant access rights to other Apify users, share a storage by link, or generate a time-limited pre-signed URL for one-off access to a restricted resource. See [Share storage](./share.md).
+You can grant access rights to other Apify users, share a storage by link, or generate a time-limited pre-signed URL for one-off access to a restricted resource. For details, see [Share storage](./share.md).
 
 ## Concurrent access {#share-storages-between-runs}
 
-If you have the storage's _name_ or _ID_, you can access it from any [Actor](../actors/index.mdx) or [task](../actors/running/tasks.md) run. Datasets and key-value stores support concurrent reads and writes, while a request queue accepts new data from multiple runs but can only be processed by one run at a time, unless you use [request locking](./request_queue.md#distributivity). See [Use storage from another run](./use-from-another-run.md).
+If you have the storage's name or ID, you can access it from any [Actor](../actors/index.mdx) or [task](../actors/running/tasks.md) run. Datasets and key-value stores support concurrent reads and writes, while a request queue accepts new data from multiple runs but can only be processed by one run at a time, unless you use [request locking](./request_queue.md#distributivity). For details, see [Use storage from another run](./use-from-another-run.md).
 
 ## Delete storages
 

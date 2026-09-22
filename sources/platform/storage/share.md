@@ -16,7 +16,7 @@ In [Apify Console](https://console.apify.com/storage), open the storage's detail
 
 ## Share by link
 
-Share storages by link using their ID or name. Whether the link works for others depends on your account or resource-level general access setting; learn how link-based access works in [General resource access](/account/collaboration/general-resource-access).
+Share storages by link using their ID or name. Whether the link works for others depends on your account or resource-level general access setting. For details, see [General resource access](/account/collaboration/general-resource-access).
 
 For one-off sharing of individual records or items when access is restricted, generate time-limited pre-signed URLs. These are available for selected dataset and key-value store endpoints only. See [Sharing restricted resources with pre-signed URLs](/account/collaboration/general-resource-access#pre-signed-urls).
 
