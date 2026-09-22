@@ -6,6 +6,11 @@ jobs:
     lint:
         runs-on: ubuntu-latest
 
+        # github-pr-review reporter posts inline review comments
+        permissions:
+            contents: read
+            pull-requests: write
+
         steps:
             -   uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
                 with:
@@ -35,8 +40,8 @@ jobs:
                 with:
                     files: ${{ steps.changed-files.outputs.all_changed_files }}
                     separator: ','
-                    fail_on_error: true
+                    fail_level: error
                     filter_mode: nofilter
-                    vale_flags: '--minAlertLevel=error'
-                    reporter: github-pr-annotations
+                    vale_flags: '--minAlertLevel=warning'
+                    reporter: github-pr-review
 
