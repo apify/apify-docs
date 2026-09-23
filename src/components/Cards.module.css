@@ -23,13 +23,21 @@ html[data-theme='dark'] .card {
 }
 
 .card div.card-image-container-small {
-    height: 5rem;
+    display: flex;
+    align-items: center;
+    height: 3.2rem;
+    margin: 1.6rem 1rem 0.8rem;
     padding: 0rem !important;
 }
 
-.card-image-container-small > img {
-    padding: 1rem;
+/* Override the global markdown image styles, which center images and add vertical margins */
+.card div.card-image-container-small > img {
+    display: block;
+    width: auto;
+    max-width: 8rem;
     height: 100%;
+    margin: 0;
+    padding: 0;
     object-fit: contain;
 }
 
