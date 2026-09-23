@@ -51,7 +51,7 @@ After you link the project, describe the feature in the project chat and name th
 
 Actors that pair well with a Lovable front end include:
 
-- [Google Maps Scraper](https://apify.com/compass/crawler-google-places) for turning directory pages into structured contacts.
+- [Google Maps Scraper](https://apify.com/compass/crawler-google-places) for lead lists built from directory pages.
 - [Instagram Profile Scraper](https://apify.com/apify/instagram-profile-scraper) and [TikTok Scraper](https://apify.com/clockworks/tiktok-scraper) for social monitoring feeds.
 - [E-commerce Scraping Tool](https://apify.com/apify/e-commerce-scraping-tool) for price tracking dashboards.
 - [Website Content Crawler](https://apify.com/apify/website-content-crawler) and [Google Search Results Scraper](https://apify.com/apify/google-search-scraper) for research and summarization pages.
@@ -69,11 +69,7 @@ Actor runs take anywhere from seconds to minutes, and the Apify API rate-limits 
 
 For a long run, ask Lovable to start the run, poll the run status at a slow interval until it finishes, and only then read the dataset. For a short job, Apify can start the run and return the dataset items in a single call.
 
-:::caution Back off on 429 responses
-
 A `429` response means the Apify API is rate-limiting your account. Ask Lovable to retry with exponential backoff rather than re-sending at a fixed interval, otherwise the app stays throttled.
-
-:::
 
 ## Limitations
 
