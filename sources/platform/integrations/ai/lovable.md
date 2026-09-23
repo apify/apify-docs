@@ -92,7 +92,7 @@ Most problems come down to the token, the connection, or Apify's rate limits.
 ### Authentication errors
 
 - _Check the token is still valid_ - If you revoked or rotated the token in Apify Console, the connection keeps sending the old one. Create a new token and update the connection in Lovable.
-- _Check the token's permissions_ - A token with [limited permissions](/integrations/api#api-tokens-with-limited-permissions) can't reach an Actor or storage outside its scope. Use a token that covers what the app runs and reads.
+- _Check the token's permissions_ - A token with [limited permissions](/integrations/api#limited-permissions) can't reach an Actor or storage outside its scope. Use a token that covers what the app runs and reads.
 
 ### Rate-limited requests
 
