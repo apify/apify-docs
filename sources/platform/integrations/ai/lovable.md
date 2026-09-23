@@ -7,7 +7,7 @@ slug: /integrations/lovable
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
-[Lovable](https://lovable.dev) is an AI app builder that turns a prompt into a working web app. The Apify connector, built and maintained by Lovable, lets those apps call the Apify API through a shared connection, so an app can run [Actors](https://apify.com/store) and display the results.
+[Lovable](https://lovable.dev) is an AI app builder that turns a prompt into a working web app. The [Apify connector](https://docs.lovable.dev/integrations/apify), built and maintained by Lovable, lets those apps call the Apify API through a shared connection, so an app can run [Actors](https://apify.com/store) and display the results.
 
 The connector is an app and chat connector: one connection works both in the project chat while you build and in the published app. Once it's linked to a project, your app can:
 
