@@ -9,7 +9,7 @@ import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integrati
 
 [Lovable](https://lovable.dev) is an AI app builder that turns a prompt into a working web app. The [Apify connector](https://docs.lovable.dev/integrations/apify), built and maintained by Lovable, lets those apps call the Apify API through a shared connection, so an app can run [Actors](https://apify.com/store) and display the results.
 
-The connector is an app and chat connector: one connection works both in the project chat while you build and in the published app. Once it's linked to a project, your app can:
+Apify is available as an app and chat connector: one connection works both in the project chat while you build and in the published app. Once the connection is linked to a project, your app can:
 
 - Run Actors to scrape websites and automate browser workflows.
 - Track an Actor run until it finishes.
@@ -69,8 +69,6 @@ Actor runs take anywhere from seconds to minutes, and the Apify API rate-limits 
 
 For a long run, ask Lovable to start the run, poll the run status at a slow interval until it finishes, and only then read the dataset. For a short job, Apify can start the run and return the dataset items in a single call.
 
-A `429` response means the Apify API is rate-limiting your account. Ask Lovable to retry with exponential backoff rather than re-sending at a fixed interval, otherwise the app stays throttled.
-
 ## Limitations
 
 Two constraints are worth knowing before you design around the connector:
@@ -86,6 +84,30 @@ Manage an existing connection from [**Connectors**](https://lovable.dev/dashboar
 - Delete the connection to remove it from the workspace. Deletion is permanent, removes the credentials from every linked project, and breaks any app feature that uses Apify until you add a new connection.
 
 Deleting a connection in Lovable doesn't revoke the token in Apify. To cut off access entirely, delete the token in [**Settings > API & Integrations**](https://console.apify.com/settings/integrations) as well.
+
+## Troubleshooting
+
+Most problems come down to the token, the connection, or Apify's rate limits.
+
+### Authentication errors
+
+- _Check the token is still valid_ - If you revoked or rotated the token in Apify Console, the connection keeps sending the old one. Create a new token and update the connection in Lovable.
+- _Check the token's permissions_ - A token with [limited permissions](/integrations/api#api-tokens-with-limited-permissions) can't reach an Actor or storage outside its scope. Use a token that covers what the app runs and reads.
+
+### Rate-limited requests
+
+- _Back off on `429`_ - A `429` response means the Apify API is rate-limiting your account. Ask Lovable to retry with exponential backoff rather than re-sending at a fixed interval, otherwise the app stays throttled.
+- _Slow the polling down_ - Polling a long run too often burns the same rate limit the run itself needs. See [Handle long-running Actor runs](#handle-long-running-actor-runs).
+
+### Connection not available
+
+- _Check who can create connections_ - On Enterprise plans, connection creation is set to **No one** until an admin changes it. See [Lovable's admin controls](https://docs.lovable.dev/integrations/admin-controls#who-can-create-connections-and-clients).
+- _Check the project link_ - A connection does nothing until it's linked to a project. Ask Lovable in the project chat to link the project to it.
+
+### Actor run failures
+
+- _Check the run logs_ - Open the run in [Apify Console](https://console.apify.com/) to see why it failed.
+- _Check the Actor's input_ - An Actor rejects a run when required input is missing or malformed. Compare what the app sends against the Actor's input schema in Apify Store.
 
 ## Resources
 
