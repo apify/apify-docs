@@ -56,10 +56,11 @@ put:
     landing page, and `isPublic` publishes or unpublishes the task itself. Both require
     write permission to the task's Actor.
 
-    To publish a task, its Actor must be public, `publicConfig.inputSchemaFields` and
-    `publicConfig.datasetView` must be set, and the Actor must have fewer than 50 published
-    tasks. If the task isn't ready to be published, the whole update fails and none of it
-    is applied.
+    To publish a task, its Actor must be public and both `publicConfig.inputSchemaFields` and
+    `publicConfig.datasetView` must be set. Note that an Actor can have up to 10 published tasks
+    and your account up to 100. To increase these limits, [contact support](http://apify.com/contact).
+    If the task doesn't meet all these conditions, the request fails and no fields are updated,
+    including those unrelated to publishing.
 
     Publishing lists the task among the Actor's examples and makes its input public, so anyone
     can view and copy it. The landing page itself is shown only while `publicConfig` still
