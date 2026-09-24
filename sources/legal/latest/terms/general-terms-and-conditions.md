@@ -162,7 +162,7 @@ The Services are intended for business use only and are not designed, marketed, 
 
 13.1. **Acknowledgment**. In compliance with the provisions of Act No. 480/2004 Coll., on certain Information Society Services and on Amendments to some Acts (Act on Certain Information Society Services), as amended, and the Regulation (EU) 2022/2065 of the European Parliament and of the Council of 19 October 2022 on a Single Market For Digital Services and amending Directive 2000/31/EC (Digital Services) we shall not be liable for the contents of the information that you upload on our Website, or Services, including Customer Data or Actors. We are not obliged to verify the manner in which you or other Users or customers use the Website or Services, and we shall not be liable for the manner of such usage.
 
-13.2. If you believe any content on our Website or Platform is illegal or infringes your rights, you may notify us at legal@apify.com by providing a description of the content and its location (e.g., URL), the reason for your claim, including the applicable law or rights, and your contact information.
+13.2. If you believe any content on our Website or Platform is illegal or infringes your rights, <span className="chatbot-link">click here</span> by providing a description of the content and its location (e.g., URL), the reason for your claim, including the applicable law or rights, and your contact information.
 
 ## 14. Term
 
