@@ -13,7 +13,7 @@ Apify is available as an app and chat connector: one connection works both in th
 
 - Run Actors to scrape websites and automate browser workflows.
 - Track an Actor run until it finishes.
-- Read results from datasets and key-value stores.
+- Read results from [datasets](/storage/dataset) and [key-value stores](/storage/key-value-store).
 - List recent Actor runs and their datasets.
 
 <ThirdPartyDisclaimer />
@@ -41,7 +41,7 @@ The connection lives at the workspace level, so you create it once and reuse it 
 
 A new connection is private to you. Share it with specific people or with the whole workspace to let them link it to their own projects.
 
-You can create more than one connection, each with its own token, which keeps environments such as development and production separate, and keeps their usage apart in Apify Console.
+You can create more than one connection, each with its own token, which keeps environments such as development and production separate. Apify tracks usage per account, so tokens from one account share a single usage total. Use tokens from separate Apify accounts to keep their usage and billing apart.
 
 To use the connection in a project, ask Lovable in the project chat to link the project to it.
 
@@ -67,7 +67,7 @@ Runs started through the connector bill against your Apify plan, and the cost of
 
 Actor runs take anywhere from seconds to minutes, and the Apify API rate-limits both run creation and dataset reads. That shapes how you prompt.
 
-For a long run, ask Lovable to start the run, poll the run status at a slow interval until it finishes, and only then read the dataset. For a short job, Apify can start the run and return the dataset items in a single call.
+For a long run, ask Lovable to start the run, poll the run status at a slow interval until it finishes, and only then read the dataset. For a short job, [Run Actor synchronously and get dataset items](/api/v2/actor-run-sync-get-dataset-items-post) starts the run and returns the dataset in one call. The run has to finish within 300 seconds, or the endpoint returns `408 Request Timeout`.
 
 ## Limitations
 
@@ -96,7 +96,7 @@ Most problems come down to the token, the connection, or Apify's rate limits.
 
 ### Rate-limited requests
 
-- _Back off on `429`_ - A `429` response means the Apify API is rate-limiting your account. Ask Lovable to retry with exponential backoff rather than re-sending at a fixed interval, otherwise the app stays throttled.
+- _Back off on `429`_ - A `429` response means the Apify API is [rate-limiting](/api/v2#rate-limiting) your account. Ask Lovable to retry with exponential backoff rather than re-sending at a fixed interval, otherwise the app stays throttled.
 - _Slow the polling down_ - Polling a long run too often burns the same rate limit the run itself needs. See [Handle long-running Actor runs](#handle-long-running-actor-runs).
 
 ### Connection not available
