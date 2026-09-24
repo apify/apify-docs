@@ -18,11 +18,11 @@ byRunId:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
     - name: idempotency-key
       in: header
-      required: false
+      required: true
       schema:
         type: string
       example: 2024-12-09T01:23:45.000Z-random-uuid
-      description: Always pass a unique idempotency key (any unique string) for each charge to avoid double charging in case of retries or network errors.
+      description: Always pass a unique idempotency key (any unique string) for each charge to avoid double charging in case of retries or network errors. The key expires 3 minutes after the charge, so a later request with the same key creates a new charge.
   requestBody:
     description: "Define which event, and how many times, you want to charge for."
     content:
