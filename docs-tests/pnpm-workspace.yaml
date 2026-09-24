@@ -3,3 +3,7 @@
 # apify-docs workspace. Keeps the test harness fully isolated from the main
 # docs build's dependency tree.
 packages: []
+
+minimumReleaseAge: 10080
+blockExoticSubdeps: true
+trustPolicy: no-downgrade
