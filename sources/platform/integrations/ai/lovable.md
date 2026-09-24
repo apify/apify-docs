@@ -41,7 +41,7 @@ The connection lives at the workspace level, so you create it once and reuse it 
 
 A new connection is private to you. Share it with specific people or with the whole workspace to let them link it to their own projects.
 
-You can create more than one connection, each with its own token, which keeps environments such as development and production separate. Apify tracks usage per account, so tokens from one account share a single usage total. Use tokens from separate Apify accounts to keep their usage and billing apart.
+You can create more than one connection, each with its own token, which keeps environments such as development and production separate. Revoking one token leaves the others working.
 
 To use the connection in a project, ask Lovable in the project chat to link the project to it.
 
