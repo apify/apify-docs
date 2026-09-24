@@ -5,6 +5,10 @@ slug: /actors/running/store/actor-developers
 sidebar_position: 1.2
 ---
 
+import VerifiedDev from '../images/store/verified-dev.svg';
+import PartnerDev from '../images/store/partner-dev.svg';
+
+
 Actors in [Apify Store](https://apify.com/store) are maintained either by Apify or by independent developers from the community. The type of maintenance determines who updates the Actor, tests it, and responds to your questions or issues.
 
 ## Check Actor ownership
@@ -12,21 +16,27 @@ Actors in [Apify Store](https://apify.com/store) are maintained either by Apify 
 To see who owns an Actor:
 
 1. In Apify Store or Console, go to the Actor's page.
-1. In **Developer** section, check the label: **Maintained by Apify** or **Maintained by Community**.
+1. In **Developer** section, check the label: **Maintained by Apify**, **Maintained by Apify Partner**, or **Maintained by Community**.
 
 ![Information on Actor ownership in Apify Store](../images/store/actor-owner.svg)
 
 ### Verified developers
 
-A blue badge next to a developer's name means that Apify has [verified their identity](/actors/publishing/monetize/monthly-payouts#verify-your-identity).
+A blue badge <VerifiedDev style={{ height: '1.2em', width: '1.2em', verticalAlign: 'text-bottom' }} /> next to a developer's name means that Apify has [verified their identity](/actors/publishing/monetize/monthly-payouts#verify-your-identity).
 
 A missing badge doesn't mean the Actor is unsafe. A developer's verified identity is only one of many signals to consider before you run the Actor.
+
+### Apify Partners
+
+A black and yellow badge <PartnerDev style={{ height: '1.2em', width: '1.2em', verticalAlign: 'text-bottom' }} /> next to a developer's name means that the developer is an Apify Partner.
+
+Apify Partners are verified developers with a track record of delivering high-quality Actors. The badge applies to the developer, not to a specific Actor. Partners are independent developers who remain responsible for the quality, reliability, and maintenance of their Actors.
 
 ## Compare ownership types
 
 Check the main differences between Apify-maintained and community-maintained Actors:
 
-| | Maintained by Apify | Maintained by the community |
+| | Maintained by Apify | Maintained by the community or Apify Partner |
 | ---: | --- | --- |
 | **Ownership** | Created and maintained by Apify. | Created and maintained by independent developers or agencies. |
 | **Functionality** | A small number of popular scenarios that serve the most users. | A wide range of use cases, often tailored to very specific needs. Great for exploring unique or niche applications. |
