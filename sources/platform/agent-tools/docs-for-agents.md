@@ -43,20 +43,27 @@ curl https://apify.com/apify/rag-web-browser.md
 
 ## Search the docs through MCP
 
-The [Apify MCP server](/mcp) exposes two documentation tools, `search-apify-docs` and `fetch-apify-docs`. Both work without authentication, so an agent can read Apify documentation before the user has an account.
+The [Apify MCP server](/mcp) exposes two documentation tools, `search-apify-docs` and `fetch-apify-docs`. Both work without an API token when the connection lists only tools enabled for [anonymous access](/mcp#anonymous-access), so an agent can read the Apify documentation before the user has an account.
 
 Use them over raw HTTP fetches when your agent is already connected through MCP - search returns ranked matches rather than making the agent guess at URLs.
 
-## Other agent-facing surfaces
+## Agent-facing files on apify.com
 
-Apify runs several entry points outside the documentation. Agents rarely find them unless something links there, so they're collected here:
+apify.com publishes a set of machine-readable files for agents. Agents rarely find them unless something links there, so they're collected here. Start with `agents.md`, the agent quickstart:
 
-| Surface | What it does |
+| File | What it's for |
 | :--- | :--- |
-| [`apify.com/agents.md`](https://apify.com/agents.md) | Platform overview written for agents, served as Markdown. Also at [`apify.com/.well-known/agents.md`](https://apify.com/.well-known/agents.md). |
-| [Apify Agent General Interface](https://agi.apify.com) | The front door for agents that need to pay their own way: buy a prepaid, spend-capped API token through an agentic-payment protocol, then call `api.apify.com` with it. See [agentic payments](/integrations/x402). |
-| [MCP configurator](https://mcp.apify.com) | Generates a ready-to-paste MCP client configuration. |
-| [Apify Store](https://apify.com/store) | Actor catalog. Every listing has a `.md` equivalent. |
+| [`apify.com/agents.md`](https://apify.com/agents.md) | The agent quickstart: what Apify is, the three ways an agent connects, and how to run a first Actor. Also served at [`/.well-known/agents.md`](https://apify.com/.well-known/agents.md). |
+| [`apify.com/auth.md`](https://apify.com/auth.md) | How an agent registers for Apify credentials on its own, from anonymous access to a verified account. |
+| [`apify.com/llms.txt`](https://apify.com/llms.txt) | An index of apify.com pages that have Markdown versions. |
+| [`apify.com/openapi.json`](https://apify.com/openapi.json) | The OpenAPI definition of the Apify API. |
+| [`/.well-known/agent-skills/index.json`](https://apify.com/.well-known/agent-skills/index.json) | The standalone [Agent Skills](/agent-tools/skills) in the Agent Skills discovery format. |
+| [`/.well-known/mcp/server-card.json`](https://apify.com/.well-known/mcp/server-card.json) | The server card for the [Apify MCP server](/mcp): its endpoint, transport, and tools. |
+| [`/.well-known/ai-catalog.json`](https://apify.com/.well-known/ai-catalog.json) | A catalog of the agent-facing resources above, from the MCP server card to the skills and API definitions. |
+| [`/.well-known/api-catalog`](https://apify.com/.well-known/api-catalog) | An [RFC 9727](https://www.rfc-editor.org/info/rfc9727) API catalog linking the Apify API and the MCP server. |
+| [`/.well-known/oauth-protected-resource`](https://apify.com/.well-known/oauth-protected-resource) | OAuth discovery metadata for the MCP server, which MCP clients read to start the sign-in. |
+
+Every Actor page in [Apify Store](https://apify.com/store) has a Markdown version, and so do `apify.com/store.md` and `apify.com/pricing.md`. The [MCP configurator](https://mcp.apify.com) generates a ready-to-paste MCP client configuration. To pay for Actor runs without an Apify account, see [agentic payments](/agent-tools/agentic-payments).
 
 ## Choose the right surface
 
