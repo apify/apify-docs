@@ -1,7 +1,7 @@
 ---
 title: Apify agent tools
 sidebar_label: Overview
-description: Connect an AI coding agent to Apify. Compare the MCP server, plugins, Agent Skills, and machine-readable docs, then pick the setup for your client.
+description: Connect an AI agent to Apify through the MCP server, a plugin, or Agent Skills, then pick the setup guide for Claude Code, Codex, Cursor, and more.
 sidebar_position: 0
 slug: /agent-tools
 ---
@@ -9,96 +9,183 @@ slug: /agent-tools
 import Card from '@site/src/components/Card';
 import CardGrid from '@site/src/components/CardGrid';
 
-AI agents reach Apify through a live connection over the [MCP server](/integrations/mcp), a one-step [plugin](/agent-tools/plugin) for supported clients, [Agent Skills](/agent-tools/skills) that carry procedural knowledge, and [machine-readable documentation](/agent-tools/docs-for-agents). These stack rather than compete, and most setups use more than one.
+Apify agent tools connect an AI agent to the Apify platform. The [MCP server](/mcp) is the live connection an agent uses to search [Apify Store](https://apify.com/store), run Actors, and read the results. [Agent Skills](/agent-tools/skills) carry the procedure for multi-step work, such as building and deploying an Actor. A [plugin](/agent-tools/plugin) installs both in one step for a specific coding agent.
 
-If you want the shortest path from zero to a first Actor run, start with the [agent quickstart](/get-started/agent-onboarding).
+Two more pieces round out the set. [Docs for agents](/agent-tools/docs-for-agents) lists the machine-readable surfaces an agent can read, and [agentic payments](/agent-tools/agentic-payments) let an agent pay for Actor runs without an Apify account. To run your first Actor from an agent, follow the [agent quickstart](/get-started/agent-onboarding).
 
-## Key concepts
+## Pick your agent
 
-| Piece | What it is | Reach for it when |
-| :--- | :--- | :--- |
-| MCP server | A live connection between your agent and the Apify platform, exposing tools to search [Apify Store](https://apify.com/store), run Actors, and read datasets. | Your agent needs to act on Apify: find an Actor, run it, get structured data back. |
-| Plugin | A single install that bundles the MCP server, an `apify` routing agent, and Agent Skills for one specific client. | Your client is supported and you want the whole setup in one step. |
-| Agent Skills | Instructions your agent loads on demand when it needs Apify-specific procedural knowledge, such as building an Actor or routing a scraping request. | Your agent already connects to Apify and you want it to follow proven multi-step workflows. |
-| Client libraries and CLI | The [JavaScript](https://docs.apify.com/api/client/js) and [Python](https://docs.apify.com/api/client/python) clients, the [REST API](/api/v2), and the [Apify CLI](/cli). | You're writing application code or scripts rather than prompting an agent. |
-| Machine-readable docs | Every documentation page as Markdown, plus `llms.txt` indexes and MCP documentation tools. | Your agent needs to read Apify documentation accurately instead of guessing. |
-
-The MCP server gives an agent *capability*; Agent Skills give it *procedure*. An agent with MCP alone can call any tool but has to work out the sequence itself. An agent with skills follows a workflow Apify already validated. Skills are not a separate integration method; they layer on top of a connection you already have.
-
-## Choose a path
-
-- If your coding agent has a [plugin](/agent-tools/plugin), install that. It configures MCP and skills together, so there's nothing else to wire up.
-- For a chat client or an agent framework, connect the [MCP server](/integrations/mcp) directly. LangChain, CrewAI, the Vercel AI SDK, and other frameworks have their own guides under [AI integrations](/integrations/ai).
-- To call Apify from your own application code, use a [client library or the REST API](/get-started/agent-onboarding#choose-your-integration-method).
+Each guide covers install, sign-in, and a first prompt for one client. Coding agents with an Apify plugin get the MCP server and Agent Skills from a single install:
 
 <CardGrid>
     <Card
-        title="Plugin"
-        desc="One install that bundles the MCP server, the apify routing agent, and Agent Skills."
-        to="/agent-tools/plugin"
-        imageUrl="/img/platform/integrations/emoji-pluggable.svg"
+        title="Claude Code"
+        desc="Plugin with the MCP server, Agent Skills, and a routing agent."
+        to="/integrations/claude-code-cli"
+        imageUrl="/img/platform/integrations/claude-code.svg"
         smallImage
     />
     <Card
-        title="Agent Skills"
-        desc="Procedural knowledge your agent loads on demand for Apify workflows."
-        to="/agent-tools/skills"
-        imageUrl="/img/platform/integrations/emoji-actor-to-actor.svg"
+        title="Codex app"
+        desc="Plugin with the MCP server and Agent Skills, in the ChatGPT desktop app."
+        to="/integrations/codex-app"
+        imageUrl="/img/platform/integrations/codex.svg"
+        imageUrlDarkTheme="/img/platform/integrations/codex-white.svg"
         smallImage
     />
     <Card
-        title="Docs for agents"
-        desc="Markdown endpoints, llms.txt indexes, and every other machine-readable surface."
-        to="/agent-tools/docs-for-agents"
-        imageUrl="/img/platform/integrations/emoji-api.svg"
+        title="Codex CLI"
+        desc="Plugin with the MCP server and Agent Skills, in the terminal."
+        to="/integrations/codex-cli"
+        imageUrl="/img/platform/integrations/codex.svg"
+        imageUrlDarkTheme="/img/platform/integrations/codex-white.svg"
+        smallImage
+    />
+    <Card
+        title="Cursor"
+        desc="Plugin with the MCP server, Agent Skills, and a routing agent."
+        to="/integrations/cursor"
+        imageUrl="/img/platform/integrations/cursor.svg"
+        imageUrlDarkTheme="/img/platform/integrations/cursor-white.svg"
+        smallImage
+    />
+    <Card
+        title="GitHub Copilot"
+        desc="Plugin with the MCP server, Agent Skills, and a routing agent, for the CLI and desktop app."
+        to="/integrations/github-copilot"
+        imageUrl="/img/platform/integrations/github-copilot.svg"
+        imageUrlDarkTheme="/img/platform/integrations/github-copilot-white.svg"
+        smallImage
+    />
+    <Card
+        title="VS Code"
+        desc="The GitHub Copilot plugin, installed from the VS Code agent plugin marketplace."
+        to="/integrations/vscode"
+        imageUrl="/img/platform/integrations/vscode.svg"
+        imageUrlDarkTheme="/img/platform/integrations/vscode-white.svg"
+        smallImage
+    />
+    <Card
+        title="OpenCode"
+        desc="Plugin with the MCP server, Agent Skills, and a routing agent."
+        to="/integrations/opencode"
+        imageUrl="/img/platform/integrations/opencode.svg"
+        imageUrlDarkTheme="/img/platform/integrations/opencode-white.svg"
+        smallImage
+    />
+    <Card
+        title="Kimi Code CLI"
+        desc="Plugin with the MCP server and Agent Skills."
+        to="/integrations/kimi-code-cli"
+        imageUrl="/img/platform/integrations/kimi.svg"
+        imageUrlDarkTheme="/img/platform/integrations/kimi-white.svg"
+        smallImage
+    />
+    <Card
+        title="Qoder"
+        desc="Plugin with the MCP server, Agent Skills, and a routing agent, for the CLI, IDE, Desktop app, and QoderWork."
+        to="/integrations/qoder"
+        imageUrl="/img/platform/integrations/qoder.svg"
+        smallImage
+    />
+    <Card
+        title="Qwen Code"
+        desc="The Qoder plugin, installed as a Qwen Code extension."
+        to="/integrations/qwen"
+        imageUrl="/img/platform/integrations/qwen.svg"
+        smallImage
+    />
+    <Card
+        title="Grok Build"
+        desc="Plugin with the MCP server, Agent Skills, and a routing agent."
+        to="/agent-tools/plugin?agent-client=grok-build"
+        smallImage
+    />
+    <Card
+        title="OpenClaw"
+        desc="Plugin that adds a native Apify tool to OpenClaw agents."
+        to="/integrations/openclaw"
+        imageUrl="/img/platform/integrations/openclaw.svg"
+        smallImage
+    />
+    <Card
+        title="Hermes Agent"
+        desc="Plugin that adds native Apify tools to Hermes Agent."
+        to="/integrations/hermes-agent"
+        imageUrl="/img/platform/integrations/hermes-agent.svg"
+        imageUrlDarkTheme="/img/platform/integrations/hermes-agent-white.svg"
+        smallImage
+    />
+    <Card
+        title="Kilo Code"
+        desc="Plugin that adds a native Apify tool to Kilo Code agents."
+        to="/agent-tools/plugin?agent-client=kilo-code"
         smallImage
     />
 </CardGrid>
 
-## Pick your client
+Chat clients and other MCP-capable agents connect to the [MCP server](/mcp) directly:
 
-Clients with a dedicated Apify plugin:
+<CardGrid>
+    <Card
+        title="Claude Desktop"
+        desc="Add Apify as a connector in the Claude desktop app."
+        to="/integrations/claude-desktop"
+        imageUrl="/img/platform/integrations/claude-code.svg"
+        smallImage
+    />
+    <Card
+        title="ChatGPT"
+        desc="Add Apify as a custom connector in ChatGPT developer mode."
+        to="/integrations/chatgpt"
+        imageUrl="/img/platform/integrations/openai.svg"
+        imageUrlDarkTheme="/img/platform/integrations/openai-white.svg"
+        smallImage
+    />
+    <Card
+        title="Manus"
+        desc="Connect Manus to the Apify MCP server."
+        to="/integrations/manus"
+        imageUrl="/img/platform/integrations/manus.svg"
+        imageUrlDarkTheme="/img/platform/integrations/manus-white.svg"
+        smallImage
+    />
+    <Card
+        title="Any MCP client"
+        desc="Generate a ready-to-paste configuration with the MCP configurator."
+        to="/mcp"
+        imageUrl="/img/platform/integrations/mcp-logo.png"
+        imageUrlDarkTheme="/img/platform/integrations/mcp-logo-white.png"
+        smallImage
+    />
+</CardGrid>
 
-| Client | Guide |
-| :--- | :--- |
-| Claude Code CLI | [Claude Code CLI integration](/integrations/claude-code-cli) |
-| Cursor | [Cursor integration](/integrations/cursor) |
-| GitHub Copilot | [GitHub Copilot integration](/integrations/github-copilot) |
-| Codex in the ChatGPT desktop app | [Codex app integration](/integrations/codex-app) |
-| Codex CLI | [Codex CLI integration](/integrations/codex-cli) |
-| OpenCode | [OpenCode integration](/integrations/opencode) |
-| OpenClaw | [OpenClaw integration](/integrations/openclaw) |
-| Qoder CLI | [Qoder CLI integration](/integrations/qoder-cli) |
-| Qoder IDE | [Qoder IDE integration](/integrations/qoder-ide) |
-| QoderWork | [QoderWork integration](/integrations/qoder-work) |
-| Hermes Agent | [Hermes Agent integration](/integrations/hermes-agent) |
+## Key concepts
 
-Clients that connect through the MCP server directly:
+The pieces stack rather than compete, and most setups use more than one:
 
-| Client | Guide |
-| :--- | :--- |
-| Claude Desktop | [Claude Desktop integration](/integrations/claude-desktop) |
-| ChatGPT | [ChatGPT integration](/integrations/chatgpt) |
-| Manus | [Manus integration](/integrations/manus) |
-| Any other MCP-capable client | [Apify MCP server](/integrations/mcp) |
+| Piece | What it is | Reach for it when |
+| :--- | :--- | :--- |
+| [MCP server](/mcp) | A hosted server at `mcp.apify.com` with tools to search Apify Store, run Actors, and search the Apify documentation, plus optional tools for runs, storage, tasks, and schedules. | Your agent needs to act on Apify: find an Actor, run it, and get structured data back. |
+| [Plugin](/agent-tools/plugin) | One install for a specific coding agent. Most plugins bundle the MCP server, Agent Skills, and an `apify` routing agent. The OpenClaw, Hermes Agent, and Kilo Code plugins add native Apify tools instead of the MCP server. | Your coding agent has a plugin and you want the whole setup in one step. |
+| [Agent Skills](/agent-tools/skills) | Instructions your agent loads when a task matches, such as building an Actor or choosing a scraper. | Your agent already connects to Apify and you want it to follow a tested multi-step workflow. |
+| [Docs for agents](/agent-tools/docs-for-agents) | Every documentation page as Markdown, `llms.txt` indexes, and the agent-facing files on apify.com. | Your agent needs current Apify documentation instead of its training data. |
+| [Agentic payments](/agent-tools/agentic-payments) | Pay-per-use access for agents without an Apify account, through the Apify Agent General Interface. | Your agent has to pay for Actor runs on its own. |
 
-:::tip Generate a client config
+The MCP server gives an agent *capability*, and Agent Skills give it *procedure*. With the MCP server alone, an agent can call any tool but has to work out the sequence itself. With skills, it follows a workflow Apify has already tested.
 
-The [MCP configurator](https://mcp.apify.com) produces a ready-to-paste configuration for most clients, including ones without a dedicated guide.
+## Build on Apify instead
 
-:::
+The pages above cover agents that *call* Apify. These adjacent topics cover building on the platform:
 
-## Build agents on Apify
-
-The pages above cover agents that *call* Apify. Three adjacent topics are easy to confuse with them:
-
-- [Develop AI agents on Apify](/actors/development/quick-start/develop-ai-agents) - build an agent that runs as an Actor on the platform, rather than connecting an external agent to it.
-- [MCP connectors](/integrations/mcp-connectors) - let an Actor you built act on a user's third-party accounts, such as Notion, Slack, or GitHub, without handling raw credentials.
-- [Agentic payments](/integrations/x402) - let an agent pay for Actor runs through the x402 protocol. The [Apify Agent General Interface](https://agi.apify.com) is the entry point for agents that need a prepaid, spend-capped API token.
+- [Develop AI agents on Apify](/actors/development/quick-start/develop-ai-agents) - Build an agent that runs as an Actor on the Apify platform.
+- [Build Actors with AI](/actors/development/quick-start/build-with-ai) - Use a coding agent to create and deploy an Actor.
+- [MCP connectors](/integrations/mcp-connectors) - Let an Actor you built act on a user's third-party accounts, such as Notion, Slack, or GitHub.
+- [AI integrations](/integrations/ai) - Call Apify from agent frameworks such as LangChain, CrewAI, and the Vercel AI SDK, and load results into vector databases.
+- [API client libraries](/api/v2) - Call the Apify API from your own application code, or use the [JavaScript](https://docs.apify.com/api/client/js) and [Python](https://docs.apify.com/api/client/python) clients.
 
 ## Related resources
 
-- [Agent quickstart](/get-started/agent-onboarding) - run your first Actor from an agent
-- [Apify MCP server](/integrations/mcp) - full MCP reference, including tool selection and production practices
-- [AI integrations](/integrations/ai) - frameworks, vector databases, and every AI integration Apify supports
-- [Build Actors with AI](/actors/development/quick-start/build-with-ai) - use a coding agent to build an Actor
+- [Agent quickstart](/get-started/agent-onboarding) - First Actor run from a connected agent
+- [Apify MCP server](/mcp) - Tool reference, authentication, and production practices
+- [Apify plugin](/agent-tools/plugin) - Install commands for every supported coding agent
