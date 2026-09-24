@@ -15,6 +15,8 @@ import ClaudeCodeWebEgress from '@site/sources/_partials/_claude-code-web-egress
 
 Connect your AI agent or application to Apify - the platform for web scraping, data extraction, and browser automation. The typical agent workflow: find an Actor, run it, get structured data back.
 
+This page is the documentation version of [`apify.com/agents.md`](https://apify.com/agents.md), the quickstart Apify serves to agents directly. An interactive agent connects the [MCP server](#mcp-server) and signs in through the browser. Code that keeps running after the session uses an [API client](#api-client) or the [REST API](#rest-api) with an API token. An autonomous agent with a wallet and nobody to sign in pays through [agentic payments](/agent-tools/agentic-payments).
+
 ## Core concepts
 
 - _Actors_ - Serverless cloud programs that perform scraping, crawling, or automation tasks. Thousands of ready-made Actors are available in [Apify Store](https://apify.com/store).
@@ -106,6 +108,7 @@ See [Usage and resources](/actors/running/usage-and-resources) and [Billing](/ac
 | [API client](#api-client) | Backend apps (JavaScript/Python) | API token |
 | [CLI](#cli) | Building and deploying custom Actors | API token |
 | [REST API](#rest-api) | Any language, HTTP integrations, no-code tools | API token |
+| [Agentic payments](/agent-tools/agentic-payments) | Autonomous agents with a crypto wallet and no one to sign in | Prepaid, spend-capped token |
 
 ### MCP server
 
@@ -113,7 +116,7 @@ The [Apify MCP server](/mcp) connects your agent to the full Apify platform via 
 
 :::tip Free exploration
 
-The MCP server's `search-actors`, `fetch-actor-details`, and docs tools work without authentication. You can browse Actors and documentation without an account.
+The MCP server's `search-actors`, `fetch-actor-details`, and docs tools work without authentication when you connect to `https://mcp.apify.com/?tools=search-actors,fetch-actor-details,search-apify-docs,fetch-apify-docs`. That connection browses Actors and documentation without an account, but can't run Actors. For details, check [anonymous access](/mcp#anonymous-access).
 
 :::
 
@@ -127,6 +130,7 @@ Works with Claude Code, Cursor, VS Code, GitHub Copilot, and other remote-capabl
     {
       "mcpServers": {
         "apify": {
+          "type": "http",
           "url": "https://mcp.apify.com"
         }
       }
@@ -146,7 +150,7 @@ For clients that only support local MCP servers, for example Claude Desktop.
       "mcpServers": {
         "apify": {
           "command": "npx",
-          "args": ["-y", "@apify/actors-mcp-server"],
+          "args": ["-y", "@apify/actors-mcp-server@latest"],
           "env": { "APIFY_TOKEN": "YOUR_TOKEN" }
         }
       }
@@ -271,13 +275,13 @@ Full reference: [Apify API v2](/api/v2).
 
 Once you connect an agent via MCP or a coding assistant, [Apify Agent Skills](/agent-tools/skills) add pre-built workflows on top - guiding the agent through multi-step scraping pipelines and Actor development tasks. Skills are not a separate integration method; they layer over your existing connection.
 
-Install into Claude Code, Cursor, Gemini CLI, or OpenAI Codex:
+Install them into Claude Code, Cursor, Windsurf, Codex, or Gemini CLI:
 
 ```bash
 npx skills add apify/agent-skills
 ```
 
-Coding agents with an [Apify plugin](/agent-tools/plugin) get the skills already installed. For the five available skills and the prompts that trigger them, see [Agent Skills](/agent-tools/skills).
+Coding agents with an [Apify plugin](/agent-tools/plugin) get the skills already installed. For the available skills and the prompts that trigger them, see [Agent Skills](/agent-tools/skills).
 
 ## Documentation access for agents
 
