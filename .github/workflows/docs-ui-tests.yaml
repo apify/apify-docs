@@ -8,18 +8,106 @@ name: Docs UI drift tests
 # Credentials come from repo Actions secrets (CONSOLE_STAGING_*). The seeded
 # staging user is low-privilege and has no 2FA; login is scripted fresh each run
 # and the session is held in memory (no auth file).
+#
+# Two jobs, deliberately split:
+#
+#   doc-integrity  runs on PULL REQUESTS that touch the docs or the harness.
+#                  Only the `integrity` project: pure static checks that each
+#                  assertion's source_file/source_quote still resolves. No
+#                  browser, no credentials, a few seconds — so it also works on
+#                  fork PRs, where secrets are unavailable. INFORMATIVE ONLY: it
+#                  never fails the PR; findings go to the job summary.
+#
+#   ui-drift       runs WEEKLY and on demand, never on a PR. The full suite
+#                  against Console staging, and it files a drift issue on
+#                  failure.
+#
+# The split exists because a doc can move mid-week and stay undetected until the
+# next Monday — which is exactly how #2951 happened. The PR-time check catches
+# that class of drift in review, when the move is still one edit away from fixed.
 
 on:
     schedule:
         -   cron: '0 6 * * 1'   # Every Monday 06:00 UTC
     workflow_dispatch:           # Manual on-demand run
+    pull_request:
+        paths:
+            -   'sources/platform/**'    # a doc move/rewrite can stale the baseline
+            -   'docs-tests/**'          # harness or baseline changes
 
 defaults:
     run:
         working-directory: docs-tests
 
 jobs:
+    # PR-time doc-side check. Advisory: `continue-on-error` keeps a failure from
+    # blocking the merge, so this is an additional signal rather than a new gate.
+    # Findings are written to the job summary, where a reviewer sees them without
+    # opening logs. Promote it to a required check later by removing
+    # `continue-on-error` and marking it required in branch protection.
+    doc-integrity:
+        if: github.event_name == 'pull_request'
+        runs-on: ubuntu-latest
+        permissions:
+            contents: read
+        steps:
+            -   uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+            -   name: Use Node.js 24
+                uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+                with:
+                    node-version: 24
+
+            -   name: Install pnpm and docs-tests dependencies
+                uses: apify/actions/pnpm-install@v1.4.0
+                with:
+                    working-directory: docs-tests
+
+            # No `playwright install`: the integrity project never requests a
+            # browser fixture, so it runs on the bare Node install.
+            -   name: Check doc back-references resolve
+                id: integrity
+                continue-on-error: true
+                run: pnpm test:integrity
+
+            -   name: Summarize
+                if: always()
+                env:
+                    OUTCOME: ${{ steps.integrity.outcome }}
+                run: |
+                    set -euo pipefail
+                    REPORT=output/issues.json
+
+                    if [[ "$OUTCOME" == "success" ]]; then
+                      echo "### Docs-tests: doc back-references OK" >> "$GITHUB_STEP_SUMMARY"
+                      echo "" >> "$GITHUB_STEP_SUMMARY"
+                      echo "Every assertion in \`docs-tests/assertions/\` still points at a doc that exists, with its quoted text intact." >> "$GITHUB_STEP_SUMMARY"
+                      exit 0
+                    fi
+
+                    {
+                      echo "### Docs-tests: stale doc back-references"
+                      echo ""
+                      echo "This is **informative only** and does not block the merge."
+                      echo ""
+                    } >> "$GITHUB_STEP_SUMMARY"
+
+                    if [[ -f "$REPORT" ]]; then
+                      {
+                        echo "Assertions in \`docs-tests/assertions/\` point at documentation that this PR moved, renamed or rewrote:"
+                        echo ""
+                        echo "| Assertion | Doc source |"
+                        echo "| --- | --- |"
+                        jq -r '.issues[] | "| `\(.id)` | `\(.source_file):\(.source_line)` |"' "$REPORT"
+                        echo ""
+                        echo "Fix by repointing \`docs-tests/pages.json\` and the affected \`assertions/*.json\` at the new path, or re-extracting the page. Left unfixed, the weekly drift check goes red and files an issue."
+                      } >> "$GITHUB_STEP_SUMMARY"
+                    else
+                      echo "The check failed before producing a report — see the job logs." >> "$GITHUB_STEP_SUMMARY"
+                    fi
+
     ui-drift:
+        if: github.event_name != 'pull_request'
         runs-on: ubuntu-latest
         permissions:
             contents: read
