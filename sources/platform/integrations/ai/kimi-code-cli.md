@@ -11,7 +11,7 @@ import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integrati
 
 The [Apify plugin for Kimi Code](https://github.com/apify/apify-kimi-code-plugin) connects Kimi Code to Apify's library of [Actors](https://apify.com/store) and bundles:
 
-- The [Apify MCP server](/integrations/mcp) for searching Apify Store, running Actors, and retrieving datasets through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro).
+- The [Apify MCP server](/mcp) for searching Apify Store, running Actors, and retrieving datasets through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro).
 - A `using-apify` router skill that loads at session start and picks the right tool or skill from a natural-language request.
 - Five built-in skills for common workflows (see [Bundled skills](#bundled-skills) below).
 
@@ -184,7 +184,7 @@ Install the Apify CLI with `npm install -g apify-cli` before using the `apify-ac
 
 ## Related integrations
 
-- [MCP server integration](/integrations/mcp) - Use the Apify MCP server with other clients
+- [MCP server integration](/mcp) - Use the Apify MCP server with other clients
 - [Claude Code CLI integration](/integrations/claude-code-cli) - The equivalent plugin for Claude Code
 - [Cursor integration](/integrations/cursor) - The Apify plugin for the Cursor editor
 

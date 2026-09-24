@@ -9,7 +9,7 @@ import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integrati
 
 [OpenCode](https://opencode.ai) is an open-source AI coding agent that runs in your terminal. It reads and edits your codebase, runs commands, and completes multi-step development tasks.
 
-The [Apify plugin for OpenCode](https://www.npmjs.com/package/opencode-apify) connects OpenCode to Apify's library of [Actors](https://apify.com/store) by bundling the [Apify MCP server](/integrations/mcp) for searching Apify Store, running Actors, and retrieving datasets through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro).
+The [Apify plugin for OpenCode](https://www.npmjs.com/package/opencode-apify) connects OpenCode to Apify's library of [Actors](https://apify.com/store) by bundling the [Apify MCP server](/mcp) for searching Apify Store, running Actors, and retrieving datasets through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro).
 
 <ThirdPartyDisclaimer />
 
@@ -109,7 +109,7 @@ export APIFY_TOKEN=<YOUR_API_TOKEN>
 ## Related integrations
 
 - [Claude Code CLI integration](/integrations/claude-code-cli) - Install the Apify plugin for Claude Code CLI
-- [MCP server integration](/integrations/mcp) - Use the Apify MCP server with other clients
+- [MCP server integration](/mcp) - Use the Apify MCP server with other clients
 
 ## Resources
 

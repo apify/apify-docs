@@ -9,7 +9,7 @@ slug: /agent-tools
 import Card from '@site/src/components/Card';
 import CardGrid from '@site/src/components/CardGrid';
 
-AI agents reach Apify through a live connection over the [MCP server](/integrations/mcp), a one-step [plugin](/agent-tools/plugin) for supported clients, [Agent Skills](/agent-tools/skills) that carry procedural knowledge, and [machine-readable documentation](/agent-tools/docs-for-agents). These stack rather than compete, and most setups use more than one.
+AI agents reach Apify through a live connection over the [MCP server](/mcp), a one-step [plugin](/agent-tools/plugin) for supported clients, [Agent Skills](/agent-tools/skills) that carry procedural knowledge, and [machine-readable documentation](/agent-tools/docs-for-agents). These stack rather than compete, and most setups use more than one.
 
 If you want the shortest path from zero to a first Actor run, start with the [agent quickstart](/get-started/agent-onboarding).
 
@@ -28,7 +28,7 @@ The MCP server gives an agent *capability*; Agent Skills give it *procedure*. An
 ## Choose a path
 
 - If your coding agent has a [plugin](/agent-tools/plugin), install that. It configures MCP and skills together, so there's nothing else to wire up.
-- For a chat client or an agent framework, connect the [MCP server](/integrations/mcp) directly. LangChain, CrewAI, the Vercel AI SDK, and other frameworks have their own guides under [AI integrations](/integrations/ai).
+- For a chat client or an agent framework, connect the [MCP server](/mcp) directly. LangChain, CrewAI, the Vercel AI SDK, and other frameworks have their own guides under [AI integrations](/integrations/ai).
 - To call Apify from your own application code, use a [client library or the REST API](/get-started/agent-onboarding#choose-your-integration-method).
 
 <CardGrid>
@@ -80,7 +80,7 @@ Clients that connect through the MCP server directly:
 | Claude Desktop | [Claude Desktop integration](/integrations/claude-desktop) |
 | ChatGPT | [ChatGPT integration](/integrations/chatgpt) |
 | Manus | [Manus integration](/integrations/manus) |
-| Any other MCP-capable client | [Apify MCP server](/integrations/mcp) |
+| Any other MCP-capable client | [Apify MCP server](/mcp) |
 
 :::tip Generate a client config
 
@@ -99,6 +99,6 @@ The pages above cover agents that *call* Apify. Three adjacent topics are easy t
 ## Related resources
 
 - [Agent quickstart](/get-started/agent-onboarding) - run your first Actor from an agent
-- [Apify MCP server](/integrations/mcp) - full MCP reference, including tool selection and production practices
+- [Apify MCP server](/mcp) - full MCP reference, including tool selection and production practices
 - [AI integrations](/integrations/ai) - frameworks, vector databases, and every AI integration Apify supports
 - [Build Actors with AI](/actors/development/quick-start/build-with-ai) - use a coding agent to build an Actor

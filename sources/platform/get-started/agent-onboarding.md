@@ -19,7 +19,7 @@ Connect your AI agent or application to Apify - the platform for web scraping, d
 
 - _Actors_ - Serverless cloud programs that perform scraping, crawling, or automation tasks. Thousands of ready-made Actors are available in [Apify Store](https://apify.com/store).
 - _Datasets_ - Append-only storage for structured results. Every Actor run creates a default dataset. Export as JSON, CSV, Excel, XML, or RSS.
-- _API_ - RESTful API at `https://api.apify.com/v2` for all platform operations. Also accessible via [MCP](/integrations/mcp), [CLI](/cli), and client libraries.
+- _API_ - RESTful API at `https://api.apify.com/v2` for all platform operations. Also accessible via [MCP](/mcp), [CLI](/cli), and client libraries.
 - _MCP connectors_ - When you build an Actor that needs to act on a user's third-party accounts (Notion, Slack, GitHub, and others), use [MCP connectors](/integrations/mcp-connectors) to receive connector IDs as input instead of asking users for raw credentials.
 
 ## Prerequisites
@@ -41,7 +41,7 @@ After [connecting the MCP server](#mcp-server) to your AI assistant, ask:
 Use Apify's RAG Web Browser to find the top 3 pages about Apify documentation, then summarize.
 ```
 
-Your agent calls [`search-actors`](/integrations/mcp#available-tools), [`call-actor`](/integrations/mcp#available-tools), and reads the resulting dataset items - all through MCP, no code required.
+Your agent calls [`search-actors`](/mcp#available-tools), [`call-actor`](/mcp#available-tools), and reads the resulting dataset items - all through MCP, no code required.
 
 </TabItem>
 <TabItem value="javascript" label="JavaScript">
@@ -109,7 +109,7 @@ See [Usage and resources](/actors/running/usage-and-resources) and [Billing](/ac
 
 ### MCP server
 
-The [Apify MCP server](/integrations/mcp) connects your agent to the full Apify platform via the [Model Context Protocol](https://modelcontextprotocol.io/). No local installation needed for remote-capable clients.
+The [Apify MCP server](/mcp) connects your agent to the full Apify platform via the [Model Context Protocol](https://modelcontextprotocol.io/). No local installation needed for remote-capable clients.
 
 :::tip Free exploration
 
@@ -155,7 +155,7 @@ For clients that only support local MCP servers, for example Claude Desktop.
 
 1. Replace `YOUR_TOKEN` with your API token and restart the client.
 
-For client-specific setup instructions, use the [MCP Configurator](https://mcp.apify.com) which generates ready-to-paste configs. For details, see the [MCP server documentation](/integrations/mcp).
+For client-specific setup instructions, use the [MCP Configurator](https://mcp.apify.com) which generates ready-to-paste configs. For details, see the [MCP server documentation](/mcp).
 
 ### API client
 
@@ -288,7 +288,7 @@ For the complete list, including the agent-facing surfaces outside the documenta
 ## Useful resources
 
 - [Apify agent tools](/agent-tools) - How the MCP server, plugins, Agent Skills, and machine-readable docs fit together
-- [MCP server integration](/integrations/mcp) - Tool customization, dynamic Actor discovery, and advanced configuration
+- [MCP server integration](/mcp) - Tool customization, dynamic Actor discovery, and advanced configuration
 - [CLI documentation](/cli) - Complete command reference
 - [API reference](/api/v2) - All REST API endpoints
 - [API client for JavaScript](https://docs.apify.com/api/client/js) | [for Python](https://docs.apify.com/api/client/python) - Client libraries

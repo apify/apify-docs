@@ -71,7 +71,7 @@ Both **Actor runs** and **builds** have the **Origin** field indicating how the 
 |`ACTOR`|From another Actor run|
 |`STANDBY`|From [Actor Standby](./standby)|
 |`CI`|From a CI/CD pipeline (for example, GitHub Actions)|
-|`MCP`|From the [Apify MCP Server](https://docs.apify.com/integrations/mcp)|
+|`MCP`|From the [Apify MCP Server](/mcp)|
 
 ## Lifecycle
 

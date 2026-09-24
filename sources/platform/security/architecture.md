@@ -100,6 +100,6 @@ Apify publishes incidents on the [status page](https://status.apify.com) and not
 
 ## Integrations and the API
 
-Everything programmatic goes through the [Apify API](/api/v2), which authenticates and authorizes each request. Integrations build on that same API. Webhooks push run events to external systems, the API clients for JavaScript and Python let applications drive the platform, and third-party connectors reuse the API's authentication. AI agents can discover and run Actors and read results through the [Apify MCP server](/integrations/mcp).
+Everything programmatic goes through the [Apify API](/api/v2), which authenticates and authorizes each request. Integrations build on that same API. Webhooks push run events to external systems, the API clients for JavaScript and Python let applications drive the platform, and third-party connectors reuse the API's authentication. AI agents can discover and run Actors and read results through the [Apify MCP server](/mcp).
 
 For the full list, see [Integrations](/integrations).

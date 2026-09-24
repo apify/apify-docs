@@ -14,7 +14,7 @@ Apify maintains a plugin per client, because each client has its own plugin form
 
 Most plugins bundle three things:
 
-- The [Apify MCP server](/integrations/mcp) (`https://mcp.apify.com`) for the live connection to the platform. Its configuration ships inside the plugin, so you never edit an MCP config file by hand.
+- The [Apify MCP server](/mcp) (`https://mcp.apify.com`) for the live connection to the platform. Its configuration ships inside the plugin, so you never edit an MCP config file by hand.
 - An `apify` routing agent that picks the right tool or skill from a natural-language request, so you don't have to name tools yourself.
 - [Agent Skills](/agent-tools/skills) covering scraping, Actor development, actorization, output schemas, and SDK integration.
 
@@ -36,7 +36,7 @@ Most plugins bundle three things:
 
 Hermes Agent is the exception to the pattern above. Its plugin doesn't carry the MCP server. It registers three dedicated tools instead - `apify_discover`, `apify_start`, and `apify_collect` - which the agent calls directly.
 
-If your client isn't listed, connect the [MCP server](/integrations/mcp) directly and install [Agent Skills](/agent-tools/skills) separately. The [MCP configurator](https://mcp.apify.com) generates a config for most clients.
+If your client isn't listed, connect the [MCP server](/mcp) directly and install [Agent Skills](/agent-tools/skills) separately. The [MCP configurator](https://mcp.apify.com) generates a config for most clients.
 
 ## Install
 
@@ -66,7 +66,7 @@ Installing the MCP server and Agent Skills yourself gives you roughly the same c
 - You maintain the MCP configuration and the skill versions yourself. Skills installed with `npx skills add` don't update on their own - reinstall them to pick up changes. A plugin updates as a unit.
 - You don't get the `apify` routing agent, so prompts have to name tools or skills more explicitly.
 
-Choose the separate route when your client has no plugin, when you need a narrower [tool selection](/integrations/mcp#tool-selection) than the plugin ships with, or when you're wiring Apify into an agent framework rather than a coding assistant.
+Choose the separate route when your client has no plugin, when you need a narrower [tool selection](/mcp#tool-selection) than the plugin ships with, or when you're wiring Apify into an agent framework rather than a coding assistant.
 
 ## Limitations
 
@@ -77,5 +77,5 @@ Choose the separate route when your client has no plugin, when you need a narrow
 ## Related resources
 
 - [Agent Skills](/agent-tools/skills) - what the bundled skills do and how to install them standalone
-- [Apify MCP server](/integrations/mcp) - tool reference, authentication, and production practices
+- [Apify MCP server](/mcp) - tool reference, authentication, and production practices
 - [Apify agent tools](/agent-tools) - how plugins, MCP, and skills fit together

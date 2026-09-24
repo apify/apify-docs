@@ -121,4 +121,4 @@ Internally, the `call()` function invokes the [Run Actor](/api/v2/actors-runs-po
 
 ## Run Actors from AI agents
 
-AI agents can discover and run Actors on their own. Connect your agent to the platform through the [Apify MCP server](/integrations/mcp), call the [Apify API](/api) directly, or add [Apify Agent Skills](/get-started/agent-onboarding#agent-skills) for pre-built workflows. For a complete guide, see [Apify for AI agents](/get-started/agent-onboarding).
+AI agents can discover and run Actors on their own. Connect your agent to the platform through the [Apify MCP server](/mcp), call the [Apify API](/api) directly, or add [Apify Agent Skills](/get-started/agent-onboarding#agent-skills) for pre-built workflows. For a complete guide, see [Apify for AI agents](/get-started/agent-onboarding).

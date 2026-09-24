@@ -11,7 +11,7 @@ import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integrati
 
 The [Apify plugin for Claude Code](https://github.com/apify/apify-claude-code-plugin) connects Claude Code to Apify's library of [Actors](https://apify.com/store) and bundles:
 
-- The [Apify MCP server](/integrations/mcp) for searching the Store, running Actors, and retrieving datasets through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro).
+- The [Apify MCP server](/mcp) for searching the Store, running Actors, and retrieving datasets through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro).
 - An `apify` routing agent that picks the right tool or skill from a natural-language request.
 - Five built-in skills for common workflows (see [Bundled skills](#bundled-skills) below).
 
@@ -146,7 +146,7 @@ export APIFY_TOKEN=<YOUR_API_TOKEN>
 
 ## Related integrations
 
-- [MCP server integration](/integrations/mcp) - Use the Apify MCP server with other clients
+- [MCP server integration](/mcp) - Use the Apify MCP server with other clients
 - [ChatGPT integration](/integrations/chatgpt) - Connect the Apify MCP server to ChatGPT
 
 ## Resources

@@ -11,7 +11,7 @@ import ApifyPluginSkillPrompts from '@site/sources/_partials/_apify-plugin-skill
 
 [Qoder](https://qoder.com) is an agentic coding platform from Alibaba. The same [Apify plugin for Qoder](https://github.com/apify/apify-qoder-plugin) installs across its surfaces and connects them to Apify's library of [Actors](https://apify.com/store). The plugin bundles:
 
-- The [Apify MCP server](/integrations/mcp) for searching Apify Store, running Actors, and retrieving datasets through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro).
+- The [Apify MCP server](/mcp) for searching Apify Store, running Actors, and retrieving datasets through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro).
 - An `apify` routing agent that picks the right tool or skill from a natural-language request.
 - Five built-in skills for common workflows (see [Bundled skills](#bundled-skills) below).
 
@@ -28,7 +28,7 @@ The plugin installs in the coding and desktop surfaces that support Qoder plugin
 | [Qoder Desktop](#qoder-desktop) | Agentic coding desktop app | Manual import |
 | [QoderWork](#qoderwork) | Desktop assistant for document, spreadsheet, research, and browser tasks | Manual import |
 
-The JetBrains plugin and QoderWake don't support Qoder plugins, but both can still use Apify through the [Apify MCP server](/integrations/mcp):
+The JetBrains plugin and QoderWake don't support Qoder plugins, but both can still use Apify through the [Apify MCP server](/mcp):
 
 | Surface | What it is | How Apify connects |
 | --- | --- | --- |
@@ -141,7 +141,7 @@ In the CLI, IDE, and Desktop app, the agent invokes these skills automatically. 
 
 ## Add the Apify MCP server
 
-The JetBrains plugin and QoderWake don't support Qoder plugins, so the bundled skills and the `apify` agent aren't available there. You can still give them the Apify tools by connecting the [Apify MCP server](/integrations/mcp) directly.
+The JetBrains plugin and QoderWake don't support Qoder plugins, so the bundled skills and the `apify` agent aren't available there. You can still give them the Apify tools by connecting the [Apify MCP server](/mcp) directly.
 
 ### QoderWake
 
@@ -210,7 +210,7 @@ If the browser doesn't open automatically, copy the OAuth URL shown by the surfa
 ## Related integrations
 
 - [Qwen integration](/integrations/qwen) - Use Apify in Qwen Code and QwenWork
-- [MCP server integration](/integrations/mcp) - Use the Apify MCP server with other clients
+- [MCP server integration](/mcp) - Use the Apify MCP server with other clients
 
 ## Resources
 

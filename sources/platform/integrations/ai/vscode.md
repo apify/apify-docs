@@ -14,7 +14,7 @@ import ApifyPluginSkillPrompts from '@site/sources/_partials/_apify-plugin-skill
 
 The [Apify plugin](https://github.com/apify/apify-github-copilot-plugin) is published in the [Awesome Copilot](https://awesome-copilot.github.com/plugins) marketplace, which VS Code registers by default. It connects VS Code to Apify's library of [Actors](https://apify.com/store) and bundles:
 
-- The [Apify MCP server](/integrations/mcp) for searching Apify Store, running Actors, and retrieving datasets through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro).
+- The [Apify MCP server](/mcp) for searching Apify Store, running Actors, and retrieving datasets through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro).
 - An `apify` routing agent that picks the right tool or skill from a natural-language request.
 - Five built-in skills for common workflows (see [Bundled skills](#bundled-skills) below).
 
@@ -138,7 +138,7 @@ Start from the **apify** agent. It is the single entry point that detects the av
 - [GitHub Copilot CLI integration](/integrations/github-copilot-cli) - Install the same plugin in your terminal
 - [GitHub Copilot desktop app integration](/integrations/github-copilot-desktop) - Install the same plugin in the desktop app
 - [Cursor integration](/integrations/cursor) - Install the Apify plugin in Cursor
-- [MCP server integration](/integrations/mcp) - Use the Apify MCP server with other clients
+- [MCP server integration](/mcp) - Use the Apify MCP server with other clients
 
 ## Resources
 

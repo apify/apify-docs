@@ -12,7 +12,7 @@ import ApifyPluginSkillPrompts from '@site/sources/_partials/_apify-plugin-skill
 Alibaba ships two agent tools under the Qwen name, and both can call Apify [Actors](https://apify.com/store). They connect to Apify in different ways:
 
 - **[Qwen Code](#qwen-code)** is an open-source agentic coding tool that runs in your terminal. It supports the Qoder plugin format, so it installs the full [Apify plugin built for Qoder](https://github.com/apify/apify-qoder-plugin) - the Apify MCP server, the `apify` routing agent, and five skills - with no separate build.
-- **[QwenWork](#qwenwork)** is an all-in-one workplace AI agent for documents, data, and knowledge work, available as desktop and web apps. It is not a plugin host, so you connect the [Apify MCP server](/integrations/mcp) as a custom connector and upload the Apify skills individually.
+- **[QwenWork](#qwenwork)** is an all-in-one workplace AI agent for documents, data, and knowledge work, available as desktop and web apps. It is not a plugin host, so you connect the [Apify MCP server](/mcp) as a custom connector and upload the Apify skills individually.
 
 <ThirdPartyDisclaimer />
 
@@ -32,7 +32,7 @@ Alibaba ships two agent tools under the Qwen name, and both can call Apify [Acto
 
 Qwen Code installs the same plugin as Qoder and keeps everything it bundles:
 
-- The [Apify MCP server](/integrations/mcp) for searching Apify Store, running Actors, and retrieving datasets through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro).
+- The [Apify MCP server](/mcp) for searching Apify Store, running Actors, and retrieving datasets through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro).
 - An `apify` routing agent that picks the right tool or skill from a natural-language request.
 - Five built-in skills for common workflows (see [Bundled skills](#bundled-skills) below).
 
@@ -106,7 +106,7 @@ qwen extensions install ./apify-qoder-plugin-<version>.zip
 
 ## QwenWork
 
-QwenWork isn't a plugin host, so the bundled `apify` agent isn't available there. You give it Apify in two steps: connect the [Apify MCP server](/integrations/mcp) as a custom connector for the tools, and upload the Apify skills you want as local skills.
+QwenWork isn't a plugin host, so the bundled `apify` agent isn't available there. You give it Apify in two steps: connect the [Apify MCP server](/mcp) as a custom connector for the tools, and upload the Apify skills you want as local skills.
 
 ### Add the Apify MCP server
 
@@ -174,7 +174,7 @@ This affects Qwen Code. An older plugin build declared the MCP endpoint only und
 
 If the sign-in page doesn't open or the server stays disconnected:
 
-- **Qwen Code:** copy the authorization URL from the terminal and open it manually. If sign-in still fails, add an `Authorization: Bearer <APIFY_TOKEN>` header to the `apify` server in `~/.qwen/settings.json` under `mcpServers` - see the [Client configuration](/integrations/mcp#client-configuration) for the shape.
+- **Qwen Code:** copy the authorization URL from the terminal and open it manually. If sign-in still fails, add an `Authorization: Bearer <APIFY_TOKEN>` header to the `apify` server in `~/.qwen/settings.json` under `mcpServers` - see the [Client configuration](/mcp#client-configuration) for the shape.
 - **QwenWork:** remove the connector and add it again. If OAuth still won't complete, re-add it with an `Authorization` header set to `Bearer <APIFY_TOKEN>`.
 
 Get the token from [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations?utm_source=qwen&utm_medium=integrations). Setting `APIFY_TOKEN` in your shell doesn't authenticate the MCP server; it only covers the Apify CLI and `apify-client` used by the Actor development, actorization, and SDK integration skills, so run `apify login` once for those.
@@ -190,7 +190,7 @@ Get the token from [Apify Console > Settings > Integrations](https://console.api
 ## Related integrations
 
 - [Qoder integration](/integrations/qoder) - Install the same plugin in the Qoder CLI, IDE, Desktop app, or QoderWork
-- [MCP server integration](/integrations/mcp) - Use the Apify MCP server with other clients
+- [MCP server integration](/mcp) - Use the Apify MCP server with other clients
 
 ## Resources
 

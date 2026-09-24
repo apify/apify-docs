@@ -14,7 +14,7 @@ The [GitHub Copilot desktop app](https://github.com/features/ai/github-app) is G
 
 The [Apify plugin for GitHub Copilot](https://github.com/apify/apify-github-copilot-plugin) connects Copilot to Apify's library of [Actors](https://apify.com/store) and bundles:
 
-- The [Apify MCP server](/integrations/mcp) for searching Apify Store, running Actors, and retrieving datasets.
+- The [Apify MCP server](/mcp) for searching Apify Store, running Actors, and retrieving datasets.
 - An `apify` routing agent that picks the right tool or skill based on your prompt.
 - [Five built-in skills](#bundled-skills) for common workflows.
 
@@ -121,7 +121,7 @@ Confirm the plugin is installed and enabled under **Settings > Plugins**, then r
 
 - [Visual Studio Code (VS Code) integration](/integrations/vscode) - Install the same plugin from the VS Code plugin marketplace
 - [GitHub Copilot CLI integration](/integrations/github-copilot-cli) - Install the Apify plugin in the GitHub Copilot CLI
-- [MCP server integration](/integrations/mcp) - Use the Apify MCP server with other clients
+- [MCP server integration](/mcp) - Use the Apify MCP server with other clients
 
 ## Resources
 
