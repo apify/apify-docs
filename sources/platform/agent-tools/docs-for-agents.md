@@ -35,11 +35,7 @@ curl https://apify.com/apify/rag-web-browser.md
 | Documentation index | [`docs.apify.com/llms.txt`](https://docs.apify.com/llms.txt) | A compact list of every documentation page, for discovery before a targeted fetch. |
 | Full documentation | [`docs.apify.com/llms-full.txt`](https://docs.apify.com/llms-full.txt) | The entire corpus in one file. Roughly 45 MB, so most agents can't load it whole. |
 
-:::caution Prefer targeted fetches
-
-`llms-full.txt` exceeds the context window of most agents. Use `llms.txt` to find the page you need, then fetch that page's `.md` URL. Reach for `llms-full.txt` only when you're building an index offline.
-
-:::
+Use `llms.txt` to find the page you need, then fetch that page's `.md` URL. Reach for `llms-full.txt` only when you're building an index offline.
 
 ## Search the docs through MCP
 
@@ -73,6 +69,6 @@ Every Actor page in [Apify Store](https://apify.com/store) has a Markdown versio
 
 ## Related resources
 
-- [Apify agent tools](/agent-tools) - how documentation access fits with MCP, plugins, and skills
-- [Apify MCP server](/mcp) - the documentation tools and everything else MCP exposes
-- [Agent quickstart](/get-started/agent-onboarding) - connect an agent and run an Actor
+- [Apify agent tools](/agent-tools) - Documentation access alongside the MCP server, plugins, and skills
+- [Apify MCP server](/mcp) - The documentation tools and everything else the MCP server exposes
+- [Agent quickstart](/get-started/agent-onboarding) - First Actor run from a connected agent

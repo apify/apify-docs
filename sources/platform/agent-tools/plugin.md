@@ -247,6 +247,6 @@ Choose the separate route when your agent has no plugin, when you need a narrowe
 
 ## Related resources
 
-- [Agent Skills](/agent-tools/skills) - What the bundled skills do and how to install them on their own
+- [Agent Skills](/agent-tools/skills) - The bundled skills and how to install them on their own
 - [Apify MCP server](/mcp) - Tool reference, authentication, and production practices
-- [Apify agent tools](/agent-tools) - How the plugin, the MCP server, and Agent Skills fit together
+- [Apify agent tools](/agent-tools) - Overview of the plugin, the MCP server, and Agent Skills

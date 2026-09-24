@@ -76,7 +76,7 @@ The Actor development, actorization, and integration skills write to your projec
 
 ## Related resources
 
-- [Apify plugin](/agent-tools/plugin) - get the skills, the MCP server, and the routing agent in one install
-- [Apify MCP server](/mcp) - the tools skills call
-- [Build Actors with AI](/actors/development/quick-start/build-with-ai) - what an agent can do across the Actor lifecycle
-- [Apify skills registry](https://skills.sh/apify/agent-skills) - source of every published skill
+- [Apify plugin](/agent-tools/plugin) - The skills, the MCP server, and the routing agent in one install
+- [Apify MCP server](/mcp) - The tools that skills call
+- [Build Actors with AI](/actors/development/quick-start/build-with-ai) - The Actor lifecycle driven from a coding agent
+- [Apify skills registry](https://skills.sh/apify/agent-skills) - The source of every published skill

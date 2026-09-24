@@ -291,7 +291,7 @@ For the complete list, including the agent-facing surfaces outside the documenta
 
 ## Useful resources
 
-- [Apify agent tools](/agent-tools) - How the MCP server, plugins, Agent Skills, and machine-readable docs fit together
+- [Apify agent tools](/agent-tools) - Overview of the MCP server, plugins, Agent Skills, and machine-readable docs
 - [MCP server integration](/mcp) - Tool customization, dynamic Actor discovery, and advanced configuration
 - [CLI documentation](/cli) - Complete command reference
 - [API reference](/api/v2) - All REST API endpoints

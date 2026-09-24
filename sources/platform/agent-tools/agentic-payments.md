@@ -19,7 +19,7 @@ Agentic payments are experimental and may change as payment protocols evolve.
 The [Apify Agent General Interface (AGI)](https://agi.apify.com) is the entry point for agents that pay their own way. An agent pays once through a supported protocol, and AGI returns a temporary Apify API token with a fixed spend cap. The agent then uses that token against the Apify API or the [MCP server](/mcp) like any other token:
 
 1. List the supported protocols with `GET https://agi.apify.com/protocols`.
-1. Request a token for an amount in USD, for example `GET https://agi.apify.com/protocols/x402/prepaid-tokens?amount=5&currency=usd`. AGI responds with a one-time payment challenge.
+1. Request a token for an amount in USD through one of the [supported protocols](#supported-protocols), for example `GET https://agi.apify.com/protocols/x402/prepaid-tokens?amount=5&currency=usd`. AGI responds with a one-time payment challenge.
 1. Pay the challenge and repeat the request with the signed payment credential. After the payment settles, AGI returns the prepaid token.
 1. Call the Apify API or the MCP server with the `Authorization: Bearer <token>` header. Check the remaining balance with `GET https://agi.apify.com/prepaid-tokens/balance`.
 
@@ -46,4 +46,4 @@ AGI serves its own instructions at [agi.apify.com](https://agi.apify.com), writt
 - [Agentic payments with x402](/integrations/x402) - Set up a wallet, buy a prepaid token, and run an Actor
 - [Agentic payments with Skyfire](/integrations/skyfire) - Pay with Skyfire tokens through the MCP server or the Apify API
 - [Apify MCP server](/mcp) - Use a prepaid token with the MCP server
-- [Docs for agents](/agent-tools/docs-for-agents) - Every agent-facing surface Apify publishes
+- [Docs for agents](/agent-tools/docs-for-agents) - Find every agent-facing surface Apify publishes
