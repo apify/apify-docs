@@ -28,25 +28,25 @@ Before connecting Manus to Apify, you'll need:
 
 1. In Manus, open **Settings**.
 
-    ![Manus sidebar with the Settings icon highlighted at the bottom left](images/manus/open-settings.png)
+    ![Manus sidebar with the Settings icon highlighted at the bottom left](images/manus/open-settings.webp)
 
 1. Open **Connectors**.
 
-    ![Manus Settings panel with Connectors selected in the left navigation](images/manus/settings-connectors.png)
+    ![Manus Settings panel with Connectors selected in the left navigation](images/manus/settings-connectors.webp)
 
 1. Click **+ Add connectors**.
 
-    ![Manus Connectors panel showing the + Add connectors button](images/manus/connectors-panel.png)
+    ![Manus Connectors panel showing the + Add connectors button](images/manus/connectors-panel.webp)
 
 1. Go to the **Custom MCP** tab, click **+ Add custom MCP**, then select **Direct configuration** for a manual setup.
 
-    ![Custom MCP tab and Direct configuration option highlighted in Manus](images/manus/direct-config-custom-mcp.png)
+    ![Custom MCP tab and Direct configuration option highlighted in Manus](images/manus/direct-config-custom-mcp.webp)
 1. Fill in the following fields and click **Save**:
     - **Server name** - e.g. `Apify`
     - **Transport type** - `HTTP` (default)
     - **Icon** (optional) - `https://apify.com/img/apify-logo/logomark-32x32.svg`
     - **Server URL** - `https://mcp.apify.com`
-    ![Manus MCP configuration form filled in with Apify server details and the Save button highlighted](images/manus/mcp-configuration.png)
+    ![Manus MCP configuration form filled in with Apify server details and the Save button highlighted](images/manus/mcp-configuration.webp)
 
 :::tip Customize available tools
 
@@ -58,11 +58,11 @@ The default MCP server URL exposes a predefined set of tools. You can choose exa
 
 To use the Apify connector in a chat session, click the connectors icon in the toolbar below the chat input and toggle **Apify** on.
 
-![Manus chat interface showing the connectors menu with Apify listed](images/manus/chat-connectors-menu.png)
+![Manus chat interface showing the connectors menu with Apify listed](images/manus/chat-connectors-menu.webp)
 
 The first time Manus tries to call an Apify tool, it will pause and prompt you to **Log in** to your Apify account via OAuth. After you authorize, the connector stays authenticated for future sessions.
 
-![Manus chat session showing the Apify connector OAuth login prompt](images/manus/oauth-login.png)
+![Manus chat session showing the Apify connector OAuth login prompt](images/manus/oauth-login.webp)
 
 :::tip Authentication fallback
 
@@ -132,7 +132,7 @@ To import the `apify-ultimate-scraper` skill:
 1. In Manus, open **Settings** and select the **Skills** tab.
 1. Click **+ Add** → **Import from GitHub**.
 
-    ![Manus Skills tab with the + Add dropdown open, showing the Import from GitHub option](images/manus/add-skill.png)
+    ![Manus Skills tab with the + Add dropdown open, showing the Import from GitHub option](images/manus/add-skill.webp)
 
 1. Paste the skill folder URL and click **Import**:
 
@@ -140,11 +140,11 @@ To import the `apify-ultimate-scraper` skill:
     https://github.com/apify/agent-skills/tree/main/skills/apify-ultimate-scraper
     ```
 
-    ![Import from GitHub dialog with the skill URL filled in and the Import button highlighted](images/manus/import-skill.png)
+    ![Import from GitHub dialog with the skill URL filled in and the Import button highlighted](images/manus/import-skill.webp)
 
 After importing, the skill appears in your Skills list with its toggle turned on, meaning you can reference it in any chat right away.
 
-![Manus Skills tab showing apify-ultimate-scraper imported and enabled](images/manus/added-skill.png)
+![Manus Skills tab showing apify-ultimate-scraper imported and enabled](images/manus/added-skill.webp)
 
 Repeat this for any other skill you want to add.
 
@@ -155,7 +155,7 @@ For example, to use `apify-ultimate-scraper`:
 
 1. Type `/apify-ultimate-scraper` in the Manus chat.
 
-    ![Manus chat input showing the /apify skill autocomplete with apify-ultimate-scraper suggested](images/manus/linked-skill.png)
+    ![Manus chat input showing the /apify skill autocomplete with apify-ultimate-scraper suggested](images/manus/linked-skill.webp)
 
 1. Ask Manus to perform a task, for example:
 
@@ -163,7 +163,7 @@ For example, to use `apify-ultimate-scraper`:
 
 Manus will load the skill instructions and use the appropriate Apify Actors to complete the task.
 
-![Manus chat showing /apify-ultimate-scraper triggered and structured Instagram results returned](images/manus/skill-result.png)
+![Manus chat showing /apify-ultimate-scraper triggered and structured Instagram results returned](images/manus/skill-result.webp)
 
 ## Troubleshooting
 
@@ -177,7 +177,7 @@ If the OAuth prompt fails or you can't complete the login flow, you can connect 
     - **Header value** - `Bearer <APIFY_API_TOKEN>` (replace `<APIFY_API_TOKEN>` with your actual token)
 1. Click **Save**.
 
-    ![Manus MCP configuration with the Authorization header set to Bearer token in custom headers](images/manus/api-token-connection.png)
+    ![Manus MCP configuration with the Authorization header set to Bearer token in custom headers](images/manus/api-token-connection.webp)
 
 ## Limitations
 
