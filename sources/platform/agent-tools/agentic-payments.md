@@ -23,7 +23,7 @@ The [Apify Agent General Interface (AGI)](https://agi.apify.com) is the entry po
 1. Pay the challenge and repeat the request with the signed payment credential. After the payment settles, AGI returns the prepaid token.
 1. Call the Apify API or the MCP server with the `Authorization: Bearer <token>` header. Check the remaining balance with `GET https://agi.apify.com/prepaid-tokens/balance`.
 
-The minimum purchase is $1. The token balance is a hard spending cap, the token expires 14 days after purchase, and unused balance is non-refundable. Check [agi.apify.com](https://agi.apify.com) for the current terms.
+The minimum amount is $1. The token balance is a hard spending cap, the token expires 14 days after you buy it, and unused balance is non-refundable. Check [agi.apify.com](https://agi.apify.com) for the current terms.
 
 ## Supported protocols
 

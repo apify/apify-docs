@@ -83,7 +83,7 @@ Codex opens the Apify sign-in the first time it calls a tool that needs authenti
     /add-plugin apify
     ```
 
-    Alternatively, search for `Apify` under **Plugins** in Cursor Settings, or install it from the [Cursor Marketplace](https://cursor.com/marketplace/apify).
+    You can also search for `Apify` under **Plugins** in Cursor Settings, or install it from the [Cursor Marketplace](https://cursor.com/marketplace/apify).
 
 1. In Cursor Settings, open **Tools & MCPs**, select **Connect** on the **Apify MCP** server, and complete the Apify sign-in in your browser.
 
@@ -106,7 +106,7 @@ Read the full [GitHub Copilot CLI guide](/integrations/github-copilot-cli) or [d
 <TabItem value="vscode" label="VS Code">
 
 1. Open the Extensions view and enter `@agentPlugins apify` in the search field.
-1. Select **Install** on the **apify** entry from the Awesome Copilot marketplace, then confirm the trust prompt.
+1. Select **Install** on the `apify` entry from the Awesome Copilot marketplace, then confirm the trust prompt.
 1. When VS Code asks to authenticate the MCP server, select **Allow** and complete the Apify sign-in in your browser.
 
 VS Code installs the same plugin as GitHub Copilot. Read the full [VS Code guide](/integrations/vscode).
@@ -149,7 +149,7 @@ Grok Build opens the Apify sign-in on the first Actor run. There's no Apify guid
     /reload
     ```
 
-    Alternatively, run `/plugins`, switch to the **Curated** tab, and select **Apify**.
+    You can also run `/plugins`, switch to the **Curated** tab, and select **Apify**.
 
 1. Kimi Code doesn't start the sign-in on its own, so run it once:
 
@@ -170,7 +170,7 @@ Read the full [Kimi Code CLI guide](/integrations/kimi-code-cli).
 
 1. Install the `apify` plugin from the **Discover** tab, run `/plugins reload`, and restart the CLI.
 
-The Qoder IDE installs from the [Qoder Marketplace](https://qoder.com/marketplace/plugin?id=bbbdb1cb-8bad-441e-b42f-ce0e33e3a521) page in one click, and the Desktop app and QoderWork import the plugin package from the same page. Qwen Code installs the Qoder plugin as an extension. Read the full [Qoder guide](/integrations/qoder) or [Qwen Code guide](/integrations/qwen).
+The Qoder IDE installs from the [Qoder Marketplace](https://qoder.com/marketplace/plugin?id=bbbdb1cb-8bad-441e-b42f-ce0e33e3a521) page in one step, and the Desktop app and QoderWork import the plugin package from the same page. Qwen Code installs the Qoder plugin as an extension. Read the full [Qoder guide](/integrations/qoder) or [Qwen Code guide](/integrations/qwen).
 
 </TabItem>
 <TabItem value="openclaw" label="OpenClaw">
