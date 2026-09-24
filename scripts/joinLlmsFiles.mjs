@@ -253,9 +253,18 @@ async function joinFiles() {
     console.log('Wrote llms-full.txt to build/');
 }
 
+// WORKAROUND: @signalwire/docusaurus-plugin-llms-txt 1.2.2 doubles the section prefix in
+// cross-links on sites served under a sub-path, so the SDK/client/CLI sections we fetch above
+// arrive with links such as /sdk/python/sdk/python/docs/... Fixed upstream in 2.0.0-alpha.6;
+// those sites still pin ^1.2.2. Remove once they stop generating the doubled prefix.
+const DOUBLED_SECTION_PREFIX =
+    /(https:\/\/docs\.apify\.com\/(sdk\/js|sdk\/python|api\/client\/js|api\/client\/python|cli))\/\2\//g;
+
 async function sanitizeFile(filePath) {
     const content = await fs.readFile(filePath, 'utf8');
-    const sanitizedContent = content.replace(/<[^>]*>/g, ''); // Remove HTML tags
+    const sanitizedContent = content
+        .replace(/<[^>]*>/g, '') // Remove HTML tags
+        .replace(DOUBLED_SECTION_PREFIX, '$1/');
     await fs.writeFile(filePath, sanitizedContent, 'utf8');
     console.log(`Sanitized ${filePath}`);
 }

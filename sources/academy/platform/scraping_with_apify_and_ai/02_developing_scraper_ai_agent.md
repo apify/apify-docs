@@ -31,7 +31,7 @@ Let's head to the [Download Node.js](https://nodejs.org/en/download) page. We sh
 
 ![Download Node.js](images/nodejs-install.webp)
 
-Now let's paste it as-is into Terminal (macOS/Linux) or PowerShell (Windows) and run it with <kbd>↵</kbd>. Once the installation finishes, we should see the versions of Node.js and npm, another related tool, printed out:
+Now let's paste it as-is into Terminal (macOS/Linux) or PowerShell (Windows) and run it with <kbd>Enter ↵</kbd>. Once the installation finishes, we should see the versions of Node.js and npm, another related tool, printed out:
 
 ```text
 ...
@@ -69,7 +69,7 @@ One more thing though. Before we can do any useful work with it, we also need to
 apify login
 ```
 
-Let's confirm **Through Apify Console in your default browser** with <kbd>↵</kbd>. The command line tool opens a web page in our browser, where we'll allow it as a remote control to our Apify account. When we return back to the command line, we should see the following success message:
+Let's confirm **Through Apify Console in your default browser** with <kbd>Enter ↵</kbd>. The command line tool opens a web page in our browser, where we'll allow it as a remote control to our Apify account. When we return back to the command line, we should see the following success message:
 
 ```text
 Success: You are logged in to Apify as hjtest.
@@ -101,7 +101,7 @@ cd my-actor
 
 Being inside the folder will help us to run the following commands focused just on the project, not affecting any other folders on our disk.
 
-Now we've got the code of our Actor, but we already know from the previous lesson that Actors first need to be _built_ before they can be _run_. Let's run the following command, which installs software our Actor depends on:
+Now we've got the code of our Actor. Actors need to be _built_ before they can be _run_, as we saw in the previous lesson. Let's run the following command, which installs software our Actor depends on:
 
 ```text
 npm install
