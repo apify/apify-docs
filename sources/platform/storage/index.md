@@ -69,7 +69,7 @@ When accessing storages via API, provide a `store ID` in one of these formats:
 * `~store-name` - the store's name prefixed with tilde (`~`) character if the store is named (e.g. `~ecommerce-scraping-results`)
 * `username~store-name` - username and the store's name separated by a tilde (`~`) character if the store is named and belongs to a different account (e.g. `janedoe~ecommerce-scraping-results`). Note that in this case, the store's owner needs to grant you access first.
 
-For read (GET) requests, the alphanumerical ID alone is enough, since it's hard to guess and serves as an authentication key.
+For read (GET) requests, the alphanumerical ID alone is enough, since it's hard to guess and acts as an authentication key.
 
 For other request types, and when using `username~store-name`, provide your secret API token in the request's [`Authorization`](/api/v2#authentication) header or as a query parameter. Find your token on the [API & Integrations](https://console.apify.com/settings/integrations) page of your Apify account.
 

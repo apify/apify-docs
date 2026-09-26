@@ -119,7 +119,7 @@ For further details and a breakdown of each storage API endpoint, refer to the [
 
 #### JavaScript API client
 
-The Apify [JavaScript API client](/api/client/js/reference/class/RequestQueueClient) (`apify-client`) enables you to access your request queues from any Node.js application, whether it is running on the Apify platform or externally.
+With the Apify [JavaScript API client](/api/client/js/reference/class/RequestQueueClient) (`apify-client`), you can access your request queues from any Node.js application, whether it's running on the Apify platform or externally.
 
 After importing and initializing the client, you can save each request queue to a variable for easier access.
 
@@ -133,7 +133,7 @@ Check out the [JavaScript API client documentation](/api/client/js/reference/cla
 
 #### Python API client
 
-The Apify [Python API client](/api/client/python) (`apify-client`) allows you to access your request queues from any Python application, whether it's running on the Apify platform or externally.
+With the Apify [Python API client](/api/client/python) (`apify-client`), you can access your request queues from any Python application, whether it's running on the Apify platform or externally.
 
 After importing and initializing the client, you can save each request queue to a variable for easier access.
 
@@ -287,10 +287,9 @@ Request queues are built for scraping workloads. The following sections cover th
 
 Named request queues retain requests indefinitely; unnamed queues follow your subscription's data retention period.
 This enables incremental crawling: append new URLs to the queue and resume from where you stopped in subsequent Actor runs.
-Consider the scenario of scraping an e-commerce website with thousands of products. Incremental scraping allows you to scrape only the products
-added since the last product discovery.
+For example, when scraping an e-commerce website with thousands of products, you can scrape only the products added since the last product discovery.
 
-In the following code example, we demonstrate how to use the Apify SDK and Crawlee to create an incremental crawler that saves the title of each new found page in Apify Docs to a dataset.
+The following code example uses the Apify SDK and Crawlee to create an incremental crawler that saves the title of each new page found in Apify Docs to a dataset.
 By running this Actor multiple times, you can incrementally crawl the source website and save only pages added since the last crawl, as reusing a single request queue ensures that only URLs not yet visited are processed.
 
 ```ts

@@ -180,7 +180,7 @@ Check out the [Python API client documentation](/api/client/python/reference/cla
 
 In JavaScript [Actors](../../actors/index.mdx), manage datasets with the JavaScript SDK's [`Dataset`](/sdk/js/reference/class/Dataset) class. It works both locally and on the Apify platform. To add data, use the [`pushData()`](/sdk/js/reference/class/Dataset#pushData) method.
 
-Additionally the SDK offers other methods like [`getData()`](/sdk/js/reference/class/Dataset#getData), [`map()`](/sdk/js/reference/class/Dataset#map), and [`reduce()`](/sdk/js/reference/class/Dataset#reduce). For practical applications of these methods, refer to the [example](/sdk/js/docs/examples/map-and-reduce) section.
+The SDK also provides other methods like [`getData()`](/sdk/js/reference/class/Dataset#getData), [`map()`](/sdk/js/reference/class/Dataset#map), and [`reduce()`](/sdk/js/reference/class/Dataset#reduce). For practical applications of these methods, refer to the [example](/sdk/js/docs/examples/map-and-reduce) section.
 
 If you have chosen to store your dataset locally, you can find it in the location below.
 
@@ -211,7 +211,7 @@ await Actor.exit();
 
 :::caution Always await pushData()
 
-It's crucial to use the `await` keyword when calling `pushData()`, to ensure data storage completes before the Actor process terminates.
+Always use the `await` keyword when calling `pushData()`. Without it, the Actor process can exit before the data is stored.
 
 :::
 
@@ -371,7 +371,7 @@ becomes the following XML snippet:
 </address>
 ```
 
-In a JavaScript object, if a property is named `@`, its sub-properties are exported as attributes of the corresponding parent XML element. Additionally, when the parent XML element lacks child elements, its value is sourced from a property named `#` in the JavaScript Object.
+In a JavaScript object, if a property is named `@`, its sub-properties are exported as attributes of the corresponding parent XML element. When the parent XML element lacks child elements, its value comes from a property named `#` in the JavaScript object.
 
 For example, the following JavaScript object:
 

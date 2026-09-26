@@ -107,7 +107,7 @@ For further details and a breakdown of each storage API endpoint, refer to the [
 
 #### JavaScript API client
 
-The Apify [JavaScript API client](/api/client/js/reference/class/KeyValueStoreClient) (`apify-client`) enables you to access your key-value stores from any Node.js application, whether hosted on the Apify platform or externally.
+With the Apify [JavaScript API client](/api/client/js/reference/class/KeyValueStoreClient) (`apify-client`), you can access your key-value stores from any Node.js application, whether hosted on the Apify platform or externally.
 
 After importing and initializing the client, you can save each key-value store to a variable for easier access.
 
@@ -123,7 +123,7 @@ Check out the [JavaScript API client documentation](/api/client/js/reference/cla
 
 #### Python API client
 
-The Apify [Python API client](/api/client/python/reference/class/KeyValueStoreClient) (`apify-client`) allows you to access your key-value stores from any Python application, whether it is running on the Apify platform or externally.
+With the Apify [Python API client](/api/client/python/reference/class/KeyValueStoreClient) (`apify-client`), you can access your key-value stores from any Python application, whether it's running on the Apify platform or externally.
 
 After importing and initializing the client, you can save each key-value store to a variable for easier access.
 
@@ -201,7 +201,7 @@ await Actor.setValue('OUTPUT', imageBuffer, { contentType: 'image/jpeg' });
 await Actor.exit();
 ```
 
-The `Actor.getInput()` method is not only a shortcut to `Actor.getValue('INPUT')`; it is also compatible with [`Actor.metamorph()`](../../actors/development/programming_interface/metamorph.md). This is because a metamorphed Actor run's input is stored in the _INPUT-METAMORPH-1_ key instead of _INPUT_, which hosts the original input.
+The `Actor.getInput()` method is a shortcut to `Actor.getValue('INPUT')` that also works with [`Actor.metamorph()`](../../actors/development/programming_interface/metamorph.md). A metamorphed Actor run's input is stored in the _INPUT-METAMORPH-1_ key instead of _INPUT_, which holds the original input.
 
 Check out the [JavaScript SDK documentation](/sdk/js/docs/guides/result-storage#key-value-store) and the `KeyValueStore` class's [API reference](/sdk/js/reference/class/KeyValueStore) for details on managing your key-value stores with the JavaScript SDK.
 
@@ -257,7 +257,7 @@ async def main():
         await Actor.set_value(key='OUTPUT', value=image_buffer, content_type='image/jpeg')
 ```
 
-The `Actor.get_input()` method is not only a shortcut to `Actor.get_value('INPUT')`; it is also compatible with [`Actor.metamorph()`](../../actors/development/programming_interface/metamorph.md). This is because a metamorphed Actor run's input is stored in the _INPUT-METAMORPH-1_ key instead of _INPUT_, which hosts the original input.
+The `Actor.get_input()` method is a shortcut to `Actor.get_value('INPUT')` that also works with [`Actor.metamorph()`](../../actors/development/programming_interface/metamorph.md). A metamorphed Actor run's input is stored in the _INPUT-METAMORPH-1_ key instead of _INPUT_, which holds the original input.
 
 Check out the [Python SDK documentation](/sdk/python/docs/concepts/storages#working-with-key-value-stores) and the `KeyValueStore` class's [API reference](/sdk/python/reference/class/KeyValueStore) for details on managing your key-value stores with the Python SDK.
 
