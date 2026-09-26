@@ -75,7 +75,7 @@ For other request types, and when using `username~store-name`, provide your secr
 
 :::caution Token security
 
-Never share a URL containing your authentication token. It can compromise your account's security. If the data you want to share requires a token, download the token first and share it as a file.
+Never share a URL containing your authentication token. It can compromise your account's security. If the data you want to share requires a token, download the data first and share it as a file.
 
 :::
 
