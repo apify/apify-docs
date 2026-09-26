@@ -36,9 +36,7 @@ In [Apify Console](https://console.apify.com), you can view your key-value store
 ![Key-value stores in Apify Console](../images/storage-types-kvs.svg)
 
 To view a key-value store's content, click on its **Store ID**. Under the **Actions** menu, you can rename your store (which affects its [retention period](/storage#named-and-unnamed-storages)) and grant [access rights](/account/collaboration) using the **Share** button.
-Click on the **API** button to view and test a store's [API endpoints](/api/v2/storage-key-value-stores).
-
-![Key-value stores detail](../images/key-value-stores-detail-header.png)
+To view and test a store's [API endpoints](/api/v2/storage-key-value-stores), select **API**.
 
 At the bottom of the page, you can work with records in your key-value store:
 
@@ -47,8 +45,6 @@ At the bottom of the page, you can work with records in your key-value store:
 - Download individual records, or download all records at once.
 - Copy shareable links to records.
 - Delete records.
-
-![Key-value stores detail](../images/key-value-stores-detail-records.png)
 
 ### Apify API
 
@@ -105,6 +101,8 @@ For further details and a breakdown of each storage API endpoint, refer to the [
 
 ### Apify API Clients
 
+Apify provides API clients for JavaScript and Python applications.
+
 #### JavaScript API client
 
 With the Apify [JavaScript API client](/api/client/js/reference/class/KeyValueStoreClient) (`apify-client`), you can access your key-value stores from any Node.js application, whether hosted on the Apify platform or externally.
@@ -137,13 +135,15 @@ Check out the [Python API client documentation](/api/client/python/reference/cla
 
 ### Apify SDKs
 
+Apify provides SDKs for JavaScript and Python Actors.
+
 #### JavaScript SDK
 
 In JavaScript [Actors](../../actors/index.mdx), manage key-value stores with the JavaScript SDK's [`KeyValueStore`](/sdk/js/reference/class/KeyValueStore) class. It works both locally and on the Apify platform. To read and write records, use the [`getValue()`](/sdk/js/reference/class/KeyValueStore#getValue) and [`setValue()`](/sdk/js/reference/class/KeyValueStore#setValue) methods; to iterate over keys, use [`forEachKey()`](/sdk/js/reference/class/KeyValueStore#forEachKey).
 
-Every Actor run is linked to a default key-value store, created automatically for that run. When you run your Actor locally, you can supply its [input](../../actors/running/input_and_output.md) by placing an _INPUT.json_ file in the default key-value store's directory.
+Every Actor run is linked to a default key-value store, created automatically for that run. When you run your Actor locally, you can supply its [input](../../actors/running/input_and_output.md) by placing an `INPUT.json` file in the default key-value store's directory.
 
-You can find _INPUT.json_ and other key-value store files in the location below.
+You can find `INPUT.json` and other key-value store files in the location below.
 
 ```text
 {APIFY_LOCAL_STORAGE_DIR}/key_value_stores/{STORE_ID}/{KEY}.{EXT}
@@ -209,9 +209,9 @@ Check out the [JavaScript SDK documentation](/sdk/js/docs/guides/result-storage#
 
 In Python [Actors](../../actors/index.mdx), manage key-value stores with the Python SDK's [`KeyValueStore`](/sdk/python/reference/class/KeyValueStore) class. It works both locally and on the Apify platform. To read and write records, use the [`get_value()`](/sdk/python/reference/class/KeyValueStore#get_value) and [`set_value()`](/sdk/python/reference/class/KeyValueStore#set_value) methods.
 
-Every Actor run is linked to a default key-value store, created automatically for that run. When you run your Actor locally, you can supply its [input](../../actors/running/input_and_output.md) by placing an _INPUT.json_ file in the default key-value store's directory.
+Every Actor run is linked to a default key-value store, created automatically for that run. When you run your Actor locally, you can supply its [input](../../actors/running/input_and_output.md) by placing an `INPUT.json` file in the default key-value store's directory.
 
-You can find _INPUT.json_ and other key-value store files in the location below.
+You can find `INPUT.json` and other key-value store files in the location below.
 
 ```text
 {APIFY_LOCAL_STORAGE_DIR}/key_value_stores/{STORE_ID}/{KEY}.{EXT}

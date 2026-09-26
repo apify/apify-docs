@@ -38,9 +38,7 @@ In the [Apify Console](https://console.apify.com), you can view your request que
 
 To view a request queue, click on its **Queue ID**.
 Under the **Actions** menu, you can rename your queue (which affects its [retention period](/storage#named-and-unnamed-storages)) and grant [access rights](/account/collaboration) using the **Share** button.
-Click on the **API** button to view and test a queue's [API endpoints](/api/v2/storage-request-queues).
-
-![Request queues detail](./images/request-queue-detail.png)
+To view and test a queue's [API endpoints](/api/v2/storage-request-queues), select **API**.
 
 ### Apify API
 
@@ -117,6 +115,8 @@ For further details and a breakdown of each storage API endpoint, refer to the [
 
 ### Apify API Clients
 
+Apify provides API clients for JavaScript and Python applications.
+
 #### JavaScript API client
 
 With the Apify [JavaScript API client](/api/client/js/reference/class/RequestQueueClient) (`apify-client`), you can access your request queues from any Node.js application, whether it's running on the Apify platform or externally.
@@ -146,6 +146,8 @@ You can then use that variable to [access the request queue's items and manage i
 Check out the [Python API client documentation](/api/client/python/reference/class/RequestQueueClient) for [help with setup](/api/client/python/docs/overview/introduction) and more details.
 
 ### Apify SDKs
+
+Apify provides SDKs for JavaScript and Python Actors.
 
 #### JavaScript SDK
 

@@ -50,9 +50,7 @@ To view or download a dataset:
 1. Browse the data in **Table** or **JSON** view.
 1. Click **Export** to download the data in your preferred format.
 
-Use the **Actions** menu to rename the dataset (which affects its [retention period](/storage#data-retention)) and to adjust [access rights](/account/collaboration). Select **API** to view and test the dataset's [API endpoints](/api/v2/storage-datasets).
-
-![Datasets detail view](../images/datasets-detail.png)
+To rename the dataset (which affects its [retention period](/storage#data-retention)) or adjust its [access rights](/account/collaboration), use the **Actions** menu. To view and test the dataset's [API endpoints](/api/v2/storage-datasets), select **API**.
 
 ### Apify API
 
@@ -134,6 +132,8 @@ For further details and a breakdown of each storage API endpoint, refer to the [
 
 ### Apify API Clients
 
+Apify provides API clients for JavaScript and Python applications.
+
 #### JavaScript API client
 
 With the [JavaScript API client](/api/client/js/reference/class/DatasetClient) (`apify-client`), you can access your datasets from any Node.js application, whether hosted on the Apify platform or externally.
@@ -175,6 +175,8 @@ When using the [`.list_items()`](/api/client/python/reference/class/DatasetClien
 Check out the [Python API client documentation](/api/client/python/reference/class/DatasetClient) for [help with setup](/api/client/python/docs/overview/introduction) and more details.
 
 ### Apify SDKs
+
+Apify provides SDKs for JavaScript and Python Actors.
 
 #### JavaScript SDK
 
