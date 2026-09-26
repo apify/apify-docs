@@ -9,7 +9,7 @@ slug: /storage/use-from-another-run
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-If you have the storage's _name_ or _ID_, you can access it from any [Actor](../actors/index.mdx) or [task](../actors/running/tasks.md) run. Use the same methods and endpoints you'd use for the current run's storages.
+If you have the storage's _name_ or _ID_, you can access it from any [Actor](../actors/index.mdx) or [task](../actors/running/tasks.md) run. Use the same methods and endpoints you'd use for the current run's storages: [open the storage with the SDK](#open-a-storage-with-the-sdk), [open it with an API client](#open-a-storage-with-an-api-client), or [call the Apify API](#use-the-apify-api).
 
 [Datasets](./dataset/index.md) and [key-value stores](./key_value_store/index.md) support concurrent use. Multiple Actors or tasks can write to the same dataset or key-value store, and multiple runs can read from them at the same time.
 
