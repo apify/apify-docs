@@ -201,7 +201,7 @@ await Actor.setValue('OUTPUT', imageBuffer, { contentType: 'image/jpeg' });
 await Actor.exit();
 ```
 
-The `Actor.getInput()` method is a shortcut to `Actor.getValue('INPUT')` that also works with [`Actor.metamorph()`](../../actors/development/programming_interface/metamorph.md). A metamorphed Actor run's input is stored in the _INPUT-METAMORPH-1_ key instead of _INPUT_, which holds the original input.
+The `Actor.getInput()` method is a shortcut to `Actor.getValue('INPUT')` that also works with [`Actor.metamorph()`](../../actors/development/programming_interface/metamorph.md). A metamorphed Actor run's input is stored in the `INPUT-METAMORPH-1` key instead of `INPUT`, which holds the original input.
 
 Check out the [JavaScript SDK documentation](/sdk/js/docs/guides/result-storage#key-value-store) and the `KeyValueStore` class's [API reference](/sdk/js/reference/class/KeyValueStore) for details on managing your key-value stores with the JavaScript SDK.
 
@@ -257,7 +257,7 @@ async def main():
         await Actor.set_value(key='OUTPUT', value=image_buffer, content_type='image/jpeg')
 ```
 
-The `Actor.get_input()` method is a shortcut to `Actor.get_value('INPUT')` that also works with [`Actor.metamorph()`](../../actors/development/programming_interface/metamorph.md). A metamorphed Actor run's input is stored in the _INPUT-METAMORPH-1_ key instead of _INPUT_, which holds the original input.
+The `Actor.get_input()` method is a shortcut to `Actor.get_value('INPUT')` that also works with [`Actor.metamorph()`](../../actors/development/programming_interface/metamorph.md). A metamorphed Actor run's input is stored in the `INPUT-METAMORPH-1` key instead of `INPUT`, which holds the original input.
 
 Check out the [Python SDK documentation](/sdk/python/docs/concepts/storages#working-with-key-value-stores) and the `KeyValueStore` class's [API reference](/sdk/python/reference/class/KeyValueStore) for details on managing your key-value stores with the Python SDK.
 
