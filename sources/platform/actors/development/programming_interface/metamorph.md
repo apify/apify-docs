@@ -121,4 +121,4 @@ async def main():
 </TabItem>
 </Tabs>
 
-By following these steps, you can create a powerful hotel review scraper that leverages the capabilities of existing Actors through the metamorph operation.
+By following these steps, you can build a powerful hotel review scraper that leverages the capabilities of existing Actors through the metamorph operation.
