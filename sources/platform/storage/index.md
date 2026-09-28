@@ -47,7 +47,7 @@ To view your storages in [Apify Console](https://console.apify.com/storage):
 
 To view the related API endpoints, select **API** in the top right corner.
 
-![Storage types in Apify Console](./images/storage-types.svg)
+![Storage types in Apify Console](./images/storage-types-dataset.svg)
 
 :::note Toggle unnamed storages
 
