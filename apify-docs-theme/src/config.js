@@ -265,6 +265,12 @@ const themeConfig = {
                         target: '_self',
                         rel: 'dofollow',
                     },
+                    {
+                        label: 'Glossary',
+                        href: `${absoluteUrl}/glossary`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
                 ],
             },
             {
