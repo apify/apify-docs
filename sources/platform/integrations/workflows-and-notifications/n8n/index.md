@@ -220,7 +220,7 @@ The `formats` field accepts any combination of:
 | **Links** | Deduplicated list of the links found on the page. Useful for crawl queues |
 | **Raw** | Original raw body, base64-encoded for binary content |
 
-Web Fetch returns only the formats you select, so a single run can give you the same page as both Markdown and HTML without a second request. The deprecated **Scrape Single URL** operation offered a single-select `outputFormat` field instead.
+Web Fetch returns only the formats you select, so a single run can give you the same page as both Markdown and HTML without a second request.
 
 ### Output
 
