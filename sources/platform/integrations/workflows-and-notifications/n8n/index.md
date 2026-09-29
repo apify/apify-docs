@@ -161,8 +161,9 @@ The Apify node provides a range of operations for managing Actors, tasks, runs, 
 Run and manage Actors directly.
 
 - **Run Actor**: Starts a specified Actor with customizable parameters
-- **Scrape Single URL**: Runs a scraper for a specified website and returns its content
+- **Web Fetch**: Fetches a single URL and returns its content in the formats you select. See [Web Fetch](#web-fetch)
 - **Get Last Run**: Retrieve metadata for the most recent run of an Actor
+- **(Deprecated) Scrape Single URL**: Runs a scraper for a specified website and returns its content. Use **Web Fetch** instead
 
 ### Actor Tasks
 
@@ -196,6 +197,37 @@ Automatically start an n8n workflow when an Actor or task run finishes:
 
 - **Actor Run Finished**: Activates when a selected Actor run completes
 - **Task Run Finished**: Activates when a selected Actor task run completes
+
+## Web Fetch
+
+**Web Fetch** runs the [Web Fetch](https://apify.com/apify/web-fetch) Actor to retrieve a single page and return it in the formats you ask for. It requires `@apify/n8n-nodes-apify` v0.8.0 or later, and it replaces **Scrape Single URL**, which is deprecated and will be removed in a future release.
+
+### Input
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `url` | String | Yes | Page to fetch. Must start with `http://` or `https://`. Defaults to `https://docs.apify.com/academy/web-scraping-for-beginners` |
+| `formats` | Multi-select | Yes | One or more output formats. Defaults to **Markdown** |
+| `headers` | Object | No | Extra HTTP headers to send with the request |
+
+The `formats` field accepts any combination of:
+
+| Format | Returns |
+| --- | --- |
+| **Markdown** | Clean Markdown. Best for AI agents and LLMs |
+| **HTML** | Raw HTML. Best for programmatic processing |
+| **Text** | Plain text with no formatting |
+| **Links** | Deduplicated list of the links found on the page. Useful for crawl queues |
+| **Raw** | Original raw body, base64-encoded for binary content |
+
+Web Fetch returns only the formats you select, so a single run can give you the same page as both Markdown and HTML without a second request. The deprecated **Scrape Single URL** operation offered a single-select `outputFormat` field instead.
+
+### Output
+
+Each item holds a key for every format you selected, plus two objects:
+
+- `fetch`: request metadata, including `loadedUrl`, `httpStatusCode`, and `contentType`
+- `metadata`: page metadata, including `title`, `description`, `canonicalUrl`, `openGraph`, and `jsonLd`
 
 ## Resources
 
