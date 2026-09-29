@@ -142,12 +142,18 @@ Then replace the `CMD` so the container starts the tunnel server and the Actor u
 
 ```dockerfile
 CMD ["sh", "-c", ": \"${DEBUG_SECRET:?}\"; wstunnel server --restrict-to 127.0.0.1:9229 --restrict-http-upgrade-path-prefix \"$DEBUG_SECRET\" \"ws://0.0.0.0:$ACTOR_WEB_SERVER_PORT\" & exec node --inspect-brk=127.0.0.1:9229 dist/main.js"]
+```
+
+Replace `dist/main.js` with your Actor's entrypoint. `--inspect-brk` pauses on the first line until a debugger attaches. Use `--inspect` to attach mid-run.
 
 </TabItem>
 <TabItem value="python" label="Python">
 
 ```dockerfile
 CMD ["sh", "-c", ": \"${DEBUG_SECRET:?}\"; wstunnel server --restrict-to 127.0.0.1:5678 --restrict-http-upgrade-path-prefix \"$DEBUG_SECRET\" \"ws://0.0.0.0:$ACTOR_WEB_SERVER_PORT\" & exec python -m debugpy --listen 127.0.0.1:5678 --wait-for-client -m my_actor"]
+```
+
+Replace `my_actor` with your Actor's package. `--wait-for-client` pauses until a debugger attaches. Drop it to attach mid-run.
 
 </TabItem>
 </Tabs>
