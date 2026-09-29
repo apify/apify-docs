@@ -161,9 +161,38 @@ The Apify node provides a range of operations for managing Actors, tasks, runs, 
 Run and manage Actors directly.
 
 - **Run Actor**: Starts a specified Actor with customizable parameters
-- **Web Fetch**: Fetches a single URL and returns its content in the formats you select. See [Web Fetch](#web-fetch)
+- **Web Fetch**: Fetches a single URL and returns its content in the formats you select
 - **Get Last Run**: Retrieve metadata for the most recent run of an Actor
 - **(Deprecated) Scrape Single URL**: Runs a scraper for a specified website and returns its content. Use **Web Fetch** instead
+
+#### Web Fetch
+
+Web Fetch runs the [Web Fetch](https://apify.com/apify/web-fetch) Actor to retrieve a single page and return it in the formats you ask for. It requires `@apify/n8n-nodes-apify` v0.8.0 or later, and it replaces Scrape Single URL, which is deprecated and will be removed in a future release.
+
+Input fields:
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `url` | String | Yes | Page to fetch. Must be a full URL with a domain name, using `http://` or `https://`. The node rejects anything else before it calls the Actor |
+| `formats` | Multi-select | No | One or more content formats to return. Defaults to **Markdown** |
+| `headers` | JSON | No | Custom headers to send to the target URL, as a JSON object of header names and values, for example `{"Accept-Language": "fr-FR"}`. Leave as `{}` to send none |
+
+The `formats` field accepts any combination of:
+
+| Format | Returns |
+| --- | --- |
+| **Markdown** | Clean Markdown. Best for AI agents and LLMs |
+| **HTML** | Raw HTML. Best for programmatic processing |
+| **Text** | Plain text with no formatting |
+| **Links** | Deduplicated list of the links found on the page. Useful for crawl queues |
+| **Raw** | Original raw body, base64-encoded for binary content |
+
+Web Fetch returns only the formats you select, so a single run can give you the same page as both Markdown and HTML without a second request.
+
+Each output item holds a key for every format you selected, plus two objects:
+
+- `fetch`: request metadata, including `loadedUrl`, `httpStatusCode`, and `contentType`
+- `metadata`: page metadata, including `title`, `description`, `canonicalUrl`, `openGraph`, and `jsonLd`
 
 ### Actor Tasks
 
@@ -197,37 +226,6 @@ Automatically start an n8n workflow when an Actor or task run finishes:
 
 - **Actor Run Finished**: Activates when a selected Actor run completes
 - **Task Run Finished**: Activates when a selected Actor task run completes
-
-## Web Fetch
-
-**Web Fetch** runs the [Web Fetch](https://apify.com/apify/web-fetch) Actor to retrieve a single page and return it in the formats you ask for. It requires `@apify/n8n-nodes-apify` v0.8.0 or later, and it replaces **Scrape Single URL**, which is deprecated and will be removed in a future release.
-
-### Input
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `url` | String | Yes | Page to fetch. Must be a full URL with a domain name, using `http://` or `https://`. The node rejects anything else before it calls the Actor |
-| `formats` | Multi-select | No | One or more content formats to return. Defaults to **Markdown** |
-| `headers` | JSON | No | Custom headers to send to the target URL, as a JSON object of header names and values, for example `{"Accept-Language": "fr-FR"}`. Leave as `{}` to send none |
-
-The `formats` field accepts any combination of:
-
-| Format | Returns |
-| --- | --- |
-| **Markdown** | Clean Markdown. Best for AI agents and LLMs |
-| **HTML** | Raw HTML. Best for programmatic processing |
-| **Text** | Plain text with no formatting |
-| **Links** | Deduplicated list of the links found on the page. Useful for crawl queues |
-| **Raw** | Original raw body, base64-encoded for binary content |
-
-Web Fetch returns only the formats you select, so a single run can give you the same page as both Markdown and HTML without a second request.
-
-### Output
-
-Each item holds a key for every format you selected, plus two objects:
-
-- `fetch`: request metadata, including `loadedUrl`, `httpStatusCode`, and `contentType`
-- `metadata`: page metadata, including `title`, `description`, `canonicalUrl`, `openGraph`, and `jsonLd`
 
 ## Resources
 
