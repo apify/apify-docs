@@ -12,25 +12,48 @@ html[data-theme='dark'] .card {
     border-color: var(--color-neutral-border);
 }
 
-.card-image-container {
-    height: 15rem;
+.card-link {
+    display: block;
+    height: 100%;
 }
 
-.card-image-container > img {
-    padding: 0.8rem 0.8rem;
+/* Every part of the card is inset by the same 1.6rem, so the padding is equal on all sides */
+.card-body {
+    padding: 1.6rem;
+}
+
+.card-body h4.card-title {
+    margin: 0;
+    font-size: 120%;
+}
+
+.card-body p.card-desc {
+    margin: 0.8rem 0 0;
+    color: var(--ifm-navbar-link-color);
+}
+
+/* The images override the global markdown image styles, which center images and add vertical margins */
+.card div.card-image-container {
+    height: 15rem;
+    padding: 1.6rem 1.6rem 0;
+}
+
+.card div.card-image-container > img {
+    display: block;
+    width: 100%;
     height: 100%;
+    margin: 0;
+    padding: 0;
     object-fit: scale-down;
 }
 
 .card div.card-image-container-small {
     display: flex;
     align-items: center;
-    height: 3.2rem;
-    margin: 1.6rem 1rem 0.8rem;
-    padding: 0rem !important;
+    height: 4.8rem;
+    padding: 1.6rem 1.6rem 0;
 }
 
-/* Override the global markdown image styles, which center images and add vertical margins */
 .card div.card-image-container-small > img {
     display: block;
     width: auto;
