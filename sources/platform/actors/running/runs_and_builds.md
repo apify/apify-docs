@@ -143,9 +143,11 @@ You can also adjust timeout and memory or change Actor build before the resurrec
 
 #### Resurrect a run that reached its cost limit
 
-A run stops when its cost reaches **Maximum cost per run**. If the run has no limit set, the usage left on your account caps it instead. The resurrected run continues from where it stopped only if the Actor saved its state to storage.
+A run stops when its cost reaches **Maximum cost per run**. To continue the run, resurrect it with a higher limit.
 
-The limit covers the whole run, including charges made before the resurrection. If you resurrect the run without changing the limit, it keeps the original limit and stops right after it starts. Raise the limit when you resurrect. You can't lower it.
+The limit applies to the whole run, including the cost before the resurrection. If you don't change the limit, the resurrected run keeps the original limit. The run then stops right after it starts.
+
+If the run has no limit set, the usage left on your account limits the run instead. The resurrected run continues from where it stopped only if the Actor saved its state to storage.
 
 To continue the run:
 
