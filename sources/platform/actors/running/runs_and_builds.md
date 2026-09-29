@@ -123,7 +123,7 @@ To abort a run, use the **Abort** button in Apify Console or the [Abort run](/ap
 
 ### Resurrect a finished run
 
-Any Actor run in a terminal state, i.e., run with status **FINISHED**, **FAILED**, **ABORTED**, and **TIMED-OUT**, might be resurrected back to a **RUNNING** state. This is helpful in many cases, for example, when the timeout for an Actor run was too low or in case of an unexpected error.
+Any Actor run in a terminal state, i.e., run with status **SUCCEEDED**, **FAILED**, **ABORTED**, and **TIMED-OUT**, might be resurrected back to a **RUNNING** state. This is helpful in many cases, for example, when the timeout for an Actor run was too low or in case of an unexpected error.
 
 The whole process of resurrection looks as follows:
 
@@ -131,7 +131,7 @@ The whole process of resurrection looks as follows:
 - Updated duration will not include the time when the Actor was not running.
 - Timeout will be counted from the point when this Actor run was resurrected.
 
-Resurrection can be performed in Apify Console using the **resurrect** button or via API using the [Resurrect run](/api/v2/actor-run-resurrect-post) API endpoint.
+Resurrection can be performed in Apify Console using **Actions** > **Resurrect** or via API using the [Resurrect run](/api/v2/actor-run-resurrect-post) API endpoint.
 
 :::info Settings adjustments
 You can also adjust timeout and memory or change Actor build before the resurrection. This is especially helpful in case of an error in the Actor's source code as it enables you to:
