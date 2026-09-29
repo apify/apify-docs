@@ -206,7 +206,7 @@ Automatically start an n8n workflow when an Actor or task run finishes:
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `url` | String | Yes | Page to fetch. Must start with `http://` or `https://`. Defaults to `https://docs.apify.com/academy/web-scraping-for-beginners` |
+| `url` | String | Yes | Page to fetch. Must start with `http://` or `https://` |
 | `formats` | Multi-select | Yes | One or more output formats. Defaults to **Markdown** |
 | `headers` | Object | No | Extra HTTP headers to send with the request |
 
