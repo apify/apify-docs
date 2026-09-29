@@ -1,7 +1,7 @@
 ---
 title: Debug Actors on the Apify platform
 sidebar_label: Debugging
-description: Learn how to debug an Actor run on the Apify platform, either from your browser with the Actor debugger or from your local IDE through a wstunnel tunnel.
+description: Learn how to attach a debugger to an Actor run on the Apify platform, so you can set breakpoints and inspect variables in a run as it executes.
 sidebar_position: 8
 slug: /actors/development/debugging
 ---
@@ -9,14 +9,7 @@ slug: /actors/development/debugging
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-You can reproduce most bugs by running your Actor locally and using your IDE's debugger. However, some bugs are related to the platform's proxies, memory limits, environment variables, or data that exists only in a real run. To debug such issues, attach a debugger to an Actor run on the platform. This guide covers two independent options:
-
-| | Actor debugger | wstunnel |
-| --- | --- | --- |
-| Where you debug | In any browser, with no local tooling | In your local IDE |
-| What you add to the image | The `actor-debugger` package | The `wstunnel` binary |
-| Languages | Node.js/TypeScript, Python | Anything with a TCP debug protocol |
-| Best for | A quick look at a run | A full IDE experience |
+You can reproduce most bugs by running your Actor locally and using your IDE's debugger. However, some bugs are related to the platform's proxies, memory limits, environment variables, or data that exists only in a real run. This guide shows how to attach a debugger to such a run on the Apify platform.
 
 ## Infrastructure constraints
 
@@ -24,7 +17,7 @@ An Actor run is a Docker container on a shared worker machine. You can't open a 
 
 The one inbound channel is the [container web server](./programming_interface/container_web_server.md). Whatever listens on `ACTOR_WEB_SERVER_PORT` (default `4321`) inside the container is reachable at the run's container URL, `https://<run>.runs.apify.net`. The platform forwards HTTP and WebSocket traffic to that port. It doesn't forward raw TCP.
 
-Debuggers speak raw TCP. The Node.js inspector listens on port `9229`, debugpy on `5678`. Each option in this guide handles the mismatch the same way: a small server inside the container bridges the debug port over WebSocket on the web server port.
+Debuggers speak raw TCP. The Node.js inspector listens on port `9229`, debugpy on `5678`. Bridging that mismatch takes a small server inside the container, which carries the debug port over WebSocket on the web server port.
 
 These constraints shape what debugging on the platform looks like:
 
@@ -34,6 +27,15 @@ These constraints shape what debugging on the platform looks like:
 - Breakpoints bind to the deployed code. Keep your local checkout at the same commit as the build you debug.
 
 ## Attach a debugger
+
+You have two independent options:
+
+| | Actor debugger | wstunnel |
+| --- | --- | --- |
+| Where you debug | In any browser, with no local tooling | In your local IDE |
+| What you add to the image | The `actor-debugger` package | The `wstunnel` binary |
+| Languages | Node.js/TypeScript, Python | Anything with a TCP debug protocol |
+| Best for | A quick look at a run | A full IDE experience |
 
 Select the option you want, then the language your Actor uses:
 
