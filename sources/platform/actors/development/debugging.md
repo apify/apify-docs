@@ -81,10 +81,10 @@ The experimental [actor-debugger](https://github.com/apify/actor-debugger) packa
 1. Replace the Dockerfile entrypoint, for example `CMD ["python", "-m", "my_actor"]`, with the debug launcher:
 
     ```dockerfile
-    CMD ["python3", "-m", "actor_debugger", "--brk"]
+    CMD ["python", "-m", "actor_debugger", "--brk"]
     ```
 
-    The launcher finds the runnable package in the working directory, which covers the Apify Python templates. To name the entrypoint yourself, pass the module or file: `CMD ["python3", "-m", "actor_debugger", "-m", "my_actor"]` or `CMD ["python3", "-m", "actor_debugger", "main.py"]`.
+    The launcher finds the runnable package in the working directory, which covers the Apify Python templates. To name the entrypoint yourself, pass the module or file: `CMD ["python", "-m", "actor_debugger", "-m", "my_actor"]` or `CMD ["python", "-m", "actor_debugger", "main.py"]`.
 
 1. Build the Actor, start a run, and open the URL from the run log in your browser:
 
