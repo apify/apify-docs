@@ -70,7 +70,9 @@ export default function PromptBlock({
                 readers is controlled purely by CSS via the "visible" class below. */}
             <div className={`${styles['full-prompt-container']} ${showPrompt ? styles.visible : ''}`}>
                 <div className={styles['full-prompt']}>
-                    <blockquote className={styles['full-prompt-blockquote']}>{prompt}</blockquote>
+                    <pre className={styles['full-prompt-pre']}>
+                        <code className="language-prompt">{prompt}</code>
+                    </pre>
                 </div>
             </div>
         </>
