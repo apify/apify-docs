@@ -14,10 +14,10 @@
     {
       "id": "plan-consumption-graph",
       "kind": "element_text",
-      "target": "Plan Consumption",
+      "target": "Plan consumption",
       "at": "/billing",
       "page_context": "Billing page > Current period tab > Plan Consumption graph",
-      "source_quote": "the tab features a **Plan Consumption** Graph.",
+      "source_quote": "the tab features a **Plan consumption** graph.",
       "source_line": 13,
       "needs_auth": true
     },
