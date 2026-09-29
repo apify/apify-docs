@@ -167,17 +167,17 @@ Run and manage Actors directly.
 
 #### Web Fetch
 
-Web Fetch runs the [Web Fetch](https://apify.com/apify/web-fetch) Actor to retrieve a single page and return it in the formats you ask for. It requires `@apify/n8n-nodes-apify` v0.8.0 or later, and it replaces Scrape Single URL, which is deprecated and will be removed in a future release.
+Web Fetch runs the [Web Fetch](https://apify.com/apify/web-fetch) Actor to retrieve a single page and return it in the formats you ask for. It requires `@apify/n8n-nodes-apify` v0.8.0 or later, and it replaces Scrape Single URL, which will be removed in a future release.
 
 Input fields:
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `url` | String | Yes | Page to fetch. Must be a full URL with a domain name, using `http://` or `https://`. The node rejects anything else before it calls the Actor |
+| `url` | String | Yes | Page to fetch. Must be a full URL with a domain name, using `http://` or `https://` |
 | `formats` | Multi-select | No | One or more content formats to return. Defaults to **Markdown** |
-| `headers` | JSON | No | Custom headers to send to the target URL, as a JSON object of header names and values, for example `{"Accept-Language": "fr-FR"}`. Leave as `{}` to send none |
+| `headers` | JSON | No | Custom headers to send to the target URL, as a JSON object of header names and values, for example `{"Accept-Language": "fr-FR"}` |
 
-The `formats` field accepts any combination of:
+The `formats` field accepts any combination of the following, returned from a single request:
 
 | Format | Returns |
 | --- | --- |
@@ -186,8 +186,6 @@ The `formats` field accepts any combination of:
 | **Text** | Plain text with no formatting |
 | **Links** | Deduplicated list of the links found on the page. Useful for crawl queues |
 | **Raw** | Original raw body, base64-encoded for binary content |
-
-Web Fetch returns only the formats you select, so a single run can give you the same page as both Markdown and HTML without a second request.
 
 Each output item holds a key for every format you selected, plus two objects:
 
