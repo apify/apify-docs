@@ -33,7 +33,7 @@ When using Apify's datacenter proxies, you can either select a proxy group, or t
 
 Each user has access to a selected number of proxy servers from a shared pool. These servers are spread into groups (called proxy groups). Each group shares a common feature (location, provider, speed, etc.).
 
-For a full list of plans and number of allocated proxy servers for each plan, see the [pricing page](https://apify.com/pricing). To get access to more servers, you can upgrade your plan in the [subscription settings](https://console.apify.com/billing/subscription);
+For a full list of plans and number of allocated proxy servers for each plan, see the [pricing page](https://apify.com/pricing). To get more servers, buy the **Shared datacenter proxies** add-on (paid plans only) or upgrade your plan in the [subscription settings](https://console.apify.com/billing/subscription).
 
 ### Dedicated proxy groups
 
