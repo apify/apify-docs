@@ -206,9 +206,9 @@ Automatically start an n8n workflow when an Actor or task run finishes:
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `url` | String | Yes | Page to fetch. Must start with `http://` or `https://` |
-| `formats` | Multi-select | Yes | One or more output formats. Defaults to **Markdown** |
-| `headers` | Object | No | Extra HTTP headers to send with the request |
+| `url` | String | Yes | Page to fetch. Must be a full URL with a domain name, using `http://` or `https://`. The node rejects anything else before it calls the Actor |
+| `formats` | Multi-select | No | One or more content formats to return. Defaults to **Markdown** |
+| `headers` | JSON | No | Custom headers to send to the target URL, as a JSON object of header names and values, for example `{"Accept-Language": "fr-FR"}`. Leave as `{}` to send none |
 
 The `formats` field accepts any combination of:
 
