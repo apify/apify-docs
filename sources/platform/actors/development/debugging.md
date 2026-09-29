@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 You can reproduce most bugs by running your Actor locally and using your IDE's debugger. However, some bugs are related to the platform's proxies, memory limits, environment variables, or data that exists only in a real run. To debug such issues, attach a debugger to an Actor run on the platform. This guide covers two independent options:
 
-| | [Actor debugger](#option-1-debug-in-your-browser) | [wstunnel](#option-2-debug-from-your-ide) |
+| | Actor debugger | wstunnel |
 | --- | --- | --- |
 | Where you debug | In any browser, with no local tooling | In your local IDE |
 | What you add to the image | The `actor-debugger` package | The `wstunnel` binary |
@@ -33,7 +33,12 @@ These constraints shape what debugging on the platform looks like:
 - A [migration](./builds_and_runs/state_persistence.md) restarts the container and drops the debug session.
 - Breakpoints bind to the deployed code. Keep your local checkout at the same commit as the build you debug.
 
-## Option 1: Debug in your browser
+## Attach a debugger
+
+Select the option you want, then the language your Actor uses:
+
+<Tabs groupId="debug-option">
+<TabItem value="actor-debugger" label="Actor debugger">
 
 The experimental [actor-debugger](https://github.com/apify/actor-debugger) package launches your Actor under its native debugger and serves a debugger UI on the web server port. You open one URL from the run log in your browser. Nothing runs on your machine.
 
@@ -92,44 +97,41 @@ The experimental [actor-debugger](https://github.com/apify/actor-debugger) packa
 
 The `--brk` flag pauses the Actor on its first line and holds the run there until you open the debugger URL. Without the flag, the Actor starts working immediately and you can open the URL at any point during the run. To stop debugging, restore the original `CMD` and rebuild the Actor.
 
-## Option 2: Debug from your IDE
+</TabItem>
+<TabItem value="wstunnel" label="wstunnel">
 
 [wstunnel](https://github.com/erebe/wstunnel) tunnels TCP over WebSocket. The server runs inside the container on the web server port. The client runs on your machine and exposes the remote debug port on `localhost`. Your IDE attaches to `localhost` as if the Actor ran there. The tunnel works for any language with a TCP debug protocol.
 
-### 1. Add wstunnel to the image
+1. Download the static wstunnel release binary in your Dockerfile:
 
-Download the static release binary in your Dockerfile:
+    <Tabs groupId="language">
+    <TabItem value="javascript" label="JavaScript/TypeScript">
 
-<Tabs groupId="language">
-<TabItem value="javascript" label="JavaScript/TypeScript">
+    ```dockerfile
+    FROM apify/actor-node:24
 
-```dockerfile
-FROM apify/actor-node:24
+    ARG WSTUNNEL_VERSION=10.7.1
+    RUN wget -qO- "https://github.com/erebe/wstunnel/releases/download/v${WSTUNNEL_VERSION}/wstunnel_${WSTUNNEL_VERSION}_linux_amd64.tar.gz" \
+        | tar -xz -C /usr/local/bin wstunnel \
+        && chmod +x /usr/local/bin/wstunnel
+    ```
 
-ARG WSTUNNEL_VERSION=10.7.1
-RUN wget -qO- "https://github.com/erebe/wstunnel/releases/download/v${WSTUNNEL_VERSION}/wstunnel_${WSTUNNEL_VERSION}_linux_amd64.tar.gz" \
-    | tar -xz -C /usr/local/bin wstunnel \
-    && chmod +x /usr/local/bin/wstunnel
-```
+    </TabItem>
+    <TabItem value="python" label="Python">
 
-</TabItem>
-<TabItem value="python" label="Python">
+    ```dockerfile
+    FROM apify/actor-python:3.13
 
-```dockerfile
-FROM apify/actor-python:3.13
+    ARG WSTUNNEL_VERSION=10.7.1
+    RUN curl -fsSL "https://github.com/erebe/wstunnel/releases/download/v${WSTUNNEL_VERSION}/wstunnel_${WSTUNNEL_VERSION}_linux_amd64.tar.gz" \
+        | tar -xz -C /usr/local/bin wstunnel \
+        && chmod +x /usr/local/bin/wstunnel
+    ```
 
-ARG WSTUNNEL_VERSION=10.7.1
-RUN curl -fsSL "https://github.com/erebe/wstunnel/releases/download/v${WSTUNNEL_VERSION}/wstunnel_${WSTUNNEL_VERSION}_linux_amd64.tar.gz" \
-    | tar -xz -C /usr/local/bin wstunnel \
-    && chmod +x /usr/local/bin/wstunnel
-```
+    Add `debugpy` to your `requirements.txt`.
 
-Add `debugpy` to your `requirements.txt`.
-
-</TabItem>
-</Tabs>
-
-### 2. Start the tunnel and the debugger
+    </TabItem>
+    </Tabs>
 
 1. Define a `DEBUG_SECRET` [environment variable](./programming_interface/environment_variables.md) in the Actor version and mark it as secret. wstunnel accepts only WebSocket upgrades whose path starts with this value, which keeps random visitors of the container URL out.
 
@@ -156,19 +158,11 @@ Add `debugpy` to your `requirements.txt`.
     </TabItem>
     </Tabs>
 
-1. Build the Actor and start a run.
+    The `: "${DEBUG_SECRET:?}"` guard fails the run before anything starts when the variable is unset or empty, because an empty prefix lets in any client. The `--restrict-to` option limits the tunnel to the debug port, so nothing else in the container becomes reachable. The `exec` command keeps the Actor as the main process, so it still receives the platform's shutdown signals.
 
-The `: "${DEBUG_SECRET:?}"` guard fails the run before anything starts when the variable is unset or empty, because an empty prefix lets in any client. The `--restrict-to` option limits the tunnel to the debug port, so nothing else in the container becomes reachable. The `exec` command keeps the Actor as the main process, so it still receives the platform's shutdown signals.
+1. Build the Actor, start a run, and copy the container URL from the run detail page in Apify Console.
 
-You can also start `wstunnel server` from your Actor code and gate it on an input field. That approach avoids a separate debug build at the cost of shipping the binary in every build.
-
-### 3. Connect from your machine
-
-1. Install wstunnel with `brew install wstunnel` or download a [release binary](https://github.com/erebe/wstunnel/releases).
-
-1. Copy the container URL from the run detail page in Apify Console.
-
-1. Open the tunnel, and leave the command running:
+1. Install wstunnel on your machine with `brew install wstunnel` or download a [release binary](https://github.com/erebe/wstunnel/releases). Then open the tunnel, and leave the command running:
 
     ```bash
     wstunnel client --http-upgrade-path-prefix <DEBUG_SECRET> -L tcp://9229:127.0.0.1:9229 wss://<run>.runs.apify.net
@@ -176,14 +170,10 @@ You can also start `wstunnel server` from your Actor code and gate it on an inpu
 
     Use `5678` in place of both occurrences of `9229` for Python. The port on `localhost` now leads to the debugger inside the run.
 
-### 4. Attach your IDE
+1. Attach your IDE to `localhost` and map your project root to `/usr/src/app`, the working directory in the Apify base images:
 
-Attach the IDE to `localhost` and map your project root to `/usr/src/app`, the working directory in the Apify base images.
-
-<Tabs groupId="language">
-<TabItem value="javascript" label="JavaScript/TypeScript">
-
-1. Add this configuration to your VS Code `launch.json`:
+    <Tabs groupId="language">
+    <TabItem value="javascript" label="JavaScript/TypeScript">
 
     ```json
     {
@@ -199,14 +189,8 @@ Attach the IDE to `localhost` and map your project root to `/usr/src/app`, the w
 
     In JetBrains IDEs, create an **Attach to Node.js/Chrome** run configuration for `localhost:9229` instead, and map the project root to `/usr/src/app` under **Remote URLs of local files**. In Chrome, open `chrome://inspect` and add `localhost:9229` as a target.
 
-1. Set a breakpoint in your source files.
-
-1. Start the configuration. The run resumes under your debugger.
-
-</TabItem>
-<TabItem value="python" label="Python">
-
-1. Add this configuration to your VS Code `launch.json`:
+    </TabItem>
+    <TabItem value="python" label="Python">
 
     ```json
     {
@@ -222,9 +206,12 @@ Attach the IDE to `localhost` and map your project root to `/usr/src/app`, the w
 
     In PyCharm 2026.1 or later, create an **Attach to DAP** run configuration for `localhost:5678` instead, with the same path mapping.
 
-1. Set a breakpoint in your source files.
+    </TabItem>
+    </Tabs>
 
-1. Start the configuration. The run resumes under your debugger.
+1. Set a breakpoint in your source files and start the configuration. The run resumes under your debugger.
+
+You can also start `wstunnel server` from your Actor code and gate it on an input field. That approach avoids a separate debug build at the cost of shipping the binary in every build.
 
 </TabItem>
 </Tabs>
