@@ -141,6 +141,23 @@ You can also adjust timeout and memory or change Actor build before the resurrec
 3. Resurrect the run using the new build
 :::
 
+#### Resurrect a run that reached its cost limit
+
+A run stops when its cost reaches **Maximum cost per run**. If the run has no limit set, the usage left on your account caps it instead. The resurrected run continues from where it stopped only if the Actor saved its state to storage.
+
+The limit covers the whole run, including charges made before the resurrection. If you resurrect the run without changing the limit, it keeps the original limit and stops right after it starts. Raise the limit when you resurrect. You can't lower it.
+
+To continue the run:
+
+1. If your account has no usage left, [increase your usage limit](/account/billing#limits) or upgrade your subscription.
+1. In Apify Console, open the run.
+1. Select **Actions** > **Resurrect**.
+1. In the **Restart run** dialog, on the **Resurrect** tab, expand **Options**.
+1. If the run has a limit, enter a higher value in **Maximum cost per run**, or turn on **No maximum limit**.
+1. Select **Resurrect**.
+
+To do the same with the API, pass `maxTotalChargeUsd` to the [Resurrect run](/api/v2/actor-run-resurrect-post) endpoint.
+
 ### Data retention
 
 Apify securely stores your ten most recent runs indefinitely, ensuring your records are always accessible. All **Actor runs** beyond the latest ten are deleted along with their default storages (Key-value store, Dataset, Request queue) after the data retention period based on your [subscription plan](https://apify.com/pricing).
