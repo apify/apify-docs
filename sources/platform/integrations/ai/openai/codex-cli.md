@@ -88,7 +88,6 @@ It then summarizes the Actor's inputs, pricing, and output - all without running
 | `apify-actorization` | Converts existing JavaScript, TypeScript, Python, or CLI projects into Apify Actors. |
 | `apify-generate-output-schema` | Generates dataset and key-value store schemas for existing Actors. |
 | `apify-sdk-integration` | Integrates Actor execution into applications using the `apify-client` package. |
-| `apify-integration-development` | Guides you through building an Apify integration - workflow automation apps, AI agent plugins, AI framework packages, or direct application clients. |
 
 Example prompts that route to specific skills:
 
