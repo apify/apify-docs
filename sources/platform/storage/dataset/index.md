@@ -97,7 +97,7 @@ Control the data export by appending a comma-separated list of fields to the `fi
 
 :::note `omit` takes precedence
 
-If you fill both `omit` and `field` parameters with the same value, then `omit` parameter will take precedence and the field is excluded from the results.
+If you fill both `omit` and `fields` parameters with the same value, then `omit` parameter will take precedence and the field is excluded from the results.
 
 :::
 
@@ -159,7 +159,7 @@ You can then use that variable to [access the dataset's items and manage it](/ap
 
 :::note `omit` takes precedence
 
-When using the [`.listItems()`](/api/client/js/reference/class/DatasetClient#listItems) method, if you fill both `omit` and `field` parameters with the same value, then `omit` parameter will take precedence and the field is excluded from the results.
+When using the [`.listItems()`](/api/client/js/reference/class/DatasetClient#listItems) method, if you fill both `omit` and `fields` parameters with the same value, then `omit` parameter will take precedence and the field is excluded from the results.
 
 :::
 
@@ -179,7 +179,7 @@ You can then use that variable to [access the dataset's items and manage it](/ap
 
 :::note `omit` takes precedence
 
-When using the [`.list_items()`](/api/client/python/reference/class/DatasetClient#list_items) method, if you fill both `omit` and `field` parameters with the same value, then `omit` parameter will take precedence and the field is excluded from the results.
+When using the [`.list_items()`](/api/client/python/reference/class/DatasetClient#list_items) method, if you fill both `omit` and `fields` parameters with the same value, then `omit` parameter will take precedence and the field is excluded from the results.
 
 :::
 
