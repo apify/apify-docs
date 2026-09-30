@@ -78,7 +78,7 @@ Within this window, the platform first selects an Actor run to handle the reques
 
 ## What is the rate limit for incoming requests
 
-Incoming requests to Standby Actors are rate-limited per user account. The limit is the same on all standard subscription plans, and custom plans can raise it. The current limit is returned in the `X-RateLimit-Limit` response header. When you exceed the limit, the platform responds with a `429` error.
+Incoming requests to Standby Actors are rate-limited per user account. The limit is the same on all standard subscription plans, and custom plans can raise it. Responses include the current limit in the `X-RateLimit-Limit` header. When you exceed the limit, the platform responds with a `429` error.
 
 ## How do I customize Standby configuration
 
@@ -94,7 +94,7 @@ You can see these in the **Endpoints** tab of the Actor detail page. If you own 
 
 If you use an Actor built by someone else, the Actor-level hostname always uses the developer's default configuration. To override it, create a new Task from the Actor.
 You can then head to the **Endpoints** tab of the created Task and modify the configuration as needed. Note that the task has a specific hostname, so make
-sure to use that in your application if you wish to use the custom configuration. Also note that the Actor's developer can lock the Standby configuration, in which case the task-level settings have no effect.
+sure to use that in your application if you wish to use the custom configuration. The Actor's developer can lock the Standby configuration. In that case, the task-level settings have no effect.
 
 ## Are the Standby runs billed differently
 
@@ -109,7 +109,7 @@ No, even if you use the Actor-level hostname with the default configuration, the
 
 ## Can I use Standby Actors as MCP servers
 
-Yes, if the Actor exposes a [Model Context Protocol (MCP)](../../integrations/ai/mcp.md) server. Its MCP endpoint is the Standby hostname followed by the path defined in the Actor's [`webServerMcpPath`](../development/actor_definition/actor_json.md) property. Requests to the MCP endpoint are authenticated in the same way as any other Standby request.
+Yes, if the Actor exposes a [Model Context Protocol (MCP)](../../integrations/ai/mcp.md) server. Its MCP endpoint is the Standby hostname followed by the path defined in the Actor's [`webServerMcpPath`](../development/actor_definition/actor_json.md) property. Authenticate requests to the MCP endpoint the same way as any other Standby request.
 
 ## How can I develop Actors using Standby mode
 
