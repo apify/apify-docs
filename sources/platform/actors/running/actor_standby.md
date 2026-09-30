@@ -78,7 +78,7 @@ Within this window, the platform first selects an Actor run to handle the reques
 
 ## What is the rate limit for incoming requests
 
-Incoming requests to Standby Actors are rate-limited per user account. The exact limit depends on your subscription plan and is returned in the `X-RateLimit-Limit` response header. When you exceed the limit, the platform responds with a `429` error.
+Incoming requests to Standby Actors are rate-limited per user account. The limit is the same on all standard subscription plans, and custom plans can raise it. The current limit is returned in the `X-RateLimit-Limit` response header. When you exceed the limit, the platform responds with a `429` error.
 
 ## How do I customize Standby configuration
 
