@@ -97,6 +97,18 @@ To see a breakdown of rental charges, go to the **Actors** tab within the **Curr
 
 ![Rental Actors billing in Apify Console](../images/store/billing-paid-actors.png)
 
+## Actors under maintenance
+
+An Actor gets the **Under maintenance** label when it fails Apify's [automated tests](/actors/publishing/test), or when its developer sets it. Its page then shows the **This Actor is under maintenance** banner, sometimes with a message from the developer. Its runs can fail or return incomplete results.
+
+If an Actor you use is under maintenance:
+
+- Run it with a small input, such as a few pages, and check the results.
+- On the Actor's **Issues** tab, look for an issue that describes your problem. If there isn't one, create one to ask the developer. For details, see [Report issues with Actors](#report-issues-with-actors).
+- To find a replacement, select **Show similar Actors** in the banner, or search [Apify Store](https://apify.com/store).
+
+Actors under maintenance rank lower in Apify Store. If an Actor keeps failing its tests, Apify deprecates it after about a month.
+
 ## Report issues with Actors
 
 Each Actor has an **Issues** tab in Apify Console. There, you can open an issue (ticket) and chat with the Actor's author, platform admins,
