@@ -37,10 +37,7 @@ You have two independent options:
 | Languages | Node.js/TypeScript, Python | Anything with a TCP debug protocol |
 | Best for | A quick look at a run | A full IDE experience |
 
-Select the option you want, then the language your Actor uses:
-
-<Tabs groupId="debug-option">
-<TabItem value="actor-debugger" label="Actor debugger">
+### Actor debugger
 
 The experimental [actor-debugger](https://github.com/apify/actor-debugger) package launches your Actor under its native debugger and serves a debugger UI on the web server port. You open one URL from the run log in your browser. Nothing runs on your machine.
 
@@ -99,8 +96,7 @@ The experimental [actor-debugger](https://github.com/apify/actor-debugger) packa
 
 The `--brk` flag pauses the Actor on its first line and holds the run there until you open the debugger URL. Without the flag, the Actor starts working immediately and you can open the URL at any point during the run. To stop debugging, restore the original `CMD` and rebuild the Actor.
 
-</TabItem>
-<TabItem value="wstunnel" label="wstunnel">
+### wstunnel
 
 [wstunnel](https://github.com/erebe/wstunnel) tunnels TCP over WebSocket. The server runs inside the container on the web server port. The client runs on your machine and exposes the remote debug port on `localhost`. Your IDE attaches to `localhost` as if the Actor ran there. The tunnel works for any language with a TCP debug protocol.
 
@@ -214,9 +210,6 @@ The `--brk` flag pauses the Actor on its first line and holds the run there unti
 1. Set a breakpoint in your source files and start the configuration. The run resumes under your debugger.
 
 You can also start `wstunnel server` from your Actor code and gate it on an input field. That approach avoids a separate debug build at the cost of shipping the binary in every build.
-
-</TabItem>
-</Tabs>
 
 ## Keep debugging out of production
 
