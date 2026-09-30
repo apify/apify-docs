@@ -55,9 +55,9 @@ To export only some fields, set these options in the export dialog before you se
 - **Select fields** - Exports only the fields you list, in the order you list them. Leave it empty to export all fields.
 - **Omit fields** - Exports every field except the ones you list.
 
-Both dropdowns show the dataset's top-level fields. The dropdown can be incomplete if the dataset has more than 2,000 fields, counting nested ones. If a field is missing, type its name to add it. Nested fields such as `address.city` don't work, even if you type them.
+Both dropdowns show the dataset's top-level fields. They can be incomplete if the dataset has more than 2,000 fields, counting nested ones. If a field is missing, type its name to add it. **Omit fields** also accepts a nested path such as `address.city`. **Select fields** ignores nested paths.
 
-Unlike the API, where `omit` takes precedence, the Console doesn't let you add the same field to both dropdowns. To check the result before you download, select **Preview**.
+If you add a field to both dropdowns, the Console shows an error, and the export leaves the field out. To check the result before you download, select **Preview**.
 
 These options set the `fields` and `omit` parameters described in [Apify API](#apify-api).
 
@@ -93,7 +93,7 @@ To view a dataset's data, send a GET request to the [Get dataset items](/api/v2/
 https://api.apify.com/v2/datasets/{DATASET_ID}/items
 ```
 
-To return only some fields, pass a comma-separated list to the `fields` query parameter. To exclude fields, use the `omit` parameter. If you list a field in both, the API excludes it.
+To return only some fields, pass a comma-separated list to the `fields` query parameter. To exclude fields, use the `omit` parameter. If you list a field in both, the API excludes it. `omit` also accepts nested paths such as `address.city`. `fields` accepts only top-level fields.
 
 In addition, you can set the format in which you retrieve the data using the `?format=` parameter. The available formats are `json`, `jsonl`, `csv`, `html`, `xlsx`, `xml` and `rss`. The default value is `json`.
 
