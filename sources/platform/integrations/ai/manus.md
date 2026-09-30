@@ -109,7 +109,7 @@ Available skills include:
 | `apify-actor-development` | Full Actor lifecycle: template selection, development, testing, and deployment |
 | `apify-actorization` | Converts existing projects into Apify Actors |
 | `apify-generate-output-schema` | Generates dataset and key-value store schemas from Actor source code |
-| `apify-sdk-integration` | Integrates Actor execution into applications using the `apify-client` package |
+| `apify-integration-development` | Builds official Apify integrations - workflow automation apps, AI agent plugins, AI framework packages, and direct application clients |
 
 ### Import a skill from GitHub
 

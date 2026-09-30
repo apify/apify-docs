@@ -92,7 +92,7 @@ The router searches Apify Store, fetches the top Actor's details through the Api
 | `apify-actor-development` | Full Actor lifecycle - template selection, development, local testing, and deployment with `apify push`. |
 | `apify-actorization` | Converts existing JavaScript, TypeScript, Python, or CLI projects into Apify Actors. |
 | `apify-generate-output-schema` | Generates dataset and key-value store schemas for existing Actors. |
-| `apify-sdk-integration` | Integrates Actor execution into applications using the `apify-client` package. |
+| `apify-integration-development` | Builds official Apify integrations - workflow automation apps, AI agent plugins, AI framework packages, and direct application clients. |
 
 Example prompts that route to specific skills:
 
@@ -104,9 +104,9 @@ _Actor development:_
 
 > Create an Apify Actor that accepts a `startUrl` and `maxPages` input, crawls the site, and stores each page title and URL.
 
-_SDK integration:_
+_Integration development:_
 
-> Add Apify to this project. The Node.js API route should run an Actor and return dataset items as JSON.
+> Plan an official Apify integration for our app. It should run an Actor and return dataset items from a Node.js API route.
 
 Each skill is also registered as a slash command, so you can start a workflow directly. The canonical form is `/skill:<name>`, and the shorthand works when the name isn't taken by a built-in command:
 
@@ -180,7 +180,7 @@ Install the Apify CLI with `npm install -g apify-cli` before using the `apify-ac
 - Kimi Code has no custom subagents, so the plugin ships a `using-apify` router skill instead of the `apify` agent used by the [Claude Code CLI plugin](/integrations/claude-code-cli). The five workflow skills are identical.
 - Long-running Actors may exceed the time a single tool call waits for completion. Reduce the scope or split the work across multiple prompts.
 - Each Actor run consumes Apify platform usage from your plan in addition to any Kimi usage. See [Billing](/account/billing) for details.
-- Skills that edit files in your project (Actor development, actorization, SDK integration) make local changes - review them before deploying or committing.
+- Skills that edit files in your project (Actor development, actorization, integration development) make local changes - review them before deploying or committing.
 
 ## Related integrations
 

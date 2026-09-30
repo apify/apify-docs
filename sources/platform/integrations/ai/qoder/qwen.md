@@ -177,7 +177,7 @@ If the sign-in page doesn't open or the server stays disconnected:
 - **Qwen Code:** copy the authorization URL from the terminal and open it manually. If sign-in still fails, add an `Authorization: Bearer <APIFY_TOKEN>` header to the `apify` server in `~/.qwen/settings.json` under `mcpServers` - see the [Client configuration](/integrations/mcp#client-configuration) for the shape.
 - **QwenWork:** remove the connector and add it again. If OAuth still won't complete, re-add it with an `Authorization` header set to `Bearer <APIFY_TOKEN>`.
 
-Get the token from [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations?utm_source=qwen&utm_medium=integrations). Setting `APIFY_TOKEN` in your shell doesn't authenticate the MCP server; it only covers the Apify CLI and `apify-client` used by the Actor development, actorization, and SDK integration skills, so run `apify login` once for those.
+Get the token from [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations?utm_source=qwen&utm_medium=integrations). Setting `APIFY_TOKEN` in your shell doesn't authenticate the MCP server; it only covers the Apify CLI and `apify-client` used by the Actor development, actorization, and integration development skills, so run `apify login` once for those.
 
 ## Limitations
 
@@ -185,7 +185,7 @@ Get the token from [Apify Console > Settings > Integrations](https://console.api
 - QwenWork doesn't host the bundled `apify` agent, so it has no automatic routing. Add the skills you need and let their trigger conditions apply, or name the task clearly.
 - Long-running Actors may exceed the time a single tool call waits for completion. Reduce the scope or split the work across multiple prompts.
 - Each Actor run consumes Apify platform usage from your plan in addition to any Qwen usage. See [Billing](/account/billing) for details.
-- Skills that edit files in your project (Actor development, actorization, SDK integration) make local changes - review them before deploying or committing.
+- Skills that edit files in your project (Actor development, actorization, integration development) make local changes - review them before deploying or committing.
 
 ## Related integrations
 
