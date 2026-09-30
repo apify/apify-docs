@@ -88,6 +88,7 @@ The agent searches Apify Store, fetches the top Actor's details through the Apif
 | `apify-actor-development` | Full Actor lifecycle - template selection, development, local testing, and deployment with `apify push`. |
 | `apify-actorization` | Converts existing JavaScript, TypeScript, Python, or CLI projects into Apify Actors. |
 | `apify-generate-output-schema` | Generates dataset and key-value store schemas for existing Actors. |
+| `apify-sdk-integration` | Integrates Actor execution into applications using the `apify-client` package. |
 | `apify-integration-development` | Builds official Apify integrations - workflow automation apps, AI agent plugins, AI framework packages, and direct application clients. |
 
 Example prompts that route to specific skills:
@@ -100,7 +101,7 @@ _Actor development:_
 
 > Create an Apify Actor that accepts a `startUrl` and `maxPages` input, crawls the site, and stores each page title and URL.
 
-_Integration development:_
+_SDK integration:_
 
 > Add Apify to this project. The Node.js API route should run an Actor and return dataset items as JSON.
 
@@ -128,7 +129,7 @@ export APIFY_TOKEN=<YOUR_API_TOKEN>
 
 - Long-running Actors may exceed the time a single tool call waits for completion. Reduce the scope or split the work across multiple prompts.
 - Each Actor run consumes Apify platform usage from your plan in addition to any Cursor usage. See [Billing](/account/billing) for details.
-- Skills that edit files in your project (Actor development, actorization, integration development) make local changes - review them before deploying or committing.
+- Skills that edit files in your project (Actor development, actorization, SDK integration) make local changes - review them before deploying or committing.
 
 ## Related integrations
 

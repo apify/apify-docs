@@ -205,7 +205,7 @@ If the browser doesn't open automatically, copy the OAuth URL shown by the surfa
 
 - Long-running Actors may exceed the time a single tool call waits for completion. Reduce the scope or split the work across multiple prompts.
 - Each Actor run consumes Apify platform usage from your plan in addition to any Qoder usage. See [Billing](/account/billing) for details.
-- Skills that edit files in your project (Actor development, actorization, integration development) make local changes - review them before deploying or committing.
+- Skills that edit files in your project (Actor development, actorization, SDK integration) make local changes - review them before deploying or committing.
 
 ## Related integrations
 
