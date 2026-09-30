@@ -49,7 +49,7 @@ To link your new Actor with an existing GitHub repository:
     ![Pick a repository from GitHub step in the Actor creation process in Apify Console](../images/apify-git-repository.svg)
 
 
-Apify creates the Actor as soon as you select a repository, then links its source to the repository, and uses the default branch. For how to switch to a different branch, see [Git repositories](/actors/development/deployment/source-types#git-repositories).
+Apify creates the Actor as soon as you select a repository, then links its source to the repository, and uses the default branch. For how to switch to a different branch, see [Git repository](/actors/development/deployment/source-types#git-repository).
 
 :::tip Private repositories
 
