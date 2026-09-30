@@ -114,7 +114,7 @@ _Actor development:_
 
 _Integration development:_
 
-> "Plan an official Apify integration for our app. It should run an Actor and return dataset items from a Node.js API route."
+> "Add Apify to this project. The Node.js API route should run an Actor and return dataset items as JSON."
 
 ## Troubleshooting
 

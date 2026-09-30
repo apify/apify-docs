@@ -106,7 +106,7 @@ _Actor development:_
 
 _Integration development:_
 
-> Plan an official Apify integration for our app. It should run an Actor and return dataset items from a Node.js API route.
+> Add Apify to this project. The Node.js API route should run an Actor and return dataset items as JSON.
 
 Each skill is also registered as a slash command, so you can start a workflow directly. The canonical form is `/skill:<name>`, and the shorthand works when the name isn't taken by a built-in command:
 
