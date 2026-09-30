@@ -46,9 +46,20 @@ In [Apify Console](https://console.apify.com), you can view your datasets in the
 
 To view or download a dataset:
 
-1. Click on its **Dataset ID** to open the dataset detail page.
+1. Select its **Dataset ID** to open the dataset detail page.
 1. Browse the data in **Table** or **JSON** view.
-1. Click **Export** to download the data in your preferred format.
+1. Select **Export**, choose a format, and select **Download**.
+
+To export only some fields, set these options in the export dialog before you select **Download**:
+
+- **Select fields** - Exports only the fields you list, in the order you list them. Leave it empty to export all fields.
+- **Omit fields** - Exports every field except the ones you list.
+
+Both dropdowns show the dataset's top-level fields. The dropdown can be incomplete if the dataset has more than 2,000 fields, counting nested ones. If a field is missing, type its name to add it. Nested fields such as `address.city` don't work, even if you type them.
+
+Unlike the API, where `omit` takes precedence, the Console doesn't let you add the same field to both dropdowns. To check the result before you download, select **Preview**.
+
+These options set the `fields` and `omit` parameters described in [Apify API](#apify-api).
 
 To rename the dataset (which affects its [retention period](/storage#data-retention)) or adjust its [access rights](/account/collaboration), use the **Actions** menu. To view and test the dataset's [API endpoints](/api/v2/storage-datasets), select **API**.
 
