@@ -18,8 +18,7 @@ and expects it to finish with a **Succeeded** status and non-empty default datas
 
 ![Actor page](./images/actor-test.webp)
 
-If the Actor fails to complete successful runs for three consecutive days, the developer will be notified,
-and the Actor will be labeled `under maintenance` until it is fixed. After another 14 days of failing runs, you will receive another notification. Finally, if the runs continue to fail after yet another 14 days, the Actor will be `deprecated`.
+If more than half of the daily test runs in the last three days fail, Apify notifies you and labels the Actor `under maintenance` until it's fixed. All test runs in those three days must use the same build, so a new build restarts the count. After another 14 days of failing runs, you get another notification. If the runs still fail 14 days after that, Apify marks the Actor as `deprecated`.
 
 ## How can I make my Actor healthy again
 
