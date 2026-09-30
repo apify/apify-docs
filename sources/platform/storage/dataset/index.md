@@ -93,13 +93,7 @@ To view a dataset's data, send a GET request to the [Get dataset items](/api/v2/
 https://api.apify.com/v2/datasets/{DATASET_ID}/items
 ```
 
-Control the data export by appending a comma-separated list of fields to the `fields` query parameter. Likewise, you can also omit certain fields using the `omit` parameter.
-
-:::note `omit` takes precedence
-
-If you fill both `omit` and `fields` parameters with the same value, then `omit` parameter will take precedence and the field is excluded from the results.
-
-:::
+To return only some fields, pass a comma-separated list to the `fields` query parameter. To exclude fields, use the `omit` parameter. If you list a field in both, the API excludes it.
 
 In addition, you can set the format in which you retrieve the data using the `?format=` parameter. The available formats are `json`, `jsonl`, `csv`, `html`, `xlsx`, `xml` and `rss`. The default value is `json`.
 
@@ -157,11 +151,7 @@ const myDatasetClient = apifyClient.dataset('jane-doe/my-dataset');
 
 You can then use that variable to [access the dataset's items and manage it](/api/client/js/reference/class/DatasetClient).
 
-:::note `omit` takes precedence
-
-When using the [`.listItems()`](/api/client/js/reference/class/DatasetClient#listItems) method, if you fill both `omit` and `fields` parameters with the same value, then `omit` parameter will take precedence and the field is excluded from the results.
-
-:::
+The [`.listItems()`](/api/client/js/reference/class/DatasetClient#listItems) method takes `fields` and `omit` as arrays and passes them to the [API](#apify-api), so the same rules apply.
 
 Check out the [JavaScript API client documentation](/api/client/js/reference/class/DatasetClient) for [help with setup](/api/client/js/docs) and more details.
 
@@ -177,11 +167,7 @@ my_dataset_client = apify_client.dataset('jane-doe/my-dataset')
 
 You can then use that variable to [access the dataset's items and manage it](/api/client/python/reference/class/DatasetClient).
 
-:::note `omit` takes precedence
-
-When using the [`.list_items()`](/api/client/python/reference/class/DatasetClient#list_items) method, if you fill both `omit` and `fields` parameters with the same value, then `omit` parameter will take precedence and the field is excluded from the results.
-
-:::
+The [`.list_items()`](/api/client/python/reference/class/DatasetClient#list_items) method takes `fields` and `omit` as lists and passes them to the [API](#apify-api), so the same rules apply.
 
 Check out the [Python API client documentation](/api/client/python/reference/class/DatasetClient) for [help with setup](/api/client/python/docs/overview/introduction) and more details.
 
