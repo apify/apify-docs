@@ -230,6 +230,18 @@ jobs:
                     assert_header "http://localhost:8080/cli/llms.txt" "Content-Type" "text/markdown"
                     assert_header "http://localhost:8080/cli/llms-full.txt" "Content-Type" "text/markdown"
 
+                    echo "🧪 Checking doubled section prefix redirect..."
+                    # Regression tests for the llms-txt plugin workaround in nginx.conf.
+                    # Doubled prefixes redirect to the canonical URL and keep the query
+                    # string. Remove together with the workaround.
+                    assert_status "http://localhost:8080/sdk/js/sdk/js/docs/introduction/quick-start" "301"
+                    assert_header "http://localhost:8080/sdk/js/sdk/js/docs/introduction/quick-start" "Location" "^Location: http://[^/]*/sdk/js/docs/introduction/quick-start$"
+                    assert_header "http://localhost:8080/sdk/js/sdk/js/docs/introduction/quick-start.md?x=1" "Location" "^Location: http://[^/]*/sdk/js/docs/introduction/quick-start[.]md[?]x=1$"
+                    assert_header "http://localhost:8080/sdk/python/sdk/python/docs/changelog" "Location" "^Location: http://[^/]*/sdk/python/docs/changelog$"
+                    assert_header "http://localhost:8080/api/client/js/api/client/js/docs/changelog" "Location" "^Location: http://[^/]*/api/client/js/docs/changelog$"
+                    assert_header "http://localhost:8080/api/client/python/api/client/python/docs/changelog" "Location" "^Location: http://[^/]*/api/client/python/docs/changelog$"
+                    assert_header "http://localhost:8080/cli/cli/docs/changelog" "Location" "^Location: http://[^/]*/cli/docs/changelog$"
+
                     echo "✅ All Nginx header checks passed."
 
             -   name: Verify per-page .md navigation headers

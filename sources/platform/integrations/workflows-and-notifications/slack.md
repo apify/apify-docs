@@ -22,7 +22,7 @@ You can find all integrations on an Actor's or task's **Integrations** tab. For 
 
 Find the integration for Slack, then click the **Configure** button. Log in with your Slack account when prompted, then select your workspace in the **Settings > API & Integrations** window.
 
-![Apify Integrations tab listing available integration options with Configure buttons next to each](../images/integrations-tab.png)
+![Apify Integrations tab listing available integration options with Configure buttons next to each](../images/integrations-tab.svg)
 
 Head back to your task to finish the setup. Select the events you want to receive notifications for (run created, run succeeded, run failed, and so on), your workspace, and the channel for the notifications. You can use an ad-hoc channel to test. In the **Message** field, preview the default notification or craft a custom one. See [Custom message format](#custom-message-format) for the template syntax and the full list of available variables.
 
