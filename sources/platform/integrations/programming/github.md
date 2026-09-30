@@ -48,7 +48,6 @@ To link your new Actor with an existing GitHub repository:
 
     ![Pick a repository from GitHub step in the Actor creation process in Apify Console](../images/apify-git-repository.svg)
 
-
 Apify creates the Actor as soon as you select a repository, then links its source to the repository, and uses the default branch. For how to switch to a different branch, see [Git repository](/actors/development/deployment/source-types#git-repository).
 
 :::tip Private repositories
@@ -88,8 +87,9 @@ In such situation, to build your Actor automatically on every push, manually add
 
 1. In your GitHub repository, go to **Settings > Webhooks > Add webhook**.
 1. Paste the endpoint URL into **Payload URL** and set **Content type** to `application/json`.
+1. Save your changes.
 
-Once you save your changes, every push to the repository triggers a build of the linked Actor version.
+Every push to the repository now triggers a build of the linked Actor version.
 
 For automated tests and multi-branch workflows, such as separate `latest` and `beta` tags, see [Continuous integration for Actors](/actors/development/deployment/continuous-integration).
 
@@ -110,7 +110,7 @@ To automatically create issues when an Actor run fails, you need:
 1. In GitHub, open **Settings > Developer settings > Personal access tokens > Fine-grained tokens** and click **Generate new token**.
 1. Set **Repository access** to **Only select repositories** and pick the repository where you want issues to be created.
 1. Under **Repository permissions**, set **Issues** to **Read and write**.
-1. Generate the token and copy it. You'll paste it into the webhook headers in Step 3.
+1. Generate the token and copy it. You'll paste it into the webhook headers in step 3.
 
 :::warning Treat the token as a secret
 
