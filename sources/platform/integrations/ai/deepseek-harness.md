@@ -22,7 +22,7 @@ The [Apify plugin for DeepSeek Harness](https://www.npmjs.com/package/dsh-apify-
 - [An Apify account](https://console.apify.com/sign-up) - sign up for free if you don't have one.
 - [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) - installed locally, running Node.js `^22.19.0 || >=24.0.0`. Older versions fail with a `node:sqlite` error.
 - [pnpm](https://pnpm.io/installation) on your `PATH` - `dsh plugin` forwards its arguments to pnpm.
-- A model provider configured in `dsh` - see [Connect a model provider](#connect-a-model-provider).
+- A model provider API key - you add the provider after launch, see [Connect a model provider](#connect-a-model-provider).
 - [The Apify CLI](/cli/docs/installation) - required only for the Actor development, actorization, and ultimate scraper skills.
 
 :::note Most work needs no local CLI
@@ -98,7 +98,7 @@ On first launch, no workspace exists. Select **Add workspace** in the workspace 
 
 ## Connect a model provider
 
-`dsh` ships no model of its own. Open **Settings > Models**, select **Add provider**, choose your provider, and supply its API key. DeepSeek has a card there from the start; other providers you add yourself. Keys saved here live in `~/.dsh/.credentials.yaml` and take effect without a restart.
+`dsh` ships no model of its own. Open **Settings > Models**, select **Add provider**, choose your provider, and supply its API key. DeepSeek has a card there from the start; other providers you add yourself. Keys saved here live in `.credentials.yaml` in the harness home and take effect without a restart.
 
 For a model served on your own machine, such as LM Studio or Ollama, select **Add a custom provider** and enter the URL and port it listens on.
 
