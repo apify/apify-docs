@@ -20,7 +20,7 @@ The [Apify plugin for DeepSeek Harness](https://www.npmjs.com/package/dsh-apify-
 ## Prerequisites
 
 - [An Apify account](https://console.apify.com/sign-up) - sign up for free if you don't have one.
-- [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) - installed locally, running Node.js `^22.19.0 || >=24.0.0`. Older versions fail with a `node:sqlite` error.
+- [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) - installed locally, running Node.js `^22.19.0 || >=24.2.0`. On older versions, `dsh` exits without printing anything.
 - [pnpm](https://pnpm.io/installation) on your `PATH` - `dsh plugin` forwards its arguments to pnpm.
 - A model provider API key - you add the provider after launch, see [Connect a model provider](#connect-a-model-provider).
 - [The Apify CLI](/cli/docs/installation) - required only for the Actor development, actorization, and ultimate scraper skills.
@@ -98,9 +98,9 @@ On first launch, no workspace exists. Select **Add workspace** in the workspace 
 
 ## Connect a model provider
 
-`dsh` ships no model of its own. Open **Settings > Models**, select **Add provider**, choose your provider, and supply its API key. DeepSeek has a card there from the start; other providers you add yourself. Keys saved here live in `.credentials.yaml` in the harness home and take effect without a restart.
+`dsh` ships no model of its own. Open **Settings > Models**, select **Add model provider**, choose **Third-party model provider**, pick your provider, and enter its API key. DeepSeek has a card there from the start; other providers you add yourself. Keys saved here live in `.credentials.yaml` in the harness home and take effect without a restart.
 
-For a model served on your own machine, such as LM Studio or Ollama, select **Add a custom provider** and enter the URL and port it listens on.
+For a model served on your own machine, such as LM Studio or Ollama, select **Add model provider**, choose **Custom model API**, and enter its base URL, protocol, and models.
 
 To set a DeepSeek key before launch instead, put `DEEPSEEK_API_KEY` in the same `.env` file as `APIFY_TOKEN`.
 
@@ -147,12 +147,18 @@ npm install -g apify-cli
 
 ### Grant the Apify CLI file access
 
-The CLI keeps its credentials in `~/.apify/`, which sits outside the session workspace. Under the default `workspace-write` sandbox mode, `dsh` denies that path and every `apify` command fails with `EPERM`, even when the login itself is valid.
+The CLI keeps its credentials in `~/.apify/`, which sits outside the session workspace. Under the default `workspace-write` sandbox mode, `dsh` can deny the CLI access to that path, so commands that need your login fail with `EPERM` on macOS or `EACCES` on Linux, even when the login itself is valid.
 
 You have two ways to work around this:
 
 - Approve the escalation prompt that the agent raises when a command is denied. It applies to that one command.
 - Switch the session to **Full access** in the permission menu, which reads **Workspace Write** by default. You can switch at any point, and the change takes effect on the next command the agent runs.
+
+:::caution Both options lift the sandbox
+
+An approved escalation runs that command, and **Full access** runs every command, with unrestricted access to your whole system, not only `~/.apify/`. Use them only if you trust the model, or run `dsh` in a container or virtual machine.
+
+:::
 
 To change the default mode for new sessions, use **Settings > General > Permission**.
 
@@ -170,7 +176,7 @@ No `APIFY_TOKEN` was set when `dsh` started, so only the anonymous MCP tools loa
 
 The token is present but rejected. Check for stray quotes or trailing whitespace in the `.env` file, regenerate the token in [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations?utm_source=deepseek-harness&utm_medium=integrations) if needed, and restart the profile.
 
-### The `apify` command fails with `EPERM`
+### The `apify` command fails with `EPERM` or `EACCES`
 
 The sandbox is blocking `~/.apify/`, not your login, so running `apify login` again won't fix it. See [Grant the Apify CLI file access](#grant-the-apify-cli-file-access).
 
