@@ -46,9 +46,20 @@ In [Apify Console](https://console.apify.com), you can view your datasets in the
 
 To view or download a dataset:
 
-1. Click on its **Dataset ID** to open the dataset detail page.
+1. Select its **Dataset ID** to open the dataset detail page.
 1. Browse the data in **Table** or **JSON** view.
-1. Click **Export** to download the data in your preferred format.
+1. Select **Export**, choose a format, and select **Download**.
+
+To export only some fields, set these options in the export dialog before you select **Download**:
+
+- **Select fields** - Exports only the fields you list, in the order you list them. Leave it empty to export all fields.
+- **Omit fields** - Exports every field except the ones you list.
+
+Both dropdowns show the dataset's top-level fields. They can be incomplete if the dataset has more than 2,000 fields, counting nested ones. If a field is missing, type its name to add it. **Omit fields** also accepts a nested path such as `address.city`. **Select fields** ignores nested paths.
+
+If you add a field to both dropdowns, the Console shows an error, and the export leaves the field out. To check the result before you download, select **Preview**.
+
+These options set the `fields` and `omit` parameters described in [Apify API](#apify-api).
 
 To rename the dataset (which affects its [retention period](/storage#data-retention)) or adjust its [access rights](/account/collaboration), use the **Actions** menu. To view and test the dataset's [API endpoints](/api/v2/storage-datasets), select **API**.
 
@@ -82,13 +93,7 @@ To view a dataset's data, send a GET request to the [Get dataset items](/api/v2/
 https://api.apify.com/v2/datasets/{DATASET_ID}/items
 ```
 
-Control the data export by appending a comma-separated list of fields to the `fields` query parameter. Likewise, you can also omit certain fields using the `omit` parameter.
-
-:::note `omit` takes precedence
-
-If you fill both `omit` and `field` parameters with the same value, then `omit` parameter will take precedence and the field is excluded from the results.
-
-:::
+To return only some fields, pass a comma-separated list to the `fields` query parameter. To exclude fields, use the `omit` parameter. If you list a field in both, the API excludes it. `omit` also accepts nested paths such as `address.city`. `fields` accepts only top-level fields.
 
 In addition, you can set the format in which you retrieve the data using the `?format=` parameter. The available formats are `json`, `jsonl`, `csv`, `html`, `xlsx`, `xml` and `rss`. The default value is `json`.
 
@@ -146,11 +151,7 @@ const myDatasetClient = apifyClient.dataset('jane-doe/my-dataset');
 
 You can then use that variable to [access the dataset's items and manage it](/api/client/js/reference/class/DatasetClient).
 
-:::note `omit` takes precedence
-
-When using the [`.listItems()`](/api/client/js/reference/class/DatasetClient#listItems) method, if you fill both `omit` and `field` parameters with the same value, then `omit` parameter will take precedence and the field is excluded from the results.
-
-:::
+The [`.listItems()`](/api/client/js/reference/class/DatasetClient#listItems) method takes `fields` and `omit` as arrays and passes them to the [API](#apify-api), so the same rules apply.
 
 Check out the [JavaScript API client documentation](/api/client/js/reference/class/DatasetClient) for [help with setup](/api/client/js/docs) and more details.
 
@@ -166,11 +167,7 @@ my_dataset_client = apify_client.dataset('jane-doe/my-dataset')
 
 You can then use that variable to [access the dataset's items and manage it](/api/client/python/reference/class/DatasetClient).
 
-:::note `omit` takes precedence
-
-When using the [`.list_items()`](/api/client/python/reference/class/DatasetClient#list_items) method, if you fill both `omit` and `field` parameters with the same value, then `omit` parameter will take precedence and the field is excluded from the results.
-
-:::
+The [`.list_items()`](/api/client/python/reference/class/DatasetClient#list_items) method takes `fields` and `omit` as lists and passes them to the [API](#apify-api), so the same rules apply.
 
 Check out the [Python API client documentation](/api/client/python/reference/class/DatasetClient) for [help with setup](/api/client/python/docs/overview/introduction) and more details.
 
