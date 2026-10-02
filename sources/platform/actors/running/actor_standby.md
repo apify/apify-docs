@@ -91,16 +91,19 @@ The Standby configuration currently consists of the following properties:
 You can see these in the **Endpoints** tab of the Actor detail page. However, note that these properties are not configurable at the Actor level. If you wish to
 use the Actor-level hostname, this will always use the default configuration. To override this configuration, just create a new Task from the Actor.
 You can then head to the **Endpoints** tab of the created Task and modify the configuration as needed. Note that the task has a specific hostname, so make
-sure to use that in your application if you wish to use the custom configuration.
+sure to use that in your application if you wish to use the custom configuration. These task-based overrides apply to Standby Actors with separate runs for each user. Server Actors don't support tasks.
 
 ## Are the Standby runs billed differently
 
-No, the Standby runs are billed in the same fashion as the normal runs.
-However, running Actors in Standby mode might have unexpected costs, as the Actors run in the background and consume resources even when no requests are being sent until they are terminated after the idle timeout period.
+When each user has their own Standby runs, they pay for platform usage and any configured events. Runs consume resources even when no requests are being sent, until they stop after the idle timeout.
+
+For server Actors, callers pay for events. Platform usage for requests from paying users reduces the developer's payout, while Apify covers platform usage for requests from free users. When you call your own Actor directly, you pay for platform usage, while events only update statistics.
 
 ## Are the Standby runs shared among users
 
-No, even if you use the Actor-level hostname with the default configuration, the background Actor runs for your requests are not shared with other users.
+Server Actors share runs among users. Other Standby Actors keep runs separate for each user.
+
+If you develop a server Actor that calls other Actors, check how to [compose server Actors](../development/programming_interface/actor_standby.md#compose-server-actors).
 
 ## How can I develop Actors using Standby mode
 

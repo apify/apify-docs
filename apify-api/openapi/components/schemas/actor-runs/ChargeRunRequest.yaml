@@ -10,3 +10,7 @@ properties:
   count:
     type: integer
     examples: [1]
+  requestId:
+    type: string
+    description: |
+      When charging for a request to a server Actor, set this field to the `X-Actor-Request-ID` header value received by your Actor.

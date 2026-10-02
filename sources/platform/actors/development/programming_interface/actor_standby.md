@@ -205,4 +205,63 @@ Requests to the Standby URL require an Apify API token. See [how to authenticate
 
 You can monetize Standby Actors just like any other Actor.
 
-For best results with Standby workflows, use the [pay-per-event pricing model](/actors/publishing/monetize/pay-per-event). In this model, users cover both the platform usage costs of their runs, as well as the event costs.
+For best results with Standby workflows, use the [pay-per-event pricing model](/actors/publishing/monetize/pay-per-event). When each user has their own Standby runs, they cover both the platform usage costs of their runs and the event costs.
+
+Server Actors must use pay-per-event pricing. They share runs among users, and callers pay for events. Platform usage for requests from paying users reduces the developer's payout, while Apify covers platform usage for requests from free users. When you call your own Actor directly, you pay for platform usage, while events only update statistics.
+
+## Server Actor request billing
+
+These instructions apply to Actors already configured as server Actors. Enabling Standby mode alone doesn't enable server Actor billing.
+
+A server Actor run belongs to the Actor's developer, but each request can come from a different user. Apify provides an `X-Actor-Request-ID` header with a new ID for every request it forwards to your Actor.
+
+### Charge requests
+
+When your Actor receives a request, read its `X-Actor-Request-ID` header. To charge that request, copy the header's value into the JSON body's `requestId` field when calling the [charge events endpoint](/api/v2/post-charge-run). Authenticate with the current run's `APIFY_TOKEN` and use its `ACTOR_RUN_ID` in the endpoint path.
+
+```json
+{
+    "eventName": "result",
+    "count": 1,
+    "requestId": "INCOMING_REQUEST_ID"
+}
+```
+
+Replace `result` with a [custom event](/actors/publishing/monetize/pay-per-event#custom-events) configured in your Actor. Automatic Actor-start and dataset-item events don't charge server Actor requests, so call the charge endpoint explicitly for each billable event. Include an `idempotency-key` header for each charge, as described in the endpoint reference.
+
+### Compose server Actors
+
+When your server Actor calls another server Actor, send the request to the [receiving Actor's URL](#get-the-url-of-the-standby-actor). Authenticate with your current run's `APIFY_TOKEN`, rather than a personal API token. This identifies which Actor run made the call.
+
+Forward your incoming `X-Actor-Request-ID` in the outgoing request's header with the same name to preserve your incoming request's pricing tier. This forwarded ID is the _parent request ID_. The pricing tier selects the corresponding event prices configured by the receiving Actor. There is no `parentRequestId` body or run-start parameter; use the header.
+
+For example, call this helper from your HTTP request handler. Pass the receiving Actor's URL as `actorUrl` and the incoming header as `parentRequestId`:
+
+```js
+async function callDownstreamActor(actorUrl, parentRequestId) {
+    const headers = {
+        Authorization: `Bearer ${process.env.APIFY_TOKEN}`,
+    };
+    if (parentRequestId !== undefined) {
+        headers['X-Actor-Request-ID'] = parentRequestId;
+    }
+
+    const response = await fetch(actorUrl, { headers });
+    if (!response.ok) {
+        throw new Error(`Downstream Actor returned HTTP ${response.status}`);
+    }
+    return response.text();
+}
+```
+
+In a Node.js HTTP handler, read the parent ID from `req.headers['x-actor-request-id']`.
+
+Forwarding the parent ID is optional. Without it, the called Actor's event pricing uses the calling developer's pricing tier instead of the tier from the parent request. Omitting the parent ID doesn't change who pays for the call.
+
+Apify creates a new request ID for the receiving Actor, even when you forward a parent ID. The receiving Actor charges events with its own incoming ID and forwards that ID if it calls another Actor.
+
+When an Actor calls another Actor to handle a paying user's request, the called Actor's event charges reduce the calling Actor's payout. Requests from free users don't generate developer payouts or payout deductions.
+
+When you call your own Actor directly and it calls another developer's Actor, those event charges use your account. If both Actors belong to you, the events only update statistics.
+
+Custom event prices set for the calling developer still apply, even when the pricing tier comes from the parent request.
