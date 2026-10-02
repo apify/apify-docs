@@ -1,7 +1,7 @@
 ---
 title: Using examples as a spec for AI
 description: Improve your Apify scraper by adding automated tests with real-world examples that an AI agent can use as a spec.
-slug: /scraping-with-apify-and-ai/tests-driven-prompting
+slug: /scraping-with-ai/tests-driven-prompting
 unlisted: true
 ---
 

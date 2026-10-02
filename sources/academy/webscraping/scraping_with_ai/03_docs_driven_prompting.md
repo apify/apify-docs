@@ -1,7 +1,7 @@
 ---
 title: Using docs as a spec for AI
 description: Improve your Apify scraper by documenting its behavior first and letting an AI agent follow the documentation as a practical spec.
-slug: /scraping-with-apify-and-ai/docs-driven-prompting
+slug: /scraping-with-ai/docs-driven-prompting
 unlisted: true
 ---
 
