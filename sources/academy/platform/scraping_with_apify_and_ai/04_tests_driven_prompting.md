@@ -41,9 +41,8 @@ _Red-green test-driven development_, often shortened to TDD, means that whenever
 
 Now let's send this prompt to the AI agent:
 
-```text
-Read the Testing section in README and set up a test suite
-covering the behavior we already have.
+```prompt title="Set up test suite prompt"
+Read the Testing section in README and set up a test suite covering the behavior we already have.
 ```
 
 When the AI agent gets to work, you should see it create a new directory called `tests`. To create an HTML snapshot of the Sales listing, it'll probably use `curl`, a command-line program for downloading files.
@@ -108,9 +107,8 @@ Let's save the README and prepare a prompt for the AI agent. We'll tell it which
 
 It's best to focus each fixture on a single situation. Our findings give us five snapshots, although some will contain the same HTML:
 
-```text
-Read the new Variants handling section and change
-the project accordingly. Use red-green TDD. Fixtures:
+```prompt title="Handle variants prompt"
+Read the new Variants handling section and change the project accordingly. Use red-green TDD. Fixtures:
 
 one-price-no-variants.html
 https://warehouse-theme-metal.myshopify.com/products/sony-sacs9-10-inch-active-subwoofer
