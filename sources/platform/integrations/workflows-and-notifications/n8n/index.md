@@ -161,8 +161,9 @@ The Apify node provides a range of operations for managing Actors, tasks, runs, 
 Run and manage Actors directly.
 
 - **Run Actor**: Starts a specified Actor with customizable parameters
-- **Scrape Single URL**: Runs a scraper for a specified website and returns its content
+- **Web Fetch**: Runs the [Web Fetch](https://apify.com/apify/web-fetch) Actor to fetch a single URL and return its content as Markdown, HTML, text, links, or raw. Requires `@apify/n8n-nodes-apify` v0.8.0 or later
 - **Get Last Run**: Retrieve metadata for the most recent run of an Actor
+- **(Deprecated) Scrape Single URL**: Runs a scraper for a specified website and returns its content. Use **Web Fetch** instead
 
 ### Actor Tasks
 
