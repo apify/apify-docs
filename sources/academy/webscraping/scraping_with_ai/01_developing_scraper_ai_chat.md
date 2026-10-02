@@ -2,7 +2,6 @@
 title: Developing a scraper with AI chat
 description: Use ChatGPT and Apify to build a price-tracking web scraper with no coding knowledge. Learn how AI-generated code runs automatically in the cloud.
 slug: /scraping-with-ai/developing-scraper-with-ai-chat
-unlisted: true
 ---
 
 **In this lesson, we'll use ChatGPT and the Apify platform to create an app for tracking prices on an e-commerce website.**
