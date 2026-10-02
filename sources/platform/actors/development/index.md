@@ -38,6 +38,11 @@ import CardGrid from "@site/src/components/CardGrid";
         desc="Learn about the programming interface of Apify Actors, important commands and features provided by the Apify SDK, and how to use them in your Actors."
     />
     <Card
+        title="Local runtime"
+        to="/actors/development/local-runtime"
+        desc="Run a local Apify platform in one container and push, run, and debug your Actors there with the same CLI commands, at no cost."
+    />
+    <Card
         title="Deployment"
         to="/actors/development/deployment"
         desc="Learn how to deploy your Actors to the Apify platform and build them."
