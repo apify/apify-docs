@@ -120,22 +120,6 @@ curl -s "https://agi.apify.com/prepaid-tokens/balance" -H "Authorization: Bearer
 # → {"remainingBalanceUsd":5,"expiresAt":"..."}
 ```
 
-## Errors and retries
-
-Errors return a JSON body with an `error` object that holds `type` and `message`. The key statuses:
-
-| Status | `type` | Meaning | What to do |
-| --- | --- | --- | --- |
-| `202` | `payment-pending` | The payment was received, but the token isn't minted yet. | Retry shortly with the same credential. |
-| `400` | `amount-mismatch` | `amount` differs from the signed amount. Apify AGI broadcast nothing. | Request the amount you signed. |
-| `402` | - | No credential, or a malformed, expired, or below-minimum one. The body holds fresh challenges. | Pay one of the new challenges. |
-| `402` | `payment-failed` | Apify AGI rejected the payment. The money didn't move. | Read `message`, fix the cause, and start a new payment. |
-| `409` | `settlement-in-progress` | Another request is settling this payment. | Retry shortly with the same credential. |
-| `409` | `payment-already-used` | This transaction was already used for a payment. | Pay a new challenge. |
-| `502` | `facilitator-error`, `internal-api-error` | Payment verification or the account service is temporarily unavailable. | Retry with the same credential. |
-
-Retrying with the exact credential you sent first is safe: it returns the same token, never a second one, until the challenge expires about 5 minutes after issue.
-
 ## Token pricing and limits
 
 - The smallest token you can buy is $1.
