@@ -1,6 +1,7 @@
 ---
 title: Apify plugin for AI coding agents
 sidebar_label: Plugin
+subtitle: One-command setup for Apify in your AI agent
 description: Install the Apify plugin to give your coding agent the MCP server, Agent Skills, and a routing agent in one step. Pick your agent to get its commands.
 sidebar_position: 1
 slug: /agent-tools/plugin
@@ -13,7 +14,19 @@ The Apify plugin is the shortest way to connect a coding agent to Apify. One ins
 
 Apify maintains a separate plugin for each agent, because each agent has its own plugin format and install flow. Check [what your agent gets](#coverage-by-agent), then follow its [install steps](#install).
 
-## What a plugin bundles
+## Why use the plugin
+
+A plugin is a package of extensions for an AI coding agent. Depending on the agent, one plugin can bundle any mix of:
+
+- _MCP servers_ - Connections that let the agent call an external service, such as Apify
+- _Agent Skills_ - Instructions the agent loads on demand for a specific workflow
+- _Subagents_ - Specialized agents with their own instructions and tool access
+- _Hooks_ - Scripts that run at set points in the agent's lifecycle, such as before a tool call
+- _Slash commands_ - Shortcuts you run directly in the chat
+
+The Apify plugin bundles the MCP server and Agent Skills, so one install sets up both. You can still install them separately if you prefer. Depending on the agent, you install the plugin for all your projects or for a single project.
+
+## What's included
 
 Most plugins bundle three parts:
 
@@ -229,21 +242,6 @@ There's no Apify guide for Kilo Code yet, so check the [plugin README](https://g
 </Tabs>
 
 Plugins that use the MCP server sign in through OAuth and keep the connection for future sessions. You can revoke access at any time in [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations). The OpenClaw, Hermes Agent, and Kilo Code plugins use an Apify API token instead.
-
-## Plugin or the parts separately
-
-Installing the MCP server and Agent Skills yourself gives you roughly the same capability as the plugin, with two differences:
-
-- You maintain the MCP configuration and the skill versions yourself. The plugin ships both together.
-- You don't get the `apify` routing agent, so prompts have to name tools or skills more explicitly.
-
-Choose the separate route when your agent has no plugin, when you need a narrower [tool selection](/agent-tools/mcp#tool-selection) than the plugin ships with, or when you're wiring Apify into an agent framework rather than a coding agent.
-
-## Limitations
-
-- Long-running Actors can exceed the time a single tool call waits for completion. Reduce the scope or split the work across prompts.
-- Each Actor run consumes Apify platform usage on top of your agent's own usage. Check [billing](/account/billing) for details.
-- Skills that edit files, meaning Actor development, actorization, and application integration, make local changes. Review them before you commit or deploy.
 
 ## Related resources
 
