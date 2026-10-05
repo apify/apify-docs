@@ -13,3 +13,10 @@
         align-items: flex-start;
     }
 }
+
+.subtitle {
+    margin-top: calc(-0.5 * var(--ifm-leading));
+    font-size: 1.25rem;
+    line-height: 1.5;
+    color: var(--ifm-color-emphasis-700);
+}
