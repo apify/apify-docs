@@ -4,6 +4,10 @@ properties:
   bio:
     type: [string, "null"]
     examples: [I started web scraping in 1985 using Altair BASIC.]
+  readme:
+    type: [string, "null"]
+    description: Markdown README shown on the user's public profile page.
+    examples: ["### Hello world 👋🏻\nI build web scrapers."]
   name:
     type: string
     examples: [Jane Doe]
