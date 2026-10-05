@@ -106,9 +106,9 @@ Available skills include:
 | Skill | Description |
 | --- | --- |
 | `apify-ultimate-scraper` | Universal scraper for 55+ platforms - Instagram, TikTok, Google Maps, Amazon, and more |
-| `apify-actor-development` | Full Actor lifecycle: template selection, development, testing, and deployment |
+| `apify-actor-development` | Full Actor lifecycle: template selection, development, input and output schemas, testing, and deployment |
 | `apify-actorization` | Converts existing projects into Apify Actors |
-| `apify-generate-output-schema` | Generates dataset and key-value store schemas from Actor source code |
+| `apify-generate-output-schema` | Deprecated - use `apify-actor-development` instead |
 | `apify-integration-development` | Builds an official Apify integration for another product: workflow-automation apps, agent plugins, AI framework packages, or `apify-client` application code |
 
 ### Import a skill from GitHub

@@ -91,11 +91,8 @@ The pattern is the same across every integration method: pick an Actor, send inp
 When an agent calls Actors automatically, set run limits to prevent surprise bills. Pass these as query parameters on the [run Actor endpoint](/api/v2/actors-runs-post):
 
 - `maxTotalChargeUsd` - cap the total amount charged for the run. Works for all pricing models.
-- `maxItems` - cap the number of billed dataset items. Pay-per-result Actors only.
 - `timeout` (seconds) - cap how long a single run can last.
-- `memory` (MB) - power of 2, minimum 128. Lower memory means lower cost per second.
-
-Over MCP, pass the same caps in the `callOptions` argument of `call-actor`. Never put them in the Actor input, where they are ignored or rejected.
+- `memory` (MB) - set memory as a power of 2, minimum 128. Lower memory means lower cost per second.
 
 See [Usage and resources](/actors/running/usage-and-resources) and [Billing](/account/billing) for details.
 
@@ -120,7 +117,7 @@ The MCP server's `search-actors`, `fetch-actor-details`, and docs tools work wit
 
 :::
 
-Works with Claude Code, Claude Desktop, Cursor, VS Code, GitHub Copilot, and other remote-capable clients.
+To connect a client that supports remote MCP servers, such as Claude Code, Cursor, VS Code, or GitHub Copilot, to `https://mcp.apify.com`:
 
 1. Add the following to your MCP client's configuration:
 
@@ -136,7 +133,11 @@ Works with Claude Code, Claude Desktop, Cursor, VS Code, GitHub Copilot, and oth
 
 1. Restart your client and sign in when prompted. OAuth handles authentication automatically.
 
-For client-specific steps, use the [MCP Configurator](https://mcp.apify.com), which generates ready-to-paste configs. For a client that supports only local MCP servers, tool selection, and Bearer token authentication, see the [MCP server documentation](/integrations/mcp).
+Claude Desktop doesn't accept a remote server URL in its configuration file. Add `https://mcp.apify.com` as a custom connector instead, as described in the [Claude Desktop integration guide](/integrations/claude-desktop).
+
+For client-specific steps, use the [MCP Configurator](https://mcp.apify.com), which generates ready-to-paste configs. The [MCP server documentation](/integrations/mcp) also covers [running the server locally](/integrations/mcp#local-stdio), [tool selection](/integrations/mcp#tool-selection), and [Bearer token authentication](/integrations/mcp#streamable-http-with-oauth-recommended).
+
+To cap runs that your agent starts over MCP, pass `maxTotalChargeUsd`, `timeout`, or `memory` in the `callOptions` argument of [`call-actor`](/integrations/mcp#available-tools). Fields with these names in the Actor `input` don't cap the run. The Actor's input schema decides how it handles them.
 
 ### API client
 
@@ -261,10 +262,10 @@ npx skills add apify/agent-skills
 | Skill | What it does |
 | :--- | :--- |
 | `apify-ultimate-scraper` | Routes web scraping requests to the right Actor for multi-step data pipelines |
-| `apify-actor-development` | Guided workflow for building and deploying custom Actors |
+| `apify-actor-development` | Guided workflow for building and deploying custom Actors, including their input and output schemas |
 | `apify-actorization` | Converts an existing project into an Apify Actor |
-| `apify-generate-output-schema` | Auto-generates output schemas from Actor source code |
-| `apify-integration-development` | Builds an official Apify integration for another product: workflow-automation apps, agent plugins, AI framework packages, or `apify-client` application code |
+| `apify-generate-output-schema` | Deprecated - use `apify-actor-development` instead |
+| `apify-integration-development` | Builds an official Apify integration for another product, such as an automation app, agent plugin, or AI framework |
 
 For the full list and details, see the [skills registry](https://skills.sh/apify/agent-skills).
 
