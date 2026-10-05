@@ -1,6 +1,7 @@
 ---
 title: Apify MCP server
 sidebar_label: MCP server
+subtitle: Connect any MCP client to Apify
 description: Learn how to use the Apify MCP server to integrate Apify's library of Actors into your AI agents or large language model-based applications.
 sidebar_position: 2
 slug: /agent-tools/mcp
@@ -110,132 +111,7 @@ Replace `<APIFY_TOKEN>` with your actual Apify API token from the [API & Integra
 </TabItem>
 </Tabs>
 
-:::tip Quick setup options
-
-_MCP server configuration for other clients_: Use the [UI configuration tool](https://mcp.apify.com/) to select Actors and tools, then copy the configuration to your client.
-
-:::
-
-#### Client configuration
-
-Here's how to add the Apify MCP server to popular text editors and AI assistants:
-
-<Tabs>
-<TabItem value="cursor" label="Cursor">
-
-:::tip One-click installation
-
-The [Apify UI configurator](https://mcp.apify.com/) offers a one-click install button for Cursor that automatically applies the configuration to your client.
-
-:::
-
-To add Apify MCP server to Cursor manually:
-
-1. Create or open the `.cursor/mcp.json` file.
-1. Add the following to the configuration file:
-
-    ```json
-    {
-      "mcpServers": {
-        "apify": {
-          "url": "https://mcp.apify.com"
-        }
-      }
-    }
-    ```
-
-    To use a bearer token instead of signing in, add an `Authorization` header with your [Apify API token](https://console.apify.com/settings/integrations):
-
-    ```json
-    {
-      "mcpServers": {
-        "apify": {
-          "url": "https://mcp.apify.com",
-          "headers": {
-            "Authorization": "Bearer <APIFY_TOKEN>"
-          }
-        }
-      }
-    }
-    ```
-
-</TabItem>
-<TabItem value="vscode" label="VS Code">
-
-:::tip One-click installation
-
-The [Apify UI configurator](https://mcp.apify.com/) offers a one-click install button for VS Code that automatically applies the configuration to your client.
-
-:::
-
-VS Code supports MCP through GitHub Copilot's agent mode (requires Copilot subscription):
-
-1. Ensure you have GitHub Copilot installed
-1. Open Command Palette (<kbd>CMD</kbd>/<kbd>CTRL</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>) and run _MCP: Open User Configuration_ command.
-   - This will open `mcp.json` file in your user profile. If the file does not exist, VS Code creates it for you.
-1. Add the following to the configuration file:
-
-    ```json
-    {
-      "mcpServers": {
-        "apify": {
-          "url": "https://mcp.apify.com"
-        }
-      }
-    }
-    ```
-
-    To use a bearer token instead of signing in, add an `Authorization` header with your [Apify API token](https://console.apify.com/settings/integrations):
-
-    ```json
-    {
-      "mcpServers": {
-        "apify": {
-          "url": "https://mcp.apify.com",
-          "headers": {
-            "Authorization": "Bearer <APIFY_TOKEN>"
-          }
-        }
-      }
-    }
-    ```
-
-</TabItem>
-<TabItem value="claude-desktop" label="Claude Desktop">
-
-[Add a custom connector](https://support.claude.com/en/articles/11175166) in Claude Desktop and use `https://mcp.apify.com` as the server URL. On first connection, your browser opens to sign in to Apify and authorize the connection.
-
-You can also search for "Apify" in the connector directory and install it directly.
-
-For detailed setup options and troubleshooting, see the [Claude Desktop integration guide](/integrations/claude-desktop).
-
-</TabItem>
-<TabItem value="apify-cli" label="Apify CLI">
-
-Use the Apify CLI to add the Apify MCP server to a supported local client:
-
-```bash
-apify mcp install cursor
-```
-
-Available clients are: `claude-code`, `cursor`, `vscode`, `vscode-insiders`, `codex`, `kiro`, and `antigravity`.
-
-The command creates or updates a user-level MCP server entry named `apify`. For Cursor, Kiro, and Antigravity, it writes to the client's MCP config file. For Claude Code, VS Code, VS Code Insiders, and Codex CLI, it uses the client's own install command.
-
-By default, the command uses the API token saved by `apify login`. To use a different token or Apify account than the one configured in the Apify CLI, pass `--token <APIFY_TOKEN>`:
-
-```bash
-apify mcp install cursor --token <APIFY_TOKEN>
-```
-
-Use `--tools` to expose only selected tools or Actors:
-
-```bash
-apify mcp install vscode --tools search-actors,apify/rag-web-browser
-```
-
-</TabItem>
-</Tabs>
+For a client-specific configuration, use the [MCP configurator](https://mcp.apify.com/): pick the Actors and tools you need, then copy the generated configuration into your client. If you use the [Apify CLI](/cli), `apify mcp install <client>` writes the configuration for you, for example `apify mcp install cursor`.
 
 ### Local stdio
 
@@ -340,17 +216,6 @@ Whenever `call-actor` or a specific Actor tool such as `apify--rag-web-browser` 
 #### Find and call any Actor on demand
 
 Your AI can search Apify Store for relevant Actors using the `search-actors` tool, inspect Actor details to understand required inputs, and call any Actor by name using `call-actor` - without needing to pre-configure it. This means your AI can adapt to new tasks without manual configuration.
-
-## Agentic payments
-
-Agentic payments allow AI agents to autonomously pay for Actor runs without requiring an Apify API token:
-
-- [AGI](/integrations/x402) - buy a prepaid Apify API token from [Apify AGI](https://agi.apify.com) with an x402 or MPP payment, then use it against this MCP server or the Apify API directly. Recommended for most agents - works for any Actor, not just Pay Per Event ones.
-- [Skyfire](/integrations/skyfire) - managed payment tokens through the [Skyfire](https://www.skyfire.xyz/) payment platform.
-
-The MCP server also has its own Direct x402 support (per-request, no minted token, Pay Per Event Actors only) via [`mcpc`](https://github.com/apify/mcp-cli) - see the [Apify MCP Server README](https://github.com/apify/apify-mcp-server#-agentic-payments) for setup.
-
-For setup instructions and details, see the individual integration pages.
 
 ## Telemetry
 
