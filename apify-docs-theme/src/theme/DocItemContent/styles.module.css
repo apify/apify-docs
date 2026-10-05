@@ -16,7 +16,8 @@
 
 .subtitle {
     margin-top: calc(-0.5 * var(--ifm-leading));
-    font-size: 1.25rem;
+    /* em, not rem: this theme sets 1rem to 10px */
+    font-size: 1.25em;
     line-height: 1.5;
     color: var(--ifm-color-emphasis-700);
 }
