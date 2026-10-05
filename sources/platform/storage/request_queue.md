@@ -1,6 +1,6 @@
 ---
 title: Request queue
-description: Queue URLs for an Actor to visit in its run. Learn how to share your queues between Actor runs. Access and manage request queues from Apify Console or via API.
+description: Queue URLs for an Actor to visit in its run. Add requests in batches, lock them across runs, and manage request queues from Apify Console or via API.
 toc_max_heading_level: 4
 sidebar_position: 9.4
 slug: /storage/request-queue
@@ -9,13 +9,13 @@ slug: /storage/request-queue
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Request queues enable you to enqueue and retrieve requests such as URLs with an [HTTP method](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) and other parameters. They prove essential not only in web crawling scenarios but also in any situation requiring the management of a large number of URLs and the addition of new links.
+Request queues store URLs to process, each with an [HTTP method](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) and other parameters. They're built for web crawling and for any workload that manages a large list of URLs that grows as it's processed.
 
-The storage system for request queues accommodates both breadth-first and depth-first crawling strategies, along with the inclusion of custom data attributes. This system enables you to check if certain URLs have already been encountered, add new URLs to the queue, and retrieve the next set of URLs for processing.
+A request queue supports breadth-first and depth-first crawling and custom data attributes. It lets you check whether a URL was already encountered, add new URLs, and fetch the next URL to process.
 
 :::info Retention period
 
-Named request queues are retained indefinitely. Unnamed request queues expire after 7 days unless otherwise specified. [Learn more](/storage#named-and-unnamed-storages)
+Named request queues are retained indefinitely. Unnamed request queues expire after 7 days unless otherwise specified. [Learn more](/storage#data-retention)
 
 :::
 
@@ -25,27 +25,24 @@ Named request queues are retained indefinitely. Unnamed request queues expire af
 
 You can access your request queues in several ways:
 
-- [Apify Console](https://console.apify.com) - provides an easy-to-understand interface.
+- [Apify Console](https://console.apify.com) - view and manage your request queues in a visual interface.
 - [Apify API](/api/v2) - for accessing your request queues programmatically.
-- [Apify API clients](/api) - to access your request queues from any Node.js application.
-- [Apify SDK](/sdk) - when building your own JavaScript Actor.
+- [Apify API clients](/api) - to access your request queues from any Node.js/Python application.
+- [Apify SDKs](/sdk) - when building your own JavaScript/Python Actor.
 
 ### Apify Console
 
 In the [Apify Console](https://console.apify.com), you can view your request queues in the [Storage](https://console.apify.com/storage) section under the [Request queues](https://console.apify.com/storage?tab=requestQueues) tab.
 
-![Request queues in app](./images/request-queue-app.png)
+![Request queues in Apify Console](./images/storage-types-rq.svg)
 
 To view a request queue, click on its **Queue ID**.
-Under the **Actions** menu, you can rename your queue's name (and, in turn, its
-[retention period](/storage#named-and-unnamed-storages)) and [access rights](/account/collaboration) using the **Share** button.
-Click on the **API** button to view and test a queue's [API endpoints](/api/v2/storage-request-queues).
-
-![Request queues detail](./images/request-queue-detail.png)
+Under the **Actions** menu, you can rename your queue (which affects its [retention period](/storage#named-and-unnamed-storages)) and grant [access rights](/account/collaboration) using the **Share** button.
+To view and test a queue's [API endpoints](/api/v2/storage-request-queues), select **API**.
 
 ### Apify API
 
-The [Apify API](/api/v2/storage-request-queues) allows you programmatic access to your request queues using [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
+The [Apify API](/api/v2/storage-request-queues) gives you programmatic access to your request queues using [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
 
 If you are accessing your request queues using the `username~store-name` [store ID format](./index.md), you will need to use your secret API token. You can find the token (and your user ID) on the [API & Integrations](https://console.apify.com/settings/integrations) page of your Apify account.
 
@@ -108,21 +105,23 @@ Example payload:
 
 :::note `clientKey` parameter
 
-When adding or updating requests, you can optionally provide a `clientKey` parameter to your request. It must be a string between 1 and 32 characters in length. This identifier is used to determine whether the queue was accessed by [multiple clients](#sharing). If `clientKey` is not provided, the system considers this API call to come from a new client. See the `hadMultipleClients` field returned by the [`Get head`](/api/v2/request-queue-head-get) operation for details.
+When adding or updating requests, you can optionally provide a `clientKey` parameter to your request. It must be a string between 1 and 32 characters in length. This identifier is used to determine whether the queue was accessed by [multiple clients](./use-from-another-run.md). If `clientKey` is not provided, the system considers this API call to come from a new client. See the `hadMultipleClients` field returned by the [`Get head`](/api/v2/request-queue-head-get) operation for details.
 
 Example: `client-abc`
 
 :::
 
-For further details and a breakdown of each storage API endpoint, refer to the [API documentation](/api/v2/storage-key-value-stores).
+For further details and a breakdown of each storage API endpoint, refer to the [API documentation](/api/v2/storage-request-queues).
 
 ### Apify API Clients
 
+Apify provides API clients for JavaScript and Python applications.
+
 #### JavaScript API client
 
-The Apify [JavaScript API client](/api/client/js/reference/class/RequestQueueClient) (`apify-client`) enables you to access your request queues from any Node.js application, whether it is running on the Apify platform or externally.
+With the Apify [JavaScript API client](/api/client/js/reference/class/RequestQueueClient) (`apify-client`), you can access your request queues from any Node.js application, whether it's running on the Apify platform or externally.
 
-After importing and initiating the client, you can save each request queue to a variable for easier access.
+After importing and initializing the client, you can save each request queue to a variable for easier access.
 
 ```js
 const myQueueClient = apifyClient.requestQueue('jane-doe/my-request-queue');
@@ -134,9 +133,9 @@ Check out the [JavaScript API client documentation](/api/client/js/reference/cla
 
 #### Python API client
 
-The Apify [Python API client](/api/client/python) (`apify-client`) allows you to access your request queues from any Python application, whether it's running on the Apify platform or externally.
+With the Apify [Python API client](/api/client/python) (`apify-client`), you can access your request queues from any Python application, whether it's running on the Apify platform or externally.
 
-After importing and initiating the client, you can save each request queue to a variable for easier access.
+After importing and initializing the client, you can save each request queue to a variable for easier access.
 
 ```python
 my_queue_client = apify_client.request_queue('jane-doe/my-request-queue')
@@ -148,13 +147,13 @@ Check out the [Python API client documentation](/api/client/python/reference/cla
 
 ### Apify SDKs
 
+Apify provides SDKs for JavaScript and Python Actors.
+
 #### JavaScript SDK
 
-When working with a JavaScript [Actor](../actors/index.mdx), the [JavaScript SDK](/sdk/js/docs/guides/request-storage#request-queue) is an essential tool, especially for request queue management. The primary class for this purpose is the [`RequestQueue`](/sdk/js/reference/class/RequestQueue) class. Use this class to decide whether your data is stored locally or in the Apify cloud.
+In JavaScript [Actors](../actors/index.mdx), manage request queues with the JavaScript SDK's [`RequestQueue`](/sdk/js/reference/class/RequestQueue) class. It works both locally and on the Apify platform. To add URLs to the queue, use [`addRequests()`](/sdk/js/reference/class/RequestQueue#addRequests).
 
-If you are building a JavaScript [Actor](../actors/index.mdx), you will be using the [JavaScript SDK](/sdk/js/docs/guides/request-storage#request-queue). The request queue is represented by a [`RequestQueue`](/sdk/js/reference/class/RequestQueue) class. You can use the class to specify whether your data is stored locally or in the Apify cloud and [enqueue new URLs](/sdk/js/reference/class/RequestQueue#addRequests).
-
-Every Actor run is automatically linked with a default request queue, initiated upon adding the first request. This queue is primarily utilized for storing URLs to be crawled during the particular Actor run, though its use is not mandatory. For enhanced flexibility, you can establish named queues. These named queues offer the advantage of being shareable across different Actors or various Actor runs, facilitating a more interconnected and efficient process.
+Every Actor run gets a default request queue, created when the first request is added. The run typically uses it to store the URLs it crawls, but doesn't have to. You can also create named queues and share them between Actors or runs.
 
 If you are storing your data locally, you can find your request queue at the following location.
 
@@ -223,9 +222,9 @@ Check out the [JavaScript SDK documentation](/sdk/js/docs/guides/request-storage
 
 #### Python SDK
 
-For Python [Actor](../actors/index.mdx) development, the [Python SDK](/sdk/python/docs/concepts/storages#working-with-request-queues) the in essential. The request queue is represented by [`RequestQueue`](/sdk/python/reference/class/RequestQueue) class. Utilize this class to determine whether your data is stored locally or in the Apify cloud. For managing your data, it provides the capability to [enqueue new URLs](/sdk/python/reference/class/RequestQueue#add_requests), facilitating seamless integration and operation within your Actor.
+In Python [Actors](../actors/index.mdx), manage request queues with the Python SDK's [`RequestQueue`](/sdk/python/reference/class/RequestQueue) class. It works both locally and on the Apify platform. To add URLs to the queue, use [`add_requests()`](/sdk/python/reference/class/RequestQueue#add_requests).
 
-Every Actor run is automatically connected to a default request queue, established specifically for that run upon the addition of the first request. If you're operating your Actors and choose to utilize this queue, it typically serves to store URLs for crawling in the respective Actor run, though its use is not mandatory. To extend functionality, you have the option to create named queue, which offer the flexibility to be shared among different Actors or across multiple Actor runs.
+Every Actor run gets a default request queue, created when the first request is added. The run typically uses it to store the URLs it crawls, but doesn't have to. You can also create named queues and share them between Actors or runs.
 
 If you are storing your data locally, you can find your request queue at the following location.
 
@@ -262,9 +261,9 @@ async def main():
         queue: RequestQueue = await Actor.open_request_queue()
 
         # Enqueue requests
-        await queue.add_request(request={'url': 'http:#example.com/aaa'})
-        await queue.add_request(request={'url': 'http:#example.com/foo'})
-        await queue.add_request(request={'url': 'http:#example.com/bar'}, forefront=True)
+        await queue.add_request(request={'url': 'http://example.com/aaa'})
+        await queue.add_request(request={'url': 'http://example.com/foo'})
+        await queue.add_request(request={'url': 'http://example.com/bar'}, forefront=True)
 
         # Get the next requests from queue
         request1 = await queue.fetch_next_request()
@@ -284,19 +283,15 @@ Check out the [Python SDK documentation](/sdk/python/docs/concepts/storages#work
 
 ## Features
 
-Request queue is a storage type built with scraping in mind, enabling developers to write scraping logic efficiently and scalably.
-The Apify tooling, including [Crawlee](https://crawlee.dev/), [Apify SDK for JavaScript](https://docs.apify.com/sdk/js/), and [Apify SDK for Python](https://docs.apify.com/sdk/python/), incorporates all these features, enabling users to leverage them effortlessly without extra configuration.
-
-The following sections cover each of the main features in depth.
+Request queues are built for scraping workloads. The following sections cover the main features; [Crawlee](https://crawlee.dev/), the [Apify SDK for JavaScript](https://docs.apify.com/sdk/js/), and the [Apify SDK for Python](https://docs.apify.com/sdk/python/) support all of them without extra configuration.
 
 ### Persistence and retention
 
-Request queues prioritize persistence, ensuring indefinite retention of your requests in named request queues, and for the data retention period in your subscription in unnamed request queues.
-This capability facilitates incremental crawling, where you can append new URLs to the queue and resume from where you stopped in subsequent Actor runs.
-Consider the scenario of scraping an e-commerce website with thousands of products. Incremental scraping allows you to scrape only the products
-added since the last product discovery.
+Named request queues retain requests indefinitely; unnamed queues follow your subscription's data retention period.
+This enables incremental crawling: append new URLs to the queue and resume from where you stopped in subsequent Actor runs.
+For example, when scraping an e-commerce website with thousands of products, you can scrape only the products added since the last product discovery.
 
-In the following code example, we demonstrate how to use the Apify SDK and Crawlee to create an incremental crawler that saves the title of each new found page in Apify Docs to a dataset.
+The following code example uses the Apify SDK and Crawlee to create an incremental crawler that saves the title of each new page found in Apify Docs to a dataset.
 By running this Actor multiple times, you can incrementally crawl the source website and save only pages added since the last crawl, as reusing a single request queue ensures that only URLs not yet visited are processed.
 
 ```ts
@@ -413,7 +408,7 @@ request_queue_client.batch_delete_requests([
 Request queue includes a locking mechanism to avoid concurrent processing of one request by multiple clients (for example Actor runs).
 You can lock a request so that no other clients receive it when they fetch the queue head, with an expiration period on the lock so that requests which fail processing are eventually unlocked and retried.
 
-This feature is seamlessly integrated into Crawlee, requiring minimal extra setup. By default, requests are locked for the same duration as the timeout for processing requests in the crawler ([`requestHandlerTimeoutSecs`](https://crawlee.dev/api/next/basic-crawler/interface/BasicCrawlerOptions#requestHandlerTimeoutSecs)).
+Crawlee supports request locking with minimal setup. By default, requests are locked for the same duration as the timeout for processing requests in the crawler ([`requestHandlerTimeoutSecs`](https://crawlee.dev/api/next/basic-crawler/interface/BasicCrawlerOptions#requestHandlerTimeoutSecs)).
 If the Actor processing the request fails, the lock expires, and the request is processed again eventually. For more details, refer to the [Crawlee documentation](https://crawlee.dev/docs/next/experiments/experiments-request-locking).
 
 In the following example, we demonstrate how you can use locking mechanisms to avoid concurrent processing of the same request across multiple Actor runs.
@@ -421,7 +416,7 @@ In the following example, we demonstrate how you can use locking mechanisms to a
 :::info Lock mechanism
 The lock mechanism works on the client level, as well as the run level, when running the Actor on the Apify platform.
 
-This means you can unlock or prolong the lock the locked request only if:
+This means you can unlock or prolong the lock of a locked request only if:
 
 - You are using the same client key, or
 - The operation is being called from the same Actor run.
@@ -563,71 +558,11 @@ await Actor.exit();
 
 A detailed tutorial on how to process one request queue with multiple Actor runs can be found in [Academy tutorials](https://docs.apify.com/academy/node-js/multiple-runs-scrape).
 
-## Share
+## Share and reuse {#share}
 
-You can grant [access rights](/account/collaboration) to your request queue through the **Share** button under the **Actions** menu. For more details check the [full list of permissions](/account/collaboration/list-of-permissions).
+You can grant access rights to your request queue or share it by link. See [Share storage](./share.md).
 
-You can also share request queues by link using their ID or name, depending on your account or resource-level general access setting. Learn how link-based access works in [General resource access](/account/collaboration/general-resource-access).
-
-For one-off sharing of specific records when access is restricted, you can generate time-limited pre-signed URLs. See [Sharing restricted resources with pre-signed URLs](/account/collaboration/general-resource-access#pre-signed-urls).
-
-### Share request queues between runs
-
-You can access a request queue from any [Actor](../actors/index.mdx) or [task](../actors/running/tasks.md) run as long as you know its _name_ or _ID_.
-
-To access a request queue from another run using the [Apify SDK](/sdk), open it using the same method like you would do with any other request queue.
-
-<Tabs groupId="main">
-<TabItem value="JavaScript" label="JavaScript">
-
-```js
-import { Actor } from 'apify';
-
-await Actor.init();
-
-const otherQueue = await Actor.openRequestQueue('old-queue');
-// ...
-
-await Actor.exit();
-```
-
-</TabItem>
-<TabItem value="Python" label="Python">
-
-```python
-from apify import Actor
-
-async def main():
-    async with Actor:
-        other_queue = await Actor.open_request_queue(name='old-queue')
-        # ...
-```
-
-</TabItem>
-</Tabs>
-
-In the [JavaScript API client](/api/client/js/reference/class/RequestQueueClient) as well as in [Python API client](/api/client/python/reference/class/RequestQueueClient), you can access a request queue using its respective client. Once you've opened the request queue, you can use it in your crawler or add new requests like you would do with a queue from your current run.
-
-<Tabs groupId="main">
-<TabItem value="JavaScript" label="JavaScript">
-
-```js
-const otherQueueClient = apifyClient.requestQueue('jane-doe/old-queue');
-```
-
-</TabItem>
-<TabItem value="Python" label="Python">
-
-```python
-other_queue_client = apify_client.request_queue('jane-doe/old-queue')
-```
-
-</TabItem>
-</Tabs>
-
-The same applies for the [Apify API](#apify-api) - you can use [the same endpoints](#apify-api) as you would normally do.
-
-Check out the [Storage overview](/storage#share-storages-between-runs) for details on sharing storages between runs.
+To add requests to a queue that belongs to a different Actor or task run, see [Use storage from another run](./use-from-another-run.md).
 
 ## Limits
 
@@ -640,11 +575,11 @@ CRUD ([add](/api/v2/request-queue-requests-post),
 [get](/api/v2/request-queue-request-get),
 [update](/api/v2/request-queue-request-put),
 [delete](/api/v2/request-queue-request-delete))
-operation requests are limited to _400 requests per second_ per request queue. This helps protect Apify servers from being overloaded.
+operation requests are limited to _350 requests per second_ per request queue. This helps protect Apify servers from being overloaded.
 
-Request-lock operations ([prolong a lock](/api/v2/request-queue-request-lock-put) and [delete a lock](/api/v2/request-queue-request-lock-delete)) are also limited to _400 requests per second_ per request queue.
+Request-lock operations ([prolong a lock](/api/v2/request-queue-request-lock-put) and [delete a lock](/api/v2/request-queue-request-lock-delete)) are also limited to _350 requests per second_ per request queue.
 
-Batch operations ([add](/api/v2/request-queue-requests-batch-post) and [delete](/api/v2/request-queue-requests-batch-delete)) and the [list and lock head](/api/v2/request-queue-head-lock-post) endpoint are limited to _40 requests per second_ per request queue.
+Batch operations ([add](/api/v2/request-queue-requests-batch-post) and [delete](/api/v2/request-queue-requests-batch-delete)) and the [list and lock head](/api/v2/request-queue-head-lock-post) endpoint are limited to _35 requests per second_ per request queue.
 
 All other request queue API [endpoints](/api/v2/storage-request-queues) are limited to _60 requests per second_ per request queue.
 
