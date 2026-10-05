@@ -294,7 +294,7 @@ If the `tools` parameter includes any other tool, or you connect to the default 
 | :--- | :--- | :--- | :--- |
 | `search-actors` | `actors` | ✅ | Search for Actors in Apify Store |
 | `fetch-actor-details` | `actors` | ✅ | Retrieve detailed information about a specific Actor, including its input and output schema, README (summary when available, full otherwise), and pricing |
-| `call-actor` | `actors` | ✅ | Run an Actor and wait up to `waitSecs` (0-45, default 30) for it to finish. Pass run limits (`memory`, `timeout`, `maxTotalChargeUsd`) in `callOptions`, not in the Actor input. Returns the run status and storage IDs, not the results themselves |
+| `call-actor` | `actors` | ✅ | Run an Actor and wait up to `waitSecs` (0-45, default 30) for it to finish. Pass run limits (`memory`, `timeout`, `maxItems`, `maxTotalChargeUsd`) in `callOptions`, not in the Actor input. Returns the run status and storage IDs, not the results themselves |
 | [`apify/rag-web-browser`](https://apify.com/apify/rag-web-browser) | Actor | ✅ | Browse and extract web data |
 | [`apify/web-fetch`](https://apify.com/apify/web-fetch) | Actor | ✅ | Fetch one http(s) URL and return its full content, rendering JavaScript and bypassing anti-bot protection |
 | `search-apify-docs` | `docs` | ✅ | Search the Apify documentation for relevant pages |

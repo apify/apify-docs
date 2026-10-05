@@ -91,6 +91,7 @@ The pattern is the same across every integration method: pick an Actor, send inp
 When an agent calls Actors automatically, set run limits to prevent surprise bills. Pass these as query parameters on the [run Actor endpoint](/api/v2/actors-runs-post):
 
 - `maxTotalChargeUsd` - cap the total amount charged for the run. Works for all pricing models.
+- `maxItems` - cap how many results you pay for on an Actor priced per result.
 - `timeout` (seconds) - cap how long a single run can last.
 - `memory` (MB) - set memory as a power of 2, minimum 128. Lower memory means lower cost per second.
 
@@ -137,7 +138,7 @@ Claude Desktop doesn't accept a remote server URL in its configuration file. Add
 
 For client-specific steps, use the [MCP Configurator](https://mcp.apify.com), which generates ready-to-paste configs. The [MCP server documentation](/integrations/mcp) also covers [running the server locally](/integrations/mcp#local-stdio), [tool selection](/integrations/mcp#tool-selection), and [Bearer token authentication](/integrations/mcp#streamable-http-with-oauth-recommended).
 
-To cap runs that your agent starts over MCP, pass `maxTotalChargeUsd`, `timeout`, or `memory` in the `callOptions` argument of [`call-actor`](/integrations/mcp#available-tools). Fields with these names in the Actor `input` don't cap the run. The Actor's input schema decides how it handles them.
+To cap runs that your agent starts over MCP, pass `maxTotalChargeUsd`, `maxItems`, `timeout`, or `memory` in the `callOptions` argument of [`call-actor`](/integrations/mcp#available-tools). Fields with these names in the Actor `input` don't cap the run. The Actor's input schema decides how it handles them.
 
 ### API client
 
