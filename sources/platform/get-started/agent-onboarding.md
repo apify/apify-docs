@@ -266,7 +266,7 @@ npx skills add apify/agent-skills
 | `apify-actor-development` | Guided workflow for building and deploying custom Actors, including their input and output schemas |
 | `apify-actorization` | Converts an existing project into an Apify Actor |
 | `apify-generate-output-schema` | Deprecated - use `apify-actor-development` instead |
-| `apify-integration-development` | Builds an official Apify integration for another product, such as an automation app, agent plugin, or AI framework |
+| `apify-integration-development` | Builds an official Apify integration for another product: workflow-automation apps, agent plugins, AI framework packages, or `apify-client` application code |
 
 For the full list and details, see the [skills registry](https://skills.sh/apify/agent-skills).
 
