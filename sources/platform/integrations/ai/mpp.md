@@ -19,7 +19,7 @@ Agentic payments are experimental and may change as payment protocols evolve.
 
 Each challenge names a payment method, such as `tempo` or `solana`, and an intent. Apify AGI uses the `charge` intent, a one-time payment. You pay once upfront for a prepaid token, then use that token to run Actors until its balance runs out.
 
-[Apify AGI](https://agi.apify.com) (Agent General Interface) sells the token and handles the payment. Agents can read the same instructions as Markdown at [agi.apify.com/llms.txt](https://agi.apify.com/llms.txt).
+[Apify AGI](https://agi.apify.com) (Agent General Interface) sells the token and handles the payment. Agents can read the same instructions as Markdown at [agi.apify.com/AGENTS.md](https://agi.apify.com/AGENTS.md).
 
 ## Supported networks and currencies
 
