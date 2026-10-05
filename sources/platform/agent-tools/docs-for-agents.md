@@ -39,7 +39,7 @@ Use `llms.txt` to find the page you need, then fetch that page's `.md` URL. Reac
 
 ## Search the docs through MCP
 
-The [Apify MCP server](/mcp) exposes two documentation tools, `search-apify-docs` and `fetch-apify-docs`. Both work without an API token when the connection lists only tools enabled for [anonymous access](/mcp#anonymous-access), so an agent can read the Apify documentation before the user has an account.
+The [Apify MCP server](/agent-tools/mcp) exposes two documentation tools, `search-apify-docs` and `fetch-apify-docs`. Both work without an API token when the connection lists only tools enabled for [anonymous access](/agent-tools/mcp#anonymous-access), so an agent can read the Apify documentation before the user has an account.
 
 Use them over raw HTTP fetches when your agent is already connected through MCP - search returns ranked matches rather than making the agent guess at URLs.
 
@@ -54,7 +54,7 @@ apify.com publishes a set of machine-readable files for agents. Agents rarely fi
 | [`apify.com/llms.txt`](https://apify.com/llms.txt) | An index of apify.com pages that have Markdown versions. |
 | [`apify.com/openapi.json`](https://apify.com/openapi.json) | The OpenAPI definition of the Apify API. |
 | [`/.well-known/agent-skills/index.json`](https://apify.com/.well-known/agent-skills/index.json) | The standalone [Agent Skills](/agent-tools/skills) in the Agent Skills discovery format. |
-| [`/.well-known/mcp/server-card.json`](https://apify.com/.well-known/mcp/server-card.json) | The server card for the [Apify MCP server](/mcp): its endpoint, transport, and tools. |
+| [`/.well-known/mcp/server-card.json`](https://apify.com/.well-known/mcp/server-card.json) | The server card for the [Apify MCP server](/agent-tools/mcp): its endpoint, transport, and tools. |
 | [`/.well-known/ai-catalog.json`](https://apify.com/.well-known/ai-catalog.json) | A catalog of the agent-facing resources above, from the MCP server card to the skills and API definitions. |
 | [`/.well-known/api-catalog`](https://apify.com/.well-known/api-catalog) | An [RFC 9727](https://www.rfc-editor.org/info/rfc9727) API catalog linking the Apify API and the MCP server. |
 | [`/.well-known/oauth-protected-resource`](https://apify.com/.well-known/oauth-protected-resource) | OAuth discovery metadata for the MCP server, which MCP clients read to start the sign-in. |
@@ -70,5 +70,5 @@ Every Actor page in [Apify Store](https://apify.com/store) has a Markdown versio
 ## Related resources
 
 - [Apify agent tools](/agent-tools) - Documentation access alongside the MCP server, plugins, and skills
-- [Apify MCP server](/mcp) - The documentation tools and everything else the MCP server exposes
+- [Apify MCP server](/agent-tools/mcp) - The documentation tools and everything else the MCP server exposes
 - [Agent quickstart](/get-started/agent-onboarding) - First Actor run from a connected agent

@@ -3,7 +3,7 @@ title: Apify MCP server
 sidebar_label: MCP server
 description: Learn how to use the Apify MCP server to integrate Apify's library of Actors into your AI agents or large language model-based applications.
 sidebar_position: 2
-slug: /mcp
+slug: /agent-tools/mcp
 toc_max_heading_level: 4
 ---
 

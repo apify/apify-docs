@@ -9,7 +9,7 @@ slug: /agent-tools/plugin
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The Apify plugin is the shortest way to connect a coding agent to Apify. One install configures the [Apify MCP server](/mcp) and [Agent Skills](/agent-tools/skills) together, so you don't edit an MCP configuration or install skills by hand.
+The Apify plugin is the shortest way to connect a coding agent to Apify. One install configures the [Apify MCP server](/agent-tools/mcp) and [Agent Skills](/agent-tools/skills) together, so you don't edit an MCP configuration or install skills by hand.
 
 Apify maintains a separate plugin for each agent, because each agent has its own plugin format and install flow. Check [what your agent gets](#coverage-by-agent), then follow its [install steps](#install).
 
@@ -17,7 +17,7 @@ Apify maintains a separate plugin for each agent, because each agent has its own
 
 Most plugins bundle three parts:
 
-- The [Apify MCP server](/mcp) at `https://mcp.apify.com`, for the live connection to the Apify platform. Its configuration ships inside the plugin.
+- The [Apify MCP server](/agent-tools/mcp) at `https://mcp.apify.com`, for the live connection to the Apify platform. Its configuration ships inside the plugin.
 - Five [Agent Skills](/agent-tools/skills) covering scraping with existing Actors, Actor development, actorization, output schemas, and application integration.
 - An `apify` routing agent that picks the right tool or skill from a plain-language request, so you don't have to name tools yourself.
 
@@ -39,7 +39,7 @@ The OpenClaw, Hermes Agent, and Kilo Code plugins work differently. Instead of c
 | Hermes Agent | Native tools | Routing skill | No | [`apify-hermes-agent-plugin`](https://github.com/apify/apify-hermes-agent-plugin) |
 | Kilo Code | Native tool | No | No | [`@apify/kilocode-plugin`](https://github.com/apify/kilocode-plugin) |
 
-If your agent isn't listed, connect the [MCP server](/mcp) directly and install [Agent Skills](/agent-tools/skills#install) separately. The [MCP configurator](https://mcp.apify.com) generates a configuration for most MCP clients.
+If your agent isn't listed, connect the [MCP server](/agent-tools/mcp) directly and install [Agent Skills](/agent-tools/skills#install) separately. The [MCP configurator](https://mcp.apify.com) generates a configuration for most MCP clients.
 
 ## Install
 
@@ -237,7 +237,7 @@ Installing the MCP server and Agent Skills yourself gives you roughly the same c
 - You maintain the MCP configuration and the skill versions yourself. The plugin ships both together.
 - You don't get the `apify` routing agent, so prompts have to name tools or skills more explicitly.
 
-Choose the separate route when your agent has no plugin, when you need a narrower [tool selection](/mcp#tool-selection) than the plugin ships with, or when you're wiring Apify into an agent framework rather than a coding agent.
+Choose the separate route when your agent has no plugin, when you need a narrower [tool selection](/agent-tools/mcp#tool-selection) than the plugin ships with, or when you're wiring Apify into an agent framework rather than a coding agent.
 
 ## Limitations
 
@@ -248,5 +248,5 @@ Choose the separate route when your agent has no plugin, when you need a narrowe
 ## Related resources
 
 - [Agent Skills](/agent-tools/skills) - The bundled skills and how to install them on their own
-- [Apify MCP server](/mcp) - Tool reference, authentication, and production practices
+- [Apify MCP server](/agent-tools/mcp) - Tool reference, authentication, and production practices
 - [Apify agent tools](/agent-tools) - Overview of the plugin, the MCP server, and Agent Skills

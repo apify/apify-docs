@@ -204,7 +204,7 @@ const themeConfig = {
             {
                 label: 'Agent tools',
                 href: `${absoluteUrl}/agent-tools`,
-                activeBaseRegex: '^/(agent-tools|mcp)(/|$)',
+                activeBasePath: 'agent-tools',
                 position: 'right',
                 target: '_self',
                 rel: 'dofollow',

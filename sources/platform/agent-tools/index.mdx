@@ -9,7 +9,7 @@ slug: /agent-tools
 import Card from '@site/src/components/Card';
 import CardGrid from '@site/src/components/CardGrid';
 
-Apify agent tools connect an AI agent to the Apify platform. The [MCP server](/mcp) is the live connection an agent uses to search [Apify Store](https://apify.com/store), run Actors, and read the results. [Agent Skills](/agent-tools/skills) carry the procedure for multi-step work, such as building and deploying an Actor. A [plugin](/agent-tools/plugin) installs both in one step for a specific coding agent.
+Apify agent tools connect an AI agent to the Apify platform. The [MCP server](/agent-tools/mcp) is the live connection an agent uses to search [Apify Store](https://apify.com/store), run Actors, and read the results. [Agent Skills](/agent-tools/skills) carry the procedure for multi-step work, such as building and deploying an Actor. A [plugin](/agent-tools/plugin) installs both in one step for a specific coding agent.
 
 Two more pieces round out the set. [Docs for agents](/agent-tools/docs-for-agents) lists the machine-readable surfaces an agent can read, and [agentic payments](/agent-tools/agentic-payments) let an agent pay for Actor runs without an Apify account. To run your first Actor from an agent, follow the [agent quickstart](/get-started/agent-onboarding).
 
@@ -124,7 +124,7 @@ Each guide covers install, sign-in, and a first prompt for one client. Coding ag
     />
 </CardGrid>
 
-Chat clients and other MCP-capable agents connect to the [MCP server](/mcp) directly:
+Chat clients and other MCP-capable agents connect to the [MCP server](/agent-tools/mcp) directly:
 
 <CardGrid>
     <Card
@@ -153,7 +153,7 @@ Chat clients and other MCP-capable agents connect to the [MCP server](/mcp) dire
     <Card
         title="Any MCP client"
         desc="Generate a ready-to-paste configuration with the MCP configurator."
-        to="/mcp"
+        to="/agent-tools/mcp"
         imageUrl="/img/platform/integrations/mcp-logo.png"
         imageUrlDarkTheme="/img/platform/integrations/mcp-logo-white.png"
         smallImage
@@ -166,7 +166,7 @@ The pieces stack rather than compete, and most setups use more than one:
 
 | Piece | What it is | Reach for it when |
 | :--- | :--- | :--- |
-| [MCP server](/mcp) | A hosted server at `mcp.apify.com` with tools to search Apify Store, run Actors, and search the Apify documentation, plus optional tools for runs, storage, tasks, and schedules. | Your agent needs to act on Apify: find an Actor, run it, and get structured data back. |
+| [MCP server](/agent-tools/mcp) | A hosted server at `mcp.apify.com` with tools to search Apify Store, run Actors, and search the Apify documentation, plus optional tools for runs, storage, tasks, and schedules. | Your agent needs to act on Apify: find an Actor, run it, and get structured data back. |
 | [Plugin](/agent-tools/plugin) | One install for a specific coding agent. Most plugins bundle the MCP server, Agent Skills, and an `apify` routing agent. The OpenClaw, Hermes Agent, and Kilo Code plugins add native Apify tools instead of the MCP server. | Your coding agent has a plugin and you want the whole setup in one step. |
 | [Agent Skills](/agent-tools/skills) | Instructions your agent loads when a task matches, such as building an Actor or choosing a scraper. | Your agent already connects to Apify and you want it to follow a tested multi-step workflow. |
 | [Docs for agents](/agent-tools/docs-for-agents) | Every documentation page as Markdown, `llms.txt` indexes, and the agent-facing files on apify.com. | Your agent needs current Apify documentation instead of its training data. |
@@ -187,5 +187,5 @@ The pages above cover agents that *call* Apify. These adjacent topics cover buil
 ## Related resources
 
 - [Agent quickstart](/get-started/agent-onboarding) - First Actor run from a connected agent
-- [Apify MCP server](/mcp) - Tool reference, authentication, and production practices
+- [Apify MCP server](/agent-tools/mcp) - Tool reference, authentication, and production practices
 - [Apify plugin](/agent-tools/plugin) - Install commands for every supported coding agent

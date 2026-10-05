@@ -139,7 +139,7 @@ window.addEventListener('popstate', () => {
 // Background: Previously, mcp.apify.com had a 301 redirect to the docs page
 // This clears cached redirects so users can access the new MCP configuration interface
 function clearMcpRedirectCache() {
-    // Only run on the MCP documentation page (served at /mcp, formerly /integrations/mcp)
+    // Only run on the MCP documentation page (served at /agent-tools/mcp, formerly /integrations/mcp)
     if (/(^|\/)mcp\/?$/.test(window.location.pathname)) {
         // Clear cached redirects to mcp.apify.com
         fetch('https://mcp.apify.com/', {
