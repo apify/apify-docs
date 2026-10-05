@@ -1,12 +1,13 @@
 ---
 title: Agentic payments
 sidebar_label: Agentic payments
-description: Let an AI agent pay for Apify Actor runs without an Apify account, by buying a prepaid, spend-capped token over x402 or MPP, or by paying with Skyfire.
+subtitle: Let your AI agent pay for Actor runs without signing up
+description: Let an AI agent pay for Apify Actor runs without signing up, by buying a prepaid, spend-capped token over x402 or MPP, or by paying with Skyfire.
 sidebar_position: 4
 slug: /agent-tools/agentic-payments
 ---
 
-Agentic payments let an AI agent pay for Actor runs on its own, without an Apify account or a person setting up billing. The agent pays through a payment protocol, and the Apify platform meters each run against the amount it paid.
+Agentic payments let an AI agent pay for Actor runs on its own, without signing up for Apify or a person setting up billing. The agent pays through a payment protocol, and the Apify platform meters each run against the amount it paid.
 
 :::caution Experimental feature
 
@@ -23,7 +24,9 @@ The [Apify Agent General Interface (AGI)](https://agi.apify.com) is the entry po
 1. Pay the challenge and repeat the request with the signed payment credential. After the payment settles, AGI returns the prepaid token.
 1. Call the Apify API or the MCP server with the `Authorization: Bearer <token>` header. Check the remaining balance with `GET https://agi.apify.com/prepaid-tokens/balance`.
 
-The minimum amount is $1. The token balance is a hard spending cap, the token expires 14 days after you buy it, and unused balance is non-refundable. Check [agi.apify.com](https://agi.apify.com) for the current terms.
+The minimum amount for a prepaid token is $1. The token balance is a hard spending cap, the token expires 14 days after you buy it, and unused balance is non-refundable. Check [agi.apify.com](https://agi.apify.com) for the current terms.
+
+A prepaid token works like a regular API token, so it runs any Actor that uses limited permissions, whatever its pricing model.
 
 ## Supported protocols
 
@@ -31,15 +34,13 @@ Two protocols go through AGI, and Skyfire has its own flow:
 
 | Protocol | How the agent pays | Guide |
 | :--- | :--- | :--- |
-| [x402](https://www.x402.org) | A one-time payment in stablecoins on Base or Solana, exchanged for an AGI token | [Agentic payments with x402](/integrations/x402) |
-| [MPP](https://mpp.dev) | A one-time payment in USDC or pathUSD on Tempo, exchanged for an AGI token | Instructions on [agi.apify.com](https://agi.apify.com) |
-| [Skyfire](https://skyfire.xyz) | Pre-funded Skyfire payment tokens passed to the MCP server or the Apify API | [Agentic payments with Skyfire](/integrations/skyfire) |
-
-Not every Actor accepts agentic payments. The [x402 guide](/integrations/x402#supported-actors) lists the eligibility rules.
+| [x402](https://www.x402.org) | A one-time payment in stablecoins on Base or Solana, exchanged for a prepaid token. On Base, batch settlement can also pay per Actor run without a token. | [Agentic payments with x402](/integrations/x402) |
+| [MPP](https://mpp.dev) | A one-time payment in stablecoins on Tempo or Solana, exchanged for a prepaid token | Instructions on [agi.apify.com](https://agi.apify.com) |
+| [Skyfire](https://skyfire.xyz) | Pre-funded Skyfire payment tokens passed to the MCP server or the Apify API, limited to eligible pay-per-event Actors | [Agentic payments with Skyfire](/integrations/skyfire) |
 
 ## Agent-ready instructions
 
-AGI serves its own instructions at [agi.apify.com](https://agi.apify.com), written for agents to read before they pay. For an end-to-end walkthrough of wallet setup, payment, and running Actors, point your agent at the [Apify x402 skill](https://raw.githubusercontent.com/apify/awesome-skills/refs/heads/main/skills/apify-x402-agentic-wallet/SKILL.md).
+AGI serves its own instructions at [agi.apify.com](https://agi.apify.com), written for agents to read before they pay. They cover each protocol, the supported networks and currencies, and the current terms.
 
 ## Related resources
 
