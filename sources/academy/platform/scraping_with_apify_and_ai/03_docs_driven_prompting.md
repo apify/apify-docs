@@ -123,7 +123,7 @@ The README documents what we already have. Now let's use it as a spec for what c
 
 We'll save the file with <kbd>Ctrl+S</kbd> (or <kbd>⌘+S</kbd> on macOS), then send this prompt to the AI agent:
 
-```text
+```prompt title="Implement README prompt"
 Ensure all behavior documented in README is correctly implemented.
 ```
 
@@ -181,7 +181,7 @@ Saves SKU as a number. Examples:
 
 We'll save the file again and repeat the same prompt as before to turn our spec into code:
 
-```text
+```prompt title="Implement README prompt"
 Ensure all behavior documented in README is correctly implemented.
 ```
 
