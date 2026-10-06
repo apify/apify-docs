@@ -38,7 +38,7 @@ Use `llms.txt` to find the page you need, then fetch that page's `.md` URL. Reac
 
 ## Search the docs through MCP
 
-The [Apify MCP server](/mcp) exposes two documentation tools, `search-apify-docs` and `fetch-apify-docs`. Both work without an API token when the connection lists only tools enabled for [anonymous access](/mcp#anonymous-access), so an agent can read the Apify documentation before the user has an account.
+The [Apify MCP server](/mcp) exposes two documentation tools, `search-apify-docs` and `fetch-apify-docs`. Both work without an API token when the connection lists only the tools you can [use without an account](/mcp#use-without-an-account), so an agent can read the Apify documentation before the user has an account.
 
 Use them over raw HTTP fetches when your agent is already connected through MCP - search returns ranked matches rather than making the agent guess at URLs.
 

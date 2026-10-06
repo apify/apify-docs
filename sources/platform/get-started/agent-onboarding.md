@@ -117,7 +117,7 @@ The [Apify MCP server](/mcp) connects your agent to the full Apify platform via 
 
 :::tip Free exploration
 
-The MCP server's `search-actors`, `fetch-actor-details`, and docs tools work without authentication when you connect to `https://mcp.apify.com/?tools=search-actors,fetch-actor-details,search-apify-docs,fetch-apify-docs`. That connection browses Actors and documentation without an account, but can't run Actors. For details, check [anonymous access](/mcp#anonymous-access).
+The MCP server's `search-actors`, `fetch-actor-details`, and docs tools work without authentication when you connect to `https://mcp.apify.com/?tools=search-actors,fetch-actor-details,search-apify-docs,fetch-apify-docs`. That connection browses Actors and documentation without an account, but can't run Actors. For details, check [using the MCP server without an account](/mcp#use-without-an-account).
 
 :::
 
