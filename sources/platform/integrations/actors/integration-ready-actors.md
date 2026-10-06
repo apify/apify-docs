@@ -99,5 +99,4 @@ Actors generic enough to be used with most other Actors appear under **Generic i
 
 Some Actors can only be integrated with a few - or even just one - other Actor. For example, an Actor that scrapes profiles from a social network is relevant for Actors that produce usernames from that network, but not for Actors that produce product lists. These Actors appear under **Suggested for this Actor** on the source Actor's **Integrations** tab.
 
-<!-- TODO: recapture or replace `specific_vs_generic_integrations.png` to match the new Add integration dialog. -->
 ![Specific vs generic integrations](./images/specific_vs_generic_integrations.png)
