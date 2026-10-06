@@ -15,13 +15,13 @@ import ClaudeCodeWebEgress from '@site/sources/_partials/_claude-code-web-egress
 
 Connect your AI agent or application to Apify - the platform for web scraping, data extraction, and browser automation. The typical agent workflow: find an Actor, run it, get structured data back.
 
-This page is the documentation version of [`apify.com/agents.md`](https://apify.com/agents.md), the quickstart Apify serves to agents directly. An interactive agent connects the [MCP server](#mcp-server) and signs in through the browser. Code that keeps running after the session uses an [API client](#api-client) or the [REST API](#rest-api) with an API token. An autonomous agent with a wallet and nobody to sign in pays through [agentic payments](/agent-tools/agentic-payments).
+This page is the documentation version of [`apify.com/agents.md`](https://apify.com/agents.md), the quickstart Apify serves to agents directly. An interactive agent connects the [MCP server](#mcp-server) and signs in through the browser. Code that keeps running after the session uses an [API client](#api-client) or the [REST API](#rest-api) with an API token. An autonomous agent with a wallet and nobody to sign in pays through [agentic payments](/agents/payments).
 
 ## Core concepts
 
 - _Actors_ - Serverless cloud programs that perform scraping, crawling, or automation tasks. Thousands of ready-made Actors are available in [Apify Store](https://apify.com/store).
 - _Datasets_ - Append-only storage for structured results. Every Actor run creates a default dataset. Export as JSON, CSV, Excel, XML, or RSS.
-- _API_ - RESTful API at `https://api.apify.com/v2` for all platform operations. Also accessible via [MCP](/agent-tools/mcp), [CLI](/cli), and client libraries.
+- _API_ - RESTful API at `https://api.apify.com/v2` for all platform operations. Also accessible via [MCP](/mcp), [CLI](/cli), and client libraries.
 - _MCP connectors_ - When you build an Actor that needs to act on a user's third-party accounts (Notion, Slack, GitHub, and others), use [MCP connectors](/integrations/mcp-connectors) to receive connector IDs as input instead of asking users for raw credentials.
 
 ## Prerequisites
@@ -43,7 +43,7 @@ After [connecting the MCP server](#mcp-server) to your AI assistant, ask:
 Use Apify's RAG Web Browser to find the top 3 pages about Apify documentation, then summarize.
 ```
 
-Your agent calls [`search-actors`](/agent-tools/mcp#available-tools), [`call-actor`](/agent-tools/mcp#available-tools), and reads the resulting dataset items - all through MCP, no code required.
+Your agent calls [`search-actors`](/mcp#available-tools), [`call-actor`](/mcp#available-tools), and reads the resulting dataset items - all through MCP, no code required.
 
 </TabItem>
 <TabItem value="javascript" label="JavaScript">
@@ -109,15 +109,15 @@ See [Usage and resources](/actors/running/usage-and-resources) and [Billing](/ac
 | [API client](#api-client) | Backend apps (JavaScript/Python) | API token |
 | [CLI](#cli) | Building and deploying custom Actors | API token |
 | [REST API](#rest-api) | Any language, HTTP integrations, no-code tools | API token |
-| [Agentic payments](/agent-tools/agentic-payments) | Autonomous agents with a crypto wallet and no one to sign in | Prepaid, spend-capped token |
+| [Agentic payments](/agents/payments) | Autonomous agents with a crypto wallet and no one to sign in | Prepaid, spend-capped token |
 
 ### MCP server
 
-The [Apify MCP server](/agent-tools/mcp) connects your agent to the full Apify platform via the [Model Context Protocol](https://modelcontextprotocol.io/). No local installation needed for remote-capable clients.
+The [Apify MCP server](/mcp) connects your agent to the full Apify platform via the [Model Context Protocol](https://modelcontextprotocol.io/). No local installation needed for remote-capable clients.
 
 :::tip Free exploration
 
-The MCP server's `search-actors`, `fetch-actor-details`, and docs tools work without authentication when you connect to `https://mcp.apify.com/?tools=search-actors,fetch-actor-details,search-apify-docs,fetch-apify-docs`. That connection browses Actors and documentation without an account, but can't run Actors. For details, check [anonymous access](/agent-tools/mcp#anonymous-access).
+The MCP server's `search-actors`, `fetch-actor-details`, and docs tools work without authentication when you connect to `https://mcp.apify.com/?tools=search-actors,fetch-actor-details,search-apify-docs,fetch-apify-docs`. That connection browses Actors and documentation without an account, but can't run Actors. For details, check [anonymous access](/mcp#anonymous-access).
 
 :::
 
@@ -140,9 +140,9 @@ To connect a client that supports remote MCP servers, such as Claude Code, Curso
 
 Claude Desktop doesn't accept a remote server URL in its configuration file. Add `https://mcp.apify.com` as a custom connector instead, as described in the [Claude Desktop integration guide](/integrations/claude-desktop).
 
-For client-specific steps, use the [MCP Configurator](https://mcp.apify.com), which generates ready-to-paste configs. The [MCP server documentation](/integrations/mcp) also covers [running the server locally](/integrations/mcp#local-stdio), [tool selection](/integrations/mcp#tool-selection), and [Bearer token authentication](/integrations/mcp#streamable-http-with-oauth-recommended).
+For client-specific steps, use the [MCP Configurator](https://mcp.apify.com), which generates ready-to-paste configs. The [MCP server documentation](/mcp) also covers [running the server locally](/mcp#local-stdio), [tool selection](/mcp#tool-selection), and [Bearer token authentication](/mcp#streamable-http-with-oauth-recommended).
 
-To cap runs that your agent starts over MCP, pass `maxTotalChargeUsd`, `maxItems`, `timeout`, or `memory` in the `callOptions` argument of [`call-actor`](/integrations/mcp#available-tools). Fields with these names in the Actor `input` don't cap the run. The Actor's input schema decides how it handles them.
+To cap runs that your agent starts over MCP, pass `maxTotalChargeUsd`, `maxItems`, `timeout`, or `memory` in the `callOptions` argument of [`call-actor`](/mcp#available-tools). Fields with these names in the Actor `input` don't cap the run. The Actor's input schema decides how it handles them.
 
 ### API client
 
@@ -256,7 +256,7 @@ Full reference: [Apify API v2](/api/v2).
 
 ## Agent Skills
 
-Once you connect an agent via MCP or a coding assistant, [Apify Agent Skills](/agent-tools/skills) add pre-built workflows on top - guiding the agent through multi-step scraping pipelines and Actor development tasks. Skills are not a separate integration method; they layer over your existing connection.
+Once you connect an agent via MCP or a coding assistant, [Apify Agent Skills](/agents/skills) add pre-built workflows on top - guiding the agent through multi-step scraping pipelines and Actor development tasks. Skills are not a separate integration method; they layer over your existing connection.
 
 Install them into Claude Code, Cursor, Windsurf, Codex, or Gemini CLI:
 
@@ -278,12 +278,12 @@ For the full list and details, see the [skills registry](https://skills.sh/apify
 
 Apify documentation is available in formats optimized for programmatic consumption: append `.md` to any documentation or Apify Store URL, request a page with the `Accept: text/markdown` header, discover pages through [`docs.apify.com/llms.txt`](https://docs.apify.com/llms.txt), or search from an MCP connection with `search-apify-docs` and `fetch-apify-docs`.
 
-For the complete list, including the agent-facing surfaces outside the documentation, see [Docs for agents](/agent-tools/docs-for-agents).
+For the complete list, including the agent-facing surfaces outside the documentation, see [Resources for AI agents](/agents/resources).
 
 ## Useful resources
 
-- [Apify agent tools](/agent-tools) - Overview of the MCP server, plugins, Agent Skills, and machine-readable docs
-- [MCP server integration](/agent-tools/mcp) - Tool customization, dynamic Actor discovery, and advanced configuration
+- [For AI agents](/agents) - Overview of the MCP server, plugins, Agent Skills, and machine-readable docs
+- [MCP server integration](/mcp) - Tool customization, dynamic Actor discovery, and advanced configuration
 - [CLI documentation](/cli) - Complete command reference
 - [API reference](/api/v2) - All REST API endpoints
 - [API client for JavaScript](https://docs.apify.com/api/client/js) | [for Python](https://docs.apify.com/api/client/python) - Client libraries

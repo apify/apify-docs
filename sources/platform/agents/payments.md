@@ -4,7 +4,7 @@ sidebar_label: Agentic payments
 subtitle: Let your AI agent pay for Actor runs without signing up
 description: Let an AI agent pay for Apify Actor runs without signing up, by buying a prepaid, spend-capped token over x402 or MPP, or by paying with Skyfire.
 sidebar_position: 4
-slug: /agent-tools/agentic-payments
+slug: /agents/payments
 ---
 
 Agentic payments let an AI agent pay for Actor runs on its own, without signing up for Apify or a person setting up billing. The agent pays through a payment protocol, and the Apify platform meters each run against the amount it paid.
@@ -17,7 +17,7 @@ Agentic payments are experimental and may change as payment protocols evolve.
 
 ## Apify Agent General Interface
 
-The [Apify Agent General Interface (AGI)](https://agi.apify.com) is the entry point for agents that pay their own way. An agent pays once through a supported protocol, and AGI returns a temporary Apify API token with a fixed spend cap. The agent then uses that token against the Apify API or the [MCP server](/agent-tools/mcp) like any other token:
+The [Apify Agent General Interface (AGI)](https://agi.apify.com) is the entry point for agents that pay their own way. An agent pays once through a supported protocol, and AGI returns a temporary Apify API token with a fixed spend cap. The agent then uses that token against the Apify API or the [MCP server](/mcp) like any other token:
 
 1. List the supported protocols with `GET https://agi.apify.com/protocols`.
 1. Request a token for an amount in USD through one of the [supported protocols](#supported-protocols), for example `GET https://agi.apify.com/protocols/x402/prepaid-tokens?amount=5&currency=usd`. AGI responds with a one-time payment challenge.
@@ -47,5 +47,5 @@ AGI serves its own instructions at [agi.apify.com](https://agi.apify.com), writt
 - [Agentic payments with x402](/integrations/x402) - Set up a wallet, buy a prepaid token, and run an Actor
 - [Agentic payments with MPP](https://docs.apify.com/integrations/mpp) - Buy a prepaid token with stablecoins on Tempo or Solana
 - [Agentic payments with Skyfire](/integrations/skyfire) - Pay with Skyfire tokens through the MCP server or the Apify API
-- [Apify MCP server](/agent-tools/mcp) - Use a prepaid token with the MCP server
-- [Docs for agents](/agent-tools/docs-for-agents) - Find every agent-facing surface Apify publishes
+- [Apify MCP server](/mcp) - Use a prepaid token with the MCP server
+- [Resources for AI agents](/agents/resources) - Find every agent-facing surface Apify publishes

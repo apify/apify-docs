@@ -11,7 +11,7 @@ import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integrati
 
 The [Apify plugin for DeepSeek Harness](https://www.npmjs.com/package/dsh-apify-plugin) connects `dsh` to Apify's library of [Actors](https://apify.com/store) and bundles:
 
-- The [Apify MCP server](/integrations/mcp) for searching Apify Store, running Actors, and retrieving datasets through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro).
+- The [Apify MCP server](/mcp) for searching Apify Store, running Actors, and retrieving datasets through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro).
 - An `apify` router skill that turns a natural-language request into the right tool or skill, and diagnoses missing authentication.
 - Five workflow skills for common tasks (see [Bundled skills](#bundled-skills)).
 
@@ -200,7 +200,7 @@ Check that you installed into the profile you actually launch. Installing into `
 
 ## Related integrations
 
-- [MCP server integration](/integrations/mcp) - The same MCP server with other clients
+- [MCP server integration](/mcp) - The same MCP server with other clients
 - [Kimi Code CLI integration](/integrations/kimi-code-cli) - The equivalent plugin for Kimi Code CLI
 - [OpenCode integration](/integrations/opencode) - The equivalent plugin for OpenCode
 
@@ -208,5 +208,5 @@ Check that you installed into the profile you actually launch. Installing into `
 
 - [Apify plugin for DeepSeek Harness](https://www.npmjs.com/package/dsh-apify-plugin) - Plugin package and setup notes
 - [DeepSeek Harness repository](https://github.com/deepseek-ai/deepseek-harness) - Source, profiles, and plugin packaging docs
-- [Apify MCP server documentation](/integrations/mcp) - Tools, authentication, and configuration
+- [Apify MCP server documentation](/mcp) - Tools, authentication, and configuration
 - [Apify Store](https://apify.com/store) - Actors you can run from DeepSeek Harness

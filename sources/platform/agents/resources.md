@@ -1,10 +1,10 @@
 ---
-title: Apify docs for AI agents
-sidebar_label: Docs for agents
+title: Resources for AI agents
+sidebar_label: Resources
 subtitle: Current Apify documentation, in formats agents read
 description: Read Apify documentation programmatically through Markdown endpoints, llms.txt indexes, and MCP tools, and find every agent-facing file Apify publishes.
 sidebar_position: 5
-slug: /agent-tools/docs-for-agents
+slug: /agents/resources
 ---
 
 Apify publishes its documentation and platform information in formats an agent can read directly. Point your agent at these instead of letting it work from training data, which goes stale between releases.
@@ -38,7 +38,7 @@ Use `llms.txt` to find the page you need, then fetch that page's `.md` URL. Reac
 
 ## Search the docs through MCP
 
-The [Apify MCP server](/agent-tools/mcp) exposes two documentation tools, `search-apify-docs` and `fetch-apify-docs`. Both work without an API token when the connection lists only tools enabled for [anonymous access](/agent-tools/mcp#anonymous-access), so an agent can read the Apify documentation before the user has an account.
+The [Apify MCP server](/mcp) exposes two documentation tools, `search-apify-docs` and `fetch-apify-docs`. Both work without an API token when the connection lists only tools enabled for [anonymous access](/mcp#anonymous-access), so an agent can read the Apify documentation before the user has an account.
 
 Use them over raw HTTP fetches when your agent is already connected through MCP - search returns ranked matches rather than making the agent guess at URLs.
 
@@ -54,10 +54,10 @@ apify.com publishes a set of machine-readable files for agents. The homepage adv
 | [`apify.com/openapi.json`](https://apify.com/openapi.json) | The OpenAPI definition of the Apify API. |
 | [`/.well-known/ai-catalog.json`](https://apify.com/.well-known/ai-catalog.json) | A catalog of every agent-facing resource, including the MCP server card, the skills, the Apify Store search API, and the payment guide. |
 | [`/.well-known/api-catalog`](https://apify.com/.well-known/api-catalog) | An [RFC 9727](https://www.rfc-editor.org/info/rfc9727) API catalog linking the Apify API and the MCP server. |
-| [`/.well-known/agent-skills/index.json`](https://apify.com/.well-known/agent-skills/index.json) | The standalone [Agent Skills](/agent-tools/skills) in the Agent Skills discovery format. |
-| [`mcp.apify.com/.well-known/mcp/server-card.json`](https://mcp.apify.com/.well-known/mcp/server-card.json) | The server card for the [Apify MCP server](/agent-tools/mcp): its endpoint, transport, and tools. apify.com serves a copy at the same path. |
+| [`/.well-known/agent-skills/index.json`](https://apify.com/.well-known/agent-skills/index.json) | The standalone [Agent Skills](/agents/skills) in the Agent Skills discovery format. |
+| [`mcp.apify.com/.well-known/mcp/server-card.json`](https://mcp.apify.com/.well-known/mcp/server-card.json) | The server card for the [Apify MCP server](/mcp): its endpoint, transport, and tools. apify.com serves a copy at the same path. |
 | [`/.well-known/oauth-protected-resource`](https://apify.com/.well-known/oauth-protected-resource), [`/.well-known/oauth-authorization-server`](https://apify.com/.well-known/oauth-authorization-server) | OAuth discovery metadata that MCP clients read to start the sign-in. |
-| [`agi.apify.com/AGENTS.md`](https://agi.apify.com/AGENTS.md) | Instructions for agents that pay for Actor runs on their own. See [agentic payments](/agent-tools/agentic-payments). |
+| [`agi.apify.com/AGENTS.md`](https://agi.apify.com/AGENTS.md) | Instructions for agents that pay for Actor runs on their own. See [agentic payments](/agents/payments). |
 
 `robots.txt` also declares a `Content-Signal` line that allows search, AI input, and AI training. The [MCP configurator](https://mcp.apify.com) generates a ready-to-paste MCP client configuration.
 
@@ -69,6 +69,6 @@ apify.com publishes a set of machine-readable files for agents. The homepage adv
 
 ## Related resources
 
-- [Apify agent tools](/agent-tools) - Documentation access alongside the MCP server, plugins, and skills
-- [Apify MCP server](/agent-tools/mcp) - The documentation tools and everything else the MCP server exposes
-- [Agentic payments](/agent-tools/agentic-payments) - Prepaid access for agents that pay their own way
+- [For AI agents](/agents) - Documentation access alongside the MCP server, plugins, and skills
+- [Apify MCP server](/mcp) - The documentation tools and everything else the MCP server exposes
+- [Agentic payments](/agents/payments) - Prepaid access for agents that pay their own way

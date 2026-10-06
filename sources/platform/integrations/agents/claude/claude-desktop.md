@@ -9,7 +9,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
-Connect [Claude Desktop](https://claude.ai/download) to the [Apify MCP server](/agent-tools/mcp) to give your conversations access to thousands of Actors from [Apify Store](https://apify.com/store). Once connected, Claude can search for, run, and retrieve results from Actors directly in your chat.
+Connect [Claude Desktop](https://claude.ai/download) to the [Apify MCP server](/mcp) to give your conversations access to thousands of Actors from [Apify Store](https://apify.com/store). Once connected, Claude can search for, run, and retrieve results from Actors directly in your chat.
 
 <ThirdPartyDisclaimer />
 
@@ -47,7 +47,7 @@ On first connection, your browser opens to sign in to Apify and authorize the co
 
 :::tip Connect only the tools you need
 
-`https://mcp.apify.com` exposes the default tool set. To expose specific Actors or MCP tools, build your setup in the [Apify MCP server configurator](https://mcp.apify.com) and use the URL it generates as the server URL. For the full list of options, read about [tool selection](/integrations/mcp#tool-selection).
+`https://mcp.apify.com` exposes the default tool set. To expose specific Actors or MCP tools, build your setup in the [Apify MCP server configurator](https://mcp.apify.com) and use the URL it generates as the server URL. For the full list of options, read about [tool selection](/mcp#tool-selection).
 
 :::
 
@@ -192,6 +192,6 @@ A system-wide installation can coexist with an existing version-manager installa
 
 ## Next steps
 
-- [Apify MCP server](/agent-tools/mcp) - Explore tool selection, available tools, telemetry, and rate limits
+- [Apify MCP server](/mcp) - Explore tool selection, available tools, telemetry, and rate limits
 - [Apify MCP server configurator](https://mcp.apify.com) - Select tools visually and copy configuration
 - [Apify MCP server on GitHub](https://github.com/apify/apify-mcp-server) - Report bugs and suggest features

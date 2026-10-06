@@ -202,9 +202,9 @@ const themeConfig = {
                 ],
             },
             {
-                label: 'Agent tools',
-                href: `${absoluteUrl}/agent-tools`,
-                activeBasePath: 'agent-tools',
+                label: 'For AI agents',
+                href: `${absoluteUrl}/agents`,
+                activeBaseRegex: '^/(agents|mcp)(/|$)',
                 position: 'right',
                 target: '_self',
                 rel: 'dofollow',

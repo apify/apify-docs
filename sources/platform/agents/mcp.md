@@ -4,7 +4,7 @@ sidebar_label: MCP server
 subtitle: Connect any MCP client to Apify
 description: Learn how to use the Apify MCP server to integrate Apify's library of Actors into your AI agents or large language model-based applications.
 sidebar_position: 2
-slug: /agent-tools/mcp
+slug: /mcp
 toc_max_heading_level: 4
 ---
 
@@ -31,7 +31,7 @@ This page covers the Apify MCP server, which exposes Apify Actors as tools to ou
 
 :::tip Connecting a coding agent
 
-For Claude Code, Cursor, GitHub Copilot, Codex, and other coding agents, an [Apify plugin](/agent-tools/plugin) installs this server together with [Agent Skills](/agent-tools/skills) in one step. See [Apify agent tools](/agent-tools) for how the pieces fit together.
+For Claude Code, Cursor, GitHub Copilot, Codex, and other coding agents, an [Apify plugin](/agents/plugins) installs this server together with [Agent Skills](/agents/skills) in one step. The [For AI agents](/agents) overview shows how the pieces fit together.
 
 :::
 

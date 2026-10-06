@@ -4,16 +4,16 @@ sidebar_label: Agent Skills
 subtitle: Give your AI agent Apify know-how
 description: Install Apify Agent Skills to give a coding agent tested workflows for scraping, Actor development, actorization, and building Apify integrations.
 sidebar_position: 3
-slug: /agent-tools/skills
+slug: /agents/skills
 ---
 
 Agent Skills are instructions your agent loads on demand when it needs Apify-specific procedural knowledge. Each skill describes a multi-step workflow that Apify has already validated, so the agent follows a known-good sequence instead of improvising one.
 
-Skills layer on top of a connection you already have, whether that's a [plugin](/agent-tools/plugin) or the [MCP server](/agent-tools/mcp) on its own. See [Apify agent tools](/agent-tools) for how they relate to the other pieces.
+Skills layer on top of a connection you already have, whether that's a [plugin](/agents/plugins) or the [MCP server](/mcp) on its own. The [For AI agents](/agents) overview shows how they relate to the other pieces.
 
 ## Install
 
-The simplest route is a [plugin](/agent-tools/plugin), which ships the skills already installed. Claude Code, Codex, Cursor, GitHub Copilot, VS Code, OpenCode, Grok Build, Kimi Code, and Qoder get them this way.
+The simplest route is a [plugin](/agents/plugins), which ships the skills already installed. Claude Code, Codex, Cursor, GitHub Copilot, VS Code, OpenCode, Grok Build, Kimi Code, and Qoder get them this way.
 
 To install the skills on their own, for an agent without a plugin or alongside a hand-configured MCP server, use the skills CLI:
 
@@ -75,7 +75,7 @@ The Actor development, actorization, and integration skills write to your projec
 
 ## Related resources
 
-- [Apify plugin](/agent-tools/plugin) - The skills, the MCP server, and the routing agent in one install
-- [Apify MCP server](/agent-tools/mcp) - The live connection that pairs with skills
+- [Apify plugin](/agents/plugins) - The skills, the MCP server, and the routing agent in one install
+- [Apify MCP server](/mcp) - The live connection that pairs with skills
 - [Build Actors with AI](/actors/development/quick-start/build-with-ai) - The Actor lifecycle driven from a coding agent
 - [Apify skills registry](https://skills.sh/apify/agent-skills) - The source of every published skill
