@@ -93,11 +93,11 @@ The example above focuses on accessing a run's default dataset, but the approach
 
 ## Make your Actor available to other users
 
-To allow other users to use your Actor as an integration, [publish it in Apify Store](/actors/publishing). Users can then find it in the **Add integration** dialog on the **Integrations** tab of any Actor. While publishing is enough, there are two ways to make your Actor more visible to users.
+To allow other users to use your Actor as an integration, [publish it in Apify Store](/actors/publishing). Users can then find it in the **Add integration** dialog on the **Integrations** tab of any Actor. Published Actors can also appear in two more prominent places in that dialog.
 
-For Actors generic enough to be used with most other Actors, you can have them listed under **Generic integrations** in the **Add integration** dialog. This includes (but is not limited to) Actors that upload datasets to databases, send notifications through various messaging systems, or create issues in ticketing systems. To have your Actor listed under generic integrations, [contact support](mailto:support@apify.com?subject=Actor%20generic%20integration). <!-- TODO: confirm the contact-support workflow is still current; the new catalog UI may use a different listing mechanism. -->
+Actors generic enough to be used with most other Actors appear under **Generic integrations**. This includes (but is not limited to) Actors that upload datasets to databases, send notifications through various messaging systems, or create issues in ticketing systems.
 
-Some Actors can only be integrated with a few - or even just one - other Actor. For example, an Actor that scrapes profiles from a social network is relevant for Actors that produce usernames from that network, but not for Actors that produce product lists. In this case, you can have the Actor listed under **Suggested for this Actor** on the source Actor's **Integrations** tab. To have your Actor listed as specific to another Actor, [contact support](mailto:support@apify.com?subject=Actor%20specific%20integration). <!-- TODO: confirm the contact-support workflow and the exact UI section name ("Suggested for this Actor" vs "Specific to this Actor"). -->
+Some Actors can only be integrated with a few - or even just one - other Actor. For example, an Actor that scrapes profiles from a social network is relevant for Actors that produce usernames from that network, but not for Actors that produce product lists. These Actors appear under **Suggested for this Actor** on the source Actor's **Integrations** tab.
 
 <!-- TODO: recapture or replace `specific_vs_generic_integrations.png` to match the new Add integration dialog. -->
 ![Specific vs generic integrations](./images/specific_vs_generic_integrations.png)
