@@ -93,10 +93,6 @@ The example above focuses on accessing a run's default dataset, but the approach
 
 ## Make your Actor available to other users
 
-To allow other users to use your Actor as an integration, [publish it in Apify Store](/actors/publishing). Users can then find it in the **Add integration** dialog on the **Integrations** tab of any Actor. Published Actors can also appear in two more prominent places in that dialog.
+To allow other users to use your Actor as an integration, [publish it in Apify Store](/actors/publishing). Users can then find it in the **Add integration** dialog on the **Integrations** tab of any Actor.
 
-Actors generic enough to be used with most other Actors appear under **Generic integrations**. This includes (but is not limited to) Actors that upload datasets to databases, send notifications through various messaging systems, or create issues in ticketing systems.
-
-Some Actors can only be integrated with a few - or even just one - other Actor. For example, an Actor that scrapes profiles from a social network is relevant for Actors that produce usernames from that network, but not for Actors that produce product lists. These Actors appear under **Suggested for this Actor** on the source Actor's **Integrations** tab.
-
-![Specific vs generic integrations](./images/specific_vs_generic_integrations.png)
+Some Actors are only relevant to a few - or even just one - other Actor. For example, an Actor that scrapes profiles from a social network is relevant for Actors that produce usernames from that network, but not for Actors that produce product lists. Apify curates these pairings, and a paired Actor appears under **Suggested for this Actor** on the source Actor's **Integrations** tab.
