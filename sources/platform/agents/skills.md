@@ -13,7 +13,7 @@ Skills layer on top of a connection you already have, whether that's a [plugin](
 
 ## Install
 
-The simplest route is a [plugin](/agents/plugins), which ships the skills already installed. Claude Code, Codex, Cursor, GitHub Copilot, VS Code, OpenCode, Grok Build, Kimi Code, and Qoder get them this way.
+The simplest route is a [plugin](/agents/plugins), which ships the skills already installed. Claude Code, Codex, Cursor, GitHub Copilot, VS Code, OpenCode, Grok Build, Kimi Code, Qoder, and DeepSeek Harness get them this way.
 
 To install the skills on their own, for an agent without a plugin or alongside a hand-configured MCP server, use the skills CLI:
 

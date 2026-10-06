@@ -48,6 +48,7 @@ The OpenClaw, Hermes Agent, and Kilo Code plugins work differently. Instead of c
 | Grok Build | Yes | Yes | Yes | [`apify/apify-grok-build-plugin`](https://github.com/apify/apify-grok-build-plugin) |
 | Kimi Code | Yes | Yes | No | [`apify/apify-kimi-code-plugin`](https://github.com/apify/apify-kimi-code-plugin) |
 | Qoder and Qwen Code | Yes | Yes | Yes | [`apify/apify-qoder-plugin`](https://github.com/apify/apify-qoder-plugin) |
+| DeepSeek Harness | Yes | Yes | No | [`dsh-apify-plugin`](https://github.com/apify/apify-deepseek-harness-plugin) |
 | OpenClaw | Native tool | No | No | [`@apify/apify-openclaw-plugin`](https://github.com/apify/apify-openclaw-plugin) |
 | Hermes Agent | Native tools | Routing skill | No | [`apify-hermes-agent-plugin`](https://github.com/apify/apify-hermes-agent-plugin) |
 | Kilo Code | Native tool | No | No | [`@apify/kilocode-plugin`](https://github.com/apify/kilocode-plugin) |
@@ -186,6 +187,25 @@ Read the full [Kimi Code CLI guide](/integrations/kimi-code-cli).
 The Qoder IDE installs from the [Qoder Marketplace](https://qoder.com/marketplace/plugin?id=bbbdb1cb-8bad-441e-b42f-ce0e33e3a521) page in one step, and the Desktop app and QoderWork import the plugin package from the same page. Qwen Code installs the Qoder plugin as an extension. Read the full [Qoder guide](/integrations/qoder) or [Qwen Code guide](/integrations/qwen).
 
 </TabItem>
+<TabItem value="deepseek-harness" label="DeepSeek Harness">
+
+1. Install the plugin into the profile you launch, for example the `web` profile behind the web GUI:
+
+    ```bash
+    dsh plugin --profile web add dsh-apify-plugin
+    ```
+
+    To use the terminal too, repeat the command with `--profile headless`.
+
+1. DeepSeek Harness has no OAuth flow, so add your [Apify API token](https://console.apify.com/settings/integrations) to a `.env` file in the directory you launch `dsh` from, then restart the profile:
+
+    ```bash
+    APIFY_TOKEN=<YOUR_API_TOKEN>
+    ```
+
+Read the full [DeepSeek Harness guide](/integrations/deepseek-harness).
+
+</TabItem>
 <TabItem value="openclaw" label="OpenClaw">
 
 1. Install the plugin from npm:
@@ -241,7 +261,7 @@ There's no Apify guide for Kilo Code yet, so check the [plugin README](https://g
 </TabItem>
 </Tabs>
 
-Plugins that use the MCP server sign in through OAuth and keep the connection for future sessions. You can revoke access at any time in [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations). The OpenClaw, Hermes Agent, and Kilo Code plugins use an Apify API token instead.
+Plugins that use the MCP server sign in through OAuth and keep the connection for future sessions. You can revoke access at any time in [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations). The DeepSeek Harness, OpenClaw, Hermes Agent, and Kilo Code plugins use an Apify API token instead.
 
 ## Related resources
 
