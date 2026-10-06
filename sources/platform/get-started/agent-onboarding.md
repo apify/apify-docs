@@ -15,7 +15,7 @@ import ClaudeCodeWebEgress from '@site/sources/_partials/_claude-code-web-egress
 
 Connect your AI agent or application to Apify - the platform for web scraping, data extraction, and browser automation. The typical agent workflow: find an Actor, run it, get structured data back.
 
-Apify also serves a quickstart for agents to read directly at [`apify.com/agents.md`](https://apify.com/agents.md). An interactive agent connects the [MCP server](#mcp-server) and signs in through the browser. Code that keeps running after the session uses an [API client](#api-client) or the [REST API](#rest-api) with an API token. An autonomous agent with a wallet and nobody to sign in pays through [agentic payments](/agents/payments).
+Apify also serves a quickstart for agents to read directly at [`apify.com/agents.md`](https://apify.com/agents.md).
 
 ## Core concepts
 
@@ -115,11 +115,7 @@ See [Usage and resources](/actors/running/usage-and-resources) and [Billing](/ac
 
 The [Apify MCP server](/mcp) connects your agent to the full Apify platform via the [Model Context Protocol](https://modelcontextprotocol.io/). No local installation needed for remote-capable clients.
 
-:::tip Free exploration
-
-The MCP server's `search-actors`, `fetch-actor-details`, and docs tools work without authentication when you connect to `https://mcp.apify.com/?tools=search-actors,fetch-actor-details,search-apify-docs,fetch-apify-docs`. That connection browses Actors and documentation without an account, but can't run Actors. For details, check [using the MCP server without an account](/mcp#use-without-an-account).
-
-:::
+If you don't have an Apify account yet, connect to `https://mcp.apify.com/?tools=search-actors,fetch-actor-details,search-apify-docs,fetch-apify-docs`. These tools search Actors and the documentation without an API token, but can't run Actors. For details, see [using the MCP server without an account](/mcp#use-without-an-account).
 
 To connect a client that supports remote MCP servers, such as Claude Code, Cursor, VS Code, or GitHub Copilot, to `https://mcp.apify.com`:
 
@@ -267,7 +263,7 @@ For the complete list, including the agent-facing surfaces outside the documenta
 ## Useful resources
 
 - [For AI agents](/agents) - Overview of the MCP server, plugins, Agent Skills, and machine-readable docs
-- [MCP server integration](/mcp) - Tool customization, dynamic Actor discovery, and advanced configuration
+- [Apify MCP server](/mcp) - Tool customization, dynamic Actor discovery, and advanced configuration
 - [CLI documentation](/cli) - Complete command reference
 - [API reference](/api/v2) - All REST API endpoints
 - [API client for JavaScript](https://docs.apify.com/api/client/js) | [for Python](https://docs.apify.com/api/client/python) - Client libraries
