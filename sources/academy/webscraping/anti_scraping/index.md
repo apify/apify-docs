@@ -1,7 +1,7 @@
 ---
 title: Anti-scraping protections
 description: Understand the various anti-scraping measures different sites use to prevent bots from accessing them, and how to appear more human to fix these issues.
-sidebar_position: 5
+sidebar_position: 7
 category: web scraping & automation
 slug: /anti-scraping
 ---

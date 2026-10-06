@@ -1,7 +1,7 @@
 ---
 title: Web scraping with AI and Apify
 description: Learn how to use AI to extract information from websites in this practical course, starting from the absolute basics.
-sidebar_position: 8
+sidebar_position: 1
 sidebar_label: Web scraping with AI and Apify
 category: web scraping
 slug: /scraping-with-ai
