@@ -109,7 +109,7 @@ No, even if you use the Actor-level hostname with the default configuration, the
 
 ## Can I use Standby Actors as MCP servers
 
-Yes, if the Actor exposes a [Model Context Protocol (MCP)](../../integrations/ai/mcp.md) server. Its MCP endpoint is the Standby hostname followed by the path defined in the Actor's [`webServerMcpPath`](../development/actor_definition/actor_json.md) property. Authenticate requests to the MCP endpoint the same way as any other Standby request.
+Yes, if the Actor exposes a [Model Context Protocol (MCP)](../../agents/mcp.md) server. Its MCP endpoint is the Standby hostname followed by the path defined in the Actor's [`webServerMcpPath`](../development/actor_definition/actor_json.md) property. Authenticate requests to the MCP endpoint the same way as any other Standby request.
 
 ## How can I develop Actors using Standby mode
 
