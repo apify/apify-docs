@@ -16,7 +16,7 @@ properties:
     format: email
     examples: [bob@example.com]
   proxy:
-    $ref: ./UserProxyInfo.yaml
+    $ref: ./ProxyInfo.yaml
   plan:
     $ref: ./UserPlan.yaml
   effectivePlatformFeatures:
