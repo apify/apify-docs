@@ -1,8 +1,7 @@
 ---
 title: Before publishing to Apify Store
 description: Use AI to prepare your scraper for other users by improving its first-run experience, Apify Store listing, documentation, and maintenance plan.
-slug: /scraping-with-apify-and-ai/before-publishing-to-apify-store
-unlisted: true
+slug: /scraping-with-ai/before-publishing-to-apify-store
 ---
 
 **In this lesson, we'll prepare our app for tracking prices on an e-commerce website for other people to use. We'll use Cursor to inspect and improve its first-run experience and documentation, prepare its Apify Store listing, and make a plan for keeping it reliable.**

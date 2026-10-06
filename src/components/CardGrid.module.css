@@ -3,8 +3,7 @@
     grid-template-columns: repeat(3, 3fr);
     grid-column-gap: 10px;
     grid-row-gap: 10px;
-    /* Same bottom spacing as other markdown blocks, so text after a grid doesn't touch it */
-    margin-bottom: var(--ifm-leading);
+    margin-bottom: 16px;
 }
 
 @media screen and (max-width: 768px) {

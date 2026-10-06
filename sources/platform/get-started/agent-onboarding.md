@@ -92,9 +92,10 @@ The pattern is the same across every integration method: pick an Actor, send inp
 
 When an agent calls Actors automatically, set run limits to prevent surprise bills. Pass these as query parameters on the [run Actor endpoint](/api/v2/actors-runs-post):
 
-- `memory` (MB) - power of 2, minimum 128. Lower memory means lower cost per second.
+- `maxTotalChargeUsd` - cap the total amount charged for the run. Works for all pricing models.
+- `maxItems` - cap how many results you pay for on an Actor priced per result.
 - `timeout` (seconds) - cap how long a single run can last.
-- `maxTotalChargeUsd` - cap total run cost for pay-per-event Actors.
+- `memory` (MB) - set memory as a power of 2, minimum 128. Lower memory means lower cost per second.
 
 See [Usage and resources](/actors/running/usage-and-resources) and [Billing](/account/billing) for details.
 
@@ -120,9 +121,7 @@ The MCP server's `search-actors`, `fetch-actor-details`, and docs tools work wit
 
 :::
 
-#### Remote (recommended)
-
-Works with Claude Code, Cursor, VS Code, GitHub Copilot, and other remote-capable clients.
+To connect a client that supports remote MCP servers, such as Claude Code, Cursor, VS Code, or GitHub Copilot, to `https://mcp.apify.com`:
 
 1. Add the following to your MCP client's configuration:
 
@@ -139,27 +138,11 @@ Works with Claude Code, Cursor, VS Code, GitHub Copilot, and other remote-capabl
 
 1. Restart your client and sign in when prompted. OAuth handles authentication automatically.
 
-#### Local/stdio
+Claude Desktop doesn't accept a remote server URL in its configuration file. Add `https://mcp.apify.com` as a custom connector instead, as described in the [Claude Desktop integration guide](/integrations/claude-desktop).
 
-For clients that only support local MCP servers, for example Claude Desktop.
+For client-specific steps, use the [MCP Configurator](https://mcp.apify.com), which generates ready-to-paste configs. The [MCP server documentation](/integrations/mcp) also covers [running the server locally](/integrations/mcp#local-stdio), [tool selection](/integrations/mcp#tool-selection), and [Bearer token authentication](/integrations/mcp#streamable-http-with-oauth-recommended).
 
-1. Add the following to your MCP client's configuration:
-
-    ```json
-    {
-      "mcpServers": {
-        "apify": {
-          "command": "npx",
-          "args": ["-y", "@apify/actors-mcp-server@latest"],
-          "env": { "APIFY_TOKEN": "YOUR_TOKEN" }
-        }
-      }
-    }
-    ```
-
-1. Replace `YOUR_TOKEN` with your API token and restart the client.
-
-For client-specific setup instructions, use the [MCP Configurator](https://mcp.apify.com) which generates ready-to-paste configs. For details, see the [MCP server documentation](/agent-tools/mcp).
+To cap runs that your agent starts over MCP, pass `maxTotalChargeUsd`, `maxItems`, `timeout`, or `memory` in the `callOptions` argument of [`call-actor`](/integrations/mcp#available-tools). Fields with these names in the Actor `input` don't cap the run. The Actor's input schema decides how it handles them.
 
 ### API client
 
@@ -281,7 +264,15 @@ Install them into Claude Code, Cursor, Windsurf, Codex, or Gemini CLI:
 npx skills add apify/agent-skills
 ```
 
-Coding agents with an [Apify plugin](/agent-tools/plugin) get the skills already installed. For the available skills and the prompts that trigger them, see [Agent Skills](/agent-tools/skills).
+| Skill | What it does |
+| :--- | :--- |
+| `apify-ultimate-scraper` | Routes web scraping requests to the right Actor for multi-step data pipelines |
+| `apify-actor-development` | Guided workflow for building and deploying custom Actors, including their input and output schemas |
+| `apify-actorization` | Converts an existing project into an Apify Actor |
+| `apify-generate-output-schema` | Deprecated - use `apify-actor-development` instead |
+| `apify-integration-development` | Builds an official Apify integration for another product: workflow-automation apps, agent plugins, AI framework packages, or `apify-client` application code |
+
+For the full list and details, see the [skills registry](https://skills.sh/apify/agent-skills).
 
 ## Documentation access for agents
 

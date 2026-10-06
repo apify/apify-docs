@@ -33,13 +33,27 @@ The remote server at `https://mcp.apify.com` is the recommended way to connect. 
 - OAuth authentication - secure sign-in through your browser, no API token needed
 - No local dependencies - nothing to install or maintain on your machine
 
-To set up the remote server, [add a custom connector](https://support.claude.com/en/articles/11175166) in Claude Desktop and use `https://mcp.apify.com` as the server URL.
+Add the remote server as a custom connector. Remote connectors run on Anthropic's servers, so the same connector works in Claude Desktop and in claude.ai. On Team and Enterprise plans, an Owner or Primary Owner has to [add the connector for the whole organization](https://support.claude.com/en/articles/11175166) instead.
+
+1. In Claude, open **Settings**, then select **Connectors**.
+1. Select **Add**, then select **Add custom connector**. In claude.ai, you can also [open the **Add custom connector** dialog](https://claude.ai/new?modal=add-custom-connector#settings/customize-connectors) directly.
+1. Fill in the dialog:
+    - **Name** - A name for the connector, for example `Apify`
+    - **Remote MCP server URL** - The Apify MCP server address, `https://mcp.apify.com`
+1. Select **Continue**. Claude checks the server and pre-fills the next screen with the authentication and OAuth settings it detects.
+1. Keep the detected settings and select **Add**.
 
 On first connection, your browser opens to sign in to Apify and authorize the connection.
 
+:::tip Connect only the tools you need
+
+`https://mcp.apify.com` exposes the default tool set. To expose specific Actors or MCP tools, build your setup in the [Apify MCP server configurator](https://mcp.apify.com) and use the URL it generates as the server URL. For the full list of options, read about [tool selection](/integrations/mcp#tool-selection).
+
+:::
+
 ### One-click installation
 
-Search for "Apify" in the [Claude Desktop connector directory](https://support.claude.com/en/articles/11175166) and install the connector.
+Search for "Apify" in the [Claude Desktop connector directory](https://support.claude.com/en/articles/11176164) and install the connector.
 
 Alternatively, download and open the [Apify MCP server `.mcpb` file](https://github.com/apify/actors-mcp-server/releases/latest/download/apify-mcp-server.mcpb) to register the connector automatically.
 
@@ -69,7 +83,7 @@ Before diving into specific issues, check these two things first:
 
 The MCP server shows as connected but Apify tools don't appear in the tools list, or Claude doesn't recognize any Apify tools in conversation.
 
-- _Check tool permissions._ Individual connector tools can be blocked in your [connector settings](https://support.anthropic.com/en/articles/11175166-how-to-manage-and-remove-integrations-in-claude). Verify that Apify tools are set to **Always allow** or **Ask first**, not blocked.
+- _Check tool permissions._ Individual connector tools can be blocked in your [connector settings](https://support.claude.com/en/articles/11176164). Verify that Apify tools are set to **Always allow** or **Ask first**, not blocked.
 - _Check the connector version._ Claude Desktop may silently downgrade the connector to an older version. If tools aren't appearing despite the connector showing as enabled, remove and re-add the connector to trigger an update.
 - _Restart Claude Desktop._ Configuration changes only take effect after a restart.
 - _Reinstall the connector._ Remove the Apify connector and add it again.

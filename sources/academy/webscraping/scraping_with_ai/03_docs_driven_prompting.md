@@ -1,8 +1,7 @@
 ---
 title: Using docs as a spec for AI
 description: Improve your Apify scraper by documenting its behavior first and letting an AI agent follow the documentation as a practical spec.
-slug: /scraping-with-apify-and-ai/docs-driven-prompting
-unlisted: true
+slug: /scraping-with-ai/docs-driven-prompting
 ---
 
 **In this lesson, we'll keep improving our app for tracking prices on an e-commerce website. We'll write documentation which isn't only useful for people to read, but also gives Cursor the context it needs.**
@@ -123,7 +122,7 @@ The README documents what we already have. Now let's use it as a spec for what c
 
 We'll save the file with <kbd>Ctrl+S</kbd> (or <kbd>⌘+S</kbd> on macOS), then send this prompt to the AI agent:
 
-```text
+```prompt title="Implement README prompt"
 Ensure all behavior documented in README is correctly implemented.
 ```
 
@@ -181,7 +180,7 @@ Saves SKU as a number. Examples:
 
 We'll save the file again and repeat the same prompt as before to turn our spec into code:
 
-```text
+```prompt title="Implement README prompt"
 Ensure all behavior documented in README is correctly implemented.
 ```
 

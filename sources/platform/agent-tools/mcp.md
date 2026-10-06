@@ -53,11 +53,11 @@ The MCP server intentionally excludes two categories of Actors from search and e
 
 ## Prerequisites
 
-Before connecting your AI to Apify, you'll need three things:
+Before connecting your AI to Apify, you'll need an Apify account and an MCP client. Some connection methods also need an API token:
 
 - _An Apify account_ - Sign up for an Apify account, if you don't have one.
-- _Apify API token_ - Get your API token from the **API & Integrations** section in [Apify Console](https://console.apify.com/settings/integrations). This token authorizes the MCP server to run Actors on your behalf. Make sure to keep it secure.
-- _MCP client_ - An AI agent or client that supports Model Context Protocol (MCP) This could be Anthropic's Claude for Desktop, a VS Code extension with MCP support, or any application that implements the MCP specification. The [official MCP documentation](https://modelcontextprotocol.io/clients) maintains a list of compatible clients.
+- _MCP client_ - An AI agent or client that supports Model Context Protocol (MCP). This could be Anthropic's Claude for Desktop, a VS Code extension with MCP support, or any application that implements the MCP specification. The [official MCP documentation](https://modelcontextprotocol.io/clients) maintains a list of compatible clients.
+- _Apify API token_ (optional) - Only needed for the [local stdio server](#local-stdio) or the [Bearer token option](#streamable-http-with-oauth-recommended). The recommended remote connection signs you in with OAuth instead. Get your token from the **API & Integrations** section in [Apify Console](https://console.apify.com/settings/integrations) and keep it secure.
 
 ## Connect and authorize
 
@@ -177,7 +177,7 @@ If the `tools` parameter includes any other tool, or you connect to the default 
 | :--- | :--- | :--- | :--- |
 | `search-actors` | `actors` | ✅ | Search for Actors in Apify Store |
 | `fetch-actor-details` | `actors` | ✅ | Retrieve detailed information about a specific Actor, including its input and output schema, README (summary when available, full otherwise), and pricing |
-| `call-actor` | `actors` | ✅ | Run an Actor and wait up to `waitSecs` (0-45, default 30) for it to finish. Returns the run status and storage IDs, not the results themselves |
+| `call-actor` | `actors` | ✅ | Run an Actor and wait up to `waitSecs` (0-45, default 30) for it to finish. Pass run limits (`memory`, `timeout`, `maxItems`, `maxTotalChargeUsd`) in `callOptions`, not in the Actor input. Returns the run status and storage IDs, not the results themselves |
 | [`apify/rag-web-browser`](https://apify.com/apify/rag-web-browser) | Actor | ✅ | Browse and extract web data |
 | [`apify/web-fetch`](https://apify.com/apify/web-fetch) | Actor | ✅ | Fetch one http(s) URL and return its full content, rendering JavaScript and bypassing anti-bot protection |
 | `search-apify-docs` | `docs` | ✅ | Search the Apify documentation for relevant pages |

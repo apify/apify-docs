@@ -1,8 +1,7 @@
 ---
 title: Developing a scraper with AI agent
 description: Improve your Apify scraper using the Cursor AI agent. Set up local development, clean up price data, and push changes back to the Apify platform.
-slug: /scraping-with-apify-and-ai/developing-scraper-with-ai-agent
-unlisted: true
+slug: /scraping-with-ai/developing-scraper-with-ai-agent
 ---
 
 **In this lesson, we'll keep improving our app for tracking prices on an e-commerce website. We'll get its code onto our computer and use Cursor to streamline how we update our scraper.**
@@ -189,7 +188,7 @@ Finally, onto some agentic coding!
 
 First, let's simplify how we can run the Actor. This will be our prompt:
 
-```text
+```prompt title="Change input URL prompt"
 Change the default input URL of the Actor
 to https://warehouse-theme-metal.myshopify.com/collections/sales
 ```
@@ -228,10 +227,8 @@ In the previous lesson, we noticed that the prices in our resulting dataset are 
 
 Let's change that. We'll prompt the agent like this, with a clear example of what we want:
 
-```text
-Change the code so that the Actor saves prices as numbers.
-Because some prices are "from", let's call the "price" field
-"minPrice" instead, as in minimum price. Example follows.
+```prompt title="Clean up price data prompt"
+Change the code so that the Actor saves prices as numbers. Because some prices are "from", let's call the "price" field "minPrice" instead, as in minimum price. Example follows.
 
 Before:
 Sale price$74.95
@@ -252,7 +249,7 @@ apify run
 
 It runs, that's nice! But looking at the output, we can't really verify what exactly gets scraped! While we're at it, let's change that with another prompt:
 
-```text
+```prompt title="Log items prompt"
 I want the scraper to log each item before it's saved.
 ```
 
@@ -308,10 +305,8 @@ We've done it, the prices save as numbers!
 
 If we didn't want to always click on **All fields** to see full items, we need to specify an [output schema](https://docs.apify.com/actors/development/actor-definition/output-schema) so that the platform knows what it can expect and how it should display it in the interface. With Cursor, such change is just a single prompt away:
 
-```text
-Change the output schema of the Actor
-so that it represents the items being
-saved the best way in the Apify interface.
+```prompt title="Change output schema prompt"
+Change the output schema of the Actor so that it represents the items being saved the best way in the Apify interface.
 ```
 
 :::
