@@ -28,25 +28,25 @@ This guide covers installation in the Claude Code CLI. Support for the Claude Co
 
 ## Install the plugin
 
-Install Apify from Claude Code's native plugin directory. Use the manual marketplace fallback below if the directory entry isn't available.
+Install Apify directly in Claude Code. Use the manual marketplace fallback below if the command can't find the plugin.
 
-### Native directory (recommended)
+### Direct installation (recommended)
 
-1. In Claude Code, run `/plugin` to open the plugin manager.
+1. In Claude Code, run:
 
-1. Open the **Discover** tab and search for `apify`.
-
-1. Select **Apify** from **Anthropic Directory** and press Enter to view its details.
+    ```text
+    /plugin install Apify
+    ```
 
 1. Review the plugin details, choose an install scope (**Install for you (user scope)** is the typical choice), and press Enter.
 
 1. If prompted, run `/reload-plugins` to activate the plugin in the current session.
 
-1. Open the **Installed** tab to confirm the `apify` plugin appears as enabled.
+1. Run `/plugin` and open the **Installed** tab to confirm the `apify` plugin appears as enabled.
 
 ### Manual marketplace fallback
 
-If Apify isn't available in the native directory, add the Apify marketplace manually:
+If the direct install command can't find Apify, add the Apify marketplace manually:
 
 ```text
 /plugin marketplace add apify/apify-claude-code-plugin
