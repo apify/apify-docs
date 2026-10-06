@@ -19,6 +19,8 @@ using [Model Context Protocol](https://modelcontextprotocol.io/docs/getting-star
 discover and run Actors from [Apify Store](https://apify.com/store), access storages and results,
 and enables AI coding assistants to access Apify documentation and tutorials.
 
+To connect a coding agent such as Claude Code, Cursor, GitHub Copilot, or Codex, install the [Apify plugin](/agents/plugins) instead. It sets up this server together with [Agent Skills](/agents/skills) in one step.
+
 ![Apify MCP server](../images/apify_mcp_server.png)
 
 <ThirdPartyDisclaimer />
@@ -26,12 +28,6 @@ and enables AI coding assistants to access Apify documentation and tutorials.
 :::info Apify MCP server vs MCP connectors
 
 This page covers the Apify MCP server, which exposes Apify Actors as tools to outside AI clients. If you are building an Actor that needs to call third-party MCP servers (such as Notion or Slack) on a user's behalf, see [MCP connectors](/integrations/mcp-connectors) instead.
-
-:::
-
-:::tip Connecting a coding agent
-
-For Claude Code, Cursor, GitHub Copilot, Codex, and other coding agents, an [Apify plugin](/agents/plugins) installs this server together with [Agent Skills](/agents/skills) in one step. The [For AI agents](/agents) overview shows how the pieces fit together.
 
 :::
 
@@ -55,7 +51,7 @@ The MCP server intentionally excludes two categories of Actors from search and e
 
 Before connecting your AI to Apify, you'll need an Apify account and an MCP client. Some connection methods also need an API token:
 
-- _An Apify account_ - Sign up for an Apify account, if you don't have one.
+- _An Apify account_ - Sign up for an Apify account, if you don't have one. An agent without an account can instead buy a prepaid token through [agentic payments](/agents/payments) and use it as a Bearer token.
 - _MCP client_ - An AI agent or client that supports Model Context Protocol (MCP). This could be Anthropic's Claude for Desktop, a VS Code extension with MCP support, or any application that implements the MCP specification. The [official MCP documentation](https://modelcontextprotocol.io/clients) maintains a list of compatible clients.
 - _Apify API token_ (optional) - Only needed for the [local stdio server](#local-stdio) or the [Bearer token option](#streamable-http-with-oauth-recommended). The recommended remote connection signs you in with OAuth instead. Get your token from the **API & Integrations** section in [Apify Console](https://console.apify.com/settings/integrations) and keep it secure.
 
