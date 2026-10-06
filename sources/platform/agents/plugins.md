@@ -16,21 +16,13 @@ Apify maintains a separate plugin for each agent, because each agent has its own
 
 ## Why use the plugin
 
-A plugin is a package of extensions for an AI coding agent. Depending on the agent, one plugin can bundle any mix of:
-
-- _MCP servers_ - Connections that let the agent call an external service, such as Apify
-- _Agent Skills_ - Instructions the agent loads on demand for a specific workflow
-- _Subagents_ - Specialized agents with their own instructions and tool access
-- _Hooks_ - Scripts that run at set points in the agent's lifecycle, such as before a tool call
-- _Slash commands_ - Shortcuts you run directly in the chat
-
-The Apify plugin bundles the MCP server and Agent Skills, so one install sets up both. You can still install them separately if you prefer. Depending on the agent, you install the plugin for all your projects or for a single project.
+Without a plugin, you set up the [MCP server](/mcp) and [Agent Skills](/agents/skills) separately: an MCP configuration in your agent, plus the skills CLI and an Apify CLI login for the skills. The plugin replaces both with one install. Depending on the agent, you install the plugin for all your projects or for a single project.
 
 ## What's included
 
 Most plugins bundle three parts:
 
-- The [Apify MCP server](/mcp) at `https://mcp.apify.com`, for the live connection to the Apify platform. Its configuration ships inside the plugin.
+- The [Apify MCP server](/mcp) at `https://mcp.apify.com`, preconfigured inside the plugin, for the live connection to the Apify platform.
 - Five [Agent Skills](/agents/skills) covering scraping with existing Actors, Actor development, actorization, output schemas, and application integration.
 - An `apify` routing agent that picks the right tool or skill from a plain-language request, so you don't have to name tools yourself.
 

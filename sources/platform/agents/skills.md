@@ -1,5 +1,5 @@
 ---
-title: Agent Skills
+title: Apify Agent Skills
 sidebar_label: Agent Skills
 subtitle: Give your AI agent Apify know-how
 description: Install Apify Agent Skills to give a coding agent tested workflows for scraping, Actor development, actorization, and building Apify integrations.
@@ -65,7 +65,7 @@ For `apify-sdk-integration`:
 
 > "Add Apify to this project. The Node.js API route should run an Actor and return dataset items as JSON."
 
-With a plugin installed, the `apify` routing agent handles the match for you on agents that bundle it.
+With a plugin installed, the [`apify` routing agent](/agents/plugins#whats-included) handles the match for you on agents that bundle it.
 
 :::caution Skills can edit your files
 

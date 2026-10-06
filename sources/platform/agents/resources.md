@@ -63,7 +63,7 @@ apify.com publishes a set of machine-readable files for agents. The homepage adv
 
 ## Choose the right surface
 
-- For a page you can already name, fetch its `.md` URL. Cheapest option in tokens and always current.
+- For a page you can already name, fetch its `.md` URL, which is the cheapest option in tokens and always current.
 - To find out which page covers a topic, use `search-apify-docs` over MCP, or `llms.txt` if the agent has no MCP connection.
 - For API specifics, read the [OpenAPI definition](https://docs.apify.com/api/openapi.json) rather than prose documentation.
 
