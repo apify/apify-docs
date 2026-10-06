@@ -100,7 +100,7 @@ On first launch, no workspace exists. Select **Add workspace** in the workspace 
 
 `dsh` ships no model of its own. Open **Settings > Models**, select **Add model provider**, choose **Third-party model provider**, pick your provider, and enter its API key. DeepSeek has a card there from the start; other providers you add yourself. Keys saved here live in `.credentials.yaml` in the harness home and take effect without a restart.
 
-For a model served on your own machine, such as LM Studio or Ollama, select **Add model provider**, choose **Custom model API**, and enter its base URL, protocol, and models.
+For a model served on your own machine, such as LM Studio or Ollama, select **Add model provider**, choose **Custom model API**, and enter the server's base URL, the protocol it speaks, and the models it serves.
 
 To set a DeepSeek key before launch instead, put `DEEPSEEK_API_KEY` in the same `.env` file as `APIFY_TOKEN`.
 
