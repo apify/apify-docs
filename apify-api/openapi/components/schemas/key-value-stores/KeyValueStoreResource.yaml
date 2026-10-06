@@ -1,4 +1,4 @@
-title: KeyValueStoreInfo
+title: KeyValueStoreResource
 required:
   - id
   - createdAt

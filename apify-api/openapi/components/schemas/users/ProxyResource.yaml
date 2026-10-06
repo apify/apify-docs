@@ -1,4 +1,4 @@
-title: ProxyInfo
+title: ProxyResource
 required:
   - password
   - groups

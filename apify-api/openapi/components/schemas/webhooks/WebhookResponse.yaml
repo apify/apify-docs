@@ -5,4 +5,4 @@ required:
 type: object
 properties:
   data:
-    $ref: ./WebhookInfo.yaml
+    $ref: ./WebhookResource.yaml

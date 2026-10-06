@@ -1,4 +1,4 @@
-title: WebhookInfo
+title: WebhookResource
 required:
   - id
   - createdAt

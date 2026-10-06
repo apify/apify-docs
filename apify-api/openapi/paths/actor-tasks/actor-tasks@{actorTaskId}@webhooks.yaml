@@ -39,7 +39,7 @@ get:
                       items:
                         type: array
                         items:
-                          $ref: ../../components/schemas/webhooks/WebhookInfo.yaml
+                          $ref: ../../components/schemas/webhooks/WebhookResource.yaml
           example:
             data:
               total: 2

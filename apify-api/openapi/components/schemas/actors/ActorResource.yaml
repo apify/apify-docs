@@ -1,4 +1,4 @@
-title: ActorInfo
+title: ActorResource
 required:
   - id
   - userId

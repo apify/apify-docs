@@ -5,4 +5,4 @@ required:
 type: object
 properties:
   data:
-    $ref: ./RequestQueueInfo.yaml
+    $ref: ./RequestQueueResource.yaml

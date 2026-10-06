@@ -5,4 +5,4 @@ required:
 type: object
 properties:
   data:
-    $ref: ./KeyValueStoreInfo.yaml
+    $ref: ./KeyValueStoreResource.yaml

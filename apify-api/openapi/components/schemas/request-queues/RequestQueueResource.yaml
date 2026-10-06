@@ -1,4 +1,4 @@
-title: RequestQueueInfo
+title: RequestQueueResource
 description: A request queue object containing metadata and statistics.
 required:
   - id

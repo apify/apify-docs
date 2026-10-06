@@ -5,4 +5,4 @@ required:
 type: object
 properties:
   data:
-    $ref: ./RequestInfo.yaml
+    $ref: ./RequestResource.yaml

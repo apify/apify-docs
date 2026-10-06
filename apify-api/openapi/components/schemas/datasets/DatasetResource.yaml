@@ -1,4 +1,4 @@
-title: DatasetInfo
+title: DatasetResource
 required:
   - id
   - userId
