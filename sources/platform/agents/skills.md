@@ -7,6 +7,8 @@ sidebar_position: 3
 slug: /agents/skills
 ---
 
+import ApifyPluginSkillPrompts from '@site/sources/_partials/_apify-plugin-skill-prompts.mdx';
+
 Agent Skills are instructions your agent loads on demand when it needs Apify-specific procedural knowledge. Each skill describes a multi-step workflow that Apify has already validated, so the agent follows a known-good sequence instead of improvising one.
 
 Skills layer on top of a connection you already have, whether that's a [plugin](/agents/plugins) or the [MCP server](/mcp) on its own. The [For AI agents](/agents) overview shows how they relate to the other pieces.
@@ -53,17 +55,7 @@ For the canonical list and each skill's contents, see the [Apify skills registry
 
 A skill fires when your request matches its purpose, so describe the outcome you want and let the agent pick the skill:
 
-For `apify-ultimate-scraper`:
-
-> "Find 10 highly rated coffee shops in Seattle with name, address, rating, phone, and website."
-
-For `apify-actor-development`:
-
-> "Create an Apify Actor that accepts a `startUrl` and `maxPages` input, crawls the site, and stores each page title and URL."
-
-For `apify-sdk-integration`:
-
-> "Add Apify to this project. The Node.js API route should run an Actor and return dataset items as JSON."
+<ApifyPluginSkillPrompts />
 
 With a plugin installed, the [`apify` routing agent](/agents/plugins#whats-included) handles the match on agents that bundle it.
 
