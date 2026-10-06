@@ -1,11 +1,10 @@
 ---
-title: Scraping with Apify and AI
+title: Web scraping with AI and Apify
 description: Learn how to use AI to extract information from websites in this practical course, starting from the absolute basics.
-sidebar_position: 5
-sidebar_label: Scraping with Apify and AI
-category: apify platform
-slug: /scraping-with-apify-and-ai
-unlisted: true
+sidebar_position: 1
+sidebar_label: Web scraping with AI and Apify
+category: web scraping
+slug: /scraping-with-ai
 ---
 
 import DocCardList from '@theme/DocCardList';
