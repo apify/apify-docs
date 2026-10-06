@@ -1,0 +1,36 @@
+---
+title: Agent integrations
+description: Set up Apify in your AI agent, from Claude Code and Codex to Cursor and GitHub Copilot, with the Apify plugin or the MCP server and Agent Skills.
+sidebar_label: Agents
+slug: /integrations/agents
+---
+
+import Card from '@site/src/components/Card';
+import CardGrid from '@site/src/components/CardGrid';
+import AgentClientCards from '@site/sources/_partials/_agent-client-cards.mdx';
+
+Each guide sets up Apify in one AI agent, either with the [Apify plugin](/agents/plugins) or by connecting the [MCP server](/mcp) and adding [Agent Skills](/agents/skills). To compare these options before you pick a guide, start at [For AI agents](/agents).
+
+<AgentClientCards />
+
+## Other agents
+
+<CardGrid>
+    <Card
+        title="Manus"
+        desc="Apify Actors as tools inside the Manus autonomous agent."
+        to="/integrations/manus"
+        imageUrl="/img/platform/integrations/manus.svg"
+        imageUrlDarkTheme="/img/platform/integrations/manus-white.svg"
+        smallImage
+    />
+    <Card
+        title="Lovable"
+        desc="Build Lovable apps that run Apify Actors and display the scraped results."
+        to="/integrations/lovable"
+        imageUrl="/img/platform/integrations/lovable.svg"
+        smallImage
+    />
+</CardGrid>
+
+If your agent isn't listed, connect it to the [Apify MCP server](/mcp) directly. The [MCP configurator](https://mcp.apify.com) generates a configuration for most MCP clients.

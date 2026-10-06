@@ -7,8 +7,7 @@ sidebar_position: 0
 slug: /agents
 ---
 
-import Card from '@site/src/components/Card';
-import CardGrid from '@site/src/components/CardGrid';
+import AgentClientCards from '@site/sources/_partials/_agent-client-cards.mdx';
 
 An AI agent can connect to the Apify platform in several ways. The MCP server is the live connection an agent uses to search Apify Store, run Actors, and read the results. Agent Skills carry the procedure for multi-step work, such as building an Actor, and a plugin installs both in one step for a specific coding agent. Machine-readable docs and agentic payments let an agent read the documentation and pay for runs without signing up.
 
@@ -16,109 +15,9 @@ To run your first Actor from an agent, follow the [agent quickstart](/get-starte
 
 ## Pick your agent
 
-<CardGrid>
-    <Card
-        title="Claude"
-        desc="Anthropic's chat assistant and its Claude Code coding agent."
-        to="/integrations/claude"
-        imageUrl="/img/platform/integrations/anthropic.svg"
-        imageUrlDarkTheme="/img/platform/integrations/anthropic-white.svg"
-        smallImage
-    />
-    <Card
-        title="ChatGPT/Codex"
-        desc="OpenAI's chat assistant and its Codex coding agent."
-        to="/integrations/openai"
-        imageUrl="/img/platform/integrations/openai.svg"
-        imageUrlDarkTheme="/img/platform/integrations/openai-white.svg"
-        smallImage
-    />
-    <Card
-        title="Cursor"
-        desc="AI code editor with a built-in coding agent."
-        to="/integrations/cursor"
-        imageUrl="/img/platform/integrations/cursor.svg"
-        imageUrlDarkTheme="/img/platform/integrations/cursor-white.svg"
-        smallImage
-    />
-    <Card
-        title="GitHub Copilot"
-        desc="GitHub's AI coding agent in the CLI and desktop app."
-        to="/integrations/github-copilot"
-        imageUrl="/img/platform/integrations/github-copilot.svg"
-        imageUrlDarkTheme="/img/platform/integrations/github-copilot-white.svg"
-        smallImage
-    />
-    <Card
-        title="VS Code"
-        desc="Microsoft's code editor, with Copilot in agent mode."
-        to="/integrations/vscode"
-        imageUrl="/img/platform/integrations/vscode.svg"
-        imageUrlDarkTheme="/img/platform/integrations/vscode-white.svg"
-        smallImage
-    />
-    <Card
-        title="OpenCode"
-        desc="Open-source coding agent that runs in your terminal."
-        to="/integrations/opencode"
-        imageUrl="/img/platform/integrations/opencode.svg"
-        imageUrlDarkTheme="/img/platform/integrations/opencode-white.svg"
-        smallImage
-    />
-    <Card
-        title="Kimi Code"
-        desc="Moonshot AI's coding agent for the command line."
-        to="/integrations/kimi-code-cli"
-        imageUrl="/img/platform/integrations/kimi.svg"
-        imageUrlDarkTheme="/img/platform/integrations/kimi-white.svg"
-        smallImage
-    />
-    <Card
-        title="Qoder/Qwen"
-        desc="Alibaba's agentic coding platform and terminal agent."
-        to="/integrations/alibaba"
-        imageUrl="/img/platform/integrations/qoder.svg"
-        smallImage
-    />
-    <Card
-        title="DeepSeek Harness"
-        desc="DeepSeek's open-source agent harness for the terminal and web."
-        to="/integrations/deepseek-harness"
-        imageUrl="/img/platform/integrations/deepseek.svg"
-        smallImage
-    />
-    <Card
-        title="Grok Build"
-        desc="xAI's coding agent, powered by Grok models."
-        to="/agents/plugins?agent-client=grok-build"
-        imageUrl="/img/platform/integrations/grok.svg"
-        imageUrlDarkTheme="/img/platform/integrations/grok-white.svg"
-        smallImage
-    />
-    <Card
-        title="OpenClaw"
-        desc="Open-source personal AI assistant you run yourself."
-        to="/integrations/openclaw"
-        imageUrl="/img/platform/integrations/openclaw.svg"
-        smallImage
-    />
-    <Card
-        title="Hermes Agent"
-        desc="Nous Research's open-source, self-improving agent."
-        to="/integrations/hermes-agent"
-        imageUrl="/img/platform/integrations/hermes-agent.svg"
-        imageUrlDarkTheme="/img/platform/integrations/hermes-agent-white.svg"
-        smallImage
-    />
-    <Card
-        title="Kilo Code"
-        desc="Open-source coding agent for VS Code and JetBrains."
-        to="/agents/plugins?agent-client=kilo-code"
-        imageUrl="/img/platform/integrations/kilo-code.svg"
-        imageUrlDarkTheme="/img/platform/integrations/kilo-code-white.svg"
-        smallImage
-    />
-</CardGrid>
+Each card opens that agent's setup guide in [Integrations](/integrations/agents).
+
+<AgentClientCards />
 
 Other AI agents and LLM chatbots can connect directly to Apify via the [MCP server](/mcp).
 

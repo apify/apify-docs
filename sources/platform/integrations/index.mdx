@@ -9,6 +9,7 @@ slug: /integrations
 
 import Card from '@site/src/components/Card';
 import CardGrid from '@site/src/components/CardGrid';
+import AgentClientCards from '@site/sources/_partials/_agent-client-cards.mdx';
 
 Integrations let you combine Apify Actors with the rest of your stack - workflow automation platforms, data warehouses, AI agents, and the tools your team already uses. The sections below mirror the integrations sidebar; each links through to the full list.
 
@@ -80,21 +81,6 @@ Plug Apify Actors into the AI stack - chat clients like Claude and ChatGPT via t
         smallImage
     />
     <Card
-        title="Claude Code CLI"
-        desc="Install the Apify plugin in Claude Code to discover, run, and build Actors from the terminal."
-        to="/integrations/claude-code-cli"
-        imageUrl="/img/platform/integrations/claude-code.svg"
-        smallImage
-    />
-    <Card
-        title="GitHub Copilot"
-        desc="Install the Apify plugin in the GitHub Copilot CLI or desktop app to discover, run, and build Actors."
-        to="/integrations/github-copilot"
-        imageUrl="/img/platform/integrations/github-copilot.svg"
-        imageUrlDarkTheme="/img/platform/integrations/github-copilot-white.svg"
-        smallImage
-    />
-    <Card
         title="OpenAI Agents SDK"
         desc="Use Apify Actors as tools in agents built on the OpenAI Agents SDK."
         to="/integrations/openai-agents"
@@ -131,58 +117,17 @@ Plug Apify Actors into the AI stack - chat clients like Claude and ChatGPT via t
         imageUrl="/img/platform/integrations/pinecone.svg"
         smallImage
     />
-    <Card
-        title="Codex CLI"
-        desc="Install the Apify plugin for Codex in your terminal to discover, run, and build Actors through the Apify MCP server."
-        to="/integrations/codex-cli"
-        imageUrl="/img/platform/integrations/codex.svg"
-        imageUrlDarkTheme="/img/platform/integrations/codex-white.svg"
-        smallImage
-    />
-    <Card
-        title="OpenCode"
-        desc="Install the Apify plugin in OpenCode to discover, run, and build Actors from the coding agent."
-        to="/integrations/opencode"
-        imageUrl="/img/platform/integrations/opencode.svg"
-        imageUrlDarkTheme="/img/platform/integrations/opencode-white.svg"
-        smallImage
-    />
-    <Card
-        title="Cursor"
-        desc="Install the Apify plugin in Cursor to interact with Apify from the IDE."
-        to="/integrations/cursor"
-        imageUrl="/img/platform/integrations/cursor.svg"
-        imageUrlDarkTheme="/img/platform/integrations/cursor-white.svg"
-        smallImage
-    />
-    <Card
-        title="Kimi Code CLI"
-        desc="Install the Apify plugin in Kimi Code CLI to interact with Apify from the CLI."
-        to="/integrations/kimi-code-cli"
-        imageUrl="/img/platform/integrations/kimi.svg"
-        imageUrlDarkTheme="/img/platform/integrations/kimi-white.svg"
-        smallImage
-    />
-    <Card
-        title="VS Code"
-        desc="Install the Apify agent plugin from the VS Code plugin marketplace to run and build Actors."
-        to="/integrations/vscode"
-        imageUrl="/img/platform/integrations/vscode.svg"
-        imageUrlDarkTheme="/img/platform/integrations/vscode-white.svg"
-        smallImage
-    />
-    <Card
-        title="DeepSeek Harness"
-        desc="Install the Apify plugin in DeepSeek Harness to interact with Apify from the terminal or web GUI."
-        to="/integrations/deepseek-harness"
-        imageUrl="/img/platform/integrations/deepseek.svg"
-        smallImage
-    />
 </CardGrid>
 
 [See all AI integrations →](/integrations/ai)
 
-Connecting a coding agent such as Claude Code, Cursor, or Codex? The [For AI agents](/agents) section compares the MCP server, plugins, and Agent Skills, and links to the setup guide for each client.
+## Agents
+
+Set up Apify in an AI agent such as Claude Code, Codex, or Cursor, with the Apify plugin or the MCP server and Agent Skills. To compare these options first, start at [For AI agents](/agents).
+
+<AgentClientCards />
+
+[See all agent integrations →](/integrations/agents)
 
 ## Data and storage
 
