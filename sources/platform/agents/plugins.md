@@ -16,7 +16,7 @@ Apify maintains a separate plugin for each agent, because each agent has its own
 
 ## Why use the plugin
 
-Without a plugin, you set up the [MCP server](/mcp) and [Agent Skills](/agents/skills) separately: an MCP configuration in your agent, plus the skills CLI and an Apify CLI login for the skills. The plugin replaces both with one install. Depending on the agent, you install the plugin for all your projects or for a single project.
+Without a plugin, you set up the [MCP server](/mcp) and [Agent Skills](/agents/skills) separately. The MCP server needs a configuration in your agent, and standalone skills need the skills CLI and an Apify CLI login. The plugin replaces both with one install. Depending on the agent, you install the plugin for all your projects or for a single project.
 
 ## What's included
 
