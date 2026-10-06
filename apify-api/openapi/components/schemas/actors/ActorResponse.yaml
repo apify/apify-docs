@@ -5,4 +5,4 @@ required:
 type: object
 properties:
   data:
-    $ref: ./Actor.yaml
+    $ref: ./ActorInfo.yaml

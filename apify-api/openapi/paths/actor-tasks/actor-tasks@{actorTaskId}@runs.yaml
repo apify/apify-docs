@@ -43,7 +43,7 @@ get:
                       items:
                         type: array
                         items:
-                          $ref: ../../components/schemas/actor-runs/RunShort.yaml
+                          $ref: ../../components/schemas/actor-runs/RunListItem.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
     "401":

@@ -14,7 +14,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/users/LimitsResponse.yaml
+            $ref: ../../components/schemas/users/AccountLimitsResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
     "401":

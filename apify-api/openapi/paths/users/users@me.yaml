@@ -17,7 +17,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/users/PrivateUserDataResponse.yaml
+            $ref: ../../components/schemas/users/UserPrivateInfoResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
     "401":

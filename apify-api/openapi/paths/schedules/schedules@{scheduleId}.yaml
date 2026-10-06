@@ -63,7 +63,7 @@ put:
     content:
       application/json:
         schema:
-          $ref: ../../components/schemas/schedules/ScheduleCreate.yaml
+          $ref: ../../components/schemas/schedules/CreateOrUpdateScheduleRequest.yaml
     required: true
   responses:
     "200":

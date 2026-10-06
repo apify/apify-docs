@@ -29,7 +29,7 @@ properties:
   status:
     $ref: ../common/ActorJobStatus.yaml
   meta:
-    $ref: ./BuildsMeta.yaml
+    $ref: ./BuildMeta.yaml
   stats:
     anyOf:
       - $ref: ./BuildStats.yaml
