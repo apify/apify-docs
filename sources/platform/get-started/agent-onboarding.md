@@ -15,7 +15,7 @@ import ClaudeCodeWebEgress from '@site/sources/_partials/_claude-code-web-egress
 
 Connect your AI agent or application to Apify - the platform for web scraping, data extraction, and browser automation. The typical agent workflow: find an Actor, run it, get structured data back.
 
-This page is the documentation version of [`apify.com/agents.md`](https://apify.com/agents.md), the quickstart Apify serves to agents directly. An interactive agent connects the [MCP server](#mcp-server) and signs in through the browser. Code that keeps running after the session uses an [API client](#api-client) or the [REST API](#rest-api) with an API token. An autonomous agent with a wallet and nobody to sign in pays through [agentic payments](/agents/payments).
+Apify also serves a quickstart for agents to read directly at [`apify.com/agents.md`](https://apify.com/agents.md). An interactive agent connects the [MCP server](#mcp-server) and signs in through the browser. Code that keeps running after the session uses an [API client](#api-client) or the [REST API](#rest-api) with an API token. An autonomous agent with a wallet and nobody to sign in pays through [agentic payments](/agents/payments).
 
 ## Core concepts
 
@@ -256,23 +256,7 @@ Full reference: [Apify API v2](/api/v2).
 
 ## Agent Skills
 
-Once you connect an agent via MCP or a coding assistant, [Apify Agent Skills](/agents/skills) add pre-built workflows on top - guiding the agent through multi-step scraping pipelines and Actor development tasks. Skills are not a separate integration method; they layer over your existing connection.
-
-Install them into Claude Code, Cursor, Windsurf, Codex, or Gemini CLI:
-
-```bash
-npx skills add apify/agent-skills
-```
-
-| Skill | What it does |
-| :--- | :--- |
-| `apify-ultimate-scraper` | Routes web scraping requests to the right Actor for multi-step data pipelines |
-| `apify-actor-development` | Guided workflow for building and deploying custom Actors, including their input and output schemas |
-| `apify-actorization` | Converts an existing project into an Apify Actor |
-| `apify-generate-output-schema` | Deprecated - use `apify-actor-development` instead |
-| `apify-integration-development` | Builds an official Apify integration for another product: workflow-automation apps, agent plugins, AI framework packages, or `apify-client` application code |
-
-For the full list and details, see the [skills registry](https://skills.sh/apify/agent-skills).
+[Apify Agent Skills](/agents/skills) add tested workflows on top of an MCP or plugin connection, such as building an Actor or routing a scraping request. Coding agents with an [Apify plugin](/agents/plugins) get the skills already installed. To add them to any other agent, see [Install Agent Skills](/agents/skills#install).
 
 ## Documentation access for agents
 
