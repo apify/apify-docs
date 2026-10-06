@@ -10,7 +10,7 @@ slug: /agents/plugins
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The Apify plugin is the shortest way to connect a coding agent to Apify. One install configures the [Apify MCP server](/mcp) and [Agent Skills](/agents/skills) together, so you don't edit an MCP configuration or install skills by hand.
+The Apify plugin is the shortest way to connect a coding agent to Apify. One install configures the [Apify MCP server](/mcp) and [Agent Skills](/agents/skills) together.
 
 Apify maintains a separate plugin for each agent, because each agent has its own plugin format and install flow. Check [what your agent gets](#coverage-by-agent), then follow its [install steps](#install).
 
@@ -24,7 +24,7 @@ Most plugins bundle three parts:
 
 - The [Apify MCP server](/mcp) at `https://mcp.apify.com`, preconfigured inside the plugin, for the live connection to the Apify platform.
 - Five [Agent Skills](/agents/skills) covering scraping with existing Actors, Actor development, actorization, output schemas, and application integration.
-- An `apify` routing agent that picks the right tool or skill from a plain-language request, so you don't have to name tools yourself.
+- An `apify` routing agent that picks the right tool or skill from a plain-language request.
 
 The OpenClaw, Hermes Agent, and Kilo Code plugins work differently. Instead of connecting to the MCP server, they register native Apify tools that start Actor runs and collect the results asynchronously, so the agent can keep working while an Actor runs.
 
@@ -253,7 +253,7 @@ There's no Apify guide for Kilo Code yet, so check the [plugin README](https://g
 </TabItem>
 </Tabs>
 
-Plugins that use the MCP server sign in through OAuth and keep the connection for future sessions. You can revoke access at any time in [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations). The DeepSeek Harness, OpenClaw, Hermes Agent, and Kilo Code plugins use an Apify API token instead.
+Plugins that use the MCP server sign in through OAuth and keep the connection for future sessions. You can revoke access in [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations). The DeepSeek Harness, OpenClaw, Hermes Agent, and Kilo Code plugins use an Apify API token instead.
 
 ## Related resources
 

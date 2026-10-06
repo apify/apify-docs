@@ -38,13 +38,13 @@ Use `llms.txt` to find the page you need, then fetch that page's `.md` URL. Reac
 
 ## Search the docs through MCP
 
-The [Apify MCP server](/mcp) exposes two documentation tools, `search-apify-docs` and `fetch-apify-docs`. Both work without an API token when the connection lists only the tools you can [use without an account](/mcp#use-without-an-account), so an agent can read the Apify documentation before the user has an account.
+The [Apify MCP server](/mcp) exposes two documentation tools, `search-apify-docs` and `fetch-apify-docs`. Both work without an API token when the connection lists only the tools you can [use without an account](/mcp#use-without-an-account), so an agent can read the documentation before the user signs up.
 
-Use them over raw HTTP fetches when your agent is already connected through MCP - search returns ranked matches rather than making the agent guess at URLs.
+If your agent is already connected through MCP, use them instead of raw HTTP fetches. Search returns ranked matches, so the agent doesn't have to guess at URLs.
 
 ## Agent-facing files on apify.com
 
-apify.com publishes a set of machine-readable files for agents. The homepage advertises them in its `Link` response header, and `robots.txt` points to the catalog with an `Agentmap` line. Start with `agents.md`, the agent quickstart:
+apify.com publishes machine-readable files for agents. The homepage advertises them in its `Link` response header, and `robots.txt` points to the catalog with an `Agentmap` line. Start with `agents.md`:
 
 | File | What it's for |
 | :--- | :--- |
@@ -59,13 +59,14 @@ apify.com publishes a set of machine-readable files for agents. The homepage adv
 | [`/.well-known/oauth-protected-resource`](https://apify.com/.well-known/oauth-protected-resource), [`/.well-known/oauth-authorization-server`](https://apify.com/.well-known/oauth-authorization-server) | OAuth discovery metadata that MCP clients read to start the sign-in. |
 | [`agi.apify.com/AGENTS.md`](https://agi.apify.com/AGENTS.md) | Instructions for agents that pay for Actor runs on their own. See [agentic payments](/agents/payments). |
 
-`robots.txt` also declares a `Content-Signal` line that allows search, AI input, and AI training. The [MCP configurator](https://mcp.apify.com) generates a ready-to-paste MCP client configuration.
+`robots.txt` also declares a `Content-Signal` line that allows search, AI input, and AI training.
 
 ## Choose the right surface
 
 - For a page you can already name, fetch its `.md` URL, which is the cheapest option in tokens and always current.
 - To find out which page covers a topic, use `search-apify-docs` over MCP, or `llms.txt` if the agent has no MCP connection.
 - For API specifics, read the [OpenAPI definition](https://docs.apify.com/api/openapi.json) rather than prose documentation.
+- To connect an MCP client by hand, generate a ready-to-paste configuration with the [MCP configurator](https://mcp.apify.com).
 
 ## Related resources
 

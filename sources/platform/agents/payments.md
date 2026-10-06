@@ -17,12 +17,12 @@ Agentic payments are experimental and may change as payment protocols evolve.
 
 ## Apify Agent General Interface
 
-The [Apify Agent General Interface (AGI)](https://agi.apify.com) is the entry point for agents that pay their own way. An agent pays once through a supported protocol, and AGI returns a temporary Apify API token with a fixed spend cap. The agent then uses that token against the Apify API or the [MCP server](/mcp) like any other token:
+The [Apify Agent General Interface (AGI)](https://agi.apify.com) is the entry point for agents that pay their own way. An agent pays once through a supported protocol, and AGI returns a temporary Apify API token with a fixed spend cap. To buy and use a token:
 
 1. List the supported protocols with `GET https://agi.apify.com/protocols`.
 1. Request a token for an amount in USD through x402 or MPP (see [supported protocols](#supported-protocols)), for example `GET https://agi.apify.com/protocols/x402/prepaid-tokens?amount=5&currency=usd`. AGI responds with a one-time payment challenge.
 1. Pay the challenge and repeat the request with the signed payment credential. After the payment settles, AGI returns the prepaid token.
-1. Call the Apify API or the MCP server with the `Authorization: Bearer <token>` header. Check the remaining balance with `GET https://agi.apify.com/prepaid-tokens/balance`.
+1. Call the Apify API or the [MCP server](/mcp) with the `Authorization: Bearer <token>` header. Check the remaining balance with `GET https://agi.apify.com/prepaid-tokens/balance`.
 
 The minimum amount for a prepaid token is $1. The token balance is a hard spending cap, the token expires 14 days after you buy it, and unused balance is non-refundable. Check [agi.apify.com](https://agi.apify.com) for the current terms.
 
