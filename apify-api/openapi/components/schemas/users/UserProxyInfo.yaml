@@ -1,4 +1,4 @@
-title: UserProxy
+title: UserProxyInfo
 required:
   - password
   - groups

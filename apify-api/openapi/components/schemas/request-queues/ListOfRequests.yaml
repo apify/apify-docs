@@ -8,7 +8,7 @@ properties:
   items:
     type: array
     items:
-      $ref: ./RequestQueueRequest.yaml
+      $ref: ./RequestInfo.yaml
     description: The array of requests.
   limit:
     type: integer
