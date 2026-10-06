@@ -1,4 +1,4 @@
-title: TaggedBuildUpdate
+title: UpdatedBuildProperty
 type: [object, "null"]
 description: The name of the build tag.
 required:

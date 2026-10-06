@@ -1,4 +1,4 @@
-title: RunMetamorph
+title: RunMetamorphEvent
 description: Information about a metamorph event that occurred during the run.
 type: object
 required:

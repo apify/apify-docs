@@ -64,7 +64,7 @@ properties:
     type: [object, "null"]
     description: A dictionary that maps tag names to specific builds. For details, see [Update build tags](#update-build-tags).
     additionalProperties:
-      $ref: ./TaggedBuildUpdate.yaml
+      $ref: ./UpdatedBuildProperty.yaml
     example:
       latest:
         buildId: z2EryhbfhgSyqj6Hn

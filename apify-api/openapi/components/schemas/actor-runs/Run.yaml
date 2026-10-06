@@ -177,7 +177,7 @@ properties:
     anyOf:
       - type: array
         items:
-          $ref: ./RunMetamorph.yaml
+          $ref: ./RunMetamorphEvent.yaml
       - type: "null"
   platformUsageBillingModel:
     type: string
