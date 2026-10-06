@@ -272,5 +272,5 @@ For the complete list, including the agent-facing surfaces outside the documenta
 - [API reference](/api/v2) - All REST API endpoints
 - [API client for JavaScript](https://docs.apify.com/api/client/js) | [for Python](https://docs.apify.com/api/client/python) - Client libraries
 - [Storage documentation](/storage) - Datasets, key-value stores, and request queues
-- [Build with AI](/actors/development) - Build and deploy your first Actor
-- [Framework integrations](../integrations/ai/crewai.md) - CrewAI, LangChain, LlamaIndex, and more
+- [Build with AI](/actors/development/quick-start/build-with-ai) - Build and deploy your first Actor
+- [Framework integrations](/integrations/ai) - CrewAI, LangChain, LlamaIndex, and more
