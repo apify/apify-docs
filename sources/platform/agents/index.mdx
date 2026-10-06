@@ -23,12 +23,12 @@ Other AI agents and LLM chatbots can connect directly to Apify via the [MCP serv
 
 ## Key concepts
 
-The pieces stack rather than compete, and most setups use more than one:
+The MCP server gives an agent capability: it can search Apify Store, run Actors, and read the results. Agent Skills give it procedure: the tested sequence of steps for a task such as building an Actor. The pieces stack rather than compete, and most setups use more than one:
 
 | Piece | What it is | Reach for it when |
 | :--- | :--- | :--- |
 | [MCP server](/mcp) | A hosted server at `mcp.apify.com` with tools to search Apify Store, run Actors, and search the Apify documentation, plus optional tools for runs, storage, tasks, and schedules. | Your agent needs to act on Apify: find an Actor, run it, and get structured data back. |
-| [Plugin](/agents/plugins) | One install for a specific coding agent. Most plugins bundle the MCP server, Agent Skills, and an `apify` routing agent. The OpenClaw, Hermes Agent, and Kilo Code plugins add native Apify tools instead of the MCP server. | Your coding agent has a plugin and you want the whole setup in one step. |
+| [Plugin](/agents/plugins) | One install for a specific coding agent. Most plugins bundle the MCP server, Agent Skills, and an [`apify` routing agent](/agents/plugins#whats-included). The OpenClaw, Hermes Agent, and Kilo Code plugins add native Apify tools instead of the MCP server. | Your coding agent has a plugin and you want the whole setup in one step. |
 | [Agent Skills](/agents/skills) | Instructions your agent loads when a task matches, such as building an Actor or choosing a scraper. | Your agent already connects to Apify and you want it to follow a tested multi-step workflow. |
 | [Resources for agents](/agents/resources) | Every documentation page as Markdown, `llms.txt` indexes, and the agent-facing files on apify.com. | Your agent needs current Apify documentation instead of its training data. |
 | [Agentic payments](/agents/payments) | Prepaid, spend-capped access for agents that pay their own way, through the Apify Agent General Interface. | Your agent can pay for Actor runs on its own with a web3 wallet, with no credentials needed. |
@@ -41,12 +41,4 @@ The pages above cover agents that *call* Apify. These adjacent topics cover buil
 - [Build Actors with AI](/actors/development/quick-start/build-with-ai) - Use a coding agent to create and deploy an Actor.
 - [MCP connectors](/integrations/mcp-connectors) - Let an Actor you built act on a user's third-party accounts, such as Notion, Slack, or GitHub.
 - [AI integrations](/integrations/ai) - Call Apify from agent frameworks such as LangChain, CrewAI, and the Vercel AI SDK, and load results into vector databases.
-- [API client libraries](/api/v2) - Call the Apify API from your own application code, or use the [JavaScript](https://docs.apify.com/api/client/js) and [Python](https://docs.apify.com/api/client/python) clients.
-
-## Related resources
-
-- [Apify plugin](/agents/plugins) - Install commands for every supported coding agent
-- [Apify MCP server](/mcp) - Tool reference, authentication, and production practices
-- [Agent Skills](/agents/skills) - Tested workflows your agent loads on demand
-- [Agentic payments](/agents/payments) - Prepaid access for agents that pay their own way
-- [Resources for AI agents](/agents/resources) - Every agent-facing surface Apify publishes
+- [API client libraries](/api/v2) - Call the Apify API from your own application code, or use the [JavaScript client](https://docs.apify.com/api/client/js) or the [Python client](https://docs.apify.com/api/client/python).
