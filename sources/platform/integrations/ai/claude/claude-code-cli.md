@@ -28,7 +28,34 @@ This guide covers installation in the Claude Code CLI. Support for the Claude Co
 
 ## Install the plugin
 
-1. In Claude Code, run `/plugins` to open the plugin manager.
+Install Apify from Claude Code's native plugin directory. Use the manual marketplace fallback below if the directory entry isn't available.
+
+### Native directory (recommended)
+
+1. In Claude Code, run `/plugin` to open the plugin manager.
+
+1. Open the **Discover** tab and search for `apify`.
+
+1. Select **Apify** from **Anthropic Directory** and press Enter to view its details.
+
+1. Review the plugin details, choose an install scope (**Install for you (user scope)** is the typical choice), and press Enter.
+
+1. If prompted, run `/reload-plugins` to activate the plugin in the current session.
+
+1. Open the **Installed** tab to confirm the `apify` plugin appears as enabled.
+
+### Manual marketplace fallback
+
+If Apify isn't available in the native directory, add the Apify marketplace manually:
+
+```text
+/plugin marketplace add apify/apify-claude-code-plugin
+/plugin install apify@apify
+```
+
+You can also add the marketplace through the plugin manager:
+
+1. Run `/plugin` to open the plugin manager.
 
 1. Open the **Marketplaces** tab and select **+ Add Marketplace**.
 
@@ -44,7 +71,7 @@ This guide covers installation in the Claude Code CLI. Support for the Claude Co
 
 1. Review the plugin details, choose an install scope (**Install for you (user scope)** is the typical choice), and press Enter.
 
-1. Run `/reload-plugins` to activate the plugin in the current session.
+1. If prompted, run `/reload-plugins` to activate the plugin in the current session.
 
 1. Open the **Installed** tab to confirm the `apify` plugin is listed as enabled.
 
@@ -106,11 +133,11 @@ Example prompts that route to specific skills:
 
 ### The `apify` plugin is disabled
 
-Run `/plugins`, open the **Installed** tab, select the `apify` plugin, and choose **Enable plugin**. If the action reads **Disable plugin** instead, the plugin is already enabled - the MCP server may need authentication; see [Authenticate to Apify](#authenticate-to-apify).
+Run `/plugin`, open the **Installed** tab, select the `apify` plugin, and choose **Enable plugin**. If the action reads **Disable plugin** instead, the plugin is already enabled - the MCP server may need authentication; see [Authenticate to Apify](#authenticate-to-apify).
 
 ![apify plugin detail in the Installed tab with the enable/disable actions](images/claude-code-cli/08-installed-detail.webp)
 
-### The `/plugins` command isn't available
+### The `/plugin` command isn't available {#the-plugins-command-isnt-available}
 
 Plugins require a local installation of the Claude Code CLI. They aren't available in remote or web sessions (claude.ai/code). Install or update the Claude Code CLI locally.
 
