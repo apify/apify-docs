@@ -30,6 +30,13 @@ module.exports = {
     trailingSlash: false,
     organizationName: 'apify',
     projectName: 'apify-docs',
+    i18n: {
+        defaultLocale: 'en',
+        locales: ['en'],
+        // Only i18n/en/code.json is used, to reword theme strings. Without this, Docusaurus would also try
+        // to translate sidebars, which fails on duplicate labels in the generated API sidebar
+        localeConfigs: { en: { translate: false } },
+    },
     scripts: ['/js/custom.js', ...(config.scripts ?? [])],
     future: {
         faster: {
