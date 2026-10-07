@@ -12,6 +12,14 @@ const { rehypeExpandTabs } = require('./tools/utils/rehypeExpandTabs');
 const { rehypeFixCodeLanguage } = require('./tools/utils/rehypeFixCodeLanguage');
 
 /**
+ * Regex matching the given Academy routes exactly. Anchored at both ends, because unanchored
+ * slugs such as `/getting-started` would also match the end of `/academy/apify-scrapers/getting-started`
+ */
+const academyRoutesRegex = (routes) => `^/academy(${routes.join('|')})$`;
+const escapeRegex = (text) => text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+const collectAcademySlugs = (dirName) => collectSlugs(join(__dirname, 'sources', 'academy', dirName)).map(escapeRegex);
+
+/**
  * Helper to extract text from a node recursively.
  */
 function getNodeText(node) {
@@ -89,20 +97,20 @@ module.exports = {
                         {
                             label: 'Courses',
                             to: `/academy`,
-                            activeBaseRegex: `${[
-                                'academy$',
-                                ...collectSlugs(join(__dirname, 'sources', 'academy', 'webscraping')),
-                                ...collectSlugs(join(__dirname, 'sources', 'academy', 'platform')),
-                            ].join('$|')}$`,
+                            activeBaseRegex: academyRoutesRegex([
+                                '',
+                                ...collectAcademySlugs('webscraping'),
+                                ...collectAcademySlugs('platform'),
+                            ]),
                         },
                         {
                             label: 'Tutorials',
                             to: `/academy/tutorials`,
-                            activeBaseRegex: `${[
-                                ...collectSlugs(join(__dirname, 'sources', 'academy', 'tutorials')),
+                            activeBaseRegex: academyRoutesRegex([
+                                ...collectAcademySlugs('tutorials'),
                                 // Tutorials are organized by tags, so tag pages belong to the section too
-                                'academy/tags/.*',
-                            ].join('$|')}$`,
+                                '/tags/.*',
+                            ]),
                         },
                     ],
                 },
