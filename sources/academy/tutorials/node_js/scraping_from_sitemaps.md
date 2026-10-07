@@ -27,7 +27,7 @@ const allWebsiteUrls = await robots.parseUrlsFromSitemaps();
 
 Let's say we want to scrape a database of craft beers ([brewbound.com](https://www.brewbound.com/)) before summer starts. If we are lucky, the website will contain a sitemap at [brewbound.com/sitemap.xml](https://www.brewbound.com/sitemap.xml).
 
-> Check out [Sitemap Sniffer](https://apify.com/vaclavrut/sitemap-sniffer), which can discover sitemaps in hidden locations!
+> To find a website's sitemaps automatically, try the [Sitemap Detector](https://apify.com/coder_zoro/sitemap-detector) Actor.
 
 ## Analyzing the sitemap {#analyzing-the-sitemap}
 
