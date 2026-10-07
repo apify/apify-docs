@@ -26,7 +26,16 @@ The [Apify Agent General Interface (AGI)](https://agi.apify.com) is the entry po
 
 The minimum amount for a prepaid token is $1. The token balance is a hard spending cap, the token expires 14 days after you buy it, and unused balance is non-refundable. Check [agi.apify.com](https://agi.apify.com) for the current terms.
 
-A prepaid token works like a regular API token, so it runs any Actor that uses limited permissions, whatever its pricing model.
+A prepaid token works like a regular API token, so it runs any Actor that uses limited permissions, whatever its pricing model. Actors that need full permissions return an error, because a prepaid account can't approve them.
+
+### Prepaid account limits
+
+On top of the spending cap, a prepaid account can use at most:
+
+- 1,000 compute units
+- 10 GB of residential proxy traffic
+- 50,000 Google SERP proxy requests
+- 1,000 GB of external data transfer
 
 ## Supported protocols
 
@@ -34,7 +43,7 @@ Two protocols go through AGI, and Skyfire has its own flow:
 
 | Protocol | How the agent pays | Guide |
 | :--- | :--- | :--- |
-| [x402](https://www.x402.org) | A one-time payment in stablecoins on Base or Solana, exchanged for a prepaid token. On Base, batch settlement can also pay per Actor run without a token. | [Agentic payments with x402](/integrations/x402) |
+| [x402](https://www.x402.org) | A one-time payment in stablecoins on Base or Solana, exchanged for a prepaid token | [Agentic payments with x402](/integrations/x402) |
 | [MPP](https://mpp.dev) | A one-time payment in stablecoins on Tempo or Solana, exchanged for a prepaid token | [Agentic payments with MPP](https://docs.apify.com/integrations/mpp) |
 | [Skyfire](https://skyfire.xyz) | Pre-funded Skyfire payment tokens passed to the MCP server or the Apify API, limited to eligible pay-per-event Actors | [Agentic payments with Skyfire](/integrations/skyfire) |
 

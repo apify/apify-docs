@@ -213,6 +213,10 @@ Whenever `call-actor` or a specific Actor tool such as `apify--rag-web-browser` 
 
 Your AI can search Apify Store for relevant Actors using the `search-actors` tool, inspect Actor details to understand required inputs, and call any Actor by name using `call-actor` - without needing to pre-configure it. This means your AI can adapt to new tasks without manual configuration.
 
+## Agentic payments
+
+Agents can pay for Actor runs without an Apify account. Payments made per request through the MCP server, such as with [Skyfire](/integrations/skyfire), work only with pay-per-event Actors. To run any Actor that uses limited permissions, buy a prepaid token through [agentic payments](/agents/payments) and use it as a Bearer token with the MCP server.
+
 ## Telemetry
 
 The MCP server collects telemetry data about tool calls and MCP clients to help Apify understand usage patterns and improve the service.
