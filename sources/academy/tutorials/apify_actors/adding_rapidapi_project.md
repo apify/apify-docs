@@ -4,6 +4,7 @@ description: If you've published an API project on RapidAPI, you can expand your
 sidebar_position: 1
 category: apify platform
 slug: /apify-actors/adding-rapidapi-project
+tags: [apify-actors]
 ---
 
 If you've published an API project on [RapidAPI](https://rapidapi.com/), you can expand your project's visibility by listing it on Apify Store. This gives you access to Apify's developer community and ecosystem.

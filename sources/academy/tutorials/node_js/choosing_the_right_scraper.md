@@ -3,6 +3,7 @@ title: How to choose the right scraper for the job
 description: Learn basic web scraping concepts to help you analyze a website and choose the best scraper for your particular use case.
 sidebar_position: 14.3
 slug: /node-js/choosing-the-right-scraper
+tags: [node-js, apify-scrapers]
 ---
 
 **Learn basic web scraping concepts to help you analyze a website and choose the best scraper for your particular use case.**

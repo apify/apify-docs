@@ -5,6 +5,7 @@ description: Step-by-step tutorial that will help you get started with all Apify
 externalSourceUrl: https://raw.githubusercontent.com/apify/actor-scraper/master/docs/build/introduction-tutorial.md
 sidebar_position: 1
 slug: /apify-scrapers/getting-started
+tags: [apify-scrapers]
 ---
 
 [//]: # (TODO: Should be updated)

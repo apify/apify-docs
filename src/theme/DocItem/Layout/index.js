@@ -1,4 +1,5 @@
-import { useDoc } from '@docusaurus/plugin-content-docs/client';
+import Link from '@docusaurus/Link';
+import { useDoc, useDocsSidebar } from '@docusaurus/plugin-content-docs/client';
 import { useWindowSize } from '@docusaurus/theme-common';
 import ContentVisibility from '@theme/ContentVisibility';
 import DocBreadcrumbs from '@theme/DocBreadcrumbs';
@@ -31,6 +32,22 @@ function useDocTOC() {
     };
 }
 
+/**
+ * Academy tutorials belong to no sidebar, so they have no breadcrumbs. Link back to the landing page instead
+ */
+function TutorialsBackLink() {
+    const { metadata } = useDoc();
+    const sidebar = useDocsSidebar();
+    if (sidebar || metadata.tags.length === 0) {
+        return null;
+    }
+    return (
+        <nav className={styles.backLink}>
+            <Link to="/academy/tutorials">← All tutorials</Link>
+        </nav>
+    );
+}
+
 export default function DocItemLayout({ children }) {
     const docTOC = useDocTOC();
     const { metadata } = useDoc();
@@ -43,6 +60,7 @@ export default function DocItemLayout({ children }) {
                 <div className={styles.docItemContainer}>
                     <article>
                         <DocBreadcrumbs />
+                        <TutorialsBackLink />
                         <DocVersionBadge />
                         {docTOC.mobile}
                         <DocItemContent>{children}</DocItemContent>

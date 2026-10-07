@@ -3,6 +3,7 @@ title: When to use Puppeteer Scraper
 description: Choosing between Web Scraper and Puppeteer Scraper can be difficult. We explain the important differences to help you pick the right tool.
 sidebar_position: 15.2
 slug: /node-js/when-to-use-puppeteer-scraper
+tags: [node-js, apify-scrapers, browser-automation]
 ---
 
 You may have read in the [Web Scraper](https://apify.com/apify/web-scraper) readme or somewhere else at Apify that [Puppeteer Scraper](https://apify.com/apify/puppeteer-scraper) is more powerful and gives you more control over the browser, enabling you to do almost anything. But what does that really mean? In this article, we will talk about the differences in more detail and show you some minimal examples to strengthen that understanding.

@@ -3,6 +3,7 @@ title: How to scrape from dynamic pages
 description: Learn about dynamic pages and dynamic content. How can we find out if a page is dynamic? How do we programmatically scrape dynamic content?
 sidebar_position: 14.4
 slug: /node-js/dealing-with-dynamic-pages
+tags: [node-js, dynamic-content]
 ---
 
 import Example from '!!raw-loader!roa-loader!./dealing_with_dynamic_pages.js';

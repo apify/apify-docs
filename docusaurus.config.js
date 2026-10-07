@@ -98,7 +98,11 @@ module.exports = {
                         {
                             label: 'Tutorials',
                             to: `/academy/tutorials`,
-                            activeBaseRegex: `${collectSlugs(join(__dirname, 'sources', 'academy', 'tutorials')).join('$|')}$`,
+                            activeBaseRegex: `${[
+                                ...collectSlugs(join(__dirname, 'sources', 'academy', 'tutorials')),
+                                // Tutorials are organized by tags, so tag pages belong to the section too
+                                'academy/tags/.*',
+                            ].join('$|')}$`,
                         },
                     ],
                 },
@@ -146,6 +150,9 @@ module.exports = {
                 showLastUpdateTime: false,
                 editUrl: 'https://github.com/apify/apify-docs/edit/master/',
                 sidebarPath: require.resolve('./sources/academy/sidebars.js'),
+                // Tutorials are organized by topic tags. Fail the build on tags not defined in tags.yml
+                tags: 'tags.yml',
+                onInlineTags: 'throw',
             },
         ],
         [

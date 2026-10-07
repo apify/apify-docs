@@ -3,6 +3,7 @@ title: Processing the same page multiple times with different setups in Web Scra
 description: Solving a common problem with scraper automatically deduplicating the same URLs
 sidebar_position: 15.6
 slug: /node-js/processing-multiple-pages-web-scraper
+tags: [node-js, apify-scrapers, crawling]
 ---
 
 Sometimes you need to process the same URL several times, but each time with a different setup. For example, you may want to submit the same form with different data each time.

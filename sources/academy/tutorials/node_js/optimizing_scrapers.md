@@ -3,6 +3,7 @@ title: How to optimize and speed up your web scraper
 description: We all want our scrapers to run as cost-effective as possible. Learn how to think about performance in the context of web scraping and automation.
 sidebar_position: 14.6
 slug: /node-js/optimizing-scrapers
+tags: [node-js, performance]
 ---
 
 **We all want our scrapers to run as cost-effective as possible. Learn how to think about performance in the context of web scraping and automation.**
