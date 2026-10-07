@@ -13,4 +13,5 @@ properties:
   requestId:
     type: string
     description: |
-      When charging for a request to a server Actor, set this field to the `X-Actor-Request-ID` header value received by your Actor.
+      When charging for a request to a multi-tenant Server Actor, set this field to the `X-Actor-Request-ID` header value received by your Actor.
+      Single-tenant Server Actors charge events like ordinary runs and don't need this field.
