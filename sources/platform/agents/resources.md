@@ -48,7 +48,7 @@ apify.com publishes machine-readable files for agents. The homepage advertises t
 
 | File | What it's for |
 | :--- | :--- |
-| [`apify.com/agents.md`](https://apify.com/agents.md) | The agent quickstart: what Apify is, the three ways an agent connects, and how to run a first Actor. Also served at [`/.well-known/agents.md`](https://apify.com/.well-known/agents.md). |
+| [`apify.com/agents.md`](https://apify.com/agents.md) | Apify's instructions for agents: what Apify is, the three ways an agent connects, and how to run a first Actor. Also served at [`/.well-known/agents.md`](https://apify.com/.well-known/agents.md). |
 | [`apify.com/auth.md`](https://apify.com/auth.md) | How an agent gets an Apify credential: device authorization, browser OAuth through an MCP client, an API token from the user, or a prepaid token. |
 | [`apify.com/llms.txt`](https://apify.com/llms.txt) | The `llms.txt` index of apify.com, which is also the homepage's Markdown version. |
 | [`apify.com/openapi.json`](https://apify.com/openapi.json) | The OpenAPI definition of the Apify API. |

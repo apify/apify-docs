@@ -49,9 +49,9 @@ The MCP server intentionally excludes two categories of Actors from search and e
 
 ## Prerequisites
 
-Before connecting your AI to Apify, you'll need an Apify account and an MCP client. Some connection methods also need an API token:
+Before connecting your AI to Apify, you need an MCP client. You also need an Apify account, unless your agent connects only with the [tools you can use without an account](#use-without-an-account) or with a prepaid token bought through [agentic payments](/agents/payments). Some connection methods also need an API token:
 
-- _An Apify account_ - Sign up for an Apify account, if you don't have one. An agent without an account can instead buy a prepaid token through [agentic payments](/agents/payments) and use it as a Bearer token.
+- _An Apify account_ - Sign up for an Apify account, if you don't have one.
 - _MCP client_ - An AI agent or client that supports Model Context Protocol (MCP). This could be Anthropic's Claude for Desktop, a VS Code extension with MCP support, or any application that implements the MCP specification. The [official MCP documentation](https://modelcontextprotocol.io/clients) maintains a list of compatible clients.
 - _Apify API token_ (optional) - Only needed for the [local stdio server](#local-stdio) or the [Bearer token option](#streamable-http-with-oauth-recommended). The recommended remote connection signs you in with OAuth instead. Get your token from the **API & Integrations** section in [Apify Console](https://console.apify.com/settings/integrations) and keep it secure.
 
