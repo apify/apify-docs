@@ -1,0 +1,68 @@
+title: WebhookListItem
+required:
+  - id
+  - createdAt
+  - modifiedAt
+  - userId
+  - eventTypes
+  - condition
+  - ignoreSslErrors
+  - doNotRetry
+  - requestUrl
+type: object
+properties:
+  id:
+    type: string
+    examples: [YiKoxjkaS9gjGTqhF]
+  createdAt:
+    type: string
+    format: date-time
+    examples: ["2019-12-12T07:34:14.202Z"]
+  modifiedAt:
+    type: string
+    format: date-time
+    examples: ["2019-12-13T08:36:13.202Z"]
+  userId:
+    type: string
+    examples: [wRsJZtadYvn4mBZmm]
+  isAdHoc:
+    type: [boolean, "null"]
+    examples: [false]
+  isApifyIntegration:
+    type: boolean
+    examples: [false]
+  isEnabled:
+    type: boolean
+    examples: [true]
+  actionType:
+    type: string
+    examples: [HTTP_REQUEST]
+  shouldInterpolateStrings:
+    type: [boolean, "null"]
+    examples: [false]
+  eventTypes:
+    type: array
+    items:
+      $ref: ./WebhookEventType.yaml
+    examples:
+      - [ACTOR.RUN.SUCCEEDED]
+  condition:
+    $ref: ./WebhookCondition.yaml
+  ignoreSslErrors:
+    type: boolean
+    examples: [false]
+  doNotRetry:
+    type: boolean
+    examples: [false]
+  requestUrl:
+    type: string
+    format: uri
+    examples: ["http://example.com/"]
+  lastDispatch:
+    anyOf:
+      - $ref: ./WebhookLastDispatch.yaml
+      - type: "null"
+  stats:
+    anyOf:
+      - $ref: ./WebhookStats.yaml
+      - type: "null"

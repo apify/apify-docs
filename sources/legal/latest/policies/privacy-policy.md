@@ -359,4 +359,4 @@ If you have any questions about this Privacy Policy, our privacy practices, or w
 
 Email: privacy@apify.com
 
-Mail: Apify Technologies s.r.o., Vodičkova 704/36, Nové Město, 110 00 Praha 1, Czech Republic, Attn: Apify Legal Team
+Mail: Apify Technologies s.r.o., Na Prikope 959/27, 110 00 Prague 1, Czech Republic, Attn: Apify Legal Team

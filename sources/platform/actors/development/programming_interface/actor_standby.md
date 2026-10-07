@@ -24,6 +24,8 @@ The best way to start developing Server Actors is to use the predefined template
 
 If you already have an existing Actor, or you just want to tweak its server configuration, you can head to the **Settings** tab of your Actor.
 
+You can also enable server mode from the Actor's source code by setting the [`usesStandbyMode`](../actor_definition/actor_json.md) property to `true` in the `.actor/actor.json` file. When you push the Actor with the [Apify CLI](https://docs.apify.com/cli/), the setting syncs to the platform.
+
 Server Actors must run an HTTP server listening on a specific port. The user requests will then be proxied to the HTTP server. You can use any of the existing [HTTP request methods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) like GET, POST, PUT, DELETE, etc. You can pass the input via [HTTP request query string](https://en.wikipedia.org/wiki/Query_string) or via [HTTP request body](https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages#body).
 
 Sometimes, you want the HTTP server to listen on a specific port and cannot change it yourself. You can use `ACTOR_WEB_SERVER_PORT` environment variable to override the port so that your Server Actor will work with your code.
@@ -105,7 +107,7 @@ const server = http.createServer((req, res) => {
     }
 });
 
-server.listen(Actor.config.get('standbyPort'));
+server.listen(Actor.config.get('containerPort'));
 ```
 
 </TabItem>
@@ -128,7 +130,7 @@ class GetHandler(SimpleHTTPRequestHandler):
 
 async def main() -> None:
     async with Actor:
-        with HTTPServer(('', Actor.configuration.standby_port), GetHandler) as http_server:
+        with HTTPServer(('', Actor.configuration.web_server_port), GetHandler) as http_server:
             http_server.serve_forever()
 ```
 
@@ -222,6 +224,8 @@ A multi-tenant Server Actor run belongs to the Actor's developer, but each reque
 ### Charge requests
 
 When your Actor receives a request, read its `X-Actor-Request-ID` header. To charge that request, copy the header's value into the JSON body's `requestId` field when calling the [charge events endpoint](/api/v2/post-charge-run). Authenticate with the current run's `APIFY_TOKEN` and use its `ACTOR_RUN_ID` in the endpoint path.
+
+Complete event charges before sending the final response or closing the WebSocket connection. Request IDs are valid for at most 10 minutes.
 
 ```json
 {
