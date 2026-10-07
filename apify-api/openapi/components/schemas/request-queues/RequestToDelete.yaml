@@ -1,0 +1,5 @@
+title: RequestToDelete
+description: A request that should be deleted.
+anyOf:
+  - $ref: ./RequestToDeleteById.yaml
+  - $ref: ./RequestToDeleteByUniqueKey.yaml

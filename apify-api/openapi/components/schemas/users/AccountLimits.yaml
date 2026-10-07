@@ -10,4 +10,4 @@ properties:
   limits:
     $ref: ./Limits.yaml
   current:
-    $ref: ./Current.yaml
+    $ref: ./CurrentUsage.yaml
