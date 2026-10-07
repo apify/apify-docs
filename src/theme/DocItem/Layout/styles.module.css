@@ -17,7 +17,6 @@
     }
 }
 
-.backLink {
-    margin-bottom: 0.8rem;
-    font-size: 0.875rem;
+.allTutorialsLink {
+    grid-column: 1 / -1;
 }

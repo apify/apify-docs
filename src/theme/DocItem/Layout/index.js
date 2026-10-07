@@ -33,17 +33,22 @@ function useDocTOC() {
 }
 
 /**
- * Academy tutorials belong to no sidebar, so they have no breadcrumbs. Link back to the landing page instead
+ * Academy tutorials belong to no sidebar, so they have no prev/next pagination and no breadcrumbs.
+ * Show a single page-wide pagination box linking to the landing page instead
  */
-function TutorialsBackLink() {
+function useIsTutorial() {
     const { metadata } = useDoc();
     const sidebar = useDocsSidebar();
-    if (sidebar || metadata.tags.length === 0) {
-        return null;
-    }
+    return !sidebar && metadata.tags.length > 0;
+}
+
+function TutorialsPaginator() {
     return (
-        <nav className={styles.backLink}>
-            <Link to="/academy/tutorials">← All tutorials</Link>
+        <nav className="pagination-nav docusaurus-mt-lg" aria-label="Docs pages">
+            <Link className={clsx('pagination-nav__link', styles.allTutorialsLink)} to="/academy/tutorials">
+                <div className="pagination-nav__sublabel">Tutorials</div>
+                <div className="pagination-nav__label">Browse all tutorials by topic</div>
+            </Link>
         </nav>
     );
 }
@@ -51,6 +56,7 @@ function TutorialsBackLink() {
 export default function DocItemLayout({ children }) {
     const docTOC = useDocTOC();
     const { metadata } = useDoc();
+    const isTutorial = useIsTutorial();
 
     return (
         <div className="row">
@@ -60,13 +66,12 @@ export default function DocItemLayout({ children }) {
                 <div className={styles.docItemContainer}>
                     <article>
                         <DocBreadcrumbs />
-                        <TutorialsBackLink />
                         <DocVersionBadge />
                         {docTOC.mobile}
                         <DocItemContent>{children}</DocItemContent>
                         <DocItemFooter />
                     </article>
-                    <DocItemPaginator />
+                    {isTutorial ? <TutorialsPaginator /> : <DocItemPaginator />}
                 </div>
             </div>
             {docTOC.desktop && <div className="col col--3">{docTOC.desktop}</div>}
