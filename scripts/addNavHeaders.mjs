@@ -16,10 +16,11 @@ import path from 'node:path';
 //  - `.docusaurus/docusaurus-plugin-content-docs/<id>/p/*.json`
 //    The real left-menu tree (`version.docsSidebars`) — labels, order,
 //    nesting, hrefs. One file per docs instance (platform, academy, legal,
-//    openapi). Academy has TWO sidebars (`courses`, `tutorials`).
+//    openapi). Academy has TWO sidebars (`courses`, `apifyScrapers`). Other
+//    Academy tutorials belong to no sidebar and are organized by tags.
 //  - `.docusaurus/docusaurus-plugin-llms-txt/cache.json`
 //    Route → title fallback for pages absent from every sidebar
-//    (`/`, `/api`, `/open-source`, `/sdk`) and for section-landing titles
+//    (`/`, `/api`, `/open-source`, `/sdk`, Academy tutorials) and for section-landing titles
 //    where the sidebar label is "Home" but the page title is more descriptive.
 
 const BUILD_DIR = path.resolve('build');

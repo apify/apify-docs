@@ -69,7 +69,8 @@ const PAGES = [
     { path: '/storage/dataset.md', keys: ['previous', 'next'] },
     { path: '/proxy/datacenter-proxy.md', keys: ['previous', 'next'] },
     { path: '/api/v2/dataset-get.md', keys: ['previous', 'next'] },
-    { path: '/academy/tutorials.md', keys: ['next'] },
+    // Academy tutorials belong to no sidebar, so the landing has no neighbours.
+    { path: '/academy/tutorials.md', keys: [] },
     { path: '/legal/general-terms-and-conditions.md', keys: ['previous', 'next'] },
 ];
 
