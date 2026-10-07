@@ -20,3 +20,8 @@
 .allTutorialsLink {
     grid-column: 1 / -1;
 }
+
+/* Same arrow as Infima puts on the "Next" pagination link */
+.allTutorialsLink :global(.pagination-nav__label)::after {
+    content: ' »';
+}
