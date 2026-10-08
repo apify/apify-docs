@@ -5,7 +5,16 @@ byRunId:
   description: |
     Charge for events in the run of your [pay per event Actor](https://docs.apify.com/platform/actors/running/actors-in-store#pay-per-event).
     The event you are charging for must be one of the configured events in your Actor. If the Actor is not set up as pay per event, or if the event is not configured,
-    the endpoint will return an error. The endpoint must be called from the Actor run itself, with the same API token that the run was started with.
+    the endpoint will return an error. The endpoint must be called from the Actor run itself, with the API token provided to the run at startup in the `APIFY_TOKEN` environment variable.
+
+    Apify adds an `X-Actor-Request-ID` header to each request it forwards to your multi-tenant Server Actor.
+    When your Actor calls this endpoint to charge that request, copy the header's value into the `requestId` field of the JSON request body.
+    Complete charges before sending the final response or closing the WebSocket connection. Request IDs are valid for at most 10 minutes.
+    Use custom events for multi-tenant Server Actor requests. Automatic Actor-start and dataset-item events don't charge these requests.
+    When composing multi-tenant Server Actors, each Actor charges with the request ID it receives.
+    Read how to [compose multi-tenant Server Actors](/actors/development/programming-interface/standby#compose-server-actors).
+
+    Single-tenant Server Actors charge events like ordinary runs and don't need `requestId`.
 
     :::info Learn more about pay-per-event pricing
 
