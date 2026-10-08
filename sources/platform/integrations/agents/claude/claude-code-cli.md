@@ -28,25 +28,19 @@ This guide covers installation in the Claude Code CLI. Support for the Claude Co
 
 ## Install the plugin
 
-1. In Claude Code, run `/plugins` to open the plugin manager.
-
-1. Open the **Marketplaces** tab and select **+ Add Marketplace**.
-
-    ![Plugins Marketplaces tab with + Add Marketplace at the top of the list](images/claude-code-cli/02-marketplaces-tab.webp)
-
-1. Paste the Apify plugin repository URL and press Enter:
+1. In Claude Code, run:
 
     ```text
-    https://github.com/apify/apify-claude-code-plugin
+    /plugin install apify
     ```
-
-1. Open the **Discover** tab. The `apify` plugin appears under **Install Plugins**. Press Enter to view its details.
 
 1. Review the plugin details, choose an install scope (**Install for you (user scope)** is the typical choice), and press Enter.
 
-1. Run `/reload-plugins` to activate the plugin in the current session.
+    - If prompted, run `/reload-plugins` to activate the plugin in the current session.
 
-1. Open the **Installed** tab to confirm the `apify` plugin is listed as enabled.
+1. Run `/plugin` and open the **Installed** tab to confirm the `apify` plugin appears as enabled.
+
+If the command can't find the plugin, see [The install command can't find Apify](#the-install-command-cant-find-apify).
 
 ## Authenticate to Apify
 
@@ -104,13 +98,44 @@ Example prompts that route to specific skills:
 
 ## Troubleshooting
 
+### The install command can't find Apify
+
+If `/plugin install` doesn't find the plugin, add the Apify marketplace, then install from it:
+
+```text
+/plugin marketplace add apify/apify-claude-code-plugin
+/plugin install apify@apify
+```
+
+You can also add the marketplace through the plugin manager:
+
+1. Run `/plugin` to open the plugin manager.
+
+1. Open the **Marketplaces** tab and select **+ Add Marketplace**.
+
+    ![Plugins Marketplaces tab with + Add Marketplace at the top of the list](images/claude-code-cli/02-marketplaces-tab.webp)
+
+1. Paste the Apify plugin repository URL and press Enter:
+
+    ```text
+    https://github.com/apify/apify-claude-code-plugin
+    ```
+
+1. Open the **Discover** tab. The `apify` plugin appears under **Install Plugins**. Press Enter to view its details.
+
+1. Review the plugin details, choose an install scope (**Install for you (user scope)** is the typical choice), and press Enter.
+
+    - If prompted, run `/reload-plugins` to activate the plugin in the current session.
+
+1. Open the **Installed** tab to confirm the `apify` plugin is listed as enabled.
+
 ### The `apify` plugin is disabled
 
-Run `/plugins`, open the **Installed** tab, select the `apify` plugin, and choose **Enable plugin**. If the action reads **Disable plugin** instead, the plugin is already enabled - the MCP server may need authentication; see [Authenticate to Apify](#authenticate-to-apify).
+Run `/plugin`, open the **Installed** tab, select the `apify` plugin, and choose **Enable plugin**. If the action reads **Disable plugin** instead, the plugin is already enabled - the MCP server may need authentication; see [Authenticate to Apify](#authenticate-to-apify).
 
 ![apify plugin detail in the Installed tab with the enable/disable actions](images/claude-code-cli/08-installed-detail.webp)
 
-### The `/plugins` command isn't available
+### The `/plugin` command isn't available {#the-plugins-command-isnt-available}
 
 Plugins require a local installation of the Claude Code CLI. They aren't available in remote or web sessions (claude.ai/code). Install or update the Claude Code CLI locally.
 
