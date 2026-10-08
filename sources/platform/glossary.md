@@ -119,7 +119,7 @@ An [output schema](/actors/development/actor-definition/output-schema) declares 
 
 ## Pay-per-event
 
-[Pay-per-event](/actors/publishing/monetize/pay-per-event) (PPE) is a pricing model that charges users for specific events an Actor emits, such as each result or action, rather than for compute time. The Actor triggers those events from its own code. Its [pay per event + usage](/actors/publishing/monetize/pay-per-event#platform-usage-costs) option also charges users the Actor's platform usage costs, which lowers its [quality score](/actors/publishing/quality-score) and makes it ineligible for [agentic payments](/actors/publishing/monetize).
+[Pay-per-event](/actors/publishing/monetize/pay-per-event) (PPE) is a pricing model that charges users for specific events an Actor emits, such as each result or action, rather than for compute time. The Actor triggers those events from its own code. Its [pay per event + usage](/actors/publishing/monetize/pay-per-event#platform-usage-costs) option also charges users the Actor's platform usage costs, which lowers its [quality score](/actors/publishing/quality-score).
 
 ## Pay-per-usage
 
@@ -128,10 +128,6 @@ An [output schema](/actors/development/actor-definition/output-schema) declares 
 ## Quality score
 
 The [quality score](/actors/publishing/quality-score) rates how well a Store Actor meets Apify's quality criteria, on a scale of 0 to 100. It reflects reliability, ease of use, and popularity, and influences where the Actor places in [Apify Store](/actors/running/actors-in-store).
-
-## Rental
-
-[Rental](/actors/publishing/monetize/rental) is a retiring pricing model that charges users a flat monthly fee after a free trial. Publishing new rental Actors stopped on April 1, 2026, and on October 1, 2026 the remaining ones move to [pay-per-usage](#pay-per-usage).
 
 ## Request queue
 
@@ -151,4 +147,4 @@ A [webhook](/integrations/webhooks) is an HTTP callback the platform sends when 
 
 ## x402
 
-[x402](/integrations/x402) is an agentic payment protocol the platform supports, so agents can pay per Actor call without an account or ongoing billing. Payment settles in USDC on the Base blockchain, which lets an agent discover and run an Actor in a single unattended flow.
+[x402](/integrations/x402) is an agentic payment protocol the platform supports, so agents can run Actors without an Apify account or ongoing billing. The agent pays once in USDC on the Base blockchain for a prepaid API token, then uses that token to run Actors until its balance runs out.
