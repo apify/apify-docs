@@ -11,7 +11,7 @@ This page covers only what is specific to Apify, not the general vocabulary of w
 
 ## Actor
 
-An [Actor](/actors) is the core unit of the Apify platform: a serverless cloud program that performs a job on the web, such as automation, an AI task, or data extraction. You [build](/actors/development) it from your own code, run it from [Apify Console](/account/console), the [API](/integrations/api), or a [schedule](/actors/running/schedules), and can [publish](/actors/publishing) it to [Apify Store](https://apify.com/store) to earn from it.
+An [Actor](/actors) is the core unit of the Apify platform: a serverless cloud program that performs a job on the web, such as automation, an AI task, or data extraction. You [build](/actors/development) it from your own code, run it from [Apify Console](/account/console), the [Apify API](/api/v2), or a [schedule](/actors/running/schedules), and can [publish](/actors/publishing) it to [Apify Store](https://apify.com/store) to earn from it.
 
 ## Actor run
 
@@ -23,11 +23,11 @@ An [Actor run](/actors/running/runs-and-builds) is a single execution of an Acto
 
 ## Actor task
 
-An [Actor task](/actors/running/tasks) is a saved, reusable input configuration for a specific Actor. It lets you rerun the same Actor with preset inputs from a [schedule](/actors/running/schedules), the [API](/integrations/api), or [Apify Console](/account/console), without reconfiguring it each time.
+An [Actor task](/actors/running/tasks) is a saved, reusable input configuration for a specific Actor. It lets you rerun the same Actor with preset inputs from a [schedule](/actors/running/schedules), the [Apify API](/api/v2), or [Apify Console](/account/console), without reconfiguring it each time.
 
 ## Agentic payments
 
-Agentic payments let AI agents pay for and run Actors without an Apify account or ongoing billing. With [x402](/integrations/x402) (USDC on Base) or the [Machine Payments Protocol (MPP)](/integrations/mpp) (stablecoins on Tempo or Solana), the agent pays once for a prepaid API token through [Apify AGI](#apify-agi) and runs Actors until its balance runs out. With [Skyfire](/integrations/skyfire), the agent pays for each run with a pre-funded Skyfire token.
+Agentic payments are a way for AI agents to pay for and run Actors without an Apify account or ongoing billing. With [x402](/integrations/x402) (USDC on Base) or the [Machine Payments Protocol (MPP)](/integrations/mpp) (stablecoins on Tempo or Solana), the agent pays once for a prepaid API token through [Apify AGI](#apify-agi), Apify's entry point for agents, and runs Actors until its balance runs out. With [Skyfire](/integrations/skyfire), the agent pays for each run with a pre-funded Skyfire token.
 
 ## API token
 
@@ -53,13 +53,17 @@ The [Apify CLI](/cli) is the command-line tool for creating, running, and deploy
 
 [Apify Console](/account/console) is the web application where you run and manage Actors, inspect storage, and handle billing. It renders each Actor's input form from its [input schema](/actors/development/actor-definition/input-schema), and presents run results according to the [output schema](/actors/development/actor-definition/output-schema).
 
+## Apify MCP Proxy
+
+The [Apify MCP Proxy](/integrations/mcp-connectors) is the platform component an Actor reaches its [MCP connectors](#mcp-connectors) through. It validates each request, injects your stored credentials server-side, and forwards it to the upstream MCP server, so the credentials never enter the Actor.
+
 ## Apify MCP server
 
-The [Apify MCP server](/integrations/mcp) exposes Actors as tools over the Model Context Protocol, so AI assistants and agents can discover and run them. Clients such as Claude, ChatGPT, and Cursor connect to it and call Actors as part of a conversation, without custom integration code.
+The [Apify MCP server](/integrations/mcp) is the server that exposes Actors as tools over the Model Context Protocol, so AI assistants and agents can discover and run them. Clients such as Claude, ChatGPT, and Cursor connect to it and call Actors as part of a conversation, without custom integration code.
 
 ## Apify Proxy
 
-[Apify Proxy](/proxy) routes requests through datacenter and residential IP addresses to reduce blocking. It rotates addresses automatically and lets you target specific countries, so Actors can reach sites that restrict traffic by address or geography.
+[Apify Proxy](/proxy) is the proxy service that routes requests through datacenter and residential IP addresses to reduce blocking. It rotates addresses automatically and lets you target specific countries, so Actors can reach sites that restrict traffic by address or geography.
 
 ## Apify SDK
 
@@ -91,7 +95,7 @@ A [datacenter proxy](/proxy/datacenter-proxy) is the fastest and cheapest proxy 
 
 ## Dataset
 
-A [dataset](/storage/dataset) is append-only, table-like storage for an Actor's structured results. You export it as JSON, CSV, or Excel, read it through the [API](/integrations/api), and can describe its shape with a [dataset schema](/storage/dataset-schema).
+A [dataset](/storage/dataset) is append-only, table-like storage for an Actor's structured results. You export it as JSON, CSV, or Excel, read it through the [Apify API](/api/v2), and can describe its shape with a [dataset schema](/storage/dataset-schema).
 
 ## Google SERP proxy
 
@@ -103,47 +107,47 @@ An [input schema](/actors/development/actor-definition/input-schema) is the JSON
 
 ## Key-value store
 
-A [key-value store](/storage/key-value-store) holds unstructured or auxiliary data, such as Actor input, files, screenshots, and images. Each run's store holds its `INPUT` record and any files the Actor writes, and its layout can be described with a [key-value store schema](/storage/key-value-store-schema).
+A [key-value store](/storage/key-value-store) is storage for unstructured or auxiliary data, such as Actor input, files, screenshots, and images. Each run's store holds its `INPUT` record and any files the Actor writes, and its layout can be described with a [key-value store schema](/storage/key-value-store-schema).
 
 ## MCP connectors
 
-[MCP connectors](/integrations/mcp-connectors) let an Actor call third-party services, such as Notion, Slack, and GitHub, over the Model Context Protocol using credentials you authorize once in your account settings. They work in the opposite direction to the [Apify MCP server](/integrations/mcp), which exposes Actors to outside AI clients.
-
-## MCP Proxy
-
-The [Apify MCP Proxy](/integrations/mcp-connectors) is the platform component an Actor reaches its MCP connectors through. It validates each request, injects your stored credentials server-side, and forwards it to the upstream MCP server, so the credentials never enter the Actor.
+[MCP connectors](/integrations/mcp-connectors) are a feature that lets an Actor call third-party services, such as Notion, Slack, and GitHub, over the Model Context Protocol using credentials you authorize once in your account settings. They work in the opposite direction to the [Apify MCP server](/integrations/mcp), which exposes Actors to outside AI clients.
 
 ## Output
 
-[Output](/actors/running/input-and-output) is the data an Actor run produces. Structured results go to the run's [dataset](/storage/dataset) and anything else to its [key-value store](/storage/key-value-store), and you read both from [Apify Console](/account/console) or the [API](/integrations/api).
+[Output](/actors/running/input-and-output) is the data an Actor run produces. Structured results go to the run's [dataset](/storage/dataset) and anything else to its [key-value store](/storage/key-value-store), and you read both from [Apify Console](/account/console) or the [Apify API](/api/v2).
 
 ## Output schema
 
-An [output schema](/actors/development/actor-definition/output-schema) declares where an Actor stores its results and how Apify Console and the run API endpoint present them. [Publishing an Actor](/actors/publishing/publish) requires one, and it tells AI agents what results to expect before they run it.
+An [output schema](/actors/development/actor-definition/output-schema) is the definition of where an Actor stores its results and how Apify Console and the run API endpoint present them. [Publishing an Actor](/actors/publishing/publish) requires one, and it tells AI agents what results to expect before they run it.
 
 ## Pay-per-event
 
-[Pay-per-event](/actors/publishing/monetize/pay-per-event) (PPE) is a pricing model that charges users for specific events an Actor emits, such as each result or action, rather than for compute time. The Actor triggers those events from its own code. Its [pay per event + usage](/actors/publishing/monetize/pay-per-event#platform-usage-costs) option also charges users the Actor's platform usage costs, which lowers its [quality score](/actors/publishing/quality-score).
+[Pay-per-event](/actors/publishing/monetize/pay-per-event) (PPE) is a pricing model that charges users for specific events an Actor emits, such as each result or action, rather than for compute time. The Actor triggers those events from its own code. Its [pay-per-event plus usage](/actors/publishing/monetize/pay-per-event#platform-usage-costs) option also charges users the Actor's platform usage costs, which lowers its [quality score](/actors/publishing/quality-score).
 
 ## Pay-per-usage
 
 [Pay-per-usage](/actors/publishing/monetize/pricing-and-costs) is a pricing model where users pay only the platform usage costs an Actor generates, with no additional charge. It's one of the two [monetization models](/actors/publishing/monetize) currently offered on Apify Store.
 
+## Proxy
+
+A [proxy](/proxy) is a server that forwards your requests, so target websites see its IP address instead of yours. On the platform, you get proxies through [Apify Proxy](#apify-proxy) as [datacenter](#datacenter-proxy), [residential](#residential-proxy), or [Google SERP](#google-serp-proxy) proxies.
+
 ## Quality score
 
-The [quality score](/actors/publishing/quality-score) rates how well a Store Actor meets Apify's quality criteria, on a scale of 0 to 100. It reflects reliability, ease of use, and popularity, and influences where the Actor places in [Apify Store](/actors/running/actors-in-store).
+The [quality score](/actors/publishing/quality-score) is a 0 to 100 rating of how well an Actor in Apify Store meets Apify's quality criteria. It reflects reliability, ease of use, and popularity, and influences where the Actor places in [Actors in Apify Store](/actors/running/actors-in-store).
 
 ## Request queue
 
-A [request queue](/storage/request-queue) holds the URLs to crawl and tracks their state. It deduplicates URLs and records which are pending or handled, so a crawl can resume after an interruption and be shared across runs.
+A [request queue](/storage/request-queue) is storage for the URLs to crawl that tracks their state. It deduplicates URLs and records which are pending or handled, so a crawl can resume after an interruption and be shared across runs.
 
 ## Residential proxy
 
-A [residential proxy](/proxy/residential-proxy) routes requests through IP addresses of real home devices, making them the hardest to detect and block. It draws on a wider address pool than [datacenter proxies](/proxy/datacenter-proxy), at a higher price, for targets with strong anti-scraping measures.
+A [residential proxy](/proxy/residential-proxy) is a proxy that routes requests through IP addresses of real home devices, making them the hardest to detect and block. It draws on a wider address pool than [datacenter proxies](/proxy/datacenter-proxy), at a higher price, for targets with strong anti-scraping measures.
 
 ## Schedule
 
-A [schedule](/actors/running/schedules) is a cron-based trigger that runs an Actor or task automatically at set intervals. You define it with a cron expression and manage it from [Apify Console](/account/console) or the [API](/integrations/api).
+A [schedule](/actors/running/schedules) is a cron-based trigger that runs an Actor or task automatically at set intervals. You define it with a cron expression and manage it from [Apify Console](/account/console) or the [Apify API](/api/v2).
 
 ## Webhook
 
