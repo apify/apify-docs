@@ -590,6 +590,16 @@ html[data-theme='dark'] .markdown code {
     border-color: rgba(255, 255, 255, 0.1);
 }
 
+/* Inline code in the first column of a table is an identifier - a tool name, an
+   environment variable, a field. Browsers treat a hyphen as a line-break
+   opportunity, so `fetch-actor-details` gets split across two lines in a narrow
+   column. Keep those identifiers whole; tables already scroll horizontally, and
+   the prose columns stay free to wrap. */
+.markdown table th:first-child code,
+.markdown table td:first-child code {
+    white-space: nowrap;
+}
+
 article .card h2 {
     margin-top: 0;
 }

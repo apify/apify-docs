@@ -12,14 +12,15 @@ in the background, waiting for the incoming HTTP requests. In a sense, the Actor
 
 ## How do I know if Standby mode is enabled
 
-You will know that the Actor is enabled for Standby mode if you see the **Standby** tab on the Actor's detail page.
+You will know that the Actor is enabled for Standby mode if you see the **Endpoints** tab on the Actor's detail page.
 In the tab, you will find the hostname of the server, the description of the Actor's endpoints,
 the parameters they accept, and what they return in the Actor README.
+If the Actor defines a [web server schema](../development/actor_definition/web_server_schema/index.md), the tab also shows an interactive list of its endpoints, where you can send requests directly from the browser.
 
 To use the Actor in Standby mode, you don't need to click a start button or not need to do anything else. Simply use the provided hostname and endpoint in your application,
 hit the API endpoint and get results.
 
-![Standby tab](./images/actor_standby/standby-tab.png)
+![Endpoints tab](./images/actor_standby/standby-tab.png)
 
 ## How do I pass input to Actors in Standby mode
 
@@ -63,13 +64,21 @@ it well. Please head to the Actor README to learn more about the capabilities of
 When you use the Actor in Standby mode, the system automatically scales the Actor to accommodate the incoming requests. Under the hood,
 the system starts new Actor runs, which you will see in the Actor runs tab, with the origin set to Standby.
 
+## Does the platform check that Standby runs are healthy
+
+The platform checks a run's readiness once, before the run starts serving requests, and performs no health checks after that. A run ends when its process exits, when it migrates to another machine, or when it stays idle for longer than the idle timeout.
+
+If an Actor's server stays up but stops responding, the platform doesn't detect the failure, and requests keep going to that run. To learn how to handle this in your own Actors, see [Develop Actors in Standby mode](../development/programming_interface/actor_standby.md#run-lifecycle-in-standby-mode).
+
 ## What is the timeout for incoming requests
 
 For requests sent to an Actor in Standby mode, the maximum time allowed until receiving the first response is _5 minutes_. This represents the overall timeout for the operation.
 
+Within this window, the platform first selects an Actor run to handle the request, which can take up to _2 minutes_, for example when a new run needs to start. If no run becomes available within that time, the request fails with a `429` error.
+
 ## What is the rate limit for incoming requests
 
-The rate limit for incoming requests to a Standby Actor is _2000 requests per second_ per user account.
+Incoming requests to Standby Actors are rate-limited per user account. The limit is the same on all standard subscription plans, and custom plans can raise it. Responses include the current limit in the `X-RateLimit-Limit` header. When you exceed the limit, the platform responds with a `429` error.
 
 ## How do I customize Standby configuration
 
@@ -81,19 +90,26 @@ The Standby configuration currently consists of the following properties:
 - **Idle timeout (seconds)** - If a Standby Actor run doesn’t receive any HTTP requests within this time, the system will terminate the run. When a new request arrives, the system might need to start a new Standby Actor run to handle it, which can take a few seconds. A higher idle timeout improves responsiveness but increases costs, as the Actor remains active for a longer period.
 - **Build** - The Actor build that the runs of the Standby Actor will use. Can be either a build tag (e.g. `latest.`), or a build number (e.g. `0.1.2`).
 
-You can see these in the Standby tab of the Actor detail page. However, note that these properties are not configurable at the Actor level. If you wish to
-use the Actor-level hostname, this will always use the default configuration. To override this configuration, just create a new Task from the Actor.
-You can then head to the Standby tab of the created Task and modify the configuration as needed. Note that the task has a specific hostname, so make
-sure to use that in your application if you wish to use the custom configuration.
+You can see these in the **Endpoints** tab of the Actor detail page. If you own the Actor, you can change its default Standby configuration in the **Settings** tab.
+
+If you use an Actor built by someone else, the Actor-level hostname always uses the developer's default configuration. To override it, create a new Task from the Actor.
+You can then head to the **Endpoints** tab of the created Task and modify the configuration as needed. Note that the task has a specific hostname, so make
+sure to use that in your application if you wish to use the custom configuration. The Actor's developer can lock the Standby configuration. In that case, the task-level settings have no effect.
 
 ## Are the Standby runs billed differently
 
 No, the Standby runs are billed in the same fashion as the normal runs.
 However, running Actors in Standby mode might have unexpected costs, as the Actors run in the background and consume resources even when no requests are being sent until they are terminated after the idle timeout period.
 
+For Actors monetized with the [pay-per-event pricing model](/actors/publishing/monetize/pay-per-event), you pay the platform usage costs of the Standby runs in addition to the event charges.
+
 ## Are the Standby runs shared among users
 
 No, even if you use the Actor-level hostname with the default configuration, the background Actor runs for your requests are not shared with other users.
+
+## Can I use Standby Actors as MCP servers
+
+Yes, if the Actor exposes a [Model Context Protocol (MCP)](../../integrations/ai/mcp.md) server. Its MCP endpoint is the Standby hostname followed by the path defined in the Actor's [`webServerMcpPath`](../development/actor_definition/actor_json.md) property. Authenticate requests to the MCP endpoint the same way as any other Standby request.
 
 ## How can I develop Actors using Standby mode
 

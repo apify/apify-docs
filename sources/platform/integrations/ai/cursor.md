@@ -6,6 +6,8 @@ slug: /integrations/cursor
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+import ApifyPluginSkills from '@site/sources/_partials/_apify-plugin-skills.mdx';
+import ApifyPluginSkillPrompts from '@site/sources/_partials/_apify-plugin-skill-prompts.mdx';
 
 [Cursor](https://cursor.com) is an AI-powered code editor that understands your codebase, edits files, runs commands, and completes multi-step development tasks from natural-language prompts.
 
@@ -25,6 +27,10 @@ This guide covers installation from the Cursor plugin marketplace.
 - [Cursor](https://cursor.com) - installed and signed in locally.
 
 ## Install the plugin
+
+In the Cursor chat, run `/add-plugin apify` to install the plugin without leaving the editor.
+
+To install from the plugin marketplace instead:
 
 1. Open **Cursor** > **Preferences** > **Cursor Settings**.
 
@@ -78,27 +84,11 @@ The agent searches Apify Store, fetches the top Actor's details through the Apif
 
 ## Bundled skills
 
-| Skill | Description |
-| --- | --- |
-| `apify-ultimate-scraper` | CLI-driven extraction using existing Actors for multi-step scraping and lead-generation workflows. |
-| `apify-actor-development` | Full Actor lifecycle - template selection, development, local testing, and deployment with `apify push`. |
-| `apify-actorization` | Converts existing JavaScript, TypeScript, Python, or CLI projects into Apify Actors. |
-| `apify-generate-output-schema` | Generates dataset and key-value store schemas for existing Actors. |
-| `apify-sdk-integration` | Integrates Actor execution into applications using the `apify-client` package. |
+<ApifyPluginSkills />
 
 Example prompts that route to specific skills:
 
-_Ultimate scraper:_
-
-> Find 10 highly rated coffee shops in Seattle with name, address, rating, phone, and website.
-
-_Actor development:_
-
-> Create an Apify Actor that accepts a `startUrl` and `maxPages` input, crawls the site, and stores each page title and URL.
-
-_SDK integration:_
-
-> Add Apify to this project. The Node.js API route should run an Actor and return dataset items as JSON.
+<ApifyPluginSkillPrompts />
 
 ## Troubleshooting
 

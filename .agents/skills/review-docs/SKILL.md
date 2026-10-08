@@ -12,23 +12,21 @@ argument-hint: file-path
 
 1. **Verify file version** - `git status` to confirm you have the latest
 2. **Run deterministic checks** (main process) - these are objective, no judgment needed:
+   - `vale --minAlertLevel=suggestion "<file>"` (prose style: voice, tone, terminology, grammar, headings, link text)
    - `pnpm lint:md` (heading hierarchy, list numbering, spacing)
    - `.agents/skills/review-docs/scripts/check-frontmatter.sh "<file>"` (description char count)
 
-   Vale runs separately as a repo-level PR check and via the TW's local editor extension - don't invoke it here. The delegated standards review (step 3) covers the same prose-style ground.
-3. **Delegated standards review** - spawn one subagent per standards file to check compliance. Each subagent reads the file being reviewed plus one standards file, and returns violations with line numbers and suggested fixes:
-   - Subagent 1: check against `standards/writing-style.md` (voice, tone, headings, links)
-   - Subagent 2: check against `standards/content-standards.md` (front matter, admonitions, code blocks)
-   - Subagent 3: check against `standards/terminology.md` (product names, article usage)
-   - Subagent 4: check against `standards/grammar-rules.md` (hyphenation, punctuation, brand spelling)
-   Launch all 4 in parallel.
-4. **Content review** (main process) - focus on what standards files don't cover:
+   Vale carries most of the style guide, so don't re-check its ground by hand. If it isn't installed, say so and note that prose coverage was skipped.
+
+   For a pull request, run all three over every changed `.md` and `.mdx` file and report per file.
+3. **Delegated review** - spawn two subagents in parallel, for what no tool can check. Each reads the page being reviewed plus one standards file, and returns findings with line numbers and suggested fixes:
+   - Subagent 1, `standards/style-guide.md`: bold outside UI elements and critical warnings, link text that doesn't say where it goes, non-parallel lists, missing serial commas, and loose use of "legacy", "alternative", or "deprecated"
+   - Subagent 2, `standards/page-structure.md`: stacked headings, concepts used before they're explained, screenshots that don't earn their place or break the treatment rules, admonitions that don't fit their content, outnumber one per H2 section, or carry content the prose needs
+4. **Content review** (main process) - focus on what neither tools nor standards cover:
    - Content structure (clear intro, logical flow, next steps)
    - Technical accuracy (code examples correct, API endpoints current)
    - Completeness (prerequisites listed, edge cases covered)
    - Code example quality (complete, runnable, commented where needed)
-5. **Format output** - merge subagent findings + deterministic results + content review per `.agents/skills/review-docs/references/review-format.md`
-
-Deterministic tools first, then delegated standards checks, then content review. Report tool failures as objective facts. Report standards and content findings as judgment calls.
+5. **Format output** - per `.agents/skills/review-docs/references/review-format.md`. Tool output goes in its own section, verbatim with rule names and line numbers. Judgment findings go in a separate section and must not restate anything a tool reported.
 
 For detailed process notes and edge cases, see `.agents/skills/review-docs/references/process.md`.

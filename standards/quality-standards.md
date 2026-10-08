@@ -1,4 +1,4 @@
-# Quality Standards
+# Quality standards
 
 Comprehensive quality checklist for all Apify documentation. Use this before submitting any content for review.
 
@@ -9,6 +9,7 @@ Comprehensive quality checklist for all Apify documentation. Use this before sub
 **When using regex, find-and-replace, or any automated command to perform mass changes across files, you MUST verify every single change individually before committing.**
 
 Automated replacements are error-prone and can break:
+
 - **Headings:** Proper nouns (GitHub, Docker), Apify products (Actors, Console), acronyms (API, SDK), capitalization after colons
 - **Code examples:** Variable names, API endpoints, function calls, configuration values
 - **Links:** URL paths, anchor references, file paths
@@ -16,6 +17,7 @@ Automated replacements are error-prone and can break:
 - **Context-specific formatting:** Bold UI elements vs regular text, inline code vs prose
 
 **Required process:**
+
 1. Run the automated replacement command
 1. Review the complete `git diff` output
 1. Check every single changed line individually
@@ -32,7 +34,7 @@ Before submitting documentation, verify:
 
 ### Writing and style
 
-- [ ] Content follows **writing-style.md** (sentence case headings, active voice, no sales language)
+- [ ] Content follows [style-guide.md](style-guide.md) (sentence case headings, active voice, no sales language)
 - [ ] Language is US English (analyze, color, not analyse, colour)
 - [ ] Tone is imperative and direct (use "Install the package" not "You should install")
 - [ ] No first person (avoid "I recommend", use "we" for Apify team only)
@@ -41,24 +43,25 @@ Before submitting documentation, verify:
 
 ### Formatting and structure
 
-- [ ] Front matter follows **content-standards.md** (title, description 140-160 chars, sidebar_position, slug)
+- [ ] Frontmatter follows [page-structure.md](page-structure.md) (title, description 140-160 chars, sidebar_position, slug)
 - [ ] Headings use sentence case (not title case) and no gerunds (-ing forms)
-- [ ] Heading hierarchy is correct (H2 → H3 → H4, no skipped levels; H1 comes from front matter title)
+- [ ] Heading hierarchy is correct (H2 → H3 → H4, no skipped levels; H1 comes from frontmatter title)
 - [ ] No stacked headings - every heading (including the page title) is followed by body text before the next heading
 - [ ] Bold used only for UI elements and critical warnings (not for structure or list intros)
 - [ ] Code formatting uses backticks for file names, commands, config keys
-- [ ] All admonitions have titles (required by **content-standards.md**)
+- [ ] All admonitions have titles (required by [page-structure.md](page-structure.md))
+- [ ] Admonitions are sparse (at most one per H2 section) and carry asides, not content the prose needs
 - [ ] Lists use parallel structure (all items follow same grammatical pattern)
 - [ ] Numbered lists use `1.` for all items (not sequential numbers)
 
 ### Terminology
 
-- [ ] Apify product names follow **terminology.md** (Apify Actor, Apify Proxy, not actor/proxy)
+- [ ] Apify product names follow [style-guide.md](style-guide.md) (Apify Actor, Apify Proxy, not actor/proxy)
 - [ ] Platform terms use lowercase with "the" (the Apify platform, not Platform)
 - [ ] Feature terms use lowercase (task, schedule, dataset, not Task/Schedule/Dataset)
 - [ ] Word choice is precise (legacy vs alternative vs deprecated used correctly)
-- [ ] Article usage correct per **terminology.md** (no "the" before Apify Console/Store/Proxy; "the" before SDK/CLI/API)
-- [ ] Grammar mechanics follow **grammar-rules.md** (hyphenation, contractions, e.g./i.e., numbers, list punctuation)
+- [ ] Article usage correct per [style-guide.md](style-guide.md) (no "the" before Apify Console/Store/Proxy; "the" before SDK/CLI/API)
+- [ ] Grammar mechanics follow [style-guide.md](style-guide.md) (hyphenation, contractions, e.g./i.e., numbers, list punctuation)
 
 ### Code examples
 
@@ -88,13 +91,13 @@ Before submitting documentation, verify:
 
 ### File organization
 
-- [ ] File naming follows **file-organization.md** (kebab-case)
+- [ ] File naming follows [page-structure.md](page-structure.md) (kebab-case)
 - [ ] File placed in correct directory (platform/, academy/, api-reference/)
 - [ ] Images in appropriate images/ subdirectory
 
 ### Technical validation
 
-- [ ] Markdownlint passes (`npm run lint:md`) - Markdown syntax and formatting
+- [ ] Markdownlint passes (`pnpm lint:md`) - Markdown syntax and formatting
 - [ ] Vale style checks pass (no critical errors) - Prose and style validation
 - [ ] No spelling errors in content
 

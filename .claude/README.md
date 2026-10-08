@@ -80,11 +80,9 @@ Use /review-docs skill to review sources/platform/[file-name].md
 
 All documentation standards are in `standards/` at the repo root:
 
-1. **`writing-style.md`** - Prose voice and tone
-1. **`content-standards.md`** - Formatting and structure
-1. **`terminology.md`** - Product names and capitalization
-1. **`grammar-rules.md`** - Grammar mechanics, punctuation, numbers, brand spelling
-1. **`file-organization.md`** - File naming and directory structure
+1. **`README.md`** - Index: what to read when, and how rules are enforced
+1. **`style-guide.md`** - Voice and tone, headings, text formatting, links, numbers, grammar, Apify terminology
+1. **`page-structure.md`** - Frontmatter, admonitions, code blocks, images, lists, file naming
 1. **`quality-standards.md`** - Complete quality checklist
 
 Also reference:

@@ -14,10 +14,10 @@ Agent-agnostic workflow for writing or editing Apify documentation.
 ## Step 2: Research
 
 - Read 2-3 existing pages in the same directory to match patterns
-- Check `standards/terminology.md` for product name capitalization
+- Check `standards/style-guide.md` for product name capitalization
 - Identify related pages to link to
 
-## Step 3: Create front matter
+## Step 3: Create frontmatter
 
 ```yaml
 ---
@@ -52,7 +52,7 @@ Read the full existing page before making changes. Preserve the existing structu
 
 ### Description length
 
-Front matter `description` must be 140-160 characters for SEO. Focus on user value, not feature lists.
+Frontmatter `description` must be 140-160 characters for SEO. Focus on user value, not feature lists.
 
 ### Page doesn't match sibling pages
 
