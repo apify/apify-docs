@@ -12,7 +12,6 @@ toc_max_heading_level: 4
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
 The Apify's MCP server ([mcp.apify.com](https://mcp.apify.com)) allows AI applications and agents to interact with the Apify platform
 using [Model Context Protocol](https://modelcontextprotocol.io/docs/getting-started/intro) (MCP). The MCP server enables AI agents to
@@ -22,8 +21,6 @@ and enables AI coding assistants to access Apify documentation and tutorials.
 To connect a coding agent such as Claude Code, Cursor, GitHub Copilot, or Codex, install the [Apify plugin](/agents/plugins) instead. It sets up this server together with [Agent Skills](/agents/skills) in one step.
 
 ![Apify MCP server](../images/apify_mcp_server.png)
-
-<ThirdPartyDisclaimer />
 
 :::info Apify MCP server vs MCP connectors
 
