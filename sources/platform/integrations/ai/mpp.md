@@ -126,7 +126,7 @@ pay --mainnet --mpp curl 'https://agi.apify.com/protocols/mpp/prepaid-tokens?amo
 
 Send the token as a bearer token to the [Apify API](/api/v2). It acts as an API token until its balance runs out or it expires. Treat it like a secret, and don't print it or store it where others can read it.
 
-It's the same kind of prepaid token the x402 flow returns. The token also works as the bearer credential for the [Apify MCP server](/integrations/mcp). Pass it in the `Authorization` header instead of signing in with OAuth. Check the remaining balance and expiry time at any time:
+It's the same kind of prepaid token the x402 flow returns. The token also works as the bearer credential for the [Apify MCP server](/mcp). Pass it in the `Authorization` header instead of signing in with OAuth. Check the remaining balance and expiry time at any time:
 
 ```bash
 curl -s "https://agi.apify.com/prepaid-tokens/balance" -H "Authorization: Bearer $TOKEN"
