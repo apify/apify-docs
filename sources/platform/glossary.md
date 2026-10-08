@@ -25,13 +25,17 @@ An [Actor run](/actors/running/runs-and-builds) is a single execution of an Acto
 
 An [Actor task](/actors/running/tasks) is a saved, reusable input configuration for a specific Actor. It lets you rerun the same Actor with preset inputs from a [schedule](/actors/running/schedules), the [API](/integrations/api), or [Apify Console](/account/console), without reconfiguring it each time.
 
+## Agentic payments
+
+Agentic payments let AI agents pay for and run Actors without an Apify account or ongoing billing. With [x402](/integrations/x402) (USDC on Base) or the [Machine Payments Protocol (MPP)](/integrations/mpp) (stablecoins on Tempo or Solana), the agent pays once for a prepaid API token through [Apify AGI](#apify-agi) and runs Actors until its balance runs out. With [Skyfire](/integrations/skyfire), the agent pays for each run with a pre-funded Skyfire token.
+
 ## API token
 
 An [API token](/integrations/api) is a secret key tied to your Apify account that authenticates API requests and integrations. It identifies you to the [Apify API](/api/v2), the [Apify CLI](/cli), and the client libraries, and carries your account's permissions.
 
 ## Apify AGI
 
-[Apify AGI](https://agi.apify.com) (Agent General Interface) is the entry point for autonomous agents to use and pay for the platform and Actors. Agents reach it through agentic payment protocols such as [x402](/integrations/x402), so they can run Actors without account setup or ongoing billing.
+[Apify AGI](https://agi.apify.com) (Agent General Interface) is the entry point for autonomous agents to use and pay for the platform and Actors. Agents reach it through [agentic payments](#agentic-payments), so they can run Actors without account setup or ongoing billing.
 
 ## Apify AI
 
@@ -144,7 +148,3 @@ A [schedule](/actors/running/schedules) is a cron-based trigger that runs an Act
 ## Webhook
 
 A [webhook](/integrations/webhooks) is an HTTP callback the platform sends when an Actor run changes state. Use it to trigger an external system, or another Actor, when a run succeeds or fails, instead of polling for the result.
-
-## x402
-
-[x402](/integrations/x402) is an agentic payment protocol the platform supports, so agents can run Actors without an Apify account or ongoing billing. The agent pays once in USDC on the Base blockchain for a prepaid API token, then uses that token to run Actors until its balance runs out.
