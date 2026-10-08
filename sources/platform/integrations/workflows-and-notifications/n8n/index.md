@@ -91,7 +91,7 @@ Start by building a basic workflow in n8n, then add the Apify node to handle tas
 1. In the node's **Credentials** dropdown, choose the Apify credential you configured earlier. If you haven't configured any credentials, you can do so in this step. The process will be the same.
 1. You can now use Apify node as a trigger or action in your workflow.
 
-![Apify Node](../../images/n8n-list-of-operations.png)
+![Apify Node](../../images/n8n-list-of-operations.webp)
 
 ## Use Apify node as trigger
 
