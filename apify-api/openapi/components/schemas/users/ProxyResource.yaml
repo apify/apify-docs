@@ -1,0 +1,13 @@
+title: ProxyResource
+required:
+  - password
+  - groups
+type: object
+properties:
+  password:
+    type: string
+    examples: [ad78knd9Jkjd86]
+  groups:
+    type: array
+    items:
+      $ref: ./ProxyGroup.yaml

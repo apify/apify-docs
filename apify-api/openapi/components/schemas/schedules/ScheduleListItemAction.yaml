@@ -1,0 +1,9 @@
+title: ScheduleListItemAction
+oneOf:
+  - $ref: ./ScheduleListItemActionRunActor.yaml
+  - $ref: ./ScheduleListItemActionRunActorTask.yaml
+discriminator:
+  propertyName: type
+  mapping:
+    RUN_ACTOR: ./ScheduleListItemActionRunActor.yaml
+    RUN_ACTOR_TASK: ./ScheduleListItemActionRunActorTask.yaml

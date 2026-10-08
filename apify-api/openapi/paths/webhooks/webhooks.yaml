@@ -106,7 +106,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: ../../components/schemas/webhooks/WebhookCreate.yaml
+          $ref: ../../components/schemas/webhooks/CreateWebhookRequest.yaml
     required: true
   responses:
     "201":

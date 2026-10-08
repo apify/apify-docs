@@ -1,0 +1,18 @@
+title: RequestQueueHeadItem
+description: A request from the request queue head without lock information.
+type: object
+required:
+  - id
+  - uniqueKey
+  - url
+properties:
+  id:
+    $ref: ./SharedProperties.yaml#/RequestId
+  uniqueKey:
+    $ref: ./SharedProperties.yaml#/UniqueKey
+  url:
+    $ref: ./SharedProperties.yaml#/RequestUrl
+  method:
+    $ref: ./SharedProperties.yaml#/RequestMethod
+  retryCount:
+    $ref: ./SharedProperties.yaml#/RetryCount
