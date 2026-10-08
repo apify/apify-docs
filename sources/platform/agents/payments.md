@@ -44,7 +44,7 @@ Two protocols go through AGI, and Skyfire has its own flow:
 | Protocol | How the agent pays | Guide |
 | :--- | :--- | :--- |
 | [x402](https://www.x402.org) | A one-time payment in stablecoins on Base or Solana, exchanged for a prepaid token | [Agentic payments with x402](/integrations/x402) |
-| [MPP](https://mpp.dev) | A one-time payment in stablecoins on Tempo or Solana, exchanged for a prepaid token | [Agentic payments with MPP](https://docs.apify.com/integrations/mpp) |
+| [MPP](https://mpp.dev) | A one-time payment in stablecoins on Tempo or Solana, exchanged for a prepaid token | [Agentic payments with MPP](/integrations/mpp) |
 | [Skyfire](https://skyfire.xyz) | Pre-funded Skyfire payment tokens passed to the MCP server or the Apify API, limited to eligible pay-per-event Actors | [Agentic payments with Skyfire](/integrations/skyfire) |
 
 ## Agent-ready instructions
@@ -54,7 +54,7 @@ AGI serves its own instructions at [agi.apify.com](https://agi.apify.com), writt
 ## Related resources
 
 - [Agentic payments with x402](/integrations/x402) - Set up a wallet, buy a prepaid token, and run an Actor
-- [Agentic payments with MPP](https://docs.apify.com/integrations/mpp) - Buy a prepaid token with stablecoins on Tempo or Solana
+- [Agentic payments with MPP](/integrations/mpp) - Buy a prepaid token with stablecoins on Tempo or Solana
 - [Agentic payments with Skyfire](/integrations/skyfire) - Pay with Skyfire tokens through the MCP server or the Apify API
 - [Apify MCP server](/mcp) - Use a prepaid token with the MCP server
 - [Resources for AI agents](/agents/resources) - Find every agent-facing surface Apify publishes
