@@ -1,7 +1,6 @@
 ---
-title: Apify plugin for agents
+title: Install the Apify plugin in your AI agent
 sidebar_label: Plugins
-subtitle: One-command setup for Apify in your AI agent
 description: Install the Apify plugin to give your coding agent the MCP server, Agent Skills, and a routing agent in one step. Pick your agent to get its commands.
 sidebar_position: 1
 slug: /agents/plugins

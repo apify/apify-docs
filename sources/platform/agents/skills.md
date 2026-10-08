@@ -1,7 +1,6 @@
 ---
 title: Apify Agent Skills
 sidebar_label: Agent Skills
-subtitle: Give your AI agent Apify know-how
 description: Install Apify Agent Skills to give a coding agent tested workflows for scraping, Actor development, actorization, and building Apify integrations.
 sidebar_position: 3
 slug: /agents/skills

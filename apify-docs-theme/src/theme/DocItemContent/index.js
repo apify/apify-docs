@@ -25,7 +25,6 @@ function useSyntheticTitle() {
  */
 export default function DocItemContent({ children }) {
     const syntheticTitle = useSyntheticTitle();
-    const { frontMatter } = useDoc();
     const location = useLocation();
 
     // Define the allowed paths that should show LLMButtons
@@ -81,8 +80,6 @@ export default function DocItemContent({ children }) {
                     {shouldShowLLMButtons && <LLMButtons />}
                 </div>
             )}
-            {/* Optional one-line subtitle under the page title, set with `subtitle` in front matter */}
-            {frontMatter.subtitle && <p className={styles.subtitle}>{frontMatter.subtitle}</p>}
             <MDXContent>{children}</MDXContent>
         </div>
     );

@@ -1,7 +1,6 @@
 ---
-title: Agentic payments
+title: Let your AI agent pay for Actor runs
 sidebar_label: Agentic payments
-subtitle: Let your AI agent pay for Actor runs without signing up
 description: Let an AI agent pay for Apify Actor runs without signing up, by buying a prepaid, spend-capped token over x402 or MPP, or by paying with Skyfire.
 sidebar_position: 4
 slug: /agents/payments

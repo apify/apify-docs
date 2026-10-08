@@ -1,7 +1,6 @@
 ---
 title: Resources for AI agents
 sidebar_label: Resources
-subtitle: Current Apify documentation, in formats agents read
 description: Read Apify documentation programmatically through Markdown endpoints, llms.txt indexes, and MCP tools, and find every agent-facing file Apify publishes.
 sidebar_position: 5
 slug: /agents/resources
