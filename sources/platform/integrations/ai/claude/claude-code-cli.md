@@ -28,52 +28,19 @@ This guide covers installation in the Claude Code CLI. Support for the Claude Co
 
 ## Install the plugin
 
-Install Apify directly in Claude Code. Use the manual marketplace fallback below if the command can't find the plugin.
-
-### Direct installation (recommended)
-
 1. In Claude Code, run:
 
     ```text
-    /plugin install Apify
+    /plugin install apify
     ```
 
 1. Review the plugin details, choose an install scope (**Install for you (user scope)** is the typical choice), and press Enter.
 
-1. If prompted, run `/reload-plugins` to activate the plugin in the current session.
+    - If prompted, run `/reload-plugins` to activate the plugin in the current session.
 
 1. Run `/plugin` and open the **Installed** tab to confirm the `apify` plugin appears as enabled.
 
-### Manual marketplace fallback
-
-If the direct install command can't find Apify, add the Apify marketplace manually:
-
-```text
-/plugin marketplace add apify/apify-claude-code-plugin
-/plugin install apify@apify
-```
-
-You can also add the marketplace through the plugin manager:
-
-1. Run `/plugin` to open the plugin manager.
-
-1. Open the **Marketplaces** tab and select **+ Add Marketplace**.
-
-    ![Plugins Marketplaces tab with + Add Marketplace at the top of the list](images/claude-code-cli/02-marketplaces-tab.webp)
-
-1. Paste the Apify plugin repository URL and press Enter:
-
-    ```text
-    https://github.com/apify/apify-claude-code-plugin
-    ```
-
-1. Open the **Discover** tab. The `apify` plugin appears under **Install Plugins**. Press Enter to view its details.
-
-1. Review the plugin details, choose an install scope (**Install for you (user scope)** is the typical choice), and press Enter.
-
-1. If prompted, run `/reload-plugins` to activate the plugin in the current session.
-
-1. Open the **Installed** tab to confirm the `apify` plugin is listed as enabled.
+If the command can't find the plugin, see [The install command can't find Apify](#the-install-command-cant-find-apify).
 
 ## Authenticate to Apify
 
@@ -130,6 +97,37 @@ Example prompts that route to specific skills:
 <ApifyPluginSkillPrompts />
 
 ## Troubleshooting
+
+### The install command can't find Apify
+
+If `/plugin install` doesn't find the plugin, add the Apify marketplace, then install from it:
+
+```text
+/plugin marketplace add apify/apify-claude-code-plugin
+/plugin install apify@apify
+```
+
+You can also add the marketplace through the plugin manager:
+
+1. Run `/plugin` to open the plugin manager.
+
+1. Open the **Marketplaces** tab and select **+ Add Marketplace**.
+
+    ![Plugins Marketplaces tab with + Add Marketplace at the top of the list](images/claude-code-cli/02-marketplaces-tab.webp)
+
+1. Paste the Apify plugin repository URL and press Enter:
+
+    ```text
+    https://github.com/apify/apify-claude-code-plugin
+    ```
+
+1. Open the **Discover** tab. The `apify` plugin appears under **Install Plugins**. Press Enter to view its details.
+
+1. Review the plugin details, choose an install scope (**Install for you (user scope)** is the typical choice), and press Enter.
+
+    - If prompted, run `/reload-plugins` to activate the plugin in the current session.
+
+1. Open the **Installed** tab to confirm the `apify` plugin is listed as enabled.
 
 ### The `apify` plugin is disabled
 
