@@ -16,7 +16,7 @@ Apify maintains a separate plugin for each agent, because each agent has its own
 
 ## Why use the plugin
 
-Without a plugin, you set up the [MCP server](/mcp) and [Agent Skills](/agents/skills) separately. The MCP server needs a configuration in your agent, and standalone skills need the skills CLI and an Apify CLI login. The plugin replaces the MCP configuration and the skills CLI with one install. It doesn't replace the Apify CLI. The Actor development, actorization, and scraping skills call it, so install it with `npm install -g apify-cli` and run `apify login` before you use them. Depending on the agent, you install the plugin for all your projects or for a single project.
+Without a plugin, you set up the [MCP server](/mcp) and [Agent Skills](/agents/skills) separately. The MCP server needs a configuration in your agent, and standalone skills need the skills CLI. The plugin replaces both with one install. Depending on the agent, it applies to all your projects or to a single project.
 
 ## What's included
 
@@ -49,7 +49,14 @@ If your agent isn't listed, connect the [MCP server](/mcp) directly and install 
 
 ## Install
 
-Pick your agent. Each tab shows the install commands, where to run them, and how to sign in. The full guide for each agent covers manual setup and troubleshooting.
+Before you install, set up the [Apify CLI](/cli). The plugin doesn't replace it: the Actor development, actorization, and scraping skills call it. Install it and sign in:
+
+```bash
+npm install -g apify-cli
+apify login
+```
+
+Then pick your agent. Each tab shows the install commands, where to run them, and how to sign in. The full guide for each agent covers manual setup and troubleshooting.
 
 <Tabs groupId="agent-client" queryString>
 <TabItem value="claude-code" label="Claude Code">
