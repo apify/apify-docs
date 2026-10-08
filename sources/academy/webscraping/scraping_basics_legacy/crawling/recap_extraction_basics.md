@@ -67,13 +67,13 @@ const csv = parse(results);
 writeFileSync('products.csv', csv);
 ```
 
-:::tip
+:::tip Review the basics
 
 If some of the code is hard for you to understand, please review the [Basics of data extraction](../data_extraction/index.md) section. We will not go through the details again in this section about crawling.
 
 :::
 
-:::caution
+:::caution Modern JavaScript features
 
 We are using JavaScript features like `import` statements and top-level `await`. If you see errors like _Cannot use import outside of a module_, please review the [Project setup lesson](../data_extraction/project_setup.md#modern-javascript), where we explain how to enable those features.
 
