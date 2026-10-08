@@ -5,8 +5,6 @@ description: Use the Machine Payments Protocol (MPP) to let AI agents buy a prep
 slug: /integrations/mpp
 ---
 
-import AgenticPaymentsEligibility from '@site/sources/_partials/_agentic-payments-eligibility.mdx';
-
 With the [Machine Payments Protocol (MPP)](https://mpp.dev), AI agents can buy a prepaid Apify API token and pay with stablecoins on [Tempo](https://tempo.xyz) or [Solana](https://solana.com), without an Apify account.
 
 :::caution Experimental feature
@@ -164,15 +162,14 @@ To review what an Actor does and which input it accepts, fetch its Markdown docu
 
 ## Supported Actors
 
-Not all Actors in Apify Store are eligible.
-
-<AgenticPaymentsEligibility />
+A prepaid token works like a regular API token, so it runs any Actor that uses limited permissions, whatever its pricing model. Actors that need full permissions return an error, because a prepaid account can't approve them. The pay-per-event eligibility rules for agentic payments apply only to payments made per request, such as with [Skyfire](/integrations/skyfire).
 
 ## Token pricing and limits
 
 - The smallest token you can buy is $1.
 - The token balance is an absolute spending cap. Every Actor run draws from it until the balance runs out.
 - The token expires 14 days after you buy it, and `expiresAt` gives the exact time. Any unused balance is non-refundable.
+- A prepaid account also has [usage limits](/agents/payments#prepaid-account-limits), such as 1,000 compute units.
 - Your wallet pays the network fee in both push and pull mode.
 
 ## Next steps
