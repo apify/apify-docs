@@ -109,7 +109,7 @@ Recommended features:
 - _Key-value store_: Dropdown (user's KV stores) or ID/String input. Populated via [Key-value Stores API](https://docs.apify.com/api/v2/key-value-stores-get).
 - _Record key_: value (string)
 
-##### Web Fetch {#scrape-a-single-url}
+##### Web Fetch
 
 Fetches a single web page and returns its content - ideal for on-demand URL scraping inside agents or automation flows. Build this on Apify's [Web Fetch](https://apify.com/apify/web-fetch) Actor in [Standby](/actors/running/standby) mode at `https://web-fetch.apify.actor`, which returns the content directly in the HTTP response instead of starting a run.
 
