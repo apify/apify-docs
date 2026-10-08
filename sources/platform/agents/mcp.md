@@ -131,6 +131,10 @@ Add this to your configuration file:
 
 The server will download automatically on first use and connect using your API token.
 
+## Agentic payments
+
+Agents can pay for Actor runs without an Apify account. Payments made per request through the MCP server, such as with [Skyfire](/integrations/skyfire), work only with pay-per-event Actors. To run any Actor that uses limited permissions, buy a prepaid token through [agentic payments](/agents/payments) and use it as a Bearer token with the MCP server.
+
 ## Tool selection
 
 By default, the MCP server loads the `actors` and `docs` tool categories, the `apify/rag-web-browser` and `apify/web-fetch` Actors, and `report-problem`. You can customize which tools
@@ -212,10 +216,6 @@ Whenever `call-actor` or a specific Actor tool such as `apify--rag-web-browser` 
 #### Find and call any Actor on demand
 
 Your AI can search Apify Store for relevant Actors using the `search-actors` tool, inspect Actor details to understand required inputs, and call any Actor by name using `call-actor` - without needing to pre-configure it. This means your AI can adapt to new tasks without manual configuration.
-
-## Agentic payments
-
-Agents can pay for Actor runs without an Apify account. Payments made per request through the MCP server, such as with [Skyfire](/integrations/skyfire), work only with pay-per-event Actors. To run any Actor that uses limited permissions, buy a prepaid token through [agentic payments](/agents/payments) and use it as a Bearer token with the MCP server.
 
 ## Telemetry
 
