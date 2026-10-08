@@ -3,6 +3,7 @@ title: Locating HTML elements with Node.js
 sidebar_label: Locating HTML elements
 description: Lesson about building a Node.js application for watching prices. Using the Cheerio library to locate products on the product listing page.
 slug: /scraping-basics-javascript/locating-elements
+pagination: true
 ---
 
 import CodeBlock from '@theme/CodeBlock';

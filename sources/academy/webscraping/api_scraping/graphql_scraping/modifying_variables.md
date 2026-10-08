@@ -3,6 +3,7 @@ title: Modifying variables
 description: Learn how to modify the variables of a JSON format GraphQL query to use the API without needing to write any GraphQL language or create custom queries.
 sidebar_position: 1
 slug: /api-scraping/graphql-scraping/modifying-variables
+pagination: true
 ---
 
 **Learn how to modify the variables of a JSON format GraphQL query to use the API without needing to write any GraphQL language or create custom queries.**

@@ -3,6 +3,7 @@ title: Extracting data
 description: Learn how to extract data from a page with evaluate functions, then how to parse it by using a second library called Cheerio.
 sidebar_position: 2
 slug: /puppeteer-playwright/executing-scripts/collecting-data
+pagination: true
 ---
 
 import Tabs from '@theme/Tabs';

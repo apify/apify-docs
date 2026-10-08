@@ -3,6 +3,7 @@ title: Dealing with headers, cookies, and tokens
 description: Learn about how some APIs require certain cookies, headers, and/or tokens to be present in a request in order for data to be received.
 sidebar_position: 2
 slug: /api-scraping/general-api-scraping/cookies-headers-tokens
+pagination: true
 ---
 
 **Learn about how some APIs require certain cookies, headers, and/or tokens to be present in a request in order for data to be received.**

@@ -3,6 +3,7 @@ title: Firewalls
 description: Understand what a web-application firewall is, how they work, and the various common techniques for avoiding them altogether.
 sidebar_position: 4
 slug: /anti-scraping/techniques/firewalls
+pagination: true
 ---
 
 **Understand what a web-application firewall is, how they work, and the various common techniques for avoiding them altogether.**

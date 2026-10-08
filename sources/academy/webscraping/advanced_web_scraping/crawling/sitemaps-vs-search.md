@@ -3,6 +3,7 @@ title: Sitemaps vs search
 description: Learn how to extract all of a website's listings even if they limit the number of results pages.
 sidebar_position: 1
 slug: /advanced-web-scraping/crawling/sitemaps-vs-search
+pagination: true
 ---
 
 The core crawling problem comes to down to ensuring that we reliably find all detail pages on the target website or inside its categories. This is trivial for small sites. We just open the home page or category pages and paginate to the end.
