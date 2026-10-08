@@ -88,5 +88,5 @@ Find a pub near the Ferry Building in San Francisco.
 - [Google ADK documentation](https://google.github.io/adk-docs/get-started/)
 - [What are AI agents?](https://blog.apify.com/what-are-ai-agents/)
 - [Apify MCP server](https://mcp.apify.com)
-- [Apify MCP server documentation](https://docs.apify.com/integrations/mcp)
+- [Apify MCP server documentation](/mcp)
 - [Apify OpenRouter proxy](https://apify.com/apify/openrouter)

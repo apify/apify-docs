@@ -10,15 +10,15 @@ properties:
     type: string
     examples: [myusername]
   profile:
-    $ref: ./Profile.yaml
+    $ref: ./UserProfile.yaml
   email:
     type: string
     format: email
     examples: [bob@example.com]
   proxy:
-    $ref: ./Proxy.yaml
+    $ref: ./ProxyResource.yaml
   plan:
-    $ref: ./Plan.yaml
+    $ref: ./UserPlan.yaml
   effectivePlatformFeatures:
     $ref: ./EffectivePlatformFeatures.yaml
   createdAt:

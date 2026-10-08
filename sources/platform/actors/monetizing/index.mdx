@@ -25,11 +25,14 @@ For a detailed comparison of pricing models from the perspective of your users, 
 
 ## Make your Actor eligible for agentic payments
 
-Agentic payments let AI agents discover, run, and pay for your Actor without an Apify account, using protocols such as [x402](/integrations/x402) and [Skyfire](/integrations/skyfire). Eligible Actors are flagged with `allowsAgenticUsers=true` and surface in agentic discovery, for example when [searching the store via API](https://docs.apify.com/api/v2#/reference/store/store-actors-collection/get-list-of-actors-in-store) with `allowsAgenticUsers=true`.
+Agentic payments let AI agents run and pay for your Actor without an Apify account. Which Actors an agent can run depends on how it pays:
+
+- Agents that buy a prepaid token from [Apify AGI](/agents/payments) over [x402](/integrations/x402) or [MPP](/integrations/mpp) can run any Actor that uses [limited permissions](/actors/development/permissions). The pricing model doesn't matter.
+- Agents that pay per request, such as with [Skyfire](/integrations/skyfire), can run only Actors that meet the requirements below.
 
 <AgenticPaymentsEligibility />
 
-Actors that meet these requirements become available to agentic users automatically - there is no separate opt-in.
+Apify checks these requirements automatically, with no separate opt-in.
 
 ## Handle free users
 

@@ -6,7 +6,7 @@ category: platform
 slug: /account/apify-ai
 ---
 
-Apify AI is a conversational AI interface inside [Apify Console](https://console.apify.com) that lets you find and run [Actors](/actors) using natural language. It uses the same search and execution backend as [Apify Store](https://apify.com/store) search and the [Apify MCP server](/integrations/mcp).
+Apify AI is a conversational AI interface inside [Apify Console](https://console.apify.com) that lets you find and run [Actors](/actors) using natural language. It uses the same search and execution backend as [Apify Store](https://apify.com/store) search and the [Apify MCP server](/mcp).
 
 :::note Apify AI is in beta
 
@@ -70,6 +70,6 @@ Search ranking in Apify AI uses parameters similar to those evaluated by the [Ac
 
 ## Related
 
-- [Apify MCP server](/integrations/mcp) - the programmatic interface to the same backend for external AI agents and CLIs.
+- [Apify MCP server](/mcp) - the programmatic interface to the same backend for external AI agents and CLIs.
 - [Actor quality score](/actors/publishing/quality-score) - the metric that correlates with search ranking across surfaces.
 - [Apify Console](/account/console) - the web application where Apify AI lives, in the Apify Store search bar and the dashboard widget.
