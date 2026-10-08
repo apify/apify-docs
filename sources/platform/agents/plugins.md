@@ -16,7 +16,7 @@ Apify maintains a separate plugin for each agent, because each agent has its own
 
 ## Why use the plugin
 
-Without a plugin, you set up the [MCP server](/mcp) and [Agent Skills](/agents/skills) separately. The MCP server needs a configuration in your agent, and standalone skills need the skills CLI and an Apify CLI login. The plugin replaces both with one install. Depending on the agent, you install the plugin for all your projects or for a single project.
+Without a plugin, you set up the [MCP server](/mcp) and [Agent Skills](/agents/skills) separately. The MCP server needs a configuration in your agent, and standalone skills need the skills CLI and an Apify CLI login. The plugin replaces the MCP configuration and the skills CLI with one install. It doesn't replace the Apify CLI. The Actor development, actorization, and scraping skills call it, so install it with `npm install -g apify-cli` and run `apify login` before you use them. Depending on the agent, you install the plugin for all your projects or for a single project.
 
 ## What's included
 
@@ -69,7 +69,21 @@ You can also add the marketplace from the `/plugins` manager. Read the full [Cla
 </TabItem>
 <TabItem value="codex" label="Codex">
 
-1. In the Codex CLI or the Codex app, run `/plugins` and open the **Add Marketplace** tab.
+In the Codex app:
+
+1. Open **Plugins** in the left sidebar, select the dropdown next to **+**, and choose **Add marketplace**.
+1. Enter the Apify plugin repository in the **Source** field and select **Add marketplace**:
+
+    ```text
+    apify/apify-codex-plugin
+    ```
+
+1. Open the **Personal** tab and select **Add** next to **Apify**.
+1. Select **Add to Codex**, then **Install Apify**. Codex opens the Apify sign-in in your browser.
+
+In the Codex CLI:
+
+1. Run `/plugins` and open the **Add Marketplace** tab.
 1. Enter the Apify plugin repository:
 
     ```text
@@ -78,7 +92,7 @@ You can also add the marketplace from the `/plugins` manager. Read the full [Cla
 
 1. Open the **Apify Plugin** tab, select **Apify**, and select **Install plugin**.
 
-Codex opens the Apify sign-in the first time it calls a tool that needs authentication, such as running an Actor. Read the full [Codex CLI guide](/integrations/codex-cli) or [Codex app guide](/integrations/codex-app).
+The CLI opens the Apify sign-in the first time it calls a tool that needs authentication, such as running an Actor. Read the full [Codex app guide](/integrations/codex-app) or [Codex CLI guide](/integrations/codex-cli).
 
 </TabItem>
 <TabItem value="cursor" label="Cursor">
