@@ -388,8 +388,10 @@ module.exports = {
         parseFrontMatter: async (params) => {
             const result = await params.defaultParseFrontMatter(params);
 
+            const isPartial = params.filePath.split('/').pop()[0] === '_';
+
             // Prev/next buttons are off by default, pages opt in with `pagination: true`
-            if (!result.frontMatter.pagination) {
+            if (!isPartial && !result.frontMatter.pagination) {
                 result.frontMatter.pagination_next = null;
                 result.frontMatter.pagination_prev = null;
             }
@@ -397,8 +399,6 @@ module.exports = {
             if (result.frontMatter.id === 'apify-api') {
                 result.frontMatter.slug = '/';
             }
-
-            const isPartial = params.filePath.split('/').pop()[0] === '_';
 
             if (!isPartial) {
                 const ogImageURL = new URL('https://apify.com/og-image/docs-article');
