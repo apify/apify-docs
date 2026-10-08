@@ -9,7 +9,7 @@ MCP connectors let Actors call third-party services through [Model Context Proto
 
 You authorize a connector once in your [Account settings > API & Integrations](https://console.apify.com/settings/integrations). When you run an Actor that accepts connectors, the input form shows a picker filtered to those compatible with the Actor's requirements. At runtime, the Apify platform injects your service credentials server-side. The Actor authenticates to the proxy with its Apify run token, never with your third-party credentials.
 
-MCP connectors are distinct from the [Apify MCP server](/integrations/mcp). The MCP server exposes Apify Actors as tools to outside AI clients (Claude, ChatGPT, Cursor, and others); MCP connectors do the opposite, letting Apify Actors call external MCP servers as tools. The two features are independent and can be used together or separately.
+MCP connectors are distinct from the [Apify MCP server](/mcp). The MCP server exposes Apify Actors as tools to outside AI clients (Claude, ChatGPT, Cursor, and others); MCP connectors do the opposite, letting Apify Actors call external MCP servers as tools. The two features are independent and can be used together or separately.
 
 ## How it works
 
@@ -85,4 +85,4 @@ Typical patterns that MCP connectors enable:
 
 - [Build Actors with MCP connectors](/integrations/mcp-connectors/use-in-actors) - declare connectors in your input schema, connect from TypeScript or Python, and configure tool permissions.
 - [Account settings - MCP connectors](/account/settings#mcp-connectors) - create, authorize, and manage connectors in Apify Console.
-- [Apify MCP server](/integrations/mcp) - expose Apify Actors as MCP tools to outside AI clients.
+- [Apify MCP server](/mcp) - expose Apify Actors as MCP tools to outside AI clients.

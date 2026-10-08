@@ -10,13 +10,15 @@ import CardGrid from '@site/src/components/CardGrid';
 
 Plug Apify Actors into the AI stack - chat clients like Claude and ChatGPT via the Apify MCP server, agents built on SDKs and frameworks like OpenAI Agents, LangChain, and Vercel AI SDK, and downstream vector databases for retrieval.
 
+If you're connecting a coding agent rather than picking an integration, start at [For AI agents](/agents). It compares the MCP server, plugins, and Agent Skills, and points you at the right setup for your client.
+
 ## Featured
 
 <CardGrid>
     <Card
         title="Apify MCP server"
         desc="Expose Apify Actors and storages to any MCP-compatible AI client."
-        to="/integrations/mcp"
+        to="/mcp"
         imageUrl="/img/platform/integrations/mcp-logo.png"
         imageUrlDarkTheme="/img/platform/integrations/mcp-logo-white.png"
         smallImage
@@ -74,36 +76,6 @@ Plug Apify Actors into the AI stack - chat clients like Claude and ChatGPT via t
         smallImage
     />
     <Card
-        title="Manus"
-        desc="Apify Actors as tools inside the Manus autonomous agent."
-        to="/integrations/manus"
-        imageUrl="/img/platform/integrations/manus.svg"
-        imageUrlDarkTheme="/img/platform/integrations/manus-white.svg"
-        smallImage
-    />
-    <Card
-        title="OpenClaw"
-        desc="Run Apify Actors from the OpenClaw assistant."
-        to="/integrations/openclaw"
-        imageUrl="/img/platform/integrations/openclaw.svg"
-        smallImage
-    />
-    <Card
-        title="Hermes Agent"
-        desc="Discover and run Apify Actors from Hermes Agent."
-        to="/integrations/hermes-agent"
-        imageUrl="/img/platform/integrations/hermes-agent.svg"
-        imageUrlDarkTheme="/img/platform/integrations/hermes-agent-white.svg"
-        smallImage
-    />
-    <Card
-        title="Lovable"
-        desc="Build Lovable apps that run Apify Actors and display the scraped results."
-        to="/integrations/lovable"
-        imageUrl="/img/platform/integrations/lovable.svg"
-        smallImage
-    />
-    <Card
         title="x402"
         desc="Buy a prepaid Apify API token with the x402 protocol on Base."
         to="/integrations/x402"
@@ -123,126 +95,7 @@ Plug Apify Actors into the AI stack - chat clients like Claude and ChatGPT via t
 
 ## AI assistants
 
-Chat and coding assistants you connect to Apify through the Apify MCP server or a plugin.
-
-<CardGrid>
-    <Card
-        title="ChatGPT"
-        desc="Use Apify as an MCP server in ChatGPT to run Actors and pull live web data into the conversation."
-        to="/integrations/chatgpt"
-        imageUrl="/img/platform/integrations/openai.svg"
-        imageUrlDarkTheme="/img/platform/integrations/openai-white.svg"
-        smallImage
-    />
-    <Card
-        title="Claude Desktop"
-        desc="Connect Apify to Claude Desktop through the MCP server to run Actors from your chats."
-        to="/integrations/claude-desktop"
-        imageUrl="/img/platform/integrations/anthropic.svg"
-        imageUrlDarkTheme="/img/platform/integrations/anthropic-white.svg"
-        smallImage
-    />
-    <Card
-        title="Claude Code CLI"
-        desc="Use Apify Actors from the Claude Code CLI through the Apify MCP server."
-        to="/integrations/claude-code-cli"
-        imageUrl="/img/platform/integrations/claude-code.svg"
-        smallImage
-    />
-    <Card
-        title="Codex (desktop app)"
-        desc="Install the Apify plugin for Codex in the ChatGPT desktop app to discover, run, and build Actors."
-        to="/integrations/codex-app"
-        imageUrl="/img/platform/integrations/codex.svg"
-        imageUrlDarkTheme="/img/platform/integrations/codex-white.svg"
-        smallImage
-    />
-    <Card
-        title="Codex CLI"
-        desc="Install the Apify plugin for Codex in your terminal to discover, run, and build Actors."
-        to="/integrations/codex-cli"
-        imageUrl="/img/platform/integrations/codex.svg"
-        imageUrlDarkTheme="/img/platform/integrations/codex-white.svg"
-        smallImage
-    />
-    <Card
-        title="OpenCode"
-        desc="Install the Apify plugin in OpenCode to discover, run, and build Actors from the coding agent."
-        to="/integrations/opencode"
-        imageUrl="/img/platform/integrations/opencode.svg"
-        imageUrlDarkTheme="/img/platform/integrations/opencode-white.svg"
-        smallImage
-    />
-    <Card
-        title="Cursor"
-        desc="Install the Apify plugin in Cursor to interact with Apify from the IDE."
-        to="/integrations/cursor"
-        imageUrl="/img/platform/integrations/cursor.svg"
-        imageUrlDarkTheme="/img/platform/integrations/cursor-white.svg"
-        smallImage
-    />
-    <Card
-        title="Kimi Code CLI"
-        desc="Install the Apify plugin in Kimi Code CLI to interact with Apify from the CLI."
-        to="/integrations/kimi-code-cli"
-        imageUrl="/img/platform/integrations/kimi.svg"
-        imageUrlDarkTheme="/img/platform/integrations/kimi-white.svg"
-        smallImage
-    />
-    <Card
-        title="GitHub Copilot desktop app"
-        desc="Install the Apify plugin in the GitHub Copilot desktop app to discover, run, and build Actors."
-        to="/integrations/github-copilot-desktop"
-        imageUrl="/img/platform/integrations/github-copilot.svg"
-        imageUrlDarkTheme="/img/platform/integrations/github-copilot-white.svg"
-        smallImage
-    />
-    <Card
-        title="Grok Bot"
-        desc="Install the Apify plugin in Grok Bot to discover, run, and build Actors from chat."
-        to="/integrations/grok-bot"
-        imageUrl="/img/platform/integrations/grok-bot.svg"
-        imageUrlDarkTheme="/img/platform/integrations/grok-bot-white.svg"
-        smallImage
-    />
-    <Card
-        title="GitHub Copilot CLI"
-        desc="Install the Apify plugin in the GitHub Copilot CLI to discover, run, and build Actors from your terminal."
-        to="/integrations/github-copilot-cli"
-        imageUrl="/img/platform/integrations/github-copilot.svg"
-        imageUrlDarkTheme="/img/platform/integrations/github-copilot-white.svg"
-        smallImage
-    />
-    <Card
-        title="VS Code"
-        desc="Install the Apify agent plugin from the VS Code plugin marketplace to run and build Actors."
-        to="/integrations/vscode"
-        imageUrl="/img/platform/integrations/vscode.svg"
-        imageUrlDarkTheme="/img/platform/integrations/vscode-white.svg"
-        smallImage
-    />
-    <Card
-        title="Qoder"
-        desc="Install the Apify plugin in the Qoder CLI, IDE, Desktop app, or QoderWork to discover, run, and build Actors."
-        to="/integrations/qoder"
-        imageUrl="/img/platform/integrations/qoder.svg"
-        smallImage
-    />
-    <Card
-        title="Qwen"
-        desc="Install the Apify plugin in Qwen Code, or connect the Apify MCP server and skills in QwenWork."
-        to="/integrations/qwen"
-        imageUrl="/img/platform/integrations/qwen.svg"
-        smallImage
-    />
-    <Card
-        title="DeepSeek Harness"
-        desc="Install the Apify plugin in DeepSeek Harness to interact with Apify from the terminal or web GUI."
-        to="/integrations/deepseek-harness"
-        imageUrl="/img/platform/integrations/deepseek.svg"
-        smallImage
-    />
-</CardGrid>
+Setup guides for chat clients and coding agents, such as ChatGPT, Claude Code, Cursor, and Codex, are in the [Agents](/integrations/agents) category. The [For AI agents](/agents) section compares the MCP server, plugins, and Agent Skills, and links to the guide for every agent.
 
 ## By provider
 
