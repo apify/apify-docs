@@ -15,7 +15,7 @@ Skills layer on top of a connection you already have, whether that's a [plugin](
 
 ## Install
 
-The simplest route is a [plugin](/agents/plugins), which ships the skills already installed. Claude Code, Codex, Cursor, GitHub Copilot, VS Code, OpenCode, Grok Build, Kimi Code, Qoder, and DeepSeek Harness get them this way.
+The simplest route is a [plugin](/agents/plugins), which ships the skills already installed. To see which agents get the skills this way, check [coverage by agent](/agents/plugins#coverage-by-agent).
 
 To install the skills on their own, for an agent without a plugin or alongside a hand-configured MCP server, use the skills CLI:
 
@@ -34,7 +34,7 @@ In Claude Code, you can also add the skills marketplace and install skills one a
 
 Standalone skills call Apify through the [Apify CLI](/cli), so install it with `npm install -g apify-cli` and run `apify login`. In headless environments such as CI, set the `APIFY_TOKEN` environment variable instead. The CLI and the `apify-ultimate-scraper` skill need Node.js version 20.6 or later.
 
-Agents that discover skills on their own can read the index at [`apify.com/.well-known/agent-skills/index.json`](https://apify.com/.well-known/agent-skills/index.json). It lists the standalone skills in the [Agent Skills discovery format](https://agentskills.io), with a link and a content digest for each `SKILL.md`.
+Agents that discover skills on their own can read the index at [`apify.com/.well-known/agent-skills/index.json`](https://apify.com/.well-known/agent-skills/index.json). It lists the standalone skills in the [Agent Skills specification](https://agentskills.io) format, with a link and a content digest for each `SKILL.md`.
 
 ## Available skills
 
@@ -47,9 +47,9 @@ Agents that discover skills on their own can read the index at [`apify.com/.well
 | `apify-sdk-integration` | Integrates Actor execution into an application using the `apify-client` package. | Plugins |
 | `apify-integration-development` | Designs and builds an official Apify integration for another product, such as a workflow-automation app, an agent plugin, or an AI framework package. | Skills CLI |
 
-Plugins ship `apify-generate-output-schema` and `apify-sdk-integration`. In the skills CLI, `apify-actor-development` now generates output schemas itself, and `apify-integration-development` takes the place of the SDK integration skill.
+The two sets differ. Plugins bundle `apify-generate-output-schema` and `apify-sdk-integration`. The skills CLI covers output schemas in `apify-actor-development` and offers `apify-integration-development` instead.
 
-For the canonical list and each skill's contents, see the [Apify skills registry](https://skills.sh/apify/agent-skills).
+Browse the [Apify skills registry](https://skills.sh/apify/agent-skills) for the full list and each skill's contents.
 
 ## Write a prompt that triggers a skill
 
