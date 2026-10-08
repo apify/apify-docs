@@ -11,7 +11,7 @@ This page covers only what is specific to Apify, not the general vocabulary of w
 
 ## Actor
 
-An [Actor](/actors) is the core unit of the Apify platform: a serverless cloud program that performs a job on the web, such as automation, an AI task, or data extraction. You [build](/actors/development) it from your own code, run it from [Apify Console](/account/console), the [Apify API](/api/v2), or a [schedule](/actors/running/schedules), and can [publish](/actors/publishing) it to [Apify Store](https://apify.com/store) to earn from it.
+An [Actor](/actors) is a tool that does a job on the web, such as data extraction, lead generation, social media monitoring, or competitor tracking, and its output equips AI agents and apps with real-time web data. Technically, it's a serverless cloud program that takes a structured JSON input, performs a task, and optionally produces a structured output. You [build](/actors/development) it from your own code, run it from [Apify Console](/account/console), the [Apify API](/api/v2), or a [schedule](/actors/running/schedules), and can [publish](/actors/publishing) it to [Apify Store](https://apify.com/store) to earn from others using it.
 
 ## Actor run
 
@@ -35,7 +35,7 @@ An [API token](/integrations/api) is a secret key tied to your Apify account tha
 
 ## Apify AGI
 
-[Apify AGI](https://agi.apify.com) (Agent General Interface) is the entry point for autonomous agents to use and pay for the platform and Actors. Agents reach it through [agentic payments](#agentic-payments), so they can run Actors without account setup or ongoing billing.
+[Apify AGI](https://agi.apify.com) (Agent General Interface) is the entry point for autonomous agents to use and pay for the Apify platform and Actors. Agents reach it through [agentic payments](#agentic-payments), so they can run Actors without account setup or ongoing billing.
 
 ## Apify AI
 
@@ -43,19 +43,19 @@ An [API token](/integrations/api) is a secret key tied to your Apify account tha
 
 ## Apify API
 
-The [Apify API](/api/v2) is the REST API for running Actors, managing storage, and controlling the platform programmatically. It's the basis for the [client libraries](/integrations/api), the [CLI](/cli), and most [integrations](/integrations), and authenticates with an [API token](#api-token).
+The [Apify API](/api/v2) is the REST API for running Actors, managing storage, and controlling the Apify platform programmatically. It's the basis for the [client libraries](/integrations/api), the [CLI](/cli), and most [integrations](/integrations), and authenticates with an [API token](#api-token).
 
 ## Apify CLI
 
-The [Apify CLI](/cli) is the command-line tool for creating, running, and deploying Actors from your local machine. Use it to scaffold an Actor from a template, run it locally against local storage, and [deploy](/actors/development/deployment) it to the platform.
+The [Apify CLI](/cli) is the command-line tool for creating, running, and deploying Actors from your local machine. Use it to scaffold an Actor from a template, run it locally against local storage, and [deploy](/actors/development/deployment) it to the Apify platform.
 
 ## Apify Console
 
-[Apify Console](/account/console) is the web application where you run and manage Actors, inspect storage, and handle billing. It renders each Actor's input form from its [input schema](/actors/development/actor-definition/input-schema), and presents run results according to the [output schema](/actors/development/actor-definition/output-schema).
+[Apify Console](/account/console) is the web application where you manage all your Apify projects and resources: you run and manage Actors, inspect storage, and handle billing. It renders each Actor's input form from its [input schema](/actors/development/actor-definition/input-schema), and presents run results according to the [output schema](/actors/development/actor-definition/output-schema).
 
 ## Apify MCP Proxy
 
-The [Apify MCP Proxy](/integrations/mcp-connectors) is the platform component an Actor reaches its [MCP connectors](#mcp-connectors) through. It validates each request, injects your stored credentials server-side, and forwards it to the upstream MCP server, so the credentials never enter the Actor.
+The [Apify MCP Proxy](/integrations/mcp-connectors) is the component of the Apify platform that an Actor reaches its [MCP connectors](#mcp-connectors) through. It validates each request, injects your stored credentials server-side, and forwards it to the upstream MCP server, so the credentials never enter the Actor.
 
 ## Apify MCP server
 
@@ -67,15 +67,15 @@ The [Apify MCP server](/integrations/mcp) is the server that exposes Actors as t
 
 ## Apify SDK
 
-The [Apify SDK](/sdk) is the JavaScript and Python toolkit for building Actors and working with the platform programmatically. It wraps [storage](/storage), [proxy](/proxy), and run lifecycle handling, so an Actor reads input and writes results without calling the API directly.
+The [Apify SDK](/sdk) is the JavaScript and Python toolkit for building Actors and working with the Apify platform programmatically. It wraps [storage](/storage), [proxy](/proxy), and run lifecycle handling, so an Actor reads input and writes results without calling the API directly.
 
 ## Apify Store
 
-[Apify Store](https://apify.com/store) is the marketplace of Actors for AI, automation, and data extraction. Anyone can [publish](/actors/publishing) an Actor there and earn when others use it, with placement influenced by the Actor's [quality score](/actors/publishing/quality-score).
+[Apify Store](https://apify.com/store) is the marketplace of tools for AI, with thousands of Actors for data extraction, lead generation, social media monitoring, and competitor tracking. Anyone can [build and publish](/actors/publishing) Actors there and earn from others using them, with placement influenced by each Actor's [quality score](/actors/publishing/quality-score).
 
 ## Apify storage
 
-[Apify storage](/storage) is the platform's built-in storage, made up of [datasets](/storage/dataset), [key-value stores](/storage/key-value-store), and [request queues](/storage/request-queue). Every Actor run gets one of each by default, and you can also create named stores that persist across runs.
+[Apify storage](/storage) is the Apify platform's built-in storage, made up of [datasets](/storage/dataset), [key-value stores](/storage/key-value-store), and [request queues](/storage/request-queue). Every Actor run gets one of each by default, and you can also create named stores that persist across runs.
 
 ## Build
 
@@ -83,7 +83,7 @@ A [build](/actors/development/builds-and-runs/builds) is a versioned Docker imag
 
 ## Compute unit
 
-A [compute unit](/actors/running/usage-and-resources) (CU) is the platform's usage and billing unit, equal to 1 GB of memory running for one hour. It's how Actor runs are metered, so allocating more memory to a run consumes CUs faster.
+A [compute unit](/actors/running/usage-and-resources) (CU) is the Apify platform's usage and billing unit, equal to 1 GB of memory running for one hour. It's how Actor runs are metered, so allocating more memory to a run consumes CUs faster.
 
 ## Crawlee
 
@@ -127,11 +127,11 @@ An [output schema](/actors/development/actor-definition/output-schema) is the de
 
 ## Pay-per-usage
 
-[Pay-per-usage](/actors/publishing/monetize/pricing-and-costs) is a pricing model where users pay only the platform usage costs an Actor generates, with no additional charge. It's one of the two [monetization models](/actors/publishing/monetize) currently offered on Apify Store.
+[Pay-per-usage](/actors/publishing/monetize/pricing-and-costs) is a pricing model where users pay only the usage costs an Actor generates on the Apify platform, with no additional charge. It's one of the two [monetization models](/actors/publishing/monetize) currently offered on Apify Store.
 
 ## Proxy
 
-A [proxy](/proxy) is a server that forwards your requests, so target websites see its IP address instead of yours. On the platform, you get proxies through [Apify Proxy](#apify-proxy) as [datacenter](#datacenter-proxy), [residential](#residential-proxy), or [Google SERP](#google-serp-proxy) proxies.
+A [proxy](/proxy) is a server that forwards your requests, so target websites see its IP address instead of yours. On the Apify platform, you get proxies through [Apify Proxy](#apify-proxy) as [datacenter](#datacenter-proxy), [residential](#residential-proxy), or [Google SERP](#google-serp-proxy) proxies.
 
 ## Quality score
 
@@ -151,4 +151,4 @@ A [schedule](/actors/running/schedules) is a cron-based trigger that runs an Act
 
 ## Webhook
 
-A [webhook](/integrations/webhooks) is an HTTP callback the platform sends when an Actor run changes state. Use it to trigger an external system, or another Actor, when a run succeeds or fails, instead of polling for the result.
+A [webhook](/integrations/webhooks) is an HTTP callback the Apify platform sends when an Actor run changes state. Use it to trigger an external system, or another Actor, when a run succeeds or fails, instead of polling for the result.
