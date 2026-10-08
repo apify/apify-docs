@@ -3,6 +3,7 @@ title: Scraping iFrames
 description: Extracting data from iFrames can be frustrating. In this tutorial, we will learn how to scrape information from iFrames using Puppeteer or Playwright.
 sidebar_position: 5
 slug: /puppeteer-playwright/common-use-cases/scraping-iframes
+pagination: true
 ---
 
 **Extracting data from iFrames can be frustrating. In this tutorial, we will learn how to scrape information from iFrames using Puppeteer or Playwright.**

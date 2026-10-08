@@ -388,7 +388,8 @@ module.exports = {
         parseFrontMatter: async (params) => {
             const result = await params.defaultParseFrontMatter(params);
 
-            if (result.frontMatter.api || result.content.startsWith('<span class="openapi-clients-box">')) {
+            // Prev/next buttons are off by default, pages opt in with `pagination: true`
+            if (!result.frontMatter.pagination) {
                 result.frontMatter.pagination_next = null;
                 result.frontMatter.pagination_prev = null;
             }

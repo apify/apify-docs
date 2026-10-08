@@ -3,6 +3,7 @@ title: Solutions
 description: View all of the solutions for all of the activities and tasks of this course. Please try to complete each task on your own before reading the solution!
 sidebar_position: 6.7
 slug: /expert-scraping-with-apify/solutions
+pagination: true
 ---
 
 **View all of the solutions for all of the activities and tasks of this course. Please try to complete each task on your own before reading the solution!**

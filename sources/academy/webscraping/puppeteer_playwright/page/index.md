@@ -3,6 +3,7 @@ title: II - Opening & controlling a page
 description: Learn how to create and open a Page with a Browser, and how to use it to visit and programmatically interact with a website.
 sidebar_position: 2.2
 slug: /puppeteer-playwright/page
+pagination: true
 ---
 
 import Tabs from '@theme/Tabs';

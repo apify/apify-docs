@@ -5,8 +5,6 @@ sidebar_label: Build with AI
 description: Build new Actors or improve existing ones using AI coding tools by providing the right context, prompts, Agent Skills, and the Apify MCP server.
 slug: /actors/development/quick-start/build-with-ai
 toc_max_heading_level: 4
-pagination_next: null
-pagination_prev: null
 ---
 
 import { AGENTS_PROMPT } from "@site/src/utils/agents-prompt";

@@ -3,6 +3,7 @@ title: Injecting code
 description: Learn how to inject scripts prior to a page's load (pre-injecting), as well as how to expose functions to be run at a later time on the page.
 sidebar_position: 1
 slug: /puppeteer-playwright/executing-scripts/injecting-code
+pagination: true
 ---
 
 import Tabs from '@theme/Tabs';
