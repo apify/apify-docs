@@ -1,14 +1,14 @@
 ---
 title: Scalekit integration
 sidebar_label: Scalekit
-description: Learn how to use Scalekit with Apify Actors to add per-user OAuth authorization for more than 400 services such as Notion, Gmail, and Slack.
+description: Learn how to use Scalekit with Apify Actors. Scalekit's AgentKit provides auth and actions on behalf of users, with 500+ connectors and 20,000+ tools.
 sidebar_position: 21
 slug: /integrations/scalekit
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
-[Scalekit](https://scalekit.com) is auth infrastructure for AI agents. It provides a token vault and connector layer that handles OAuth 2.0 flows, token storage, automatic refresh, and API proxying for more than 400 third-party services including Notion, Gmail, Slack, Google Calendar, GitHub, and more.
+[Scalekit](https://scalekit.com) is auth infrastructure for AI agents. It provides a token vault and connector layer that handles OAuth 2.0 flows, token storage, automatic refresh, and API proxying. Scalekit's AgentKit provides auth and actions on behalf of users, with 500+ connectors and 20,000+ tools.
 
 With the [Scalekit Node SDK](https://www.npmjs.com/package/@scalekit-sdk/node) inside your Actor, each user who runs it can connect their own SaaS accounts. Scalekit stores the OAuth tokens server-side, refreshes them automatically, and proxies API calls on the user's behalf. Your Actor never touches a token directly.
 
@@ -264,7 +264,7 @@ For a complete working example, see [Notion + YouTube Agent](https://github.com/
 
 ## Available connectors
 
-Scalekit supports more than 400 connectors, including Gmail, Slack, Notion, GitHub, HubSpot, and Salesforce. Change `connectionName` in `getOrCreateConnectedAccount` and `getAuthorizationLink` to connect to a different service. The rest of the code stays the same - [browse all connectors](https://docs.scalekit.com/agentkit/connectors).
+Scalekit's AgentKit provides auth and actions on behalf of users, with 500+ connectors and 20,000+ tools. Connectors include Gmail, Slack, Notion, GitHub, HubSpot, and Salesforce. Change `connectionName` in `getOrCreateConnectedAccount` and `getAuthorizationLink` to connect to a different service. The rest of the code stays the same - [browse all connectors](https://docs.scalekit.com/agentkit/connectors).
 
 :::tip Multiple services per user
 
