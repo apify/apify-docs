@@ -235,7 +235,8 @@ Keep screenshots to a minimum. If an image only shows what the prose already des
 
 - Light theme as default, and a light background for diagrams
 - Consistent UI language (English)
-- Highlight UI elements, meaning buttons, fields, and other clickable areas, with a `#F86606` (Apify orange) border
+- Highlights are optional. Add one only when the reader would otherwise struggle to find a UI element, such as a button, field, or other clickable area, in the screenshot
+- If you highlight an element, use a `#F86606` (Apify orange) border
 - No arrows and no circles
 
 ### Format
