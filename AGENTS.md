@@ -159,7 +159,7 @@ Most of these rules run in CI through Vale, using the `apify/vale-rules` package
 Rules CI won't catch, so check them yourself:
 
 - Frontmatter descriptions run 140-160 characters, action-oriented, and avoid the word "documentation". Vale ignores frontmatter entirely
-- Screenshots use the light theme, with `#F86606` borders to highlight UI elements. No arrows or circles
+- Screenshots use the light theme. If you highlight UI elements, use a `#F86606` border. No arrows or circles
 - Sentence case headings are only a Vale suggestion, so Title Case passes CI
 
 ## Skills
