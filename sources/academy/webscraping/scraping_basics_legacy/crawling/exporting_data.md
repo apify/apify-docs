@@ -38,7 +38,7 @@ After you add this one line and run the code, you'll find your CSV with all the 
 ./storage/key-value-stores/default/results.csv
 ```
 
-:::info
+:::info Key-value store
 
 [Key-value store](https://crawlee.dev/docs/guides/result-storage#key-value-store) is another of Crawlee's storages. It's best for saving files like CSVs, PDFs or images, but also large JSONs or crawler statistics.
 
