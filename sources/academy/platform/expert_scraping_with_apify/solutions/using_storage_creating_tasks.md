@@ -4,6 +4,7 @@ description: Get quiz answers and explanations for the lesson about using storag
 sidebar_position: 3
 sidebar_label: III - Using storage & creating tasks
 slug: /expert-scraping-with-apify/solutions/using-storage-creating-tasks
+pagination: true
 ---
 
 ## Quiz answers 📝 {#quiz-answers}

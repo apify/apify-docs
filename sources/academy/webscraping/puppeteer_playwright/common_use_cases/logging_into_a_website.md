@@ -3,6 +3,7 @@ title: Logging into a website
 description: Understand the "login flow" - logging into a website, then maintaining a logged in status within different browser contexts for an efficient automation process.
 sidebar_position: 1
 slug: /puppeteer-playwright/common-use-cases/logging-into-a-website
+pagination: true
 ---
 
 import Tabs from '@theme/Tabs';

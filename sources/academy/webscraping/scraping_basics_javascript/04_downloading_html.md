@@ -3,6 +3,7 @@ title: Downloading HTML with Node.js
 sidebar_label: Downloading HTML
 description: Lesson about building a Node.js application for watching prices. Using the Fetch API to download HTML code of a product listing page.
 slug: /scraping-basics-javascript/downloading-html
+pagination: true
 ---
 
 import CodeBlock from '@theme/CodeBlock';

@@ -4,6 +4,7 @@ description: Learn about bypassing anti-scraping methods using proxies and proxy
 sidebar_position: 6.6
 sidebar_label: VI - Bypassing anti-scraping methods
 slug: /expert-scraping-with-apify/bypassing-anti-scraping
+pagination: true
 ---
 
 **Learn about bypassing anti-scraping methods using proxies and proxy/session rotation together with Crawlee and the Apify SDK.**

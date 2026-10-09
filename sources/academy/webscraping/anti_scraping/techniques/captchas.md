@@ -3,6 +3,7 @@ title: Captchas
 description: Learn about the reasons a bot might be presented a captcha, the best ways to avoid CAPTCHASs in the first place, and how to programmatically solve them.
 sidebar_position: 5
 slug: /anti-scraping/techniques/captchas
+pagination: true
 ---
 
 **Learn about the reasons a bot might be presented a captcha, the best ways to avoid CAPTCHASs in the first place, and how to programmatically solve them.**

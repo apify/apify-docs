@@ -3,6 +3,7 @@ title: III - Executing scripts
 description: Understand the two different contexts which your code can be run in, and how to run custom scripts in the context of the browser.
 sidebar_position: 2.3
 slug: /puppeteer-playwright/executing-scripts
+pagination: true
 ---
 
 import Tabs from '@theme/Tabs';

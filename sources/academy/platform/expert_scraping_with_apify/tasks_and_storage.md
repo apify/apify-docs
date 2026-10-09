@@ -4,6 +4,7 @@ description: Understand how to save the configurations for Actors with Actor tas
 sidebar_position: 6.3
 sidebar_label: III - Tasks & storage
 slug: /expert-scraping-with-apify/tasks-and-storage
+pagination: true
 ---
 
 **Understand how to save the configurations for Actors with Actor tasks. Also, learn about storage and the different types Apify offers.**

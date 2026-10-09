@@ -3,6 +3,7 @@ title: Getting links from HTML with Node.js
 sidebar_label: Getting links from HTML
 description: Lesson about building a Node.js application for watching prices. Using the Cheerio library to locate links to individual product pages.
 slug: /scraping-basics-javascript/getting-links
+pagination: true
 ---
 
 import CodeBlock from '@theme/CodeBlock';

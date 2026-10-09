@@ -3,6 +3,7 @@ title: Tips and tricks for robustness
 description: Learn how to make your automated processes more effective. Avoid common pitfalls, future-proof your programs and improve your processes.
 sidebar_position: 2
 slug: /advanced-web-scraping/tips-and-tricks-robustness
+pagination: true
 ---
 
 **Learn how to make your automated processes more effective. Avoid common web scraping and web automation pitfalls, future-proof your programs and improve your processes.**

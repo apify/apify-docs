@@ -5,6 +5,7 @@ sidebar_position: 3
 sidebar_label: Web scraping basics with Python
 category: web scraping
 slug: /scraping-basics-python
+pagination: true
 ---
 
 import DocCardList from '@theme/DocCardList';

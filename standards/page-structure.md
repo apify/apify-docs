@@ -28,6 +28,7 @@ Vale ignores frontmatter, so nothing here is checked automatically. The descript
 
 - `category` - Groups the page in navigation, for example `platform` or `build-and-publish`. Match the value used by sibling pages
 - `sidebar_label` - Shorter version of the title for sidebar navigation
+- `pagination` - Set to `true` to show the Previous and Next buttons at the bottom of the page
 - `toc_min_heading_level` - Minimum heading level in the table of contents (default: 2)
 - `toc_max_heading_level` - Maximum heading level in the table of contents (default: 3)
 
