@@ -5,6 +5,7 @@ description: Learn how to scrape a website using Apify's Web Scraper. Build an A
 externalSourceUrl: https://raw.githubusercontent.com/apify/actor-scraper/master/docs/build/web-scraper-tutorial.md
 sidebar_position: 2
 slug: /apify-scrapers/web-scraper
+tags: [apify-scrapers, browser-automation]
 ---
 <!-- When changing the TITLE property, make sure to edit the dependent integration test: https://github.com/apify/apify-web/blob/develop/tests/e2e/cypress/integration/docs.js so it doesn't break  -->
 

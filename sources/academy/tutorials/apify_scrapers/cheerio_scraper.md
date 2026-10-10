@@ -5,6 +5,7 @@ description: Learn how to scrape a website using Apify's Cheerio Scraper. Build 
 externalSourceUrl: https://raw.githubusercontent.com/apify/actor-scraper/master/docs/build/cheerio-scraper-tutorial.md
 sidebar_position: 3
 slug: /apify-scrapers/cheerio-scraper
+tags: [apify-scrapers]
 ---
 
 [//]: # (TODO: Should be updated)

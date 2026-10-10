@@ -3,6 +3,7 @@ title: Using man-in-the-middle proxy to intercept requests in Puppeteer
 description: This article demonstrates how to set up a reliable interception of HTTP requests in headless Chrome / Puppeteer using a local proxy.
 sidebar_position: 16.1
 slug: /node-js/using-proxy-to-intercept-requests-puppeteer
+tags: [node-js, browser-automation, blocking]
 ---
 
 Sometimes you may need to intercept (or maybe block) requests in headless Chrome / Puppeteer, but `page.setRequestInterception()`  is not 100% reliable when the request is started in a new window.

@@ -3,6 +3,7 @@ title: How to add external libraries to Web Scraper
 description: Learn how to load external JavaScript libraries in Apify's Web Scraper Actor.
 sidebar_position: 15.7
 slug: /node-js/add-external-libraries-web-scraper
+tags: [node-js, apify-scrapers]
 ---
 
 Sometimes you need to use some extra JavaScript in your [Web Scraper](https://apify.com/apify/web-scraper) page functions. Whether it is to work with dates and times using [Moment.js](https://momentjs.com/), or to manipulate the DOM using [jQuery](https://jquery.com/), libraries save precious time and make your code more concise and readable. Web Scraper already provides a way to add jQuery to your page functions. All you need to do is to check the Inject jQuery input option. There's also the option to Inject Underscore, a popular helper function library.

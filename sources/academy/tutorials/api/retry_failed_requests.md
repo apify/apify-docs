@@ -2,6 +2,7 @@
 title: How to retry failed requests
 description: Learn how to resurrect your run but retrying only failed requests
 slug: /api/retry-failed-requests
+tags: [api]
 ---
 
 **Learn how to re-scrape only failed requests in your run.**

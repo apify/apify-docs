@@ -3,6 +3,7 @@ title: Submitting forms on .ASPX pages
 description: How to handle pages created with ASP.NET in Web Scraper.
 sidebar_position: 15.4
 slug: /node-js/submitting-forms-on-aspx-pages
+tags: [node-js, crawling]
 ---
 
 Apify users sometimes need to submit a form on pages created with ASP.NET (URL typically ends with .aspx). These pages have a different approach for how they submit forms and navigate through pages.

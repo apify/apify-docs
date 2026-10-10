@@ -30,6 +30,13 @@ module.exports = {
     trailingSlash: false,
     organizationName: 'apify',
     projectName: 'apify-docs',
+    i18n: {
+        defaultLocale: 'en',
+        locales: ['en'],
+        // Only i18n/en/code.json is used, to reword theme strings. Without this, Docusaurus would also try
+        // to translate sidebars, which fails on duplicate labels in the generated API sidebar
+        localeConfigs: { en: { translate: false } },
+    },
     scripts: ['/js/custom.js', ...(config.scripts ?? [])],
     future: {
         faster: {
@@ -93,12 +100,16 @@ module.exports = {
                                 'academy$',
                                 ...collectSlugs(join(__dirname, 'sources', 'academy', 'webscraping')),
                                 ...collectSlugs(join(__dirname, 'sources', 'academy', 'platform')),
-                            ].join('$|')}$`,
+                            ].join('$|academy')}$`,
                         },
                         {
                             label: 'Tutorials',
                             to: `/academy/tutorials`,
-                            activeBaseRegex: `${collectSlugs(join(__dirname, 'sources', 'academy', 'tutorials')).join('$|')}$`,
+                            activeBaseRegex: `academy${[
+                                ...collectSlugs(join(__dirname, 'sources', 'academy', 'tutorials')),
+                                // Tutorials are organized by tags, so tag pages belong to the section too
+                                '/tags/.*',
+                            ].join('$|academy')}$`,
                         },
                     ],
                 },
@@ -146,6 +157,9 @@ module.exports = {
                 showLastUpdateTime: false,
                 editUrl: 'https://github.com/apify/apify-docs/edit/master/',
                 sidebarPath: require.resolve('./sources/academy/sidebars.js'),
+                // Tutorials are organized by topic tags. Fail the build on tags not defined in tags.yml
+                tags: 'tags.yml',
+                onInlineTags: 'throw',
             },
         ],
         [

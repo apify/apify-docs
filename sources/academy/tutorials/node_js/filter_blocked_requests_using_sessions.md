@@ -3,6 +3,7 @@ title: Filter out blocked proxies using sessions
 description: Handling blocked requests efficiently using sessions
 sidebar_position: 16
 slug: /node-js/filter-blocked-requests-using-sessions
+tags: [node-js, blocking]
 ---
 
 _This article explains how the problem was solved before the [SessionPool](/sdk/js/docs/api/session-pool) class was added into [Apify SDK](/sdk/js/). We are keeping the article here as it might be interesting for people who want to see how to work with sessions on a lower level. For any practical usage of sessions, follow the documentation and examples of SessionPool._

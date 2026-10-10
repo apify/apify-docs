@@ -3,6 +3,7 @@ title: Waiting for dynamic content
 description: You load the page. You execute the correct selectors. Everything should work. It doesn't? Learn how to wait for dynamic loading.
 sidebar_position: 14.9
 slug: /node-js/waiting-for-dynamic-content
+tags: [node-js, dynamic-content]
 ---
 
 Use these helper functions to wait for data:

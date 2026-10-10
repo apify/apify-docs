@@ -3,6 +3,7 @@ title: Scraping a list of URLs from a Google Sheets document
 description: Learn how to crawl a list of URLs specified in a Google Sheets document using one of the Apify web scraping Actors.
 sidebar_position: 15
 slug: /node-js/scraping-urls-list-from-google-sheets
+tags: [node-js, crawling]
 ---
 
 You can export URLs from [Google Sheets](https://workspace.google.com/products/sheets/) such as [this one](https://docs.google.com/spreadsheets/d/1-2mUcRAiBbCTVA5KcpFdEYWflLMLp9DDU3iJutvES4w) directly into an [Actor](/actors)'s Start URLs field.

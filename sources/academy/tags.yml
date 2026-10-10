@@ -1,0 +1,58 @@
+# Topics for Academy tutorials. Each key becomes a tag page at /academy/tags/<permalink>.
+# The build fails on any tag not listed here (onInlineTags: 'throw' in docusaurus.config.js).
+# When adding a tag, also add its card to the landing page at tutorials/tutorials/index.md.
+
+node-js:
+  label: Node.js
+  description: Tutorials on web scraping and automation with Node.js, from parsing hidden JavaScript objects to running Puppeteer and Crawlee scrapers.
+  permalink: /node-js
+
+python:
+  label: Python
+  description: Tutorials on web scraping and data processing with Python, using libraries like Beautiful Soup and pandas.
+  permalink: /python
+
+api:
+  label: Apify API
+  description: Tutorials on running Actors, retrieving their results, and handling failures programmatically through the Apify API and its clients.
+  permalink: /api
+
+apify-actors:
+  label: Actor development
+  description: Tutorials on building, configuring, and deploying your own Actors on the Apify platform.
+  permalink: /apify-actors
+
+apify-scrapers:
+  label: Ready-made scrapers
+  description: Tutorials on Web Scraper, Cheerio Scraper, Puppeteer Scraper, and other ready-made scrapers you configure instead of writing a whole Actor.
+  permalink: /apify-scrapers
+
+browser-automation:
+  label: Browser automation
+  description: Tutorials on controlling headless browsers with Puppeteer and Playwright, from blocking requests to saving screenshots.
+  permalink: /browser-automation
+
+dynamic-content:
+  label: Dynamic content
+  description: Tutorials on scraping pages that render their content with JavaScript, load it lazily, or hide it in a shadow DOM.
+  permalink: /dynamic-content
+
+crawling:
+  label: Crawling
+  description: Tutorials on discovering and enqueuing pages, from sitemaps and spreadsheets to forms and passing data between requests.
+  permalink: /crawling
+
+blocking:
+  label: Blocking and proxies
+  description: Tutorials on avoiding and handling blocked requests using proxies, sessions, and request interception.
+  permalink: /blocking
+
+performance:
+  label: Performance
+  description: Tutorials on making your scrapers faster and cheaper by caching, blocking unneeded resources, and running in parallel.
+  permalink: /performance
+
+debugging:
+  label: Debugging
+  description: Tutorials on finding and fixing errors in your scrapers and Actor builds.
+  permalink: /debugging
