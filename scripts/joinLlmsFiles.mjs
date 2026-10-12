@@ -141,11 +141,31 @@ const SECTION_ORDER = [
 // Sections moved from llms.txt to their own build/<dir>/llms.txt, keyed by their
 // `## ` heading. Keeps the root index under the limit in scripts/checkLlmsSize.mjs.
 const SPLIT_SECTIONS = {
-    'Apify API': 'api',
-    'Apify Academy': 'academy',
-    'Legal documents': 'legal',
-    actors: 'actors',
-    integrations: 'integrations',
+    'Apify API': {
+        dir: 'api',
+        description:
+            'Endpoints to manage Actors, runs, builds, tasks, datasets, key-value stores, request queues, schedules, webhooks, and your account.',
+    },
+    'Apify Academy': {
+        dir: 'academy',
+        description:
+            'Free courses and tutorials on web scraping in JavaScript and Python, browser automation, anti-scraping protections, and building and deploying Actors.',
+    },
+    'Legal documents': {
+        dir: 'legal',
+        description:
+            'Terms and conditions, privacy and cookie policies, data processing addendums, and the terms for publishing Actors in Apify Store.',
+    },
+    actors: {
+        dir: 'actors',
+        description:
+            'Develop, test, and deploy Actors, run them with tasks, schedules, and monitoring, then publish and monetize them in Apify Store.',
+    },
+    integrations: {
+        dir: 'integrations',
+        description:
+            'Connect Actors to workflow tools like n8n and Zapier, AI agents and frameworks, data warehouses, and your own code through the Apify API and webhooks.',
+    },
 };
 
 /**
@@ -251,15 +271,15 @@ async function splitSections(llmsPath) {
     const kept = [];
     for (const section of sections) {
         const name = section.match(/^## (.+)$/m)[1].trim();
-        const dir = SPLIT_SECTIONS[name];
-        if (!dir) {
+        if (!SPLIT_SECTIONS[name]) {
             kept.push(section);
             continue;
         }
+        const { dir, description } = SPLIT_SECTIONS[name];
         const index = `# ${name} | Apify Documentation\n\n> One section of the Apify documentation. The main index is at ${SITE_URL}/llms.txt\n\n${section}`;
         await fs.mkdir(path.join(BUILD_DIR, dir), { recursive: true });
         await fs.writeFile(path.join(BUILD_DIR, dir, 'llms.txt'), index, 'utf8');
-        kept.push(`## ${name}\n\n- [${name}](${SITE_URL}/${dir}/llms.txt): Index of all pages in this section.\n\n`);
+        kept.push(`## ${name}\n\n- [${name}](${SITE_URL}/${dir}/llms.txt): ${description}\n\n`);
         console.log(`Moved "${name}" from build/llms.txt to build/${dir}/llms.txt`);
     }
 
