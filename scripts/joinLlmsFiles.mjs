@@ -138,6 +138,16 @@ const SECTION_ORDER = [
     'Legal documents',
 ];
 
+// Sections moved from llms.txt to their own build/<dir>/llms.txt, keyed by their
+// `## ` heading. Keeps the root index under the limit in scripts/checkLlmsSize.mjs.
+const SPLIT_SECTIONS = {
+    'Apify API': 'api',
+    'Apify Academy': 'academy',
+    'Legal documents': 'legal',
+    actors: 'actors',
+    integrations: 'integrations',
+};
+
 /**
  * Remove llms.txt list entries (`- [Title](url): description` lines) whose
  * URL matches any of LLMS_INDEX_EXCLUDE_PATTERNS. Section headings (`## ...`)
@@ -230,6 +240,32 @@ function reorderSections(content) {
     return header + sections.map((s) => s.content.replace(/\n*$/, '\n')).join('\n');
 }
 
+/**
+ * Move SPLIT_SECTIONS out of llms.txt into their own llms.txt files and leave
+ * a link to each in their place. postbuild runs indentLlmsFile.mjs first, so
+ * the moved entries keep their indentation and the new links get none.
+ */
+async function splitSections(llmsPath) {
+    const [header, ...sections] = (await fs.readFile(llmsPath, 'utf8')).split(/^(?=## )/m);
+
+    const kept = [];
+    for (const section of sections) {
+        const name = section.match(/^## (.+)$/m)[1].trim();
+        const dir = SPLIT_SECTIONS[name];
+        if (!dir) {
+            kept.push(section);
+            continue;
+        }
+        const index = `# ${name} | Apify Documentation\n\n> One section of the Apify documentation. The main index is at ${SITE_URL}/llms.txt\n\n${section}`;
+        await fs.mkdir(path.join(BUILD_DIR, dir), { recursive: true });
+        await fs.writeFile(path.join(BUILD_DIR, dir, 'llms.txt'), index, 'utf8');
+        kept.push(`## ${name}\n\n- [${name}](${SITE_URL}/${dir}/llms.txt): Index of all pages in this section.\n\n`);
+        console.log(`Moved "${name}" from build/llms.txt to build/${dir}/llms.txt`);
+    }
+
+    await fs.writeFile(llmsPath, header + kept.join(''), 'utf8');
+}
+
 async function joinFiles() {
     await fs.mkdir(BUILD_DIR, { recursive: true });
     const llmsPath = path.join(BUILD_DIR, 'llms.txt');
@@ -283,4 +319,11 @@ for (const llmsFile of ['llms.txt', 'llms-full.txt']) {
         console.error(`Failed to sanitize ${llmsFile}:`, err);
         process.exit(1);
     }
+}
+
+try {
+    await splitSections(path.join(BUILD_DIR, 'llms.txt'));
+} catch (err) {
+    console.error('Failed to split llms.txt:', err);
+    process.exit(1);
 }
