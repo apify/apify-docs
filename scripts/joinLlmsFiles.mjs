@@ -140,6 +140,7 @@ const SECTION_ORDER = [
 
 // Sections moved from llms.txt to their own build/<dir>/llms.txt, keyed by their
 // `## ` heading. Keeps the root index under the limit in scripts/checkLlmsSize.mjs.
+// nginx.conf lists the same dirs to serve their llms.txt as text/markdown.
 const SPLIT_SECTIONS = {
     'Apify API': {
         dir: 'api',
@@ -276,10 +277,13 @@ async function splitSections(llmsPath) {
             continue;
         }
         const { dir, description } = SPLIT_SECTIONS[name];
-        const index = `# ${name} | Apify Documentation\n\n> One section of the Apify documentation. The main index is at ${SITE_URL}/llms.txt\n\n${section}`;
+        // The section's landing page comes first. Its title reads better than headings
+        // like `actors`, which the plugin takes from the URL.
+        const title = section.match(/^- \[([^\]]+)\]/m)?.[1] ?? name;
+        const index = `# ${title} | Apify Documentation\n\n> One section of the Apify documentation. The main index is at ${SITE_URL}/llms.txt\n\n${section}`;
         await fs.mkdir(path.join(BUILD_DIR, dir), { recursive: true });
         await fs.writeFile(path.join(BUILD_DIR, dir, 'llms.txt'), index, 'utf8');
-        kept.push(`## ${name}\n\n- [${name}](${SITE_URL}/${dir}/llms.txt): ${description}\n\n`);
+        kept.push(`## ${name}\n\n- [${title}](${SITE_URL}/${dir}/llms.txt): ${description}\n\n`);
         console.log(`Moved "${name}" from build/llms.txt to build/${dir}/llms.txt`);
     }
 
