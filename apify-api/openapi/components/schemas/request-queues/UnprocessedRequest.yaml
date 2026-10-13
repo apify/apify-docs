@@ -1,0 +1,15 @@
+title: UnprocessedRequest
+description: A request that failed to be processed during a request queue operation and can be retried.
+required:
+  - uniqueKey
+  - url
+type: object
+properties:
+  id:
+    $ref: ./SharedProperties.yaml#/RequestId
+  uniqueKey:
+    $ref: ./SharedProperties.yaml#/UniqueKey
+  url:
+    $ref: ./SharedProperties.yaml#/RequestUrl
+  method:
+    $ref: ./SharedProperties.yaml#/RequestMethod

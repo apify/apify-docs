@@ -138,7 +138,7 @@ sharedDelete: &sharedDelete
         schema:
           type: array
           items:
-            $ref: ../../schemas/request-queues/RequestDraftDelete.yaml
+            $ref: ../../schemas/request-queues/RequestToDelete.yaml
     required: true
   responses:
     "200":

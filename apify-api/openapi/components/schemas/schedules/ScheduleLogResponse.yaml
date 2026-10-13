@@ -6,5 +6,5 @@ properties:
   data:
     type: array
     items:
-      $ref: ./ScheduleInvoked.yaml
+      $ref: ./ScheduleLogEntry.yaml
     description: ""

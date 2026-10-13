@@ -1,0 +1,17 @@
+title: ScheduleLogEntry
+required:
+  - message
+  - level
+  - createdAt
+type: object
+properties:
+  message:
+    type: string
+    examples: [Schedule invoked]
+  level:
+    type: string
+    examples: [INFO]
+  createdAt:
+    type: string
+    format: date-time
+    examples: ["2019-03-26T12:28:00.370Z"]

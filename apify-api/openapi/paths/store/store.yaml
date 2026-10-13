@@ -113,7 +113,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/store/ListOfActorsInStoreResponse.yaml
+            $ref: ../../components/schemas/store/ListOfStoreActorsResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
     "401":

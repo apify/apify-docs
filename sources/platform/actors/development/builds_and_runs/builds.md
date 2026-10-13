@@ -49,7 +49,7 @@ By default, the builds are set to the _latest_ tag.
 
 ## Cache
 
-To speed up builds triggered via API, you can use the `useCache=1` parameter. This instructs the build process to use cached Docker images and layers instead of pulling the latest copies and building each layer from scratch. Note that the cached images and layers might not always be available on the server building the image, the `useCache` parameter only functions on a best-effort basis.
+Builds triggered via API use cached Docker images and layers by default instead of pulling the latest copies and building each layer from scratch. To run a clean build, set the `useCache=0` parameter. Note that the cached images and layers might not always be available on the server building the image, so the cache only works on a best-effort basis.
 
 ### Clean builds
 
