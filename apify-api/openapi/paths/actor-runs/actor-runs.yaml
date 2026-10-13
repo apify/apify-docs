@@ -13,7 +13,8 @@ get:
     order. Therefore, you can use pagination to incrementally fetch all records while
     new ones are still being created. To sort the records in descending order, use
     `desc=1` parameter. You can also filter runs by `startedAt`` and `status`` fields ([available
-    statuses](https://docs.apify.com/platform/actors/running/runs-and-builds#lifecycle)).
+    statuses](https://docs.apify.com/platform/actors/running/runs-and-builds#lifecycle)),
+    and filter Actor Standby runs in progress by their `deployment`.
   operationId: actorRuns_get
   parameters:
     - $ref: "../../components/parameters/paginationParameters.yaml#/offset"
@@ -22,6 +23,7 @@ get:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/status"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/startedAfter"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/startedBefore"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/deployment"
   responses:
     # todo 404?
     "200":

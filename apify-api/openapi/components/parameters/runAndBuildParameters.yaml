@@ -290,6 +290,35 @@ startedBefore:
     format: date-time
     example: "2025-09-17T23:59:59.000Z"
 
+deployment:
+  name: deployment
+  in: query
+  description: |
+    Single deployment or comma-separated list of deployments. Used to filter
+    [Actor Standby](https://docs.apify.com/platform/actors/running/standby) runs by the
+    deployment they serve requests in:
+
+    - `SINGLE_TENANT`: A private Standby run in the account of the user calling the Actor.
+    - `MULTI_TENANT_OWNER_PAID`: A shared run in the Actor owner's account that serves the owner's own requests.
+    - `MULTI_TENANT_PAYING_USERS`: A shared run in the Actor owner's account that serves requests from paying users.
+    - `MULTI_TENANT_FREE_USERS`: A shared run in the Actor owner's account that serves requests from free users.
+
+    The filter only applies to runs in progress, so it requires the `status` parameter with
+    only the `READY`, `RUNNING`, `TIMING-OUT`, or `ABORTING` statuses. Otherwise, the
+    request fails with a `400` error.
+  style: form
+  explode: false
+  schema:
+    type: array
+    items:
+      type: string
+      enum:
+        - SINGLE_TENANT
+        - MULTI_TENANT_OWNER_PAID
+        - MULTI_TENANT_PAYING_USERS
+        - MULTI_TENANT_FREE_USERS
+    example: [MULTI_TENANT_PAYING_USERS]
+
 scheduleId:
   name: scheduleId
   in: path
