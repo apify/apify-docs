@@ -9,7 +9,7 @@ slug: /integrations/integrate
 If you are building a service and your users could benefit from integrating with Apify or vice versa, we would love to hear from you! Contact us at [integrations@apify.com](mailto:integrations@apify.com) to discuss potential collaboration. We are always looking for ways to make the Apify platform more useful and powerful for users.
 
 :::tip Build with an AI coding agent
-If your team uses an AI coding agent such as Cursor, Claude Code, GitHub Copilot, or OpenCode, install the [apify-integration-development](https://github.com/apify/agent-skills/tree/main/skills/apify-integration-development) skill. It guides your agent through designing and building an official Apify integration for your product, with reference files for every integration shape Apify supports. See [Build with the integration skill](#build-with-the-integration-skill) below.
+If your team uses an AI coding agent such as Claude Code, Cursor, Windsurf, Codex, or Gemini CLI, install the `apify-integration-development` skill from [Apify Agent Skills](/agents/skills#install). It guides your agent through designing and building an official Apify integration for your product, with reference files for every integration shape Apify supports. See [Build with the integration skill](#build-with-the-integration-skill) below.
 :::
 
 ## Why integrate with Apify
@@ -59,7 +59,7 @@ An alternative way is to let your users manage the connection directly on your s
 
 ### Build with the integration skill
 
-The [`apify-integration-development`](https://github.com/apify/agent-skills/tree/main/skills/apify-integration-development) skill guides your AI coding agent through designing and building an official Apify integration. It covers four integration shapes - read the reference file that matches your product:
+The [`apify-integration-development`](/agents/skills) skill guides your AI coding agent through designing and building an official Apify integration. To install it, follow [Install Agent Skills](/agents/skills#install). It covers four integration shapes - read the reference file that matches your product:
 
 - Workflow automation platforms - Zapier, n8n, Make, Pipedream, Activepieces.
 - AI agent plugins - coding-agent bundles for Cursor, Claude Code, and GitHub Copilot, or harness plugins for OpenClaw and Hermes.
