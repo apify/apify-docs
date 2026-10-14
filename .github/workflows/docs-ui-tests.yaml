@@ -79,9 +79,11 @@ jobs:
                     REPORT=output/issues.json
 
                     if [[ "$OUTCOME" == "success" ]]; then
-                      echo "### Docs-tests: doc back-references OK" >> "$GITHUB_STEP_SUMMARY"
-                      echo "" >> "$GITHUB_STEP_SUMMARY"
-                      echo "Every assertion in \`docs-tests/assertions/\` still points at a doc that exists, with its quoted text intact." >> "$GITHUB_STEP_SUMMARY"
+                      {
+                        echo "### Docs-tests: doc back-references OK"
+                        echo ""
+                        echo "Every assertion in \`docs-tests/assertions/\` still points at a doc that exists, with its quoted text intact."
+                      } >> "$GITHUB_STEP_SUMMARY"
                       exit 0
                     fi
 
