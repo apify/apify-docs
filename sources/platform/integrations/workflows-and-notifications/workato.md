@@ -47,7 +47,7 @@ Before using the Apify connector in recipes, create a connection inside a Workat
    ![Screenshot showing how to create connection](../images/workato/create-connection.png)
 1. Search for **Apify** and choose the Apify connector.
    ![Screenshot showing how to search for the Apify connector in Workato](../images/workato/create-connection-find-connector.png)
-1. In the connection dialog, enter your **API Token**. In [Apify Console](https://console.apify.com), go to [Settings > API & Integrations](https://console.apify.com/settings/integrations) and copy your API token.
+1. In the connection dialog, enter your **API Token**. In [Apify Console](https://console.apify.com), go to [Settings > API & Integrations](https://console.apify.com/settings/integrations?utm_source=workato&utm_medium=integrations) and copy your API token.
    ![Screenshot of the Workato API Key authentication form](../images/workato/create-connection-api-key.png)
 1. Click **Connect**. Workato tests the connection by making an authenticated call to verify your credentials.
    ![Screenshot showing successful API Key authentication in Workato](../images/workato/create-connection-api-success.png)
@@ -219,11 +219,11 @@ When you use the pick list, the connector fetches input fields automatically - n
 
 When using manual input instead of pick lists, you need to provide a resource identifier. Actors and tasks accept either an ID or a slug (e.g., `owner/actor-name`), so you can type the name directly without looking up the ID. For other resources, find the ID in Apify Console:
 
-- **Dataset**: [**Storage** > **Datasets**](https://console.apify.com/storage/datasets) > dataset detail > API panel or URL.
+- **Dataset**: [**Storage** > **Datasets**](https://console.apify.com/storage/datasets?utm_source=workato&utm_medium=integrations) > dataset detail > API panel or URL.
   - Also visible in the table on the **Storage** > **Datasets** page
-- **Key-value store**: [**Storage** > **Key-value stores**](https://console.apify.com/storage/key-value-stores) > store detail > API panel or URL.
+- **Key-value store**: [**Storage** > **Key-value stores**](https://console.apify.com/storage/key-value-stores?utm_source=workato&utm_medium=integrations) > store detail > API panel or URL.
   - Also visible in the table on the **Storage** > **Key-value stores** page
-- **Webhook**: [Actors](https://console.apify.com/actors) > Actor > **Integrations** tab.
+- **Webhook**: [Actors](https://console.apify.com/actors?utm_source=workato&utm_medium=integrations) > Actor > **Integrations** tab.
 
 ## Handle long-running scrapes
 

@@ -147,7 +147,7 @@ Run `/mcp-config login apify` explicitly rather than waiting for an automatic pr
 
 If you're running Kimi Code in a headless environment (SSH, remote container) or in non-interactive prompt mode (`kimi -p`), the OAuth handshake can't complete. Authenticate on a machine with a browser first, then point the headless machine at the same `KIMI_CODE_HOME` so it picks up `credentials/mcp/`. Alternatively, override the `apify` entry in `~/.kimi-code/mcp.json` or `.kimi-code/mcp.json` with a static token - a project-level entry with the same name overrides the plugin's declaration.
 
-For the CLI and SDK skills, copy your token from [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations) and export it before starting Kimi Code:
+For the CLI and SDK skills, copy your token from [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations?utm_source=kimi-code&utm_medium=integration) and export it before starting Kimi Code:
 
 ```bash
 export APIFY_TOKEN=<YOUR_API_TOKEN>
