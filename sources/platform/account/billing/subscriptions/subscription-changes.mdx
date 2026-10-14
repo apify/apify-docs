@@ -1,0 +1,115 @@
+---
+title: Apify subscription changes
+description: Learn what happens to the price and prepaid usage when you upgrade or downgrade your subscription plan or switch from monthly to annual billing.
+slug: /account/subscription-changes
+category: account
+sidebar_label: Subscription changes
+sidebar_position: 1
+---
+
+You can upgrade or downgrade your subscription plan or switch to annual billing at any time, even in the middle of the billing cycle. However, the starting date of the billing cycle doesn't change.
+
+For how to change your plan, see [Subscription plans](/account/subscriptions).
+
+## Subscription upgrade
+
+Since the starting date of the billing cycle doesn't change when you upgrade your plan, the price and prepaid usage for the current cycle are recalculated.
+
+:::tip Consider paying as you go
+If you need more usage only for the current billing cycle, don't upgrade your plan. Instead, [adjust your usage limit](/account/subscriptions#pay-as-you-go) and pay for the extra usage as you go.
+:::
+
+### Price adjustment
+
+After an upgrade, the price for the current billing cycle is recalculated based on the day you switched.
+
+For the days left in the cycle:
+
+- You pay the price of the new plan.
+- What you already paid on your old plan is credited back to you.
+
+### Prepaid usage adjustment
+
+After an upgrade, your prepaid usage for the current billing cycle is recalculated based on the day you switched:
+
+- For the days before the switch, you get your old plan's prepaid usage.
+- For the days after the switch, you get your new plan's prepaid usage.
+
+For example, you upgrade from Starter to Scale after 21 of the 31 days in your billing cycle. Your prepaid usage for this cycle is:
+
+```text
+Starter for 21 days: 21/31 × $29 = $19.65
+Scale for 10 days: 10/31 × $199 = $64.19
+-----------------------------------------
+Total: $83.84
+```
+
+Usage that you already consumed in this cycle counts toward the total. From the next billing cycle, you get the full $199 of prepaid usage on the Scale plan.
+
+### Example invoice
+
+The following example shows an invoice for an upgrade from the Starter plan ($29/month) to the Scale plan ($199/month) after 21 of the 31 days in the billing cycle.
+
+The first part of the invoice calculates how much of your old plan you've paid for but won't use:
+
+- **Subtotal old plan**. The full price of your old plan. It's a negative amount because it's credited back to you.
+- **Old plan consumed**. The part of the old plan you used before upgrading. You used it for 21 of 31 days, so you pay `21/31 × $29.00 = $19.65`.
+- **Old plan pro-ration discount**. The credit you get for the rest of the billing cycle: `−$29.00 + $19.65 = −$9.35`. That's the 10 days you prepaid on Starter but will spend on Scale.
+
+```text
+Old plan from 2026-05-05 to 2026-06-04
+
+Starter plan (monthly) -$29.00
+---------------------------------
+Subtotal old plan -$29.00
+Old plan consumed (21 / 31 days) $19.65
+---------------------------------
+Old plan pro-ration discount -$9.35
+
+We are crediting you $9.35 for the 10 days you prepaid
+under the old plan but will spend under the new plan.
+```
+
+The second part of the invoice calculates how much you pay for the new plan for the rest of the billing cycle:
+
+- **Subtotal new plan**. The full price of your new plan.
+- **New plan unused**. The part of the billing cycle that passed before you upgraded. You don't pay for the first 21 days, so `21/31 × $199.00 = $134.81` is subtracted.
+- **New plan pro-rated**. What you pay for the 10 days left in the billing cycle: `$199.00 − $134.81 = $64.19`.
+
+The total is the charge for the new plan minus the old plan credit: `$64.19 − $9.35 = $54.84`. It's the amount before tax.
+
+```text
+New plan from 2026-05-05 to 2026-06-04
+
+Scale plan (monthly) $199.00
+---------------------------------
+Subtotal new plan $199.00
+New plan unused (21 / 31 days) -$134.81
+---------------------------------
+New plan pro-rated $64.19
+
+We are charging you only $64.19 to cover the 10 days
+you will spend on the new plan.
+---------------------------------
+Total amount 54.84 USD
+```
+
+## Subscription downgrade
+
+The subscription downgrade is immediate. You don't get a refund for the rest of the cycle, but you keep the prepaid usage from the old plan.
+
+Use the prepaid usage from the old plan before the end of the cycle or you'll lose it. The price of compute units (CU) depends on the plan you're on.
+
+## Switch to annual billing
+
+With annual billing, you get a 10% discount on the subscription price. You can switch from monthly to annual billing at any time. The change is immediate.
+
+The annual cycle starts on the start date of your current monthly cycle. You're charged right away for the rest of the annual cycle, minus a credit for the unused days of the current month.
+
+Prepaid usage on annual billing is 12 times the monthly amount and the whole usage is available right away. Unused amount expires at the end of the annual cycle.
+
+:::caution Annual billing isn't refundable
+
+If you switch back to monthly billing, you won't get a refund for the rest of the annual cycle. To change your billing interval, contact [Apify support](https://apify.com/contact).
+
+:::
