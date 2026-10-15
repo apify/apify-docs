@@ -10,7 +10,6 @@
 //
 // Requires the full git history (fetch-depth: 0 in GitHub Actions).
 
-
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 
@@ -28,7 +27,8 @@ const isDocFile = (file) => /\.mdx?$/.test(file);
 const git = (...args) => execFileSync('git', args, { encoding: 'utf8', stdio: 'pipe', maxBuffer: 16 * 1024 * 1024 });
 
 function readIgnoredRevs() {
-    return fs.readFileSync(IGNORE_FILE, 'utf8')
+    return fs
+        .readFileSync(IGNORE_FILE, 'utf8')
         .split('\n')
         .map((line) => line.replace(/#.*/, '').trim())
         .filter(Boolean);
@@ -107,7 +107,9 @@ for (const section of [...bySection.keys()].sort()) {
     const pages = bySection.get(section);
     lines.push('', `## ${section} (${pages.length})`, '');
     for (const { file, sha, date } of pages) {
-        lines.push(`- [${file.slice(DOCS_DIR.length + 1)}](${REPO_URL}/blob/master/${file}) - [last edited ${date}](${REPO_URL}/commit/${sha})`);
+        lines.push(
+            `- [${file.slice(DOCS_DIR.length + 1)}](${REPO_URL}/blob/master/${file}) - [last edited ${date}](${REPO_URL}/commit/${sha})`,
+        );
     }
 }
 
