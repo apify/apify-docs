@@ -75,6 +75,7 @@ Ask Devin to use the `apify` subagent so the routing subagent handles it. It pic
 > Use the apify subagent. Use Apify to find a good Actor for scraping Google Maps places. Show me the best option, its input requirements, pricing model, and what kind of dataset output it returns. Do not run the Actor yet.
 
 The `apify` subagent searches Apify Store, fetches the top Actor's details through the Apify MCP server, and summarizes its inputs, pricing, and output - all without running the Actor.
+
 ## Bundled skills
 
 | Skill | Description |
@@ -132,10 +133,10 @@ See [Authenticate to Apify](#authenticate-to-apify).
 
 If the browser doesn't open automatically, copy the OAuth URL shown in the terminal and paste it into your browser manually.
 
-If you're running Devin in a headless environment (SSH, remote container) or the OAuth flow still fails, authenticate with an API token instead. Copy your token from [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations) and set it before starting Devin:
+If you're running the Devin CLI in a headless environment (SSH, remote container) or the OAuth flow still fails, override the `apify` MCP server with a Bearer token from [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations):
 
 ```bash
-export APIFY_TOKEN=<YOUR_API_TOKEN>
+devin mcp add apify https://mcp.apify.com -H "Authorization: Bearer <YOUR_API_TOKEN>"
 ```
 
 ## Limitations
