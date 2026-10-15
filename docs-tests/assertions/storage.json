@@ -25,7 +25,7 @@
       "target": "Include unnamed storages",
       "at": "/storage",
       "page_context": "Storage overview page, toggle for unnamed storages",
-      "source_quote": "Use the **Include unnamed storages** checkbox to either display or hide unnamed storages.",
+      "source_quote": "To show or hide unnamed storages, check **Include unnamed storages**.",
       "source_line": 54,
       "needs_auth": true
     },
@@ -62,7 +62,7 @@
       "target": "Dataset",
       "page_context": "Actor run details page, storage type tab",
       "source_quote": "Open your run's details and select the **Dataset**, **Key-value store**, or **Request queue** tab as appropriate.",
-      "source_line": 111,
+      "source_line": 109,
       "needs_auth": true
     },
     {
@@ -71,7 +71,7 @@
       "target": "Key-value store",
       "page_context": "Actor run details page, storage type tab",
       "source_quote": "Open your run's details and select the **Dataset**, **Key-value store**, or **Request queue** tab as appropriate.",
-      "source_line": 111,
+      "source_line": 109,
       "needs_auth": true
     },
     {
@@ -80,7 +80,7 @@
       "target": "Request queue",
       "page_context": "Actor run details page, storage type tab",
       "source_quote": "Open your run's details and select the **Dataset**, **Key-value store**, or **Request queue** tab as appropriate.",
-      "source_line": 111,
+      "source_line": 109,
       "needs_auth": true
     }
   ]
