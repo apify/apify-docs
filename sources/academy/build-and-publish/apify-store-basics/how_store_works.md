@@ -37,9 +37,7 @@ Actors on Apify Store can be public or private:
 
 ## How Actor monetization works (briefly)
 
-You can monetize your Actors using pay-per-event pricing, where users pay for specific events triggered by the Actor.
-
-For detailed information on which pricing model might work for your Actor, refer to [How Actor monetization works](/academy/actor-marketing-playbook/store-basics/how-actor-monetization-works).
+You can monetize your Actors using pay-per-event pricing, where users pay for specific events triggered by the Actor. For details, see [Monetize Actors](/actors/publishing/monetize).
 
 ## Actor ownership on Store
 
@@ -76,7 +74,7 @@ Learn more about how to handle the [Issues tab](/academy/actor-marketing-playboo
 
 ## How Apify Store search works
 
-Search ranking evaluates parameters similar to those in the [Actor quality score](/actors/publishing/quality-score). As a result, the two correlate strongly: Actors with higher quality scores tend to rank higher in [Apify Store](https://apify.com/store) search and the [Apify MCP server](/integrations/mcp) `search-actors` tool, though no specific position is guaranteed.
+Search ranking evaluates parameters similar to those in the [Actor quality score](/actors/publishing/quality-score). As a result, the two correlate strongly: Actors with higher quality scores tend to rank higher in [Apify Store](https://apify.com/store) search and the [Apify MCP server](/mcp) `search-actors` tool, though no specific position is guaranteed.
 
 To improve your Actor's visibility in search, focus on improving its quality score. For what the score measures and how to influence each category, see [Actor quality score](/actors/publishing/quality-score).
 

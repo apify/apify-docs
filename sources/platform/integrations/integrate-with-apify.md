@@ -109,17 +109,20 @@ Recommended features:
 - _Key-value store_: Dropdown (user's KV stores) or ID/String input. Populated via [Key-value Stores API](https://docs.apify.com/api/v2/key-value-stores-get).
 - _Record key_: value (string)
 
-##### Scrape a single URL
+##### Web Fetch
 
-Runs Apify's [Website Content Crawler](https://apify.com/apify/website-content-crawler) in synchronous mode to extract structured data from a single web page - ideal for on-demand URL scraping inside agents or automation flows.
+Fetches a single web page and returns its content - ideal for on-demand URL scraping inside agents or automation flows. Build this on Apify's [Web Fetch](https://apify.com/apify/web-fetch) Actor in [Standby](/actors/running/standby) mode at `https://web-fetch.apify.actor`, which returns the content directly in the HTTP response instead of starting a run.
 
 Recommended features:
 
-- _URL_: that you intend to scrape (string)
-- _Crawler type_: Dropdown menu, allowing users to choose from the following options:
-  - _Headless web browser_ - Useful for websites with anti-scraping protections and JavaScript rendering. It recognizes common blocking patterns like CAPTCHAs and automatically retries blocked requests through new sessions.
-  - _Stealthy web browser (default)_ - Another headless web browser with anti-blocking measures enabled. Try this if you encounter anti-bot protections while scraping.
-  - _Raw HTTP client_ - High-performance crawling mode that uses raw HTTP requests to fetch pages. It's faster and cheaper, but might not work on all websites.
+- _URL_: the page to fetch (string). Must be a full URL using `http://` or `https://`
+- _Formats_: multi-select, allowing users to choose any combination of the following. Only the selected formats are returned, so one request can return the same page in several of them:
+  - _Markdown (default)_ - Clean Markdown. Best for AI agents and LLMs.
+  - _HTML_ - Raw HTML. Best for programmatic processing.
+  - _Text_ - Plain text with no formatting.
+  - _Links_ - Deduplicated list of the links found on the page. Useful for crawl queues.
+  - _Raw_ - Original raw body, base64-encoded for binary content.
+- _Headers (optional)_: custom HTTP headers to send to the target URL, as a JSON object of header names and values
 
 ##### Universal API call
 

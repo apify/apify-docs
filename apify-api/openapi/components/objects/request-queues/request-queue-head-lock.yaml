@@ -20,7 +20,7 @@ sharedPost: &sharedPost
       content:
         application/json:
           schema:
-            $ref: ../../schemas/request-queues/HeadAndLockResponse.yaml
+            $ref: ../../schemas/request-queues/LockedRequestQueueHeadResponse.yaml
     <<: *commonErrors
   deprecated: false
 

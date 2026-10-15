@@ -1,5 +1,5 @@
-ScheduleShort:
-  title: ScheduleShort
+ScheduleListItem:
+  title: ScheduleListItem
   allOf:
     - $ref: ./ScheduleBase.yaml
     - type: object
@@ -9,7 +9,7 @@ ScheduleShort:
         actions:
           type: array
           items:
-            $ref: ./ScheduleActionShort.yaml
+            $ref: ./ScheduleListItemAction.yaml
           description: ""
 
 Schedule:
