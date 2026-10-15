@@ -1,5 +1,5 @@
 ---
-title: Devin integration
+title: Devin CLI integration
 sidebar_label: Devin CLI
 description: Learn how to install the Apify plugin for Devin CLI to discover, run, and build Actors directly with the Apify MCP server, skills, and a routing subagent.
 slug: /integrations/devin
@@ -7,9 +7,9 @@ slug: /integrations/devin
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
-[Devin](https://devin.ai) is Cognition's AI software engineer. It reads and edits your codebase, runs commands, and completes multi-step development tasks.
+[Devin CLI](https://devin.ai) is Cognition's AI software engineer. It reads and edits your codebase, runs commands, and completes multi-step development tasks.
 
-The [Apify plugin for Devin](https://github.com/apify/apify-devin-plugin) connects Devin to Apify's library of [Actors](https://apify.com/store) and bundles:
+The [Apify plugin for Devin CLI](https://github.com/apify/apify-devin-plugin) connects Devin CLI to Apify's library of [Actors](https://apify.com/store) and bundles:
 
 - The [Apify MCP server](/mcp) for searching Apify Store, running Actors, and retrieving datasets through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro).
 - An `apify` routing subagent that picks the right tool or skill from a natural-language request.
@@ -22,17 +22,17 @@ This guide covers installation from GitHub with the Devin CLI.
 ## Prerequisites
 
 - [An Apify account](https://console.apify.com/sign-up) - sign up for free if you don't have one.
-- [Devin CLI](https://docs.devin.ai/cli/index) - installed and signed in locally with `devin auth login`. Managing plugins requires an authenticated Devin session.
+- [Devin CLI](https://docs.devin.ai/cli/index) - installed and signed in locally with `devin auth login`. Managing plugins requires an authenticated Devin CLI session.
 
 ## Install the plugin
 
-Install the plugin from its GitHub source. Devin shows what the plugin adds - skills, MCP servers, and any required plugins - then asks you to confirm. Pass `-y` to skip the prompt.
+Install the plugin from its GitHub source. Devin CLI shows what the plugin adds - skills, MCP servers, and any required plugins - then asks you to confirm. Pass `-y` to skip the prompt.
 
 ```bash
 devin plugins install apify/apify-devin-plugin
 ```
 
-The plugin is installed at the user level and is available across your projects. By default, Devin records it in your personal manifest, so it also loads on other machines you sign in to and in Devin Cloud sessions. Pass `--local` to install on the current machine only:
+The plugin is installed at the user level and is available across your projects. By default, Devin CLI records it in your personal manifest, so it also loads on other machines you sign in to and in Devin Cloud sessions. Pass `--local` to install on the current machine only:
 
 ```bash
 devin plugins install --local apify/apify-devin-plugin
@@ -54,11 +54,11 @@ The plugin bundles the Apify MCP server. You need to authenticate to run Actors 
     devin mcp login apify
     ```
 
-    Devin opens a browser tab for the Apify OAuth flow.
+    Devin CLI opens a browser tab for the Apify OAuth flow.
 
 1. Review the permissions and select **Allow access**.
 
-The `apify` MCP server is now connected and its tools are available in Devin.
+The `apify` MCP server is now connected and its tools are available in Devin CLI.
 
 CLI credentials aren't shared with Devin Cloud. For cloud sessions, connect the Apify MCP server in the Devin web app, as described in the [Devin plugins documentation](https://docs.devin.ai/product-guides/plugins#mcps).
 
@@ -70,7 +70,7 @@ The connection stays authenticated for future sessions. You can revoke access at
 
 ## Run your first prompt
 
-Ask Devin to use the `apify` subagent so the routing subagent handles it. It picks the right tool or skill from a natural-language request, so you don't need to name tools yourself.
+Ask Devin CLI to use the `apify` subagent so the routing subagent handles it. It picks the right tool or skill from a natural-language request, so you don't need to name tools yourself.
 
 > Use the apify subagent. Use Apify to find a good Actor for scraping Google Maps places. Show me the best option, its input requirements, pricing model, and what kind of dataset output it returns. Do not run the Actor yet.
 
@@ -114,9 +114,9 @@ devin plugins install apify/apify-devin-plugin
 
 If you installed with `--local`, the plugin stays on this machine and doesn't sync to Devin Cloud. An enterprise can disable CLI plugins for its members, in which case installed plugins aren't applied.
 
-### Devin picks the wrong skill
+### Devin CLI picks the wrong skill
 
-Ask Devin to use the `apify` subagent so the routing subagent handles it. The subagent owns the guardrails that pick the right skill and avoid common traps, such as confusing the `apify` and `apify-client` packages.
+Ask Devin CLI to use the `apify` subagent so the routing subagent handles it. The subagent owns the guardrails that pick the right skill and avoid common traps, such as confusing the `apify` and `apify-client` packages.
 
 ### The Apify MCP server shows as unauthenticated
 
@@ -142,9 +142,9 @@ devin mcp add apify https://mcp.apify.com -H "Authorization: Bearer <YOUR_API_TO
 ## Limitations
 
 - Plugin custom subagents load in the Devin CLI and Devin Desktop only - not in Devin Cloud sessions. Skills and the Apify MCP server still load in cloud sessions.
-- Devin plugins are in beta, so install commands and MCP auth behavior may change between releases.
+- Devin CLI plugins are in beta, so install commands and MCP auth behavior may change between releases.
 - Long-running Actors may exceed the time a single tool call waits for completion. Reduce the scope or split the work across multiple prompts.
-- Each Actor run consumes Apify platform usage from your plan in addition to any Devin usage. See [Billing](/account/billing) for details.
+- Each Actor run consumes Apify platform usage from your plan in addition to any Devin CLI usage. See [Billing](/account/billing) for details.
 - Skills that edit files in your project (Actor development, actorization, SDK integration) make local changes - review them before deploying or committing.
 
 ## Related integrations
@@ -155,7 +155,7 @@ devin mcp add apify https://mcp.apify.com -H "Authorization: Bearer <YOUR_API_TO
 
 ## Resources
 
-- [Apify plugin for Devin](https://github.com/apify/apify-devin-plugin) - Source repository and full README with advanced setup notes (all auth paths, available MCP tools)
-- [Devin CLI plugins](https://docs.devin.ai/cli/extensibility/plugins/overview) - Official Devin plugin install and management reference
-- [Devin CLI MCP](https://docs.devin.ai/cli/extensibility/mcp/overview) - Official Devin MCP configuration and authentication reference
-- [Apify Store](https://apify.com/store) - Browse Actors you can run from Devin
+- [Apify plugin for Devin CLI](https://github.com/apify/apify-devin-plugin) - Source repository and full README with advanced setup notes (all auth paths, available MCP tools)
+- [Devin CLI plugins](https://docs.devin.ai/cli/extensibility/plugins/overview) - Official Devin CLI plugin install and management reference
+- [Devin CLI MCP](https://docs.devin.ai/cli/extensibility/mcp/overview) - Official Devin CLI MCP configuration and authentication reference
+- [Apify Store](https://apify.com/store) - Browse Actors you can run from Devin CLI
