@@ -4,7 +4,6 @@ on:
     schedule:
         -   cron: '0 6 1 * *'  # Run monthly
     workflow_dispatch:  # Allow manual triggering
-    push: # TESTING
 
 permissions:
     contents: read
@@ -35,4 +34,3 @@ jobs:
                         --body-file staleness-report.md \
                         --label t-docs \
                         --assignee szaganek
-
