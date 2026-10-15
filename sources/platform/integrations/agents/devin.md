@@ -103,7 +103,7 @@ _SDK integration:_
 
 ## Troubleshooting
 
-### The Apify plugin doesn't appear in `devin plugins list`
+### The Apify plugin doesn't appear in the list of plugins
 
 Confirm you're signed in with `devin auth login`, then reinstall:
 
