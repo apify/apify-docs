@@ -11,9 +11,9 @@ import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integrati
 
 The [Apify plugin for Devin](https://github.com/apify/apify-devin-plugin) connects Devin to Apify's library of [Actors](https://apify.com/store) and bundles:
 
-- The [Apify MCP server](/integrations/mcp) for searching Apify Store, running Actors, and retrieving datasets through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro).
+- The [Apify MCP server](/mcp) for searching Apify Store, running Actors, and retrieving datasets through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro).
 - An `apify` routing subagent that picks the right tool or skill from a natural-language request.
-- Five built-in skills for common workflows (see [Bundled skills](#bundled-skills) below).
+- Five built-in skills for common workflows, listed in [Bundled skills](#bundled-skills).
 
 This guide covers installation from GitHub with the Devin CLI.
 
@@ -56,11 +56,11 @@ The plugin bundles the Apify MCP server. You need to authenticate to run Actors 
 
     Devin opens a browser tab for the Apify OAuth flow.
 
-1. Review the permissions and click **Allow access**.
+1. Review the permissions and select **Allow access**.
 
-1. Back in the terminal, the **apify** MCP server is connected and tools are live.
+The `apify` MCP server is now connected and its tools are available in Devin.
 
-CLI credentials aren't shared with Devin Cloud. For cloud sessions, connect the Apify MCP server in the [Devin web app](https://docs.devin.ai/product-guides/plugins#mcps).
+CLI credentials aren't shared with Devin Cloud. For cloud sessions, connect the Apify MCP server in the Devin web app, as described in the [Devin plugins documentation](https://docs.devin.ai/product-guides/plugins#mcps).
 
 :::tip Session persistence
 
@@ -75,9 +75,6 @@ Ask Devin to use the `apify` subagent so the routing subagent handles it. It pic
 > Use the apify subagent. Use Apify to find a good Actor for scraping Google Maps places. Show me the best option, its input requirements, pricing model, and what kind of dataset output it returns. Do not run the Actor yet.
 
 The `apify` subagent searches Apify Store, fetches the top Actor's details through the Apify MCP server, and summarizes its inputs, pricing, and output - all without running the Actor.
-
-Installed skills are also available as `/apify:<skill>` slash commands. See [Bundled skills](#bundled-skills) for the skill names.
-
 ## Bundled skills
 
 | Skill | Description |
@@ -87,6 +84,8 @@ Installed skills are also available as `/apify:<skill>` slash commands. See [Bun
 | `apify-actorization` | Converts existing JavaScript, TypeScript, Python, or CLI projects into Apify Actors. |
 | `apify-generate-output-schema` | Generates dataset and key-value store schemas for existing Actors. |
 | `apify-sdk-integration` | Integrates Actor execution into applications using the `apify-client` package. |
+
+You can also call any installed skill directly as an `/apify:<skill>` slash command.
 
 Example prompts that route to specific skills:
 
@@ -149,8 +148,9 @@ export APIFY_TOKEN=<YOUR_API_TOKEN>
 
 ## Related integrations
 
-- [MCP server integration](/integrations/mcp) - Use the Apify MCP server with other clients
-- [ChatGPT integration](/integrations/chatgpt) - Connect the Apify MCP server to ChatGPT
+- [MCP server integration](/mcp) - Use the Apify MCP server with other clients
+- [Claude Code CLI integration](/integrations/claude-code-cli) - The equivalent plugin for Claude Code
+- [Kimi Code CLI integration](/integrations/kimi-code-cli) - The Apify plugin for Kimi Code
 
 ## Resources
 
