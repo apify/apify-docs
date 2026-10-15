@@ -106,7 +106,7 @@ Actor execution time varies depending on the task complexity. `apify_collect` re
 ### Authentication errors
 
 - _Check your API token_ - Verify `APIFY_API_TOKEN` is set in `~/.hermes/.env`. Re-run `hermes apify-setup` to update it.
-- _Get a new token_ - Find or generate one in the **API & Integrations** section of [Apify Console](https://console.apify.com/settings/integrations?utm_source=hermes-agent&utm_medium=integration).
+- _Get a new token_ - Find or generate one in the **API & Integrations** section of [Apify Console](https://console.apify.com/settings/integrations?utm_source=hermes-agent&utm_medium=integrations).
 
 ### Plugin or tool not available
 

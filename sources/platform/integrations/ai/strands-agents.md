@@ -629,7 +629,7 @@ Get the last 15 posts from https://www.facebook.com/apifytech newer than 1 month
 | `APIFY_TOKEN environment variable is not set` | Token not configured | Run `export APIFY_TOKEN=your_apify_token` before executing your script |
 | `apify-client package is required` | Missing dependency | Run `pip install strands-apify` |
 | `Invalid URL` or `urls[N]: Invalid URL scheme '...'` | URL is not well-formed http(s) | Confirm the URL has an `http://` or `https://` scheme and a valid host. The index in `urls[N]` points to the offending entry. |
-| Actor run finishes with status `FAILED` | Invalid input or Actor error | Check the `statusMessage` in the error text, or check the full run logs in [Apify Console](https://console.apify.com/?utm_source=strands-apify&utm_medium=integrations). |
+| Actor run finishes with status `FAILED` | Invalid input or Actor error | Check the `statusMessage` in the error text, or check the full run logs in [Apify Console](https://console.apify.com/?utm_source=strands-agents&utm_medium=integrations). |
 | Actor run finishes with status `TIMED-OUT` | Timeout too short for the workload | Increase the `timeout_secs` parameter (use 600+ for large crawls) |
 | Agent selects the wrong tool | Too many tools registered or ambiguous prompt | Reduce the number of registered tools, add more context to the prompt, or use a more capable model |
 | Empty results from social media tools | Private or geo-restricted profile | Verify the profile is public. Test with a known public account first. |
