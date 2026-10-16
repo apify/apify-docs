@@ -8,6 +8,10 @@ slug: /integrations/integrate
 
 If you are building a service and your users could benefit from integrating with Apify or vice versa, we would love to hear from you! Contact us at [integrations@apify.com](mailto:integrations@apify.com) to discuss potential collaboration. We are always looking for ways to make the Apify platform more useful and powerful for users.
 
+:::tip Build with an AI coding agent
+If your team uses an AI coding agent, the `apify-integration-development` skill can guide it through building your integration. See [Build with the integration skill](#build-with-the-integration-skill).
+:::
+
 ## Why integrate with Apify
 
 Apify is the leading platform for web scraping, AI agents, and automation tools. By integrating Apify into your platform, you enable users to incorporate real-time, structured data from the web with zero scraping infrastructure on your side.
@@ -169,6 +173,17 @@ To help Apify monitor and support your integration, every API request should ide
   - Set a custom `User-Agent` header that identifies your platform.
 
 These identifiers enable better analytics and support for your integration.
+
+### Build with the integration skill
+
+The `apify-integration-development` skill (see [Apify Agent Skills](/agents/skills)) guides your AI coding agent through designing and building an official Apify integration. To install it, follow the [installation instructions on GitHub](https://github.com/apify/agent-skills/tree/main#installation). It covers four integration shapes - read the reference file that matches your product:
+
+- Workflow automation platforms - Zapier, n8n, Make, Pipedream, Activepieces.
+- AI agent plugins - coding-agent bundles for Cursor, Claude Code, Codex, and GitHub Copilot, or harness plugins for OpenClaw and Hermes.
+- AI framework packages - LangChain, LlamaIndex, Haystack, Vercel AI SDK.
+- Application integrations - a backend service or product feature calling Actors via `apify-client` or REST.
+
+The skill enforces the cross-cutting rules every Apify integration needs: [asynchronous run flow](/api/v2/actors-runs-post) with bounded polling, [cost controls](/get-started/agent-onboarding#run-your-first-actor) (`maxTotalChargeUsd`, `maxItems`), [attribution headers](#monitor-and-track), [OAuth2 and API-token authentication](#authentication-methods), and [webhooks](/integrations/webhooks) over polling. Once you publish your integration, contact [integrations@apify.com](mailto:integrations@apify.com) so the Apify team can review and validate it before it reaches users.
 
 ## Technical resources
 
