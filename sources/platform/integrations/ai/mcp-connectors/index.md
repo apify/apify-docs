@@ -44,7 +44,9 @@ MCP connectors are designed so that the Actor never holds your credentials, and 
 - You control which connectors an Actor can access. An Actor can only use connectors you explicitly provide in the input. It cannot reach your other connectors.
 - Actors are held to what they declare. The proxy enforces that an Actor can only call tools it explicitly declared in its input schema. It cannot use your connector to call anything beyond that, regardless of what the connector supports.
 - Access ends when the run ends. The proxy session expires as soon as the Actor run finishes.
-- You control which tools a connector permits. The restriction applies to every Actor using the connector, on top of each Actor's own declared tool constraints.
+- You control which tools a connector permits. When you edit the connector in [Account settings](/account/settings#mcp-connectors), you can restrict which of its tools are allowed. The restriction applies to every Actor using the connector, on top of each Actor's own declared tool constraints.
+
+![Edit connector dialog with the Allowed tools list restricting a Notion connector to two selected tools](./images/mcp-connectors-allowed-tools.webp)
 
 For the developer-side controls and tool-permission model, see [Build Actors with MCP connectors](/integrations/mcp-connectors/use-in-actors#tool-permissions).
 
@@ -54,11 +56,11 @@ When you create a connector, the platform inspects the MCP server URL you provid
 
 | Method | When to use |
 | --- | --- |
-| API key or bearer token | The MCP server uses a static API key or personal access token (PAT). |
+| API key | The MCP server uses a static API key, bearer token, or personal access token (PAT). |
 | OAuth | The server supports OAuth and either (a) supports Dynamic Client Registration (DCR), so Apify registers an OAuth client automatically, or (b) Apify provides a managed OAuth client for that service. |
-| Own OAuth client | The server uses OAuth but neither DCR nor an Apify-managed client is available. You register your own OAuth app with the provider and supply the credentials to Apify. |
+| Your own OAuth client | The server uses OAuth but neither DCR nor an Apify-managed client is available. You register your own OAuth app with the provider and supply the credentials to Apify. |
 
-Apify provides automatic OAuth client setup for Notion and Supabase. For GitHub, Slack, Google, Microsoft Entra, and other providers, register your own OAuth app and use the Own OAuth Client flow.
+Apify provides automatic OAuth client setup for Notion and Supabase. For GitHub, Slack, Google, Microsoft Entra, and other providers, register your own OAuth app and use the **Your own OAuth client** flow.
 
 Tools are discovered when you first authorize a connector. To pick up new tools added to the upstream server, re-authorize the connector.
 
@@ -66,7 +68,9 @@ Create and manage your connectors in [Settings > API & Integrations > MCP connec
 
 ## Run an Actor with a connector
 
-When you run an Actor that accepts MCP connectors, the input form shows a connector picker filtered to those compatible with the Actor's requirements. Pick one of your authorized connectors, or create a new one inline. To set connectors up in advance, see [Account settings - MCP connectors](/account/settings#mcp-connectors).
+When you run an Actor that accepts MCP connectors, the input form shows a connector picker filtered to those compatible with the Actor's requirements. The picker's label comes from the Actor's [input schema](/integrations/mcp-connectors/use-in-actors#declare-connectors-in-the-input-schema) - for example, as an **External data sources** field. Pick one of your authorized connectors, or create a new one inline. To set connectors up in advance, see [Account settings - MCP connectors](/account/settings#mcp-connectors).
+
+![Connector picker in an Actor input form, open and listing the user's authorized Notion and Sentry connectors](./images/mcp-connectors-input-picker.webp)
 
 ## Use cases
 

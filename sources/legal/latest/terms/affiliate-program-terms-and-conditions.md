@@ -12,7 +12,7 @@ slug: /affiliate-program-terms-and-conditions
 <!-- vale off -->
 <!-- markdownlint-disable -->
 
-Last updated: August 18, 2026
+Last updated: September 15, 2026
 
 ---
 
@@ -53,7 +53,7 @@ Terms starting with a capital letter used in these Affiliate Program Terms have 
 
 4.3. An Affiliate Partner moves between the Starter and Performer tiers automatically as its number of currently active paying Referred Customers rises to or falls below the threshold in Section 4.2(b). The Commission Cap for a given Referred Customer is fixed at the Commission Cap of the tier the Affiliate Partner was in at the time that person or company became a Referred Customer, and does not change afterward, even if the Affiliate Partner's tier later changes.
 
-4.4. On a launch date of August 1, 2026, Affiliate Partners with 50 or more Referred Customers are moved to the Performer tier automatically. Any Referred Customer who was referred before the Launch Date remains subject to a Commission Cap of 2,500 USD, the cap under which they were originally referred. Only a Referred Customer on or after the Launch Date is subject to the Performer Commission Cap of 5,000 USD.
+4.4. On a launch date of August 1, 2026, Affiliate Partners with 50 or more currently active paying Referred Customers are moved to the Performer tier automatically upon referring one additional new active paying Referred Customer. Any Referred Customer who was referred before the launch date remains subject to a Commission Cap of 2,500 USD, the cap under which they were originally referred. Only a Referred Customer on or after the launch date is subject to the Performer Commission Cap of 5,000 USD.
 
 ## 5. Payment terms
 
@@ -103,9 +103,13 @@ Any customer referred in breach of this clause 6.1 shall not be considered a Ref
 
 ## 8. Apify Open Source Fair Share Program Additional Terms
 
-8.1. If your Referral Links are placed on your open-source GitHub repository (e.g. as Apify badge or "Run of Apify" button), your Commission for Referred Customers can also be paid via corresponding GitHub Sponsors account, if requested by you.
+8.1. If your Referral Links are placed on your open-source GitHub repository (e.g. as Apify badge or "Run on Apify" button), your Commission for Referred Customers can also be paid via corresponding GitHub Sponsors account, if requested by you.
 
 8.2. We will automatically attribute Users who sign up for Apify through your open-source Actor page in Apify Store to you as Referred Customers.
+
+8.3. Unless otherwise agreed in writing between you and Apify, for a Referred Customer who subscribed to the Platform using a Referral Link placed on your open-source GitHub repository, or who is attributed to you under Section 8.2: (a) the Commission Cap is 2,500 USD and Sections 4.2 to 4.4 do not apply, regardless of the tier you hold in respect of your other Referred Customers; (b) that Referred Customer is disregarded when determining your number of currently active paying Referred Customers under Sections 4.2 to 4.4; and (c) Commission is paid out once the condition in Section 5.2(b) is satisfied, and Section 5.2(a) does not apply.
+
+8.4. The remaining provisions of these Affiliate Program Terms continue to apply except as modified by this Section 8, which prevails in case of conflict.
 
 ## 9. Termination
 

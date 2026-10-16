@@ -298,29 +298,29 @@ If the `tools` parameter includes any other tool, or you connect to the default 
 
 | Tool name | Category | Enabled by default | Description |
 | :--- | :--- | :--- | :--- |
-| `search-actors` | actors | ✅ | Search for Actors in Apify Store |
-| `fetch-actor-details` | actors | ✅ | Retrieve detailed information about a specific Actor, including its input and output schema, README (summary when available, full otherwise), and pricing |
-| `call-actor`* | actors | ❔ | Call an Actor and get its run results |
+| `search-actors` | `actors` | ✅ | Search for Actors in Apify Store |
+| `fetch-actor-details` | `actors` | ✅ | Retrieve detailed information about a specific Actor, including its input and output schema, README (summary when available, full otherwise), and pricing |
+| `call-actor` | `actors` | ❔ | Call an Actor and get its run results |
 | [`apify/rag-web-browser`](https://apify.com/apify/rag-web-browser) | Actor | ✅ | Browse and extract web data |
-| `search-apify-docs` | docs | ✅ | Search the Apify documentation for relevant pages |
-| `fetch-apify-docs` | docs | ✅ | Fetch the full content of an Apify documentation page by its URL |
-| `get-actor-run` | runs | | Get detailed information about a specific Actor run |
-| `get-actor-run-list` | runs | | Get a list of an Actor's runs, filterable by status |
-| `get-actor-log` | runs | | Retrieve the logs for a specific Actor run |
-| `get-dataset` | storage | | Get metadata about a specific dataset |
-| `get-dataset-items` | storage | | Retrieve items from a dataset with support for filtering and pagination |
-| `get-dataset-schema` | storage | | Generate a JSON schema from dataset items |
-| `get-key-value-store` | storage | | Get metadata about a specific key-value store |
-| `get-key-value-store-keys` | storage | | List the keys within a specific key-value store |
-| `get-key-value-store-record` | storage | | Get the value associated with a specific key in a key-value store |
-| `get-dataset-list` | storage | | List all available datasets for the user |
-| `get-key-value-store-list` | storage | | List all available key-value stores for the user |
-| `get-actor-task` | tasks | | Get a saved Actor task, its publication state, and its public display configuration |
-| `create-actor-task` | tasks | | Create a saved Actor task: a named, reusable Actor configuration |
-| `update-actor-task` | tasks | | Update a task's input, run options, or the display configuration of its landing page |
-| `publish-actor-task` | tasks | | Publish a task on its public landing page |
-| `unpublish-actor-task` | tasks | | Unpublish a task from its public landing page |
-| `get-actor-output`* | - | ✅ | Retrieve the output from an Actor call which is not included in the output preview of the Actor tool. |
+| `search-apify-docs` | `docs` | ✅ | Search the Apify documentation for relevant pages |
+| `fetch-apify-docs` | `docs` | ✅ | Fetch the full content of an Apify documentation page by its URL |
+| `get-actor-run` | `runs` | | Get detailed information about a specific Actor run |
+| `get-actor-run-list` | `runs` | | Get a list of an Actor's runs, filterable by status |
+| `get-actor-log` | `runs` | | Retrieve the logs for a specific Actor run |
+| `get-dataset` | `storage` | | Get metadata about a specific dataset |
+| `get-dataset-items` | `storage` | | Retrieve items from a dataset with support for filtering and pagination |
+| `get-dataset-schema` | `storage` | | Generate a JSON schema from dataset items |
+| `get-key-value-store` | `storage` | | Get metadata about a specific key-value store |
+| `get-key-value-store-keys` | `storage` | | List the keys within a specific key-value store |
+| `get-key-value-store-record` | `storage` | | Get the value associated with a specific key in a key-value store |
+| `get-dataset-list` | `storage` | | List all available datasets for the user |
+| `get-key-value-store-list` | `storage` | | List all available key-value stores for the user |
+| `get-actor-task` | `tasks` | | Get a saved Actor task, its publication state, and its public display configuration |
+| `create-actor-task` | `tasks` | | Create a saved Actor task: a named, reusable Actor configuration |
+| `update-actor-task` | `tasks` | | Update a task's input, run options, or the display configuration of its landing page |
+| `publish-actor-task` | `tasks` | | Publish a task on its public landing page |
+| `unpublish-actor-task` | `tasks` | | Unpublish a task from its public landing page |
+| `get-actor-output` | - | ✅ | Retrieve the output from an Actor call which is not included in the output preview of the Actor tool. |
 
 :::note Retrieving full output
 
