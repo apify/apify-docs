@@ -9,7 +9,7 @@ slug: /integrations/integrate
 If you are building a service and your users could benefit from integrating with Apify or vice versa, we would love to hear from you! Contact us at [integrations@apify.com](mailto:integrations@apify.com) to discuss potential collaboration. We are always looking for ways to make the Apify platform more useful and powerful for users.
 
 :::tip Build with an AI coding agent
-If your team uses an AI coding agent such as Claude Code, Cursor, Windsurf, Codex, or Gemini CLI, install the `apify-integration-development` skill by following the [installation guide](https://github.com/apify/agent-skills/tree/main#installation). It guides your agent through designing and building an official Apify integration for your product, with reference files for every integration shape Apify supports. See [Build with the integration skill](#build-with-the-integration-skill) below.
+If your team uses an AI coding agent, the `apify-integration-development` skill can guide it through building your integration. See [Build with the integration skill](#build-with-the-integration-skill).
 :::
 
 ## Why integrate with Apify
