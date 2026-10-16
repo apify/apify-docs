@@ -66,7 +66,7 @@ The [`apify-integration-development`](/agents/skills) skill guides your AI codin
 - AI framework packages - LangChain, LlamaIndex, Haystack, Vercel AI SDK.
 - Application integrations - a backend service or product feature calling Actors via `apify-client` or REST.
 
-The skill enforces the cross-cutting rules every Apify integration needs: asynchronous run flow with bounded polling, cost controls (`maxTotalChargeUsd`, `maxItems`), attribution headers, OAuth2 and API-token authentication, and webhooks over polling. Once you publish your integration, contact [integrations@apify.com](mailto:integrations@apify.com) so the Apify team can review and validate it before it reaches users.
+The skill enforces the cross-cutting rules every Apify integration needs: [asynchronous run flow](/api/v2/actors-runs-post) with bounded polling, [cost controls](/get-started/agent-onboarding#run-your-first-actor) (`maxTotalChargeUsd`, `maxItems`), [attribution headers](#monitor-and-track), [OAuth2 and API-token authentication](#authentication-methods), and [webhooks](/integrations/webhooks) over polling. Once you publish your integration, contact [integrations@apify.com](mailto:integrations@apify.com) so the Apify team can review and validate it before it reaches users.
 
 ### Authentication methods
 
