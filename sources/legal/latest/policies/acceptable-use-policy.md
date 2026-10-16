@@ -53,4 +53,4 @@ By agreeing to our General Terms and Conditions or simply by using the Platform 
 
 ## 4. Reporting
 
-**4.1.** We encourage users to report any misuse or suspicious activity on our Platform through our contact <a href="#" class="intercom-report-content">FORM</a>.
+**4.1.** We encourage users to report any misuse or suspicious activity on our Platform through our contact <a href="#" class="intercom-report-content">form</a>.
