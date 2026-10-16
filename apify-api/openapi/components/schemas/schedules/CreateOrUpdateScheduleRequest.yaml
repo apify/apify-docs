@@ -21,6 +21,10 @@ properties:
     examples: [Schedule of actor ...]
   title:
     type: [string, "null"]
+  notifications:
+    anyOf:
+      - $ref: ./ScheduleNotifications.yaml
+      - type: "null"
   actions:
     type: [array, "null"]
     items:
