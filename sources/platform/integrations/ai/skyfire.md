@@ -30,7 +30,7 @@ With Skyfire integration, agents can discover available Apify Actors, execute sc
 
 ## Use Skyfire with Apify MCP server
 
-The [Apify MCP server](https://docs.apify.com/integrations/mcp) provides the simplest way for agents to access Apify's Actor library using Skyfire payments.
+The [Apify MCP server](/mcp) provides the simplest way for agents to access Apify's Actor library using Skyfire payments.
 
 ### Prerequisites
 
@@ -233,7 +233,7 @@ The following operations are not supported with agentic payments:
 
 ## Resources
 
-- **[Model Context Protocol documentation](https://docs.apify.com/integrations/mcp)** - Complete guide to using the Apify MCP server
+- **[Model Context Protocol documentation](/mcp)** - Complete guide to using the Apify MCP server
 - **[Skyfire documentation](https://skyfire.xyz/)** - Official Skyfire guides and API reference
 - **[Apify API reference](https://docs.apify.com/api/v2)** - Complete API documentation for direct integration
 - **[Actor permissions](https://docs.apify.com/actors/development/permissions)** - Understanding Actor permission levels

@@ -24,7 +24,7 @@ The Services are intended for business use only and are not designed, marketed, 
 
 ## 1. Definitions
 
-1.1. "**Apify**"; "**we**" means Apify Technologies s.r.o., with its registered seat at Vodičkova 704/36, 110 00 Prague 1, Czech Republic, Company reg. no. 04788290, recorded in the Commercial Register maintained by the Municipal Court of Prague, File No.: C 253224.
+1.1. "**Apify**"; "**we**" means Apify Technologies s.r.o., with its registered seat at Na Prikope 959/27, 110 00 Prague 1, Czech Republic, Company reg. no. 04788290, recorded in the Commercial Register maintained by the Municipal Court of Prague, File No.: C 253224.
 
 1.2. "**Customer**"; "you" means a counterparty to the Agreement visiting or using the Website or Services.
 

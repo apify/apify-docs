@@ -113,7 +113,7 @@ sharedPut: &sharedPut
     content:
       application/json:
         schema:
-          $ref: ../../schemas/store/UpdateStoreRequest.yaml
+          $ref: ../../schemas/store/UpdateKeyValueStoreRequest.yaml
         example:
           name: new-store-name
     required: true
