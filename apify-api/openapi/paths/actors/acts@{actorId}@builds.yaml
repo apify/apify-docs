@@ -75,12 +75,14 @@ post:
       in: query
       description: |
         If `true` or `1`, the system will use a cache to speed up the build
-        process. By default, cache is not used.
+        process. Pass `false` or `0` to build without the cache. By default,
+        cache is used.
       style: form
       explode: true
       schema:
         type: boolean
-        example: true
+        default: true
+        example: false
     - name: betaPackages
       in: query
       description: |

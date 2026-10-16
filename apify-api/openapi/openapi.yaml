@@ -433,25 +433,45 @@ info:
     The default rate limit is applied to every API endpoint except a few select ones, which have higher rate limits.
     Each API endpoint returns its rate limit in `X-RateLimit-Limit` header.
 
+    These endpoints have a rate limit of _35 requests per second per resource_:
+
+    * Batch ([add](#/reference/request-queues/batch-request-operations/add-requests),
+      [delete](#/reference/request-queues/batch-request-operations/delete-requests))
+      operations on requests in request queues
+    * [List and lock head](#/reference/request-queues/queue-head-with-locks/list-and-lock-head) of a request queue
+
+    These endpoints have a rate limit of _100 requests per second per resource_:
+
+    * Download records from a key-value store as a ZIP archive
+
     These endpoints have a rate limit of _200 requests per second per resource_:
 
     * CRUD ([get](#/reference/key-value-stores/record/get-record),
       [put](#/reference/key-value-stores/record/put-record),
       [delete](#/reference/key-value-stores/record/delete-record))
       operations on key-value store records
+    * [Get list of keys](#/reference/key-value-stores/key-collection/get-list-of-keys) in a key-value store
 
-    These endpoints have a rate limit of _400 requests per second per resource_:
-    * [Run Actor](#/reference/actors/run-collection/run-actor)
-    * [Run Actor task asynchronously](#/reference/actor-tasks/runs-collection/run-task-asynchronously)
-    * [Run Actor task synchronously](#/reference/actor-tasks/runs-collection/run-task-synchronously)
-    * [Metamorph Actor run](#/reference/actors/metamorph-run/metamorph-run)
-    * [Push items](#/reference/datasets/item-collection/put-items) to dataset
+    These endpoints have a rate limit of _350 requests per second per resource_:
+
     * CRUD
       ([add](#/reference/request-queues/request-collection/add-request),
       [get](#/reference/request-queues/request-collection/get-request),
       [update](#/reference/request-queues/request-collection/update-request),
       [delete](#/reference/request-queues/request-collection/delete-request))
       operations on requests in request queues
+    * Request lock operations
+      ([prolong](#/reference/request-queues/request-lock/prolong-request-lock),
+      [delete](#/reference/request-queues/request-lock/delete-request-lock))
+      in request queues
+
+    These endpoints have a rate limit of _400 requests per second per resource_:
+
+    * [Run Actor](#/reference/actors/run-collection/run-actor)
+    * [Run Actor task asynchronously](#/reference/actor-tasks/runs-collection/run-task-asynchronously)
+    * [Run Actor task synchronously](#/reference/actor-tasks/runs-collection/run-task-synchronously)
+    * [Metamorph Actor run](#/reference/actors/metamorph-run/metamorph-run)
+    * [Push items](#/reference/datasets/item-collection/put-items) to dataset
 
     ### Rate limit exceeded errors
     <span id="/introduction/rate-limiting/rate-limit-exceeded-errors"></span>

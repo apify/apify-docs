@@ -4,4 +4,4 @@ required:
   - data
 properties:
   data:
-    $ref: ./EncodeAndSignData.yaml
+    $ref: ./EncodeAndSignResult.yaml
