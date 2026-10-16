@@ -59,7 +59,7 @@ An alternative way is to let your users manage the connection directly on your s
 
 ### Build with the integration skill
 
-The [`apify-integration-development`](/agents/skills) skill guides your AI coding agent through designing and building an official Apify integration. To install it, follow the [installation guide](https://github.com/apify/agent-skills/tree/main#installation). It covers four integration shapes - read the reference file that matches your product:
+The `apify-integration-development` skill (see [Apify Agent Skills](/agents/skills)) guides your AI coding agent through designing and building an official Apify integration. To install it, follow the [installation instructions on GitHub](https://github.com/apify/agent-skills/tree/main#installation). It covers four integration shapes - read the reference file that matches your product:
 
 - Workflow automation platforms - Zapier, n8n, Make, Pipedream, Activepieces.
 - AI agent plugins - coding-agent bundles for Cursor, Claude Code, Codex, and GitHub Copilot, or harness plugins for OpenClaw and Hermes.
