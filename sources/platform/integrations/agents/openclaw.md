@@ -33,7 +33,7 @@ Watch a quick demo of the Apify plugin for OpenClaw:
 Before integrating Apify with OpenClaw, you'll need:
 
 - _An Apify account_ - If you don't have one, [sign up here](https://console.apify.com/sign-up).
-- _Apify API token_ - Get your token from the **API & Integrations** section in [Apify Console](https://console.apify.com/settings/integrations).
+- _Apify API token_ - Get your token from the **API & Integrations** section in [Apify Console](https://console.apify.com/settings/integrations?utm_source=openclaw&utm_medium=integrations).
 - _OpenClaw_ - Version 2026.1.0 or later. Install from the [OpenClaw website](https://openclaw.io/).
 - _Node.js 22+_ - Required to run the plugin. Install from [nodejs.org](https://nodejs.org/en/download/).
 
@@ -63,7 +63,7 @@ Run the setup wizard to configure your API key:
 openclaw apify setup
 ```
 
-The wizard prompts you for your Apify API token, verifies the connection, and writes the configuration to your OpenClaw config file. You can find your token in the **API & Integrations** section of [Apify Console](https://console.apify.com/settings/integrations).
+The wizard prompts you for your Apify API token, verifies the connection, and writes the configuration to your OpenClaw config file. You can find your token in the **API & Integrations** section of [Apify Console](https://console.apify.com/settings/integrations?utm_source=openclaw&utm_medium=integrations).
 
 After setup, restart the gateway to load the plugin:
 

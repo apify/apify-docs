@@ -104,7 +104,7 @@ Start your request with `@apify` so the routing agent handles it. The agent owns
 
 If the browser doesn't open automatically, copy the OAuth URL shown by Cursor and paste it into your browser manually.
 
-If you're running Cursor in a remote session, devcontainer, or over SSH where no browser is available, authenticate with an API token instead. Copy your token from [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations) and set it in your environment before starting Cursor:
+If you're running Cursor in a remote session, devcontainer, or over SSH where no browser is available, authenticate with an API token instead. Copy your token from [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations?utm_source=cursor&utm_medium=integrations) and set it in your environment before starting Cursor:
 
 ```bash
 export APIFY_TOKEN=<YOUR_API_TOKEN>

@@ -110,7 +110,7 @@ Run **MCP: List Servers** from the Command Palette, select `apify-mcp-server`, a
 
 If the browser doesn't open automatically, copy the OAuth URL from the VS Code dialog and paste it into your browser manually.
 
-If you're running VS Code over SSH, in a dev container, or in any environment without a browser, the MCP OAuth flow can't complete. Authenticate locally first so the connection is stored, or use the Apify CLI and SDK paths instead - run `apify login`, or set `APIFY_TOKEN` with a token from [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations):
+If you're running VS Code over SSH, in a dev container, or in any environment without a browser, the MCP OAuth flow can't complete. Authenticate locally first so the connection is stored, or use the Apify CLI and SDK paths instead - run `apify login`, or set `APIFY_TOKEN` with a token from [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations?utm_source=vscode&utm_medium=integrations):
 
 ```bash
 export APIFY_TOKEN=<YOUR_API_TOKEN>

@@ -18,7 +18,7 @@ The [strands-apify](https://pypi.org/project/strands-apify/) package provides 18
 ## Prerequisites
 
 - Python 3.10 or newer
-- [An Apify account](https://console.apify.com) and Apify API token from the [Integrations](https://console.apify.com/settings/integrations) page in Apify Console
+- [An Apify account](https://console.apify.com) and Apify API token from the [Integrations](https://console.apify.com/settings/integrations?utm_source=strands-agents&utm_medium=integrations) page in Apify Console
 - At least one model provider configured. Strands supports Amazon Bedrock, OpenAI, Anthropic, Google Gemini, Ollama, LiteLLM, and LMStudio.
 
 ## Installation
@@ -618,7 +618,7 @@ Get the last 15 posts from https://www.facebook.com/apifytech newer than 1 month
 - Increase `timeout_secs` to 600+ when crawling large sites or scraping high-volume datasets. The default is 300 seconds.
 - Paginate datasets with `apify_get_dataset_items` using `limit` and `offset` instead of fetching everything in one call.
 - Pin Actor versions by passing the `build` parameter (e.g. `build="1.2.3"` or `build="beta"`) to `apify_run_actor` / `apify_run_actor_and_get_dataset`.
-- Monitor Actor costs in [Apify Console](https://console.apify.com/). Agentic loops can call Actors multiple times per user request. Set a billing limit to control spending.
+- Monitor Actor costs in [Apify Console](https://console.apify.com/?utm_source=strands-agents&utm_medium=integrations). Agentic loops can call Actors multiple times per user request. Set a billing limit to control spending.
 - Register only the tools your agent needs. For example, if you only search Google and scrape one URL, register exactly those two tools instead of `APIFY_SEARCH_TOOLS` or `APIFY_ALL_TOOLS`.
 - The package auto-detects non-interactive environments (CI, Docker, web services, Lambda) and suppresses the rich diagnostic panel. To suppress in interactive shells, set `STRANDS_APIFY_QUIET=1`.
 
@@ -629,7 +629,7 @@ Get the last 15 posts from https://www.facebook.com/apifytech newer than 1 month
 | `APIFY_TOKEN environment variable is not set` | Token not configured | Run `export APIFY_TOKEN=your_apify_token` before executing your script |
 | `apify-client package is required` | Missing dependency | Run `pip install strands-apify` |
 | `Invalid URL` or `urls[N]: Invalid URL scheme '...'` | URL is not well-formed http(s) | Confirm the URL has an `http://` or `https://` scheme and a valid host. The index in `urls[N]` points to the offending entry. |
-| Actor run finishes with status `FAILED` | Invalid input or Actor error | Check the `statusMessage` in the error text, or check the full run logs in [Apify Console](https://console.apify.com). |
+| Actor run finishes with status `FAILED` | Invalid input or Actor error | Check the `statusMessage` in the error text, or check the full run logs in [Apify Console](https://console.apify.com/?utm_source=strands-agents&utm_medium=integrations). |
 | Actor run finishes with status `TIMED-OUT` | Timeout too short for the workload | Increase the `timeout_secs` parameter (use 600+ for large crawls) |
 | Agent selects the wrong tool | Too many tools registered or ambiguous prompt | Reduce the number of registered tools, add more context to the prompt, or use a more capable model |
 | Empty results from social media tools | Private or geo-restricted profile | Verify the profile is public. Test with a known public account first. |
