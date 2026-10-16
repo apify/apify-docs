@@ -57,17 +57,6 @@ An alternative way is to let your users manage the connection directly on your s
 
 ![Keboola Apify component](./images/keboola-components.png)
 
-### Build with the integration skill
-
-The `apify-integration-development` skill (see [Apify Agent Skills](/agents/skills)) guides your AI coding agent through designing and building an official Apify integration. To install it, follow the [installation instructions on GitHub](https://github.com/apify/agent-skills/tree/main#installation). It covers four integration shapes - read the reference file that matches your product:
-
-- Workflow automation platforms - Zapier, n8n, Make, Pipedream, Activepieces.
-- AI agent plugins - coding-agent bundles for Cursor, Claude Code, Codex, and GitHub Copilot, or harness plugins for OpenClaw and Hermes.
-- AI framework packages - LangChain, LlamaIndex, Haystack, Vercel AI SDK.
-- Application integrations - a backend service or product feature calling Actors via `apify-client` or REST.
-
-The skill enforces the cross-cutting rules every Apify integration needs: [asynchronous run flow](/api/v2/actors-runs-post) with bounded polling, [cost controls](/get-started/agent-onboarding#run-your-first-actor) (`maxTotalChargeUsd`, `maxItems`), [attribution headers](#monitor-and-track), [OAuth2 and API-token authentication](#authentication-methods), and [webhooks](/integrations/webhooks) over polling. Once you publish your integration, contact [integrations@apify.com](mailto:integrations@apify.com) so the Apify team can review and validate it before it reaches users.
-
 ### Authentication methods
 
 Apify supports two main authentication methods for secure API access.
@@ -184,6 +173,17 @@ To help Apify monitor and support your integration, every API request should ide
   - Set a custom `User-Agent` header that identifies your platform.
 
 These identifiers enable better analytics and support for your integration.
+
+### Build with the integration skill
+
+The `apify-integration-development` skill (see [Apify Agent Skills](/agents/skills)) guides your AI coding agent through designing and building an official Apify integration. To install it, follow the [installation instructions on GitHub](https://github.com/apify/agent-skills/tree/main#installation). It covers four integration shapes - read the reference file that matches your product:
+
+- Workflow automation platforms - Zapier, n8n, Make, Pipedream, Activepieces.
+- AI agent plugins - coding-agent bundles for Cursor, Claude Code, Codex, and GitHub Copilot, or harness plugins for OpenClaw and Hermes.
+- AI framework packages - LangChain, LlamaIndex, Haystack, Vercel AI SDK.
+- Application integrations - a backend service or product feature calling Actors via `apify-client` or REST.
+
+The skill enforces the cross-cutting rules every Apify integration needs: [asynchronous run flow](/api/v2/actors-runs-post) with bounded polling, [cost controls](/get-started/agent-onboarding#run-your-first-actor) (`maxTotalChargeUsd`, `maxItems`), [attribution headers](#monitor-and-track), [OAuth2 and API-token authentication](#authentication-methods), and [webhooks](/integrations/webhooks) over polling. Once you publish your integration, contact [integrations@apify.com](mailto:integrations@apify.com) so the Apify team can review and validate it before it reaches users.
 
 ## Technical resources
 
