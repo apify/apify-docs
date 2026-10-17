@@ -3,6 +3,7 @@ title: Page methods
 description: Understand that the Page object has many different methods to offer, and learn how to use two of them to capture a page's title and take a screenshot.
 sidebar_position: 3
 slug: /puppeteer-playwright/page/page-methods
+pagination: true
 ---
 
 import Tabs from '@theme/Tabs';
