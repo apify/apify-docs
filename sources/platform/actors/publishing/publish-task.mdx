@@ -60,7 +60,7 @@ If your Actor supports multiple use cases, publish a task for each one. A web sc
 Once your task runs reliably and produces the output you want users to see, publish it from Apify Console. The **Publishing** tab guides you through each requirement.
 
 1. From your task's page in Apify Console, open the **Publishing** tab.
-1. Complete the three sections: [Page details](#page-details), [Input](#input), and [Dataset schema](#dataset-schema).
+1. Complete the three required sections: [Page details](#page-details), [Input](#input), and [Dataset schema](#dataset-schema). Optionally, add an [FAQ](#faq).
 1. Select **Publish task**.
 
 ![The Publishing tab showing the Publish task button and three sections to complete.](./images/public-tasks/task-publishing-tab.webp)
@@ -120,6 +120,23 @@ The **Dataset schema** section selects which view of the Actor's dataset is rend
 
 For more on configuring views, see [Dataset schema](/storage/dataset-schema).
 
+### FAQ
+
+The optional **FAQ** section adds questions and answers to the bottom of the landing page. An FAQ answers what people want to know before they run your task, and gives search engines and AI agents short facts they can quote.
+
+- **Generate FAQ:** writes questions and answers with AI, based on the task's title, description, and input, and on the Actor's README and dataset schema. If the task already has an FAQ, the AI uses it as a draft and replaces it after you confirm.
+- **Add question:** adds a question and answer that you write yourself.
+
+Review and edit generated items before you save them. An FAQ holds up to 10 items. Each question can be up to 120 characters and each answer up to 250 characters.
+
+![FAQ section with the Generate FAQ button, two question-and-answer pairs with character counters, and the Add question button.](./images/public-tasks/task-publishing-faq.webp)
+
+:::tip Write answers that stand alone
+
+AI agents and search engines often quote a single answer without its question. Name the task in each answer instead of starting with "It" or "Yes": "The Amazon price tracker task returns the product title, price, and image URL" rather than "Yes, it returns prices." Aim for 5 to 8 questions about what the output contains, what input the task needs, and how to run it through the API or on a schedule.
+
+:::
+
 ### Publish confirmation
 
 When you select **Publish task**, a confirmation dialog reminds you that your runs and data stay private. Once published, anyone on Apify can duplicate and run your task with their own input.
@@ -158,6 +175,8 @@ A task can only be published when all of the following hold:
 - The Actor has fewer than 10 published tasks.
 
 `publicConfig.seoTitle` (up to 60 characters) and `publicConfig.seoDescription` (up to 160 characters) are optional. They appear in search results only and fall back to the task's title and description when empty. Search engines display only that much text, so they cut a longer title or 400-character description if you leave these fields empty.
+
+`publicConfig.faq` is optional too. It holds up to 10 `{ "question": "...", "answer": "..." }` objects, with questions up to 120 characters and answers up to 250 characters. Neither can be blank.
 
 If any requirement is unmet, the request fails and none of the update is applied, so the task never ends up half-configured.
 
@@ -269,11 +288,12 @@ Keep the task name short, descriptive, and focused on the use case keyword.
 
 ![A published task landing page showing the SEO title, input configuration, and dataset preview.](./images/public-tasks/task-landing-page.webp)
 
-The landing page displays the information you configured in the [Page details](#page-details), [Input](#input), and [Dataset schema](#dataset-schema) sections:
+The landing page displays the information you configured in the [Page details](#page-details), [Input](#input), [Dataset schema](#dataset-schema), and [FAQ](#faq) sections:
 
 - The **SEO title** and **SEO description** at the top of the page.
 - The selected **input fields** with their exact configured values.
 - A preview of the **Dataset schema fields** based on the dataset view you selected.
+- The [FAQ](#faq), if you added one. The markdown version of the page includes it too.
 - A call-to-action button that lets users try the task right away.
 
 ### After a user tries your task
