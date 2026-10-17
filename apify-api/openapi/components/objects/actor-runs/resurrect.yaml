@@ -31,11 +31,11 @@ byRunId:
   summary: Resurrect run
   description: |
     Resurrects a finished Actor run and returns an object that contains all the details about the resurrected run.
-    Only finished runs, i.e. runs with status `FINISHED`, `FAILED`, `ABORTED` and `TIMED-OUT` can be resurrected.
+    Only finished runs, i.e. runs with status `SUCCEEDED`, `FAILED`, `ABORTED` and `TIMED-OUT` can be resurrected.
     Run status will be updated to RUNNING and its container will be restarted with the same storages
     (the same behaviour as when the run gets migrated to the new server).
 
-    For more information, see the [Actor docs](https://docs.apify.com/platform/actors/running/runs-and-builds#resurrection-of-finished-run).
+    For more information, see the [Actor docs](https://docs.apify.com/platform/actors/running/runs-and-builds#resurrect-a-finished-run).
   operationId: PostResurrectRun
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
@@ -67,14 +67,14 @@ byActorRunId:
     Actor run and returns an object that contains all the details about the
     resurrected run.
 
-    Only finished runs, i.e. runs with status `FINISHED`, `FAILED`, `ABORTED`
+    Only finished runs, i.e. runs with status `SUCCEEDED`, `FAILED`, `ABORTED`
     and `TIMED-OUT` can be resurrected.
     Run status will be updated to RUNNING and its container will be restarted
     with the same storages
     (the same behaviour as when the run gets migrated to the new server).
 
     For more information, see the [Actor
-    docs](https://docs.apify.com/platform/actors/running/runs-and-builds#resurrection-of-finished-run).
+    docs](https://docs.apify.com/platform/actors/running/runs-and-builds#resurrect-a-finished-run).
   operationId: actor_run_resurrect_post
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
