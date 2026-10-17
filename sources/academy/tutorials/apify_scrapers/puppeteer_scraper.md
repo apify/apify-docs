@@ -5,6 +5,7 @@ description: Learn how to scrape a website using Apify's Puppeteer Scraper. Buil
 externalSourceUrl: https://raw.githubusercontent.com/apify/actor-scraper/master/docs/build/puppeteer-scraper-tutorial.md
 sidebar_position: 4
 slug: /apify-scrapers/puppeteer-scraper
+tags: [apify-scrapers, browser-automation]
 ---
 
 [//]: # (TODO: Should be updated)

@@ -3,6 +3,7 @@ title: Block requests in Puppeteer
 description: Why and how to block requests in Puppeteer
 sidebar_position: 16.2
 slug: /node-js/block-requests-puppeteer
+tags: [node-js, browser-automation, performance]
 ---
 
 :::caution Improve Performance: Use `blockRequests`

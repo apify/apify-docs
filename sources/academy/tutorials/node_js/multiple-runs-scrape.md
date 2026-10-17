@@ -3,6 +3,7 @@ title: Scrape website in parallel with multiple Actor runs
 description: Learn how to run multiple instances of an Actor to scrape a website faster. This tutorial will guide you through the process of setting up your scraper.
 sidebar_position: 15.10
 slug: /node-js/multiple-runs-scrape
+tags: [node-js, apify-actors, performance]
 ---
 
 **Learn how to run multiple instances of an Actor to scrape a website faster. This tutorial will guide you through the process of setting up your scraper.**

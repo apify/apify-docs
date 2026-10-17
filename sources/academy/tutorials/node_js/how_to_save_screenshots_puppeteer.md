@@ -3,6 +3,7 @@ title: How to save screenshots from puppeteer
 description: Code example for how to save screenshots from puppeteer to Apify key-value store
 sidebar_position: 15.8
 slug: /node-js/how-to-save-screenshots-puppeteer
+tags: [node-js, browser-automation]
 ---
 
 A good way to debug your puppeteer crawler in Apify Actors is to save a screenshot of a browser window to the Apify key-value store. You can do that using this function:
