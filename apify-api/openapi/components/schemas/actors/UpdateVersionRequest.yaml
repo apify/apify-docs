@@ -8,7 +8,7 @@ properties:
     description: The version number of the Actor. Two numbers separated by a dot,
       that represent the `MAJOR.MINOR` part of the semantic versioning.
   sourceType:
-    $ref: ./VersionSourceType.yaml
+    $ref: ./VersionSourceTypeRequest.yaml
     description: Where the source code of the version lives.
   envVars:
     anyOf:
