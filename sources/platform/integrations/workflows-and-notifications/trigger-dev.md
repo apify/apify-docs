@@ -15,7 +15,7 @@ Trigger.dev's terms of service require a proxy for web scraping and prohibit scr
 
 ## Prerequisites
 
-- An [Apify account](https://console.apify.com/?utm_source=trigger-dev&utm_medium=integrations) and an [Apify API token](https://console.apify.com/settings/integrations?utm_source=trigger-dev&utm_medium=integrations)
+- An [Apify account](https://console.apify.com/?utm_source=trigger.dev&utm_medium=integrations) and an [Apify API token](https://console.apify.com/settings/integrations?utm_source=trigger.dev&utm_medium=integrations)
 - A project with [Trigger.dev initialized](https://trigger.dev/docs/quick-start)
 
 ## Set up Apify in your Trigger.dev project
@@ -152,7 +152,7 @@ Set `needsApproval: true` on `runApifyActor` to pause the agent before it spends
 
 ## Limitations
 
-- Cancelling a Trigger.dev run doesn't stop the Actor run it started. Abort the Actor run in [Apify Console](https://console.apify.com/actors/runs?utm_source=trigger-dev&utm_medium=integrations) or with `apify.run(runId).abort()`.
+- Cancelling a Trigger.dev run doesn't stop the Actor run it started. Abort the Actor run in [Apify Console](https://console.apify.com/actors/runs?utm_source=trigger.dev&utm_medium=integrations) or with `apify.run(runId).abort()`.
 - The tasks on this page and in the Trigger.dev guides aren't retry-safe: every retry starts a new Actor run. In production, store the Actor run ID and reuse that run on retry instead of starting a new one.
 
 ## Troubleshooting
