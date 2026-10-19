@@ -18,7 +18,7 @@ properties:
       You can change this title without affecting the Actor's URL or SEO.
   isPublic:
     type: boolean
-    const: false
+    examples: [false]
     description: Whether the Actor is available to users in Apify Store. A new Actor is always private.
       To publish it, build it first, then update it with `isPublic` set to `true`.
   actorPermissionLevel:
