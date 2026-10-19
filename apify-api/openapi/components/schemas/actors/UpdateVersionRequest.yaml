@@ -11,11 +11,10 @@ properties:
     $ref: ./WritableVersionSourceType.yaml
     description: Where the source code of the version lives.
   envVars:
-    anyOf:
-      - type: array
-        items:
-          $ref: ./EnvVarRequest.yaml
-      - type: "null"
+    type: array
+    maxItems: 100
+    items:
+      $ref: ./EnvVarRequest.yaml
     description: Environment variables for the version.
   applyEnvVarsToBuild:
     type: [boolean, "null"]
