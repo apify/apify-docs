@@ -4,6 +4,7 @@ description: Take your scrapers to a production-ready level by learning various 
 sidebar_position: 6
 category: web scraping & automation
 slug: /advanced-web-scraping
+pagination: true
 ---
 
 In the [Web scraping basics for JavaScript devs](/academy/scraping-basics-javascript) course, we have learned the necessary basics required to create a scraper. In the following courses, we learned more about specific practices and techniques that will help us to solve most of the problems we will face.

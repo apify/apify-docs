@@ -4,8 +4,6 @@ sidebar_label: Build Actors
 sidebar_position: 2
 slug: /get-started/build-actors
 description: Build your own Actor on the Apify platform - create it from a template, understand the Actor model, deploy it, and publish it to Apify Store.
-pagination_next: null
-pagination_prev: null
 ---
 
 An Actor is ordinary code - JavaScript, Python, or anything that runs in a Docker container - packaged with a definition that tells the Apify platform how to run it. The definition specifies what input it accepts, what output it produces, and what environment it needs. That packaging is what makes an Actor more than a script. The platform handles the servers, scaling, storage, and scheduling, and every Actor you build gets an API, a user interface, and integrations for free.

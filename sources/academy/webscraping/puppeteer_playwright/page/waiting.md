@@ -3,6 +3,7 @@ title: Waiting for elements and events
 description: Learn the importance of waiting for content and events before running interaction or extraction code, as well as the best practices for doing so.
 sidebar_position: 2
 slug: /puppeteer-playwright/page/waiting
+pagination: true
 ---
 
 import Tabs from '@theme/Tabs';
