@@ -40,7 +40,7 @@ properties:
   versions:
     type: array
     items:
-      $ref: ./CreateOrUpdateVersionRequest.yaml
+      $ref: ./CreateActorVersionRequest.yaml
     description: "An array of `Version` objects. Each object represents a specific version of the
       Actor's source code: its location, builds, and environment configuration."
   categories:
