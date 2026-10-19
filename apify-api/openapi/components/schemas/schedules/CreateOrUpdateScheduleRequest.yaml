@@ -22,9 +22,7 @@ properties:
   title:
     type: [string, "null"]
   notifications:
-    anyOf:
-      - $ref: ./ScheduleNotifications.yaml
-      - type: "null"
+    $ref: ./ScheduleNotifications.yaml
   actions:
     type: [array, "null"]
     items:
