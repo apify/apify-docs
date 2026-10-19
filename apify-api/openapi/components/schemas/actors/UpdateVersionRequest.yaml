@@ -1,16 +1,14 @@
-title: CreateOrUpdateVersionRequest
+title: UpdateVersionRequest
 type: object
 properties:
   versionNumber:
-    type: [string, "null"]
+    type: string
     pattern: ^([0-9]|[1-9][0-9])\.([0-9]|[1-9][0-9])$
     examples: ["1.6"]
     description: The version number of the Actor. Two numbers separated by a dot,
       that represent the `MAJOR.MINOR` part of the semantic versioning.
   sourceType:
-    anyOf:
-      - $ref: ./VersionSourceType.yaml
-      - type: "null"
+    $ref: ./VersionSourceType.yaml
     description: Where the source code of the version lives.
   envVars:
     anyOf:
