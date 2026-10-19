@@ -79,7 +79,7 @@ properties:
       sourceType:
         $ref: ../actors/VersionSourceType.yaml
       buildTag:
-        type: string
+        type: [string, "null"]
         examples: [experimental]
       versionNumber:
         type: string
