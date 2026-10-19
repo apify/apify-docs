@@ -2,7 +2,7 @@ name: OpenAPI spec review
 
 on:
     pull_request:
-        types: [opened]
+        types: [opened, synchronize]
         paths:
             - 'apify-api/openapi/**'
 
