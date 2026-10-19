@@ -68,7 +68,7 @@ get:
 post:
   tags:
     - Actor tasks
-  summary: Run Actor task synchronously with input and get key-value store record
+  summary: Run Actor task with input synchronously and get key-value store record
   description: |
     Runs an Actor task and synchronously returns a key-value store record.
 

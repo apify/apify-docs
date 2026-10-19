@@ -87,7 +87,7 @@ get:
 post:
   tags:
     - Actor tasks
-  summary: Run Actor task synchronously with input and get dataset items
+  summary: Run Actor task with input synchronously and get dataset items
   description: |
     Runs an Actor task and synchronously returns its dataset items.
 

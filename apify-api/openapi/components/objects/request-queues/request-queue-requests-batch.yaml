@@ -157,7 +157,7 @@ sharedDelete: &sharedDelete
 
 deleteById:
   <<: [*sharedDelete, *sharedTagById]
-  summary: Batch delete requests from request queue
+  summary: Batch delete requests in request queue
   description: |
     Batch-deletes given requests from the queue. The number of requests in a
     batch is limited to 25. The response contains an array of unprocessed and
@@ -188,12 +188,12 @@ deleteById:
 
 deleteDefault:
   <<: [*sharedDelete, *sharedTagDefault]
-  summary: Batch delete requests from Actor run's default request queue
+  summary: Batch delete requests in Actor run's default request queue
   description: |
     Batch-deletes requests from the default request queue of the Actor run.
 
     This endpoint is a shortcut for getting the run's `defaultRequestQueueId` and then using the
-    [Batch delete requests from request queue](/api/v2/request-queue-requests-batch-delete) endpoint.
+    [Batch delete requests in request queue](/api/v2/request-queue-requests-batch-delete) endpoint.
   operationId: actorRun_requestQueue_requests_batch_delete
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
@@ -202,12 +202,12 @@ deleteDefault:
 
 deleteLastRun:
   <<: [*sharedDelete, *sharedTagLastRun]
-  summary: Batch delete requests from last Actor run's default request queue
+  summary: Batch delete requests in last Actor run's default request queue
   description: |
     Batch-deletes requests from the default request queue of the last Actor run.
 
     This endpoint is a shortcut for getting the last run's `defaultRequestQueueId` and then using the
-    [Batch delete requests from request queue](/api/v2/request-queue-requests-batch-delete) endpoint.
+    [Batch delete requests in request queue](/api/v2/request-queue-requests-batch-delete) endpoint.
   operationId: actor_runs_last_requestQueue_requests_batch_delete
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
@@ -218,12 +218,12 @@ deleteLastRun:
 
 deleteTaskLastRun:
   <<: [*sharedDelete, *sharedTagTaskLastRun]
-  summary: Batch delete requests from last Actor task run's default request queue
+  summary: Batch delete requests in last Actor task run's default request queue
   description: |
     Batch-deletes requests from the default request queue of the last Actor task run.
 
     This endpoint is a shortcut for getting the last task run's `defaultRequestQueueId` and then using the
-    [Batch delete requests from request queue](/api/v2/request-queue-requests-batch-delete) endpoint.
+    [Batch delete requests in request queue](/api/v2/request-queue-requests-batch-delete) endpoint.
   operationId: actorTask_runs_last_requestQueue_requests_batch_delete
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
