@@ -16,7 +16,7 @@ properties:
     anyOf:
       - type: array
         items:
-          $ref: ./EnvVar.yaml
+          $ref: ./EnvVarRequest.yaml
       - type: "null"
     description: Environment variables for the version.
   applyEnvVarsToBuild:
