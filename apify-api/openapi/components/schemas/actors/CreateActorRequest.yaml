@@ -40,6 +40,7 @@ properties:
   versions:
     type: array
     minItems: 1
+    maxItems: 10
     items:
       $ref: ./CreateVersionRequest.yaml
     description: "An array of `Version` objects. Each object represents a specific version of the
