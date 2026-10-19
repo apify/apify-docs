@@ -1,4 +1,4 @@
-title: VersionSourceTypeRequest
+title: WritableVersionSourceType
 description: The version source types accepted in request bodies. Same as `VersionSourceType`, without `SOURCE_CODE`.
 enum:
   - SOURCE_FILES
