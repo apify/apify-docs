@@ -30,14 +30,43 @@ properties:
     description: The tag name to apply to a successful build of this version. Can be `null` when the version has no build tag.
   sourceFiles:
     $ref: ./VersionSourceFiles.yaml
-    description: Applies when the `sourceType` is `SOURCE_FILES`. Represents the Actor's
+    description: Required when the `sourceType` is `SOURCE_FILES`. Represents the Actor's
       file structure as an array of files and folders.
   gitRepoUrl:
-    type: [string, "null"]
-    description: URL of the Git repository to clone the source code from. Applies when the `sourceType` is `GIT_REPO`.
+    type: string
+    description: URL of the Git repository to clone the source code from. Required when the `sourceType` is `GIT_REPO`.
   tarballUrl:
-    type: [string, "null"]
-    description: URL of the tarball to download the source code from. Applies when the `sourceType` is `TARBALL`.
+    type: string
+    description: URL of the tarball to download the source code from. Required when the `sourceType` is `TARBALL`.
   gitHubGistUrl:
-    type: [string, "null"]
-    description: URL of the GitHub Gist to clone the source code from. Applies when the `sourceType` is `GITHUB_GIST`.
+    type: string
+    description: URL of the GitHub Gist to clone the source code from. Required when the `sourceType` is `GITHUB_GIST`.
+allOf:
+  - if:
+      properties:
+        sourceType:
+          const: SOURCE_FILES
+    then:
+      required:
+        - sourceFiles
+  - if:
+      properties:
+        sourceType:
+          const: GIT_REPO
+    then:
+      required:
+        - gitRepoUrl
+  - if:
+      properties:
+        sourceType:
+          const: TARBALL
+    then:
+      required:
+        - tarballUrl
+  - if:
+      properties:
+        sourceType:
+          const: GITHUB_GIST
+    then:
+      required:
+        - gitHubGistUrl
