@@ -78,7 +78,7 @@ await crawler.addRequests([{
 await crawler.run();
 ```
 
-:::tip
+:::tip Use parseWithCheerio everywhere
 
 The `parseWithCheerio` function is available even in `CheerioCrawler` and all the other Crawlee crawlers. If you think you'll often switch up the crawlers, you can use it to further reduce the number of needed line changes.
 
@@ -127,7 +127,7 @@ One of the important benefits of using a browser is that it allows you to extrac
 
 ![headless-dynamic-data.png](./images/headless-dynamic-data.png)
 
-:::tip
+:::tip Learn more about dynamic pages
 
 We discuss dynamic data at length in the [How to scrape dynamic pages](../../../tutorials/node_js/dealing_with_dynamic_pages.md) tutorial, and we also have a special lesson dedicated to it in our [Puppeteer & Playwright course](../../puppeteer_playwright/page/waiting.md).
 
