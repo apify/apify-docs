@@ -107,7 +107,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: ../../components/schemas/actors/CreateOrUpdateVersionRequest.yaml
+          $ref: ../../components/schemas/actors/CreateVersionRequest.yaml
         example:
           versionNumber: "0.1"
           sourceType: GIT_REPO
