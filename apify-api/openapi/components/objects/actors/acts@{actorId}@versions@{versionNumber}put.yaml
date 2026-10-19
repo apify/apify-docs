@@ -9,7 +9,7 @@ shared: &shared
     content:
       application/json:
         schema:
-          $ref: ../../schemas/actors/CreateOrUpdateVersionRequest.yaml
+          $ref: ../../schemas/actors/UpdateVersionRequest.yaml
         example:
           versionNumber: "0.0"
           sourceType: SOURCE_FILES

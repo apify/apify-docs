@@ -44,7 +44,7 @@ Once we have an active account, we can start working on our scraper. Using the p
 
 ## Creating a new Actor
 
-After logging in, we land on a page called **Apify Store**. Apify serves as both infrastructure where we can privately deploy and run our own scrapers, and as a marketplace where anyone can offer ready-made scrapers to others for rent. But let's hold off on exploring Apify Store for now. We'll navigate to **My Actors** under the **Development** menu:
+After logging in, we land on a page called **Apify Store**. Apify serves as both infrastructure where we can privately deploy and run our own scrapers, and as a marketplace where anyone can offer ready-made scrapers for others to use. But let's hold off on exploring Apify Store for now. We'll navigate to **My Actors** under the **Development** menu:
 
 ![Apify Store welcome screen with Development menu highlighted](images/apify-nav-store.webp)
 
