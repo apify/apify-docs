@@ -53,10 +53,9 @@ info:
 
     To use your token in a request, either:
 
-    - Add the token to your request's `Authorization` header as `Bearer <token>`.
+    - Add the token to your request's `Authorization` header as `Bearer <token>` (recommended).
     E.g., `Authorization: Bearer xxxxxxx`.
-    [More info](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization).
-    (Recommended).
+    [Learn more](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization)
     - Add it as the `token` parameter to your request URL. (Less secure).
 
     Using your token in the request header is more secure than using it as a URL

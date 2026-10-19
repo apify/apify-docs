@@ -1,7 +1,7 @@
 type: http
 scheme: bearer
 description: |-
-  Bearer token provided in the `Authorization` header (e.g., `Authorization: Bearer your_token`—recommended). [More info](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization).
+  Bearer token provided in the `Authorization` header (e.g., `Authorization: Bearer your_token`—recommended). [Learn more](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization)
 
   Use your API token to authenticate requests. You can find it on the [Integrations page](https://console.apify.com/account#/integrations) in Apify Console. This method is more secure than query parameters, as headers are not logged in browser history or server logs.
 

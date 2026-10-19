@@ -66,8 +66,8 @@ put:
     header!
 
     When providing your API authentication token, we recommend using the
-    request's `Authorization` header, rather than the URL. ([More
-    info](#/introduction/authentication)).
+    request's `Authorization` header, rather than the URL.
+    [Learn more](/api/v2/getting-started#authentication)
 
     The response is the [Version object](#/reference/actors/version-object) as
     returned by the [Get version](#/reference/actors/version-object/get-version) endpoint.
