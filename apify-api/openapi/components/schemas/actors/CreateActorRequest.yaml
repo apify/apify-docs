@@ -17,7 +17,7 @@ properties:
       Can contain spaces and capital letters. Recommended length is 40-50 characters.
       You can change this title without affecting the Actor's URL or SEO.
   isPublic:
-    type: [boolean, "null"]
+    type: boolean
     examples: [false]
     description: Whether the Actor is available to users in Apify Store. If `false`, the Actor is private
       and only visible to you.
@@ -38,11 +38,9 @@ properties:
     examples: [false]
     deprecated: true # Use defaultRunOptions.restartOnError instead
   versions:
-    anyOf:
-      - type: array
-        items:
-          $ref: ./Version.yaml
-      - type: "null"
+    type: array
+    items:
+      $ref: ./Version.yaml
     description: "An array of `Version` objects. Each object represents a specific version of the
       Actor's source code: its location, builds, and environment configuration."
   categories:
