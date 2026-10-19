@@ -25,6 +25,9 @@ properties:
     description: Whether to inject the environment variables at build time.
   buildTag:
     type: [string, "null"]
+    minLength: 1
+    maxLength: 30
+    pattern: ^([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9])$
     examples: [latest]
     description: The tag name to apply to a successful build of this version. Can be `null` when the version has no build tag.
   sourceFiles:
