@@ -43,6 +43,9 @@ properties:
   trialMinutes:
     type: [integer, "null"]
     examples: [null]
+    deprecated: true
+    description: Free trial length for rental Actors. Always `null`, because the rental pricing
+      model is no longer supported.
   unitName:
     type: [string, "null"]
     examples: [null]

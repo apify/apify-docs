@@ -61,6 +61,9 @@ properties:
     description: "An array of `Version` objects. Each object represents a specific version of the
       Actor's source code: its location, builds, and environment configuration."
   pricingInfos:
+    description: >-
+      The Actor's pricing records, including past ones. Records with `FLAT_PRICE_PER_MONTH`
+      can appear only in pricing history, because the rental pricing model is no longer supported.
     type: array
     items:
       $ref: ../actor-pricing-info/ActorRunPricingInfo.yaml
