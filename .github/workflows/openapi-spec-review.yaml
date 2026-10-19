@@ -21,12 +21,13 @@ jobs:
               env:
                   ANTHROPIC_API_KEY: ${{ secrets.OPENAPI_SPEC_CHECKER_KEY }}
                   PR_URL: ${{ github.event.pull_request.html_url }}
+                  PR_NUMBER: ${{ github.event.pull_request.number }}
               run: |
-                  jq -n --arg pr_url "$PR_URL" '{
+                  jq -n --arg pr_url "$PR_URL" --arg pr_number "$PR_NUMBER" '{
                       agent: "agent_0174zMwq9qzt879TvNydsk7U",
                       environment_id: "env_01GHCycXuDrfD7iMFZFie9fD",
                       vault_ids: ["vlt_011CgBEg4og89Ai1ea6rFSiL"],
-                      title: "PR: \($pr_url)",
+                      title: "PR #\($pr_number)",
                       initial_events: [
                           {
                               type: "user.message",
