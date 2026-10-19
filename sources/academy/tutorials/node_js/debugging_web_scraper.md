@@ -3,6 +3,7 @@ title: Debugging your Web Scraper pageFunction in browser's console
 description: Test your Page Function's code directly in your browser's console
 sidebar_position: 16.3
 slug: /node-js/debugging-web-scraper
+tags: [node-js, apify-scrapers, debugging]
 ---
 
 A lot of beginners struggle through trial and error while scraping a simple site. They write some code that might work, press the run button, see that error happened and they continue writing more code that might work but probably won't. This is extremely inefficient and gets tedious really fast.

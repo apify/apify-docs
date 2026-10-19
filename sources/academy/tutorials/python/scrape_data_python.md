@@ -3,6 +3,7 @@ title: How to scrape data in Python using Beautiful Soup
 description: Learn how to create a Python Actor and use Python libraries to scrape, process and visualize data extracted from the web.
 sidebar_position: 1
 slug: /python/scrape-data-python
+tags: [python]
 ---
 
 **Learn how to create a Python Actor and use Python libraries to scrape, process and visualize data extracted from the web.**

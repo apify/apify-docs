@@ -1,0 +1,10 @@
+{
+    "theme.docs.tagDocListPageTitle.nDocsTagged": {
+        "message": "One tutorial tagged|{count} tutorials tagged",
+        "description": "Pluralized label for \"{count} docs tagged\". Only Academy tutorials use tags"
+    },
+    "theme.tags.tagsPageLink": {
+        "message": "All tutorials",
+        "description": "The label of the link targeting the tag list page, which redirects to the tutorials landing page"
+    }
+}

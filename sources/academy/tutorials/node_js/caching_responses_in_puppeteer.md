@@ -3,6 +3,7 @@ title: How to optimize Puppeteer by caching responses
 description: Learn why it is important for performance to cache responses in memory when intercepting requests in Puppeteer and how to implement it in your code.
 sidebar_position: 14.2
 slug: /node-js/caching-responses-in-puppeteer
+tags: [node-js, browser-automation, performance]
 ---
 
 import Example from '!!raw-loader!roa-loader!./caching_responses_in_puppeteer.js';

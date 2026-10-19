@@ -69,7 +69,7 @@ const PAGES = [
     { path: '/storage/dataset.md', keys: ['previous', 'next'] },
     { path: '/proxy/datacenter-proxy.md', keys: ['previous', 'next'] },
     { path: '/api/v2/dataset-get.md', keys: ['previous', 'next'] },
-    { path: '/academy/tutorials.md', keys: ['next'] },
+    { path: '/academy/tutorials.md', keys: [] }, // organized by tags: no sidebar, no neighbours
     { path: '/legal/general-terms-and-conditions.md', keys: ['previous', 'next'] },
 ];
 
