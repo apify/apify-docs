@@ -9,6 +9,9 @@ on:
 permissions:
     contents: read
 
+env:
+    SESSION_FILE: .openapi-review/session_id
+
 jobs:
     trigger-review:
         name: Trigger agent review
@@ -17,13 +20,59 @@ jobs:
         if: github.event.pull_request.head.repo.full_name == github.repository
 
         steps:
-            - name: Start review session
+            # Cache entries are scoped to the PR, so only earlier runs of this PR can be restored
+            - name: Restore review session ID
+              uses: actions/cache/restore@caa296126883cff596d87d8935842f9db880ef25 # v5.1.0
+              with:
+                  path: ${{ env.SESSION_FILE }}
+                  key: openapi-review-${{ github.event.pull_request.number }}-${{ github.run_id }}-${{ github.run_attempt }}
+                  restore-keys: openapi-review-${{ github.event.pull_request.number }}-
+
+            - name: Send review request
+              id: review
               env:
                   ANTHROPIC_API_KEY: ${{ secrets.OPENAPI_SPEC_CHECKER_KEY }}
                   PR_URL: ${{ github.event.pull_request.html_url }}
                   PR_NUMBER: ${{ github.event.pull_request.number }}
+                  HEAD_SHA: ${{ github.event.pull_request.head.sha }}
               run: |
-                  jq -n --arg pr_url "$PR_URL" --arg pr_number "$PR_NUMBER" '{
+                  api() {
+                      curl -sS -o response.json -w '%{http_code}' "https://api.anthropic.com/v1/$1" \
+                          -H "Content-Type: application/json" \
+                          -H "anthropic-version: 2023-06-01" \
+                          -H "anthropic-beta: managed-agents-2026-04-01" \
+                          -H "anthropic-workspace-id: wrkspc_01WgY7dQqUQz8iqpLXhjt8Ho" \
+                          -H "x-api-key: $ANTHROPIC_API_KEY" \
+                          -d @-
+                  }
+
+                  if [ -s "$SESSION_FILE" ]; then
+                      session_id=$(cat "$SESSION_FILE")
+                      echo "Found cached session $session_id"
+                      status=$(jq -n --arg pr_url "$PR_URL" --arg sha "$HEAD_SHA" '{
+                          events: [
+                              {
+                                  type: "user.message",
+                                  content: [
+                                      { type: "text", text: "New commits were pushed to \($pr_url) (head is now \($sha)). Review the pull request again, focusing on the changes since your last review." }
+                                  ]
+                              }
+                          ]
+                      }' | api "sessions/$session_id/events")
+                      if [[ $status == 2?? ]]; then
+                          echo "Sent review request to existing session $session_id"
+                          exit 0
+                      fi
+                      # 404 = session deleted, 409 = session archived; anything else is a real error
+                      if [ "$status" != 404 ] && [ "$status" != 409 ]; then
+                          echo "::error::Sending to session $session_id failed with HTTP $status"
+                          cat response.json
+                          exit 1
+                      fi
+                      echo "Cached session $session_id is no longer usable (HTTP $status), creating a new one"
+                  fi
+
+                  status=$(jq -n --arg pr_url "$PR_URL" --arg pr_number "$PR_NUMBER" '{
                       agent: "agent_0174zMwq9qzt879TvNydsk7U",
                       environment_id: "env_01GHCycXuDrfD7iMFZFie9fD",
                       vault_ids: ["vlt_011CgBEg4og89Ai1ea6rFSiL"],
@@ -36,10 +85,22 @@ jobs:
                               ]
                           }
                       ]
-                  }' | curl -sS --fail-with-body https://api.anthropic.com/v1/sessions \
-                      -H "Content-Type: application/json" \
-                      -H "anthropic-version: 2023-06-01" \
-                      -H "anthropic-beta: managed-agents-2026-04-01" \
-                      -H "anthropic-workspace-id: wrkspc_01WgY7dQqUQz8iqpLXhjt8Ho" \
-                      -H "x-api-key: $ANTHROPIC_API_KEY" \
-                      -d @-
+                  }' | api sessions)
+                  if [[ $status != 2?? ]]; then
+                      echo "::error::Creating session failed with HTTP $status"
+                      cat response.json
+                      exit 1
+                  fi
+
+                  session_id=$(jq -r .id response.json)
+                  echo "Created session $session_id"
+                  mkdir -p "$(dirname "$SESSION_FILE")"
+                  echo "$session_id" > "$SESSION_FILE"
+                  echo "created=true" >> "$GITHUB_OUTPUT"
+
+            - name: Save review session ID
+              if: steps.review.outputs.created == 'true'
+              uses: actions/cache/save@caa296126883cff596d87d8935842f9db880ef25 # v5.1.0
+              with:
+                  path: ${{ env.SESSION_FILE }}
+                  key: openapi-review-${{ github.event.pull_request.number }}-${{ github.run_id }}-${{ github.run_attempt }}
