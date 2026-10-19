@@ -40,11 +40,11 @@ properties:
     description: URL of the Git repository to clone the source code from. Required when the `sourceType` is `GIT_REPO`.
   tarballUrl:
     type: string
-    pattern: '^(?:https?:)?//\S+'
+    pattern: '^(?:[hH][tT][tT][pP][sS]?:)?//\S+'
     description: URL of the tarball to download the source code from. Required when the `sourceType` is `TARBALL`.
   gitHubGistUrl:
     type: string
-    pattern: '^https://gist\.github\.com/[A-Za-z0-9][A-Za-z0-9-]{0,38}/[0-9a-fA-F]{32}$'
+    pattern: '^[hH][tT][tT][pP][sS]://[gG][iI][sS][tT]\.[gG][iI][tT][hH][uU][bB]\.[cC][oO][mM]/[A-Za-z0-9][A-Za-z0-9-]{0,38}/[0-9a-fA-F]{32}$'
     description: URL of the GitHub Gist to clone the source code from. Required when the `sourceType` is `GITHUB_GIST`.
 allOf:
   - if:
