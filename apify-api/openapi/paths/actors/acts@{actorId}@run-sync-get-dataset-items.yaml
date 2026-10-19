@@ -107,7 +107,7 @@ post:
 get:
   tags:
     - Actors/Actor runs
-  summary: Run Actor synchronously (no input) and get dataset items
+  summary: Run Actor synchronously and get dataset items (GET)
   description: |
     Runs a specific Actor and returns its dataset items.
     The run must finish in 300<!-- MAX_ACTOR_JOB_SYNC_WAIT_SECS --> seconds
