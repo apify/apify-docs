@@ -109,7 +109,7 @@ Use `%2C` instead of commas for URL encoding, as `%2C` represents a comma. For m
 
 :::
 
-To add data to a dataset, issue a POST request to the [Put items](/api/v2/dataset-items-post) endpoint with the data as a JSON object payload.
+To add data to a dataset, issue a POST request to the [Store items in dataset](/api/v2/dataset-items-post) endpoint with the data as a JSON object payload.
 
 ```text
 https://api.apify.com/v2/datasets/{DATASET_ID}/items

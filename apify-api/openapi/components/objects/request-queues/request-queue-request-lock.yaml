@@ -42,7 +42,7 @@ sharedPut: &sharedPut
 
 putById:
   <<: [*sharedPut, *sharedTagById]
-  summary: Prolong request lock
+  summary: Prolong lock on request in request queue
   description: |
     Prolongs request lock. The request lock can be prolonged only by the client
     that has locked it using [Get and lock head
@@ -70,12 +70,12 @@ putById:
 
 putDefault:
   <<: [*sharedPut, *sharedTagDefault]
-  summary: Prolong lock on request in default request queue
+  summary: Prolong lock on request in Actor run's default request queue
   description: |
     Prolongs a request lock in the default request queue of the Actor run.
 
     This endpoint is a shortcut for getting the run's `defaultRequestQueueId` and then using the
-    [Prolong request lock](/api/v2/request-queue-request-lock-put) endpoint.
+    [Prolong lock on request in request queue](/api/v2/request-queue-request-lock-put) endpoint.
   operationId: actorRun_requestQueue_request_lock_put
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
@@ -86,12 +86,12 @@ putDefault:
 
 putLastRun:
   <<: [*sharedPut, *sharedTagLastRun]
-  summary: Prolong lock on request in last run's default request queue
+  summary: Prolong lock on request in last Actor run's default request queue
   description: |
     Prolongs a request lock in the default request queue of the last Actor run.
 
     This endpoint is a shortcut for getting the last run's `defaultRequestQueueId` and then using the
-    [Prolong request lock](/api/v2/request-queue-request-lock-put) endpoint.
+    [Prolong lock on request in request queue](/api/v2/request-queue-request-lock-put) endpoint.
   operationId: actor_runs_last_requestQueue_request_lock_put
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
@@ -104,12 +104,12 @@ putLastRun:
 
 putTaskLastRun:
   <<: [*sharedPut, *sharedTagTaskLastRun]
-  summary: Prolong lock on request in last task run's default request queue
+  summary: Prolong lock on request in last Actor task run's default request queue
   description: |
     Prolongs a request lock in the default request queue of the last Actor task run.
 
     This endpoint is a shortcut for getting the last task run's `defaultRequestQueueId` and then using the
-    [Prolong request lock](/api/v2/request-queue-request-lock-put) endpoint.
+    [Prolong lock on request in request queue](/api/v2/request-queue-request-lock-put) endpoint.
   operationId: actorTask_runs_last_requestQueue_request_lock_put
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
@@ -129,7 +129,7 @@ sharedDelete: &sharedDelete
 
 deleteById:
   <<: [*sharedDelete, *sharedTagById]
-  summary: Delete request lock
+  summary: Delete lock on request in request queue
   description: |
     Deletes a request lock. The request lock can be deleted only by the client
     that has locked it using [Get and lock head
@@ -156,12 +156,12 @@ deleteById:
 
 deleteDefault:
   <<: [*sharedDelete, *sharedTagDefault]
-  summary: Delete lock on request in default request queue
+  summary: Delete lock on request in Actor run's default request queue
   description: |
     Deletes a request lock in the default request queue of the Actor run.
 
     This endpoint is a shortcut for getting the run's `defaultRequestQueueId` and then using the
-    [Delete request lock](/api/v2/request-queue-request-lock-delete) endpoint.
+    [Delete lock on request in request queue](/api/v2/request-queue-request-lock-delete) endpoint.
   operationId: actorRun_requestQueue_request_lock_delete
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
@@ -171,12 +171,12 @@ deleteDefault:
 
 deleteLastRun:
   <<: [*sharedDelete, *sharedTagLastRun]
-  summary: Delete lock on request in last run's default request queue
+  summary: Delete lock on request in last Actor run's default request queue
   description: |
     Deletes a request lock in the default request queue of the last Actor run.
 
     This endpoint is a shortcut for getting the last run's `defaultRequestQueueId` and then using the
-    [Delete request lock](/api/v2/request-queue-request-lock-delete) endpoint.
+    [Delete lock on request in request queue](/api/v2/request-queue-request-lock-delete) endpoint.
   operationId: actor_runs_last_requestQueue_request_lock_delete
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
@@ -188,12 +188,12 @@ deleteLastRun:
 
 deleteTaskLastRun:
   <<: [*sharedDelete, *sharedTagTaskLastRun]
-  summary: Delete lock on request in last task run's default request queue
+  summary: Delete lock on request in last Actor task run's default request queue
   description: |
     Deletes a request lock in the default request queue of the last Actor task run.
 
     This endpoint is a shortcut for getting the last task run's `defaultRequestQueueId` and then using the
-    [Delete request lock](/api/v2/request-queue-request-lock-delete) endpoint.
+    [Delete lock on request in request queue](/api/v2/request-queue-request-lock-delete) endpoint.
   operationId: actorTask_runs_last_requestQueue_request_lock_delete
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"

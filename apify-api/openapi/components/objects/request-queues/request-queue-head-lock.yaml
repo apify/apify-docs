@@ -28,7 +28,7 @@ postById:
   <<: *sharedPost
   tags:
     - Storage/Request queues/Requests locks
-  summary: Get head and lock
+  summary: Get and lock request queue head
   description: |
     Returns the given number of first requests from the queue and locks them for
     the given time.
@@ -60,13 +60,13 @@ postDefault:
   <<: *sharedPost
   tags:
     - Default request queue
-  summary: Get and lock default request queue head
+  summary: Get and lock Actor run's default request queue head
   description: |
     Returns the given number of first requests from the default request queue of the Actor run
     and locks them for the given time.
 
     This endpoint is a shortcut for getting the run's `defaultRequestQueueId` and then using the
-    [Get head and lock](/api/v2/request-queue-head-lock-post) endpoint.
+    [Get and lock request queue head](/api/v2/request-queue-head-lock-post) endpoint.
   operationId: actorRun_requestQueue_head_lock_post
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
@@ -78,13 +78,13 @@ postLastRun:
   <<: *sharedPost
   tags:
     - Last Actor run's default request queue
-  summary: Get and lock last run's default request queue head
+  summary: Get and lock last Actor run's default request queue head
   description: |
     Returns the given number of first requests from the default request queue of the last Actor run
     and locks them for the given time.
 
     This endpoint is a shortcut for getting the last run's `defaultRequestQueueId` and then using the
-    [Get head and lock](/api/v2/request-queue-head-lock-post) endpoint.
+    [Get and lock request queue head](/api/v2/request-queue-head-lock-post) endpoint.
   operationId: actor_runs_last_requestQueue_head_lock_post
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
@@ -98,13 +98,13 @@ postTaskLastRun:
   <<: *sharedPost
   tags:
     - Last Actor task run's default request queue
-  summary: Get and lock last task run's default request queue head
+  summary: Get and lock last Actor task run's default request queue head
   description: |
     Returns the given number of first requests from the default request queue of the last Actor task run
     and locks them for the given time.
 
     This endpoint is a shortcut for getting the last task run's `defaultRequestQueueId` and then using the
-    [Get head and lock](/api/v2/request-queue-head-lock-post) endpoint.
+    [Get and lock request queue head](/api/v2/request-queue-head-lock-post) endpoint.
   operationId: actorTask_runs_last_requestQueue_head_lock_post
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"

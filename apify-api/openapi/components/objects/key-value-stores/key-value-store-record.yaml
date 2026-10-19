@@ -97,7 +97,7 @@ sharedPutPost: &sharedPutPost
 
 getById:
   <<: [*sharedGet, *sharedTagById]
-  summary: Get record
+  summary: Get key-value store record
   description: |
     Gets a value stored in the key-value store under a specific key.
 
@@ -133,12 +133,12 @@ getById:
 
 getDefault:
   <<: [*sharedGet, *sharedTagDefault]
-  summary: Get default store's record
+  summary: Get record from Actor run's default key-value store
   description: |
     Gets a value stored under a specific key in the default key-value store of the Actor run.
 
     This endpoint is a shortcut for getting the run's `defaultKeyValueStoreId` and then using the
-    [Get record](/api/v2/key-value-store-record-get) endpoint.
+    [Get key-value store record](/api/v2/key-value-store-record-get) endpoint.
   operationId: actorRun_keyValueStore_record_get
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
@@ -148,12 +148,12 @@ getDefault:
 
 getLastRun:
   <<: [*sharedGet, *sharedTagLastRun]
-  summary: Get last run's default store's record
+  summary: Get record from last Actor run's default key-value store
   description: |
     Gets a value stored under a specific key in the default key-value store of the last Actor run.
 
     This endpoint is a shortcut for getting the last run's `defaultKeyValueStoreId` and then using the
-    [Get record](/api/v2/key-value-store-record-get) endpoint.
+    [Get key-value store record](/api/v2/key-value-store-record-get) endpoint.
   operationId: actor_runs_last_keyValueStore_record_get
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
@@ -165,12 +165,12 @@ getLastRun:
 
 getTaskLastRun:
   <<: [*sharedGet, *sharedTagTaskLastRun]
-  summary: Get last task run's default store's record
+  summary: Get record from last Actor task run's default key-value store
   description: |
     Gets a value stored under a specific key in the default key-value store of the last Actor task run.
 
     This endpoint is a shortcut for getting the last task run's `defaultKeyValueStoreId` and then using the
-    [Get record](/api/v2/key-value-store-record-get) endpoint.
+    [Get key-value store record](/api/v2/key-value-store-record-get) endpoint.
   operationId: actorTask_runs_last_keyValueStore_record_get
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
@@ -182,7 +182,7 @@ getTaskLastRun:
 
 headById:
   <<: *sharedTagById
-  summary: Check if a record exists
+  summary: Check if key-value store record exists
   description: |
     Check if a value is stored in the key-value store under a specific key.
   operationId: keyValueStore_record_head
@@ -204,7 +204,7 @@ headById:
 
 putById:
   <<: [*sharedPutPost, *sharedTagById]
-  summary: Store record
+  summary: Set key-value store record
   description: |
     Stores a value under a specific key to the key-value store.
 
@@ -240,12 +240,12 @@ putById:
 
 putDefault:
   <<: [*sharedPutPost, *sharedTagDefault]
-  summary: Store record in default store
+  summary: Set record in Actor run's default key-value store
   description: |
     Stores a value under a specific key in the default key-value store of the Actor run.
 
     This endpoint is a shortcut for getting the run's `defaultKeyValueStoreId` and then using the
-    [Store record](/api/v2/key-value-store-record-put) endpoint.
+    [Set key-value store record](/api/v2/key-value-store-record-put) endpoint.
   operationId: actorRun_keyValueStore_record_put
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
@@ -254,12 +254,12 @@ putDefault:
 
 putLastRun:
   <<: [*sharedPutPost, *sharedTagLastRun]
-  summary: Store record in last run's default store
+  summary: Set record in last Actor run's default key-value store
   description: |
     Stores a value under a specific key in the default key-value store of the last Actor run.
 
     This endpoint is a shortcut for getting the last run's `defaultKeyValueStoreId` and then using the
-    [Store record](/api/v2/key-value-store-record-put) endpoint.
+    [Set key-value store record](/api/v2/key-value-store-record-put) endpoint.
   operationId: actor_runs_last_keyValueStore_record_put
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
@@ -270,12 +270,12 @@ putLastRun:
 
 putTaskLastRun:
   <<: [*sharedPutPost, *sharedTagTaskLastRun]
-  summary: Store record in last task run's default store
+  summary: Set record in last Actor task run's default key-value store
   description: |
     Stores a value under a specific key in the default key-value store of the last Actor task run.
 
     This endpoint is a shortcut for getting the last task run's `defaultKeyValueStoreId` and then using the
-    [Store record](/api/v2/key-value-store-record-put) endpoint.
+    [Set key-value store record](/api/v2/key-value-store-record-put) endpoint.
   operationId: actorTask_runs_last_keyValueStore_record_put
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
@@ -286,7 +286,7 @@ putTaskLastRun:
 
 postById:
   <<: [*sharedPutPost, *sharedTagById]
-  summary: Store record (POST)
+  summary: Set key-value store record (POST)
   description: |
     Stores a value under a specific key to the key-value store.
 
@@ -303,12 +303,12 @@ postById:
 
 postDefault:
   <<: [*sharedPutPost, *sharedTagDefault]
-  summary: Store record in default store (POST)
+  summary: Set record in Actor run's default key-value store (POST)
   description: |
     Stores a value under a specific key in the default key-value store of the Actor run.
 
     This endpoint is a shortcut for getting the run's `defaultKeyValueStoreId` and then using the
-    [Store record](/api/v2/key-value-store-record-post) endpoint.
+    [Set key-value store record (POST)](/api/v2/key-value-store-record-post) endpoint.
   operationId: actorRun_keyValueStore_record_post
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
@@ -317,12 +317,12 @@ postDefault:
 
 postLastRun:
   <<: [*sharedPutPost, *sharedTagLastRun]
-  summary: Store record in last run's default store (POST)
+  summary: Set record in last Actor run's default key-value store (POST)
   description: |
     Stores a value under a specific key in the default key-value store of the last Actor run.
 
     This endpoint is a shortcut for getting the last run's `defaultKeyValueStoreId` and then using the
-    [Store record](/api/v2/key-value-store-record-post) endpoint.
+    [Set key-value store record (POST)](/api/v2/key-value-store-record-post) endpoint.
   operationId: actor_runs_last_keyValueStore_record_post
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
@@ -333,12 +333,12 @@ postLastRun:
 
 postTaskLastRun:
   <<: [*sharedPutPost, *sharedTagTaskLastRun]
-  summary: Store record in last task run's default store (POST)
+  summary: Set record in last Actor task run's default key-value store (POST)
   description: |
     Stores a value under a specific key in the default key-value store of the last Actor task run.
 
     This endpoint is a shortcut for getting the last task run's `defaultKeyValueStoreId` and then using the
-    [Store record](/api/v2/key-value-store-record-post) endpoint.
+    [Set key-value store record (POST)](/api/v2/key-value-store-record-post) endpoint.
   operationId: actorTask_runs_last_keyValueStore_record_post
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
@@ -349,7 +349,7 @@ postTaskLastRun:
 
 deleteById:
   <<: [*sharedDelete, *sharedTagById]
-  summary: Delete record
+  summary: Delete key-value store record
   description: Removes a record specified by a key from the key-value store.
   operationId: keyValueStore_record_delete
   parameters:
@@ -368,12 +368,12 @@ deleteById:
 
 deleteDefault:
   <<: [*sharedDelete, *sharedTagDefault]
-  summary: Delete default store's record
+  summary: Delete record from Actor run's default key-value store
   description: |
     Removes a record specified by a key from the default key-value store of the Actor run.
 
     This endpoint is a shortcut for getting the run's `defaultKeyValueStoreId` and then using the
-    [Delete record](/api/v2/key-value-store-record-delete) endpoint.
+    [Delete key-value store record](/api/v2/key-value-store-record-delete) endpoint.
   operationId: actorRun_keyValueStore_record_delete
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
@@ -381,12 +381,12 @@ deleteDefault:
 
 deleteLastRun:
   <<: [*sharedDelete, *sharedTagLastRun]
-  summary: Delete last run's default store's record
+  summary: Delete record from last Actor run's default key-value store
   description: |
     Removes a record specified by a key from the default key-value store of the last Actor run.
 
     This endpoint is a shortcut for getting the last run's `defaultKeyValueStoreId` and then using the
-    [Delete record](/api/v2/key-value-store-record-delete) endpoint.
+    [Delete key-value store record](/api/v2/key-value-store-record-delete) endpoint.
   operationId: actor_runs_last_keyValueStore_record_delete
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
@@ -396,12 +396,12 @@ deleteLastRun:
 
 deleteTaskLastRun:
   <<: [*sharedDelete, *sharedTagTaskLastRun]
-  summary: Delete last task run's default store's record
+  summary: Delete record from last Actor task run's default key-value store
   description: |
     Removes a record specified by a key from the default key-value store of the last Actor task run.
 
     This endpoint is a shortcut for getting the last task run's `defaultKeyValueStoreId` and then using the
-    [Delete record](/api/v2/key-value-store-record-delete) endpoint.
+    [Delete key-value store record](/api/v2/key-value-store-record-delete) endpoint.
   operationId: actorTask_runs_last_keyValueStore_record_delete
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"

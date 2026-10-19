@@ -1,7 +1,7 @@
 post:
   tags:
     - Actors/Actor runs
-  summary: Run Actor synchronously and return key-value store record
+  summary: Run Actor synchronously and get key-value store record
   description: |
     Runs a specific Actor and returns a key-value store record.
 
@@ -84,7 +84,7 @@ post:
 get:
   tags:
     - Actors/Actor runs
-  summary: Run Actor synchronously without input
+  summary: Run Actor synchronously without input and get key-value store record
   description: |
     Runs a specific Actor and returns a key-value store record. The response contains the
     record stored under the `OUTPUT` key in the run's default key-value store.

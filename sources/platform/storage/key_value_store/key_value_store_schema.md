@@ -90,7 +90,7 @@ Use either `key` or `keyPrefix` for each collection, but not both.
 
 When you define a collection with specific `contentTypes`, the Apify platform validates any data stored in that collection against those specifications. For example, if you specify that a collection should only contain JSON data with content type `application/json`, attempts to store data with other content types in that collection are rejected.
 
-The validation happens automatically when you call `Actor.setValue()` or use the [Put record](https://docs.apify.com/api/v2/key-value-store-record-put) API endpoint.
+The validation happens automatically when you call `Actor.setValue()` or use the [Set key-value store record](/api/v2/key-value-store-record-put) API endpoint.
 
 If you define a `jsonSchema` for a collection with content type `application/json`, the platform also validates that the JSON data conforms to the specified schema. This helps ensure data consistency and prevents storing malformed data.
 
@@ -158,7 +158,7 @@ The tabs also appear in the storage detail view:
 
 ### List keys by collection via the API
 
-With the schema defined, use the API to list keys from a specific collection with the `collection` query parameter on the [Get list of keys](https://docs.apify.com/api/v2/key-value-store-keys-get) endpoint:
+With the schema defined, use the API to list keys from a specific collection with the `collection` query parameter on the [Get list of key-value store keys](https://docs.apify.com/api/v2/key-value-store-keys-get) endpoint:
 
 ```http title="Get list of keys from a collection"
 GET https://api.apify.com/v2/key-value-stores/{storeId}/keys?collection=documents

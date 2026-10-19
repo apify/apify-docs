@@ -264,7 +264,7 @@ listById:
 
 listDefault:
   <<: [*sharedGet, *sharedTagDefault]
-  summary: Get default dataset items
+  summary: Get Actor run's default dataset items
   description: |
     Returns data stored in the default dataset of the Actor run in the desired format.
 
@@ -300,7 +300,7 @@ listDefault:
 
 listLastRun:
   <<: [*sharedGet, *sharedTagLastRun]
-  summary: Get last run's dataset items
+  summary: Get last Actor run's default dataset items
   description: |
     Returns data stored in the default dataset of the last Actor run in the desired format.
 
@@ -338,7 +338,7 @@ listLastRun:
 
 listTaskLastRun:
   <<: [*sharedGet, *sharedTagTaskLastRun]
-  summary: Get last task run's dataset items
+  summary: Get last Actor task run's default dataset items
   description: |
     Returns data stored in the default dataset of the last Actor task run in the desired format.
 
@@ -438,7 +438,7 @@ sharedPost: &sharedPost
 
 postById:
   <<: [*sharedPost, *sharedTagById]
-  summary: Store items
+  summary: Store items in dataset
   description: |
     Appends an item or an array of items to the end of the dataset.
     The POST payload is a JSON object or a JSON array of objects to save into the dataset.
@@ -472,12 +472,12 @@ postById:
 
 postDefault:
   <<: [*sharedPost, *sharedTagDefault]
-  summary: Store items
+  summary: Store items in Actor run's default dataset
   description: |
     Appends an item or an array of items to the end of the Actor run's default dataset.
 
     This endpoint is a shortcut that resolves the run's `defaultDatasetId` and proxies to the
-    [Store items](/api/v2/dataset-items-post) endpoint.
+    [Store items in dataset](/api/v2/dataset-items-post) endpoint.
 
     To save bandwidth and speed up your upload, you can send the request payload compressed and set the `Content-Encoding` header accordingly.
 
@@ -493,12 +493,12 @@ postDefault:
 
 postLastRun:
   <<: [*sharedPost, *sharedTagLastRun]
-  summary: Store items in last run's dataset
+  summary: Store items in last Actor run's default dataset
   description: |
     Appends an item or an array of items to the end of the last Actor run's default dataset.
 
     This endpoint is a shortcut that resolves the last run's `defaultDatasetId` and proxies to the
-    [Store items](/api/v2/dataset-items-post) endpoint.
+    [Store items in dataset](/api/v2/dataset-items-post) endpoint.
 
     To save bandwidth and speed up your upload, you can send the request payload compressed and set the `Content-Encoding` header accordingly.
 
@@ -516,12 +516,12 @@ postLastRun:
 
 postTaskLastRun:
   <<: [*sharedPost, *sharedTagTaskLastRun]
-  summary: Store items in last task run's dataset
+  summary: Store items in last Actor task run's default dataset
   description: |
     Appends an item or an array of items to the end of the last Actor task run's default dataset.
 
     This endpoint is a shortcut that resolves the last task run's `defaultDatasetId` and proxies to the
-    [Store items](/api/v2/dataset-items-post) endpoint.
+    [Store items in dataset](/api/v2/dataset-items-post) endpoint.
 
     To save bandwidth and speed up your upload, you can send the request payload compressed and set the `Content-Encoding` header accordingly.
 

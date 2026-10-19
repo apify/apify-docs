@@ -58,7 +58,7 @@ sharedGet: &sharedGet
 
 getById:
   <<: [*sharedGet, *sharedById]
-  summary: Get store
+  summary: Get key-value store
   description: |
     Gets an object that contains all the details about a specific key-value
     store.
@@ -76,35 +76,35 @@ getById:
 
 getDefault:
   <<: [*sharedGet, *sharedDefault]
-  summary: Get default store
+  summary: Get Actor run's default key-value store
   description: |
     Gets an object that contains all the details about the default key-value
     store.
 
     This endpoint is a shortcut for getting the run's `defaultKeyValueStoreId` and then using the
-    [Get store](/api/v2/key-value-store-get) endpoint.
+    [Get key-value store](/api/v2/key-value-store-get) endpoint.
 
   operationId: actorRun_keyValueStore_get
 
 getLastRun:
   <<: [*sharedGet, *sharedLastRun]
-  summary: Get last run's default store
+  summary: Get last Actor run's default key-value store
   description: |
     Gets an object that contains all the details about the default key-value store associated with the last Actor run.
 
     This endpoint is a shortcut for getting the run's `defaultKeyValueStoreId` and then using the
-    [Get store](/api/v2/key-value-store-get) endpoint.
+    [Get key-value store](/api/v2/key-value-store-get) endpoint.
 
   operationId: actor_runs_last_keyValueStore_get
 
 getTaskLastRun:
   <<: [*sharedGet, *sharedTaskLastRun]
-  summary: Get last task run's default store
+  summary: Get last Actor task run's default key-value store
   description: |
     Gets an object that contains all the details about the default key-value store of the last Actor task run.
 
     This endpoint is a shortcut for getting the last task run's `defaultKeyValueStoreId` and then using the
-    [Get store](/api/v2/key-value-store-get) endpoint.
+    [Get key-value store](/api/v2/key-value-store-get) endpoint.
   operationId: actorTask_runs_last_keyValueStore_get
 
 sharedPut: &sharedPut
@@ -127,7 +127,7 @@ sharedPut: &sharedPut
 
 putById:
   <<: [*sharedPut, *sharedById]
-  summary: Update store
+  summary: Update key-value store
   description: |
     Updates a key-value store's name and general resource access level using a value specified by a JSON object
     passed in the PUT payload.
@@ -148,36 +148,36 @@ putById:
 
 putDefault:
   <<: [*sharedPut, *sharedDefault]
-  summary: Update default store
+  summary: Update Actor run's default key-value store
   description: |
     Updates the default key-value store's name and general resource access level using a value specified by a JSON object
     passed in the PUT payload.
 
     This endpoint is a shortcut for getting the run's `defaultKeyValueStoreId` and then using the
-    [Update store](/api/v2/key-value-store-put) endpoint.
+    [Update key-value store](/api/v2/key-value-store-put) endpoint.
 
   operationId: actorRun_keyValueStore_put
 
 putLastRun:
   <<: [*sharedPut, *sharedLastRun]
-  summary: Update last run's default store
+  summary: Update last Actor run's default key-value store
   description: |
     Updates the last Actor run key-value store's name and general resource access level using a value specified by a JSON object
     passed in the PUT payload.
 
     This endpoint is a shortcut for getting the run's `defaultKeyValueStoreId` and then using the
-    [Update store](/api/v2/key-value-store-put) endpoint.
+    [Update key-value store](/api/v2/key-value-store-put) endpoint.
 
   operationId: actor_runs_last_keyValueStore_put
 
 putTaskLastRun:
   <<: [*sharedPut, *sharedTaskLastRun]
-  summary: Update last task run's default store
+  summary: Update last Actor task run's default key-value store
   description: |
     Updates the default key-value store associated with the last Actor task run.
 
     This endpoint is a shortcut for getting the last task run's `defaultKeyValueStoreId` and then using the
-    [Update store](/api/v2/key-value-store-put) endpoint.
+    [Update key-value store](/api/v2/key-value-store-put) endpoint.
   operationId: actorTask_runs_last_keyValueStore_put
 
 sharedDelete: &sharedDelete
@@ -189,7 +189,7 @@ sharedDelete: &sharedDelete
 
 deleteById:
   <<: [*sharedDelete, *sharedById]
-  summary: Delete store
+  summary: Delete key-value store
   description: Deletes a key-value store.
   operationId: keyValueStore_delete
   x-legacy-doc-urls:
@@ -202,32 +202,32 @@ deleteById:
 
 deleteDefault:
   <<: [*sharedDelete, *sharedDefault]
-  summary: Delete default store
+  summary: Delete Actor run's default key-value store
   description: |
     Delete the default key-value store.
 
     This endpoint is a shortcut for getting the run's `defaultKeyValueStoreId` and then using the
-    [Delete store](/api/v2/key-value-store-delete) endpoint.
+    [Delete key-value store](/api/v2/key-value-store-delete) endpoint.
 
   operationId: actorRun_keyValueStore_delete
 
 deleteLastRun:
   <<: [*sharedDelete, *sharedLastRun]
-  summary: Delete last run's default store
+  summary: Delete last Actor run's default key-value store
   description: |
     Deletes the last Actor run key-value store.
 
     This endpoint is a shortcut for getting the run's `defaultKeyValueStoreId` and then using the
-    [Delete store](/api/v2/key-value-store-delete) endpoint.
+    [Delete key-value store](/api/v2/key-value-store-delete) endpoint.
 
   operationId: actor_runs_last_keyValueStore_delete
 
 deleteTaskLastRun:
   <<: [*sharedDelete, *sharedTaskLastRun]
-  summary: Delete last task run's default store
+  summary: Delete last Actor task run's default key-value store
   description: |
     Deletes the default key-value store of the last Actor task run.
 
     This endpoint is a shortcut for getting the last task run's `defaultKeyValueStoreId` and then using the
-    [Delete store](/api/v2/key-value-store-delete) endpoint.
+    [Delete key-value store](/api/v2/key-value-store-delete) endpoint.
   operationId: actorTask_runs_last_keyValueStore_delete

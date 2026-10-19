@@ -44,7 +44,7 @@ sharedGet: &sharedGet
 
 listById:
   <<: [*sharedGet, *sharedTagById]
-  summary: List requests
+  summary: Get list of requests in request queue
   description: |
     Returns a list of requests. This endpoint is paginated using
     cursor (pagination by `exclusiveStartId` is deprecated) and limit parameters.
@@ -69,12 +69,12 @@ listById:
 
 listDefault:
   <<: [*sharedGet, *sharedTagDefault]
-  summary: List default request queue's requests
+  summary: Get list of requests in Actor run's default request queue
   description: |
     Returns a list of requests from the default request queue of the Actor run.
 
     This endpoint is a shortcut for getting the run's `defaultRequestQueueId` and then using the
-    [List requests](/api/v2/request-queue-requests-get) endpoint.
+    [Get list of requests in request queue](/api/v2/request-queue-requests-get) endpoint.
   operationId: actorRun_requestQueue_requests_get
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
@@ -86,12 +86,12 @@ listDefault:
 
 listLastRun:
   <<: [*sharedGet, *sharedTagLastRun]
-  summary: List last run's default request queue's requests
+  summary: Get list of requests in last Actor run's default request queue
   description: |
     Returns a list of requests from the default request queue of the last Actor run.
 
     This endpoint is a shortcut for getting the last run's `defaultRequestQueueId` and then using the
-    [List requests](/api/v2/request-queue-requests-get) endpoint.
+    [Get list of requests in request queue](/api/v2/request-queue-requests-get) endpoint.
   operationId: actor_runs_last_requestQueue_requests_get
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
@@ -105,12 +105,12 @@ listLastRun:
 
 listTaskLastRun:
   <<: [*sharedGet, *sharedTagTaskLastRun]
-  summary: List last task run's default request queue's requests
+  summary: Get list of requests in last Actor task run's default request queue
   description: |
     Returns a list of requests from the default request queue of the last Actor task run.
 
     This endpoint is a shortcut for getting the last task run's `defaultRequestQueueId` and then using the
-    [List requests](/api/v2/request-queue-requests-get) endpoint.
+    [Get list of requests in request queue](/api/v2/request-queue-requests-get) endpoint.
   operationId: actorTask_runs_last_requestQueue_requests_get
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
@@ -147,7 +147,7 @@ sharedPost: &sharedPost
 
 postById:
   <<: [*sharedPost, *sharedTagById]
-  summary: Add request
+  summary: Add request to request queue
   description: |
     Adds request to the queue. Response contains ID of the request and info if
     request was already present in the queue or handled.
@@ -172,12 +172,12 @@ postById:
 
 postDefault:
   <<: [*sharedPost, *sharedTagDefault]
-  summary: Add request to default request queue
+  summary: Add request to Actor run's default request queue
   description: |
     Adds a request to the default request queue of the Actor run.
 
     This endpoint is a shortcut for getting the run's `defaultRequestQueueId` and then using the
-    [Add request](/api/v2/request-queue-requests-post) endpoint.
+    [Add request to request queue](/api/v2/request-queue-requests-post) endpoint.
   operationId: actorRun_requestQueue_requests_post
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
@@ -186,12 +186,12 @@ postDefault:
 
 postLastRun:
   <<: [*sharedPost, *sharedTagLastRun]
-  summary: Add request to last run's default request queue
+  summary: Add request to last Actor run's default request queue
   description: |
     Adds a request to the default request queue of the last Actor run.
 
     This endpoint is a shortcut for getting the last run's `defaultRequestQueueId` and then using the
-    [Add request](/api/v2/request-queue-requests-post) endpoint.
+    [Add request to request queue](/api/v2/request-queue-requests-post) endpoint.
   operationId: actor_runs_last_requestQueue_requests_post
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
@@ -202,12 +202,12 @@ postLastRun:
 
 postTaskLastRun:
   <<: [*sharedPost, *sharedTagTaskLastRun]
-  summary: Add request to last task run's default request queue
+  summary: Add request to last Actor task run's default request queue
   description: |
     Adds a request to the default request queue of the last Actor task run.
 
     This endpoint is a shortcut for getting the last task run's `defaultRequestQueueId` and then using the
-    [Add request](/api/v2/request-queue-requests-post) endpoint.
+    [Add request to request queue](/api/v2/request-queue-requests-post) endpoint.
   operationId: actorTask_runs_last_requestQueue_requests_post
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"

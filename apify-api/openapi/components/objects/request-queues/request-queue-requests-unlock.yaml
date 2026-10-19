@@ -41,7 +41,7 @@ sharedPost: &sharedPost
 
 postById:
   <<: [*sharedPost, *sharedTagById]
-  summary: Unlock requests
+  summary: Unlock requests in request queue
   description: |
     Unlocks requests in the queue that are currently locked by the client.
 
@@ -60,12 +60,12 @@ postById:
 
 postDefault:
   <<: [*sharedPost, *sharedTagDefault]
-  summary: Unlock requests in default request queue
+  summary: Unlock requests in Actor run's default request queue
   description: |
     Unlocks requests in the default request queue of the Actor run that are currently locked by the client.
 
     This endpoint is a shortcut for getting the run's `defaultRequestQueueId` and then using the
-    [Unlock requests](/api/v2/request-queue-requests-unlock-post) endpoint.
+    [Unlock requests in request queue](/api/v2/request-queue-requests-unlock-post) endpoint.
   operationId: actorRun_requestQueue_requests_unlock_post
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
@@ -73,12 +73,12 @@ postDefault:
 
 postLastRun:
   <<: [*sharedPost, *sharedTagLastRun]
-  summary: Unlock requests in last run's default request queue
+  summary: Unlock requests in last Actor run's default request queue
   description: |
     Unlocks requests in the default request queue of the last Actor run that are currently locked by the client.
 
     This endpoint is a shortcut for getting the last run's `defaultRequestQueueId` and then using the
-    [Unlock requests](/api/v2/request-queue-requests-unlock-post) endpoint.
+    [Unlock requests in request queue](/api/v2/request-queue-requests-unlock-post) endpoint.
   operationId: actor_runs_last_requestQueue_requests_unlock_post
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
@@ -88,12 +88,12 @@ postLastRun:
 
 postTaskLastRun:
   <<: [*sharedPost, *sharedTagTaskLastRun]
-  summary: Unlock requests in last task run's default request queue
+  summary: Unlock requests in last Actor task run's default request queue
   description: |
     Unlocks requests in the default request queue of the last Actor task run that are currently locked by the client.
 
     This endpoint is a shortcut for getting the last task run's `defaultRequestQueueId` and then using the
-    [Unlock requests](/api/v2/request-queue-requests-unlock-post) endpoint.
+    [Unlock requests in request queue](/api/v2/request-queue-requests-unlock-post) endpoint.
   operationId: actorTask_runs_last_requestQueue_requests_unlock_post
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"

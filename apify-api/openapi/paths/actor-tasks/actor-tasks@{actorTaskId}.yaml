@@ -1,7 +1,7 @@
 get:
   tags:
     - Actor tasks
-  summary: Get task
+  summary: Get Actor task
   description: Get an object that contains all the details about a task.
   operationId: actorTask_get
   parameters:
@@ -45,7 +45,7 @@ get:
 put:
   tags:
     - Actor tasks
-  summary: Update task
+  summary: Update Actor task
   description: |
     Update settings of a task using values specified by an object passed as JSON
     in the POST payload.
@@ -68,7 +68,7 @@ put:
     offered while the task stays published and copyable.
 
     The response is the full task object as returned by the
-    [Get task](/api/v2/actor-task-get) endpoint.
+    [Get Actor task](/api/v2/actor-task-get) endpoint.
 
     The request needs to specify the `Content-Type: application/json` HTTP
     header!
@@ -138,7 +138,7 @@ put:
 delete:
   tags:
     - Actor tasks
-  summary: Delete task
+  summary: Delete Actor task
   description: Delete the task specified through the `actorTaskId` parameter.
   operationId: actorTask_delete
   parameters:

@@ -29,7 +29,7 @@ getById:
   <<: *sharedGet
   tags:
     - Logs
-  summary: Get log
+  summary: Get Actor build or run log
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/logs/log/get-log
     - https://docs.apify.com/api/v2#/reference/logs/get-log
@@ -57,11 +57,11 @@ getByRunId:
   <<: *sharedGet
   tags:
     - Actor runs
-  summary: Get run's log
+  summary: Get Actor run's log
   description: |
     Retrieves Actor run's logs.
 
-    This endpoint is a shortcut for getting the run's log. Same as [Get log](/api/v2/log-get) endpoint.
+    This endpoint is a shortcut for getting the run's log. Same as [Get Actor build or run log](/api/v2/log-get) endpoint.
   operationId: actorRun_log_get
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
@@ -73,11 +73,11 @@ getByBuildId:
   <<: *sharedGet
   tags:
     - Actor builds
-  summary: Get build's Log
+  summary: Get Actor build's log
   description: |
     Retrieves Actor build's logs.
 
-    This endpoint is a shortcut for getting the build's log. Same as [Get log](/api/v2/log-get) endpoint.
+    This endpoint is a shortcut for getting the build's log. Same as [Get Actor build or run log](/api/v2/log-get) endpoint.
   operationId: actorBuild_log_get
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/buildId"
@@ -96,7 +96,7 @@ getLastRun:
   description: |
     Retrieves last Actor run's logs.
 
-    This endpoint is a shortcut for getting last Actor run's log. Same as [Get log](/api/v2/log-get) endpoint.
+    This endpoint is a shortcut for getting last Actor run's log. Same as [Get Actor build or run log](/api/v2/log-get) endpoint.
   operationId: actor_runs_last_log_get
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
@@ -114,7 +114,7 @@ getTaskLastRun:
   description: |
     Retrieves last Actor task run's logs.
 
-    This endpoint is a shortcut for getting last Actor task run's log. Same as [Get log](/api/v2/log-get) endpoint.
+    This endpoint is a shortcut for getting last Actor task run's log. Same as [Get Actor build or run log](/api/v2/log-get) endpoint.
   operationId: actorTask_last_log_get
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
