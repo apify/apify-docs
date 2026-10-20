@@ -420,7 +420,7 @@ export default function HomeSearch() {
                     ? 'Looks like a question. Ask the Docs AI assistant'
                     : `Ask AI about "${trimmed}"`}
             </span>
-            {kind === 'ai-prompt' && <kbd className={styles.chip}>{`${modKey} ↵`}</kbd>}
+            <kbd className={styles.chip}>{`${modKey} ↵`}</kbd>
         </li>
     );
 

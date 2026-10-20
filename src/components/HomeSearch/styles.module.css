@@ -190,17 +190,22 @@
     box-shadow: inset 0 0 0 1px var(--color-primary-field-border-active);
 }
 
+/* Pinned to the bottom of the dropdown so the AI option is visible without scrolling. */
 .aiFooter {
+    position: sticky;
+    bottom: -6px;
+    z-index: 1;
     margin-top: 4px;
     border-top: 1px solid var(--color-neutral-separator-subtle);
     border-radius: 0 0 8px 8px;
-    color: var(--color-neutral-text-muted);
+    background: var(--color-neutral-card-background);
+    color: var(--color-neutral-text);
     font-size: 1.4rem;
+    font-weight: 500;
 }
 
 .aiFooter.active {
     background: var(--color-neutral-card-background-hover);
-    color: var(--color-neutral-text);
 }
 
 .rowIcon {

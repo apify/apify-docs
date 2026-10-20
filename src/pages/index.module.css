@@ -11,6 +11,7 @@
 
 .hero {
     position: relative;
+    z-index: 2; /* keep the search dropdown above the cards section */
     isolation: isolate;
     padding: 64px 16px 56px;
 }
