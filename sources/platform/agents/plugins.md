@@ -194,7 +194,7 @@ Read the full [Kimi Code CLI guide](/integrations/kimi-code-cli).
     devin mcp login apify
     ```
 
-Read the full [Devin guide](/integrations/devin).
+Read the full [Devin CLI guide](/integrations/devin).
 
 </TabItem>
 <TabItem value="qoder" label="Qoder">
