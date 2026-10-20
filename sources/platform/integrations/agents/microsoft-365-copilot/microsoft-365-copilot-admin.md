@@ -9,7 +9,7 @@ import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integrati
 
 This guide is for Microsoft 365 administrators. It covers making the Apify agent available to users in [Microsoft 365 Copilot](https://www.microsoft.com/microsoft-365/copilot).
 
-The Apify agent is a declarative agent for Microsoft 365 Copilot. It connects Copilot to Apify's library of [Actors](https://apify.com/store) through the [Apify MCP server](/integrations/mcp). Users can search Apify Store, run Actors, and retrieve datasets through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro).
+The Apify agent is a declarative agent for Microsoft 365 Copilot. It connects Copilot to Apify's library of [Actors](https://apify.com/store) through the [Apify MCP server](/mcp). Users can search Apify Store, run Actors, and retrieve datasets through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro).
 
 The agent calls Apify's remote MCP server at `https://mcp.apify.com`. No data flows to Apify until a user signs in with their own Apify account and runs a tool.
 
@@ -148,7 +148,7 @@ Sign-in is per-user and cannot be completed by an administrator. Have the user s
 ## Related integrations
 
 - [Use Apify in Microsoft 365 Copilot](/integrations/microsoft-365-copilot-user) - End-user setup and first prompts
-- [MCP server integration](/integrations/mcp) - Use the Apify MCP server with other clients
+- [MCP server integration](/mcp) - Use the Apify MCP server with other clients
 - [ChatGPT integration](/integrations/chatgpt) - Connect the Apify MCP server to ChatGPT
 
 ## Resources

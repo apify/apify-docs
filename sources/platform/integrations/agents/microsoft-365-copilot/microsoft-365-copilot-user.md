@@ -9,7 +9,7 @@ import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integrati
 
 [Microsoft 365 Copilot](https://www.microsoft.com/microsoft-365/copilot) is Microsoft's AI assistant for work. It answers questions, summarizes Microsoft 365 content, and runs agents from chat.
 
-The Apify agent connects Microsoft 365 Copilot to Apify's library of [Actors](https://apify.com/store). It uses the [Apify MCP server](/integrations/mcp) to search Apify Store, run Actors, and retrieve datasets through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro).
+The Apify agent connects Microsoft 365 Copilot to Apify's library of [Actors](https://apify.com/store). It uses the [Apify MCP server](/mcp) to search Apify Store, run Actors, and retrieve datasets through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro).
 
 This guide covers setup in Microsoft 365 Copilot. If you're an IT administrator deploying the agent for your organization, see [Deploy the Apify agent](/integrations/microsoft-365-copilot-admin).
 
@@ -113,7 +113,7 @@ If the agent fails to load, contact your IT administrator. The agent may not be 
 ## Related integrations
 
 - [Deploy the Apify agent](/integrations/microsoft-365-copilot-admin) - Make the agent available to your organization
-- [MCP server integration](/integrations/mcp) - Use the Apify MCP server with other clients
+- [MCP server integration](/mcp) - Use the Apify MCP server with other clients
 - [ChatGPT integration](/integrations/chatgpt) - Connect the Apify MCP server to ChatGPT
 
 ## Resources
