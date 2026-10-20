@@ -146,6 +146,7 @@ enum:
   - input-json-not-object
   - input-json-too-long
   - input-update-collision
+  - input-validation-timed-out
   - insufficient-permissions
   - insufficient-permissions-to-change-field
   - insufficient-security-measures
