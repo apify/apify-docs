@@ -1,0 +1,234 @@
+.root {
+    position: relative;
+    width: 100%;
+    max-width: 640px;
+    box-sizing: border-box;
+}
+
+.field {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 60px;
+    box-sizing: border-box;
+    padding: 0 8px 0 18px;
+    gap: 12px;
+    border: 1px solid var(--color-neutral-field-border);
+    border-radius: 12px;
+    background: var(--color-neutral-field-background);
+}
+
+.field:focus-within {
+    border-color: var(--color-primary-field-border-active);
+}
+
+.searchIcon {
+    flex: none;
+    color: var(--color-neutral-icon);
+}
+
+.input {
+    flex: 1;
+    min-width: 0;
+    height: 100%;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: var(--color-neutral-text);
+    font: inherit;
+    font-size: 1.8rem;
+}
+
+.input::placeholder {
+    color: var(--color-neutral-text-placeholder);
+}
+
+.askButton {
+    flex: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    height: 40px;
+    padding: 0 14px;
+    border: 0;
+    border-radius: 8px;
+    background: var(--color-primary-chip-background);
+    color: var(--color-primary-chip-text);
+    font: inherit;
+    font-size: 1.4rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.askButton:hover {
+    color: var(--color-primary-action);
+}
+
+.dropdown {
+    position: absolute;
+    top: 66px;
+    left: 0;
+    right: 0;
+    z-index: 20;
+    box-sizing: border-box;
+    max-height: 60vh;
+    overflow-y: auto;
+    padding: 6px;
+    border: 1px solid var(--color-neutral-border);
+    border-radius: 12px;
+    background: var(--color-neutral-card-background);
+    box-shadow: 0 12px 32px rgb(0 0 0 / 16%);
+    text-align: left;
+}
+
+.list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.status {
+    padding: 10px 12px;
+    color: var(--color-neutral-text-muted);
+    font-size: 1.4rem;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: var(--color-neutral-text);
+}
+
+.row + .row {
+    margin-top: 2px;
+}
+
+.active {
+    background: var(--color-neutral-card-background-hover);
+}
+
+.aiPrompt {
+    background: var(--color-primary-chip-background);
+    color: var(--color-primary-chip-text);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.aiPrompt.active {
+    box-shadow: inset 0 0 0 1px var(--color-primary-field-border-active);
+}
+
+.aiFooter {
+    margin-top: 4px;
+    border-top: 1px solid var(--color-neutral-separator-subtle);
+    border-radius: 0 0 8px 8px;
+    color: var(--color-neutral-text-muted);
+    font-size: 1.4rem;
+}
+
+.aiFooter.active {
+    background: var(--color-neutral-card-background-hover);
+    color: var(--color-neutral-text);
+}
+
+.rowIcon {
+    flex: none;
+}
+
+.aiText {
+    flex: 1;
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.chip {
+    flex: none;
+    padding: 2px 8px;
+    border-radius: 6px;
+    background: var(--color-neutral-chip-background);
+    color: var(--color-neutral-text-muted);
+    font-family: inherit;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.result {
+    align-items: flex-start;
+}
+
+.resultBody {
+    flex: 1;
+    min-width: 0;
+}
+
+.resultTitle {
+    color: var(--color-neutral-text);
+    font-size: 1.5rem;
+    font-weight: 600;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.breadcrumb {
+    margin-top: 2px;
+    color: var(--color-neutral-text-subtle);
+    font-size: 1.2rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.snippet {
+    margin-top: 4px;
+    color: var(--color-neutral-text-muted);
+    font-size: 1.3rem;
+    line-height: 1.4;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow-wrap: anywhere;
+}
+
+.snippet :global(.algolia-docsearch-suggestion--highlight) {
+    color: var(--color-primary-text);
+    font-weight: 600;
+}
+
+.hint {
+    margin: 10px 0 0;
+    color: var(--color-neutral-text-subtle);
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+@media (max-width: 480px) {
+    .field {
+        padding-left: 14px;
+        gap: 10px;
+    }
+
+    .input {
+        font-size: 1.6rem;
+    }
+
+    .askButton {
+        padding: 0 10px;
+    }
+
+    .askButtonText {
+        display: none;
+    }
+
+    .hint {
+        display: none;
+    }
+}
