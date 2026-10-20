@@ -5,9 +5,7 @@ import React from 'react';
 
 import { BookOpenIcon, CodeIcon, CoinIcon, PlayIcon } from '@apify/ui-icons';
 
-import { Heading } from '../components/Heading';
 import HomeSearch from '../components/HomeSearch/HomeSearch';
-import { Text } from '../components/Text';
 import styles from './index.module.css';
 
 interface LinkItem {
@@ -29,7 +27,6 @@ const POPULAR_LINKS: LinkItem[] = [
     { label: 'Proxy', to: '/proxy' },
     { label: 'Storage', to: '/storage' },
     { label: 'MCP server', to: '/mcp' },
-    { label: 'Integrations', to: '/integrations' },
 ];
 
 const STARTER_CARDS: StarterCard[] = [
@@ -90,53 +87,53 @@ export default function Home() {
     };
 
     return (
-        <Layout
-            description="Documentation for the Apify platform: learn how to run, build, and monetize Actors, and use the Apify API, SDKs, and CLI."
-        >
+        <Layout description="Documentation for the Apify platform: learn how to run, build, and monetize Actors, and use the Apify API, SDKs, and CLI.">
             <main className={styles.page}>
                 <section className={styles.hero}>
-                    <Heading type="title3Xl" as="h1" align="center">
-                        Apify Documentation
-                    </Heading>
-                    <div className={styles.subtitle}>
-                        <Text size="large" align="center">
+                    <div className={styles.heroInner}>
+                        <h1 className={styles.title}>
+                            <span className={styles.accent}>Apify</span> Documentation
+                        </h1>
+                        <p className={styles.subtitle}>
                             Search the docs, or ask the AI assistant anything about Apify.
-                        </Text>
-                    </div>
-                    <div className={styles.search}>
+                        </p>
                         <HomeSearch />
-                    </div>
-                    <div className={styles.popular}>
-                        <span className={styles.popularLabel}>Popular:</span>
-                        {POPULAR_LINKS.map((link) => (
-                            <Link key={link.to} className={styles.pill} to={resolve(link.to)}>
-                                {link.label}
-                            </Link>
-                        ))}
+                        <p className={styles.popular}>
+                            <span>Popular:</span>
+                            {POPULAR_LINKS.map((link, index) => (
+                                <React.Fragment key={link.to}>
+                                    {index > 0 && <span aria-hidden="true">·</span>}
+                                    <Link className={styles.popularLink} to={resolve(link.to)}>
+                                        {link.label}
+                                    </Link>
+                                </React.Fragment>
+                            ))}
+                        </p>
                     </div>
                 </section>
 
                 <section className={styles.section}>
-                    <Heading type="titleXl" as="h2">
-                        Start with Actors
-                    </Heading>
-                    <div className={styles.sectionDescription}>
-                        <Text size="regular">
-                            Actors are serverless programs that run on the Apify platform. Here&apos;s how to get
-                            going.
-                        </Text>
-                    </div>
+                    <h2 className={styles.sectionTitle}>Start with Actors</h2>
+                    <p className={styles.sectionDescription}>
+                        Actors are serverless programs that run on the Apify platform. Here&apos;s how to get going.
+                    </p>
                     <div className={styles.grid}>
                         {STARTER_CARDS.map(({ title, to, description, Icon, links }) => (
                             <div key={title} className={styles.card}>
-                                <span className={styles.iconTile}>
-                                    <Icon size="24" />
-                                </span>
-                                <h3 className={styles.cardTitle}>
-                                    <Link to={resolve(to)}>{title}</Link>
-                                </h3>
-                                <p className={styles.cardDescription}>{description}</p>
-                                <ul className={styles.cardLinks}>
+                                <div className={styles.cardBody}>
+                                    <div className={styles.cardHeader}>
+                                        <span className={styles.iconTile}>
+                                            <Icon size="20" />
+                                        </span>
+                                        <div className={styles.cardHeading}>
+                                            <h3 className={styles.cardTitle}>
+                                                <Link to={resolve(to)}>{title}</Link>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <p className={styles.cardDescription}>{description}</p>
+                                </div>
+                                <ul className={styles.cardFooter}>
                                     {links.map((link) => (
                                         <li key={link.to}>
                                             <Link to={resolve(link.to)}>{link.label}</Link>
@@ -146,6 +143,9 @@ export default function Home() {
                             </div>
                         ))}
                     </div>
+                    <Link className={styles.moreLink} to="/get-started">
+                        Get started with Apify <span className={styles.arrow}>→</span>
+                    </Link>
                 </section>
             </main>
         </Layout>

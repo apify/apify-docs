@@ -3,7 +3,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import type React from 'react';
 import { useCallback, useEffect, useId, useMemo, useRef, useState } from 'react';
 
-import { SearchIcon, SparkleIcon } from '@apify/ui-icons';
+import { CheckIcon, CopyIcon, SearchIcon, SparkleIcon } from '@apify/ui-icons';
 
 import styles from './styles.module.css';
 
@@ -34,7 +34,85 @@ const LOCAL_SECTIONS = [
 
 const DEBOUNCE_MS = 150;
 
-type Analytics = 'result_click' | 'ai_prompt_shown' | 'ai_open';
+const AI_SETUP_PROMPT = 'Set up Apify for me — read and follow https://apify.com/agents.md';
+const COPIED_FEEDBACK_MS = 2000;
+
+const PLACEHOLDER_INTRO = 'Search the docs or ask a question…';
+const PLACEHOLDER_EXAMPLES = [
+    'How do I schedule an Actor to run every day?',
+    'Proxy configuration',
+    'Can I monetize my Actor?',
+    'Dataset API',
+    'How do I connect Apify to an MCP client?',
+    'Webhooks',
+    "What's the difference between an Actor and a task?",
+];
+
+const TYPE_MS = 45;
+const DELETE_MS = 20;
+const HOLD_MS = 1800;
+const GAP_MS = 300;
+const REDUCED_MOTION_HOLD_MS = 3000;
+
+/**
+ * Cycles through example queries with a typewriter effect.
+ * Starts on the static intro text, so the server-rendered markup matches the first client render.
+ */
+function useRotatingPlaceholder(paused: boolean): string {
+    const [text, setText] = useState(PLACEHOLDER_INTRO);
+
+    useEffect(() => {
+        if (paused) {
+            return undefined;
+        }
+        const phrases = [PLACEHOLDER_INTRO, ...PLACEHOLDER_EXAMPLES];
+        const reducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+        let timer: ReturnType<typeof setTimeout>;
+        let index = 0;
+
+        if (reducedMotion) {
+            const swap = () => {
+                index = (index + 1) % phrases.length;
+                setText(phrases[index]);
+                timer = setTimeout(swap, REDUCED_MOTION_HOLD_MS);
+            };
+            timer = setTimeout(swap, REDUCED_MOTION_HOLD_MS);
+            return () => clearTimeout(timer);
+        }
+
+        let { length } = PLACEHOLDER_INTRO;
+        let deleting = true;
+        const tick = () => {
+            const phrase = phrases[index];
+            if (deleting) {
+                length -= 1;
+                setText(phrase.slice(0, length));
+                if (length === 0) {
+                    deleting = false;
+                    index = (index + 1) % phrases.length;
+                    timer = setTimeout(tick, GAP_MS);
+                } else {
+                    timer = setTimeout(tick, DELETE_MS);
+                }
+                return;
+            }
+            length += 1;
+            setText(phrase.slice(0, length));
+            if (length === phrase.length) {
+                deleting = true;
+                timer = setTimeout(tick, HOLD_MS);
+            } else {
+                timer = setTimeout(tick, TYPE_MS);
+            }
+        };
+        timer = setTimeout(tick, HOLD_MS);
+        return () => clearTimeout(timer);
+    }, [paused]);
+
+    return text;
+}
+
+type Analytics = 'result_click' | 'ai_prompt_shown' | 'ai_open' | 'setup_copy';
 
 interface Hit {
     url: string;
@@ -113,6 +191,7 @@ export default function HomeSearch() {
     const trimmed = query.trim();
     const question = isQuestion(query);
     const showDropdown = open && trimmed.length > 0;
+    const placeholder = useRotatingPlaceholder(query.length > 0);
 
     useEffect(() => {
         const platform = `${navigator.platform || ''} ${navigator.userAgent || ''}`;
@@ -328,7 +407,7 @@ export default function HomeSearch() {
             id={optionId(index)}
             role="option"
             aria-selected={index === activeIndex}
-            className={`${styles.row} ${kind === 'ai-prompt' ? styles.aiPrompt : styles.aiFooter} ${
+            className={`${styles.item} ${kind === 'ai-prompt' ? styles.aiPrompt : styles.aiFooter} ${
                 index === activeIndex ? styles.active : ''
             }`}
             onMouseDown={(e) => e.preventDefault()}
@@ -337,95 +416,159 @@ export default function HomeSearch() {
         >
             <SparkleIcon size="20" className={styles.rowIcon} />
             <span className={styles.aiText}>
-                {kind === 'ai-prompt' ? 'Looks like a question. Ask the Docs AI assistant' : `Ask AI about "${trimmed}"`}
+                {kind === 'ai-prompt'
+                    ? 'Looks like a question. Ask the Docs AI assistant'
+                    : `Ask AI about "${trimmed}"`}
             </span>
             {kind === 'ai-prompt' && <kbd className={styles.chip}>{`${modKey} ↵`}</kbd>}
         </li>
     );
 
+    const [copied, setCopied] = useState(false);
+    useEffect(() => {
+        if (!copied) {
+            return undefined;
+        }
+        const timer = setTimeout(() => setCopied(false), COPIED_FEEDBACK_MS);
+        return () => clearTimeout(timer);
+    }, [copied]);
+
+    const copySetupPrompt = async () => {
+        track('setup_copy', '');
+        try {
+            await navigator.clipboard.writeText(AI_SETUP_PROMPT);
+            setCopied(true);
+        } catch {
+            // eslint-disable-next-line no-console
+            console.error('Could not copy the setup prompt to the clipboard.');
+        }
+    };
+
+    const onSearchClick = () => {
+        if (!trimmed) {
+            inputRef.current?.focus();
+            return;
+        }
+        if (results.length > 0) {
+            activate(items[activeIndex]);
+            return;
+        }
+        setOpen(true);
+        inputRef.current?.focus();
+    };
+
     return (
         <div className={styles.root} ref={containerRef}>
-            <div className={styles.field}>
-                <SearchIcon size="20" className={styles.searchIcon} />
-                <input
-                    ref={inputRef}
-                    type="text"
-                    className={styles.input}
-                    placeholder="Search the docs or ask a question…"
-                    value={query}
-                    autoComplete="off"
-                    autoCorrect="off"
-                    autoCapitalize="off"
-                    spellCheck={false}
-                    role="combobox"
-                    aria-expanded={showDropdown}
-                    aria-controls={listId}
-                    aria-activedescendant={showDropdown && activeIndex >= 0 ? optionId(activeIndex) : undefined}
-                    aria-autocomplete="list"
-                    aria-label="Search documentation or ask AI"
-                    onChange={(e) => {
-                        setQuery(e.target.value);
-                        setOpen(true);
-                    }}
-                    onFocus={() => setOpen(true)}
-                    onBlur={() => setOpen(false)}
-                    onKeyDown={onKeyDown}
-                />
+            <div className={styles.row}>
+                <div className={styles.fieldWrap}>
+                    <div className={styles.field}>
+                        <SearchIcon size="20" className={styles.searchIcon} />
+                        <div className={styles.inputWrap}>
+                            <input
+                                ref={inputRef}
+                                type="text"
+                                className={styles.input}
+                                value={query}
+                                autoComplete="off"
+                                autoCorrect="off"
+                                autoCapitalize="off"
+                                spellCheck={false}
+                                role="combobox"
+                                aria-expanded={showDropdown}
+                                aria-controls={listId}
+                                aria-activedescendant={
+                                    showDropdown && activeIndex >= 0 ? optionId(activeIndex) : undefined
+                                }
+                                aria-autocomplete="list"
+                                aria-label="Search documentation or ask AI"
+                                onChange={(e) => {
+                                    setQuery(e.target.value);
+                                    setOpen(true);
+                                }}
+                                onFocus={() => setOpen(true)}
+                                onBlur={() => setOpen(false)}
+                                onKeyDown={onKeyDown}
+                            />
+                            {!query && (
+                                <span className={styles.placeholder} aria-hidden="true">
+                                    {placeholder}
+                                </span>
+                            )}
+                        </div>
+                    </div>
+                    {showDropdown && (
+                        <div className={styles.dropdown}>
+                            {loading && results.length === 0 && !completed && (
+                                <div className={styles.status}>Searching…</div>
+                            )}
+                            {hasNoResults && <div className={styles.status}>{`No results for "${trimmed}"`}</div>}
+                            <ul id={listId} role="listbox" className={styles.list} aria-label="Search results">
+                                {items.map((item, index) => {
+                                    if (item.kind !== 'result') {
+                                        return renderAiRow(index, item.kind);
+                                    }
+                                    const { result } = item;
+                                    return (
+                                        // eslint-disable-next-line jsx-a11y/click-events-have-key-events
+                                        <li
+                                            key={result.url}
+                                            id={optionId(index)}
+                                            role="option"
+                                            aria-selected={index === activeIndex}
+                                            className={`${styles.item} ${styles.result} ${
+                                                index === activeIndex ? styles.active : ''
+                                            }`}
+                                            onMouseDown={(e) => e.preventDefault()}
+                                            onMouseEnter={() => setActiveOverride(index)}
+                                            onClick={() => openResult(result)}
+                                        >
+                                            <div className={styles.resultBody}>
+                                                <div className={styles.resultTitle}>{result.title}</div>
+                                                {result.breadcrumb && (
+                                                    <div className={styles.breadcrumb}>{result.breadcrumb}</div>
+                                                )}
+                                                {result.snippet && (
+                                                    <div
+                                                        className={styles.snippet}
+                                                        // Algolia escapes the snippet and only adds highlight spans.
+                                                        // eslint-disable-next-line react/no-danger
+                                                        dangerouslySetInnerHTML={{ __html: result.snippet }}
+                                                    />
+                                                )}
+                                            </div>
+                                        </li>
+                                    );
+                                })}
+                            </ul>
+                        </div>
+                    )}
+                </div>
                 <button
                     type="button"
-                    className={styles.askButton}
-                    aria-label="Ask AI"
-                    onClick={askAI}
+                    className={styles.searchButton}
+                    onMouseDown={(e) => e.preventDefault()}
+                    onClick={onSearchClick}
                 >
-                    <SparkleIcon size="16" />
-                    <span className={styles.askButtonText}>Ask AI</span>
+                    Search
                 </button>
             </div>
 
-            {showDropdown && (
-                <div className={styles.dropdown}>
-                    {loading && results.length === 0 && !completed && <div className={styles.status}>Searching…</div>}
-                    {hasNoResults && <div className={styles.status}>{`No results for "${trimmed}"`}</div>}
-                    <ul id={listId} role="listbox" className={styles.list} aria-label="Search results">
-                        {items.map((item, index) => {
-                            if (item.kind !== 'result') {
-                                return renderAiRow(index, item.kind);
-                            }
-                            const { result } = item;
-                            return (
-                                // eslint-disable-next-line jsx-a11y/click-events-have-key-events
-                                <li
-                                    key={result.url}
-                                    id={optionId(index)}
-                                    role="option"
-                                    aria-selected={index === activeIndex}
-                                    className={`${styles.row} ${styles.result} ${
-                                        index === activeIndex ? styles.active : ''
-                                    }`}
-                                    onMouseDown={(e) => e.preventDefault()}
-                                    onMouseEnter={() => setActiveOverride(index)}
-                                    onClick={() => openResult(result)}
-                                >
-                                    <div className={styles.resultBody}>
-                                        <div className={styles.resultTitle}>{result.title}</div>
-                                        {result.breadcrumb && (
-                                            <div className={styles.breadcrumb}>{result.breadcrumb}</div>
-                                        )}
-                                        {result.snippet && (
-                                            <div
-                                                className={styles.snippet}
-                                                // Algolia escapes the snippet and only adds highlight spans.
-                                                // eslint-disable-next-line react/no-danger
-                                                dangerouslySetInnerHTML={{ __html: result.snippet }}
-                                            />
-                                        )}
-                                    </div>
-                                </li>
-                            );
-                        })}
-                    </ul>
-                </div>
-            )}
+            <div className={styles.actions}>
+                <button
+                    type="button"
+                    className={styles.askButton}
+                    onClick={copySetupPrompt}
+                    title={AI_SETUP_PROMPT}
+                    aria-label={copied ? 'Setup prompt copied' : 'Copy setup prompt for your AI agent'}
+                >
+                    {copied ? (
+                        <CheckIcon size="16" className={styles.askIcon} />
+                    ) : (
+                        <CopyIcon size="16" className={styles.askIcon} />
+                    )}
+                    {copied ? 'Copied' : 'Copy setup for AI'}
+                </button>
+            </div>
 
             <p className={styles.hint}>{`Press ↵ to search · ${modKey} ↵ to ask AI`}</p>
         </div>
