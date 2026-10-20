@@ -27,7 +27,7 @@ byRunId:
   <<: *sharedAbort
   tags:
     - Actor runs
-  summary: Abort run
+  summary: Abort Actor run
   description: |
     Aborts an Actor run and returns an object that contains all the details
     about the run.
@@ -53,7 +53,7 @@ byActorRunId:
   <<: *sharedAbort
   tags:
     - Actors/Actor runs
-  summary: Abort run
+  summary: Abort Actor run
   description: |
     **[DEPRECATED]** API endpoints related to run of the Actor were moved under
     new namespace [`actor-runs`](#/reference/actor-runs). Aborts an Actor run and
@@ -96,7 +96,7 @@ lastRunByActorTask:
   <<: *sharedAbort
   tags:
     - Last Actor task run's abort
-  summary: Abort Actor task's last run
+  summary: Abort last run of an Actor task
   description: |
     Aborts the last run of the specified Actor task and returns an object that
     contains all the details about the run.

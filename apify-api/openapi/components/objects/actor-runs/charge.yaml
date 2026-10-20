@@ -1,7 +1,7 @@
 byRunId:
   tags:
     - Actor runs
-  summary: Charge events in run
+  summary: Charge events in Actor run
   description: |
     Charge for events in the run of your [pay per event Actor](https://docs.apify.com/platform/actors/running/actors-in-store#pay-per-event).
     The event you are charging for must be one of the configured events in your Actor. If the Actor is not set up as pay per event, or if the event is not configured,

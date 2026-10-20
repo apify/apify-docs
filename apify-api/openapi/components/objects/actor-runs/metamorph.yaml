@@ -40,7 +40,7 @@ byRunId:
   <<: *sharedMetamorph
   tags:
     - Actor runs
-  summary: Metamorph run
+  summary: Metamorph Actor run
   description: |
     Transforms an Actor run into a run of another Actor with a new input.
 
@@ -78,7 +78,7 @@ byActorRunId:
   <<: *sharedMetamorph
   tags:
     - Actors/Actor runs
-  summary: Metamorph run
+  summary: Metamorph Actor run
   description: |
     **[DEPRECATED]** API endpoints related to run of the Actor were moved under
     new namespace [`actor-runs`](#/reference/actor-runs). Transforms an Actor run
@@ -134,7 +134,7 @@ lastRunByActorTask:
   <<: *sharedMetamorph
   tags:
     - Last Actor task run's metamorph
-  summary: Metamorph Actor task's last run
+  summary: Metamorph last run of an Actor task
   description: |
     Transforms the last run of the specified Actor task into a run of another Actor with
     a new input.
