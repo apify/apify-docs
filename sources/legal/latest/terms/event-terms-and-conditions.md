@@ -13,7 +13,7 @@ slug: /event-terms-and-conditions
 
 Effective date: November 3, 2025
 
-These Event Terms and Conditions ("**Terms**") apply to all Events organized or co-organized by Apify Technologies s.r.o., a company registered in the Czech Republic, with its registered office at Vodičkova 704/36, 110 00 Prague 1, Czech Republic, Company ID No.: 04788290 ("**Apify**", "**we**", "**us**"), whether in-person, hybrid, or online ("**Events**").
+These Event Terms and Conditions ("**Terms**") apply to all Events organized or co-organized by Apify Technologies s.r.o., a company registered in the Czech Republic, with its registered office at Na Prikope 959/27, 110 00 Prague 1, Czech Republic, Company ID No.: 04788290 ("**Apify**", "**we**", "**us**"), whether in-person, hybrid, or online ("**Events**").
 
 **By registering for, or participating in, any Event, you agree to these Terms. If you disagree with these Terms, please do not register or attend any Event.**
 

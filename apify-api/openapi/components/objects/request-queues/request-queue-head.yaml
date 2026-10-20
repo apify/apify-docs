@@ -36,7 +36,7 @@ sharedGet: &sharedGet
       content:
         application/json:
           schema:
-            $ref: ../../schemas/request-queues/HeadResponse.yaml
+            $ref: ../../schemas/request-queues/RequestQueueHeadResponse.yaml
     "402":
       $ref: ../../responses/PaymentRequired.yaml
     <<: *commonErrors

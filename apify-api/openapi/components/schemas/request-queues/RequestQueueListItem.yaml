@@ -1,0 +1,59 @@
+title: RequestQueueListItem
+description: A shortened request queue object for list responses.
+required:
+  - id
+  - name
+  - userId
+  - username
+  - createdAt
+  - modifiedAt
+  - accessedAt
+  - totalRequestCount
+  - handledRequestCount
+  - pendingRequestCount
+  - hadMultipleClients
+type: object
+properties:
+  id:
+    $ref: ./SharedProperties.yaml#/QueueId
+  name:
+    type: string
+    description: The name of the request queue.
+    examples: [some-name]
+  userId:
+    $ref: ./SharedProperties.yaml#/QueueUserId
+  username:
+    type: string
+    description: The username of the user who owns the request queue.
+    examples: [janedoe]
+  createdAt:
+    $ref: ./SharedProperties.yaml#/QueueCreatedAt
+  modifiedAt:
+    $ref: ./SharedProperties.yaml#/QueueModifiedAt
+  accessedAt:
+    $ref: ./SharedProperties.yaml#/QueueAccessedAt
+  expireAt:
+    type: string
+    format: date-time
+    description: The timestamp when the request queue will expire and be deleted.
+    examples: ["2019-06-02T17:15:06.751Z"]
+  totalRequestCount:
+    $ref: ./SharedProperties.yaml#/TotalRequestCount
+  handledRequestCount:
+    $ref: ./SharedProperties.yaml#/HandledRequestCount
+  pendingRequestCount:
+    $ref: ./SharedProperties.yaml#/PendingRequestCount
+  actId:
+    type: [string, "null"]
+    description: The ID of the Actor that created this request queue.
+  actRunId:
+    type: [string, "null"]
+    description: The ID of the Actor run that created this request queue.
+  hadMultipleClients:
+    $ref: ./SharedProperties.yaml#/HadMultipleClients
+  generalAccess:
+    anyOf:
+      - $ref: ../common/GeneralAccess.yaml
+      - type: "null"
+  stats:
+    $ref: ./RequestQueueStats.yaml

@@ -12,11 +12,11 @@ slug: /store-publishing-terms-and-conditions
 <!-- vale off -->
 <!-- markdownlint-disable -->
 
-Last updated: September 2, 2026
+Last updated: September 15, 2026
 
 ---
 
-Apify Technologies s.r.o., with its registered seat at Vodičkova 704/36, 110 00 Prague 1, Czech Republic, Company reg. no. 04788290, recorded in the Commercial Register kept by the Municipal Court of Prague, File No.: C 253224 ("**we**" or "**Apify**") created Apify Store at console.apify.com/store ("**Apify Store**") where you ("**you**" or "**Creator**") can publish Actors to other Users of the Platform, as defined in the [Apify General Terms and Conditions](../terms/general-terms-and-conditions.md) and [Actor Terms and Conditions](../terms/actor-terms-and-conditions.md) that are incorporated by reference herein ("**General Terms**").
+Apify Technologies s.r.o., with its registered seat at Na Prikope 959/27, 110 00 Prague 1, Czech Republic, Company reg. no. 04788290, recorded in the Commercial Register kept by the Municipal Court of Prague, File No.: C 253224 ("**we**" or "**Apify**") created Apify Store at console.apify.com/store ("**Apify Store**") where you ("**you**" or "**Creator**") can publish Actors to other Users of the Platform, as defined in the [Apify General Terms and Conditions](../terms/general-terms-and-conditions.md) and [Actor Terms and Conditions](../terms/actor-terms-and-conditions.md) that are incorporated by reference herein ("**General Terms**").
 
 By publishing an Actor in Apify Store, you represent that you are over 18 years old and agree to adhere to these Apify Store Publishing Terms and Conditions ("**Publishing Terms**"), in addition to the General Terms. If you act on behalf of a company when accepting these Publishing Terms, you also hereby declare to be authorized to perform such legal actions on behalf of the company (herein, the term "you" shall mean the relevant company).
 
@@ -136,7 +136,7 @@ We reserve the right to modify the eligibility criteria for all Creator levels u
 
 10.2.2. Your entitlement to payout for an Actor ceases for the time that the Actor is a Faulty Actor and resumes when the Actor becomes functional again as advertised.
 
-10.2.3. Notwithstanding the payout rate set out herein, where a User accesses your Actor under a promotional activity conducted by Apify (including as a coupon holder, hackathon participant, free trial recipient, or other Apify-issued promotional credit holder) (a "**Promotional User**"), your payout for usage by that Promotional User will be calculated from the highest per-unit price you have configured for that Actor at the time of usage, regardless of the Promotional User's actual spend tier or the price paid by that Promotional User. Apify will determine in its sole discretion which Users qualify as Promotional Users.
+10.2.3. Notwithstanding the payout rate set out herein, where a User accesses your Actor under a promotional activity conducted by Apify (including as a coupon holder, hackathon participant, free trial recipient, or other Apify-issued promotional credit holder) (a "**Promotional User**"), your payout for usage by that Promotional User will be calculated from the highest Apify Store Discount Tier you have configured for that Actor at the time of usage, regardless of the Promotional User's actual spend tier or the price paid by that Promotional User. Apify will determine in its sole discretion which Users qualify as Promotional Users.
 
 10.3. **Payment process**.
 
