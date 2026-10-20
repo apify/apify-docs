@@ -164,7 +164,7 @@ Actor execution time varies depending on the task complexity. Check Actor run st
 
 ### Authentication errors
 
-- _Check your API token_ - Verify your Apify API token is correct by running `openclaw apify status`. You can find your token in the **API & Integrations** section of [Apify Console](https://console.apify.com/settings/integrations).
+- _Check your API token_ - Verify your Apify API token is correct by running `openclaw apify status`. You can find your token in the **API & Integrations** section of [Apify Console](https://console.apify.com/settings/integrations?utm_source=openclaw&utm_medium=integrations).
 - _Environment variable_ - If you prefer not to store the key in config, set the `APIFY_API_KEY` environment variable instead.
 
 ### Tool not available to agents

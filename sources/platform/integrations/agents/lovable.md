@@ -23,7 +23,7 @@ Apify is available as an app and chat connector: one connection works both in th
 Before you connect the two platforms, you need:
 
 - _An Apify account_ - If you don't have one, [sign up here](https://console.apify.com/sign-up).
-- _Apify API token_ - Get your token from the **API & Integrations** section in [Apify Console](https://console.apify.com/settings/integrations). See [API token](/integrations/api#api-token) for scope and expiration options.
+- _Apify API token_ - Get your token from the **API & Integrations** section in [Apify Console](https://console.apify.com/settings/integrations?utm_source=lovable&utm_medium=integrations). See [API token](/integrations/api#api-token) for scope and expiration options.
 - _A Lovable account_ - App and chat connectors are available on the Free, Pro, and Business plans.
 - _Permission to create connections_ - Enterprise plans restrict connection creation to **No one** by default, until an admin changes it in **Connectors > Admin settings > App + chat connectors**.
 

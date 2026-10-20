@@ -219,11 +219,11 @@ When you use the pick list, the connector fetches input fields automatically - n
 
 When using manual input instead of pick lists, you need to provide a resource identifier. Actors and tasks accept either an ID or a slug (e.g., `owner/actor-name`), so you can type the name directly without looking up the ID. For other resources, find the ID in Apify Console:
 
-- **Dataset**: [**Storage** > **Datasets**](https://console.apify.com/storage/datasets?utm_source=workato&utm_medium=integrations) > dataset detail > API panel or URL.
+- **Dataset**: [**Storage** > **Datasets**](https://console.apify.com/storage/datasets) > dataset detail > API panel or URL.
   - Also visible in the table on the **Storage** > **Datasets** page
-- **Key-value store**: [**Storage** > **Key-value stores**](https://console.apify.com/storage/key-value-stores?utm_source=workato&utm_medium=integrations) > store detail > API panel or URL.
+- **Key-value store**: [**Storage** > **Key-value stores**](https://console.apify.com/storage/key-value-stores) > store detail > API panel or URL.
   - Also visible in the table on the **Storage** > **Key-value stores** page
-- **Webhook**: [Actors](https://console.apify.com/actors?utm_source=workato&utm_medium=integrations) > Actor > **Integrations** tab.
+- **Webhook**: [Actors](https://console.apify.com/actors) > Actor > **Integrations** tab.
 
 ## Handle long-running scrapes
 
