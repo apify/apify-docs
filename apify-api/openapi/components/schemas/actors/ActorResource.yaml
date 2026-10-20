@@ -33,7 +33,7 @@ properties:
     examples: [Extract data from hundreds of places fast.]
     description: Short description of the Actor, displayed in Apify Store and Console.
   restartOnError:
-    type: boolean
+    type: [boolean, "null"]
     examples: [false]
     deprecated: true # Use defaultRunOptions.restartOnError instead
   isPublic:
