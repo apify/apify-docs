@@ -264,7 +264,7 @@ listById:
 
 listDefault:
   <<: [*sharedGet, *sharedTagDefault]
-  summary: Get default dataset items from an Actor run
+  summary: Get the default dataset items from an Actor run
   description: |
     Returns data stored in the default dataset of the Actor run in the desired format.
 
@@ -300,7 +300,7 @@ listDefault:
 
 listLastRun:
   <<: [*sharedGet, *sharedTagLastRun]
-  summary: Get default dataset items from an Actor's last run
+  summary: Get the default dataset items from an Actor's last run
   description: |
     Returns data stored in the default dataset of the last Actor run in the desired format.
 
@@ -338,7 +338,7 @@ listLastRun:
 
 listTaskLastRun:
   <<: [*sharedGet, *sharedTagTaskLastRun]
-  summary: Get default dataset items from an Actor task's last run
+  summary: Get the default dataset items from an Actor task's last run
   description: |
     Returns data stored in the default dataset of the last Actor task run in the desired format.
 
