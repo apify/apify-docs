@@ -76,7 +76,7 @@ lastRunByActor:
   <<: *sharedAbort
   tags:
     - Last Actor run's abort
-  summary: Abort last Actor run
+  summary: Abort Actor's last run
   description: |
     Aborts the last run of the specified Actor and returns an object that
     contains all the details about the run.
@@ -96,7 +96,7 @@ lastRunByActorTask:
   <<: *sharedAbort
   tags:
     - Last Actor task run's abort
-  summary: Abort last Actor task run
+  summary: Abort last run of an Actor task
   description: |
     Aborts the last run of the specified Actor task and returns an object that
     contains all the details about the run.

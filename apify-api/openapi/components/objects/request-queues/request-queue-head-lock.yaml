@@ -60,7 +60,7 @@ postDefault:
   <<: *sharedPost
   tags:
     - Default request queue
-  summary: Get and lock Actor run's default request queue head
+  summary: Get and lock default request queue head for an Actor run
   description: |
     Returns the given number of first requests from the default request queue of the Actor run
     and locks them for the given time.
@@ -78,7 +78,7 @@ postLastRun:
   <<: *sharedPost
   tags:
     - Last Actor run's default request queue
-  summary: Get and lock last Actor run's default request queue head
+  summary: Get and lock default request queue head for an Actor's last run
   description: |
     Returns the given number of first requests from the default request queue of the last Actor run
     and locks them for the given time.
@@ -98,7 +98,7 @@ postTaskLastRun:
   <<: *sharedPost
   tags:
     - Last Actor task run's default request queue
-  summary: Get and lock last Actor task run's default request queue head
+  summary: Get and lock default request queue head for an Actor task's last run
   description: |
     Returns the given number of first requests from the default request queue of the last Actor task run
     and locks them for the given time.

@@ -39,7 +39,7 @@ getDefault:
   <<: *sharedGet
   tags:
     - Default dataset
-  summary: Get Actor run's default dataset statistics
+  summary: Get default dataset statistics for an Actor run
   description: |
     Returns statistics for the Actor run's default dataset.
 
@@ -53,7 +53,7 @@ getLastRun:
   <<: *sharedGet
   tags:
     - Last Actor run's default dataset
-  summary: Get last Actor run's default dataset statistics
+  summary: Get default dataset statistics for an Actor's last run
   description: |
     Returns statistics for the last Actor run's default dataset.
 
@@ -69,7 +69,7 @@ getTaskLastRun:
   <<: *sharedGet
   tags:
     - Last Actor task run's default dataset
-  summary: Get last Actor task run's default dataset statistics
+  summary: Get default dataset statistics for an Actor task's last run
   description: |
     Returns statistics for the last Actor task run's default dataset.
 

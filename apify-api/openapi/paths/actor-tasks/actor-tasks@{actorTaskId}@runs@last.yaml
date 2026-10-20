@@ -1,7 +1,7 @@
 get:
   tags:
     - Actor tasks
-  summary: Get last Actor task run
+  summary: Get last run of an Actor task
   description: |
     This is not a single endpoint, but an entire group of endpoints that lets you to
     retrieve and manage the last run of given actor task or any of its default storages.

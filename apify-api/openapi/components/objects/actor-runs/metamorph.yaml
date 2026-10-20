@@ -115,7 +115,7 @@ lastRunByActor:
   <<: *sharedMetamorph
   tags:
     - Last Actor run's metamorph
-  summary: Metamorph last Actor run
+  summary: Metamorph Actor's last run
   description: |
     Transforms the last run of the specified Actor into a run of another Actor with
     a new input.
@@ -134,7 +134,7 @@ lastRunByActorTask:
   <<: *sharedMetamorph
   tags:
     - Last Actor task run's metamorph
-  summary: Metamorph last Actor task run
+  summary: Metamorph last run of an Actor task
   description: |
     Transforms the last run of the specified Actor task into a run of another Actor with
     a new input.

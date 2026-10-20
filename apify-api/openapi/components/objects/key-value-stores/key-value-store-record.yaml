@@ -133,7 +133,7 @@ getById:
 
 getDefault:
   <<: [*sharedGet, *sharedTagDefault]
-  summary: Get record from Actor run's default key-value store
+  summary: Get record from the default key-value store of an Actor run
   description: |
     Gets a value stored under a specific key in the default key-value store of the Actor run.
 
@@ -148,7 +148,7 @@ getDefault:
 
 getLastRun:
   <<: [*sharedGet, *sharedTagLastRun]
-  summary: Get record from last Actor run's default key-value store
+  summary: Get record from the default key-value store of an Actor's last run
   description: |
     Gets a value stored under a specific key in the default key-value store of the last Actor run.
 
@@ -165,7 +165,7 @@ getLastRun:
 
 getTaskLastRun:
   <<: [*sharedGet, *sharedTagTaskLastRun]
-  summary: Get record from last Actor task run's default key-value store
+  summary: Get record from the default key-value store of an Actor task's last run
   description: |
     Gets a value stored under a specific key in the default key-value store of the last Actor task run.
 
@@ -240,7 +240,7 @@ putById:
 
 putDefault:
   <<: [*sharedPutPost, *sharedTagDefault]
-  summary: Set record in Actor run's default key-value store
+  summary: Set record in the default key-value store of an Actor run
   description: |
     Stores a value under a specific key in the default key-value store of the Actor run.
 
@@ -254,7 +254,7 @@ putDefault:
 
 putLastRun:
   <<: [*sharedPutPost, *sharedTagLastRun]
-  summary: Set record in last Actor run's default key-value store
+  summary: Set record in the default key-value store of an Actor's last run
   description: |
     Stores a value under a specific key in the default key-value store of the last Actor run.
 
@@ -270,7 +270,7 @@ putLastRun:
 
 putTaskLastRun:
   <<: [*sharedPutPost, *sharedTagTaskLastRun]
-  summary: Set record in last Actor task run's default key-value store
+  summary: Set record in the default key-value store of an Actor task's last run
   description: |
     Stores a value under a specific key in the default key-value store of the last Actor task run.
 
@@ -303,7 +303,7 @@ postById:
 
 postDefault:
   <<: [*sharedPutPost, *sharedTagDefault]
-  summary: Set record in Actor run's default key-value store (POST)
+  summary: Set record in the default key-value store of an Actor run (POST)
   description: |
     Stores a value under a specific key in the default key-value store of the Actor run.
 
@@ -317,7 +317,7 @@ postDefault:
 
 postLastRun:
   <<: [*sharedPutPost, *sharedTagLastRun]
-  summary: Set record in last Actor run's default key-value store (POST)
+  summary: Set record in the default key-value store of an Actor's last run (POST)
   description: |
     Stores a value under a specific key in the default key-value store of the last Actor run.
 
@@ -333,7 +333,7 @@ postLastRun:
 
 postTaskLastRun:
   <<: [*sharedPutPost, *sharedTagTaskLastRun]
-  summary: Set record in last Actor task run's default key-value store (POST)
+  summary: Set record in the default key-value store of an Actor task's last run (POST)
   description: |
     Stores a value under a specific key in the default key-value store of the last Actor task run.
 
@@ -368,7 +368,7 @@ deleteById:
 
 deleteDefault:
   <<: [*sharedDelete, *sharedTagDefault]
-  summary: Delete record from Actor run's default key-value store
+  summary: Delete record from the default key-value store of an Actor run
   description: |
     Removes a record specified by a key from the default key-value store of the Actor run.
 
@@ -381,7 +381,7 @@ deleteDefault:
 
 deleteLastRun:
   <<: [*sharedDelete, *sharedTagLastRun]
-  summary: Delete record from last Actor run's default key-value store
+  summary: Delete record from the default key-value store of an Actor's last run
   description: |
     Removes a record specified by a key from the default key-value store of the last Actor run.
 
@@ -396,7 +396,7 @@ deleteLastRun:
 
 deleteTaskLastRun:
   <<: [*sharedDelete, *sharedTagTaskLastRun]
-  summary: Delete record from last Actor task run's default key-value store
+  summary: Delete record from the default key-value store of an Actor task's last run
   description: |
     Removes a record specified by a key from the default key-value store of the last Actor task run.
 

@@ -70,7 +70,7 @@ putById:
 
 putDefault:
   <<: [*sharedPut, *sharedTagDefault]
-  summary: Prolong lock on request in Actor run's default request queue
+  summary: Prolong lock on request in the default request queue of an Actor run
   description: |
     Prolongs a request lock in the default request queue of the Actor run.
 
@@ -86,7 +86,7 @@ putDefault:
 
 putLastRun:
   <<: [*sharedPut, *sharedTagLastRun]
-  summary: Prolong lock on request in last Actor run's default request queue
+  summary: Prolong lock on request in the default request queue of an Actor's last run
   description: |
     Prolongs a request lock in the default request queue of the last Actor run.
 
@@ -104,7 +104,7 @@ putLastRun:
 
 putTaskLastRun:
   <<: [*sharedPut, *sharedTagTaskLastRun]
-  summary: Prolong lock on request in last Actor task run's default request queue
+  summary: Prolong lock on request in the default request queue of an Actor task's last run
   description: |
     Prolongs a request lock in the default request queue of the last Actor task run.
 
@@ -156,7 +156,7 @@ deleteById:
 
 deleteDefault:
   <<: [*sharedDelete, *sharedTagDefault]
-  summary: Delete lock on request in Actor run's default request queue
+  summary: Delete lock on request in the default request queue of an Actor run
   description: |
     Deletes a request lock in the default request queue of the Actor run.
 
@@ -171,7 +171,7 @@ deleteDefault:
 
 deleteLastRun:
   <<: [*sharedDelete, *sharedTagLastRun]
-  summary: Delete lock on request in last Actor run's default request queue
+  summary: Delete lock on request in the default request queue of an Actor's last run
   description: |
     Deletes a request lock in the default request queue of the last Actor run.
 
@@ -188,7 +188,7 @@ deleteLastRun:
 
 deleteTaskLastRun:
   <<: [*sharedDelete, *sharedTagTaskLastRun]
-  summary: Delete lock on request in last Actor task run's default request queue
+  summary: Delete lock on request in the default request queue of an Actor task's last run
   description: |
     Deletes a request lock in the default request queue of the last Actor task run.
 

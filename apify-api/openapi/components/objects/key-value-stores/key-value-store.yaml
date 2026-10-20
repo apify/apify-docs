@@ -76,7 +76,7 @@ getById:
 
 getDefault:
   <<: [*sharedGet, *sharedDefault]
-  summary: Get Actor run's default key-value store
+  summary: Get default key-value store of an Actor run
   description: |
     Gets an object that contains all the details about the default key-value
     store.
@@ -88,7 +88,7 @@ getDefault:
 
 getLastRun:
   <<: [*sharedGet, *sharedLastRun]
-  summary: Get last Actor run's default key-value store
+  summary: Get default key-value store of an Actor's last run
   description: |
     Gets an object that contains all the details about the default key-value store associated with the last Actor run.
 
@@ -99,7 +99,7 @@ getLastRun:
 
 getTaskLastRun:
   <<: [*sharedGet, *sharedTaskLastRun]
-  summary: Get last Actor task run's default key-value store
+  summary: Get default key-value store of an Actor task's last run
   description: |
     Gets an object that contains all the details about the default key-value store of the last Actor task run.
 
@@ -148,7 +148,7 @@ putById:
 
 putDefault:
   <<: [*sharedPut, *sharedDefault]
-  summary: Update Actor run's default key-value store
+  summary: Update default key-value store of an Actor run
   description: |
     Updates the default key-value store's name and general resource access level using a value specified by a JSON object
     passed in the PUT payload.
@@ -160,7 +160,7 @@ putDefault:
 
 putLastRun:
   <<: [*sharedPut, *sharedLastRun]
-  summary: Update last Actor run's default key-value store
+  summary: Update default key-value store of an Actor's last run
   description: |
     Updates the last Actor run key-value store's name and general resource access level using a value specified by a JSON object
     passed in the PUT payload.
@@ -172,7 +172,7 @@ putLastRun:
 
 putTaskLastRun:
   <<: [*sharedPut, *sharedTaskLastRun]
-  summary: Update last Actor task run's default key-value store
+  summary: Update default key-value store of an Actor task's last run
   description: |
     Updates the default key-value store associated with the last Actor task run.
 
@@ -202,7 +202,7 @@ deleteById:
 
 deleteDefault:
   <<: [*sharedDelete, *sharedDefault]
-  summary: Delete Actor run's default key-value store
+  summary: Delete default key-value store of an Actor run
   description: |
     Delete the default key-value store.
 
@@ -213,7 +213,7 @@ deleteDefault:
 
 deleteLastRun:
   <<: [*sharedDelete, *sharedLastRun]
-  summary: Delete last Actor run's default key-value store
+  summary: Delete default key-value store of an Actor's last run
   description: |
     Deletes the last Actor run key-value store.
 
@@ -224,7 +224,7 @@ deleteLastRun:
 
 deleteTaskLastRun:
   <<: [*sharedDelete, *sharedTaskLastRun]
-  summary: Delete last Actor task run's default key-value store
+  summary: Delete default key-value store of an Actor task's last run
   description: |
     Deletes the default key-value store of the last Actor task run.
 

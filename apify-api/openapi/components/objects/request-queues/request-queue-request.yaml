@@ -63,7 +63,7 @@ getById:
 
 getDefault:
   <<: [*sharedGet, *sharedTagDefault]
-  summary: Get request from Actor run's default request queue
+  summary: Get request from the default request queue of an Actor run
   description: |
     Returns a request from the default request queue of the Actor run.
 
@@ -76,7 +76,7 @@ getDefault:
 
 getLastRun:
   <<: [*sharedGet, *sharedTagLastRun]
-  summary: Get request from last Actor run's default request queue
+  summary: Get request from the default request queue of an Actor's last run
   description: |
     Returns a request from the default request queue of the last Actor run.
 
@@ -91,7 +91,7 @@ getLastRun:
 
 getTaskLastRun:
   <<: [*sharedGet, *sharedTagTaskLastRun]
-  summary: Get request from last Actor task run's default request queue
+  summary: Get request from the default request queue of an Actor task's last run
   description: |
     Returns a request from the default request queue of the last Actor task run.
 
@@ -153,7 +153,7 @@ putById:
 
 putDefault:
   <<: [*sharedPut, *sharedTagDefault]
-  summary: Update request in Actor run's default request queue
+  summary: Update request in the default request queue of an Actor run
   description: |
     Updates a request in the default request queue of the Actor run.
 
@@ -168,7 +168,7 @@ putDefault:
 
 putLastRun:
   <<: [*sharedPut, *sharedTagLastRun]
-  summary: Update request in last Actor run's default request queue
+  summary: Update request in the default request queue of an Actor's last run
   description: |
     Updates a request in the default request queue of the last Actor run.
 
@@ -185,7 +185,7 @@ putLastRun:
 
 putTaskLastRun:
   <<: [*sharedPut, *sharedTagTaskLastRun]
-  summary: Update request in last Actor task run's default request queue
+  summary: Update request in the default request queue of an Actor task's last run
   description: |
     Updates a request in the default request queue of the last Actor task run.
 
@@ -226,7 +226,7 @@ deleteById:
 
 deleteDefault:
   <<: [*sharedDelete, *sharedTagDefault]
-  summary: Delete request from Actor run's default request queue
+  summary: Delete request from the default request queue of an Actor run
   description: |
     Deletes a request from the default request queue of the Actor run.
 
@@ -240,7 +240,7 @@ deleteDefault:
 
 deleteLastRun:
   <<: [*sharedDelete, *sharedTagLastRun]
-  summary: Delete request from last Actor run's default request queue
+  summary: Delete request from the default request queue of an Actor's last run
   description: |
     Deletes a request from the default request queue of the last Actor run.
 
@@ -256,7 +256,7 @@ deleteLastRun:
 
 deleteTaskLastRun:
   <<: [*sharedDelete, *sharedTagTaskLastRun]
-  summary: Delete request from last Actor task run's default request queue
+  summary: Delete request from the default request queue of an Actor task's last run
   description: |
     Deletes a request from the default request queue of the last Actor task run.
 
