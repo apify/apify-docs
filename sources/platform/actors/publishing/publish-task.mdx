@@ -122,7 +122,7 @@ For more on configuring views, see [Dataset schema](/storage/dataset-schema).
 
 ### FAQ
 
-The optional **FAQ** section adds questions and answers to the bottom of the landing page. An FAQ answers what people want to know before they run your task, and gives search engines and AI agents short facts they can quote.
+The optional **FAQ** section adds questions and answers near the bottom of the landing page. An FAQ answers what people want to know before they run your task, and gives search engines and AI agents short facts they can quote.
 
 - **Generate FAQ:** writes questions and answers with AI, based on the task's title, description, and input, and on the Actor's README and dataset schema. If the task already has an FAQ, the AI uses it as a draft and replaces it after you confirm.
 - **Add question:** adds a question and answer that you write yourself.
@@ -286,19 +286,24 @@ Keep the task name short, descriptive, and focused on the use case keyword.
 
 ### Landing page content
 
-![A published task landing page showing the SEO title, input configuration, and dataset preview.](./images/public-tasks/task-landing-page.webp)
+![A published task landing page showing the task title, description, input values, and output fields.](./images/public-tasks/task-landing-page.webp)
 
-The landing page displays the information you configured in the [Page details](#page-details), [Input](#input), [Dataset schema](#dataset-schema), and [FAQ](#faq) sections:
+The landing page shows what you configured on the **Publishing** tab, in this order:
 
-- The **SEO title** and **SEO description** at the top of the page.
-- The selected **input fields** with their exact configured values.
-- A preview of the **Dataset schema fields** based on the dataset view you selected.
-- The [FAQ](#faq), if you added one. The markdown version of the page includes it too.
-- A call-to-action button that lets users try the task right away.
+- The task **title** and **description**, with a preview of the output fields
+- A **Try for free** button that lets users try the task right away
+- An **example dataset** table, if you generated example data in the [Dataset schema](#dataset-schema) section
+- The selected **input fields** with their configured values, and the output fields from the dataset view you selected
+- **How it works:** the steps to run the task, with a **Sign up** button
+- **Integrations:** tools such as Zapier, Make, and n8n, and code examples that run the task with its input
+- The [FAQ](#faq), if you added one
+- Related tasks
+
+The markdown version of the page includes the FAQ too. Search results show the **SEO title** and **SEO description** instead of the title and description.
 
 ### After a user tries your task
 
-When a user clicks the call-to-action button, Apify creates a new task under their account with the same input configuration. The user can change, run, and manage it without affecting your original task. Your runs, data, and configuration stay private.
+When a user selects **Try for free** or **Sign up**, Apify creates a new task under their account with the same input configuration. The user can change, run, and manage it without affecting your original task. Your runs, data, and configuration stay private.
 
 ## Next steps
 
