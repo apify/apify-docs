@@ -147,3 +147,54 @@
 .DocSearch-Container {
     z-index: calc(var(--ifm-z-index-fixed) + 1);
 }
+
+/* Combined search + AI box: shortcut hint, and emphasis when the query looks like a question. */
+.kapa-ai-button::after {
+    content: ' Ctrl↵';
+    font-size: 0.85em;
+    opacity: 0.8;
+}
+
+html[data-search-mod='mac'] .kapa-ai-button::after {
+    content: ' ⌘↵';
+}
+
+html[data-search-question='true'] .kapa-ai-button {
+    box-shadow:
+        0 0 0 2px var(--ifm-background-color),
+        0 0 0 4px #f86606;
+    transform: scale(1.05);
+    animation: kapa-ai-pulse 1.2s ease-in-out 2;
+}
+
+html[data-search-question='true'] .kapa-ai-button::before {
+    content: 'Looks like a question · ';
+    font-weight: 400;
+}
+
+/* Keep long questions from running under the wider button. */
+html[data-search-question='true'] .aa-Input {
+    padding-right: 26rem;
+}
+
+@keyframes kapa-ai-pulse {
+    50% {
+        transform: scale(1.12);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html[data-search-question='true'] .kapa-ai-button {
+        animation: none;
+    }
+}
+
+@media (max-width: 680px) {
+    html[data-search-question='true'] .kapa-ai-button::before {
+        content: none;
+    }
+
+    html[data-search-question='true'] .aa-Input {
+        padding-right: 0;
+    }
+}

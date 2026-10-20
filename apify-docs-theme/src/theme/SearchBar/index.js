@@ -3,7 +3,7 @@ import BrowserOnly from '@docusaurus/BrowserOnly';
 import RouterLink from '@docusaurus/Link';
 import { useHistory, useLocation } from '@docusaurus/router';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 
 import { ApifySearch } from '@apify/docs-search-modal';
 import { SparklesIcon } from './SparklesIcon';
@@ -48,10 +48,59 @@ export function Link(props) {
     return <a {...props}>{props.children}</a>;
 }
 
+const QUESTION_WORD_REGEX = /^(how|what|why|when|where|which|who|can|could|does|do|is|are|should|will|would)$/i;
+
+/**
+ * Heuristic: does the query look like a natural-language question?
+ */
+function isQuestion(q) {
+    const text = q.trim();
+    if (!text) return false;
+    const words = text.split(/\s+/);
+    if (words.length >= 6 || text.endsWith('?')) return true;
+    return words.length >= 3 && QUESTION_WORD_REGEX.test(words[0]);
+}
+
 export default function SearchBar({ onClick }) {
     const { siteConfig } = useDocusaurusContext();
     const location = useLocation();
     const history = useHistory();
+
+    // Combined search + AI box: flag question-like queries (styled in CSS) and send them to the AI on Cmd/Ctrl+Enter.
+    useEffect(() => {
+        const root = document.documentElement;
+        root.dataset.searchMod = /mac|iphone|ipad|ipod/i.test(navigator.platform + navigator.userAgent)
+            ? 'mac'
+            : 'other';
+
+        const updateQuestionFlag = (event) => {
+            if (event.target instanceof Element && event.target.matches('.aa-Input')) {
+                root.dataset.searchQuestion = isQuestion(event.target.value) ? 'true' : 'false';
+            }
+        };
+
+        const onKeyDown = (event) => {
+            if (!(event.target instanceof Element) || !event.target.matches('.aa-Input')) return;
+            if (event.key !== 'Enter' || !(event.metaKey || event.ctrlKey)) return;
+            if (!window.Kapa?.open) return;
+
+            const query = event.target.value;
+            event.preventDefault();
+            event.stopImmediatePropagation();
+            document.querySelector('.aa-DetachedCancelButton')?.click();
+            window.Kapa.open({ mode: 'ai', query, submit: query.trim().length > 0 });
+        };
+
+        window.addEventListener('input', updateQuestionFlag, true);
+        window.addEventListener('focusin', updateQuestionFlag, true);
+        window.addEventListener('keydown', onKeyDown, true);
+
+        return () => {
+            window.removeEventListener('input', updateQuestionFlag, true);
+            window.removeEventListener('focusin', updateQuestionFlag, true);
+            window.removeEventListener('keydown', onKeyDown, true);
+        };
+    }, []);
 
     const navigate = useCallback(
         (href) => {
