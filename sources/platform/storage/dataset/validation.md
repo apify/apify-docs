@@ -1,5 +1,5 @@
 ---
-title: Dataset validation
+title: Validate dataset output
 description: Specify the dataset schema within your Actors to add monitoring and validation at the field level, ensuring data quality and consistency across runs.
 sidebar_position: 2
 slug: /storage/dataset-schema/validation

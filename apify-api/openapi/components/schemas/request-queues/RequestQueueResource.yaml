@@ -1,0 +1,54 @@
+title: RequestQueueResource
+description: A request queue object containing metadata and statistics.
+required:
+  - id
+  - userId
+  - createdAt
+  - modifiedAt
+  - accessedAt
+  - totalRequestCount
+  - handledRequestCount
+  - pendingRequestCount
+  - hadMultipleClients
+  - consoleUrl
+type: object
+properties:
+  id:
+    $ref: ./SharedProperties.yaml#/QueueId
+  name:
+    type: [string, "null"]
+    description: The name of the request queue.
+    examples: [some-name]
+  userId:
+    $ref: ./SharedProperties.yaml#/QueueUserId
+  actId:
+    type: [string, "null"]
+    description: The ID of the Actor that created this request queue.
+  actRunId:
+    type: [string, "null"]
+    description: The ID of the Actor run that created this request queue.
+  createdAt:
+    $ref: ./SharedProperties.yaml#/QueueCreatedAt
+  modifiedAt:
+    $ref: ./SharedProperties.yaml#/QueueModifiedAt
+  accessedAt:
+    $ref: ./SharedProperties.yaml#/QueueAccessedAt
+  totalRequestCount:
+    $ref: ./SharedProperties.yaml#/TotalRequestCount
+  handledRequestCount:
+    $ref: ./SharedProperties.yaml#/HandledRequestCount
+  pendingRequestCount:
+    $ref: ./SharedProperties.yaml#/PendingRequestCount
+  hadMultipleClients:
+    $ref: ./SharedProperties.yaml#/HadMultipleClients
+  consoleUrl:
+    type: string
+    description: The URL to view the request queue in the Apify console.
+    format: uri
+    examples: [https://api.apify.com/v2/request-queues/27TmTznX9YPeAYhkC]
+  stats:
+    $ref: ./RequestQueueStats.yaml
+  generalAccess:
+    anyOf:
+      - $ref: ../common/GeneralAccess.yaml
+      - type: "null"

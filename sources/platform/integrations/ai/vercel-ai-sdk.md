@@ -98,5 +98,5 @@ await mcpClient.close();
 - [Vercel AI SDK documentation](https://ai-sdk.dev/docs/introduction)
 - [What are AI agents?](https://blog.apify.com/what-are-ai-agents/)
 - [Apify MCP server](https://mcp.apify.com)
-- [Apify MCP server documentation](https://docs.apify.com/integrations/mcp)
+- [Apify MCP server documentation](/mcp)
 - [Apify OpenRouter proxy](https://apify.com/apify/openrouter)

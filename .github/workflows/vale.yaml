@@ -16,6 +16,7 @@ jobs:
                 uses: tj-actions/changed-files@24d32ffd492484c1d75e0c0b894501ddb9d30d62 # v47.0.0
                 with:
                     files: '**/*.{md,mdx}'
+                    # Keep in sync with the ignore sections in .vale.ini.
                     files_ignore: |
                         sources/api/*.{md,mdx}
                         apify-api/README.md

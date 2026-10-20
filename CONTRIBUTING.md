@@ -3,7 +3,7 @@
 ## Before you start
 
 1. Review this guide completely
-2. Setup you development environment
+2. Set up your development environment
 3. Familiarize yourself with the [documentation style guide](standards/)
 
 ## Development setup

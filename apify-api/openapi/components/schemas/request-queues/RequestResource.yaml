@@ -1,0 +1,9 @@
+title: RequestResource
+description: A request stored in the request queue, including its metadata and processing state.
+allOf:
+  - $ref: ./RequestBase.yaml
+    required:
+      - id
+  - properties:
+      id:
+        $ref: ./SharedProperties.yaml#/RequestId

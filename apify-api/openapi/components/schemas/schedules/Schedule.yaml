@@ -1,5 +1,5 @@
-ScheduleShort:
-  title: ScheduleShort
+ScheduleListItem:
+  title: ScheduleListItem
   allOf:
     - $ref: ./ScheduleBase.yaml
     - type: object
@@ -9,7 +9,7 @@ ScheduleShort:
         actions:
           type: array
           items:
-            $ref: ./ScheduleActionShort.yaml
+            $ref: ./ScheduleListItemAction.yaml
           description: ""
 
 Schedule:
@@ -26,13 +26,7 @@ Schedule:
         title:
           type: [string, "null"]
         notifications:
-          title: ScheduleNotifications
-          type: object
-          description: Notification settings for this schedule.
-          properties:
-            email:
-              type: boolean
-              examples: [true]
+          $ref: ./ScheduleNotifications.yaml
         actions:
           type: array
           items:

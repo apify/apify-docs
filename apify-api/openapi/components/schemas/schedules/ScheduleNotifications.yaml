@@ -1,0 +1,7 @@
+title: ScheduleNotifications
+type: object
+description: Notification settings for this schedule.
+properties:
+  email:
+    type: boolean
+    examples: [true]
