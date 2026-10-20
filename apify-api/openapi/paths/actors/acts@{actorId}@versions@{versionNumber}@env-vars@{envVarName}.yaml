@@ -3,7 +3,7 @@ get:
     - Actors/Actor versions
   summary: Get environment variable of Actor version
   description: |
-    Gets an EnvVar object that
+    Gets an `EnvVar` object that
     contains all the details about a specific environment variable of an Actor.
 
     If `isSecret` is set to `true`, then `value` will never be returned.

@@ -4,7 +4,7 @@ get:
   summary: Get list of Actor versions
   description: |
     Gets the list of versions of a specific Actor. The response is a JSON object
-    with the list of Version objects, where each
+    with the list of `Version` objects, where each
     contains basic information about a single version.
   operationId: actor_versions_get
   parameters:
@@ -70,7 +70,7 @@ post:
     - Actors/Actor versions
   summary: Create Actor version
   description: |
-    Creates a version of an Actor using values specified in a Version
+    Creates a version of an Actor using values specified in a `Version`
     object passed as JSON in the POST
     payload.
 
@@ -79,7 +79,7 @@ post:
     header.
 
     Each `sourceType` requires its own additional properties to be passed to the
-    JSON payload object. These are outlined in the Version
+    JSON payload object. These are outlined in the `Version`
     object table below and in more detail in
     the [Apify
     documentation](https://docs.apify.com/platform/actors/development/deployment/source-types).
@@ -97,7 +97,7 @@ post:
     }
     ```
 
-    The response is the Version object as
+    The response is the `Version` object as
     returned by the [Get Actor version](/api/v2/actor-version-get) endpoint.
   operationId: actor_versions_post
   parameters:

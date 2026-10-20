@@ -34,7 +34,7 @@
 
     - The version object contains the source code of a specific version of an Actor.
     - The `sourceType` property indicates where the source code is hosted, and based
-    on its value the Version object has the following additional property:
+    on its value the `Version` object has the following additional property:
 
     | **Value** | **Description**  |
     |---|---|
