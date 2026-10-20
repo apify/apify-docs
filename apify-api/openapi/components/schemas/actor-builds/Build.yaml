@@ -81,6 +81,7 @@ properties:
       buildTag:
         type: [string, "null"]
         examples: [experimental]
+        description: The build tag of the Actor version this build was created from. Can be `null` when the version has no build tag, in which case the build is tagged on success only if the `tag` parameter was passed when starting it.
       versionNumber:
         type: string
         pattern: ^([0-9]|[1-9][0-9])\.([0-9]|[1-9][0-9])$
