@@ -219,6 +219,7 @@ enum:
   - max-metamorphs-exceeded
   - max-total-charge-usd-below-minimum
   - max-total-charge-usd-must-be-greater-than-zero
+  - mcp-connector-actor-not-allowed
   - method-not-allowed
   - migration-disabled
   - missing-actor-rights
