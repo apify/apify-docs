@@ -48,7 +48,7 @@ put:
     updated.
 
     The response is the full webhook object as returned by the
-    [Get webhook](#/reference/webhooks/webhook-object/get-webhook) endpoint.
+    [Get webhook](/api/v2/webhook-get) endpoint.
 
     The request needs to specify the `Content-Type: application/json` HTTP
     header!

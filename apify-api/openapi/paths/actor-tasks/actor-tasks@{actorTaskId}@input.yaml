@@ -52,7 +52,7 @@ put:
     If the object does not define a specific property, its value is not updated.
 
     The response is the full task input as returned by the
-    [Get task input](#/reference/tasks/task-input-object/get-task-input) endpoint.
+    [Get Actor task input](/api/v2/actor-task-input-get) endpoint.
 
     The request needs to specify the `Content-Type: application/json` HTTP
     header!

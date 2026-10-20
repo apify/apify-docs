@@ -33,7 +33,7 @@ Each build might have different features, input, or output. By fixing the build 
 
 On top of the number, some builds are also tagged. For example, _latest_ or _beta_.
 
-Tags make it easier to specify which build to use when running an Actor. To reassign a tag to a different build, use the [Actor update](/api/v2/actor-put) API endpoint.
+Tags make it easier to specify which build to use when running an Actor. To reassign a tag to a different build, use the [Update Actor](/api/v2/actor-put) API endpoint.
 
 ## Runs
 
@@ -57,7 +57,7 @@ To view what's happening while the Actor is running:
 
 ### Origin
 
-Both **Actor runs** and **builds** have the **Origin** field indicating how the Actor run or build was invoked, respectively. The origin is displayed in Apify Console and available via [API](https://docs.apify.com/api/v2/actor-run-get) in the `meta.origin` field.
+Both **Actor runs** and **builds** have the **Origin** field indicating how the Actor run or build was invoked, respectively. The origin is displayed in Apify Console and available via the [Get Actor run](/api/v2/actor-run-get) endpoint in the `meta.origin` field.
 
 |Name|Origin|
 |:---|:---|

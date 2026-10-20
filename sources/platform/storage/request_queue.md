@@ -571,15 +571,15 @@ To add requests to a queue that belongs to a different Actor or task run, see [U
 ### Rate limiting
 
 When managing request queues via [API](/api/v2/storage-request-queues-requests),
-CRUD ([add](/api/v2/request-queue-requests-post),
-[get](/api/v2/request-queue-request-get),
-[update](/api/v2/request-queue-request-put),
-[delete](/api/v2/request-queue-request-delete))
+CRUD ([Add request to request queue](/api/v2/request-queue-requests-post),
+[Get request from request queue](/api/v2/request-queue-request-get),
+[Update request in request queue](/api/v2/request-queue-request-put),
+[Delete request from request queue](/api/v2/request-queue-request-delete))
 operation requests are limited to _350 requests per second_ per request queue. This helps protect Apify servers from being overloaded.
 
-Request-lock operations ([prolong a lock](/api/v2/request-queue-request-lock-put) and [delete a lock](/api/v2/request-queue-request-lock-delete)) are also limited to _350 requests per second_ per request queue.
+Request-lock operations ([Prolong lock on request in request queue](/api/v2/request-queue-request-lock-put) and [Delete lock on request in request queue](/api/v2/request-queue-request-lock-delete)) are also limited to _350 requests per second_ per request queue.
 
-Batch operations ([add](/api/v2/request-queue-requests-batch-post) and [delete](/api/v2/request-queue-requests-batch-delete)) and the [list and lock head](/api/v2/request-queue-head-lock-post) endpoint are limited to _35 requests per second_ per request queue.
+Batch operations ([Batch add requests to request queue](/api/v2/request-queue-requests-batch-post) and [Batch delete requests from request queue](/api/v2/request-queue-requests-batch-delete)) and the [Get and lock request queue head](/api/v2/request-queue-head-lock-post) endpoint are limited to _35 requests per second_ per request queue.
 
 All other request queue API [endpoints](/api/v2/storage-request-queues) are limited to _60 requests per second_ per request queue.
 

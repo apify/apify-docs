@@ -98,7 +98,7 @@ post:
     ```
 
     The response is the [Version object](#/reference/actors/version-object) as
-    returned by the [Get version](#/reference/actors/version-object/get-version) endpoint.
+    returned by the [Get Actor version](/api/v2/actor-version-get) endpoint.
   operationId: actor_versions_post
   parameters:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"

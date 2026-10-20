@@ -57,8 +57,7 @@ post:
     ```
 
     The response is the [EnvVar
-    object](#/reference/actors/environment-variable-object) as returned by the [Get environment
-    variable](#/reference/actors/environment-variable-object/get-environment-variable)
+    object](#/reference/actors/environment-variable-object) as returned by the [Get environment variable of Actor version](/api/v2/actor-version-env-var-get)
     endpoint.
   operationId: actor_version_envVars_post
   parameters:

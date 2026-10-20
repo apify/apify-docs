@@ -47,7 +47,7 @@ put:
     its value will not be updated.
 
     The response is the full schedule object as returned by the
-    [Get schedule](#/reference/schedules/schedule-object/get-schedule) endpoint.
+    [Get schedule](/api/v2/schedule-get) endpoint.
 
     **The request needs to specify the `Content-Type: application/json` HTTP
     header!**

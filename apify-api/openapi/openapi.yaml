@@ -81,8 +81,7 @@ info:
     ## Basic usage
     <span id="/introduction/basic-usage"></span>
 
-    To run an Actor, send a POST request to the [Run
-    Actor](#/reference/actors/run-collection/run-actor) endpoint using either the
+    To run an Actor, send a POST request to the [Run Actor](/api/v2/actors-runs-post) endpoint using either the
     Actor ID code (e.g. `vKg4IjxZbEYTYeW8T`) or its name (e.g.
     `janedoe~my-actor`):
 
@@ -95,8 +94,7 @@ info:
     `Authorization` header ([recommended](#/introduction/authentication)) or as a
     URL query parameter `?token=[your_token]` (less secure).
 
-    Optionally, you can include the query parameters described in the [Run
-    Actor](#/reference/actors/run-collection/run-actor) section to customize your
+    Optionally, you can include the query parameters described in the [Run Actor](/api/v2/actors-runs-post) section to customize your
     run.
 
     If you're using Node.js, the best way to run an Actor is using the
@@ -110,23 +108,20 @@ info:
 
     A typical workflow is as follows:
 
-    1. Run an Actor or task using the [Run
-    Actor](#/reference/actors/run-collection/run-actor) or [Run
-    task](#/reference/actor-tasks/run-collection/run-task) API endpoints.
-    2. Monitor the Actor run by periodically polling its progress using the [Get
-    run](#/reference/actor-runs/run-object-and-its-storages/get-run) API
+    1. Run an Actor or task using the [Run Actor](/api/v2/actors-runs-post) or
+    [Run Actor task](/api/v2/actor-task-runs-post) API endpoints.
+    2. Monitor the Actor run by periodically polling its progress using the [Get Actor run](/api/v2/actor-run-get) API
     endpoint.
-    3. Fetch the results from the [Get
-    items](#/reference/datasets/item-collection/get-items) API endpoint using the
+    3. Fetch the results from the [Get dataset items](/api/v2/dataset-items-get) API endpoint using the
     `defaultDatasetId`, which you receive in the Run request response.
     Additional data may be stored in a key-value store. You can fetch them from
-    the [Get record](#/reference/key-value-stores/record/get-record) API endpoint
+    the [Get key-value store record](/api/v2/key-value-store-record-get) API endpoint
     using the `defaultKeyValueStoreId` and the store's `key`.
 
-    **Note**: Instead of periodic polling, you can also run your
-    [Actor](#/reference/actors/run-actor-synchronously) or
-    [task](#/reference/actor-tasks/runs-collection/run-task-synchronously)
-    synchronously. This will ensure that the request waits for 300 seconds (5
+    **Note**: Instead of periodic polling, you can also run your Actor or task synchronously with the
+    [Run Actor synchronously and get key-value store record](/api/v2/actor-run-sync-post) or
+    [Run Actor task synchronously and get key-value store record](/api/v2/actor-task-run-sync-post)
+    endpoint. This will ensure that the request waits for 300 seconds (5
     minutes) for the run to finish and returns its output. If the run takes
     longer, the request will time out and throw an error.
 
@@ -152,8 +147,8 @@ info:
     ```
 
     However, there are a few explicitly described exceptions, such as
-    [Get dataset items](#/reference/datasets/item-collection/get-items) or
-    Key-value store [Get record](#/reference/key-value-stores/record/get-record)
+    [Get dataset items](/api/v2/dataset-items-get) or
+    [Get key-value store record](/api/v2/key-value-store-record-get)
     API endpoints, which return data in other formats.
     In case of an error, the response has the HTTP status code in the range of
     4xx or 5xx and the `data` property is replaced with `error`. For example:
@@ -173,14 +168,13 @@ info:
     <span id="/introduction/pagination"></span>
 
     All API endpoints that return a list of records
-    (e.g. [Get list of
-    Actors](#/reference/actors/actor-collection/get-list-of-actors))
+    (e.g. [Get list of Actors](/api/v2/actors-get))
     enforce pagination in order to limit the size of their responses.
 
     Most of these API endpoints are paginated using the `offset` and `limit`
     query parameters.
-    The only exception is [Get list of
-    keys](#/reference/key-value-stores/key-collection/get-list-of-keys),
+    The only exception is
+    [Get list of key-value store keys](/api/v2/key-value-store-keys-get),
     which is paginated using the `exclusiveStartKey` query parameter.
 
     **IMPORTANT**: Each API endpoint that supports pagination enforces a certain
@@ -280,8 +274,8 @@ info:
     store](https://docs.apify.com/platform/storage/key-value-store)
     are not ordered based on numerical indexes,
     but rather by their keys in the UTF-8 binary order.
-    Therefore the [Get list of
-    keys](#/reference/key-value-stores/key-collection/get-list-of-keys)
+    Therefore the
+    [Get list of key-value store keys](/api/v2/key-value-store-keys-get)
     API endpoint only supports pagination using the following query parameters:
 
     <table>
@@ -434,43 +428,37 @@ info:
 
     These endpoints have a rate limit of _35 requests per second per resource_:
 
-    * Batch ([add](#/reference/request-queues/batch-request-operations/add-requests),
-      [delete](#/reference/request-queues/batch-request-operations/delete-requests))
-      operations on requests in request queues
-    * [List and lock head](#/reference/request-queues/queue-head-with-locks/list-and-lock-head) of a request queue
+    * [Batch add requests to request queue](/api/v2/request-queue-requests-batch-post)
+    * [Batch delete requests from request queue](/api/v2/request-queue-requests-batch-delete)
+    * [Get and lock request queue head](/api/v2/request-queue-head-lock-post)
 
     These endpoints have a rate limit of _100 requests per second per resource_:
 
-    * Download records from a key-value store as a ZIP archive
+    * [Download key-value store records](/api/v2/key-value-store-records-get) (ZIP archive)
 
     These endpoints have a rate limit of _200 requests per second per resource_:
 
-    * CRUD ([get](#/reference/key-value-stores/record/get-record),
-      [put](#/reference/key-value-stores/record/put-record),
-      [delete](#/reference/key-value-stores/record/delete-record))
-      operations on key-value store records
-    * [Get list of keys](#/reference/key-value-stores/key-collection/get-list-of-keys) in a key-value store
+    * [Get key-value store record](/api/v2/key-value-store-record-get)
+    * [Set key-value store record](/api/v2/key-value-store-record-put)
+    * [Delete key-value store record](/api/v2/key-value-store-record-delete)
+    * [Get list of key-value store keys](/api/v2/key-value-store-keys-get)
 
     These endpoints have a rate limit of _350 requests per second per resource_:
 
-    * CRUD
-      ([add](#/reference/request-queues/request-collection/add-request),
-      [get](#/reference/request-queues/request-collection/get-request),
-      [update](#/reference/request-queues/request-collection/update-request),
-      [delete](#/reference/request-queues/request-collection/delete-request))
-      operations on requests in request queues
-    * Request lock operations
-      ([prolong](#/reference/request-queues/request-lock/prolong-request-lock),
-      [delete](#/reference/request-queues/request-lock/delete-request-lock))
-      in request queues
+    * [Add request to request queue](/api/v2/request-queue-requests-post)
+    * [Get request from request queue](/api/v2/request-queue-request-get)
+    * [Update request in request queue](/api/v2/request-queue-request-put)
+    * [Delete request from request queue](/api/v2/request-queue-request-delete)
+    * [Prolong lock on request in request queue](/api/v2/request-queue-request-lock-put)
+    * [Delete lock on request in request queue](/api/v2/request-queue-request-lock-delete)
 
     These endpoints have a rate limit of _400 requests per second per resource_:
 
-    * [Run Actor](#/reference/actors/run-collection/run-actor)
-    * [Run Actor task asynchronously](#/reference/actor-tasks/runs-collection/run-task-asynchronously)
-    * [Run Actor task synchronously](#/reference/actor-tasks/runs-collection/run-task-synchronously)
-    * [Metamorph Actor run](#/reference/actors/metamorph-run/metamorph-run)
-    * [Push items](#/reference/datasets/item-collection/put-items) to dataset
+    * [Run Actor](/api/v2/actors-runs-post)
+    * [Run Actor task](/api/v2/actor-task-runs-post)
+    * [Run Actor task synchronously and get key-value store record](/api/v2/actor-task-run-sync-post)
+    * [Metamorph Actor run](/api/v2/actor-run-metamorph-post)
+    * [Store items in dataset](/api/v2/dataset-items-post)
 
     ### Rate limit exceeded errors
     <span id="/introduction/rate-limiting/rate-limit-exceeded-errors"></span>
