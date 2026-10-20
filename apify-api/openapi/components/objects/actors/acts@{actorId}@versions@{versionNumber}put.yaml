@@ -57,7 +57,7 @@ put:
   <<: *shared
   summary: Update Actor version
   description: |
-    Updates Actor version using values specified by a [Version object](#/reference/actors/version-object) passed as JSON in the POST payload.
+    Updates Actor version using values specified by a Version object passed as JSON in the POST payload.
 
     If the object does not define a specific property, its value will not be
     updated.
@@ -69,7 +69,7 @@ put:
     request's `Authorization` header, rather than the URL.
     [Learn more](/api/v2/getting-started#authentication)
 
-    The response is the [Version object](#/reference/actors/version-object) as
+    The response is the Version object as
     returned by the [Get Actor version](/api/v2/actor-version-get) endpoint.
   operationId: actor_version_put
   x-legacy-doc-urls:
@@ -81,7 +81,7 @@ post:
   <<: *shared
   summary: Update Actor version (POST)
   description: |
-    Updates Actor version using values specified by a [Version object](#/reference/actors/version-object) passed as JSON in the POST payload.
+    Updates Actor version using values specified by a Version object passed as JSON in the POST payload.
     This endpoint is an alias for the [Update Actor version](/api/v2/actor-version-put) endpoint and behaves identically.
   operationId: actor_version_post
   x-legacy-doc-urls:

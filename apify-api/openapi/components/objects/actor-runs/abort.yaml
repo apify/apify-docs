@@ -56,7 +56,8 @@ byActorRunId:
   summary: Abort Actor run
   description: |
     **[DEPRECATED]** API endpoints related to run of the Actor were moved under
-    new namespace [`actor-runs`](#/reference/actor-runs). Aborts an Actor run and
+    new namespace `actor-runs`
+    ([Manage Actor runs](/api/v2/actor-runs)). Aborts an Actor run and
     returns an object that contains all the details about the run.
 
     Only runs that are starting or running are aborted. For runs with status
