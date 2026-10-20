@@ -9,7 +9,7 @@ slug: /integrations/strands-agents
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
-The [Strands Agents SDK](https://github.com/strands-agents/sdk-python) is an open-source Python SDK by AWS for building AI agents. It follows a model-tools-prompt pattern: the SDK sends the prompt to the model, executes any tool calls the model requests, and feeds the results back until the task is complete.
+The [Strands Agents SDK](https://github.com/strands-agents/harness-sdk) is an open-source Python SDK by AWS for building AI agents. It follows a model-tools-prompt pattern: the SDK sends the prompt to the model, executes any tool calls the model requests, and feeds the results back until the task is complete.
 
 The [strands-apify](https://pypi.org/project/strands-apify/) package provides 18 tools grouped into three tool sets, giving your agent scraping, crawling, search, and social media capabilities through the [Apify platform](https://apify.com/).
 
@@ -17,8 +17,8 @@ The [strands-apify](https://pypi.org/project/strands-apify/) package provides 18
 
 ## Prerequisites
 
-- Python 3.10 or newer
-- [An Apify account](https://console.apify.com) and Apify API token from the [Integrations](https://console.apify.com/settings/integrations) page in Apify Console
+- Python 3.11 or newer
+- [An Apify account](https://console.apify.com) and Apify API token from the [Integrations](https://console.apify.com/settings/integrations?utm_source=strands-agents&utm_medium=integrations) page in Apify Console
 - At least one model provider configured. Strands supports Amazon Bedrock, OpenAI, Anthropic, Google Gemini, Ollama, LiteLLM, and LMStudio.
 
 ## Installation
@@ -637,7 +637,7 @@ Get the last 15 posts from https://www.facebook.com/apifytech newer than 1 month
 ## Resources
 
 - [Strands Agents SDK documentation](https://strandsagents.com/)
-- [Strands Agents SDK GitHub repository](https://github.com/strands-agents/sdk-python)
+- [Strands Agents SDK GitHub repository](https://github.com/strands-agents/harness-sdk)
 - [strands-apify on PyPI](https://pypi.org/project/strands-apify/)
 - [strands-apify GitHub repository](https://github.com/apify/strands-apify)
 - [Apify Store](https://apify.com/store)
