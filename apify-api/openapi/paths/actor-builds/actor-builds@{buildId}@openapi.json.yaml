@@ -1,7 +1,7 @@
 get:
   tags:
     - Actor builds
-  summary: Get OpenAPI definition
+  summary: Get OpenAPI definition of Actor build
   description: |
     Get the OpenAPI definition for Actor builds. Two similar endpoints are available:
 

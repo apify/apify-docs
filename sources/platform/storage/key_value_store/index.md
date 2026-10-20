@@ -64,19 +64,19 @@ To retrieve a list of your key-value stores, send a GET request to the [Get list
 https://api.apify.com/v2/key-value-stores
 ```
 
-To get information about a key-value store such as its creation time and item count, send a GET request to the [Get store](/api/v2/key-value-store-get) endpoint.
+To get information about a key-value store such as its creation time and item count, send a GET request to the [Get key-value store](/api/v2/key-value-store-get) endpoint.
 
 ```text
 https://api.apify.com/v2/key-value-stores/{STORE_ID}
 ```
 
-To get a record (its value) from a key-value store, send a GET request to the [Get record](/api/v2/key-value-store-record-get) endpoint.
+To get a record (its value) from a key-value store, send a GET request to the [Get key-value store record](/api/v2/key-value-store-record-get) endpoint.
 
 ```text
 https://api.apify.com/v2/key-value-stores/{STORE_ID}/records/{KEY_ID}
 ```
 
-To add a record with a specific key in a key-value store, send a PUT request to the [Store record](/api/v2/key-value-store-record-put) endpoint.
+To add a record with a specific key in a key-value store, send a PUT request to the [Set key-value store record](/api/v2/key-value-store-record-put) endpoint.
 
 ```text
 https://api.apify.com/v2/key-value-stores/{STORE_ID}/records/{KEY_ID}
@@ -91,7 +91,7 @@ Example payload:
 }
 ```
 
-To delete a record, send a DELETE request specifying the key from a key-value store to the [Delete record](/api/v2/key-value-store-record-delete) endpoint.
+To delete a record, send a DELETE request specifying the key from a key-value store to the [Delete key-value store record](/api/v2/key-value-store-record-delete) endpoint.
 
 ```text
 https://api.apify.com/v2/key-value-stores/{STORE_ID}/records/{KEY_ID}
