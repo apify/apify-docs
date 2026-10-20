@@ -321,6 +321,7 @@ enum:
   - slack-integration-not-custom
   - socket-closed
   - socket-destroyed
+  - standby-deployment-invalid
   - store-schema-invalid
   - store-terms-not-accepted
   - stripe-enabled
