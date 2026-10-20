@@ -338,6 +338,8 @@ enum:
   - too-many-mcp-connectors
   - too-many-o-auth-apps
   - too-many-organizations
+  - too-many-public-actor-tasks-per-account
+  - too-many-public-actor-tasks-per-actor
   - too-many-requests
   - too-many-schedules
   - too-many-ui-access-keys
