@@ -61,6 +61,8 @@ properties:
     description: "An array of `Version` objects. Each object represents a specific version of the
       Actor's source code: its location, builds, and environment configuration."
   pricingInfos:
+    description: >-
+      The Actor's pricing records, including past ones.
     type: array
     items:
       $ref: ../actor-pricing-info/ActorRunPricingInfo.yaml
