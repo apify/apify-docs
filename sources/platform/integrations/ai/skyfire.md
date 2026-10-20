@@ -190,7 +190,7 @@ You can also use the asynchronous [Run Actor](/api/v2/actors-runs-post) endpoint
 
 ### Access the run and its storages
 
-To access a run and its storages, reuse the same `skyfire-pay-id` header as authentication. As long as you send the token that paid for the run, you can call the [Get Actor run](/api/v2/actor-run-get) endpoint and the [Datasets](/api/v2/storage-datasets) and [Key-value stores](/api/v2/storage-key-value-stores) endpoints for that run and its default storages.
+To access a run and its storages, reuse the same `skyfire-pay-id` header as authentication. As long as you send the token that paid for the run, you can call the [run](/api/v2/actor-run-get), [dataset](/api/v2/storage-datasets), and [key-value store](/api/v2/storage-key-value-stores) endpoints for that run and its default storages.
 
 This is useful when you start a run asynchronously with the [Run Actor](/api/v2/actors-runs-post) endpoint and then poll its status or fetch results separately.
 

@@ -27,7 +27,7 @@ If the Actor being run via API takes 5 minutes or less to complete a typical run
 
 > If you are unsure about the differences between an Actor and a task, you can read about them in the [tasks](/actors/running/tasks) documentation. In brief, tasks are pre-configured inputs for Actors.
 
-The API endpoints and usage (for both sync and async) for Actors ([Run Actor](/api/v2/actors-runs-post)) and tasks ([Run Actor task](/api/v2/actor-task-runs-post)) are essentially the same.
+The API endpoints and usage (for both sync and async) for [Actors](/api/v2/actors-runs-post) and [tasks](/api/v2/actor-task-runs-post) are essentially the same.
 
 To run, or **call**, an Actor/task, you will need a few things:
 
@@ -149,7 +149,7 @@ If your synchronous run exceeds the 5-minute time limit, the response will be a 
 
 ### Synchronous runs with dataset output {#synchronous-runs-with-dataset-output}
 
-Most Actor runs will store their data in the default [dataset](/storage/dataset). The Apify API provides **run-sync-get-dataset-items** endpoints for Actors ([Run Actor synchronously and get dataset items](/api/v2/actor-run-sync-get-dataset-items-post)) and tasks ([Run Actor task synchronously and get dataset items](/api/v2/actor-task-run-sync-get-dataset-items-post)), which allow you to run an Actor and receive the items from the default dataset once the run has finished.
+Most Actor runs will store their data in the default [dataset](/storage/dataset). The Apify API provides **run-sync-get-dataset-items** endpoints for [Actors](/api/v2/actor-run-sync-get-dataset-items-post) and [tasks](/api/v2/actor-task-run-sync-get-dataset-items-post), which allow you to run an Actor and receive the items from the default dataset once the run has finished.
 
 Here is a Node.js example of calling a task via the API and logging the dataset items to the console:
 
@@ -186,7 +186,7 @@ items.forEach((item) => {
 
 ### Synchronous runs with key-value store output {#synchronous-runs-with-key-value-store-output}
 
-[Key-value stores](/storage/key-value-store) are useful for storing files like images, HTML snapshots, or JSON data. The Apify API provides **run-sync** endpoints for Actors ([Run Actor synchronously and get key-value store record](/api/v2/actor-run-sync-post)) and tasks ([Run Actor task synchronously and get key-value store record](/api/v2/actor-task-run-sync-post)), which allow you to run a specific task and receive the output. By default, they return the `OUTPUT` record from the default key-value store.
+[Key-value stores](/storage/key-value-store) are useful for storing files like images, HTML snapshots, or JSON data. The Apify API provides **run-sync** endpoints for [Actors](/api/v2/actor-run-sync-post) and [tasks](/api/v2/actor-task-run-sync-post), which allow you to run a specific task and receive the output. By default, they return the `OUTPUT` record from the default key-value store.
 
 ## Asynchronous flow {#asynchronous-flow}
 
