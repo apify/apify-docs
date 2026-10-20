@@ -47,6 +47,10 @@ This approach can be useful if you cannot modify the request headers.
     https://rag-web-browser.apify.actor/search?query=apify&token=my_apify_token
     ```
 
+The platform removes the token from the request before forwarding it, so the token doesn't reach the Actor's code. If the Actor reads the `Authorization` header for its own authentication, send your Apify token in the `X-Apify-Authorization` header instead.
+
+If you're developing a Standby Actor, use the token from the `APIFY_TOKEN` [environment variable](../development/programming_interface/environment_variables.md#system-environment-variables) to call the Apify API, as in any other Actor.
+
 :::tip Scoped tokens
 You can use [scoped tokens](/integrations/api#limited-permissions) to send standby requests. This is useful for allowing third-party services to interact with your Actor without granting access to your entire account.
 

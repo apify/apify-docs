@@ -1,7 +1,7 @@
 get:
   tags:
     - Actors/Actor builds
-  summary: Get list of builds
+  summary: Get list of Actor's builds
   description: |
     Gets the list of builds of a specific Actor. The response is a JSON with the
     list of objects, where each object contains basic information about a single build.

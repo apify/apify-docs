@@ -1,7 +1,7 @@
 get:
   tags:
     - Actor tasks
-  summary: Get task input
+  summary: Get Actor task input
   description: Returns the input of a given task.
   operationId: actorTask_input_get
   parameters:
@@ -44,7 +44,7 @@ get:
 put:
   tags:
     - Actor tasks
-  summary: Update task input
+  summary: Update Actor task input
   description: |
     Updates the input of a task using values specified by an object passed as
     JSON in the PUT payload.

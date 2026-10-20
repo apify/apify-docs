@@ -1,7 +1,7 @@
 get:
   tags:
     - Actors/Actor runs
-  summary: Get list of runs
+  summary: Get list of Actor's runs
   description: |
     Gets the list of runs of a specific Actor. The response is a list of
     objects, where each object contains basic information about a single Actor run.
