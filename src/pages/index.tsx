@@ -9,14 +9,11 @@ import styled from 'styled-components';
 import { Banner, theme } from '@apify/ui-library';
 
 import ActionCard from '../components/ActionCard/ActionCard';
-import { ActorTemplates } from '../components/ActorTemplates/ActorTemplates';
 import Button from '../components/Button';
 import CardWithIcon from '../components/CardWithIcon/CardWithIcon';
 import CardWithImageAndContent from '../components/CardWithImageAndContent/ImageWithContent';
 import { Heading } from '../components/Heading';
 import Hero from '../components/Hero/Hero';
-import OpenSourceCards from '../components/OpenSourceCards/OpenSourceCards';
-import PlainCard from '../components/PlainCard/PlainCard';
 import Section from '../components/Section/Section';
 import { Text } from '../components/Text';
 import AntiScrapingProtections from './img/academy_icons/anti_scraping_protections.svg';
@@ -26,16 +23,6 @@ import DeployYourCode from './img/academy_icons/deploy_your_code.svg';
 import ExpertScrapingWithApify from './img/academy_icons/expert_scraping_with_apify.svg';
 /* Academy images */
 import WebScrapingForBeginners from './img/academy_icons/web_scraping_for_beginners.svg';
-/* Platform icons */
-import Actors from './img/platform_icons/actors.svg';
-import Collaboration from './img/platform_icons/collaboration.svg';
-import Integrations from './img/platform_icons/integrations.svg';
-import MCP from './img/platform_icons/mcp.svg';
-import Monitoring from './img/platform_icons/monitoring.svg';
-import Proxy from './img/platform_icons/proxy.svg';
-import Schedules from './img/platform_icons/schedules.svg';
-import Security from './img/platform_icons/security.svg';
-import Storage from './img/platform_icons/storage.svg';
 import styles from './index.module.css';
 
 const StyledBanner = styled(Banner)`
@@ -94,10 +81,11 @@ export default function Home() {
                             />
                         </div>
                         <div className={styles.bannerContentActions}>
-                            <ActionCard title="What is an Actor" to="/actors" />
+                            <ActionCard title="What is Apify?" to="/get-started" />
                             <ActionCard title="Run Actors from Apify Store" to="/get-started/run-actors" />
                             <ActionCard title="Build your own Actor" to="/get-started/build-actors" />
                             <ActionCard title="Integrate Apify with your stack" to="/get-started/integrate" />
+                            <ActionCard title="Connect an AI agent" to="/get-started/agent-onboarding" />
                         </div>
                         <ThemedImage
                             className={styles.bannerContentImageAfter}
@@ -109,66 +97,6 @@ export default function Home() {
                         />
                     </div>
                 </StyledBanner>
-            </Section>
-            <Section heading="Platform" description="The full reference of the Apify platform.">
-                <div className={styles.sectionLayoutWrapper}>
-                    <div className={styles.cards}>
-                        <CardWithIcon
-                            icon={<Actors />}
-                            title="Actors"
-                            description="Develop, run, and share web scraping and automation tools in the cloud."
-                            to="/actors"
-                        />
-                        <CardWithIcon
-                            icon={<Storage />}
-                            title="Storage"
-                            description="Store files and results of your web scraping jobs, and export it to various formats."
-                            to="/storage"
-                        />
-                        <CardWithIcon
-                            icon={<Proxy />}
-                            title="Proxy"
-                            description="Avoid blocking by smartly rotating datacenter and residential IP addresses."
-                            to="/proxy"
-                        />
-                        <CardWithIcon
-                            icon={<Schedules />}
-                            title="Schedules"
-                            description="Automatically start Actors and saved tasks at specific times."
-                            to="/actors/running/schedules"
-                        />
-                        <CardWithIcon
-                            icon={<Integrations />}
-                            title="Integrations"
-                            description="Connect Actors with your favorite web apps and cloud services."
-                            to="/integrations"
-                        />
-                        <CardWithIcon
-                            icon={<Monitoring />}
-                            title="Monitoring"
-                            description="Check the performance of your Actors, validate data quality, and receive alerts."
-                            to="/actors/running/monitoring"
-                        />
-                        <CardWithIcon
-                            icon={<Collaboration />}
-                            title="Collaboration"
-                            description="Share Actors with other people, manage your organizations and permissions."
-                            to="/account/collaboration"
-                        />
-                        <CardWithIcon
-                            icon={<Security />}
-                            title="Security"
-                            description="Learn about Apify platform security and data protection."
-                            to="/security"
-                        />
-                        <CardWithIcon
-                            icon={<MCP />}
-                            title="MCP"
-                            description="Discover and use Actors with AI agents and LLMs via Apify MCP server."
-                            to="/mcp"
-                        />
-                    </div>
-                </div>
             </Section>
             <Section>
                 <div className={styles.cards}>
@@ -323,75 +251,6 @@ export default function Home() {
                     <Link to="/academy" className="actionLink">
                         Go to Academy
                     </Link>
-                </div>
-            </Section>
-            <Section heading="Open-source tools">
-                <div className={styles.sectionLayoutWrapper}>
-                    <div className={styles.cards}>
-                        <OpenSourceCards />
-                    </div>
-                    <Link to="https://github.com/apify" className="actionLink">
-                        Follow Apify on GitHub
-                    </Link>
-                </div>
-            </Section>
-            <Section
-                heading="Actor templates"
-                description="Create new web scraping projects using ready-made templates for various programming languages and scraping libraries."
-            >
-                <div className={styles.sectionLayoutWrapper}>
-                    <ActorTemplates displayedTemplatesIds={['js-start', 'ts-start', 'python-start']} />
-                    <Link to="https://apify.com/templates" className="actionLink">
-                        Browse all templates
-                    </Link>
-                </div>
-            </Section>
-            <Section heading="Community & Help">
-                <div className={styles.actionCards}>
-                    <PlainCard
-                        icon={
-                            <ThemedImage
-                                sources={{
-                                    light: useBaseUrl('/img/landing-pages/discord.svg'),
-                                    dark: useBaseUrl('/img/landing-pages/discord_dark.svg'),
-                                }}
-                                alt="Discord logo"
-                            />
-                        }
-                        title="Discord"
-                        description="Join our community to get news and connect with other Apify developers."
-                        to="https://discord.com/invite/jyEM2PRvMU"
-                    />
-                    <PlainCard
-                        icon={
-                            <ThemedImage
-                                sources={{
-                                    light: useBaseUrl('/img/landing-pages/intercom.svg'),
-                                    dark: useBaseUrl('/img/landing-pages/intercom_dark.svg'),
-                                }}
-                                alt="Intercom logo"
-                            />
-                        }
-                        title="Support"
-                        description="Find answers to common questions or get help from the Apify support team."
-                        to="https://help.apify.com/"
-                    />
-                </div>
-            </Section>
-            <Section heading="More reading">
-                <div className={styles.actionCards}>
-                    <ActionCard
-                        title="Blog"
-                        titleAs="h4"
-                        description="Company and product updates, tips and stories from the world of web scraping."
-                        to="https://blog.apify.com/"
-                    />
-                    <ActionCard
-                        title="Changelog"
-                        titleAs="h4"
-                        description="See what's new on the Apify platform."
-                        to="https://apify.com/change-log"
-                    />
                 </div>
             </Section>
             <Section>
