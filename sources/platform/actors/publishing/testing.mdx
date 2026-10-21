@@ -20,15 +20,15 @@ and expects it to finish with a **Succeeded** status and non-empty default datas
 
 ![Actor page](./images/actor-test.webp)
 
-If more than half of the daily test runs in the last three days fail, Apify notifies you and labels the Actor `under maintenance` until it's fixed. All test runs in those three days must use the same build, so a new build restarts the count. After another 14 days of failing runs, you get another notification. If the runs still fail 14 days after that, Apify marks the Actor as `deprecated`.
+If more than half of the daily test runs in the last three days fail, Apify notifies you and labels the Actor `under maintenance` until you fix it. All test runs in those three days must use the same build, so a new build restarts the count. After another 14 days of failing runs, you get another notification. If the runs still fail 14 days after that, Apify marks the Actor as `deprecated`.
 
 ## Find out why the test failed
 
-When Apify labels your Actor `under maintenance`, you get a notification in Apify Console and by email. What it says depends on whether the test could start the Actor.
+When Apify labels your Actor `under maintenance`, you get a notification in Apify Console and by email. The notification tells you whether the test could start the Actor. The fix differs for each case.
 
 ### The test couldn't start the Actor
 
-This usually means a problem with the input schema. The test builds its input from the schema's `prefill` values. Every required field needs a `prefill` or `default` value, and every value must pass the schema's validation. For example, a `prefill` of `3` fails for a field with `"maximum": 2`.
+If the test couldn't start the Actor, the cause is usually a problem with the input schema. The test builds its input from the schema's `prefill` values. Every required field needs a `prefill` value, and every value must pass the schema's validation. For example, a `prefill` of `3` fails for a field with `"maximum": 2`.
 
 To see the input the test uses:
 
@@ -36,13 +36,13 @@ To see the input the test uses:
 1. Go to **Source** > **Input**.
 1. Select **Restore example input**. The form loads the values from the input schema and shows an error next to any value that fails validation.
 
-Fix the input schema, then rebuild the Actor.
+Fix the input schema, then rebuild the Actor, because the test reads the schema from the build.
 
 ### The test run failed
 
-The notification links to one of the failed test runs. Check its log for the cause.
+When a test run fails, the notification links to it. Check its log for the cause.
 
-If the run timed out, make the test input smaller. `prefill` or `default` values that return a few results are enough, so the run finishes within the 5-minute limit.
+If the run timed out, make the test input smaller. Choose `prefill` values that return only a few results, so the run finishes within the 5-minute limit.
 
 ## How can I make my Actor healthy again
 
@@ -52,19 +52,20 @@ passes the majority of test runs in the next 7 days, it will be marked as health
 
 ## What if my Actor cannot comply with the test logic
 
-The following Actors aren't tested automatically:
+The automated test skips these Actors:
 
 - Actors with [Actor Standby](../running/actor_standby.md) enabled
 - Actors in the MCP servers category
-- Actors with a required secret input, or a required API token or key without a `prefill` value
+- Actors with a required secret input
+- Actors with a required token or key input that has no `prefill` value
 
 If your Actor can't pass the test for another reason, such as needing more than 5 minutes to finish, request to skip the tests:
 
-1. In the under-maintenance notification, open the form link. It opens the **Request to skip Actor checks** dialog in your Actor's **Settings** tab.
-1. Explain why your Actor should skip the tests.
+1. In the under-maintenance notification, open the form link.
+1. In the **Request to skip Actor checks** dialog, explain why your Actor should skip the tests.
 1. Select **Send request**.
 
-Apify approves requests only in exceptional cases. You can also [contact support](https://apify.com/contact).
+Apify approves requests only in exceptional cases.
 
 ## Advanced Actor testing
 
