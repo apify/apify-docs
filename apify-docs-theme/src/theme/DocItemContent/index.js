@@ -57,6 +57,8 @@ export default function DocItemContent({ children }) {
         '/proxy',
         '/account',
         '/integrations',
+        '/agents',
+        '/mcp',
         '/security',
         '/sdk',
         '/cli',

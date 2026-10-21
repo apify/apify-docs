@@ -15,7 +15,7 @@ properties:
     examples: [2048]
     description: In MB, the amount of memory allocated to the run.
   restartOnError:
-    type: boolean
+    type: [boolean, "null"]
     examples: [false]
     description: Whether to automatically restart the run if it fails.
   maxItems:

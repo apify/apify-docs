@@ -71,7 +71,7 @@ Both **Actor runs** and **builds** have the **Origin** field indicating how the 
 |`ACTOR`|From another Actor run|
 |`STANDBY`|From [Actor Standby](./standby)|
 |`CI`|From a CI/CD pipeline (for example, GitHub Actions)|
-|`MCP`|From the [Apify MCP Server](https://docs.apify.com/integrations/mcp)|
+|`MCP`|From the [Apify MCP Server](/mcp)|
 
 ## Lifecycle
 
@@ -119,7 +119,7 @@ You can abort runs with the statuses **READY**, **RUNNING**, or **TIMING-OUT** i
 - Immediately (default). The Actor process is killed with no grace period.
 - Gracefully. The Actor run receives a signal about aborting with the `aborting` event and is granted a 30-second window to finish in-progress tasks before getting terminated. If you plan to resurrect the run later, a graceful abort gives the Actor a chance to persist its state. When resurrected, the Actor can restart where it left off.
 
-To abort a run, use the **Abort** button in Apify Console or the [Abort run](/api/v2/actor-run-abort-post) API endpoint.
+To abort a run, use the **Abort** button in Apify Console or the [Abort Actor run](/api/v2/actor-run-abort-post) API endpoint.
 
 ### Resurrect a finished run
 
@@ -131,7 +131,7 @@ The whole process of resurrection looks as follows:
 - Updated duration will not include the time when the Actor was not running.
 - Timeout will be counted from the point when this Actor run was resurrected.
 
-Resurrection can be performed in Apify Console using the **resurrect** button or via API using the [Resurrect run](/api/v2/actor-run-resurrect-post) API endpoint.
+Resurrection can be performed in Apify Console using the **resurrect** button or via API using the [Resurrect Actor run](/api/v2/actor-run-resurrect-post) API endpoint.
 
 :::info Settings adjustments
 You can also adjust timeout and memory or change Actor build before the resurrection. This is especially helpful in case of an error in the Actor's source code as it enables you to:

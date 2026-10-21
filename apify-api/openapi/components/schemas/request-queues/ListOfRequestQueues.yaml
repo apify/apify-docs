@@ -14,4 +14,4 @@ allOf:
         type: array
         description: The array of request queues.
         items:
-          $ref: ./RequestQueueShort.yaml
+          $ref: ./RequestQueueListItem.yaml

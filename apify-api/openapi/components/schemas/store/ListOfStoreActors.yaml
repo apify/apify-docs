@@ -8,4 +8,4 @@ allOf:
       items:
         type: array
         items:
-          $ref: ./StoreListActor.yaml
+          $ref: ./StoreActor.yaml

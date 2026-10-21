@@ -25,21 +25,22 @@ const allWebsiteUrls = await robots.parseUrlsFromSitemaps();
 
 ---
 
-Let's say we want to scrape a database of craft beers ([brewbound.com](https://www.brewbound.com/)) before summer starts. If we are lucky, the website will contain a sitemap at [brewbound.com/sitemap.xml](https://www.brewbound.com/sitemap.xml).
+Let's say we want to scrape a database of craft beers ([brewbound.com](https://www.brewbound.com/)) before summer starts. If we are lucky, the website will provide a sitemap. Brewbound does: [brewbound.com/sitemaps/breweries.xml](https://www.brewbound.com/sitemaps/breweries.xml) lists all the breweries and their beers.
 
-> Check out [Sitemap Sniffer](https://apify.com/vaclavrut/sitemap-sniffer), which can discover sitemaps in hidden locations!
+> To find a website's sitemaps automatically, try the [Sitemap Detector](https://apify.com/coder_zoro/sitemap-detector) Actor.
 
 ## Analyzing the sitemap {#analyzing-the-sitemap}
 
-The sitemap is usually located at the path **/sitemap.xml**. It is always worth trying that URL, as it is rarely linked anywhere on the site. It usually contains a list of all pages in [XML format](https://en.wikipedia.org/wiki/XML).
+The sitemap is usually located at the path **/sitemap.xml**. It is always worth trying that URL, as it is rarely linked anywhere on the site. It usually contains a list of all pages in [XML format](https://en.wikipedia.org/wiki/XML). Larger websites often split their sitemap into smaller files and list them in their [`robots.txt`](https://www.brewbound.com/robots.txt) file, as Brewbound does.
 
 ```XML
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>http://www.brewbound.com/advertise</loc>
-        <lastmod>2015-03-19</lastmod>
-        <changefreq>daily</changefreq>
+        <loc>https://www.brewbound.com/breweries/Cisco_Brewers/Whales_Tale_Pale_Ale</loc>
+        <lastmod>2020-04-13</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.89</priority>
     </url>
     <url>
     ...
@@ -48,13 +49,13 @@ The sitemap is usually located at the path **/sitemap.xml**. It is always worth 
 The URLs of breweries take this form:
 
 ```text
-http://www.brewbound.com/breweries/[BREWERY_NAME]
+https://www.brewbound.com/breweries/[BREWERY_NAME]
 ```
 
 And the URLs of craft beers look like this:
 
 ```text
-http://www.brewbound.com/breweries/[BREWERY_NAME]/[BEER_NAME]
+https://www.brewbound.com/breweries/[BREWERY_NAME]/[BEER_NAME]
 ```
 
 They can be matched using the following regular expression:
@@ -73,7 +74,7 @@ First, let's add the beer URLs from the sitemap to the [`RequestList`](https://c
 
 ```js
 const requestList = await RequestList.open(null, [{
-    requestsFromUrl: 'https://www.brewbound.com/sitemap.xml',
+    requestsFromUrl: 'https://www.brewbound.com/sitemaps/breweries.xml',
     regex: /http(s)?:\/\/www\.brewbound\.com\/breweries\/[^/<]+\/[^/<]+/gm,
 }]);
 ```

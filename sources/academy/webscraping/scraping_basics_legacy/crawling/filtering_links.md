@@ -94,7 +94,7 @@ for (const a of document.querySelectorAll('a.product-item__title')) {
 }
 ```
 
-:::info
+:::info Relative links
 
 If you try this in Node.js instead of DevTools, you will not get the full URLs, but only so-called **relative links**. We will explain what those are and how to work with them in the next lesson.
 
