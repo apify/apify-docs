@@ -437,7 +437,13 @@ const plugins = [
     },
 ];
 
+// Preview builds set APIFY_DOCS_ABSOLUTE_URL to their own host, and local ones to localhost or docs.apify.loc.
+const isProductionBuild = new URL(absoluteUrl).hostname === 'docs.apify.com';
+
 const scripts = [
+    // Stores the visitor's first touch and FirstPromoter referral in cookies on .apify.com, which Console
+    // reads at signup. Only production loads it, because a preview on *.docs.apify.com would write them too.
+    ...(isProductionBuild ? [{ src: 'https://apify.com/ext/bootstrap.js', async: true }] : []),
     {
         src: 'https://widget.kapa.ai/kapa-widget.bundle.js',
         'data-website-id': 'a9937f98-9c9d-44d9-a433-fec4cb1c114d',
