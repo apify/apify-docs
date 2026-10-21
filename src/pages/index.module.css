@@ -191,3 +191,24 @@
         margin-top: 14.2rem;
     }
 }
+
+.referenceCard {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    flex: 1 0 0;
+    min-height: 7.5rem;
+}
+
+.iconLinks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.6rem;
+    margin-top: 0.8rem;
+}
+
+.iconLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+}

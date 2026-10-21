@@ -9,13 +9,18 @@ import styled from 'styled-components';
 import { Banner, theme, VerticalTile } from '@apify/ui-library';
 
 import ActionCard from '../components/ActionCard/ActionCard';
+import { cardHoverStyles } from '../components/cardHoverStyles';
 import Button from '../components/Button';
 import CardWithIcon from '../components/CardWithIcon/CardWithIcon';
 import { Heading } from '../components/Heading';
 import Hero from '../components/Hero/Hero';
 import Section from '../components/Section/Section';
 import { Text } from '../components/Text';
+import ApiIcon from '@site/static/img/platform/integrations/emoji-api.svg';
+import JavaScriptIcon from '@site/static/img/javascript-40x40.svg';
+import PythonIcon from '@site/static/img/python-40x40.svg';
 import ScrapingWithAi from './img/academy_icons/expert_scraping_with_apify.svg';
+import TerminalIcon from './img/terminal.svg';
 import WebScrapingBasics from './img/academy_icons/web_scraping_for_beginners.svg';
 import styles from './index.module.css';
 
@@ -42,26 +47,34 @@ const StyledBanner = styled(Banner)`
     }
 `;
 
-// Same tile as the Academy cards, but holding a link list instead of one link.
-function ReferenceCard({ title, links }: { title: string; links: { href: string; label: string }[] }) {
+const StyledReferenceTile = styled(VerticalTile)`
+    ${cardHoverStyles}
+`;
+
+type IconLink = { icon: React.ReactNode; label: string; href: string };
+
+// Same tile as the Academy cards, with a row of icon links instead of one link.
+function ReferenceCard({ title, description, links }: { title: string; description: string; links: IconLink[] }) {
     const { siteConfig } = useDocusaurusContext();
     return (
-        <VerticalTile
+        <StyledReferenceTile
             style={{ height: '100%' }}
             content={
-                <div className={styles.cardContentWrapper}>
+                <div className={styles.referenceCard}>
                     <Heading type="titleM" as="h3">
                         {title}
                     </Heading>
-                    <Text>
-                        <ul className={styles.cardContentList}>
-                            {links.map(({ href, label }) => (
-                                <li key={href}>
-                                    <Link to={new URL(href, siteConfig.url).href}>{label}</Link>
-                                </li>
-                            ))}
-                        </ul>
+                    <Text align="left" color={theme.color.neutral.textSubtle}>
+                        {description}
                     </Text>
+                    <div className={styles.iconLinks}>
+                        {links.map(({ icon, label, href }) => (
+                            <Link key={href} to={new URL(href, siteConfig.url).href} className={styles.iconLink}>
+                                {icon}
+                                {label}
+                            </Link>
+                        ))}
+                    </div>
                 </div>
             }
         />
@@ -121,26 +134,25 @@ export default function Home() {
                     <div className={styles.cards}>
                         <ReferenceCard
                             title="Apify API"
+                            description="Control the platform from your application."
                             links={[
-                                { href: '/api/v2', label: 'API reference' },
-                                { href: '/api/client/js', label: 'Client for JavaScript' },
-                                { href: '/api/client/python', label: 'Client for Python' },
+                                { icon: <ApiIcon width={20} height={20} />, label: 'REST API', href: '/api/v2' },
+                                { icon: <JavaScriptIcon width={20} height={20} />, label: 'JavaScript', href: '/api/client/js' },
+                                { icon: <PythonIcon width={20} height={20} />, label: 'Python', href: '/api/client/python' },
                             ]}
                         />
                         <ReferenceCard
                             title="Apify SDK"
+                            description="Toolkits for building Actors."
                             links={[
-                                { href: '/sdk/js', label: 'SDK for JavaScript' },
-                                { href: '/sdk/python', label: 'SDK for Python' },
+                                { icon: <JavaScriptIcon width={20} height={20} />, label: 'JavaScript', href: '/sdk/js' },
+                                { icon: <PythonIcon width={20} height={20} />, label: 'Python', href: '/sdk/python' },
                             ]}
                         />
                         <ReferenceCard
                             title="Apify CLI"
-                            links={[
-                                { href: '/cli/docs/installation', label: 'Installation' },
-                                { href: '/cli/docs/quick-start', label: 'Quick start' },
-                                { href: '/cli/docs/reference', label: 'Command reference' },
-                            ]}
+                            description="Create, run, and deploy Actors from your terminal."
+                            links={[{ icon: <TerminalIcon width={20} height={20} />, label: 'Apify CLI', href: '/cli/docs' }]}
                         />
                     </div>
                 </div>
