@@ -105,7 +105,7 @@ Expand **Advanced run options** to set:
 
 Select **Run Actor** to start the run.
 
-![Run actor page with the Actor input and Advanced run options](../images/snowflake/snowflake-actor-input.webp)
+![Run Actor page with the Actor input and Advanced run options](../images/snowflake/snowflake-actor-input.webp)
 
 ### Step 3: Monitor the run
 
