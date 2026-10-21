@@ -79,9 +79,9 @@ Actor IDs accept either the unique ID or the `username~actor-name` format (for e
 The plugin also registers `apify` as a web search and web content extraction backend for the built-in Hermes Agent web tools:
 
 - _Web search_ - Runs the [RAG Web Browser](https://apify.com/apify/rag-web-browser) Actor to search Google and return result titles, URLs, and descriptions (up to 100 results per query).
-- _Web fetch_ - Calls the [Web Fetch](https://apify.com/apify/web-fetch) Actor to extract the content of one or more URLs as Markdown or HTML. URLs are fetched in parallel, and Hermes Agent website access policies are applied both before the fetch and to the final URL after redirects.
+- _Web fetch_ - Calls the [Web Fetch](https://apify.com/apify/web-fetch) Actor to extract the content of one or more URLs as Markdown or HTML. URLs are fetched in parallel and respect your Hermes Agent website access policy.
 
-Both backends use the same `APIFY_API_TOKEN` as the Actor tools, so no extra setup is needed. To use them, set the search and extract backends in `~/.hermes/config.yaml`:
+Both backends reuse the `APIFY_API_TOKEN` you already saved, so you don't need a second token. To use them, set the search and extract backends in `~/.hermes/config.yaml`:
 
 ```yaml
 web:
@@ -146,7 +146,7 @@ The plugin reads `APIFY_API_TOKEN` from the process environment first, then from
 
 - _Check the backend setting_ - Confirm `web.search_backend` and `web.extract_backend` are set to `apify` in `~/.hermes/config.yaml`, or select `apify` with `hermes tools`.
 - _Check the token_ - The Apify backend is only available when `APIFY_API_TOKEN` is configured.
-- _Blocked URLs_ - Web fetch returns an error for URLs blocked by your Hermes Agent website access policy, including URLs that redirect to a blocked host.
+- _Check the website access policy_ - Web fetch returns an error for URLs blocked by your Hermes Agent website access policy, including URLs that redirect to a blocked host.
 
 ### Actor run failures
 
@@ -163,6 +163,7 @@ If you encounter a bug or have a feature request, [open an issue](https://github
 - [Hermes Agent documentation](https://hermes-agent.nousresearch.com/docs) - Official Hermes Agent docs
 - [Apify Actors documentation](https://docs.apify.com/actors) - Learn about Apify Actors
 - [Apify Store](https://apify.com/store) - Browse pre-built Actors
-- [RAG Web Browser](https://apify.com/apify/rag-web-browser) and [Web Fetch](https://apify.com/apify/web-fetch) - Actors behind the web search and fetch backends
+- [RAG Web Browser](https://apify.com/apify/rag-web-browser) - Actor behind the web search backend
+- [Web Fetch](https://apify.com/apify/web-fetch) - Actor behind the web fetch backend
 - [Apify API reference](https://docs.apify.com/api/v2) - Full API documentation
 - [Apify Hermes Agent plugin on GitHub](https://github.com/apify/apify-hermes-agent-plugin) - Source code and issue tracker
