@@ -1,7 +1,7 @@
 get:
   tags:
     - Actors/Actor runs
-  summary: Get last run
+  summary: Get Actor's last run
   description: |
     This is not a single endpoint, but an entire group of endpoints that lets you to
     retrieve and manage the last run of given Actor or any of its default storages.
