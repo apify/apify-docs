@@ -37,7 +37,7 @@ If your team works in a workflow platform or a data tool, you don't need code. A
 
 ## Connect an AI agent
 
-Agents and coding assistants connect to Apify through the Apify Model Context Protocol (MCP) server, Agent Skills, or the plugin for your client. Start with the comparison, then follow the guide for the client you use.
+Agents and coding assistants connect to Apify through the Apify MCP server, Agent Skills, or the plugin for your client. Start with the comparison, then follow the guide for the client you use.
 
 - [For AI agents](/agents) - how the MCP server, plugins, and Agent Skills differ, and which one fits your setup.
 - [Agent quickstart](/get-started/agent-onboarding) - a hands-on path from connecting an agent to running its first Actor.
