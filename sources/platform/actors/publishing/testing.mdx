@@ -44,13 +44,13 @@ When a test run fails, the notification links to it. Check its log for the cause
 
 If the run timed out, make the test input smaller. Choose `prefill` values that return only a few results, so the run finishes within the 5-minute limit.
 
-## How can I make my Actor healthy again
+## Restore a healthy status
 
 The best course of action is to fix the Actor and rebuild it. The automatic testing system will pick this up within 24 hours
 and mark it as healthy. In some cases, your Actor might break because of issues with the target website. In such a case, if your Actor
 passes the majority of test runs in the next 7 days, it will be marked as healthy automatically.
 
-## What if my Actor cannot comply with the test logic
+## Skip the automated tests
 
 The automated test skips these Actors:
 
