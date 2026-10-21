@@ -39,6 +39,8 @@ jobs:
             contents: read
         steps:
             -   uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+                with:
+                    fetch-depth: 2   # the merge ref's first parent is the base tip
 
             -   name: Use Node.js 24
                 uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
@@ -58,14 +60,13 @@ jobs:
                 continue-on-error: true
                 run: pnpm test:integrity --retries=0
 
-            # On failure, run the same check on the base commit so the summary
-            # can separate findings this PR introduced from ones already there.
+            # On failure, run the same check on the base tip the PR merges into,
+            # so the summary can separate new findings from ones already there.
+            # Not `pull_request.base.sha`: it can lag behind the merge ref.
             -   name: Check out the base commit
                 if: steps.integrity.outcome == 'failure'
-                uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-                with:
-                    ref: ${{ github.event.pull_request.base.sha }}
-                    path: base
+                working-directory: .
+                run: git worktree add --detach base HEAD^1
 
             -   name: Install docs-tests dependencies on the base commit
                 if: steps.integrity.outcome == 'failure'
