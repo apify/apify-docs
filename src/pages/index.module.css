@@ -211,4 +211,15 @@
     display: inline-flex;
     align-items: center;
     gap: 0.6rem;
+    padding: 0.6rem 1rem;
+    margin: -0.6rem -1rem;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    transition: background-color 120ms ease-in-out;
+}
+
+.iconLink:hover {
+    background-color: var(--color-neutral-card-background-hover);
+    border-color: var(--color-neutral-border);
+    text-decoration: none;
 }

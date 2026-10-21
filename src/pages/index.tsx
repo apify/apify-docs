@@ -9,7 +9,6 @@ import styled from 'styled-components';
 import { Banner, theme, VerticalTile } from '@apify/ui-library';
 
 import ActionCard from '../components/ActionCard/ActionCard';
-import { cardHoverStyles } from '../components/cardHoverStyles';
 import Button from '../components/Button';
 import CardWithIcon from '../components/CardWithIcon/CardWithIcon';
 import { Heading } from '../components/Heading';
@@ -47,8 +46,10 @@ const StyledBanner = styled(Banner)`
     }
 `;
 
+// Card look without the hover: the links inside are the targets, not the tile.
 const StyledReferenceTile = styled(VerticalTile)`
-    ${cardHoverStyles}
+    background-color: var(--color-neutral-card-background);
+    border-color: var(--color-neutral-border);
 `;
 
 type IconLink = { icon: React.ReactNode; label: string; href: string };
