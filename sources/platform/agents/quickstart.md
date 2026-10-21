@@ -1,9 +1,9 @@
 ---
 title: Agent quickstart
 sidebar_label: Agent quickstart
-sidebar_position: 4
-description: Connect your AI agent to the Apify platform - scrape the web, run Actors, and retrieve structured data via MCP, Agent Skills, client libraries, or the REST API.
-slug: /get-started/agent-onboarding
+sidebar_position: 0.5
+description: Connect your AI agent to Apify and run your first Actor through the MCP server, then pick the integration method and cost limits that fit your setup.
+slug: /agents/quickstart
 toc_max_heading_level: 3
 pagination_next: null
 pagination_prev: null
@@ -13,16 +13,13 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ClaudeCodeWebEgress from '@site/sources/_partials/_claude-code-web-egress.mdx';
 
-Connect your AI agent or application to Apify - the platform for web scraping, data extraction, and browser automation. The typical agent workflow: find an Actor, run it, get structured data back.
+Connect your AI agent to Apify and run your first Actor. This page shows the shortest path through each connection method, then sets up the MCP server in full. For how the pieces compare, see [For AI agents](/agents).
 
 Apify also serves a quickstart for agents to read directly at [`apify.com/agents.md`](https://apify.com/agents.md).
 
 ## Core concepts
 
-- _Actors_ - Serverless cloud programs that perform scraping, crawling, or automation tasks. Thousands of ready-made Actors are available in [Apify Store](https://apify.com/store).
-- _Datasets_ - Append-only storage for structured results. Every Actor run creates a default dataset. Export as JSON, CSV, Excel, XML, or RSS.
-- _API_ - RESTful API at `https://api.apify.com/v2` for all platform operations. Also accessible via [MCP](/mcp), [CLI](/cli), and client libraries.
-- _MCP connectors_ - When you build an Actor that needs to act on a user's third-party accounts (Notion, Slack, GitHub, and others), use [MCP connectors](/integrations/mcp-connectors) to receive connector IDs as input instead of asking users for raw credentials.
+An [Actor](/actors) is a serverless program that takes input and stores its results, most often in a [dataset](/storage/dataset). Everything an agent does with Apify goes through the [API](/api/v2), whether directly or through the MCP server, the CLI, or a client library.
 
 ## Prerequisites
 
@@ -106,9 +103,9 @@ See [Usage and resources](/actors/running/usage-and-resources) and [Billing](/ac
 | Method | Best for | Auth |
 | :--- | :--- | :--- |
 | [MCP server](#mcp-server) | AI agents and coding assistants | OAuth or API token |
-| [API client](#api-client) | Backend apps (JavaScript/Python) | API token |
-| [CLI](#cli) | Building and deploying custom Actors | API token |
-| [REST API](#rest-api) | Any language, HTTP integrations, no-code tools | API token |
+| [API client](/api) | Backend apps (JavaScript/Python) | API token |
+| [CLI](/cli) | Building and deploying custom Actors | API token |
+| [REST API](/api/v2) | Any language, HTTP integrations, no-code tools | API token |
 | [Agentic payments](/agents/payments) | Autonomous agents with a crypto wallet and no one to sign in | Prepaid, spend-capped token |
 
 ### MCP server
@@ -140,115 +137,9 @@ For client-specific steps, use the [MCP Configurator](https://mcp.apify.com), wh
 
 To cap runs that your agent starts over MCP, pass `maxTotalChargeUsd`, `maxItems`, `timeout`, or `memory` in the `callOptions` argument of [`call-actor`](/mcp#available-tools). Fields with these names in the Actor `input` don't cap the run. The Actor's input schema decides how it handles them.
 
-### API client
+### Other methods
 
-For integrating Apify into your application code.
-
-:::warning Package naming
-
-`apify-client` is the API client for _calling_ Actors. The `apify` package is the SDK for _building_ Actors. For backend integration, install `apify-client`.
-
-:::
-
-<Tabs>
-<TabItem value="javascript" label="JavaScript / TypeScript">
-
-```bash
-npm install apify-client
-```
-
-```typescript
-import { ApifyClient } from 'apify-client';
-
-const client = new ApifyClient({ token: process.env.APIFY_TOKEN });
-const run = await client.actor('apify/web-scraper').call({
-    startUrls: [{ url: 'https://example.com' }],
-});
-const { items } = await client.dataset(run.defaultDatasetId).listItems();
-```
-
-Full reference: [JavaScript API client docs](https://docs.apify.com/api/client/js)
-
-</TabItem>
-<TabItem value="python" label="Python">
-
-```bash
-pip install apify-client
-```
-
-```python
-import os
-from apify_client import ApifyClient
-
-client = ApifyClient(token=os.environ['APIFY_TOKEN'])
-run = client.actor('apify/web-scraper').call(
-    run_input={'startUrls': [{'url': 'https://example.com'}]}
-)
-items = client.dataset(run['defaultDatasetId']).list_items().items
-```
-
-Full reference: [Python API client docs](https://docs.apify.com/api/client/python)
-
-</TabItem>
-</Tabs>
-
-### CLI
-
-For running Actors and building custom ones from the command line.
-
-Install on macOS or Linux (Windows and Homebrew alternatives in the [CLI install docs](/cli/docs/installation)):
-
-```bash
-curl -fsSL https://apify.com/install-cli.sh | bash
-apify login                                      # authenticate with your API token
-```
-
-Discover and inspect Actors:
-
-```bash
-apify actors search scraping                     # search Apify Store
-apify actors info apify/web-scraper --readme     # get Actor README
-apify actors info apify/web-scraper --input      # get input schema
-```
-
-Run an Actor and get its output:
-
-```bash
-apify actors call apify/web-scraper \
-    -i '{"startUrls": [{"url": "https://example.com"}]}' \
-    --output-dataset
-```
-
-Build and deploy custom Actors:
-
-```bash
-apify create my-actor                            # scaffold (JS/TS/Python)
-apify run                                        # test locally
-apify push                                       # deploy to Apify cloud
-```
-
-Full reference: [Apify CLI documentation](/cli).
-
-### REST API
-
-For HTTP-native integrations or languages without a dedicated client. Base URL: `https://api.apify.com/v2`. Authenticate with the `Authorization: Bearer YOUR_TOKEN` header.
-
-#### Quick reference
-
-| Action | Method | Endpoint |
-| :--- | :--- | :--- |
-| [Search Actors in Store](/api/v2/store-get) | `GET` | `/v2/store` |
-| [Get Actor details](/api/v2/actor-get) | `GET` | `/v2/actors/{actorId}` |
-| [Run an Actor](/api/v2/actors-runs-post) | `POST` | `/v2/actors/{actorId}/runs` |
-| [Run Actor (sync, get results)](/api/v2/actor-run-sync-get-dataset-items-post) | `POST` | `/v2/actors/{actorId}/run-sync-get-dataset-items` |
-| [Get run status](/api/v2/actor-run-get) | `GET` | `/v2/actor-runs/{runId}` |
-| [Get dataset items](/api/v2/dataset-items-get) | `GET` | `/v2/datasets/{datasetId}/items` |
-
-The sync endpoint ([`run-sync-get-dataset-items`](/api/v2/actor-run-sync-get-dataset-items-post)) runs an Actor and returns results in a single request (waits up to 5 minutes). Use [async endpoints](/api/v2/actors-runs-post) for longer runs.
-
-For runs that take longer than the sync timeout, prefer [webhooks](/integrations/webhooks) over polling - Apify will POST a notification to your URL when the run finishes, avoiding wasted requests.
-
-Full reference: [Apify API v2](/api/v2).
+The [API client](/api) for JavaScript or Python, the [CLI](/cli), and the [REST API](/api/v2) each run the same Actor the tabs above show. Their pages cover installation, authentication, and the full command and endpoint reference.
 
 ## Agent Skills
 
