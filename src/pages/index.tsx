@@ -11,13 +11,13 @@ import { Banner, theme } from '@apify/ui-library';
 import ActionCard from '../components/ActionCard/ActionCard';
 import Button from '../components/Button';
 import CardWithIcon from '../components/CardWithIcon/CardWithIcon';
+import CardWithImageAndContent from '../components/CardWithImageAndContent/ImageWithContent';
 import { Heading } from '../components/Heading';
 import Hero from '../components/Hero/Hero';
 import Section from '../components/Section/Section';
 import { Text } from '../components/Text';
-import ScrapingBasicsJavascript from '@site/static/img/academy/scraping-basics-javascript.svg';
-import ScrapingBasicsPython from '@site/static/img/academy/scraping-basics-python.svg';
 import ScrapingWithAi from './img/academy_icons/expert_scraping_with_apify.svg';
+import WebScrapingBasics from './img/academy_icons/web_scraping_for_beginners.svg';
 import styles from './index.module.css';
 
 const StyledBanner = styled(Banner)`
@@ -95,23 +95,68 @@ export default function Home() {
             </Section>
             <Section heading="Build from code" description="Everything you can do in Apify Console is available from your code too.">
                 <div className={styles.cards}>
-                    <ActionCard
-                        title="Apify API"
-                        titleAs="h4"
-                        description="REST API with clients for JavaScript and Python."
-                        to="/api"
+                    <CardWithImageAndContent
+                        content={
+                            <div className={styles.cardContentWrapper}>
+                                <Heading type="titleXl" as="h3">
+                                    Apify API
+                                </Heading>
+                                <Text>
+                                    <ul className={styles.cardContentList}>
+                                    <li>
+                                        <Link to={new URL('/api/v2', siteConfig.url).href}>API reference</Link>
+                                    </li>
+                                    <li>
+                                        <Link to={new URL('/api/client/js', siteConfig.url).href}>Client for JavaScript</Link>
+                                    </li>
+                                    <li>
+                                        <Link to={new URL('/api/client/python', siteConfig.url).href}>Client for Python</Link>
+                                    </li>
+                                    </ul>
+                                </Text>
+                            </div>
+                        }
                     />
-                    <ActionCard
-                        title="Apify SDK"
-                        titleAs="h4"
-                        description="Toolkits for building Actors in JavaScript and Python."
-                        to="/sdk"
+                    <CardWithImageAndContent
+                        content={
+                            <div className={styles.cardContentWrapper}>
+                                <Heading type="titleXl" as="h3">
+                                    Apify SDK
+                                </Heading>
+                                <Text>
+                                    <ul className={styles.cardContentList}>
+                                    <li>
+                                        <Link to={new URL('/sdk/js', siteConfig.url).href}>SDK for JavaScript</Link>
+                                    </li>
+                                    <li>
+                                        <Link to={new URL('/sdk/python', siteConfig.url).href}>SDK for Python</Link>
+                                    </li>
+                                    </ul>
+                                </Text>
+                            </div>
+                        }
                     />
-                    <ActionCard
-                        title="Apify CLI"
-                        titleAs="h4"
-                        description="Create, run, and deploy Actors from your terminal."
-                        to={new URL('/cli', siteConfig.url).href}
+                    <CardWithImageAndContent
+                        content={
+                            <div className={styles.cardContentWrapper}>
+                                <Heading type="titleXl" as="h3">
+                                    Apify CLI
+                                </Heading>
+                                <Text>
+                                    <ul className={styles.cardContentList}>
+                                    <li>
+                                        <Link to={new URL('/cli/docs/installation', siteConfig.url).href}>Installation</Link>
+                                    </li>
+                                    <li>
+                                        <Link to={new URL('/cli/docs/quick-start', siteConfig.url).href}>Quick start</Link>
+                                    </li>
+                                    <li>
+                                        <Link to={new URL('/cli/docs/reference', siteConfig.url).href}>Command reference</Link>
+                                    </li>
+                                    </ul>
+                                </Text>
+                            </div>
+                        }
                     />
                 </div>
             </Section>
@@ -128,13 +173,13 @@ export default function Home() {
                             to="/academy/scraping-with-ai"
                         />
                         <CardWithIcon
-                            icon={<ScrapingBasicsJavascript />}
+                            icon={<WebScrapingBasics />}
                             title="Web scraping basics for JavaScript devs"
                             description="Learn to extract information from websites, from the absolute basics."
                             to="/academy/scraping-basics-javascript"
                         />
                         <CardWithIcon
-                            icon={<ScrapingBasicsPython />}
+                            icon={<WebScrapingBasics />}
                             title="Web scraping basics for Python devs"
                             description="Learn to extract information from websites, from the absolute basics."
                             to="/academy/scraping-basics-python"
