@@ -129,9 +129,7 @@ This either means that your Docusaurus setup is misconfigured, or that your GitH
             return [require.resolve('./theme/custom.css')];
         },
         injectHtmlTags() {
-            // bootstrap.js stores the visitor's first touch and FirstPromoter referral in cookies on .apify.com,
-            // which Console reads at signup. The host is checked in the browser, not at build time, because
-            // preview hosts proxy the SDK, client and CLI paths to their production builds.
+            // bootstrap.js stores first-touch and FirstPromoter cookies on .apify.com, which Console reads at signup.
             return {
                 headTags: [
                     {
