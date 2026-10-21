@@ -25,12 +25,12 @@ Instead of polling for a run to finish, let the platform call you. Webhooks reac
 
 - [Webhooks](/integrations/webhooks) - events, payloads, and where to set them up.
 - [Actor-to-Actor](/integrations/actors) - chain Actors and tasks without leaving the platform.
-- [Save input as a task](/actors/running/tasks) and [schedule it](/actors/running/schedules) so integrations have a stable configuration to trigger.
 
 ## Connect your tools
 
 If your team works in a workflow platform or a data tool, you don't need code. Apify has native modules for the common automation platforms and connectors for data destinations.
 
+- [Save input as a task](/actors/running/tasks) and [schedule it](/actors/running/schedules) so your tools have a stable configuration to trigger.
 - [Workflows and notifications](/integrations/workflows-and-notifications) - n8n, Make, Zapier, and other automation platforms, plus Slack and email.
 - [Data and storage](/integrations/data-and-storage) - Snowflake, Airbyte, Airtable, Google Drive, and other destinations.
 - [Create a new integration](/integrations/integrate) - if your product isn't listed and you want to connect it to Apify.
