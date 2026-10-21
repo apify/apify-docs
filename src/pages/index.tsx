@@ -1,3 +1,4 @@
+import Head from '@docusaurus/Head';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
@@ -5,6 +6,8 @@ import React from 'react';
 
 import { BookOpenIcon, CodeIcon, CoinIcon, PlayIcon } from '@apify/ui-icons';
 
+// Same file as the theme's @font-face, so the bundler resolves it to the same hashed URL.
+import lotaFontUrl from '../../apify-docs-theme/static/font/lota.woff2';
 import HomeSearch from '../components/HomeSearch/HomeSearch';
 import styles from './index.module.css';
 
@@ -88,6 +91,10 @@ export default function Home() {
 
     return (
         <Layout description="Documentation for the Apify platform: learn how to run, build, and monetize Actors, and use the Apify API, SDKs, and CLI.">
+            <Head>
+                {/* The hero heading uses Lota Grotesque; preload it so the heading doesn't render in a fallback font first. */}
+                <link rel="preload" href={lotaFontUrl} as="font" type="font/woff2" crossOrigin="anonymous" />
+            </Head>
             <main className={styles.page}>
                 <section className={styles.hero}>
                     <div className={styles.heroInner}>
