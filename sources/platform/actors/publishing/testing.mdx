@@ -9,7 +9,7 @@ sidebar_position: 3
 ## Why we test
 
 We want to make sure that all Actors in Apify Store are top-notch, or at least as top-notch as they can be. Since there are many of them, we have an automated testing procedure in place that tests all Actors daily.
-This helps us to flag Actors that temporarily don't work as expected `under maintenance`, and to automatically `deprecate` Actors that have been broken for more than a month.
+This helps us to flag Actors that temporarily don't work as expected as **Under maintenance**, and to automatically mark Actors that have been broken for more than a month as **Deprecated**.
 
 If you use an Actor that's under maintenance, see [Actors under maintenance](/actors/running/actors-in-store#actors-under-maintenance).
 
@@ -20,11 +20,11 @@ and expects it to finish with a **Succeeded** status and non-empty default datas
 
 ![Actor page](./images/actor-test.webp)
 
-If more than half of the daily test runs in the last three days fail, Apify notifies you and labels the Actor `under maintenance` until you fix it. All test runs in those three days must use the same build, so a new build restarts the count. After another 14 days of failing runs, you get another notification. If the runs still fail 14 days after that, Apify marks the Actor as `deprecated`.
+If more than half of the daily test runs in the last three days fail, Apify notifies you and labels the Actor **Under maintenance** until you fix it. All test runs in those three days must use the same build, so a new build restarts the count. After another 14 days of failing runs, you get another notification. If the runs still fail 14 days after that, Apify marks the Actor as **Deprecated**.
 
 ## Find out why the test failed
 
-When Apify labels your Actor `under maintenance`, you get a notification in Apify Console and by email. The notification tells you whether the test could start the Actor. The fix differs for each case.
+When Apify labels your Actor **Under maintenance**, you get a notification in Apify Console and by email. The notification tells you whether the test could start the Actor. The fix differs for each case.
 
 ### The test couldn't start the Actor
 
