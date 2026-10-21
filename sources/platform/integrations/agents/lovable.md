@@ -83,7 +83,7 @@ Manage an existing connection from [**Connectors**](https://lovable.dev/dashboar
 - Unlink a project to remove Apify access from that project while the connection stays available to the others.
 - Delete the connection to remove it from the workspace. Deletion is permanent, removes the credentials from every linked project, and breaks any app feature that uses Apify until you add a new connection.
 
-Deleting a connection in Lovable doesn't revoke the token in Apify. To cut off access entirely, delete the token in [**Settings > API & Integrations**](https://console.apify.com/settings/integrations?utm_source=lovable&utm_medium=integrations) as well.
+Deleting a connection in Lovable doesn't revoke the token in Apify. To cut off access entirely, delete the token in [**Settings > API & Integrations**](https://console.apify.com/settings/integrations) as well.
 
 ## Troubleshooting
 
