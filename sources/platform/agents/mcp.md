@@ -145,8 +145,7 @@ Agents can pay for Actor runs without an Apify account. Payments made per reques
 
 ## Tool selection
 
-By default, the MCP server loads the `actors` and `docs` tool categories, the `apify/rag-web-browser` and `apify/web-fetch` Actors, and `report-problem`. You can customize which tools
-are available by adding parameters to the server URL:
+By default, the MCP server loads the `actors` and `docs` tool categories, the `apify/rag-web-browser` and `apify/web-fetch` Actors, and `report-problem`. To choose different tools, set the `tools` parameter in the server URL. The parameter replaces the default selection instead of adding to it, so list everything you want to load:
 
 `https://mcp.apify.com?tools=actors,docs,apify/rag-web-browser`
 
@@ -158,19 +157,9 @@ This configuration approach works for both hosted and local setups. For the CLI 
 
 `npx @apify/actors-mcp-server --tools actors,docs,apify/web-scraper`
 
-:::caution The `tools` parameter replaces the defaults
+For example, `https://mcp.apify.com?tools=storage` loads only the storage tools, without `search-actors` or `call-actor`. The default Actors don't belong to any category, so `?tools=actors,docs` drops them too. To keep them, list them explicitly: `?tools=actors,docs,apify/rag-web-browser,apify/web-fetch`.
 
-The `tools` parameter doesn't add to the default selection, it replaces it. Connecting to `https://mcp.apify.com?tools=storage` gives you the storage tools and nothing else, without `search-actors` or `call-actor`. List every category you want, for example `https://mcp.apify.com?tools=actors,docs,storage`.
-
-The default Actors `apify/rag-web-browser` and `apify/web-fetch` aren't part of any category, so a `tools` parameter without them drops them, even `?tools=actors,docs`. To keep them, add them explicitly: `?tools=actors,docs,apify/rag-web-browser,apify/web-fetch`.
-
-:::
-
-:::tip Easy configuration
-
-Use the UI configurator `https://mcp.apify.com/` to select your tools visually, then copy the configuration to your client.
-
-:::
+To select your tools visually, use the [MCP configurator](https://mcp.apify.com/), then copy the generated configuration to your client.
 
 ### Available tools
 
@@ -206,23 +195,19 @@ Use the UI configurator `https://mcp.apify.com/` to select your tools visually, 
 | `delete-schedule` | `schedules` | | Delete a schedule permanently |
 | `report-problem` | `dev` | ✅ | Report a problem with the MCP server to Apify |
 
+The server withholds `report-problem` when you turn off telemetry with `telemetry-enabled=false`, and doesn't load it by default for some MCP clients. To request it explicitly, add `report-problem` or the `dev` category to the `tools` parameter.
+
 :::note Retrieving Actor results
 
 `call-actor` returns the run's status and storage IDs, not its output. To read the results, use `get-dataset-items` with the `datasetId` from the run. It supports limit, offset, and field filtering.
 
-Whenever `call-actor` or a specific Actor tool such as `apify--rag-web-browser` is loaded, the server also adds `get-actor-run`, `get-dataset-items`, `get-key-value-store-record`, and `abort-actor-run`, even if you didn't select them. A default configuration therefore exposes them too.
+Whenever `call-actor` or a specific [Actor tool](#actor-tool-names) such as `apify--rag-web-browser` is loaded, the server also adds `get-actor-run`, `get-dataset-items`, `get-key-value-store-record`, and `abort-actor-run`, even if you didn't select them. A default configuration therefore exposes them too.
 
 :::
 
 #### Actor tool names
 
-Each Actor you select with the `tools` parameter becomes a tool of its own, named `{username}--{actor-name}`. For example, `apify/rag-web-browser` is exposed as `apify--rag-web-browser`. Dots in the username are replaced with `-dot-`, and names longer than 64 characters are truncated and get a hash suffix to keep them unique.
-
-:::note `report-problem` availability
-
-`report-problem` loads by default, but the server withholds it when telemetry is disabled with `telemetry-enabled=false`. Some MCP clients don't get it by default either. To request it explicitly, add `report-problem` or the `dev` category to the `tools` parameter.
-
-:::
+Each Actor you select with the `tools` parameter becomes a tool of its own, named `{username}--{actor-name}`. For example, the server exposes `apify/rag-web-browser` as `apify--rag-web-browser`. The server replaces dots in the username with `-dot-`, and shortens names longer than 64 characters, adding a hash suffix to keep them unique.
 
 #### Find and call any Actor on demand
 
