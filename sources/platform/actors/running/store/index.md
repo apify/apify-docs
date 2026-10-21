@@ -107,7 +107,7 @@ If an Actor you use is under maintenance:
 - On the Actor's **Issues** tab, look for an issue that describes your problem. If there isn't one, create one to ask the developer.
 - To find a replacement, select **Show similar Actors** in the banner, or search [Apify Store](https://apify.com/store).
 
-Actors under maintenance rank lower in Apify Store. If an Actor keeps failing its tests, Apify deprecates it after about a month.
+Actors under maintenance rank lower in Apify Store. If an Actor keeps failing the tests, Apify deprecates it.
 
 ## Report issues with Actors
 

@@ -52,7 +52,7 @@ For details, see [Actor developers](/actors/running/store/actor-developers).
 
 It's essential to test your Actors and make sure they work as intended. That's why Apify does it on our side as much as you should do it on yours.
 
-Apify runs automated tests daily to ensure all Actors on Apify Store are functional and reliable. These tests check whether an Actor's run with its default input succeeds within 5 minutes. If an Actor fails most of its test runs over three days, Apify labels it under maintenance and notifies the developer. If the Actor keeps failing for another 28 days, Apify deprecates it.
+Apify runs automated tests daily to ensure all Actors on Apify Store are functional and reliable. These tests check whether an Actor's run with its default input succeeds within 5 minutes. If an Actor keeps failing, Apify labels it under maintenance, notifies the developer, and later deprecates it. For the schedule, see [How we test](/actors/publishing/test#how-we-test).
 
 To restore your Actor's health, fix and rebuild it. The tests use the new build within 24 hours. If your Actor can't pass the tests, for example because it needs more than 5 minutes to finish, you can request to skip the tests. For details, see [Actor testing](/actors/publishing/test#what-if-my-actor-cannot-comply-with-the-test-logic). For more control, you can write your own tests with the [Actor Testing](https://apify.com/pocesar/actor-testing) tool from Apify Store.
 
