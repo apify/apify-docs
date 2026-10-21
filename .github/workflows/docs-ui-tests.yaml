@@ -9,22 +9,8 @@ name: Docs UI drift tests
 # staging user is low-privilege and has no 2FA; login is scripted fresh each run
 # and the session is held in memory (no auth file).
 #
-# Two jobs, deliberately split:
-#
-#   doc-integrity  runs on PULL REQUESTS that touch the docs or the harness.
-#                  Only the `integrity` project: pure static checks that each
-#                  assertion's source_file/source_quote still resolves. No
-#                  browser, no credentials, a few seconds — so it also works on
-#                  fork PRs, where secrets are unavailable. INFORMATIVE ONLY: it
-#                  never fails the PR; findings go to the job summary.
-#
-#   ui-drift       runs WEEKLY and on demand, never on a PR. The full suite
-#                  against Console staging, and it files a drift issue on
-#                  failure.
-#
-# The split exists because a doc can move mid-week and stay undetected until the
-# next Monday — which is exactly how #2951 happened. The PR-time check catches
-# that class of drift in review, when the move is still one edit away from fixed.
+# doc-integrity: PR-time, advisory, no browser or secrets.
+# ui-drift: weekly + manual, files a drift issue on failure.
 
 on:
     schedule:
@@ -34,17 +20,18 @@ on:
         paths:
             -   'sources/platform/**'    # a doc move/rewrite can stale the baseline
             -   'docs-tests/**'          # harness or baseline changes
+            -   '.github/workflows/docs-ui-tests.yaml'
+
+concurrency:
+    group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+    cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 defaults:
     run:
         working-directory: docs-tests
 
 jobs:
-    # PR-time doc-side check. Advisory: `continue-on-error` keeps a failure from
-    # blocking the merge, so this is an additional signal rather than a new gate.
-    # Findings are written to the job summary, where a reviewer sees them without
-    # opening logs. Promote it to a required check later by removing
-    # `continue-on-error` and marking it required in branch protection.
+    # Advisory: `continue-on-error` keeps findings from blocking the merge.
     doc-integrity:
         if: github.event_name == 'pull_request'
         runs-on: ubuntu-latest
@@ -64,49 +51,91 @@ jobs:
                     working-directory: docs-tests
 
             # No `playwright install`: the integrity project never requests a
-            # browser fixture, so it runs on the bare Node install.
+            # browser fixture. `--retries=0` because CI=true enables a retry,
+            # which can't change a static result and would list findings twice.
             -   name: Check doc back-references resolve
                 id: integrity
                 continue-on-error: true
-                run: pnpm test:integrity
+                run: pnpm test:integrity --retries=0
+
+            # On failure, run the same check on the base commit so the summary
+            # can separate findings this PR introduced from ones already there.
+            -   name: Check out the base commit
+                if: steps.integrity.outcome == 'failure'
+                uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+                with:
+                    ref: ${{ github.event.pull_request.base.sha }}
+                    path: base
+
+            -   name: Install docs-tests dependencies on the base commit
+                if: steps.integrity.outcome == 'failure'
+                uses: apify/actions/pnpm-install@v1.4.0
+                with:
+                    working-directory: base/docs-tests
+
+            -   name: Check doc back-references on the base commit
+                if: steps.integrity.outcome == 'failure'
+                continue-on-error: true
+                working-directory: base/docs-tests
+                run: pnpm test:integrity --retries=0
 
             -   name: Summarize
-                if: always()
+                if: steps.integrity.outcome == 'failure'
                 env:
-                    OUTCOME: ${{ steps.integrity.outcome }}
+                    BASE_REF: ${{ github.event.pull_request.base.ref }}
                 run: |
                     set -euo pipefail
                     REPORT=output/issues.json
-
-                    if [[ "$OUTCOME" == "success" ]]; then
-                      {
-                        echo "### Docs-tests: doc back-references OK"
-                        echo ""
-                        echo "Every assertion in \`docs-tests/assertions/\` still points at a doc that exists, with its quoted text intact."
-                      } >> "$GITHUB_STEP_SUMMARY"
-                      exit 0
-                    fi
+                    BASE_REPORT=../base/docs-tests/output/issues.json
 
                     {
-                      echo "### Docs-tests: stale doc back-references"
+                      echo "### Docs-tests: unresolved doc back-references"
                       echo ""
                       echo "This is **informative only** and does not block the merge."
                       echo ""
                     } >> "$GITHUB_STEP_SUMMARY"
 
-                    if [[ -f "$REPORT" ]]; then
-                      {
-                        echo "Assertions in \`docs-tests/assertions/\` point at documentation that this PR moved, renamed or rewrote:"
-                        echo ""
-                        echo "| Assertion | Doc source |"
-                        echo "| --- | --- |"
-                        jq -r '.issues[] | "| `\(.id)` | `\(.source_file):\(.source_line)` |"' "$REPORT"
-                        echo ""
-                        echo "Fix by repointing \`docs-tests/pages.json\` and the affected \`assertions/*.json\` at the new path, or re-extracting the page. Left unfixed, the weekly drift check goes red and files an issue."
-                      } >> "$GITHUB_STEP_SUMMARY"
-                    else
+                    if [[ ! -f "$REPORT" ]]; then
                       echo "The check failed before producing a report — see the job logs." >> "$GITHUB_STEP_SUMMARY"
+                      exit 0
                     fi
+
+                    table() {
+                      echo "| Assertion | Doc source |"
+                      echo "| --- | --- |"
+                      jq -r '.[] | "| `\(.id)` | `\(.source_file):\(.source_line)` |"' <<< "$1"
+                      echo ""
+                    }
+
+                    if [[ -f "$BASE_REPORT" ]]; then
+                      BASE_IDS=$(jq -c '[.issues[].id]' "$BASE_REPORT")
+                      NEW=$(jq -c --argjson base "$BASE_IDS" '[.issues[] | select(.id | IN($base[]) | not)]' "$REPORT")
+                      OLD=$(jq -c --argjson base "$BASE_IDS" '[.issues[] | select(.id | IN($base[]))]' "$REPORT")
+                      NEW_HEADING="Resolve on \`${BASE_REF}\` but not on this branch:"
+                    else
+                      NEW=$(jq -c '.issues' "$REPORT")
+                      OLD='[]'
+                      NEW_HEADING="Don't resolve on this branch (comparison with \`${BASE_REF}\` unavailable):"
+                    fi
+
+                    # Annotations show in the checks view and inline in the diff.
+                    # GitHub caps them at 10 per step, so the table stays the full list.
+                    jq -r '.[] | "::warning file=\(.source_file),line=\(.source_line),title=Unresolved doc back-reference::docs-tests assertion \(.id) no longer resolves in \(.source_file)."' <<< "$NEW"
+
+                    {
+                      if [[ "$(jq length <<< "$NEW")" -gt 0 ]]; then
+                        echo "$NEW_HEADING"
+                        echo ""
+                        table "$NEW"
+                        echo "Fix by repointing \`docs-tests/pages.json\` and the affected \`assertions/*.json\` at the new path, or re-extracting the page. Left unfixed, the weekly drift check goes red and files an issue."
+                        echo ""
+                      fi
+                      if [[ "$(jq length <<< "$OLD")" -gt 0 ]]; then
+                        echo "Already unresolved on \`${BASE_REF}\`, not caused by this PR:"
+                        echo ""
+                        table "$OLD"
+                      fi
+                    } >> "$GITHUB_STEP_SUMMARY"
 
     ui-drift:
         if: github.event_name != 'pull_request'
