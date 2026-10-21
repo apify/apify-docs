@@ -64,13 +64,13 @@ To get information about a request queue such as its creation time and item coun
 https://api.apify.com/v2/request-queues/{QUEUE_ID}
 ```
 
-To get a request from a queue, send a GET request to the [Get request](/api/v2/request-queue-request-get) endpoint.
+To get a request from a queue, send a GET request to the [Get request from request queue](/api/v2/request-queue-request-get) endpoint.
 
 ```text
 https://api.apify.com/v2/request-queues/{QUEUE_ID}/requests/{REQUEST_ID}
 ```
 
-To add a request to a queue, send a POST request with the request to be added as a JSON object in the request's payload to the [Add request](/api/v2/request-queue-requests-post) endpoint.
+To add a request to a queue, send a POST request with the request to be added as a JSON object in the request's payload to the [Add request to request queue](/api/v2/request-queue-requests-post) endpoint.
 
 ```text
 https://api.apify.com/v2/request-queues/{QUEUE_ID}/requests
@@ -86,7 +86,7 @@ Example payload:
 }
 ```
 
-To update a request in a queue, send a PUT request with the request to update as a JSON object in the request's payload to the [Update request](/api/v2/request-queue-request-put) endpoint. In the payload, specify the request's ID and add the information you want to update.
+To update a request in a queue, send a PUT request with the request to update as a JSON object in the request's payload to the [Update request in request queue](/api/v2/request-queue-request-put) endpoint. In the payload, specify the request's ID and add the information you want to update.
 
 ```text
 https://api.apify.com/v2/request-queues/{QUEUE_ID}/requests/{REQUEST_ID}
@@ -105,7 +105,7 @@ Example payload:
 
 :::note `clientKey` parameter
 
-When adding or updating requests, you can optionally provide a `clientKey` parameter to your request. It must be a string between 1 and 32 characters in length. This identifier is used to determine whether the queue was accessed by [multiple clients](./use-from-another-run.md). If `clientKey` is not provided, the system considers this API call to come from a new client. See the `hadMultipleClients` field returned by the [`Get head`](/api/v2/request-queue-head-get) operation for details.
+When adding or updating requests, you can optionally provide a `clientKey` parameter to your request. It must be a string between 1 and 32 characters in length. This identifier is used to determine whether the queue was accessed by [multiple clients](./use-from-another-run.md). If `clientKey` is not provided, the system considers this API call to come from a new client. See the `hadMultipleClients` field returned by the [Get request queue head](/api/v2/request-queue-head-get) operation for details.
 
 Example: `client-abc`
 
