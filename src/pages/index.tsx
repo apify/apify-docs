@@ -95,9 +95,9 @@ export default function Home() {
                         </div>
                         <div className={styles.bannerContentActions}>
                             <ActionCard title="What is an Actor" to="/actors" />
-                            <ActionCard title="Run an existing Actor" to="/actors/running" />
-                            <ActionCard title="Develop your own Actor" to="/actors/development" />
-                            <ActionCard title="Publish and monetize your Actor" to="/actors/publishing" />
+                            <ActionCard title="Run Actors from Apify Store" to="/get-started/run-actors" />
+                            <ActionCard title="Build your own Actor" to="/get-started/build-actors" />
+                            <ActionCard title="Integrate Apify with your stack" to="/get-started/integrate" />
                         </div>
                         <ThemedImage
                             className={styles.bannerContentImageAfter}
