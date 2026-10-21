@@ -117,7 +117,7 @@ export default function Home() {
                             <ActionCard title="What is an Actor" to="/actors" />
                             <ActionCard title="Run Actors from Apify Store" to="/get-started/run-actors" />
                             <ActionCard title="Build your own Actor" to="/get-started/build-actors" />
-                            <ActionCard title="Integrate Apify with your stack" to="/get-started/integrate" />
+                            <ActionCard title="Integrate Actors with your stack" to="/get-started/integrate" />
                             <ActionCard title="Connect an AI agent" to="/agents" />
                         </div>
                         <ThemedImage

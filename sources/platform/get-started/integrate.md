@@ -1,6 +1,6 @@
 ---
-title: Integrate Apify
-sidebar_label: Integrate Apify
+title: Integrate Actors
+sidebar_label: Integrate Actors
 sidebar_position: 3
 slug: /get-started/integrate
 description: Connect Apify to your stack - call Actors from your code, react to runs with webhooks, and plug results into your workflow tools, data stores, and agents.
@@ -8,7 +8,7 @@ pagination_next: null
 pagination_prev: null
 ---
 
-You already have a stack, and you want Apify's data in it. That might be a backend that needs scraped data, a workflow tool that reacts when a run finishes, or a warehouse that receives results. This page takes you through the ways to connect, in order, and points you to the right page at each step. For the full list of supported tools, see [Integrations](/integrations).
+You already have a stack, and you want the data your Actors produce in it. That might be a backend that calls an Actor and reads its output, a workflow tool that reacts when a run finishes, or a warehouse that receives the results. This page takes you through the ways to connect, in order, and points you to the right page at each step. For the full list of supported tools, see [Integrations](/integrations).
 
 ## Call an Actor from your code
 
