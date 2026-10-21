@@ -128,6 +128,23 @@ This either means that your Docusaurus setup is misconfigured, or that your GitH
         getClientModules() {
             return [require.resolve('./theme/custom.css')];
         },
+        injectHtmlTags() {
+            // bootstrap.js stores the visitor's first touch and FirstPromoter referral in cookies on .apify.com,
+            // which Console reads at signup. The host is checked in the browser, not at build time, because
+            // preview hosts proxy the SDK, client and CLI paths to their production builds.
+            return {
+                headTags: [
+                    {
+                        tagName: 'script',
+                        innerHTML: `if (window.location.hostname === 'docs.apify.com') {
+                            const script = document.createElement('script');
+                            script.src = 'https://apify.com/ext/bootstrap.js';
+                            document.head.appendChild(script);
+                        }`,
+                    },
+                ],
+            };
+        },
         configureWebpack() {
             return {
                 module: {
