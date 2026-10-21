@@ -292,5 +292,5 @@ The typical issues behind these codes are:
 ## Next steps
 
 * [Usage and resources](/actors/running/usage-and-resources) - how proxy traffic counts toward what a run costs.
-* [Anti-scraping protections](/academy/anti-scraping) - why websites block and where proxies fit in avoiding it.
+* [Anti-scraping protections](/academy/anti-scraping) - why websites block and how proxies help you avoid it.
 * [Limits](/account/limits) - the limits that apply to your account.

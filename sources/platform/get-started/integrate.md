@@ -8,7 +8,7 @@ pagination_next: null
 pagination_prev: null
 ---
 
-You already have a stack, and you want Apify to feed it. That might be a backend that needs scraped data, a workflow tool that reacts when a run finishes, or a warehouse that receives results. Every integration follows the same loop: authenticate, run an Actor, pick up its output, and hand it to the next system. This page walks through that loop and points you to the right page at each step. For the full list of supported tools, see [Integrations](/integrations).
+You already have a stack, and you want Apify's data in it. That might be a backend that needs scraped data, a workflow tool that reacts when a run finishes, or a warehouse that receives results. Every integration follows the same loop: authenticate, run an Actor, pick up its output, and hand it to the next system. This page walks through that loop and points you to the right page at each step. For the full list of supported tools, see [Integrations](/integrations).
 
 ## Call an Actor from your code
 
