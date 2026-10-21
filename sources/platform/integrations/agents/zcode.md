@@ -11,9 +11,9 @@ import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integrati
 
 The [Apify plugin for ZCode](https://github.com/apify/apify-zcode-plugin) connects ZCode to Apify's library of [Actors](https://apify.com/store) and bundles:
 
-- The [Apify MCP server](/integrations/mcp) for searching Apify Store, running Actors, and retrieving datasets through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro).
-- An `apify` routing subagent that picks the right tool or skill from a natural-language request.
-- Five built-in skills for common workflows (see [Bundled skills](#bundled-skills) below).
+- The [Apify MCP server](/mcp) for searching Apify Store, running Actors, and retrieving datasets through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro).
+- An `apify` routing subagent that picks the right tool or skill from a natural-language request
+- Five built-in skills for common workflows (see [Bundled skills](#bundled-skills) below)
 
 This guide covers installation from the ZCode plugin marketplace.
 
@@ -28,7 +28,7 @@ This guide covers installation from the ZCode plugin marketplace.
 
 1. Open **Settings** > **Plugins**.
 
-1. Select **Create** > **Add marketplace** in the top-right corner.
+1. Select **Create** > **Add marketplace**.
 
 1. Enter the Apify plugin repository as the source:
 
@@ -50,7 +50,7 @@ The plugin bundles the Apify MCP server. Read-only tools like searching Apify St
 
 1. Select **Open authorization**. ZCode opens the Apify OAuth page in your system browser.
 
-1. Review the permissions and click **Allow access**.
+1. Review the permissions and select **Allow access**.
 
 1. Back in ZCode, the Apify MCP server reconnects and loads its tools automatically.
 
@@ -118,7 +118,6 @@ export APIFY_TOKEN=<YOUR_API_TOKEN>
 
 ## Limitations
 
-- Plugin components require an open workspace. If you see "Open a workspace to manage plugins," open any project first.
 - MCP servers connected mid-session are invisible to subagents until a new session starts.
 - Long-running Actors may exceed the time a single tool call waits for completion. Reduce the scope or split the work across multiple prompts.
 - Each Actor run consumes Apify platform usage from your plan in addition to any ZCode usage. See [Billing](/account/billing) for details.
@@ -127,7 +126,7 @@ export APIFY_TOKEN=<YOUR_API_TOKEN>
 ## Related integrations
 
 - [Cursor integration](/integrations/cursor) - Install the Apify plugin in Cursor
-- [MCP server integration](/integrations/mcp) - Use the Apify MCP server with other clients
+- [MCP server integration](/mcp) - Use the Apify MCP server with other clients
 
 ## Resources
 

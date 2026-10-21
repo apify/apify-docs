@@ -215,6 +215,7 @@ Read the full [DeepSeek Harness guide](/integrations/deepseek-harness).
 <TabItem value="zcode" label="ZCode">
 
 1. In ZCode (with a workspace open), open **Settings** > **Plugins** and select **Create** > **Add marketplace**.
+
 1. Enter the Apify plugin repository as the source:
 
     ```text
@@ -222,7 +223,8 @@ Read the full [DeepSeek Harness guide](/integrations/deepseek-harness).
     ```
 
 1. Under the **Personal** segment, select **Install** on the **Apify** plugin card.
-1. Open **Settings** > **MCP Servers**, find the Apify server under **Plugin MCP servers**, select **Open authorization**, and complete the Apify sign-in in your browser.
+
+1. Open **Settings** > **MCP Servers**, find the Apify MCP server under **Plugin MCP servers**, select **Open authorization**, and complete the Apify sign-in in your browser.
 
 Read the full [ZCode guide](/integrations/zcode).
 
