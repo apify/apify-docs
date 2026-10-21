@@ -6,12 +6,11 @@ import ThemedImage from '@theme/ThemedImage';
 import React from 'react';
 import styled from 'styled-components';
 
-import { Banner, theme } from '@apify/ui-library';
+import { Banner, theme, VerticalTile } from '@apify/ui-library';
 
 import ActionCard from '../components/ActionCard/ActionCard';
 import Button from '../components/Button';
 import CardWithIcon from '../components/CardWithIcon/CardWithIcon';
-import CardWithImageAndContent from '../components/CardWithImageAndContent/ImageWithContent';
 import { Heading } from '../components/Heading';
 import Hero from '../components/Hero/Hero';
 import Section from '../components/Section/Section';
@@ -43,9 +42,33 @@ const StyledBanner = styled(Banner)`
     }
 `;
 
-export default function Home() {
+// Same tile as the Academy cards, but holding a link list instead of one link.
+function ReferenceCard({ title, links }: { title: string; links: { href: string; label: string }[] }) {
     const { siteConfig } = useDocusaurusContext();
+    return (
+        <VerticalTile
+            style={{ height: '100%' }}
+            content={
+                <div className={styles.cardContentWrapper}>
+                    <Heading type="titleM" as="h3">
+                        {title}
+                    </Heading>
+                    <Text>
+                        <ul className={styles.cardContentList}>
+                            {links.map(({ href, label }) => (
+                                <li key={href}>
+                                    <Link to={new URL(href, siteConfig.url).href}>{label}</Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </Text>
+                </div>
+            }
+        />
+    );
+}
 
+export default function Home() {
     return (
         <Layout>
             <Hero
@@ -94,70 +117,32 @@ export default function Home() {
                 </StyledBanner>
             </Section>
             <Section heading="Build from code" description="Everything you can do in Apify Console is available from your code too.">
-                <div className={styles.cards}>
-                    <CardWithImageAndContent
-                        content={
-                            <div className={styles.cardContentWrapper}>
-                                <Heading type="titleXl" as="h3">
-                                    Apify API
-                                </Heading>
-                                <Text>
-                                    <ul className={styles.cardContentList}>
-                                    <li>
-                                        <Link to={new URL('/api/v2', siteConfig.url).href}>API reference</Link>
-                                    </li>
-                                    <li>
-                                        <Link to={new URL('/api/client/js', siteConfig.url).href}>Client for JavaScript</Link>
-                                    </li>
-                                    <li>
-                                        <Link to={new URL('/api/client/python', siteConfig.url).href}>Client for Python</Link>
-                                    </li>
-                                    </ul>
-                                </Text>
-                            </div>
-                        }
-                    />
-                    <CardWithImageAndContent
-                        content={
-                            <div className={styles.cardContentWrapper}>
-                                <Heading type="titleXl" as="h3">
-                                    Apify SDK
-                                </Heading>
-                                <Text>
-                                    <ul className={styles.cardContentList}>
-                                    <li>
-                                        <Link to={new URL('/sdk/js', siteConfig.url).href}>SDK for JavaScript</Link>
-                                    </li>
-                                    <li>
-                                        <Link to={new URL('/sdk/python', siteConfig.url).href}>SDK for Python</Link>
-                                    </li>
-                                    </ul>
-                                </Text>
-                            </div>
-                        }
-                    />
-                    <CardWithImageAndContent
-                        content={
-                            <div className={styles.cardContentWrapper}>
-                                <Heading type="titleXl" as="h3">
-                                    Apify CLI
-                                </Heading>
-                                <Text>
-                                    <ul className={styles.cardContentList}>
-                                    <li>
-                                        <Link to={new URL('/cli/docs/installation', siteConfig.url).href}>Installation</Link>
-                                    </li>
-                                    <li>
-                                        <Link to={new URL('/cli/docs/quick-start', siteConfig.url).href}>Quick start</Link>
-                                    </li>
-                                    <li>
-                                        <Link to={new URL('/cli/docs/reference', siteConfig.url).href}>Command reference</Link>
-                                    </li>
-                                    </ul>
-                                </Text>
-                            </div>
-                        }
-                    />
+                <div className={styles.sectionLayoutWrapper}>
+                    <div className={styles.cards}>
+                        <ReferenceCard
+                            title="Apify API"
+                            links={[
+                                { href: '/api/v2', label: 'API reference' },
+                                { href: '/api/client/js', label: 'Client for JavaScript' },
+                                { href: '/api/client/python', label: 'Client for Python' },
+                            ]}
+                        />
+                        <ReferenceCard
+                            title="Apify SDK"
+                            links={[
+                                { href: '/sdk/js', label: 'SDK for JavaScript' },
+                                { href: '/sdk/python', label: 'SDK for Python' },
+                            ]}
+                        />
+                        <ReferenceCard
+                            title="Apify CLI"
+                            links={[
+                                { href: '/cli/docs/installation', label: 'Installation' },
+                                { href: '/cli/docs/quick-start', label: 'Quick start' },
+                                { href: '/cli/docs/reference', label: 'Command reference' },
+                            ]}
+                        />
+                    </div>
                 </div>
             </Section>
             <Section
