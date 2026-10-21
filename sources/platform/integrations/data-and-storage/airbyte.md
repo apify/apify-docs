@@ -24,13 +24,8 @@ The Apify Dataset source reads a single dataset, identified by its ID. Each Acto
 
 1. In [Apify Console](https://console.apify.com), open the **Storage** tab and copy the ID of the dataset you want to use.
 1. Open **Settings > API & Integrations** and copy your API token.
-
-    ![API token on the API & Integrations tab in Apify Console](../images/apify-integrations-token.png)
-
 1. In Airbyte, open the **Sources** tab and select **Apify Dataset**.
 1. Enter the **Dataset ID** and **API token** you copied, and save the source.
-
-    ![Apify Dataset source form in Airbyte with the dataset ID and API token fields](../images/airbyte-source-setup.png)
 
 Your Apify dataset is now available as a source in Airbyte.
 
