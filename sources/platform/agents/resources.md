@@ -28,12 +28,12 @@ curl https://apify.com/apify/rag-web-browser/changelog.md
 
 | Surface | URL | What it's for |
 | :--- | :--- | :--- |
-| Documentation index | [`docs.apify.com/llms.txt`](https://docs.apify.com/llms.txt) | A compact list of every documentation page, for discovery before a targeted fetch. |
+| Documentation index | [`docs.apify.com/llms.txt`](https://docs.apify.com/llms.txt) | A compact index of the documentation, for discovery before a targeted fetch. Larger sections have their own index, linked from this file. |
 | Full documentation | [`docs.apify.com/llms-full.txt`](https://docs.apify.com/llms-full.txt) | The entire corpus in one file. Roughly 45 MB, so most agents can't load it whole. |
-| Section indexes | [`/sdk/js/llms.txt`](https://docs.apify.com/sdk/js/llms.txt), [`/sdk/python/llms.txt`](https://docs.apify.com/sdk/python/llms.txt), [`/api/client/js/llms.txt`](https://docs.apify.com/api/client/js/llms.txt), [`/api/client/python/llms.txt`](https://docs.apify.com/api/client/python/llms.txt), [`/cli/llms.txt`](https://docs.apify.com/cli/llms.txt) | Indexes for the SDK, API client, and CLI documentation. |
+| Section indexes | [`/actors/llms.txt`](https://docs.apify.com/actors/llms.txt), [`/integrations/llms.txt`](https://docs.apify.com/integrations/llms.txt), [`/api/llms.txt`](https://docs.apify.com/api/llms.txt), [`/academy/llms.txt`](https://docs.apify.com/academy/llms.txt), [`/legal/llms.txt`](https://docs.apify.com/legal/llms.txt), [`/sdk/js/llms.txt`](https://docs.apify.com/sdk/js/llms.txt), [`/sdk/python/llms.txt`](https://docs.apify.com/sdk/python/llms.txt), [`/api/client/js/llms.txt`](https://docs.apify.com/api/client/js/llms.txt), [`/api/client/python/llms.txt`](https://docs.apify.com/api/client/python/llms.txt), [`/cli/llms.txt`](https://docs.apify.com/cli/llms.txt) | Indexes for Actors, integrations, the API reference, Academy, legal documents, and the SDK, API client, and CLI documentation. |
 | API definition | [`docs.apify.com/api/openapi.json`](https://docs.apify.com/api/openapi.json) | The OpenAPI definition of the Apify API, also available as `openapi.yaml`. |
 
-Use `llms.txt` to find the page you need, then fetch that page's `.md` URL. Reach for `llms-full.txt` only when you're building an index offline.
+Use `llms.txt`, or the section index it links to, to find the page you need, then fetch that page's `.md` URL. Reach for `llms-full.txt` only when you're building an index offline.
 
 ## Search the docs through MCP
 
