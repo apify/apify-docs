@@ -129,20 +129,24 @@
     }
     
     .bannerContentActions {
-        width: 41.8rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: 52rem;
     }
     .bannerContentDescription {
-        width: 38.4rem;
+        width: 25rem;
     }
     .bannerContentImage {
-        width: 38.4rem;
+        width: 25rem;
         position: absolute;
         margin-top: 18.4rem;
     }
 }
 
 @media (min-width: 1440px) {
-    
+    .bannerContentActions {
+        width: 60rem;
+    }
     .bannerContentDescription {
         width: 50.2rem;
     }
