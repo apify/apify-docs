@@ -6,7 +6,7 @@ import ThemedImage from '@theme/ThemedImage';
 import React from 'react';
 import styled from 'styled-components';
 
-import { Banner, theme, VerticalTile } from '@apify/ui-library';
+import { Banner, theme } from '@apify/ui-library';
 
 import ActionCard from '../components/ActionCard/ActionCard';
 import Button from '../components/Button';
@@ -46,15 +46,13 @@ const StyledBanner = styled(Banner)`
     }
 `;
 
-// Card look without the hover: the links inside are the targets, not the tile.
-const StyledReferenceTile = styled(VerticalTile)`
-    &&,
-    &&:hover {
-        cursor: default;
-        box-shadow: none;
-        background-color: var(--color-neutral-card-background);
-        border-color: var(--color-neutral-border);
-    }
+// Card look of the Academy tiles, without their click behaviour: the links inside are the targets.
+const ReferenceTile = styled.div`
+    height: 100%;
+    padding: ${theme.space.space24};
+    background-color: var(--color-neutral-card-background);
+    border: 1px solid var(--color-neutral-border);
+    border-radius: ${theme.radius.radius12};
 `;
 
 type IconLink = { icon: React.ReactNode; label: string; href: string };
@@ -63,27 +61,24 @@ type IconLink = { icon: React.ReactNode; label: string; href: string };
 function ReferenceCard({ title, description, links }: { title: string; description: string; links: IconLink[] }) {
     const { siteConfig } = useDocusaurusContext();
     return (
-        <StyledReferenceTile
-            style={{ height: '100%' }}
-            content={
-                <div className={styles.referenceCard}>
-                    <Heading type="titleM" as="h3">
-                        {title}
-                    </Heading>
-                    <Text align="left" color={theme.color.neutral.textSubtle}>
-                        {description}
-                    </Text>
-                    <div className={styles.iconLinks}>
-                        {links.map(({ icon, label, href }) => (
-                            <Link key={href} to={new URL(href, siteConfig.url).href} className={styles.iconLink}>
-                                {icon}
-                                {label}
-                            </Link>
-                        ))}
-                    </div>
+        <ReferenceTile>
+            <div className={styles.referenceCard}>
+                <Heading type="titleM" as="h3">
+                    {title}
+                </Heading>
+                <Text align="left" color={theme.color.neutral.textSubtle}>
+                    {description}
+                </Text>
+                <div className={styles.iconLinks}>
+                    {links.map(({ icon, label, href }) => (
+                        <Link key={href} to={new URL(href, siteConfig.url).href} className={styles.iconLink}>
+                            {icon}
+                            {label}
+                        </Link>
+                    ))}
                 </div>
-            }
-        />
+            </div>
+        </ReferenceTile>
     );
 }
 
