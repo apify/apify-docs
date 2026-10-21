@@ -50,13 +50,28 @@ Before connecting your AI to Apify, you need:
 
 ## Connect and authorize
 
-You can connect to the Apify MCP server in two ways: use our hosted service using [Streamable HTTP with OAuth](#streamable-http-with-oauth-recommended), or run the server locally for development and testing using [local stdio](#local-stdio).
+To discover Actors and search the documentation, you can connect [without an account](#use-without-an-account). To run Actors, connect in one of two ways: use our hosted service using [Streamable HTTP with OAuth](#streamable-http-with-oauth-recommended), or run the server locally for development and testing using [local stdio](#local-stdio).
 
 :::tip Structured output schemas
 
 The hosted Apify MCP server at `https://mcp.apify.com` supports _output schema inference_ for structured Actor results. Actor tools automatically include inferred output schemas with field-level type information. This helps AI agents understand the expected result structure before calling an Actor. The local stdio server does not support this feature.
 
 :::
+
+### Use without an account
+
+The Apify MCP server accepts requests without an API token when the `tools` query parameter (see [Tool selection](#tool-selection)) contains only tools enabled for unauthenticated use. These tools cover Actor discovery and documentation lookup:
+
+- `search-actors`
+- `fetch-actor-details`
+- `search-apify-docs`
+- `fetch-apify-docs`
+
+For example, the following URL connects without authentication:
+
+`https://mcp.apify.com?tools=search-actors,fetch-actor-details,search-apify-docs,fetch-apify-docs`
+
+If the `tools` parameter includes any other tool, or you connect to the default endpoint, the server requires an API token. Running Actors and accessing storage or run data always requires authentication, so use one of the methods below when you're ready to run Actors.
 
 ### Streamable HTTP with OAuth (recommended)
 
@@ -143,26 +158,19 @@ This configuration approach works for both hosted and local setups. For the CLI 
 
 `npx @apify/actors-mcp-server --tools actors,docs,apify/web-scraper`
 
+:::caution The `tools` parameter replaces the defaults
+
+The `tools` parameter doesn't add to the default selection, it replaces it. Connecting to `https://mcp.apify.com?tools=storage` gives you the storage tools and nothing else, without `search-actors` or `call-actor`. List every category you want, for example `https://mcp.apify.com?tools=actors,docs,storage`.
+
+The default Actors `apify/rag-web-browser` and `apify/web-fetch` aren't part of any category, so a `tools` parameter without them drops them, even `?tools=actors,docs`. To keep them, add them explicitly: `?tools=actors,docs,apify/rag-web-browser,apify/web-fetch`.
+
+:::
+
 :::tip Easy configuration
 
 Use the UI configurator `https://mcp.apify.com/` to select your tools visually, then copy the configuration to your client.
 
 :::
-
-### Use without an account
-
-The Apify MCP server accepts requests without an API token when the `tools` query parameter contains only tools enabled for unauthenticated use. These tools cover Actor discovery and documentation lookup:
-
-- `search-actors`
-- `fetch-actor-details`
-- `search-apify-docs`
-- `fetch-apify-docs`
-
-For example, the following URL connects without authentication:
-
-`https://mcp.apify.com?tools=search-actors,fetch-actor-details,search-apify-docs,fetch-apify-docs`
-
-If the `tools` parameter includes any other tool, or you connect to the default endpoint, the server requires an API token. Running Actors and accessing storage or run data always requires authentication.
 
 ### Available tools
 
@@ -203,6 +211,16 @@ If the `tools` parameter includes any other tool, or you connect to the default 
 `call-actor` returns the run's status and storage IDs, not its output. To read the results, use `get-dataset-items` with the `datasetId` from the run. It supports limit, offset, and field filtering.
 
 Whenever `call-actor` or a specific Actor tool such as `apify--rag-web-browser` is loaded, the server also adds `get-actor-run`, `get-dataset-items`, `get-key-value-store-record`, and `abort-actor-run`, even if you didn't select them. A default configuration therefore exposes them too.
+
+:::
+
+#### Actor tool names
+
+Each Actor you select with the `tools` parameter becomes a tool of its own, named `{username}--{actor-name}`. For example, `apify/rag-web-browser` is exposed as `apify--rag-web-browser`. Dots in the username are replaced with `-dot-`, and names longer than 64 characters are truncated and get a hash suffix to keep them unique.
+
+:::note `report-problem` availability
+
+`report-problem` loads by default, but the server withholds it when telemetry is disabled with `telemetry-enabled=false`. Some MCP clients don't get it by default either. To request it explicitly, add `report-problem` or the `dev` category to the `tools` parameter.
 
 :::
 
