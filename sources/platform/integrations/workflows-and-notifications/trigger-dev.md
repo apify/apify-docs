@@ -34,6 +34,7 @@ Trigger.dev's terms of service require a proxy for web scraping and prohibit scr
 
 1. Add `apify-client` to [`build.external`](https://trigger.dev/docs/config/config-file#external) in `trigger.config.ts`, so Trigger.dev doesn't bundle it:
 
+    <!-- vale Vale.Terms = NO -->
     ```ts title="trigger.config.ts"
     import { defineConfig } from "@trigger.dev/sdk";
 
@@ -45,6 +46,7 @@ Trigger.dev's terms of service require a proxy for web scraping and prohibit scr
       },
     });
     ```
+    <!-- vale Vale.Terms = YES -->
 
 1. Create the Apify client that all the examples on this page share. The `x-apify-integration-platform` header tells Apify the requests come from Trigger.dev.
 
@@ -110,8 +112,8 @@ export const apifyActorRun = task({
 });
 ```
 
-- `timeout` stops the Actor on the Apify platform before `waitSecs` runs out, so the task never retries while an earlier Actor run is still going.
-- `maxItems` caps how many results a pay-per-result Actor charges you for. Background jobs run unattended, so a cap stops a runaway crawl.
+- `timeout` stops the Actor on the Apify platform before `waitSecs` runs out, so the task never retries while an earlier Actor run is still going. Use this pattern for Actors that finish in seconds, and treat these limits as a safety net.
+- `maxItems` caps how many results a pay-per-result Actor charges you for. Pass `maxTotalChargeUsd` in the same options to cap the total charge for any pricing model, because `maxItems` doesn't cap pay-per-event Actors. Background jobs run unattended, so a cap stops a runaway crawl.
 - A failed or timed-out Actor run throws an error, so the task's [retry settings](https://trigger.dev/docs/errors-retrying) start the Actor again. An aborted run throws `AbortTaskRunError` instead, because someone stopped it on purpose.
 - `call()` copies the Actor's log into your run logs. Pass `log: null` in the options to turn this off.
 
@@ -133,10 +135,10 @@ To test the task, trigger it from the Trigger.dev dashboard with this payload. I
 
 For anything longer than a few seconds, start the Actor with `start()` instead of `call()` and attach an [ad-hoc webhook](/integrations/webhooks/ad-hoc-webhooks) that points at a Trigger.dev [wait token](https://trigger.dev/docs/wait-for-token) URL. The task suspends on `wait.forToken()`, and Apify resumes it by calling the URL when the Actor run ends. A suspended task doesn't count toward Trigger.dev compute usage, however long the Actor runs.
 
-The full task is in Trigger.dev's [Apify Actor run guide](https://trigger.dev/docs/guides/examples/apify-actor-run#example-2-run-a-long-actor-and-resume-on-a-webhook). It relies on these Apify details:
+The full task is in Trigger.dev's [Apify Actor run guide](https://trigger.dev/docs/guides/examples/apify-actor-run#example-2-run-a-long-actor-and-resume-on-a-webhook). `wait.forToken()` pauses the task until something calls the token's URL, and the request body becomes the token's result. The webhook's `payloadTemplate` sets that body, so the task receives the event type and the Actor run. The task relies on these Apify details:
 
 - The webhook covers all four [events that end an Actor run](/integrations/webhooks/events), so a failed, aborted, or timed-out run resumes the task with an error instead of leaving it waiting until the token times out.
-- A `payloadTemplate` of `{ "eventType": {{eventType}}, "resource": {{resource}} }` keeps the request small. Whatever Apify posts to the token URL becomes the token's result, so type the result after the template, not the default webhook payload.
+- A `payloadTemplate` of `{ "eventType": {{eventType}}, "resource": {{resource}} }` keeps the request small. Type the token's result after this template, not the default webhook payload.
 - The Actor's `timeout` is shorter than the token's `timeout`, so the Actor always ends, and the webhook fires, before the token expires.
 - Webhook event types use underscores (`ACTOR.RUN.TIMED_OUT`), but a run's `status` uses a hyphen (`TIMED-OUT`). Compare event types with event types and statuses with statuses.
 
@@ -146,7 +148,7 @@ Trigger.dev [AI chat agents](https://trigger.dev/docs/ai-chat/tools) use [AI SDK
 
 - `searchApifyActors` searches Apify Store, so the model picks an Actor at runtime instead of you hardcoding one. It returns monthly users and the pricing model, so the model can prefer widely used Actors.
 - `getApifyActorInputSchema` gives the model the Actor's real input fields. Without it, the model guesses field names and Apify rejects the run.
-- `runApifyActor` runs the Actor through the webhook task from the [previous section](#run-an-actor-with-a-webhook), so the agent doesn't count toward compute usage while the Actor works. It returns at most 50 items and the `datasetId`, because a dataset can be larger than the model's context window.
+- `runApifyActor` runs the Actor through the webhook task from [Run an Actor with a webhook](#run-an-actor-with-a-webhook), so the agent doesn't count toward compute usage while the Actor works. It returns at most 50 items and the `datasetId`, because a dataset can be larger than the model's context window.
 
 Set `needsApproval: true` on `runApifyActor` to pause the agent before it spends money on a run. Your frontend shows the pending call and sends the user's answer, as described in Trigger.dev's [human-in-the-loop guide](https://trigger.dev/docs/ai-chat/patterns/human-in-the-loop).
 
@@ -156,6 +158,8 @@ Set `needsApproval: true` on `runApifyActor` to pause the agent before it spends
 - The tasks on this page and in the Trigger.dev guides aren't retry-safe: every retry starts a new Actor run. In production, store the Actor run ID and reuse that run on retry instead of starting a new one.
 
 ## Troubleshooting
+
+These are the errors you're most likely to hit when you first run the examples.
 
 ### Tasks fail with `ProxyAgent is not a constructor`
 
