@@ -12,7 +12,7 @@ Apify is a cloud platform for web scraping, data extraction, and automation. Eve
 
 ## How Apify works
 
-An Actor takes a structured JSON input, performs a job - scraping a website, automating a browser, processing data - and stores its results on the platform. Results typically land in a structured dataset you can export or send elsewhere. You can start an Actor manually in Apify Console, call it through the [API](/api/v2), or put it on a [schedule](/actors/running/schedules).
+An Actor takes a structured input, does a job such as scraping a website, and stores its results on the platform. You can start it from Apify Console, the [API](/api/v2), or a [schedule](/actors/running/schedules). For the full model, see [Actors](/actors).
 
 Because every Actor shares this input > run > output model, they compose. One Actor's output can feed another, results flow into [integrations](/integrations) like Make, Zapier, or n8n, and you can call any Actor from your code like a regular API.
 
@@ -32,7 +32,7 @@ Actors are the unit of work. The rest of the platform exists to run them, hold w
 - [Storage](/storage) - datasets, key-value stores, and request queues. Every run writes its results here.
 - [Proxy](/proxy) - datacenter and residential IP addresses so your Actors can access websites without being blocked.
 - [Integrations](/integrations) - the API, webhooks, workflow platforms, and data destinations that connect Actors to your stack.
-- [For AI agents](/agents) - the Apify MCP server, Agent Skills, and plugins that let agents and coding assistants use Actors.
+- [For AI agents](/agents) - how agents and coding assistants connect to Apify and use Actors.
 - [Account](/account) - organizations, access rights, billing, and limits.
 - [Security](/security) - how the platform protects your data and what it is certified for.
 
@@ -55,7 +55,7 @@ Pick the path that matches what you want to do. Each one walks you through the l
 - [Run Actors](/get-started/run-actors) - use existing Actors from Apify Store to get data or automate a task, no coding required.
 - [Build Actors](/get-started/build-actors) - build, deploy, and publish your own Actor on the Apify platform.
 - [Integrate Apify](/get-started/integrate) - call Actors from your code, react to runs with webhooks, and connect your workflow tools and data stores.
-- [Connect an AI agent](/get-started/agent-onboarding) - give an agent or coding assistant access to Actors through the MCP server, Agent Skills, or a plugin.
+- [Connect an AI agent](/agents) - give an agent or coding assistant access to Actors.
 
 To learn web scraping itself, see the free courses in [Apify Academy](/academy).
 

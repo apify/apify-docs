@@ -8,11 +8,11 @@ pagination_next: null
 pagination_prev: null
 ---
 
-You already have a stack, and you want Apify's data in it. That might be a backend that needs scraped data, a workflow tool that reacts when a run finishes, or a warehouse that receives results. Every integration follows the same loop: authenticate, run an Actor, pick up its output, and hand it to the next system. This page walks through that loop and points you to the right page at each step. For the full list of supported tools, see [Integrations](/integrations).
+You already have a stack, and you want Apify's data in it. That might be a backend that needs scraped data, a workflow tool that reacts when a run finishes, or a warehouse that receives results. This page takes you through the ways to connect, in order, and points you to the right page at each step. For the full list of supported tools, see [Integrations](/integrations).
 
 ## Call an Actor from your code
 
-Everything in Apify Console is also available through the REST API. You authenticate with an API token, start an Actor run, and read the results from storage. Official clients for JavaScript and Python handle retries and pagination for you.
+Everything in Apify Console is also available through the REST API, with official clients for JavaScript and Python.
 
 - [API integration](/integrations/api) - get a token, authenticate, and scope what the token can access.
 - [API reference](/api/v2) - every endpoint, with the run and dataset calls you'll use most.
@@ -21,7 +21,7 @@ Everything in Apify Console is also available through the REST API. You authenti
 
 ## React when a run finishes
 
-Instead of polling for a run to finish, let the platform call you. Webhooks fire on run events such as success or failure and send a POST request to a URL you choose. Actor-to-Actor integrations do the same thing inside the platform, starting another Actor or task from the finished run.
+Instead of polling for a run to finish, let the platform call you. Webhooks reach a URL you choose, and Actor-to-Actor integrations start another Actor or task inside the platform.
 
 - [Webhooks](/integrations/webhooks) - events, payloads, and where to set them up.
 - [Actor-to-Actor](/integrations/actors) - chain Actors and tasks without leaving the platform.
@@ -37,10 +37,9 @@ If your team works in a workflow platform or a data tool, you don't need code. A
 
 ## Connect an AI agent
 
-Agents and coding assistants connect to Apify through the Apify MCP server, Agent Skills, or the plugin for your client. Start with the comparison, then follow the guide for the client you use.
+Agents and coding assistants have their own section, with the ways to connect, a quickstart, and a setup guide for each client.
 
-- [For AI agents](/agents) - how the MCP server, plugins, and Agent Skills differ, and which one fits your setup.
-- [Agent quickstart](/get-started/agent-onboarding) - a hands-on path from connecting an agent to running its first Actor.
+- [For AI agents](/agents) - start here to connect an agent.
 - [AI integrations](/integrations/ai) - agent frameworks, SDKs, and vector databases.
 
 To run Actors by hand first, start with [Run Actors](/get-started/run-actors). To build your own Actor, see [Build Actors](/get-started/build-actors).
