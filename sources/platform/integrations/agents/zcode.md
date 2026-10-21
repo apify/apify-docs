@@ -6,6 +6,8 @@ slug: /integrations/zcode
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+import ApifyPluginSkills from '@site/sources/_partials/_apify-plugin-skills.mdx';
+import ApifyPluginSkillPrompts from '@site/sources/_partials/_apify-plugin-skill-prompts.mdx';
 
 [ZCode](https://zcode.z.ai) is Z.ai's agentic coding client. It reads and edits your codebase, runs commands, and completes multi-step development tasks from natural-language prompts.
 
@@ -70,27 +72,11 @@ The `apify` subagent searches Apify Store, fetches the top Actor's details throu
 
 ## Bundled skills
 
-| Skill | Description |
-| --- | --- |
-| `apify-ultimate-scraper` | CLI-driven extraction using existing Actors for multi-step scraping and lead-generation workflows. |
-| `apify-actor-development` | Full Actor lifecycle - template selection, development, local testing, and deployment with `apify push`. |
-| `apify-actorization` | Converts existing JavaScript, TypeScript, Python, or CLI projects into Apify Actors. |
-| `apify-generate-output-schema` | Generates dataset and key-value store schemas for existing Actors. |
-| `apify-sdk-integration` | Integrates Actor execution into applications using the `apify-client` package. |
+<ApifyPluginSkills />
 
 Example prompts that route to specific skills:
 
-_Ultimate scraper:_
-
-> Find 10 highly rated coffee shops in Seattle with name, address, rating, phone, and website.
-
-_Actor development:_
-
-> Create an Apify Actor that accepts a `startUrl` and `maxPages` input, crawls the site, and stores each page title and URL.
-
-_SDK integration:_
-
-> Add Apify to this project. The Node.js API route should run an Actor and return dataset items as JSON.
+<ApifyPluginSkillPrompts />
 
 ## Troubleshooting
 
@@ -100,11 +86,11 @@ Confirm you have a workspace open - the plugin page requires one. Open the **Mar
 
 ### ZCode picks the wrong skill
 
-Start your request with `@apify` so the routing subagent handles it. The subagent owns the guardrails that pick the right skill and avoid common traps, such as confusing the `apify` and `apify-client` packages.
+Route the request through the `apify` subagent, as shown in [Run your first prompt](#run-your-first-prompt). The subagent owns the guardrails that pick the right skill and avoid common traps, such as confusing the `apify` and `apify-client` packages.
 
 ### The Apify MCP server shows as unauthenticated
 
-Open **Settings** > **MCP Servers**, find the Apify server under **Plugin MCP servers**, and select **Open authorization** to re-trigger the OAuth flow. If you authenticated mid-session, start a new session so subagents can see the connected server. See [Authenticate to Apify](#authenticate-to-apify).
+Open **Settings** > **MCP Servers**, find the Apify server under **Plugin MCP servers**, and select **Open authorization** to re-trigger the OAuth flow. See [Authenticate to Apify](#authenticate-to-apify).
 
 ### Browser doesn't open, or OAuth fails
 
