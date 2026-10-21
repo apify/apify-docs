@@ -32,21 +32,21 @@ Actors are the unit of work. The rest of the platform exists to run them, hold w
 - [Storage](/storage) - datasets, key-value stores, and request queues. Every run writes its results here.
 - [Proxy](/proxy) - datacenter and residential IP addresses so your Actors can access websites reliably.
 - [Integrations](/integrations) - the API, webhooks, workflow platforms, and data destinations that connect Actors to your stack.
-- [For AI agents](/agents) - the Apify MCP server, Agent Skills, and plugins that let agents and coding assistants use Actors.
+- [For AI agents](/agents) - the Apify Model Context Protocol (MCP) server, Agent Skills, and plugins that let agents and coding assistants use Actors.
 - [Account](/account) - organizations, access rights, billing, and limits.
 - [Security](/security) - how the platform protects your data and what it is certified for.
 
 ## SDKs, API, and CLI
 
-Everything you can do in Apify Console you can also do from code. The [REST API](/api/v2) covers the whole platform, with official clients for [JavaScript](/api/client/js) and [Python](/api/client/python). To build Actors, use the [SDK for JavaScript](/sdk/js) or the [SDK for Python](/sdk/python), and the [CLI](/cli) to create, run, and deploy them from your terminal. Apify also maintains open-source libraries such as [Crawlee](https://crawlee.dev), which you can use with or without the platform.
+You can do everything from code that you can do in Apify Console. The [REST API](/api/v2) covers the whole platform, with official clients for [JavaScript](/api/client/js) and [Python](/api/client/python). To build Actors, use a software development kit (SDK): the [SDK for JavaScript](/sdk/js) or the [SDK for Python](/sdk/python). The [command-line interface (CLI)](/cli) creates, runs, and deploys Actors from your terminal. Apify also maintains open-source libraries such as [Crawlee](https://crawlee.dev), which you can use with or without the platform.
 
 ## Pricing
 
-Running Actors consumes platform usage, such as compute, storage, and proxy traffic. Some Store Actors charge per event instead, for example per result. Your plan sets your monthly usage, limits, and features. For the models, see [Actors in Store](/actors/running/actors-in-store) and [Usage and resources](/actors/running/usage-and-resources); for your account, see [Limits](/account/limits) and [plans](https://apify.com/pricing).
+Running Actors consumes platform usage, such as compute, storage, and proxy traffic. Some Store Actors charge per event instead, for example per result. Your plan sets your monthly usage, limits, and features. For the pricing models, see [Actors in Store](/actors/running/actors-in-store) and [Usage and resources](/actors/running/usage-and-resources). For your own account, see [Limits](/account/limits) and [plans](https://apify.com/pricing).
 
 ## Run your first Actor
 
-The quickest way to understand the platform is to run something. Open [Apify Store](https://apify.com/store), pick an Actor, select **Start**, and watch the results arrive. No code required.
+The quickest way to understand the platform is to run something. Open [Apify Store](https://apify.com/store), pick an Actor, select **Start**, and watch the results arrive. It needs no code.
 
 ## Next steps
 
@@ -55,7 +55,7 @@ Pick the path that matches what you want to do. Each one walks you through the l
 - [Run Actors](/get-started/run-actors) - use existing Actors from Apify Store to get data or automate a task, no coding required.
 - [Build Actors](/get-started/build-actors) - build, deploy, and publish your own Actor on the Apify platform.
 - [Integrate Apify](/get-started/integrate) - call Actors from your code, react to runs with webhooks, and connect your workflow tools and data stores.
-- [Connect an AI agent](/get-started/agent-onboarding) - give an agent or coding assistant access to Actors through MCP, Agent Skills, or a plugin.
+- [Connect an AI agent](/get-started/agent-onboarding) - give an agent or coding assistant access to Actors through the MCP server, Agent Skills, or a plugin.
 
 To learn web scraping itself, from the basics to anti-blocking and deployment, see the free courses in [Apify Academy](/academy).
 

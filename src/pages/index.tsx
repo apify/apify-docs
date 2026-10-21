@@ -168,7 +168,7 @@ export default function Home() {
                         <CardWithIcon
                             icon={<ScrapingWithAi />}
                             title="Web scraping with AI"
-                            description="Use AI agents and LLMs with Apify to extract data from websites."
+                            description="Use AI agents and large language models with Apify to extract data from websites."
                             to="/academy/scraping-with-ai"
                         />
                         <CardWithIcon

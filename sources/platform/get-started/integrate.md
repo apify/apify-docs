@@ -8,7 +8,7 @@ pagination_next: null
 pagination_prev: null
 ---
 
-You already have a stack, and you want Apify to feed it: a backend that needs scraped data, a workflow tool that should react when a run finishes, a warehouse that should receive results. Every integration follows the same loop: authenticate, run an Actor, pick up its output, and hand it to the next system. This page walks through that loop and points you to the right page at each step. For the full list of supported tools, see [Integrations](/integrations).
+You already have a stack, and you want Apify to feed it. That might be a backend that needs scraped data, a workflow tool that reacts when a run finishes, or a warehouse that receives results. Every integration follows the same loop: authenticate, run an Actor, pick up its output, and hand it to the next system. This page walks through that loop and points you to the right page at each step. For the full list of supported tools, see [Integrations](/integrations).
 
 ## Call an Actor from your code
 
@@ -16,7 +16,7 @@ Everything in Apify Console is also available through the REST API. You authenti
 
 - [API integration](/integrations/api) - get a token, authenticate, and scope what the token can access.
 - [API reference](/api/v2) - every endpoint, with the run and dataset calls you'll use most.
-- [API client for JavaScript](/api/client/js) and [API client for Python](/api/client/python) - typed wrappers over the same API.
+- [API client for JavaScript](/api/client/js) and [API client for Python](/api/client/python) - libraries that call the same API from your code.
 - [Actor Standby](/actors/running/standby) - call an Actor as a live HTTP endpoint instead of starting a run per request.
 
 ## React when a run finishes
@@ -37,10 +37,10 @@ If your team works in a workflow platform or a data tool, you don't need code. A
 
 ## Connect an AI agent
 
-Agents and coding assistants connect to Apify through the Apify MCP server, Agent Skills, or the plugin for your client. Start with the comparison, then follow the guide for the client you use.
+Agents and coding assistants connect to Apify through the Apify Model Context Protocol (MCP) server, Agent Skills, or the plugin for your client. Start with the comparison, then follow the guide for the client you use.
 
 - [For AI agents](/agents) - how the MCP server, plugins, and Agent Skills differ, and which one fits your setup.
 - [Agent quickstart](/get-started/agent-onboarding) - a hands-on path from connecting an agent to running its first Actor.
 - [AI integrations](/integrations/ai) - agent frameworks, SDKs, and vector databases.
 
-Want to run Actors by hand first? Start with [Run Actors](/get-started/run-actors). Building your own Actor? See [Build Actors](/get-started/build-actors).
+To run Actors by hand first, start with [Run Actors](/get-started/run-actors). To build your own Actor, see [Build Actors](/get-started/build-actors).
