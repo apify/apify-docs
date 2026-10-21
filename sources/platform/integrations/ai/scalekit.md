@@ -2,7 +2,6 @@
 title: Scalekit integration
 sidebar_label: Scalekit
 description: Learn how to use Scalekit with Apify Actors. Scalekit's AgentKit provides auth and actions on behalf of users, with 500+ connectors and 20,000+ tools.
-sidebar_position: 21
 slug: /integrations/scalekit
 ---
 
