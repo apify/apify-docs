@@ -137,23 +137,23 @@ export default function Home() {
                             title="Apify API"
                             description="Control the platform from your application."
                             links={[
-                                { icon: <ApiIcon width={20} height={20} />, label: 'REST API', href: '/api/v2' },
-                                { icon: <JavaScriptIcon width={20} height={20} />, label: 'JavaScript', href: '/api/client/js' },
-                                { icon: <PythonIcon width={20} height={20} />, label: 'Python', href: '/api/client/python' },
+                                { icon: <ApiIcon />, label: 'REST API', href: '/api/v2' },
+                                { icon: <JavaScriptIcon />, label: 'JavaScript', href: '/api/client/js' },
+                                { icon: <PythonIcon />, label: 'Python', href: '/api/client/python' },
                             ]}
                         />
                         <ReferenceCard
                             title="Apify SDK"
                             description="Toolkits for building Actors."
                             links={[
-                                { icon: <JavaScriptIcon width={20} height={20} />, label: 'JavaScript', href: '/sdk/js' },
-                                { icon: <PythonIcon width={20} height={20} />, label: 'Python', href: '/sdk/python' },
+                                { icon: <JavaScriptIcon />, label: 'JavaScript', href: '/sdk/js' },
+                                { icon: <PythonIcon />, label: 'Python', href: '/sdk/python' },
                             ]}
                         />
                         <ReferenceCard
                             title="Apify CLI"
                             description="Create, run, and deploy Actors from your terminal."
-                            links={[{ icon: <TerminalIcon width={20} height={20} />, label: 'Apify CLI', href: '/cli/docs' }]}
+                            links={[{ icon: <TerminalIcon />, label: 'Apify CLI', href: '/cli/docs' }]}
                         />
                     </div>
                 </div>

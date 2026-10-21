@@ -178,6 +178,11 @@
     transition: background-color 120ms ease-in-out;
 }
 
+.iconLink svg {
+    width: 20px;
+    height: 20px;
+}
+
 .iconLink:hover {
     background-color: var(--color-neutral-card-background-hover);
     border-color: var(--color-neutral-border);
