@@ -25,10 +25,11 @@ This guide covers installation from the ZCode plugin marketplace.
 
 - [An Apify account](https://console.apify.com/sign-up) - sign up for free if you don't have one.
 - [ZCode](https://zcode.z.ai) - installed with a workspace open (the plugin store requires an open workspace).
+- [Apify CLI](/cli/docs/installation) - installed and logged in, for the scraping, Actor development, and actorization skills.
 
 ## Install the plugin
 
-1. Open **Settings** > **Plugins**.
+1. In ZCode, open **Settings** > **Plugins**.
 
 1. Select **Create** > **Add marketplace**.
 
@@ -46,7 +47,7 @@ This guide covers installation from the ZCode plugin marketplace.
 
 The plugin bundles the Apify MCP server. Read-only tools like searching Apify Store and fetching Actor details work without signing in, but you need to authenticate to run Actors and access your account data.
 
-1. Open **Settings** > **MCP Servers**.
+1. In ZCode, open **Settings** > **MCP Servers**.
 
 1. Scroll to the **Plugin MCP servers** group. The Apify MCP server row shows **Authorization required**.
 
