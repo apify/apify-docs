@@ -40,6 +40,7 @@ The OpenClaw, Hermes Agent, and Kilo Code plugins work differently. Instead of c
 | Kimi Code | Yes | Yes | No | [`apify/apify-kimi-code-plugin`](https://github.com/apify/apify-kimi-code-plugin) |
 | Qoder and Qwen Code | Yes | Yes | Yes | [`apify/apify-qoder-plugin`](https://github.com/apify/apify-qoder-plugin) |
 | DeepSeek Harness | Yes | Yes | No | [`dsh-apify-plugin`](https://github.com/apify/apify-deepseek-harness-plugin) |
+| ZCode | Yes | Yes | Yes | [`apify/apify-zcode-plugin`](https://github.com/apify/apify-zcode-plugin) |
 | OpenClaw | Native tool | No | No | [`@apify/apify-openclaw-plugin`](https://github.com/apify/apify-openclaw-plugin) |
 | Hermes Agent | Native tools | Routing skill | No | [`apify-hermes-agent-plugin`](https://github.com/apify/apify-hermes-agent-plugin) |
 | Kilo Code | Native tool | No | No | [`@apify/kilocode-plugin`](https://github.com/apify/kilocode-plugin) |
@@ -209,6 +210,23 @@ The Qoder IDE installs from the [Qoder Marketplace](https://qoder.com/marketplac
     ```
 
 Read the full [DeepSeek Harness guide](/integrations/deepseek-harness).
+
+</TabItem>
+<TabItem value="zcode" label="ZCode">
+
+1. In ZCode (with a workspace open), open **Settings** > **Plugins** and select **Create** > **Add marketplace**.
+
+1. Enter the Apify plugin repository as the source:
+
+    ```text
+    apify/apify-zcode-plugin
+    ```
+
+1. Under the **Personal** segment, select **Install** on the **Apify** plugin card.
+
+1. Open **Settings** > **MCP Servers**, find the Apify MCP server under **Plugin MCP servers**, select **Open authorization**, and complete the Apify sign-in in your browser.
+
+Read the full [ZCode guide](/integrations/zcode).
 
 </TabItem>
 <TabItem value="openclaw" label="OpenClaw">
