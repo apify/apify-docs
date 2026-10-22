@@ -31,7 +31,7 @@ byRunId:
   summary: Resurrect run
   description: |
     Resurrects a finished Actor run and returns an object that contains all the details about the resurrected run.
-    Only finished runs, i.e. runs with status `SUCCEEDED`, `FAILED`, `ABORTED` and `TIMED-OUT` can be resurrected.
+    Only finished runs, that is, runs with status `SUCCEEDED`, `FAILED`, `ABORTED` and `TIMED-OUT` can be resurrected.
     Run status will be updated to RUNNING and its container will be restarted with the same storages
     (the same behaviour as when the run gets migrated to the new server).
 
