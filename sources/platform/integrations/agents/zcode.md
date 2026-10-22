@@ -97,10 +97,16 @@ Open **Settings** > **MCP Servers**, find the Apify server under **Plugin MCP se
 
 ZCode never opens a browser window on its own - it shows an **Open authorization** button instead. Select the button to open the OAuth page. If the page doesn't load, copy the URL and paste it into your browser manually.
 
-If you're running ZCode in a headless environment (SSH, remote container) or the OAuth flow still fails, authenticate with an API token instead. Copy your token from [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations) and set it before starting ZCode:
+If the OAuth flow still can't complete, for example because no browser is available on the machine, the Apify MCP server stays unauthenticated. You can still work without MCP: use the CLI and SDK skills instead, which authenticate through the Apify CLI:
 
 ```bash
-export APIFY_TOKEN=<YOUR_API_TOKEN>
+apify login
+```
+
+In a non-interactive environment, pass an API token from [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations) instead:
+
+```bash
+apify login -t <YOUR_API_TOKEN>
 ```
 
 ## Limitations
