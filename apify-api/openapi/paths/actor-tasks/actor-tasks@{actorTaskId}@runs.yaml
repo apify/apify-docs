@@ -1,7 +1,7 @@
 get:
   tags:
     - Actor tasks
-  summary: Get list of task runs
+  summary: Get list of Actor task's runs
   description: |
     Get a list of runs of a specific task. The response is a list of objects,
     where each object contains essential information about a single task run.
@@ -64,7 +64,7 @@ get:
 post:
   tags:
     - Actor tasks
-  summary: Run task
+  summary: Run Actor task
   description: |
     Runs an Actor task and immediately returns without waiting for the run to
     finish.

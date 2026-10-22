@@ -1,7 +1,7 @@
 get:
   tags:
     - Actors/Actor versions
-  summary: Get list of versions
+  summary: Get list of Actor versions
   description: |
     Gets the list of versions of a specific Actor. The response is a JSON object
     with the list of [Version objects](#/reference/actors/version-object), where each
@@ -68,7 +68,7 @@ get:
 post:
   tags:
     - Actors/Actor versions
-  summary: Create version
+  summary: Create Actor version
   description: |
     Creates a version of an Actor using values specified in a [Version
     object](#/reference/actors/version-object) passed as JSON in the POST

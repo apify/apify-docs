@@ -59,7 +59,7 @@ shared: &shared
 
 put:
   <<: *shared
-  summary: Update environment variable
+  summary: Update environment variable in Actor version
   description: |
     Updates Actor environment variable using values specified by a [EnvVar
     object](#/reference/actors/environment-variable-object)
@@ -85,7 +85,7 @@ put:
 
 post:
   <<: *shared
-  summary: Update environment variable (POST)
+  summary: Update environment variable in Actor version (POST)
   description: |
     Updates Actor environment variable using values specified by a [EnvVar
     object](#/reference/actors/environment-variable-object)

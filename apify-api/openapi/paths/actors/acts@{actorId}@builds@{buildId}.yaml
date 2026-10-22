@@ -1,7 +1,7 @@
 get:
   tags:
     - Actors/Actor builds
-  summary: Get build
+  summary: Get Actor build
   description: |
     By passing the optional `waitForFinish` parameter the API endpoint will
     synchronously wait for the build to finish.

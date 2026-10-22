@@ -1,7 +1,7 @@
 get:
   tags:
     - Actors/Actor versions
-  summary: Get list of environment variables
+  summary: Get list of environment variables of Actor version
   description: |
     Gets the list of environment variables for a specific version of an Actor.
     The response is a JSON object with the list of [EnvVar objects](#/reference/actors/environment-variable-object), where each contains basic information about a single environment variable.
@@ -40,7 +40,7 @@ get:
 post:
   tags:
     - Actors/Actor versions
-  summary: Create environment variable
+  summary: Create environment variable in Actor version
   description: |
     Creates an environment variable of an Actor using values specified in a
     [EnvVar object](#/reference/actors/environment-variable-object) passed as
