@@ -12,7 +12,7 @@ The estimate applies to datacenter proxies only. [Residential proxies](./residen
 
 ## Calculate the estimate
 
-The number of IP addresses a job needs depends on how many pages it visits on a single domain, how long it can take, and how often it repeats. Major websites need 10 times more.
+The number of IP addresses a job needs depends on how many pages it visits on a single domain, how long it can take, and how often it repeats. Major websites need 10 times as many IP addresses as other websites.
 
 | The job can take up to | Divide by |
 | ---------------------- | --------- |
@@ -29,11 +29,11 @@ The number of IP addresses a job needs depends on how many pages it visits on a 
 To estimate the number of IP addresses:
 
 1. Take the number of pages the job visits on a single domain.
-1. Divide it by the value from the first table.
-1. Multiply the result by the value from the second table.
+1. Divide it by the value for how long the job can take.
+1. Multiply the result by the value for how often the job repeats.
 1. If the target is a major website, such as CNN, multiply by 10.
 
-## Examples
+### Examples
 
 | Scenario                                                                              | Calculation                   | IP addresses |
 | ------------------------------------------------------------------------------------- | ----------------------------- | ------------ |
@@ -43,13 +43,15 @@ To estimate the number of IP addresses:
 
 Each estimate depends on its assumptions:
 
-- The first estimate holds only if you spread the job across the whole day. A faster job needs more IP addresses.
-- The second estimate seems high, but the job visits the same marketplace every day. [IP address rotation](./index.md#ip-address-rotation) spreads those visits across your IP addresses, so more IP addresses mean fewer visits from each one. Long-term reliable access to a major website needs about this many.
-- The third estimate uses the number of pages per domain, not the total. Its one IP address covers all 1,000 websites. It holds only if you spread the job and the websites don't use Cloudflare or a similar distributed IP protection system.
+- The e-commerce estimate assumes you spread the job across the whole day. A faster job needs more IP addresses.
+- The marketplace estimate seems high, but the job visits the same marketplace every day. [IP address rotation](./index.md#ip-address-rotation) spreads those visits across your IP addresses, so more IP addresses mean fewer visits from each one. Long-term reliable access to a major website needs about this many.
+- The 1,000-websites estimate uses the number of pages per domain, not the total. Its one IP address covers all 1,000 websites. It assumes you spread the job and the websites don't use Cloudflare or a similar distributed IP protection system.
 
 ## Compare the estimate with your plan
 
-In Apify Console, go to **Billing** > **Subscription** to see how many datacenter IP addresses your plan includes, listed under **Datacenter proxies**. For the count in each proxy group, see the **Available IPs** column on the [Proxy](https://console.apify.com/proxy/groups) page.
+To see how many datacenter IP addresses your plan includes, go to **Billing** > **Subscription** in Apify Console and look under **Datacenter proxies**. To see the count in each proxy group, open the [Proxy](https://console.apify.com/proxy/groups) page and check the **Available IPs** column.
+
+## Get more IP addresses
 
 If you need more IP addresses than your plan includes:
 
