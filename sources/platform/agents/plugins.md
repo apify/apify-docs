@@ -40,6 +40,7 @@ The OpenClaw, Hermes Agent, and Kilo Code plugins work differently. Instead of c
 | Kimi Code | Yes | Yes | No | [`apify/apify-kimi-code-plugin`](https://github.com/apify/apify-kimi-code-plugin) |
 | Qoder and Qwen Code | Yes | Yes | Yes | [`apify/apify-qoder-plugin`](https://github.com/apify/apify-qoder-plugin) |
 | DeepSeek Harness | Yes | Yes | No | [`dsh-apify-plugin`](https://github.com/apify/apify-deepseek-harness-plugin) |
+| Factory | Yes | Yes | Yes | [`apify/apify-factory-plugin`](https://github.com/apify/apify-factory-plugin) |
 | OpenClaw | Native tool | No | No | [`@apify/apify-openclaw-plugin`](https://github.com/apify/apify-openclaw-plugin) |
 | Hermes Agent | Native tools | Routing skill | No | [`apify-hermes-agent-plugin`](https://github.com/apify/apify-hermes-agent-plugin) |
 | Kilo Code | Native tool | No | No | [`@apify/kilocode-plugin`](https://github.com/apify/kilocode-plugin) |
@@ -209,6 +210,21 @@ The Qoder IDE installs from the [Qoder Marketplace](https://qoder.com/marketplac
     ```
 
 Read the full [DeepSeek Harness guide](/integrations/deepseek-harness).
+
+</TabItem>
+<TabItem value="factory" label="Factory">
+
+1. Install the plugin from the official `factory-plugins` marketplace:
+
+    ```bash
+    droid plugin install apify@factory-plugins --scope user
+    ```
+
+    You can also run `/plugins` in a Droid session, open the **Browse** tab, and select **Apify**.
+
+1. In a Droid session, run `/mcp`, select the **apify** server, select **Authenticate**, and complete the Apify sign-in in your browser.
+
+Read the full [Factory guide](/integrations/factory).
 
 </TabItem>
 <TabItem value="openclaw" label="OpenClaw">
