@@ -86,7 +86,7 @@ getById:
 
 getDefault:
   <<: [*sharedGet, *sharedDefault]
-  summary: Get default dataset
+  summary: Get the default dataset of an Actor run
   description: |
     Returns the default dataset associated with an Actor run.
 
@@ -97,7 +97,7 @@ getDefault:
 
 getLastRun:
   <<: [*sharedGet, *sharedLastRun]
-  summary: Get last run's default dataset
+  summary: Get the default dataset of an Actor's last run
   description: |
     Returns the default dataset associated with the last Actor run.
 
@@ -107,7 +107,7 @@ getLastRun:
 
 getTaskLastRun:
   <<: [*sharedGet, *sharedTaskLastRun]
-  summary: Get last task run's default dataset
+  summary: Get the default dataset of an Actor task's last run
   description: |
     Returns the default dataset associated with the last Actor task run.
 
@@ -152,7 +152,7 @@ putById:
 
 putDefault:
   <<: [*sharedPut, *sharedDefault]
-  summary: Update default dataset
+  summary: Update the default dataset of an Actor run
   description: |
     Updates the default dataset associated with an Actor run.
 
@@ -163,7 +163,7 @@ putDefault:
 
 putLastRun:
   <<: [*sharedPut, *sharedLastRun]
-  summary: Update last run's default dataset
+  summary: Update the default dataset of an Actor's last run
   description: |
     Updates the default dataset associated with the last Actor run.
 
@@ -173,7 +173,7 @@ putLastRun:
 
 putTaskLastRun:
   <<: [*sharedPut, *sharedTaskLastRun]
-  summary: Update last task run's default dataset
+  summary: Update the default dataset of an Actor task's last run
   description: |
     Updates the default dataset associated with the last Actor task run.
 
@@ -203,7 +203,7 @@ deleteById:
 
 deleteDefault:
   <<: [*sharedDelete, *sharedDefault]
-  summary: Delete default dataset
+  summary: Delete the default dataset of an Actor run
   description: |
     Deletes default dataset associated with an Actor run.
 
@@ -213,7 +213,7 @@ deleteDefault:
 
 deleteLastRun:
   <<: [*sharedDelete, *sharedLastRun]
-  summary: Delete last run's default dataset
+  summary: Delete the default dataset of an Actor's last run
   description: |
     Deletes the default dataset associated with the last Actor run.
 
@@ -223,7 +223,7 @@ deleteLastRun:
 
 deleteTaskLastRun:
   <<: [*sharedDelete, *sharedTaskLastRun]
-  summary: Delete last task run's default dataset
+  summary: Delete the default dataset of an Actor task's last run
   description: |
     Deletes the default dataset associated with the last Actor task run.
 

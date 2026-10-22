@@ -61,7 +61,6 @@ get:
         type: string
         enum:
           - FREE
-          - FLAT_PRICE_PER_MONTH
           - PRICE_PER_DATASET_ITEM
           - PAY_PER_EVENT
         example: FREE
@@ -113,7 +112,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/store/ListOfActorsInStoreResponse.yaml
+            $ref: ../../components/schemas/store/ListOfStoreActorsResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
     "401":

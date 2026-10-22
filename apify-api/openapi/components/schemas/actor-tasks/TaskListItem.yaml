@@ -1,0 +1,43 @@
+title: TaskListItem
+required:
+  - id
+  - userId
+  - actId
+  - name
+  - createdAt
+  - modifiedAt
+type: object
+properties:
+  id:
+    type: string
+    examples: [zdc3Pyhyz3m8vjDeM]
+  userId:
+    type: string
+    examples: [wRsJZtadYvn4mBZmm]
+  actId:
+    type: string
+    examples: [asADASadYvn4mBZmm]
+  actName:
+    type: [string, "null"]
+    examples: [my-actor]
+  name:
+    type: string
+    examples: [my-task]
+  username:
+    type: [string, "null"]
+    examples: [janedoe]
+  actUsername:
+    type: [string, "null"]
+    examples: [janedoe]
+  createdAt:
+    type: string
+    format: date-time
+    examples: ["2018-10-26T07:23:14.855Z"]
+  modifiedAt:
+    type: string
+    format: date-time
+    examples: ["2018-10-26T13:30:49.578Z"]
+  stats:
+    anyOf:
+      - $ref: ./TaskStats.yaml
+      - type: "null"

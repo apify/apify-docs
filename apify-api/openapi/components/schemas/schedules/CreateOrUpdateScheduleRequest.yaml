@@ -1,0 +1,30 @@
+title: CreateOrUpdateScheduleRequest
+type: object
+properties:
+  name:
+    type: [string, "null"]
+    examples: [my-schedule]
+  isEnabled:
+    type: [boolean, "null"]
+    examples: [true]
+  isExclusive:
+    type: [boolean, "null"]
+    examples: [true]
+  cronExpression:
+    type: [string, "null"]
+    examples: ["* * * * *"]
+  timezone:
+    type: [string, "null"]
+    examples: [UTC]
+  description:
+    type: [string, "null"]
+    examples: [Schedule of actor ...]
+  title:
+    type: [string, "null"]
+  notifications:
+    $ref: ./ScheduleNotifications.yaml
+  actions:
+    type: [array, "null"]
+    items:
+      $ref: ./ScheduleCreateAction.yaml
+    description: ""

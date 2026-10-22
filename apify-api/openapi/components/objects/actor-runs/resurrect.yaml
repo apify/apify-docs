@@ -28,7 +28,7 @@ byRunId:
   <<: *sharedResurrect
   tags:
     - Actor runs
-  summary: Resurrect run
+  summary: Resurrect Actor run
   description: |
     Resurrects a finished Actor run and returns an object that contains all the details about the resurrected run.
     Only finished runs, that is, runs with status `SUCCEEDED`, `FAILED`, `ABORTED` and `TIMED-OUT` can be resurrected.
@@ -60,7 +60,7 @@ byActorRunId:
   <<: *sharedResurrect
   tags:
     - Actors/Actor runs
-  summary: Resurrect run
+  summary: Resurrect Actor run
   description: |
     **[DEPRECATED]** API endpoints related to run of the Actor were moved under
     new namespace [`actor-runs`](#/reference/actor-runs).Resurrects a finished

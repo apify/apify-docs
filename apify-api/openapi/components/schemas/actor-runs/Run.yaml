@@ -161,13 +161,13 @@ properties:
     description: >-
       Total cost in USD for this run. Represents what you actually pay.
       For run owners: includes platform usage (compute units) and/or event costs depending on the Actor's pricing model.
-      For run non-owners: only available for Pay-Per-Event Actors (event costs only).
+      For run non-owners: only available for pay-per-event Actors (event costs only).
       Requires authentication token to access.
   usageUsd:
     description: >-
-      Platform usage costs breakdown in USD. Only present if you own the run AND are paying for platform usage
-      (Pay-Per-Usage, Rental, or Pay-Per-Event with usage costs like standby Actors).
-      Not available for standard Pay-Per-Event Actors.
+      Platform usage costs breakdown in USD. Only present if you own the run and are paying for platform usage
+      (pay-per-usage or pay-per-event with usage costs like Standby Actors).
+      Not available for standard pay-per-event Actors.
       Requires authentication token to access.
     anyOf:
       - $ref: ./RunUsageUsd.yaml
@@ -177,7 +177,7 @@ properties:
     anyOf:
       - type: array
         items:
-          $ref: ./Metamorph.yaml
+          $ref: ./RunMetamorphEvent.yaml
       - type: "null"
   platformUsageBillingModel:
     type: string

@@ -25,7 +25,7 @@ byRunId:
   <<: *sharedReboot
   tags:
     - Actor runs
-  summary: Reboot run
+  summary: Reboot Actor run
   description: |
     Reboots an Actor run and returns an object that contains all the details
     about the rebooted run.
@@ -71,7 +71,7 @@ lastRunByActorTask:
   <<: *sharedReboot
   tags:
     - Last Actor task run's reboot
-  summary: Reboot Actor task's last run
+  summary: Reboot last run of an Actor task
   description: |
     Reboots the last run of the specified Actor task and returns an object that
     contains all the details about the rebooted run.

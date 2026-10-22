@@ -1,7 +1,7 @@
 get:
   tags:
     - Users/Usage
-  summary: Get limits
+  summary: Get user's limits
   description: |
     Returns a complete summary of your account's limits. It is the same
     information you will see on your account's [Limits page](https://console.apify.com/billing#/limits). The returned data
@@ -14,7 +14,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/users/LimitsResponse.yaml
+            $ref: ../../components/schemas/users/AccountLimitsResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
     "401":
@@ -33,7 +33,7 @@ get:
 put:
   tags:
     - Users/Usage
-  summary: Update limits
+  summary: Update user's limits
   description: |
     Updates the account's limits manageable on your account's [Limits page](https://console.apify.com/billing#/limits).
     Specifically the: `maxMonthlyUsageUsd` and `dataRetentionDays` limits (see request body schema for more details).
