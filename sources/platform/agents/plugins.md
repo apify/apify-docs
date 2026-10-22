@@ -40,6 +40,7 @@ The OpenClaw, Hermes Agent, and Kilo Code plugins work differently. Instead of c
 | Kimi Code | Yes | Yes | No | [`apify/apify-kimi-code-plugin`](https://github.com/apify/apify-kimi-code-plugin) |
 | Qoder and Qwen Code | Yes | Yes | Yes | [`apify/apify-qoder-plugin`](https://github.com/apify/apify-qoder-plugin) |
 | DeepSeek Harness | Yes | Yes | No | [`dsh-apify-plugin`](https://github.com/apify/apify-deepseek-harness-plugin) |
+| Microsoft 365 Copilot | Yes | No | Yes | [Microsoft 365 Agent Store](https://m365.cloud.microsoft/chat) |
 | OpenClaw | Native tool | No | No | [`@apify/apify-openclaw-plugin`](https://github.com/apify/apify-openclaw-plugin) |
 | Hermes Agent | Native tools | Routing skill | No | [`apify-hermes-agent-plugin`](https://github.com/apify/apify-hermes-agent-plugin) |
 | Kilo Code | Native tool | No | No | [`@apify/kilocode-plugin`](https://github.com/apify/kilocode-plugin) |
@@ -209,6 +210,14 @@ The Qoder IDE installs from the [Qoder Marketplace](https://qoder.com/marketplac
     ```
 
 Read the full [DeepSeek Harness guide](/integrations/deepseek-harness).
+
+</TabItem>
+<TabItem value="microsoft-365-copilot" label="Microsoft 365 Copilot">
+
+1. Open [Microsoft 365 Copilot](https://m365.cloud.microsoft/chat) and look for **Apify** under **Agents** in the sidebar. If it isn't listed, select **More agents**, search the Agent Store for **Apify**, and select **Open** (or **Add**).
+1. Select **Apify** under **Agents**, send a prompt such as `Find an Actor for scraping Google Maps`, and select **Sign in to apify** to complete the Apify sign-in in your browser.
+
+If the Apify agent doesn't appear in the Agent Store, an IT administrator needs to allow or deploy it in the Teams admin center first. Read the full [Microsoft 365 Copilot user guide](/integrations/microsoft-365-copilot-user) or [admin deployment guide](/integrations/microsoft-365-copilot-admin).
 
 </TabItem>
 <TabItem value="openclaw" label="OpenClaw">
