@@ -102,7 +102,7 @@
         width: 25rem;
         margin-bottom: 0;
     }
-    
+
     .smallBannerContent {
         flex-direction: row;
         justify-content: space-between;
@@ -127,7 +127,7 @@
     .cards {
         grid-template-columns: repeat(3, 1fr);
     }
-    
+
     .bannerContentActions {
         width: 41.8rem;
     }
@@ -142,7 +142,6 @@
 }
 
 @media (min-width: 1440px) {
-    
     .bannerContentDescription {
         width: 50.2rem;
     }

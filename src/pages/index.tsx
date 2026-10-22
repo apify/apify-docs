@@ -131,7 +131,10 @@ export default function Home() {
                     </div>
                 </StyledBanner>
             </Section>
-            <Section heading="Build from code" description="Everything you can do in Apify Console is available from your code too.">
+            <Section
+                heading="Build from code"
+                description="Everything you can do in Apify Console is available from your code too."
+            >
                 <div className={styles.sectionLayoutWrapper}>
                     <div className={styles.cards}>
                         <ReferenceCard
