@@ -106,13 +106,6 @@ const BlogImageWrapper = styled.img`
     height: 100%;
 `;
 
-// `Section` centers itself with auto margins, which stops it from stretching inside the
-// page's flex column. Sections with wide children still fill the layout width, but one
-// holding only text shrinks to fit its sentence, so it needs the width spelled out.
-const TextOnlySection = styled(Section)`
-    width: 100%;
-`;
-
 interface ExperimentalClient {
     language: string;
     description: string;
@@ -297,7 +290,7 @@ curl -X POST -d @- \\
                         </CodeBlock>
                     </ClientCodeWrapper>
                 </SectionWrapper>
-                <TextOnlySection
+                <Section
                     headingClassName={styles.ApiSectionHeading}
                     className={styles.LargerContent}
                     heading="OpenAPI schema"

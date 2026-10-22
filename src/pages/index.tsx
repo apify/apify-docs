@@ -9,33 +9,18 @@ import styled from 'styled-components';
 import { Banner, theme } from '@apify/ui-library';
 
 import ActionCard from '../components/ActionCard/ActionCard';
-import { ActorTemplates } from '../components/ActorTemplates/ActorTemplates';
 import Button from '../components/Button';
 import CardWithIcon from '../components/CardWithIcon/CardWithIcon';
-import CardWithImageAndContent from '../components/CardWithImageAndContent/ImageWithContent';
 import { Heading } from '../components/Heading';
 import Hero from '../components/Hero/Hero';
-import OpenSourceCards from '../components/OpenSourceCards/OpenSourceCards';
-import PlainCard from '../components/PlainCard/PlainCard';
 import Section from '../components/Section/Section';
 import { Text } from '../components/Text';
-import AntiScrapingProtections from './img/academy_icons/anti_scraping_protections.svg';
-import ApiScraping from './img/academy_icons/api_scraping.svg';
-import ApifyPlatformCourse from './img/academy_icons/apify_platform_course.svg';
-import DeployYourCode from './img/academy_icons/deploy_your_code.svg';
-import ExpertScrapingWithApify from './img/academy_icons/expert_scraping_with_apify.svg';
-/* Academy images */
-import WebScrapingForBeginners from './img/academy_icons/web_scraping_for_beginners.svg';
-/* Platform icons */
-import Actors from './img/platform_icons/actors.svg';
-import Collaboration from './img/platform_icons/collaboration.svg';
-import Integrations from './img/platform_icons/integrations.svg';
-import MCP from './img/platform_icons/mcp.svg';
-import Monitoring from './img/platform_icons/monitoring.svg';
-import Proxy from './img/platform_icons/proxy.svg';
-import Schedules from './img/platform_icons/schedules.svg';
-import Security from './img/platform_icons/security.svg';
-import Storage from './img/platform_icons/storage.svg';
+import ApiIcon from '@site/static/img/platform/integrations/emoji-api.svg';
+import JavaScriptIcon from '@site/static/img/javascript-40x40.svg';
+import PythonIcon from '@site/static/img/python-40x40.svg';
+import ScrapingWithAi from './img/academy_icons/expert_scraping_with_apify.svg';
+import TerminalIcon from './img/terminal.svg';
+import WebScrapingBasics from './img/academy_icons/web_scraping_for_beginners.svg';
 import styles from './index.module.css';
 
 const StyledBanner = styled(Banner)`
@@ -61,9 +46,43 @@ const StyledBanner = styled(Banner)`
     }
 `;
 
-export default function Home() {
-    const { siteConfig } = useDocusaurusContext();
+// Card look of the Academy tiles, without their click behaviour: the links inside are the targets.
+const ReferenceTile = styled.div`
+    height: 100%;
+    padding: ${theme.space.space24};
+    background-color: var(--color-neutral-card-background);
+    border: 1px solid var(--color-neutral-border);
+    border-radius: ${theme.radius.radius12};
+`;
 
+type IconLink = { icon: React.ReactNode; label: string; href: string };
+
+// Same tile as the Academy cards, with a row of icon links instead of one link.
+function ReferenceCard({ title, description, links }: { title: string; description: string; links: IconLink[] }) {
+    const { siteConfig } = useDocusaurusContext();
+    return (
+        <ReferenceTile>
+            <div className={styles.referenceCard}>
+                <Heading type="titleM" as="h3">
+                    {title}
+                </Heading>
+                <Text align="left" color={theme.color.neutral.textSubtle}>
+                    {description}
+                </Text>
+                <div className={styles.iconLinks}>
+                    {links.map(({ icon, label, href }) => (
+                        <Link key={href} to={new URL(href, siteConfig.url).href} className={styles.iconLink}>
+                            {icon}
+                            {label}
+                        </Link>
+                    ))}
+                </div>
+            </div>
+        </ReferenceTile>
+    );
+}
+
+export default function Home() {
     return (
         <Layout>
             <Hero
@@ -94,10 +113,12 @@ export default function Home() {
                             />
                         </div>
                         <div className={styles.bannerContentActions}>
+                            <ActionCard title="What is Apify" to="/get-started" />
                             <ActionCard title="What is an Actor" to="/actors" />
-                            <ActionCard title="Run an existing Actor" to="/actors/running" />
-                            <ActionCard title="Develop your own Actor" to="/actors/development" />
-                            <ActionCard title="Publish and monetize your Actor" to="/actors/publishing" />
+                            <ActionCard title="Run Actors from Apify Store" to="/get-started/run-actors" />
+                            <ActionCard title="Build your own Actor" to="/get-started/build-actors" />
+                            <ActionCard title="Integrate Actors with your stack" to="/get-started/integrate" />
+                            <ActionCard title="Connect an AI agent" to="/agents" />
                         </div>
                         <ThemedImage
                             className={styles.bannerContentImageAfter}
@@ -110,171 +131,35 @@ export default function Home() {
                     </div>
                 </StyledBanner>
             </Section>
-            <Section heading="Platform" description="The full reference of the Apify platform.">
+            <Section
+                heading="Build from code"
+                description="Everything you can do in Apify Console is available from your code too."
+            >
                 <div className={styles.sectionLayoutWrapper}>
                     <div className={styles.cards}>
-                        <CardWithIcon
-                            icon={<Actors />}
-                            title="Actors"
-                            description="Develop, run, and share web scraping and automation tools in the cloud."
-                            to="/actors"
+                        <ReferenceCard
+                            title="Apify API"
+                            description="Control the platform from your application."
+                            links={[
+                                { icon: <ApiIcon />, label: 'REST API', href: '/api/v2' },
+                                { icon: <JavaScriptIcon />, label: 'JavaScript', href: '/api/client/js' },
+                                { icon: <PythonIcon />, label: 'Python', href: '/api/client/python' },
+                            ]}
                         />
-                        <CardWithIcon
-                            icon={<Storage />}
-                            title="Storage"
-                            description="Store files and results of your web scraping jobs, and export it to various formats."
-                            to="/storage"
+                        <ReferenceCard
+                            title="Apify SDK"
+                            description="Toolkits for building Actors."
+                            links={[
+                                { icon: <JavaScriptIcon />, label: 'JavaScript', href: '/sdk/js' },
+                                { icon: <PythonIcon />, label: 'Python', href: '/sdk/python' },
+                            ]}
                         />
-                        <CardWithIcon
-                            icon={<Proxy />}
-                            title="Proxy"
-                            description="Avoid blocking by smartly rotating datacenter and residential IP addresses."
-                            to="/proxy"
-                        />
-                        <CardWithIcon
-                            icon={<Schedules />}
-                            title="Schedules"
-                            description="Automatically start Actors and saved tasks at specific times."
-                            to="/actors/running/schedules"
-                        />
-                        <CardWithIcon
-                            icon={<Integrations />}
-                            title="Integrations"
-                            description="Connect Actors with your favorite web apps and cloud services."
-                            to="/integrations"
-                        />
-                        <CardWithIcon
-                            icon={<Monitoring />}
-                            title="Monitoring"
-                            description="Check the performance of your Actors, validate data quality, and receive alerts."
-                            to="/actors/running/monitoring"
-                        />
-                        <CardWithIcon
-                            icon={<Collaboration />}
-                            title="Collaboration"
-                            description="Share Actors with other people, manage your organizations and permissions."
-                            to="/account/collaboration"
-                        />
-                        <CardWithIcon
-                            icon={<Security />}
-                            title="Security"
-                            description="Learn about Apify platform security and data protection."
-                            to="/security"
-                        />
-                        <CardWithIcon
-                            icon={<MCP />}
-                            title="MCP"
-                            description="Discover and use Actors with AI agents and LLMs via Apify MCP server."
-                            to="/mcp"
+                        <ReferenceCard
+                            title="Apify CLI"
+                            description="Create, run, and deploy Actors from your terminal."
+                            links={[{ icon: <TerminalIcon />, label: 'Apify CLI', href: '/cli/docs' }]}
                         />
                     </div>
-                </div>
-            </Section>
-            <Section>
-                <div className={styles.cards}>
-                    <CardWithImageAndContent
-                        image={
-                            <ThemedImage
-                                sources={{
-                                    light: useBaseUrl('/img/landing-pages/api.svg'),
-                                    dark: useBaseUrl('/img/landing-pages/api_dark.svg'),
-                                }}
-                                alt="Apify API"
-                            />
-                        }
-                        content={
-                            <div className={styles.cardContentWrapper}>
-                                <div className="cardContentWrapperText">
-                                    <Heading type="titleXl" as="h3">
-                                        Apify API
-                                    </Heading>
-                                    <Text color={theme.color.neutral.textMuted}>
-                                        Interact with the Apify platform from your applications.
-                                    </Text>
-                                </div>
-                                <Text>
-                                    <ul className={styles.cardContentList}>
-                                        <li>
-                                            <Link to={new URL('/api/client/js', siteConfig.url).href}>
-                                                API client for JavaScript
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link to={new URL('/api/client/python', siteConfig.url).href}>
-                                                API client for Python
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link to={new URL('/api/v2', siteConfig.url).href}>API reference</Link>
-                                        </li>
-                                    </ul>
-                                </Text>
-                            </div>
-                        }
-                    />
-                    <CardWithImageAndContent
-                        image={
-                            <ThemedImage
-                                sources={{
-                                    light: useBaseUrl('/img/landing-pages/sdk.svg'),
-                                    dark: useBaseUrl('/img/landing-pages/sdk_dark.svg'),
-                                }}
-                                alt="Apify SDK"
-                            />
-                        }
-                        content={
-                            <div className={styles.cardContentWrapper}>
-                                <div className="cardContentWrapperText">
-                                    <Heading type="titleXl" as="h3">
-                                        Apify SDK
-                                    </Heading>
-                                    <Text color={theme.color.neutral.textMuted}>
-                                        Software toolkits for developing new Actors.
-                                    </Text>
-                                </div>
-                                <Text>
-                                    <ul className={styles.cardContentList}>
-                                        <li>
-                                            <Link to={new URL('/sdk/js', siteConfig.url).href}>SDK for JavaScript</Link>
-                                        </li>
-                                        <li>
-                                            <Link to={new URL('/sdk/python', siteConfig.url).href}>SDK for Python</Link>
-                                        </li>
-                                    </ul>
-                                </Text>
-                            </div>
-                        }
-                    />
-                    <CardWithImageAndContent
-                        image={
-                            <ThemedImage
-                                sources={{
-                                    light: useBaseUrl('/img/landing-pages/cli.svg'),
-                                    dark: useBaseUrl('/img/landing-pages/cli_dark.svg'),
-                                }}
-                                alt="Apify CLI"
-                            />
-                        }
-                        content={
-                            <div className={styles.cardContentWrapper}>
-                                <div className="cardContentWrapperText">
-                                    <Heading type="titleXl" as="h3">
-                                        Apify CLI
-                                    </Heading>
-                                    <Text color={theme.color.neutral.textMuted}>
-                                        Control the Apify platform from terminal or shell scripts.
-                                    </Text>
-                                </div>
-                                <Text>
-                                    <ul className={styles.cardContentList}>
-                                        <li>
-                                            <Link to={new URL('/cli', siteConfig.url).href}>CLI reference</Link>
-                                        </li>
-                                    </ul>
-                                </Text>
-                            </div>
-                        }
-                    />
                 </div>
             </Section>
             <Section
@@ -284,114 +169,27 @@ export default function Home() {
                 <div className={styles.sectionLayoutWrapper}>
                     <div className={styles.cards}>
                         <CardWithIcon
-                            icon={<WebScrapingForBeginners />}
-                            title="Web scraping for beginners"
-                            description="Learn the basics of web scraping and how to develop your own scraper."
+                            icon={<ScrapingWithAi />}
+                            title="Web scraping with AI"
+                            description="Use AI agents and LLMs with Apify to extract data from websites."
+                            to="/academy/scraping-with-ai"
+                        />
+                        <CardWithIcon
+                            icon={<WebScrapingBasics />}
+                            title="Web scraping basics for JavaScript devs"
+                            description="Learn to extract information from websites, from the absolute basics."
                             to="/academy/scraping-basics-javascript"
                         />
                         <CardWithIcon
-                            icon={<ApifyPlatformCourse />}
-                            title="Introduction to the Apify platform"
-                            description="Learn the basics of the Apify platform and how to use it for your scraping projects."
-                            to="/academy/apify-platform"
-                        />
-                        <CardWithIcon
-                            icon={<ApiScraping />}
-                            title="API scraping"
-                            description="Learn how to efficiently extract data from web pages' APIs."
-                            to="/academy/api-scraping"
-                        />
-                        <CardWithIcon
-                            icon={<AntiScrapingProtections />}
-                            title="Anti-scraping protections"
-                            description="Understand the various anti-scraping measures and how to avoid them."
-                            to="/academy/anti-scraping"
-                        />
-                        <CardWithIcon
-                            icon={<ExpertScrapingWithApify />}
-                            title="Advanced web scraping"
-                            description="Learn how to extract data from more complicated websites."
-                            to="/academy/advanced-web-scraping"
-                        />
-                        <CardWithIcon
-                            icon={<DeployYourCode />}
-                            title="Deploying your code to Apify"
-                            description="Learn how to easily move your existing projects to the Apify platform."
-                            to="/academy/deploying-your-code"
+                            icon={<WebScrapingBasics />}
+                            title="Web scraping basics for Python devs"
+                            description="Learn to extract information from websites, from the absolute basics."
+                            to="/academy/scraping-basics-python"
                         />
                     </div>
                     <Link to="/academy" className="actionLink">
                         Go to Academy
                     </Link>
-                </div>
-            </Section>
-            <Section heading="Open-source tools">
-                <div className={styles.sectionLayoutWrapper}>
-                    <div className={styles.cards}>
-                        <OpenSourceCards />
-                    </div>
-                    <Link to="https://github.com/apify" className="actionLink">
-                        Follow Apify on GitHub
-                    </Link>
-                </div>
-            </Section>
-            <Section
-                heading="Actor templates"
-                description="Create new web scraping projects using ready-made templates for various programming languages and scraping libraries."
-            >
-                <div className={styles.sectionLayoutWrapper}>
-                    <ActorTemplates displayedTemplatesIds={['js-start', 'ts-start', 'python-start']} />
-                    <Link to="https://apify.com/templates" className="actionLink">
-                        Browse all templates
-                    </Link>
-                </div>
-            </Section>
-            <Section heading="Community & Help">
-                <div className={styles.actionCards}>
-                    <PlainCard
-                        icon={
-                            <ThemedImage
-                                sources={{
-                                    light: useBaseUrl('/img/landing-pages/discord.svg'),
-                                    dark: useBaseUrl('/img/landing-pages/discord_dark.svg'),
-                                }}
-                                alt="Discord logo"
-                            />
-                        }
-                        title="Discord"
-                        description="Join our community to get news and connect with other Apify developers."
-                        to="https://discord.com/invite/jyEM2PRvMU"
-                    />
-                    <PlainCard
-                        icon={
-                            <ThemedImage
-                                sources={{
-                                    light: useBaseUrl('/img/landing-pages/intercom.svg'),
-                                    dark: useBaseUrl('/img/landing-pages/intercom_dark.svg'),
-                                }}
-                                alt="Intercom logo"
-                            />
-                        }
-                        title="Support"
-                        description="Find answers to common questions or get help from the Apify support team."
-                        to="https://help.apify.com/"
-                    />
-                </div>
-            </Section>
-            <Section heading="More reading">
-                <div className={styles.actionCards}>
-                    <ActionCard
-                        title="Blog"
-                        titleAs="h4"
-                        description="Company and product updates, tips and stories from the world of web scraping."
-                        to="https://blog.apify.com/"
-                    />
-                    <ActionCard
-                        title="Changelog"
-                        titleAs="h4"
-                        description="See what's new on the Apify platform."
-                        to="https://apify.com/change-log"
-                    />
                 </div>
             </Section>
             <Section>

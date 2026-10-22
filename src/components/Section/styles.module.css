@@ -1,4 +1,5 @@
 .section {
+    width: 100%;
     max-width: 327px;
     margin: 0 auto 80px auto;
 }

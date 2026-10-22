@@ -3,7 +3,7 @@ title: Build Actors
 sidebar_label: Build Actors
 sidebar_position: 2
 slug: /get-started/build-actors
-description: Build your own Actor on the Apify platform - create it from a template, understand the Actor model, deploy it, and publish it to Apify Store.
+description: Build your own Actor on the Apify platform - create it from a template, understand the Actor model, deploy it, publish it to Apify Store, and set a price.
 pagination_next: null
 pagination_prev: null
 ---
@@ -47,9 +47,18 @@ Deployment turns your source code into a build - a Docker image the platform can
 
 ## Publish to Store
 
-Publishing puts your Actor in front of everyone browsing Apify Store, and lets you charge for it. A good public Actor is more than working code. It needs a clear input schema, a README that explains what it does and how to use it, and reliable runs that strangers can depend on. The publishing guide covers all of it, including the monetization models you can choose from.
+Publishing puts your Actor in front of everyone browsing Apify Store. A good public Actor is more than working code. It needs a clear input schema, a README that explains what it does and how to use it, and reliable runs that strangers can depend on. The publishing guide covers all of it.
 
-- [Publish and monetize](/actors/publishing) your Actor in Apify Store.
+- [Publish your Actor](/actors/publishing) in Apify Store.
 - Call your Actors from your own code with the [API](/api/v2) or the [API clients](/academy/getting-started/apify-client).
+
+## Monetize your Actor
+
+A published Actor can earn money. You pick a pricing model, complete your billing and payment details, and set the price, and the platform pays you for the runs other users start.
+
+- [Monetize Actors](/actors/publishing/monetize) - the pricing models, fees, and what users pay.
+- [Set up monetization](/actors/monetize/set-up-monetization) - turn pricing on for an Actor you have published.
+- [Pay per event](/actors/publishing/monetize/pay-per-event) - charge for what your Actor does, such as each result it produces.
+- [Manage payouts](/actors/publishing/monetize/monthly-payouts) - how and when you get paid.
 
 Just want to run Actors, not build them? See [Run Actors](/get-started/run-actors).
