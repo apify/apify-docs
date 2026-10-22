@@ -17,15 +17,15 @@ You can enable Standby mode from a template, in Apify Console, or in the Actor's
 
 ### Start from a template
 
-The best way to start developing Standby Actors is to use the predefined templates in [Apify Console](https://console.apify.com/actors/templates) or in the [Apify CLI](https://docs.apify.com/cli/) via `apify create`. The templates contain minimal code to get you up to speed for development in JavaScript, TypeScript, or Python. Standby mode will automatically be enabled with default settings.
+The easiest way to start is a Standby template, in [Apify Console](https://console.apify.com/actors/templates) or with `apify create` in the [Apify CLI](https://docs.apify.com/cli/). The templates contain minimal JavaScript, TypeScript, or Python code, and Standby mode is enabled with default settings.
 
 ### Enable Standby in Apify Console
 
-To enable or tweak Standby mode for an existing Actor, head to the **Settings** tab of your Actor, where the Actor Standby settings are located.
+To enable or change Standby mode for an existing Actor, open the **Settings** tab of the Actor and find the Actor Standby settings.
 
 ![Standby settings in the Actor's Settings tab](./images/standby-creators.png)
 
-If you want to enforce the same Standby configuration for all users of your Actor, enable **Prevent users from overriding standby parameters** in the same settings. Users then can't override the configuration by creating a task.
+To enforce the same Standby configuration for all users of your Actor, enable **Prevent users from overriding standby parameters** in the same settings. Users then can't override it by creating a task.
 
 ### Enable Standby in the source code
 
@@ -33,7 +33,7 @@ You can also enable Standby mode by setting the [`usesStandbyMode`](../actor_def
 
 ## Run an HTTP server
 
-Actors using Standby mode must run an HTTP server listening on a specific port. The platform proxies user requests to that server. The requests can use any of the existing [HTTP request methods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods), such as GET, POST, PUT, or DELETE, and pass input via the [query string](https://en.wikipedia.org/wiki/Query_string) or the [request body](https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages#body).
+A Standby Actor must run an HTTP server that listens on a specific port. The platform proxies user requests to that server. Requests can use any [HTTP request method](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods), such as GET, POST, PUT, or DELETE, and pass input in the [query string](https://en.wikipedia.org/wiki/Query_string) or the [request body](https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages#body).
 
 ### Get the port
 
@@ -43,7 +43,7 @@ If your server must listen on a specific port that you can't change in code, def
 
 ### Example server
 
-See the example below with a simple Actor using Standby mode.
+The example below is a minimal Standby Actor.
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
@@ -86,24 +86,23 @@ async def main() -> None:
 
 ## Describe your endpoints
 
-Describe your Actor's endpoints, their parameters, and responses with a [web server schema](../actor_definition/web_server_schema/index.md) defined in the [`.actor/actor.json`](../actor_definition/actor_json.md) file. Based on that definition, Apify Console renders an interactive **Endpoints** tab on the Actor's detail page, where users can browse the endpoints and send requests directly from the browser. Describe the endpoints in your Actor's [README](../../publishing/publish/actor-readme.mdx) as well, because that's what users see in Apify Store before they ever open the Actor's detail page.
+Describe your Actor's endpoints, their parameters, and responses with a [web server schema](../actor_definition/web_server_schema/index.md) defined in the [`.actor/actor.json`](../actor_definition/actor_json.md) file. Based on that definition, Apify Console renders an interactive **Endpoints** tab on the Actor's detail page, where users can browse the endpoints and send requests directly from the browser. Describe the endpoints in your Actor's [README](../../publishing/publish/actor-readme.mdx) as well, because users see the README in Apify Store before they open the Actor's detail page.
 
 ## Run lifecycle
 
-The platform starts and stops Standby runs automatically based on the incoming request load. It stops a run that receives no requests within the configured idle timeout and starts a new run when requests arrive again. Don't keep data only in the run's memory: persist anything you need to a [dataset or key-value store](../../../storage/index.md). See [how Standby scaling works](../../running/actor_standby.md#automatic-scaling), [how to customize the Standby configuration](../../running/actor_standby.md#standby-configuration), and [the timeouts and rate limits](../../running/actor_standby.md#limits-and-scaling) that apply to incoming requests.
+The platform starts and stops Standby runs based on the incoming request load. It stops a run that receives no requests within the idle timeout and starts a new run when requests arrive again. Don't keep data only in the run's memory. Persist anything you need to a [dataset or key-value store](../../../storage/index.md). For details, see [how Standby scaling works](../../running/actor_standby.md#automatic-scaling), [how to customize the Standby configuration](../../running/actor_standby.md#standby-configuration), and [the timeouts and rate limits](../../running/actor_standby.md#limits-and-scaling) that apply to incoming requests.
 
 ### Readiness probe
 
-Before Actor Standby runs are ready to serve requests, the Apify platform checks the web server's readiness using a readiness probe.
-The platform sends a GET request to the path `/` with a header `x-apify-container-server-readiness-probe`. If the header is present in the request, you can perform an early return with a simple response to prevent wasting resources.
+Before a Standby run serves requests, the platform checks that the web server is ready. It sends a GET request to the path `/` with the `x-apify-container-server-readiness-probe` header. When a request carries this header, you can return a simple response early to avoid wasting resources.
 
 :::caution Return a response
 
-You must return a response; otherwise, the Actor run will never be marked as ready and won't process requests.
+Always return a response. Otherwise, the platform never marks the run as ready, and it won't process requests.
 
 :::
 
-See the example code below that distinguishes between "normal" and "readiness probe" requests.
+The example below tells normal requests from readiness probes.
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
@@ -161,9 +160,7 @@ A run ends when its process exits, when it migrates to another machine, or when 
 
 ## Detect the run mode
 
-Actors that support Actor Standby can still be started in standard mode, for example from Apify Console or via the API.
-To find out which mode the Actor was started in, read the `metaOrigin` option in `Actor.config`, or the `APIFY_META_ORIGIN` environment variable in case you're not using the Apify SDK.
-If it equals `STANDBY`, the Actor was started in Standby mode; otherwise it was started in standard mode.
+Users can still start a Standby Actor in standard mode, for example from Apify Console or through the API. To find out which mode the Actor started in, read the `metaOrigin` option in `Actor.config`, or the `APIFY_META_ORIGIN` environment variable if you don't use the Apify SDK. The value `STANDBY` means Standby mode. Otherwise, the Actor started in standard mode.
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
