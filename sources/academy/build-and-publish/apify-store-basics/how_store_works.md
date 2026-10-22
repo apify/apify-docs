@@ -37,7 +37,7 @@ Actors on Apify Store can be public or private:
 
 ## How Actor monetization works (briefly)
 
-You can monetize your Actors using pay-per-event pricing, where users pay for specific events triggered by the Actor. For details, see [Monetize Actors](/actors/publishing/monetize).
+You can monetize your Actors using pay-per-event pricing, where users pay for specific events triggered by the Actor. For details, see [Monetize Actors](/actors/monetize).
 
 ## Actor ownership on Store
 
