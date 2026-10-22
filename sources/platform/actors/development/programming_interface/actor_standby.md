@@ -207,4 +207,4 @@ Requests to the Standby URL require an Apify API token. See [how to authenticate
 
 You can monetize Standby Actors just like any other Actor.
 
-For best results with Standby workflows, use the [pay-per-event pricing model](/actors/publishing/monetize/pay-per-event). In this model, users cover both the platform usage costs of their runs, as well as the event costs.
+For best results with Standby workflows, use the [pay-per-event pricing model](/actors/monetize/pay-per-event). In this model, users cover both the platform usage costs of their runs, as well as the event costs.
