@@ -3,27 +3,31 @@ post:
     - Actors
   summary: Validate Actor input
   description: |
-    Validates the provided input against the Actor's input schema for the specified build.
+    Validates the JSON payload against the Actor's
+    [input schema](https://docs.apify.com/actors/development/actor-definition/input-schema)
+    defined in the specified build.
 
-    The endpoint checks whether the JSON payload conforms to the input schema
-    defined in the Actor's build. If no `build` query parameter is provided,
-    the `latest` build tag is used by default.
-  operationId: act_validateInput_post
+    If the specified build has no input schema, any input is considered valid.
+  operationId: actor_validateInput_post
   parameters:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
     - name: build
       in: query
       description: |
-        Optional tag or number of the Actor build to use for input schema validation.
-        By default, the `latest` build tag is used.
+        Actor build whose input schema is used for validation. Can be a build tag or build number.
+        Defaults to the `latest` build tag.
       required: false
       style: form
       explode: true
       schema:
         type: string
-        example: latest
+        example: 0.1.234
   requestBody:
-    description: JSON input to validate against the Actor's input schema.
+    description: |
+      The Actor input as a JSON object.
+
+      You can omit fields that have a `default` in the input schema. They're
+      filled in before validation.
     content:
       application/json:
         schema:
@@ -42,7 +46,9 @@ post:
             properties:
               valid:
                 type: boolean
-                description: Whether the input is valid according to the Actor's input schema.
+                description: |
+                  Always `true`. The endpoint responds with `200` only when the input
+                  passes validation. Invalid input returns a `400` error.
     "400":
       $ref: ../../components/responses/BadRequest.yaml
     "401":

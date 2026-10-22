@@ -46,7 +46,7 @@ Place the dataset schema in the `.actor` folder in your Actor's root directory. 
     "actorSpecification": 1,
     "name": "my-scraper",
     "title": "My Scraper",
-    "version": "1.0.0",
+    "version": "1.0",
     "storages": {
         "dataset": {
             "actorSpecification": 1,
@@ -70,7 +70,7 @@ Place the dataset schema in the `.actor` folder in your Actor's root directory. 
     "actorSpecification": 1,
     "name": "my-scraper",
     "title": "My Scraper",
-    "version": "1.0.0",
+    "version": "1.0",
     "storages": {
         "dataset": "./dataset_schema.json"
     }
@@ -151,7 +151,7 @@ Configure the Output tab with a dataset schema:
     "actorSpecification": 1,
     "name": "Actor Name",
     "title": "Actor Title",
-    "version": "1.0.0",
+    "version": "1.0",
     "storages": {
         "dataset": {
             "actorSpecification": 1,
@@ -418,6 +418,8 @@ Alternatively, flatten nested structures in your Actor code before calling `Acto
 | Property | Type | Required | Description |
 | --- | --- | --- | --- |
 | `actorSpecification` | integer | true | Version of the dataset schema structure. Only version 1 is available. |
+| `title` | string | false | Title of the dataset schema. |
+| `description` | string | false | Description of the dataset schema. |
 | `fields` | JSONSchema object | false | Schema of one dataset object using JSON Schema Draft 2020-12 or compatible format. |
 | `views` | Object | true | An object containing view definitions. Each key is a view ID, each value is a DatasetView object. |
 

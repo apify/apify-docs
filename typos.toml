@@ -6,6 +6,12 @@ extend-ignore-re = [
     "https?://[^\\s]+", # Ignore URLs
 ]
 
+[type.md]
+extend-ignore-re = [
+    # Ignore fenced code blocks marked as 'text' in Markdown
+    "(?s)```(?:text)\\b[^\\n]*\\n.*?```",
+]
+
 [files]
 # Extend the default exclude list
 extend-exclude = [

@@ -9,28 +9,25 @@ sidebar_label: System events
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
----
-
-## Understand system events
 
 Apify's system notifies Actors about various events, such as:
 
-- Migration to another server
-- Abort operations triggered by another Actor
-- CPU overload
+- Migration to another server.
+- Abort operations triggered by another Actor.
+- CPU overload.
 
 These events help you manage your Actor's behavior and resources effectively.
 
 ## System events
 
-The following table outlines the system events available:
+The following system events are available:
 
 
 | Event name | Payload | Description |
 | --- | --- | --- |
 | `cpuInfo` | `{ isCpuOverloaded: Boolean }` | Emitted approximately every second, indicating whether the Actor is using maximum available CPU resources. |
 | `migrating` | `{ timeRemainingSecs: Float }` | Signals that the Actor will soon migrate to another worker server on the Apify platform. |
-| `aborting` | N/A | Triggered when a user initiates a graceful abort of an Actor run, allowing time for cleanup. |
+| `aborting` | N/A | Signals a graceful abort of the run, granting time for cleanup. Emitted in the following cases: <ul><li>User initiates a graceful abort.</li><li>Run reaches its maximum cost limit.</li><li>In [Standby mode](/actors/development/programming-interface/standby), a run times out due to inactivity or its worker is shut down.</li></ul> |
 | `persistState` | `{ isMigrating: Boolean }` | Emitted at regular intervals  (default: _60 seconds_) to notify Apify SDK components to persist their state. |
 
 ## How system events work

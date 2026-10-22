@@ -1,5 +1,6 @@
 ---
-title: Builds and runs
+title: Actor builds and runs
+sidebar_label: Builds and runs
 sidebar_position: 7
 description: Learn about Actor builds and runs, including how Docker images are created, how runs are executed, and their lifecycle on the Apify platform.
 slug: /actors/development/builds-and-runs
@@ -66,13 +67,13 @@ flowchart LR
 
 ---
 
-| Status     | Type         | Description                                 |
-|------------|--------------|---------------------------------------------|
-| READY      | initial      | Started but not allocated to any worker yet |
-| RUNNING    | transitional | Executing on a worker machine               |
-| SUCCEEDED  | terminal     | Finished successfully                       |
-| FAILED     | terminal     | Run failed                                  |
-| TIMING-OUT | transitional | Timing out now                              |
-| TIMED-OUT  | terminal     | Timed out                                   |
-| ABORTING   | transitional | Being aborted by user                       |
-| ABORTED    | terminal     | Aborted by user                             |
+| Status | Type | Description |
+| --- | --- | --- |
+| READY | initial | Started but not allocated to any worker yet |
+| RUNNING | transitional | Executing on a worker machine |
+| SUCCEEDED | terminal | Finished successfully |
+| FAILED | terminal | Run failed |
+| TIMING-OUT | transitional | Timing out now |
+| TIMED-OUT | terminal | Timed out |
+| ABORTING | transitional | Run is being aborted |
+| ABORTED | terminal | Run aborted |

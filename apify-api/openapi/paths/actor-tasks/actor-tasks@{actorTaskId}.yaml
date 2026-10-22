@@ -52,6 +52,21 @@ put:
 
     If the object does not define a specific property, its value is not updated.
 
+    The `publicConfig` field carries the display configuration of the task's public
+    landing page, and `isPublic` publishes or unpublishes the task itself. Both require
+    write permission to the task's Actor.
+
+    To publish a task, its Actor must be public and both `publicConfig.inputSchemaFields` and
+    `publicConfig.datasetView` must be set. Note that an Actor can have up to 10 published tasks
+    and your account up to 100.
+    If the task doesn't meet all these conditions, the request fails and no fields are updated,
+    including those unrelated to publishing.
+
+    Publishing lists the task among the Actor's examples and makes its input public, so anyone
+    can view and copy it. The landing page itself is shown only while `publicConfig` still
+    validates against the Actor's current build, so a new build can stop the page from being
+    offered while the task stays published and copyable.
+
     The response is the full task object as returned by the
     [Get task](/api/v2/actor-task-get) endpoint.
 

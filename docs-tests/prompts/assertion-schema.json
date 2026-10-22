@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "required": ["source_file", "assertions"],
+  "properties": {
+    "source_file": {
+      "type": "string",
+      "description": "Path of the input documentation file."
+    },
+    "assertions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "kind",
+          "target",
+          "page_context",
+          "source_quote",
+          "source_line",
+          "needs_auth"
+        ],
+        "properties": {
+          "id": { "type": "string" },
+          "kind": {
+            "type": "string",
+            "enum": ["route", "element_button", "element_tab", "element_text"]
+          },
+          "target": { "type": "string" },
+          "at": { "type": "string" },
+          "page_context": { "type": "string" },
+          "source_quote": { "type": "string" },
+          "source_line": { "type": "integer", "minimum": 1 },
+          "needs_auth": { "type": "boolean" }
+        }
+      }
+    }
+  }
+}

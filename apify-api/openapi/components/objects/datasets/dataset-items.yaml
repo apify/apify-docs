@@ -306,7 +306,7 @@ listLastRun:
 
     This endpoint is a shortcut that resolves the last run's `defaultDatasetId` and proxies to the
     [Get dataset items](/api/v2/dataset-items-get) endpoint.
-  operationId: act_runs_last_dataset_items_get
+  operationId: actor_runs_last_dataset_items_get
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
     - $ref: "../../parameters/lastRunParameters.yaml#/status"
@@ -428,7 +428,7 @@ sharedPost: &sharedPost
         application/json:
           schema:
             anyOf:
-              - $ref: ../../schemas/datasets/PutItemResponseError.yaml
+              - $ref: ../../schemas/datasets/PutItemsErrorResponse.yaml
               - $ref: ../../schemas/common/ErrorResponse.yaml
     "413":
       $ref: ../../responses/PayloadTooLarge.yaml
@@ -507,7 +507,7 @@ postLastRun:
     * Brotli: `Content-Encoding: br`
     * Gzip: `Content-Encoding: gzip`
     * Deflate: `Content-Encoding: deflate`
-  operationId: act_runs_last_dataset_items_post
+  operationId: actor_runs_last_dataset_items_post
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
     - $ref: "../../parameters/lastRunParameters.yaml#/status"

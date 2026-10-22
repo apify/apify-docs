@@ -20,7 +20,8 @@ get:
   responses:
     "200":
       description: ""
-      headers: {}
+      headers:
+        $ref: ../../components/headers/ApifyPaginationHeaders.yaml
       content:
         application/json:
           schema:
@@ -38,7 +39,7 @@ get:
                       items:
                         type: array
                         items:
-                          $ref: ../../components/schemas/webhooks/Webhook.yaml
+                          $ref: ../../components/schemas/webhooks/WebhookResource.yaml
           example:
             data:
               total: 2

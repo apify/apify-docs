@@ -1,5 +1,6 @@
 ---
-title: Schedules
+title: Actor and task schedules
+sidebar_label: Schedules
 description: Learn how to automatically start your Actor and task runs and the basics of cron expressions. Set up and manage your schedules from Apify Console or via API.
 sidebar_position: 8
 category: platform

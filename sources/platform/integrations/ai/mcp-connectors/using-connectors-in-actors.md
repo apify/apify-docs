@@ -287,7 +287,7 @@ Every Actor run receives two environment variables for MCP connector access.
 
 | Variable | Description |
 | --- | --- |
-| `APIFY_MCP_PROXY_URL` | Base URL of the Apify MCP Proxy. Connect to a connector at `${APIFY_MCP_PROXY_URL}/<connectorId>`. |
+| `ACTOR_MCP_CONNECTOR_BASE_URL` | Base URL of the Apify MCP Proxy. Connect to a connector at `${ACTOR_MCP_CONNECTOR_BASE_URL}/<connectorId>`. |
 | `APIFY_TOKEN` | API token of the user who started the Actor. Use it as the bearer token for proxy requests. |
 
 The Actor uses a standard MCP client to connect to the proxy URL with the token as a bearer credential. No Apify-specific MCP SDK is required.
@@ -312,7 +312,7 @@ const input = await Actor.getInputOrThrow<{ slackConnector: string }>();
 const connectorId = input.slackConnector;
 
 const transport = new StreamableHTTPClientTransport(
-    new URL(`${process.env.APIFY_MCP_PROXY_URL}/${connectorId}`),
+    new URL(`${process.env.ACTOR_MCP_CONNECTOR_BASE_URL}/${connectorId}`),
     {
         requestInit: {
             headers: {
@@ -343,8 +343,14 @@ await Actor.exit();
 Install the [official MCP Python SDK](https://github.com/modelcontextprotocol/python-sdk):
 
 ```bash
-pip install mcp httpx apify
+pip install "mcp>=2.0.0" httpx apify
 ```
+
+:::note mcp version
+
+This example targets `mcp` 2.x. On `mcp` 1.x the transport function is named `streamablehttp_client`, takes a `headers` argument instead of `http_client`, and yields a third value.
+
+:::
 
 ```python
 import asyncio
@@ -360,7 +366,7 @@ async def main():
         input_data = await Actor.get_input()
         connector_id = input_data['slack_connector']
 
-        proxy_url = os.environ['APIFY_MCP_PROXY_URL']
+        proxy_url = os.environ['ACTOR_MCP_CONNECTOR_BASE_URL']
         token = os.environ['APIFY_TOKEN']
 
         async with httpx.AsyncClient(
@@ -369,7 +375,7 @@ async def main():
             async with streamable_http_client(
                 f"{proxy_url}/{connector_id}",
                 http_client=http_client,
-            ) as (read, write, _):
+            ) as (read, write):
                 async with ClientSession(read, write) as session:
                     await session.initialize()
                     tools = (await session.list_tools()).tools
@@ -400,7 +406,7 @@ const connectorIds: string[] = input.mcpConnectors;
 const clients = await Promise.all(
     connectorIds.map(async (connectorId) => {
         const transport = new StreamableHTTPClientTransport(
-            new URL(`${process.env.APIFY_MCP_PROXY_URL}/${connectorId}`),
+            new URL(`${process.env.ACTOR_MCP_CONNECTOR_BASE_URL}/${connectorId}`),
             {
                 requestInit: {
                     headers: { Authorization: `Bearer ${process.env.APIFY_TOKEN}` },

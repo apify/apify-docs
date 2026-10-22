@@ -20,9 +20,16 @@ X-Apify-Pagination-Count:
         type: string
       example: "100"
 X-Apify-Pagination-Total:
-  description: The total number of items in the dataset.
+  description: The total number of items available.
   content:
     text/plain:
       schema:
         type: string
       example: "10204"
+X-Apify-Pagination-Desc:
+  description: Whether the items are sorted in descending order.
+  content:
+    text/plain:
+      schema:
+        type: string
+      example: "false"

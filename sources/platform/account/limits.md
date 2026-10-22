@@ -93,11 +93,11 @@ The tables below demonstrate the Apify platform's default resource limits. For A
         </tr>
         <tr>
             <td>Maximum number of Actors per user</td>
-            <td colspan="4">100</td>
+            <td colspan="4">500</td>
         </tr>
         <tr>
             <td>Maximum number of tasks per user</td>
-            <td colspan="4">1000</td>
+            <td colspan="4">5000</td>
         </tr>
         <tr>
             <td>Maximum number of schedules per user</td>

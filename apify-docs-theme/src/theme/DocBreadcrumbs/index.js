@@ -1,7 +1,6 @@
 import Link from '@docusaurus/Link';
 import { useSidebarBreadcrumbs } from '@docusaurus/plugin-content-docs/client';
 import { ThemeClassNames } from '@docusaurus/theme-common';
-import { useHomePageRoute } from '@docusaurus/theme-common/internal';
 import { translate } from '@docusaurus/Translate';
 import HomeBreadcrumbItem from '@theme/DocBreadcrumbs/Items/Home';
 import clsx from 'clsx';
@@ -54,7 +53,6 @@ function BreadcrumbsItem({ children, active, index, addMicrodata }) {
 
 export default function DocBreadcrumbs() {
     const breadcrumbs = useSidebarBreadcrumbs()?.slice(0, -1);
-    const homePageRoute = useHomePageRoute();
     if (!breadcrumbs || breadcrumbs.length === 0) {
         return null;
     }
@@ -68,7 +66,7 @@ export default function DocBreadcrumbs() {
             })}
         >
             <ul className="breadcrumbs" itemScope itemType="https://schema.org/BreadcrumbList">
-                {homePageRoute && <HomeBreadcrumbItem />}
+                <HomeBreadcrumbItem />
                 {breadcrumbs.map((item, idx) => {
                     // const isLast = idx === breadcrumbs.length - 1;
                     const isLast = false;

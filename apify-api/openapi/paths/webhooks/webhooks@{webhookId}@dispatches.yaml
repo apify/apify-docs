@@ -6,10 +6,14 @@ get:
   operationId: webhook_webhookDispatches_get
   parameters:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/webhookId"
+    - $ref: "../../components/parameters/paginationParameters.yaml#/offset"
+    - $ref: "../../components/parameters/paginationParameters.yaml#/limit"
+    - $ref: "../../components/parameters/paginationParameters.yaml#/descCreatedAt"
   responses:
     "200":
       description: ""
-      headers: {}
+      headers:
+        $ref: ../../components/headers/ApifyPaginationHeaders.yaml
       content:
         application/json:
           schema:

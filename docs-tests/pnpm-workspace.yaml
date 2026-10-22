@@ -1,0 +1,5 @@
+# Makes docs-tests its own pnpm workspace root so `pnpm install` here resolves
+# this package's deps (Playwright et al.) instead of walking up to the parent
+# apify-docs workspace. Keeps the test harness fully isolated from the main
+# docs build's dependency tree.
+packages: []

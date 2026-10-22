@@ -13,22 +13,34 @@ const CURATED_FILE = path.resolve('scripts/llms-external-curated.txt');
 // Do NOT add these to the plugin's `excludeRoutes` in docusaurus.config.js -
 // that would also drop the generated .md file from the build output.
 const LLMS_INDEX_EXCLUDE_PATTERNS = [
-    // API: drop deprecated act-* endpoints
+    // API: legacy act-* slugs no longer exist as pages (all 301-redirect to their renamed
+    // actor-*/actors-* equivalents), so this pattern is a safety net only
     '/api/v2/act-*',
     // API: drop individual CRUD endpoint pages (keep Introduction pages)
+    '/api/v2/actor-get',
+    '/api/v2/actor-put',
+    '/api/v2/actor-delete',
+    '/api/v2/actor-openapi-json-get',
+    '/api/v2/actor-validate-input-post',
+    '/api/v2/actor-webhooks-get',
+    '/api/v2/actor-version-*',
+    '/api/v2/actor-versions-*',
     '/api/v2/actor-build-abort-post',
+    '/api/v2/actor-build-default-get',
     '/api/v2/actor-build-delete',
     '/api/v2/actor-build-get',
     '/api/v2/actor-build-log-get',
     '/api/v2/actor-build-openapi-json-get',
     '/api/v2/actor-builds-get',
     '/api/v2/actor-run-*',
-    '/api/v2/actor-runs-get',
+    '/api/v2/actor-runs-*',
     '/api/v2/actor-task-*',
     '/api/v2/actor-tasks-get',
     '/api/v2/actor-tasks-post',
-    '/api/v2/acts-get',
-    '/api/v2/acts-post',
+    '/api/v2/actors-get',
+    '/api/v2/actors-post',
+    '/api/v2/actors-run*',
+    '/api/v2/actors-build*',
     '/api/v2/dataset-*',
     '/api/v2/datasets-*',
     '/api/v2/key-value-store-*',
@@ -241,9 +253,18 @@ async function joinFiles() {
     console.log('Wrote llms-full.txt to build/');
 }
 
+// WORKAROUND: @signalwire/docusaurus-plugin-llms-txt 1.2.2 doubles the section prefix in
+// cross-links on sites served under a sub-path, so the SDK/client/CLI sections we fetch above
+// arrive with links such as /sdk/python/sdk/python/docs/... Fixed upstream in 2.0.0-alpha.6;
+// those sites still pin ^1.2.2. Remove once they stop generating the doubled prefix.
+const DOUBLED_SECTION_PREFIX =
+    /(https:\/\/docs\.apify\.com\/(sdk\/js|sdk\/python|api\/client\/js|api\/client\/python|cli))\/\2\//g;
+
 async function sanitizeFile(filePath) {
     const content = await fs.readFile(filePath, 'utf8');
-    const sanitizedContent = content.replace(/<[^>]*>/g, ''); // Remove HTML tags
+    const sanitizedContent = content
+        .replace(/<[^>]*>/g, '') // Remove HTML tags
+        .replace(DOUBLED_SECTION_PREFIX, '$1/');
     await fs.writeFile(filePath, sanitizedContent, 'utf8');
     console.log(`Sanitized ${filePath}`);
 }

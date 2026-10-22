@@ -9,6 +9,7 @@ slug: /integrations
 
 import Card from '@site/src/components/Card';
 import CardGrid from '@site/src/components/CardGrid';
+import AgentClientCards from '@site/sources/_partials/_agent-client-cards.mdx';
 
 Integrations let you combine Apify Actors with the rest of your stack - workflow automation platforms, data warehouses, AI agents, and the tools your team already uses. The sections below mirror the integrations sidebar; each links through to the full list.
 
@@ -68,22 +69,15 @@ Drive the Apify platform programmatically with the REST API, react to platform e
 
 ## AI
 
-Plug Apify Actors into the AI stack - chat clients like Claude and ChatGPT via the Apify MCP server, agents built on SDKs and frameworks like OpenAI Agents, LangChain, and Vercel AI SDK, and downstream vector databases for retrieval.
+Connect any MCP client to Apify through the Apify MCP server, use Actors in agents built on SDKs and frameworks such as OpenAI Agents, LangChain, and the Vercel AI SDK, and load the results into vector databases for retrieval.
 
 <CardGrid>
     <Card
         title="Apify MCP server"
         desc="Expose Apify Actors and storages to any MCP-compatible AI client."
-        to="/integrations/mcp"
+        to="/mcp"
         imageUrl="/img/platform/integrations/mcp-logo.png"
         imageUrlDarkTheme="/img/platform/integrations/mcp-logo-white.png"
-        smallImage
-    />
-    <Card
-        title="Claude Code CLI"
-        desc="Install the Apify plugin in Claude Code to discover, run, and build Actors from the terminal."
-        to="/integrations/claude-code-cli"
-        imageUrl="/img/platform/integrations/claude-code.svg"
         smallImage
     />
     <Card
@@ -123,33 +117,17 @@ Plug Apify Actors into the AI stack - chat clients like Claude and ChatGPT via t
         imageUrl="/img/platform/integrations/pinecone.svg"
         smallImage
     />
-    <Card
-        title="Codex"
-        desc="Install the Apify plugin in Codex to discover, run, and build Actors from the Codex app."
-        to="/integrations/codex"
-        imageUrl="/img/platform/integrations/codex.svg"
-        imageUrlDarkTheme="/img/platform/integrations/codex-white.svg"
-        smallImage
-    />
-    <Card
-        title="Grok Build"
-        desc="Install the Apify plugin in Grok Build to discover, run, and build Actors from the terminal."
-        to="/integrations/grok-build"
-        imageUrl="/img/platform/integrations/grok-light.svg"
-        imageUrlDarkTheme="/img/platform/integrations/grok.svg"
-        smallImage
-    />
-    <Card
-        title="Cursor"
-        desc="Install the Apify plugin in Cursor to interact with Apify from the IDE."
-        to="/integrations/cursor"
-        imageUrl="/img/platform/integrations/cursor.svg"
-        imageUrlDarkTheme="/img/platform/integrations/cursor-white.svg"
-        smallImage
-    />
 </CardGrid>
 
 [See all AI integrations →](/integrations/ai)
+
+## Agents
+
+Set up Apify in an AI agent such as Claude Code, Codex, or Cursor, with the Apify plugin or the MCP server and Agent Skills. To compare these options first, start at [For AI agents](/agents).
+
+<AgentClientCards />
+
+[See all agent integrations →](/integrations/agents)
 
 ## Data and storage
 

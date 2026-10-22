@@ -34,6 +34,12 @@ const SITE_URL = 'https://docs.apify.com';
 // llms-full.txt leak check below.
 const ROOT_PARENT = `[Apify documentation](${SITE_URL}/llms.txt)`;
 
+// The Claude-style discovery blockquote addNavHeaders.mjs prepends to every
+// page body (issue #2822). URL-independent, so it holds regardless of SITE_URL,
+// and — like the root breadcrumb — appears nowhere else, so it doubles as the
+// llms-full.txt leak marker.
+const DOC_INDEX_MARKER = '> ## Documentation index';
+
 // A nav value is always a markdown link to a docs URL, e.g. [Label](https://...).
 // The label part allows escaped sequences (`\\`, `\[`, `\]`) because the producer's
 // escapeLinkLabel can emit them, so a literal `]` in a label won't end the match early.
@@ -141,6 +147,9 @@ function checkPage(path, body, expectedKeys) {
         return;
     }
 
+    // The discovery blockquote must be present in the page body (issue #2822).
+    if (!body.includes(DOC_INDEX_MARKER)) fail(path, 'missing documentation-index blockquote');
+
     // Required on every page: title, url (exactly the page's own URL), parents.
     const title = getScalar(front, 'title');
     if (!title) fail(path, 'missing or empty `title`');
@@ -197,11 +206,14 @@ for (const { path, keys } of PAGES) {
 // means a leak.
 try {
     const { source, text } = await readLlmsFull();
-    if (text.includes(ROOT_PARENT)) {
-        fail('llms-full.txt', `nav header leaked into ${source} (found the root breadcrumb)`);
-        console.log('❌ llms-full.txt  (nav header leaked in)');
+    const leakedHeader = text.includes(ROOT_PARENT);
+    const leakedBlockquote = text.includes(DOC_INDEX_MARKER);
+    if (leakedHeader) fail('llms-full.txt', `nav header leaked into ${source} (found the root breadcrumb)`);
+    if (leakedBlockquote) fail('llms-full.txt', `discovery blockquote leaked into ${source}`);
+    if (leakedHeader || leakedBlockquote) {
+        console.log('❌ llms-full.txt  (per-page content leaked in)');
     } else {
-        console.log(`✅ llms-full.txt  (no nav header leaked in; read ${source})`);
+        console.log(`✅ llms-full.txt  (no nav header or blockquote leaked in; read ${source})`);
     }
 } catch (err) {
     fail('llms-full.txt', err.message);

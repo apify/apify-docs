@@ -9,6 +9,9 @@ properties:
   apifyMarginPercentage:
     type: number
     examples: [0.2]
+    description: >
+        Apify's share of the revenue generated under this pricing info record,
+        as a fraction between 0 and 1. Set by the Apify platform.
   createdAt:
     type: string
     format: date-time

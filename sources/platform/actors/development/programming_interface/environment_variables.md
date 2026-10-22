@@ -52,10 +52,11 @@ Variables prefixed with `ACTOR_` are defined by the [Actor specification](https:
 | `ACTOR_BUILD_NUMBER` | Build number of the Actor build used in the run. |
 | `ACTOR_BUILD_TAGS` | A comma-separated list of tags of the Actor build used in the run. Note that this environment variable is assigned at the time of start of the Actor and doesn't change over time, even if the assigned build tags change. |
 | `ACTOR_TASK_ID` | ID of the Actor task. Empty if Actor is run outside of any task, e.g. directly using the API. |
-| `ACTOR_WEB_SERVER_URL` | Unique public URL for accessing the Actor run web server from the outside world. |
+| `ACTOR_WEB_SERVER_URL` | Unique public URL for accessing the Actor run web server from the outside world. Each run gets its own URL, which stops working when the run finishes. |
 | `ACTOR_WEB_SERVER_PORT` | TCP port for the Actor to start an HTTP server on. This server can be used to receive external messages or expose monitoring and control interfaces. The server also receives messages from the [Actor Standby](/actors/development/programming-interface/standby) mode. |
-| `ACTOR_STANDBY_URL` | URL for accessing web servers of Actor runs in the [Actor Standby](/actors/development/programming-interface/standby) mode. |
+| `ACTOR_STANDBY_URL` | Public URL of the Actor in [Actor Standby](/actors/development/programming-interface/standby) mode. It stays the same for all runs of the Actor, so it's safe to hardcode in calling applications. |
 | `ACTOR_EVENTS_WEBSOCKET_URL` | Websocket URL where Actor may listen for [events](/actors/development/programming-interface/system-events) from Actor platform. |
+| `ACTOR_MCP_CONNECTOR_BASE_URL` | Base URL of the Apify MCP Proxy. Connect to an [MCP connector](/integrations/mcp-connectors) at `${ACTOR_MCP_CONNECTOR_BASE_URL}/<connectorId>` using `APIFY_TOKEN` as the bearer token. |
 
 <!-- vale Microsoft.RangeFormat = NO -->
 
@@ -81,7 +82,6 @@ Variables prefixed with `APIFY_` are Apify-platform-specific extensions that go 
 | `APIFY_PROXY_PORT` | TCP port number to be used for connecting to Apify Proxy. |
 | `APIFY_PROXY_STATUS_URL` | URL for retrieving proxy status information. Appending `?format=json` to this URL returns the data in JSON format for programmatic processing. |
 | `APIFY_API_PUBLIC_BASE_URL` | Public URL of the Apify API. May be used to interact with the platform programmatically. Typically set to `api.apify.com`. |
-| `APIFY_MCP_PROXY_URL` | Base URL of the Apify MCP Proxy. Connect to an [MCP connector](/integrations/mcp-connectors) at `${APIFY_MCP_PROXY_URL}/<connectorId>` using `APIFY_TOKEN` as the bearer token. |
 | `APIFY_WORKFLOW_KEY` | Identifier used for grouping related runs and API calls together. |
 | `APIFY_META_ORIGIN` | Specifies how an Actor run was started. Possible values are in [Runs and builds](/actors/running/runs-and-builds#origin) documentation. |
 | `APIFY_INPUT_SECRETS_PRIVATE_KEY_FILE` | Path to the secret key used to decrypt [Secret inputs](/actors/development/actor-definition/input-schema/secret-input). |

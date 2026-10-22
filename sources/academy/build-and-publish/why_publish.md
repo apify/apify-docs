@@ -22,19 +22,6 @@ Your Actor gets its own dedicated landing page with built-in documentation hosti
 
 Publishing on Apify Store means you don't need to purchase and manage domains or websites, build payment processing systems, set up hosting infrastructure, or handle customer billing manually. You also won't need to invest heavily in marketing since the marketplace presence drives discovery.
 
-## Choose your pricing options
-
-Apify Store offers flexible pricing models that let you match your Actor's value proposition:
-
-- Pay-per-event (PPE): Charge for any custom events your Actor triggers (maximum flexibility, AI/MCP compatible, priority store placement)
-- Pay-per-result (PPR): Set pricing based on dataset items generated
-(predictable costs for users, unlimited revenue potential)
-- Rental: Charge a flat monthly fee for continuous access (users cover their own platform usage costs)
-
-All models give you 80% of revenue, with platform usage costs deducted for PPR and PPE models.
-
-Learn more in [How Actor monetization works](/academy/actor-marketing-playbook/store-basics/how-actor-monetization-works).
-
 ## Why developers publish Actors
 
 ### Generate passive income
@@ -62,7 +49,7 @@ Public Actors require higher standards than private ones. Since users depend on 
 
 ### When you need to change things
 
-If you need to make breaking changes to your Actor, contact [community@apify.com](mailto:community@apify.com) beforehand. Major pricing changes require 14-day notice and are limited to once per month. The platform helps communicate changes to your users.
+If you need to make breaking changes to your Actor, contact [community@apify.com](mailto:community@apify.com) beforehand. Significant pricing changes require a 14-day notice period and are limited to once per month. The platform helps communicate changes to your users.
 
 ## Getting started
 

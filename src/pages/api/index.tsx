@@ -106,6 +106,157 @@ const BlogImageWrapper = styled.img`
     height: 100%;
 `;
 
+// `Section` centers itself with auto margins, which stops it from stretching inside the
+// page's flex column. Sections with wide children still fill the layout width, but one
+// holding only text shrinks to fit its sentence, so it needs the width spelled out.
+const TextOnlySection = styled(Section)`
+    width: 100%;
+`;
+
+interface ExperimentalClient {
+    language: string;
+    description: string;
+    repository: string;
+    installLanguage: string;
+    installSnippet: string;
+    exampleLanguage: string;
+    exampleSnippet: string;
+}
+
+const experimentalClients: ExperimentalClient[] = [
+    {
+        language: 'Go',
+        description: 'Client for Go 1.23 or newer, built almost entirely on the standard library.',
+        repository: 'https://github.com/apify/apify-client-go',
+        installLanguage: 'bash',
+        installSnippet: 'go get github.com/apify/apify-client-go',
+        exampleLanguage: 'go',
+        exampleSnippet: `package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    apify "github.com/apify/apify-client-go"
+)
+
+func main() {
+    client := apify.NewClient(apify.WithToken("MY-APIFY-TOKEN"))
+    ctx := context.Background()
+
+    // Starts an Actor and waits for it to finish.
+    run, err := client.Actor("john-doe/my-cool-actor").Call(ctx, nil, apify.ActorStartOptions{}, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    // Fetches results from the Actor's dataset.
+    page, err := client.Dataset(run.DefaultDatasetID).ListItems(ctx, apify.DatasetListItemsOptions{})
+    if err != nil {
+        log.Fatal(err)
+    }
+    fmt.Printf("Got %d items\\n", page.Total)
+}`,
+    },
+    {
+        language: 'PHP',
+        description: 'Client for PHP 8.1 or newer, with Guzzle as the default HTTP transport.',
+        repository: 'https://github.com/apify/apify-client-php',
+        installLanguage: 'bash',
+        installSnippet: 'composer require apify/apify-client',
+        exampleLanguage: 'php',
+        exampleSnippet: `<?php
+
+use Apify\\Client\\ApifyClient;
+
+$client = new ApifyClient('MY-APIFY-TOKEN');
+
+// Starts an Actor and waits for it to finish.
+$run = $client->actor('john-doe/my-cool-actor')->call(null, null, null);
+
+// Fetches results from the Actor's dataset.
+$items = $client->dataset((string) $run->getDefaultDatasetId())->listItems();
+echo 'Got ' . $items->getCount() . ' items' . PHP_EOL;`,
+    },
+    {
+        language: 'Java',
+        description: 'Client for Java 17 or newer, published to Maven Central. Every call returns a CompletableFuture.',
+        repository: 'https://github.com/apify/apify-client-java',
+        installLanguage: 'xml',
+        installSnippet: `<!-- pom.xml, or use com.apify:apify-client with Gradle -->
+<dependency>
+  <groupId>com.apify</groupId>
+  <artifactId>apify-client</artifactId>
+  <version>0.5.0</version>
+</dependency>`,
+        exampleLanguage: 'java',
+        exampleSnippet: `import com.apify.client.ApifyClient;
+import com.apify.client.actor.ActorStartOptions;
+import com.apify.client.dataset.DatasetListItemsOptions;
+import com.apify.client.run.ActorRun;
+
+ApifyClient client = ApifyClient.create("MY-APIFY-TOKEN");
+
+// Starts an Actor and waits for it to finish.
+ActorRun run = client.actor("john-doe/my-cool-actor").call(null, new ActorStartOptions(), 120L).join();
+
+// Fetches results from the Actor's dataset.
+var items = client.dataset(run.getDefaultDatasetId()).listItems(new DatasetListItemsOptions()).join();
+System.out.println("Got " + items.getCount() + " items");`,
+    },
+    {
+        language: '.NET',
+        description: 'Client for .NET 8.0 or newer, with cancellation-aware asynchronous calls.',
+        repository: 'https://github.com/apify/apify-client-dotnet',
+        installLanguage: 'bash',
+        installSnippet: 'dotnet add package Apify.Client',
+        exampleLanguage: 'csharp',
+        exampleSnippet: `using System;
+using Apify.Client;
+
+var client = new ApifyClient("MY-APIFY-TOKEN");
+
+// Starts an Actor and waits for it to finish.
+var run = await client.Actor("john-doe/my-cool-actor").CallAsync(null, null, null);
+
+// Fetches results from the Actor's dataset.
+var items = await client.Dataset(run.DefaultDatasetId!).ListItemsAsync();
+Console.WriteLine($"Got {items.Count} items");`,
+    },
+    {
+        language: 'Rust',
+        description: 'Async client for Tokio-based Rust applications, built on reqwest.',
+        repository: 'https://github.com/apify/apify-client-rust',
+        installLanguage: 'bash',
+        installSnippet: `cargo add apify-client serde_json
+cargo add tokio --features macros,rt-multi-thread`,
+        exampleLanguage: 'rust',
+        exampleSnippet: `use apify_client::ApifyClient;
+
+#[tokio::main]
+async fn main() -> Result<(), Box<dyn std::error::Error>> {
+    let client = ApifyClient::new("MY-APIFY-TOKEN");
+
+    // Starts an Actor and waits for it to finish.
+    let run = client
+        .actor("john-doe/my-cool-actor")
+        .call::<serde_json::Value>(None, Default::default(), None)
+        .await?;
+
+    // Fetches results from the Actor's dataset.
+    let dataset_id = run.default_dataset_id.expect("run has a default dataset");
+    let items = client
+        .dataset(&dataset_id)
+        .list_items::<serde_json::Value>(Default::default())
+        .await?;
+    println!("Got {} items", items.items.len());
+
+    Ok(())
+}`,
+    },
+];
+
 export default function Api() {
     return (
         <Layout>
@@ -146,6 +297,23 @@ curl -X POST -d @- \\
                         </CodeBlock>
                     </ClientCodeWrapper>
                 </SectionWrapper>
+                <TextOnlySection
+                    headingClassName={styles.ApiSectionHeading}
+                    className={styles.LargerContent}
+                    heading="OpenAPI schema"
+                    description={
+                        <>
+                            You can download the complete OpenAPI schema of the Apify API in the{' '}
+                            <Link to="https://docs.apify.com/api/openapi.yaml">YAML</Link> or{' '}
+                            <Link to="https://docs.apify.com/api/openapi.json">JSON</Link> formats. The source code is
+                            also{' '}
+                            <Link to="https://github.com/apify/apify-docs/tree/master/apify-api/openapi">
+                                available on GitHub
+                            </Link>
+                            .
+                        </>
+                    }
+                />
                 <Section
                     headingClassName={styles.ApiSectionHeading}
                     className={styles.LargerContent}
@@ -276,6 +444,45 @@ dataset_items = apify_client.dataset(actor_call['defaultDatasetId']).list_items(
                                 ),
                             },
                         ]}
+                    />
+                </Section>
+                <Section
+                    headingClassName={styles.ApiSectionHeading}
+                    className={styles.LargerContent}
+                    heading="Experimental API clients"
+                    description="Clients for other languages are official Apify projects, but they are experimental: they are generated automatically from the OpenAPI schema. Review the code before you rely on them in production, and report issues on their repositories."
+                >
+                    <Tabs
+                        items={experimentalClients.map((client) => ({
+                            title: client.language,
+                            content: (
+                                <SectionWrapper
+                                    heading={`${client.language} API client`}
+                                    headingAs="h3"
+                                    description={
+                                        <div className="Description">
+                                            {client.description}
+                                            <div className="DescriptionLinks">
+                                                <Button color="success" hideExternalIcon to={client.repository}>
+                                                    Get started
+                                                </Button>
+                                                <ActionLink
+                                                    hideExternalIcon
+                                                    to={`${client.repository}/blob/master/docs/README.md`}
+                                                >
+                                                    View reference
+                                                </ActionLink>
+                                            </div>
+                                        </div>
+                                    }
+                                >
+                                    <ClientCodeWrapper>
+                                        <CodeBlock language={client.installLanguage}>{client.installSnippet}</CodeBlock>
+                                        <CodeBlock language={client.exampleLanguage}>{client.exampleSnippet}</CodeBlock>
+                                    </ClientCodeWrapper>
+                                </SectionWrapper>
+                            ),
+                        }))}
                     />
                 </Section>
                 <Section heading="Related articles">

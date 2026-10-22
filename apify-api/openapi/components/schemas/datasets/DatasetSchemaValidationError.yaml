@@ -10,4 +10,4 @@ properties:
     description: A human-readable message describing the error.
     examples: [Schema validation failed]
   data:
-    $ref: ./SchemaValidationErrorData.yaml
+    $ref: ./DatasetSchemaValidationErrorData.yaml

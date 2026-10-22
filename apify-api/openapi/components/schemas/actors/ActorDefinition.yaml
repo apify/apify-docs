@@ -28,13 +28,13 @@ properties:
     type: string
     description: The path to the directory used as the Docker context when building the Actor.
   readme:
-    type: string
+    type: [string, "null"]
     description: The path to the README file for the Actor.
   input:
-    type: object
+    type: [object, "null"]
     description: The input schema object, the full specification can be found in [Apify docs](https://docs.apify.com/platform/actors/development/actor-definition/input-schema)
   changelog:
-    type: string
+    type: [string, "null"]
     description: The path to the CHANGELOG file displayed in the Actor's information tab.
   storages:
     type: object

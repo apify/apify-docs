@@ -1,7 +1,7 @@
 ---
 title: Apify Affiliate Program Terms and Conditions
 description: Apify Affiliate Program Terms and Conditions govern Apify's affiliate partnership program.
-sidebar_position: 6
+sidebar_position: 7
 sidebar_label: Affiliate Program Terms
 category: legal
 slug: /affiliate-program-terms-and-conditions
@@ -12,11 +12,11 @@ slug: /affiliate-program-terms-and-conditions
 <!-- vale off -->
 <!-- markdownlint-disable -->
 
-Last updated: February 24, 2026
+Last updated: September 15, 2026
 
 ---
 
-**Apify Technologies s.r.o.**, with its registered seat at Vodičkova 704/36, 110 00 Prague 1, Czech Republic, Company reg. no. 04788290, recorded in the Commercial Register kept by the Municipal Court of Prague, File No.: C 253224 ("**we**" or "**Apify**") thanks you ("**you**" or the "**Affiliate Partner**") for your interest in joining the Apify's Affiliate Program (the "**Affiliate Program**"). These terms and conditions (the "**Affiliate Program Terms**") shall govern your rights and obligations in relation to your participation in the Affiliate Program in addition to [Apify General Terms and Conditions](general-terms-and-conditions.md) (the "**General Terms**").
+**Apify Technologies s.r.o.**, with its registered seat at Na Prikope 959/27, 110 00 Prague 1, Czech Republic, Company reg. no. 04788290, recorded in the Commercial Register kept by the Municipal Court of Prague, File No.: C 253224 ("**we**" or "**Apify**") thanks you ("**you**" or the "**Affiliate Partner**") for your interest in joining the Apify's Affiliate Program (the "**Affiliate Program**"). These terms and conditions (the "**Affiliate Program Terms**") shall govern your rights and obligations in relation to your participation in the Affiliate Program in addition to [Apify General Terms and Conditions](general-terms-and-conditions.md) (the "**General Terms**").
 
 Terms starting with a capital letter used in these Affiliate Program Terms have the meaning defined either here or in the General Terms. Provisions of the General Terms regarding liability, indemnity, governing law and choice of jurisdiction are incorporated herein by reference.
 
@@ -38,13 +38,22 @@ Terms starting with a capital letter used in these Affiliate Program Terms have 
 
 3.2. Tracking of the potential Referred Customer is performed by cookies lasting 45 days. If the cookies expire or are deleted, a customer may not be recognised as a Referred Customer.
 
-3.3. If the Affiliate Partner identifies any customer that, in their opinion, shall be considered Referred Customer but has not been recognised by the tracking, the Affiliate Partner may report this information to Apify together with sufficient evidence. Apify shall in its discretion in good faith consider the Affiliate Partner's report and evidence, and decide whether or not such a customer shall be deemed Referred Customer.
+3.3. If the Affiliate Partner identifies any customer that, in their opinion, shall be considered a Referred Customer but has not been recognised by the tracking, the Affiliate Partner may report this information to Apify together with sufficient evidence. Apify shall in its discretion in good faith consider the Affiliate Partner's report and evidence, and decide whether or not such a customer shall be deemed a Referred Customer.
 
-3.4. In case of any uncertain or suspicious circumstances, Apify shall have the right to ultimately decide whether a customer is to be deemed Referred Customer or not, in its sole discretion.
+3.4. In case of any uncertain or suspicious circumstances, Apify shall have the right to ultimately decide whether a customer is to be deemed a Referred Customer or not, in its sole discretion.
 
 ## 4. Commission
 
-4.1. Unless agreed otherwise, the Commission shall be computed as 20% of all payments made by each Referred Customer to Apify in the first 3 months from the date when that Referred Customer started paying for Services (as defined in the General Terms) and then increased to 30% for all payments made by each Referred Customer to Apify, up to 2,500 USD per Referred Customer.
+4.1. Unless agreed otherwise, the Commission shall be computed as 20% of all payments made by each Referred Customer to Apify in the first 3 months from the date when that Referred Customer started paying for Services (as defined in the General Terms) and then increased to 30% for all payments made by each Referred Customer to Apify, in each case up to the “**Commission Cap**” applicable to that Referred Customer under Sections 4.2. to 4.4., depending on the respective Affiliate Partner’s tier.
+
+4.2. The Affiliate Partner's tier determines the Commission Cap that applies to each of its Referred Customers:
+(a) **Starter tier**: 0 to 49 currently active paying Referred Customers with Commission Cap: 2,500 USD per Referred Customer;
+(b) **Performer tier**: 50 or more currently active paying Referred Customers with Commission Cap: 5,000 USD per Referred Customer;
+(c) **Elite tier**: an Affiliate Partner admitted to the Elite tier by Apify on an individual basis. The Commission rate and Commission Cap for an Elite Affiliate Partner are those set out in a separate written arrangement between Apify and that Affiliate Partner.
+
+4.3. An Affiliate Partner moves between the Starter and Performer tiers automatically as its number of currently active paying Referred Customers rises to or falls below the threshold in Section 4.2(b). The Commission Cap for a given Referred Customer is fixed at the Commission Cap of the tier the Affiliate Partner was in at the time that person or company became a Referred Customer, and does not change afterward, even if the Affiliate Partner's tier later changes.
+
+4.4. On a launch date of August 1, 2026, Affiliate Partners with 50 or more currently active paying Referred Customers are moved to the Performer tier automatically upon referring one additional new active paying Referred Customer. Any Referred Customer who was referred before the launch date remains subject to a Commission Cap of 2,500 USD, the cap under which they were originally referred. Only a Referred Customer on or after the launch date is subject to the Performer Commission Cap of 5,000 USD.
 
 ## 5. Payment terms
 
@@ -94,9 +103,13 @@ Any customer referred in breach of this clause 6.1 shall not be considered a Ref
 
 ## 8. Apify Open Source Fair Share Program Additional Terms
 
-8.1. If your Referral Links are placed on your open-source GitHub repository (e.g. as Apify badge or "Run of Apify" button), your Commission for Referred Customers can also be paid via corresponding GitHub Sponsors account, if requested by you.
+8.1. If your Referral Links are placed on your open-source GitHub repository (e.g. as Apify badge or "Run on Apify" button), your Commission for Referred Customers can also be paid via corresponding GitHub Sponsors account, if requested by you.
 
 8.2. We will automatically attribute Users who sign up for Apify through your open-source Actor page in Apify Store to you as Referred Customers.
+
+8.3. Unless otherwise agreed in writing between you and Apify, for a Referred Customer who subscribed to the Platform using a Referral Link placed on your open-source GitHub repository, or who is attributed to you under Section 8.2: (a) the Commission Cap is 2,500 USD and Sections 4.2 to 4.4 do not apply, regardless of the tier you hold in respect of your other Referred Customers; (b) that Referred Customer is disregarded when determining your number of currently active paying Referred Customers under Sections 4.2 to 4.4; and (c) Commission is paid out once the condition in Section 5.2(b) is satisfied, and Section 5.2(a) does not apply.
+
+8.4. The remaining provisions of these Affiliate Program Terms continue to apply except as modified by this Section 8, which prevails in case of conflict.
 
 ## 9. Termination
 

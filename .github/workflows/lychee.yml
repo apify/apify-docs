@@ -9,10 +9,10 @@ jobs:
     link-check:
         runs-on: ubuntu-latest
         steps:
-            -   uses: actions/checkout@v7
+            -   uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
             -   name: Use Node.js 24
-                uses: actions/setup-node@v7
+                uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
                 with:
                     node-version: 24
 
@@ -28,7 +28,7 @@ jobs:
 
             -   name: Run Lychee Link Checker
                 id: lychee
-                uses: lycheeverse/lychee-action@v2.8.0
+                uses: lycheeverse/lychee-action@8646ba30535128ac92d33dfc9133794bfdd9b411 # v2.8.0
                 env:
                     GITHUB_TOKEN: ${{ secrets.APIFY_SERVICE_ACCOUNT_GITHUB_TOKEN }}
                 with:

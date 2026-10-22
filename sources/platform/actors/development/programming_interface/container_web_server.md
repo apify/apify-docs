@@ -1,5 +1,6 @@
 ---
-title: Container web server
+title: Actor container web server
+sidebar_label: Container web server
 description: Run a web server inside your Actor to expose a unique URL for external HTTP access, enabling both UI interaction and programmatic API calls.
 slug: /actors/development/programming-interface/container-web-server
 sidebar_position: 7
@@ -35,6 +36,8 @@ The web server inside the container must listen on the port specified by the `AC
 1. Define the `ACTOR_WEB_SERVER_PORT` environment variable with your desired port number.
 
 Check out [Custom environment variables](./environment_variables.md) for more details.
+
+You can describe the web server's API with a [web server schema](../actor_definition/web_server_schema/index.md) in the Actor definition.
 
 ## Example: Start a simple web server
 
