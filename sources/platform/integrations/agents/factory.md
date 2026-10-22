@@ -126,11 +126,20 @@ Run `/mcp`, select the **apify** server, and choose **Authenticate** to re-trigg
 
 If the browser doesn't open automatically, copy the OAuth URL shown in the terminal and paste it into your browser manually.
 
-If you're running Droid in a headless environment (SSH, remote container), the MCP OAuth flow can't complete. Authenticate locally first so the OAuth token is stored in your system keyring, then reconnect remotely. To keep working without MCP, use the CLI and SDK skills instead. Run `apify login`, or export an API token from [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations):
+If you're running Droid in a headless environment (SSH, remote container), the MCP OAuth flow can't complete. You have two options:
 
-```bash
-export APIFY_TOKEN=<YOUR_API_TOKEN>
-```
+- Keep using MCP: authenticate locally first so the OAuth token is stored in your system keyring, then reconnect remotely.
+- Work without MCP: use the CLI and SDK skills instead, which authenticate through the Apify CLI:
+
+  ```bash
+  apify login
+  ```
+
+  In a non-interactive environment, pass an API token from [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations) instead:
+
+  ```bash
+  apify login -t <YOUR_API_TOKEN>
+  ```
 
 ## Limitations
 
