@@ -62,4 +62,4 @@ If you need more IP addresses than your plan includes:
 
 ## Adjust the estimate
 
-These are rough estimates. On some websites, they can be far off. If the job repeats without being blocked, try fewer IP addresses. If you see blocking, add more.
+The tables give rough estimates. On some websites, they can be far off. If the job repeats without being blocked, try fewer IP addresses. If you see blocking, add more.
