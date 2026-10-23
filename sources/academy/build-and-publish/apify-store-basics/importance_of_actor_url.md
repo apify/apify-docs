@@ -38,7 +38,7 @@ The easiest way is to make sure the Actor name and the technical name match. As 
 
 The name should reflect not only what Actor does (or what website it targets), but also what words people use when they search for it. This is why it's also important to do SEO research to see which keywords work best for the topic. Ideally, the URL should include a keyword that has low complexity (low competition) but high traffic (high demand).
 
-Learn more about SEO research and the best tools for it here: [SEO](/academy/actor-marketing-playbook/promote-your-actor/seo)
+Learn more about SEO research and the best tools for it here: [SEO](/actors/promote/seo)
 
 ### Inspiration in Apify Store
 
