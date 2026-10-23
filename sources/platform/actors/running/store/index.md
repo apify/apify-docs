@@ -10,7 +10,7 @@ toc_max_heading_level: 4
 
 :::info Publishing and monetizing Actors
 
-Anyone is welcome to [publish Actors](/actors/publishing) in the store, and you can even [monetize your Actors](/actors/publishing/monetize). For more information about how to monetize your Actor, best practices, SEO, and promotion tips and tricks, head over to the [Marketing checklist](/academy/actor-marketing-playbook/promote-your-actor/checklist) section of the Apify Developers Academy.
+Anyone is welcome to [publish Actors](/actors/publishing) in the store, and you can even [monetize your Actors](/actors/monetize). For more information about how to monetize your Actor, best practices, SEO, and promotion tips and tricks, head over to the [Marketing checklist](/academy/actor-marketing-playbook/promote-your-actor/checklist) section of the Apify Developers Academy.
 
 :::
 
@@ -66,6 +66,18 @@ With this model, it's very easy to see how many platform resources each Actor ru
 _For more information on platform usage cost see the [usage and resources](../usage_and_resources.md) page._
 
 :::
+
+## Actors under maintenance
+
+An Actor gets the **Under maintenance** label when it fails Apify's [automated tests](/actors/publishing/test), or when its developer sets it. Its page then shows the **This Actor is under maintenance** banner, sometimes with a message from the developer. If you run it, the run can fail or return incomplete results.
+
+If an Actor you use is under maintenance:
+
+- Run it with a small input and check the results.
+- On the Actor's **Issues** tab, look for an issue that describes your problem. If there isn't one, create one to ask the developer.
+- To find a replacement, select **Show similar Actors** in the banner, or search [Apify Store](https://apify.com/store).
+
+Actors under maintenance rank lower in Apify Store. If an Actor keeps failing the tests, Apify deprecates it.
 
 ## Report issues with Actors
 

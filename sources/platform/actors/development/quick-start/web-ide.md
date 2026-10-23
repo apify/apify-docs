@@ -91,4 +91,4 @@ Now it's time to iterate. Each change follows the same cycle: edit the code, bui
 
 - If you need inspiration, see [Find ideas for new Actors](/academy/build-and-publish/actor-ideas/find-actor-ideas).
 - To understand Actors in detail, read the [Actor Whitepaper](https://whitepaper.actor/).
-- When your first Actor is ready, you can [publish](/actors/publishing) it on Apify Store and [monetize](/actors/publishing/monetize) it to earn revenue.
+- When your first Actor is ready, you can [publish](/actors/publishing) it on Apify Store and [monetize](/actors/monetize) it to earn revenue.
