@@ -156,6 +156,7 @@ Set `needsApproval: true` on `runApifyActor` to pause the agent before it spends
 
 - Canceling a Trigger.dev run doesn't stop the Actor run it started. Abort the Actor run in [Apify Console](https://console.apify.com/actors/runs?utm_source=trigger.dev&utm_medium=integrations) or with `apify.run(runId).abort()`.
 - The tasks on this page and in the Trigger.dev guides aren't retry-safe: every retry starts a new Actor run. In production, store the Actor run ID and reuse that run on retry instead of starting a new one.
+- Trigger.dev limits the size of [task outputs](https://trigger.dev/docs/limits#task-payloads-and-outputs). The tasks return every dataset item, so a large crawl can fail the task even when the Actor succeeds. For big datasets, return only `datasetId` and read the items with `apify.dataset(datasetId).listItems({ offset, limit })` in the next step.
 
 ## Troubleshooting
 
