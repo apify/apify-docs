@@ -57,7 +57,7 @@ lastRunByActor:
     Reboots the last run of the specified Actor and returns an object that
     contains all the details about the rebooted run.
 
-    This endpoint is a shortcut for [Reboot run](#/reference/actor-runs/reboot-run/reboot-run)
+    This endpoint is a shortcut for [Reboot Actor run](/api/v2/actor-run-reboot-post)
     on the Actor's last run. Only runs with status `RUNNING` can be rebooted. The run's
     container will be restarted, so any data not persisted in the key-value store, dataset,
     or request queue will be lost.
@@ -76,7 +76,7 @@ lastRunByActorTask:
     Reboots the last run of the specified Actor task and returns an object that
     contains all the details about the rebooted run.
 
-    This endpoint is a shortcut for [Reboot run](#/reference/actor-runs/reboot-run/reboot-run)
+    This endpoint is a shortcut for [Reboot Actor run](/api/v2/actor-run-reboot-post)
     on the Actor task's last run. Only runs with status `RUNNING` can be rebooted. The run's
     container will be restarted, so any data not persisted in the key-value store, dataset,
     or request queue will be lost.

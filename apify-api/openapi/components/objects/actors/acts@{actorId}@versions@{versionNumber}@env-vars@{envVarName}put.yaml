@@ -61,8 +61,8 @@ put:
   <<: *shared
   summary: Update environment variable in Actor version
   description: |
-    Updates Actor environment variable using values specified by a [EnvVar
-    object](#/reference/actors/environment-variable-object)
+    Updates Actor environment variable using values specified by an `EnvVar`
+    object
     passed as JSON in the POST payload.
     If the object does not define a specific property, its value will not be
     updated.
@@ -71,11 +71,11 @@ put:
     header!
 
     When providing your API authentication token, we recommend using the
-    request's `Authorization` header, rather than the URL. ([More
-    info](#/introduction/authentication)).
+    request's `Authorization` header, rather than the URL.
+    [Learn more](/api/v2/getting-started#authentication)
 
-    The response is the [EnvVar object](#/reference/actors/environment-variable-object) as returned by the
-    [Get environment variable](#/reference/actors/environment-variable-object/get-environment-variable)
+    The response is the `EnvVar` object as returned by the
+    [Get environment variable of Actor version](/api/v2/actor-version-env-var-get)
     endpoint.
   operationId: actor_version_envVar_put
   x-legacy-doc-urls:
@@ -87,10 +87,10 @@ post:
   <<: *shared
   summary: Update environment variable in Actor version (POST)
   description: |
-    Updates Actor environment variable using values specified by a [EnvVar
-    object](#/reference/actors/environment-variable-object)
+    Updates Actor environment variable using values specified by an `EnvVar`
+    object
     passed as JSON in the POST payload.
-    This endpoint is an alias for the [`PUT` update environment variable](#tag/ActorsEnvironment-variable-object/operation/act_version_envVar_put) method and behaves identically.
+    This endpoint is an alias for the [Update environment variable in Actor version](/api/v2/actor-version-env-var-put) endpoint and behaves identically.
   operationId: actor_version_envVar_post
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/environment-variable-object/update-environment-variable

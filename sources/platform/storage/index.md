@@ -196,4 +196,4 @@ Named storages are only removed upon your request. You can delete storages in th
   [dataset](/api/client/python#datasetclient),
   [key-value store](/api/client/python/reference/class/KeyValueStoreClient),
   or [request queue](/api/client/python/reference/class/RequestQueueClient) clients.
-* [API](/api/v2/key-value-store-delete) - using the `Delete [store]` endpoint, where `[store]` is the storage type you want to delete.
+* API - using the [Delete dataset](/api/v2/dataset-delete), [Delete key-value store](/api/v2/key-value-store-delete), or [Delete request queue](/api/v2/request-queue-delete) endpoint.
