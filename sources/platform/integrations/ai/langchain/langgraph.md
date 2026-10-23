@@ -13,12 +13,14 @@ import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integrati
 
 LangGraph support comes from the same `langchain-apify` package as the [LangChain integration](/integrations/langchain). This page covers binding Apify tools to a LangGraph agent. See the LangChain page for the [full tool reference](/integrations/langchain#tool-reference), tool set selection, and non-agent uses such as document loading and retrieval.
 
+The examples build agents with `create_agent` from the `langchain` package, which returns a LangGraph graph. It replaces `create_react_agent` from `langgraph.prebuilt`, which is deprecated since LangGraph 1.0.
+
 ## Quick start
 
 Install the packages:
 
 ```bash
-pip install langgraph langchain-apify langchain-openai
+pip install langchain langgraph langchain-apify langchain-openai
 ```
 
 Then give a model one Apify tool and let it answer from live web data:
@@ -26,14 +28,14 @@ Then give a model one Apify tool and let it answer from live web data:
 ```python
 import os
 
+from langchain.agents import create_agent
 from langchain_apify import ApifyRAGWebBrowserTool
 from langchain_openai import ChatOpenAI
-from langgraph.prebuilt import create_react_agent
 
 os.environ["APIFY_TOKEN"] = "Your Apify API token"
 os.environ["OPENAI_API_KEY"] = "Your OpenAI API key"
 
-agent = create_react_agent(ChatOpenAI(model="gpt-5.4-mini"), [ApifyRAGWebBrowserTool()])
+agent = create_agent(ChatOpenAI(model="gpt-5.4-mini"), [ApifyRAGWebBrowserTool()])
 result = agent.invoke({"messages": [("human", "Search the web and tell me what Apify is.")]})
 print(result["messages"][-1].content)
 ```
@@ -53,7 +55,7 @@ This guide shows how to use Apify Actors with LangGraph by building a ReAct agen
 - **Python packages**: You need to install the following Python packages:
 
     ```bash
-    pip install langgraph langchain-apify langchain-openai
+    pip install langchain langgraph langchain-apify langchain-openai
     ```
 
 ### Build the TikTok profile search and analysis agent
@@ -63,10 +65,10 @@ First, import all required packages:
 ```python
 import os
 
+from langchain.agents import create_agent
 from langchain_apify import ApifyRAGWebBrowserTool, ApifyTikTokScraperTool
 from langchain_core.messages import HumanMessage
 from langchain_openai import ChatOpenAI
-from langgraph.prebuilt import create_react_agent
 ```
 
 Next, set the environment variables for the Apify API token and OpenAI API key:
@@ -97,7 +99,7 @@ Create the ReAct agent with the LLM and Apify tools:
 
 ```python
 tools = [browser, tiktok]
-agent_executor = create_react_agent(llm, tools)
+agent_executor = create_agent(llm, tools)
 ```
 
 Finally, run the agent and stream the messages:
@@ -165,10 +167,10 @@ If you want to test the whole example, you can simply create a new file, `langgr
 ```python
 import os
 
+from langchain.agents import create_agent
 from langchain_apify import ApifyRAGWebBrowserTool, ApifyTikTokScraperTool
 from langchain_core.messages import HumanMessage
 from langchain_openai import ChatOpenAI
-from langgraph.prebuilt import create_react_agent
 
 os.environ["OPENAI_API_KEY"] = "Your OpenAI API key"
 os.environ["APIFY_TOKEN"] = "Your Apify API token"
@@ -179,7 +181,7 @@ browser = ApifyRAGWebBrowserTool()
 tiktok = ApifyTikTokScraperTool()
 
 tools = [browser, tiktok]
-agent_executor = create_react_agent(llm, tools)
+agent_executor = create_agent(llm, tools)
 
 for state in agent_executor.stream(
     stream_mode="values",
@@ -196,13 +198,13 @@ for state in agent_executor.stream(
 Instead of importing tools one by one, you can give the agent an entire category. Each list holds tool *classes*, so instantiate them before passing them to the agent:
 
 ```python
+from langchain.agents import create_agent
 from langchain_apify import APIFY_SEARCH_TOOLS, APIFY_SOCIAL_TOOLS
 from langchain_openai import ChatOpenAI
-from langgraph.prebuilt import create_react_agent
 
 llm = ChatOpenAI(model="gpt-5.4-mini")
 tools = [tool_cls() for tool_cls in APIFY_SEARCH_TOOLS + APIFY_SOCIAL_TOOLS]
-agent_executor = create_react_agent(llm, tools)
+agent_executor = create_agent(llm, tools)
 ```
 
 ## Run any other Actor
@@ -210,13 +212,13 @@ agent_executor = create_react_agent(llm, tools)
 Actors without a dedicated tool go through [`ApifyActorsTool`](/integrations/langchain#run-any-other-actor), which binds to an agent the same way:
 
 ```python
+from langchain.agents import create_agent
 from langchain_apify import ApifyActorsTool
 from langchain_openai import ChatOpenAI
-from langgraph.prebuilt import create_react_agent
 
 llm = ChatOpenAI(model="gpt-5.4-mini")
 trends = ApifyActorsTool("apify/google-trends-scraper")
-agent_executor = create_react_agent(llm, [trends])
+agent_executor = create_agent(llm, [trends])
 ```
 
 ## Resources
