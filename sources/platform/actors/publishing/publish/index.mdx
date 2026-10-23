@@ -42,11 +42,10 @@ Once all sections are marked as completed, select **Publish on Store**.
 
 ## Verify the publication
 
-To verify that your Actor has been published:
+To verify that your Actor has been published, use one of these methods:
 
-1. Go to the [Apify Store](https://apify.com/store).
-1. Search for your Actor's name.
-1. Select your Actor's card and review its dedicated page.
+- Open `https://apify.com/YOUR_USERNAME/YOUR_ACTOR_NAME` in a private browser window. If the Actor's page loads, your Actor is published.
+- Call the [Get Actor](/api/v2/actor-get) API endpoint. If the `isPublic` property in the response is `true`, your Actor is published.
 
 ## Publish Actor's source code
 
