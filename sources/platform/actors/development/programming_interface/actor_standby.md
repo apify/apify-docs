@@ -6,33 +6,49 @@ slug: /actors/development/programming-interface/standby
 sidebar_position: 9
 ---
 
-Traditional Actors are designed to run a single task and then stop. They're mostly intended for batch jobs, such as when you need to perform a large scrape or data processing task.
-However, in some applications, waiting for an Actor to start is not an option. Actor Standby mode solves this problem by letting you have the Actor ready
-in the background, waiting for the incoming HTTP requests. In a sense, the Actor behaves like a real-time web server or standard API server.
-
-## Developing Actors using Standby mode
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The best way to start developing Standby Actors is to use the predefined templates in the [Console UI](https://console.apify.com/actors/templates) or in [CLI](https://docs.apify.com/cli/) via `apify create`. The templates contain minimal code to get you up to speed for development in JavaScript, TypeScript or Python. Standby mode will automatically be enabled with default settings.
+While a traditional Actor runs a single job and stops, an Actor in Standby mode runs a persistent HTTP server and responds to incoming requests in real time. For the user-facing overview of Standby mode, including endpoints, authentication, scaling, configuration, and billing, see [Actor Standby mode](../../running/actor_standby.md).
 
-If you already have an existing Actor, or you just want to tweak the configuration of Standby mode, you can head to the Settings tab of your Actor, where the Actor Standby settings are located.
-![Standby for creators](./images/standby-creators.png)
+## Enable Standby mode
 
-You can also enable Standby mode from the Actor's source code by setting the [`usesStandbyMode`](../actor_definition/actor_json.md) property to `true` in the `.actor/actor.json` file. When you push the Actor with the [Apify CLI](https://docs.apify.com/cli/), the setting syncs to the platform.
+You can enable Standby mode from a template, in Apify Console, or in the Actor's source code.
 
-Actors using Standby mode must run a HTTP server listening on a specific port. The user requests will then be proxied to the HTTP server. You can use any of the existing [HTTP request methods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) like GET, POST, PUT, DELETE, etc. You can pass the input via [HTTP request query string](https://en.wikipedia.org/wiki/Query_string) or via [HTTP request body](https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages#body).
+### Start from a template
 
-Sometimes, you want the HTTP server to listen on a specific port and cannot change it yourself. You can use `ACTOR_WEB_SERVER_PORT` environment variable to override the port so that Actor Standby will work with your code.
+The easiest way to start is a Standby template, in [Apify Console](https://console.apify.com/actors/templates) or with `apify create` in the [Apify CLI](https://docs.apify.com/cli/). The templates contain minimal JavaScript, TypeScript, or Python code, and Standby mode is enabled with default settings.
 
-You can get the port using the Actor configuration available in Apify SDK.
-See example below with a simple Actor using Standby mode.
+### Enable Standby in Apify Console
+
+To enable or change Standby mode for an existing Actor, open the **Settings** tab of the Actor and find the Actor Standby settings.
+
+![Standby settings in the Actor's Settings tab](./images/standby-creators.png)
+
+To enforce the same Standby configuration for all users of your Actor, enable **Prevent users from overriding standby parameters** in the same settings. Users then can't override it by creating a task.
+
+### Enable Standby in the source code
+
+You can also enable Standby mode by setting the [`usesStandbyMode`](../actor_definition/actor_json.md) property to `true` in the `.actor/actor.json` file. When you push the Actor with the [Apify CLI](https://docs.apify.com/cli/), the setting syncs to the platform.
+
+## Run an HTTP server
+
+A Standby Actor must run an HTTP server that listens on a specific port. The platform proxies user requests to that server. Requests can use any [HTTP request method](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods), such as GET, POST, PUT, or DELETE, and pass input in the [query string](https://en.wikipedia.org/wiki/Query_string) or the [request body](https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages#body).
+
+### Get the port
+
+The server must listen on the port defined by the `ACTOR_WEB_SERVER_PORT` environment variable. If you use the Apify SDK, read the port from the Actor configuration instead: the option is named `containerPort` in JavaScript and `web_server_port` in Python.
+
+If your server must listen on a specific port that you can't change in code, define `ACTOR_WEB_SERVER_PORT` as a custom [environment variable](./environment_variables.md) of the Actor, with that port as the value. The platform then proxies the requests to your port.
+
+### Example server
+
+The example below is a minimal Standby Actor.
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
 
-```js
+```javascript
 import http from 'http';
 import { Actor } from 'apify';
 
@@ -68,25 +84,30 @@ async def main() -> None:
 </TabItem>
 </Tabs>
 
-Describe your Actor's endpoints, their parameters, and responses with a [web server schema](../actor_definition/web_server_schema/index.md) defined in the [`.actor/actor.json`](../actor_definition/actor_json.md) file. Based on that definition, Apify Console renders an interactive **Endpoints** tab on the Actor's detail page, where users can browse the endpoints and send requests directly from the browser. Describe the endpoints in your Actor's [README](../../publishing/publish/actor-readme.mdx) as well, because that's what users see in Apify Store before they ever open the Actor's detail page.
+## Describe your endpoints
+
+Describe your Actor's endpoints, their parameters, and responses with a [web server schema](../actor_definition/web_server_schema/index.md) defined in the [`.actor/actor.json`](../actor_definition/actor_json.md) file. Based on that definition, Apify Console renders an interactive **Endpoints** tab on the Actor's detail page, where users can browse the endpoints and send requests directly from the browser. Describe the endpoints in your Actor's [README](../../publishing/publish/actor-readme.mdx) as well, because users see the README in Apify Store before they open the Actor's detail page.
+
+## Run lifecycle
+
+The platform starts and stops Standby runs based on the incoming request load. It stops a run that receives no requests within the idle timeout and starts a new run when requests arrive again. Don't keep data only in the run's memory. Persist anything you need to a [dataset or key-value store](../../../storage/index.md). For details, see [how Standby scaling works](../../running/actor_standby.md#automatic-scaling), [how to customize the Standby configuration](../../running/actor_standby.md#standby-configuration), and [the timeouts and rate limits](../../running/actor_standby.md#limits-and-scaling) that apply to incoming requests.
 
 ### Readiness probe
 
-Before Actor standby runs are ready to serve requests, the Apify platform checks the web server's readiness using a readiness probe.
-The platform sends a GET request to the path `/` with a header `x-apify-container-server-readiness-probe`. If the header is present in the request, you can perform an early return with a simple response to prevent wasting resources.
+Before a Standby run serves requests, the platform checks that the web server is ready. It sends a GET request to the path `/` with the `x-apify-container-server-readiness-probe` header. When a request carries this header, you can return a simple response early to avoid wasting resources.
 
-:::note Return a response
+:::caution Return a response
 
-You must return a response; otherwise, the Actor run will never be marked as ready and won't process requests.
+Always return a response. Otherwise, the platform never marks the run as ready, and it won't process requests.
 
 :::
 
-See example code below that distinguishes between "normal" and "readiness probe" requests.
+The example below tells normal requests from readiness probes.
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
 
-```js
+```javascript
 import http from 'http';
 import { Actor } from 'apify';
 
@@ -133,16 +154,18 @@ async def main() -> None:
 </TabItem>
 </Tabs>
 
-## Determining an Actor is started in Standby
+### Run termination
 
-Actors that support Actor Standby can still be started in standard mode, for example from the Console or via the API.
-To find out in which mode was the Actor started, you can read the `metaOrigin` option in `Actor.config`, or the `APIFY_META_ORIGIN` environment variable in case you're not using the Apify SDK.
-If it is equal to `STANDBY`, the Actor was started in Standby mode, otherwise it was started in standard mode.
+A run ends when its process exits, when it migrates to another machine, or when it stays idle for longer than the idle timeout. Apart from the [readiness probe](#readiness-probe), the platform doesn't check your server's health while the run is alive. A server that stays up but stops responding keeps receiving requests, so on an unrecoverable error, exit the process instead of swallowing the error.
+
+## Detect the run mode
+
+Users can still start a Standby Actor in standard mode, for example from Apify Console or through the API. To find out which mode the Actor started in, read the `metaOrigin` option in `Actor.config`, or the `APIFY_META_ORIGIN` environment variable if you don't use the Apify SDK. The value `STANDBY` means Standby mode. Otherwise, the Actor started in standard mode.
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
 
-```js
+```javascript
 import { Actor } from 'apify';
 
 await Actor.init();
@@ -163,48 +186,22 @@ from apify import Actor
 async def main() -> None:
     async with Actor:
         if Actor.configuration.meta_origin == 'STANDBY':
-            # Start your Standby server here
+            ...  # Start your Standby server here
         else:
-            # Perform the standard Actor operations here
+            ...  # Perform the standard Actor operations here
 ```
 
 </TabItem>
 </Tabs>
 
-## Run lifecycle in Standby mode
+## Standby URL
 
-The platform starts and stops Standby runs automatically based on the incoming request load. It stops a run that receives no requests within the configured idle timeout and starts a new run when requests arrive again. Don't keep data only in the run's memory: persist anything you need to a [dataset or key-value store](../../../storage/index.md). See [how Standby scaling works](../../running/actor_standby.md#is-there-any-scaling-to-accommodate-the-incoming-requests) and [how to customize the Standby configuration](../../running/actor_standby.md#how-do-i-customize-standby-configuration).
+Each Standby Actor has a URL that stays the same for all of its runs. The URL is exposed as the `ACTOR_STANDBY_URL` environment variable and as the `standbyUrl` option in `Actor.config`.
 
-Apart from the [readiness probe](#readiness-probe), the platform doesn't check your server's health while the run is alive. A run ends when its process exits, when it migrates to another machine, or when it stays idle for longer than the idle timeout. A server that stays up but stops responding keeps receiving requests, so on an unrecoverable error, exit the process instead of swallowing the error.
+Unlike the Standby URL, the [container web server](./container_web_server.md) URL changes with every run. For the URL formats and where users find them, see [Standby URLs](../../running/actor_standby.md#standby-urls).
 
-## Timeouts
+Requests to the Standby URL require an Apify API token; see [how to authenticate requests](../../running/actor_standby.md#authenticate-requests). If your Actor exposes an MCP server, define the endpoint path with the [`webServerMcpPath`](../actor_definition/actor_json.md) property; see [Use Standby Actors as MCP servers](../../running/actor_standby.md#use-standby-actors-as-mcp-servers).
 
-When you send a request to an Actor in Standby mode, the total timeout for receiving the first response is _5 minutes_. Before the platform forwards the request to a specific Actor run, it performs a _run selection_ process to determine the specific Actor run that will handle it. This process has internal timeout of _2 minutes_.
+## Monetize Standby Actors
 
-## Get the URL of the Standby Actor
-
-The URL is exposed as an environment variable `ACTOR_STANDBY_URL`. You can also use `Actor.config`, where the `standbyUrl` option is available.
-
-The URL typically combines the Actor owner's username and the Actor name, for example:
-
-```text
-https://jane-doe--my-actor.apify.actor
-```
-
-The Actor also responds on a URL built from its ID, which keeps working if the Actor or its owner is renamed:
-
-```text
-https://92c4oi4fpzy7rprlf.apify.actor
-```
-
-Unlike the [container web server](./container_web_server.md) URL, which changes with every run, the Standby URL stays the same for all runs of the Actor. You can share it publicly or hardcode it in applications that call the Actor: copy it from the **Endpoints** tab on the Actor's detail page. Don't build the URL from the username and Actor name, because some Actors use a different hostname format.
-
-If the Actor exposes an MCP server, its endpoint is the Standby URL followed by the path defined in the [`webServerMcpPath`](../actor_definition/actor_json.md) property.
-
-Requests to the Standby URL require an Apify API token. See [how to authenticate your requests](../../running/actor_standby.md#how-do-i-authenticate-my-requests).
-
-## Monetization of Actors in Standby mode
-
-You can monetize Standby Actors just like any other Actor.
-
-For best results with Standby workflows, use the [pay-per-event pricing model](/actors/monetize/pay-per-event). In this model, users cover both the platform usage costs of their runs, as well as the event costs.
+You can monetize Standby Actors just like any other Actor. For best results with Standby workflows, use the [pay-per-event pricing model](/actors/monetize/pay-per-event). In this model, users cover both the platform usage costs of their runs and the event costs.
