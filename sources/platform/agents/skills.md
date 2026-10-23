@@ -44,7 +44,7 @@ Agents that discover skills on their own can read the index at [`apify.com/.well
 | `apify-actorization` | Converts an existing JavaScript, TypeScript, Python, or CLI project into an Apify Actor. | Plugins and skills CLI |
 | `apify-generate-output-schema` | Generates dataset and key-value store schemas for an existing Actor. | Plugins |
 | `apify-sdk-integration` | Integrates Actor execution into an application using the `apify-client` package. | Plugins |
-| `apify-integration-development` | Designs and builds an official Apify integration for another product, such as a workflow-automation app, an agent plugin, or an AI framework package. | Skills CLI |
+| `apify-integration-development` | Designs and builds an official Apify integration for another product, such as a workflow-automation app, an agent plugin, or an AI framework package. See [Build with the integration skill](/integrations/integrate#build-with-the-integration-skill). | Skills CLI |
 
 Plugins ship `apify-generate-output-schema` and `apify-sdk-integration`. In the skills CLI, `apify-actor-development` now generates output schemas itself, and `apify-integration-development` takes the place of the SDK integration skill.
 
@@ -69,4 +69,5 @@ The Actor development, actorization, and integration skills write to your projec
 - [Apify plugin](/agents/plugins) - The skills, the MCP server, and the routing agent in one install
 - [Apify MCP server](/mcp) - The live connection that pairs with skills
 - [Build Actors with AI](/actors/development/quick-start/build-with-ai) - The Actor lifecycle driven from a coding agent
+- [Build with the integration skill](/integrations/integrate#build-with-the-integration-skill) - Build an official Apify integration from a coding agent
 - [Apify skills registry](https://skills.sh/apify/agent-skills) - The source of every published skill
