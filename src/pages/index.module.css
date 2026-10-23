@@ -1,189 +1,274 @@
-/**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
- */
+.page {
+    --home-accent: #f86606;
 
-.cards {
-    margin: 0 auto;
-    display: grid;
-    gap: 2.4rem;
-}
-
-.actionCards {
-    margin: 0 auto;
-    display: grid;
-    gap: 2.4rem;
+    display: flex;
+    flex-direction: column;
     width: 100%;
+    padding-bottom: 96px;
+    box-sizing: border-box;
+    overflow-x: clip;
 }
 
-.sectionLayoutWrapper {
+.hero {
+    position: relative;
+    z-index: 2; /* keep the search dropdown above the cards section */
+    isolation: isolate;
+    padding: 64px 16px 56px;
+}
+
+/* Dot grid that fades out radially; the mask is on the pseudo-element so content stays crisp. */
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image: radial-gradient(circle, var(--color-neutral-border) 1px, transparent 1px);
+    background-size: 24px 24px;
+    mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
+    pointer-events: none;
+}
+
+.heroInner {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    align-self: stretch;
-    gap: 2.4rem;
-}
-
-.bannerContentActions {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.6rem;
-    flex-shrink: 0;
-    max-width: 50.02rem;
-}
-
-.bannerContentActions a {
-    width: 100%;
-}
-
-.bannerContentImage {
-    display: none !important;
-}
-
-.bannerContentImageAfter {
-    margin-top: 2.4rem;
-}
-
-.smallBannerContent {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     align-items: center;
-    align-self: stretch;
-    gap: 2.4rem;
+    width: 100%;
+    max-width: 112rem;
+    margin: 0 auto;
     text-align: center;
 }
 
-.smallBannerContent h2 {
-    align-self: center;
-}
-
-.smallBannerContentText {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.8rem;
-    width: 100%;
-}
-
-.bannerContentDescription {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 24px;
-    flex-shrink: 0;
-    margin-bottom: 2.4rem;
-}
-
-.bannerContentDescription h2 {
+.title {
     margin: 0;
+    font-family: 'Lota Grotesque', sans-serif;
+    font-size: 7.2rem;
+    font-weight: 400;
+    line-height: 1.14;
+    color: var(--color-neutral-text);
+}
+
+.accent {
+    color: var(--home-accent);
+}
+
+.subtitle {
+    max-width: 72rem;
+    margin: 16px 0 0;
+    font-size: 1.8rem;
+    line-height: 2.8rem;
+    color: var(--color-neutral-text-muted);
+}
+
+.popular {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 4px 8px;
+    margin: 20px 0 0;
+    font-size: 1.3rem;
+    line-height: 2rem;
+    color: var(--color-neutral-text-subtle);
+}
+
+.popularLink {
+    color: var(--color-neutral-text-muted);
+    text-decoration: none;
+}
+
+.popularLink:hover {
+    color: var(--color-neutral-text);
+    text-decoration: underline;
+}
+
+.section {
+    width: 100%;
+    max-width: 112rem;
+    min-width: 0;
+    margin: 32px auto 0;
+    padding: 0 16px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.sectionTitle {
+    margin: 0;
+    font-family: 'Lota Grotesque', sans-serif;
+    font-size: 3.2rem;
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--color-neutral-text);
+}
+
+.sectionDescription {
+    margin: 8px 0 0;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    color: var(--color-neutral-text-muted);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.6rem;
+    margin-top: 32px;
+    text-align: left;
 }
 
 .card {
-    [class*='cardTitle'] {
-        font-size: 1.6rem !important;
-    }
-
-    [class*='cardDescription'] {
-        font-size: 1.2rem !important;
-    }
-}
-
-.cardContentWrapper {
-    display: flex;
-    padding-top: 1.6rem;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.6rem;
-    align-self: stretch;
-}
-
-.cardContentWrapperText {
+    position: relative;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 0.4rem;
+    height: 100%;
+    overflow: hidden;
+    border: 1px solid var(--color-neutral-border);
+    border-radius: 8px;
+    background: var(--color-neutral-card-background);
+    transition: border-color 0.15s ease;
 }
 
-.cardContentList {
+.card:hover {
+    border-color: var(--color-neutral-text-subtle);
+}
+
+.cardBody {
+    padding: 1.6rem 2rem;
+}
+
+.cardHeader {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.8rem;
-    align-self: stretch;
+    align-items: center;
+    gap: 12px;
+}
+
+.iconTile {
+    flex: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    box-sizing: border-box;
+    border: 1px solid var(--color-neutral-border);
+    border-radius: 8px;
+    background: transparent;
+    color: #f86606;
+}
+
+.cardHeading {
+    min-width: 0;
+}
+
+.cardTitle {
+    margin: 0;
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+    font-weight: 600;
+}
+
+.cardTitle a {
+    color: var(--color-neutral-text);
+    text-decoration: none;
+}
+
+.cardTitle a:hover {
+    color: var(--color-neutral-text);
+    text-decoration: none;
+}
+
+/* Stretched link: makes the whole card clickable without nesting anchors. */
+.cardTitle a::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+}
+
+.cardDescription {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
+    margin: 12px 0 0;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    color: var(--color-neutral-text-muted);
+}
+
+.cardFooter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px 8px;
+    margin: auto 0 0;
+    padding: 1rem 2rem;
+    list-style: none;
+    border-top: 1px solid var(--color-neutral-separator-subtle);
+    background: var(--color-neutral-background-subtle);
+    font-size: 1.3rem;
+    line-height: 2rem;
+}
+
+.cardFooter li + li::before {
+    content: '·';
+    margin-right: 8px;
+    color: var(--color-neutral-text-subtle);
+}
+
+.cardFooter a {
+    position: relative;
+    z-index: 1;
+    color: var(--color-neutral-text-muted);
+    text-decoration: none;
+}
+
+.cardFooter a:hover {
+    color: var(--color-neutral-text);
+    text-decoration: none;
+}
+
+.moreLink {
+    display: inline-block;
+    margin-top: 32px;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    font-weight: 600;
+    color: var(--color-neutral-text);
+    text-decoration: none;
+}
+
+.moreLink:hover {
+    color: var(--color-neutral-text);
+    text-decoration: none;
+}
+
+.arrow {
+    display: inline-block;
+    transition: transform 0.15s ease;
+}
+
+.moreLink:hover .arrow {
+    transform: translateX(2px);
 }
 
 @media (min-width: 768px) {
-    .cards {
-        grid-template-columns: repeat(2, 1fr);
+    .hero {
+        padding-top: 88px;
     }
-    .bannerContentImage {
-        display: initial !important;
-        width: 25rem;
-    }
-    .bannerContentImageAfter {
-        display: none !important;
-    }
-    .bannerContentActions {
-        width: 38.4rem;
-    }
-    .bannerContentDescription {
-        width: 25rem;
-        margin-bottom: 0;
-    }
-    .actionCards {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .smallBannerContent {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        align-self: stretch;
-        text-align: left;
-    }
-    .smallBannerContent h2 {
-        align-self: flex-start;
-    }
-    .smallBannerContentText {
-        width: 41.8rem;
-    }
-    .bannerContent {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
+
+    .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
-@media (min-width: 1024px) {
-    .cards {
-        grid-template-columns: repeat(3, 1fr);
-    }
-    .actionCards {
-        width: 896px;
-    }
-    .bannerContentActions {
-        width: 41.8rem;
-    }
-    .bannerContentDescription {
-        width: 38.4rem;
-    }
-    .bannerContentImage {
-        width: 38.4rem;
-        position: absolute;
-        margin-top: 18.4rem;
+@media (max-width: 768px) {
+    .title {
+        font-size: 4.8rem;
     }
 }
 
-@media (min-width: 1440px) {
-    .actionCards {
-        width: 1200px;
-    }
-    .bannerContentDescription {
-        width: 50.2rem;
-    }
-    .bannerContentImage {
-        width: 50.2rem;
-        margin-top: 14.2rem;
+@media (max-width: 480px) {
+    .title {
+        font-size: 4rem;
     }
 }
