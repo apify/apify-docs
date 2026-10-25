@@ -7,12 +7,6 @@
     margin: 0 auto;
     display: grid;
     gap: 2.4rem;
-}
-
-.actionCards {
-    margin: 0 auto;
-    display: grid;
-    gap: 2.4rem;
     width: 100%;
 }
 
@@ -90,30 +84,6 @@
     }
 }
 
-.cardContentWrapper {
-    display: flex;
-    padding-top: 1.6rem;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.6rem;
-    align-self: stretch;
-}
-
-.cardContentWrapperText {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.4rem;
-}
-
-.cardContentList {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.8rem;
-    align-self: stretch;
-}
-
 @media (min-width: 768px) {
     .cards {
         grid-template-columns: repeat(2, 1fr);
@@ -132,9 +102,7 @@
         width: 25rem;
         margin-bottom: 0;
     }
-    .actionCards {
-        grid-template-columns: repeat(2, 1fr);
-    }
+
     .smallBannerContent {
         flex-direction: row;
         justify-content: space-between;
@@ -159,9 +127,7 @@
     .cards {
         grid-template-columns: repeat(3, 1fr);
     }
-    .actionCards {
-        width: 896px;
-    }
+
     .bannerContentActions {
         width: 41.8rem;
     }
@@ -176,9 +142,6 @@
 }
 
 @media (min-width: 1440px) {
-    .actionCards {
-        width: 1200px;
-    }
     .bannerContentDescription {
         width: 50.2rem;
     }
@@ -186,4 +149,41 @@
         width: 50.2rem;
         margin-top: 14.2rem;
     }
+}
+
+.referenceCard {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    flex: 1 0 0;
+    min-height: 7.5rem;
+}
+
+.iconLinks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.6rem;
+    margin-top: 0.8rem;
+}
+
+.iconLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.6rem 1rem;
+    margin: -0.6rem -1rem;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    transition: background-color 120ms ease-in-out;
+}
+
+.iconLink svg {
+    width: 20px;
+    height: 20px;
+}
+
+.iconLink:hover {
+    background-color: var(--color-neutral-card-background-hover);
+    border-color: var(--color-neutral-border);
+    text-decoration: none;
 }

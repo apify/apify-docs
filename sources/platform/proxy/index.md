@@ -288,3 +288,9 @@ The typical issues behind these codes are:
 
   Note that Apify Proxy is based on the [proxy-chain](https://github.com/apify/proxy-chain) open-source `npm` package developed and maintained by Apify.
   You can find the details of the above errors and their implementation there.
+
+## Next steps
+
+* [Usage and resources](/actors/running/usage-and-resources) - how proxy traffic counts toward what a run costs.
+* [Anti-scraping protections](/academy/anti-scraping) - why websites block and how proxies help you avoid it.
+* [Limits](/account/limits) - the limits that apply to your account.
