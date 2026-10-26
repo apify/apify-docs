@@ -78,6 +78,9 @@ info:
     [Skyfire](https://docs.apify.com/platform/integrations/skyfire)
     (`skyfire-pay-id` header).
 
+    Agents can also pay once and receive a temporary API token with a fixed
+    spend cap from the [Apify Agent General Interface](https://agi.apify.com).
+
     ## Basic usage
     <span id="/introduction/basic-usage"></span>
 
