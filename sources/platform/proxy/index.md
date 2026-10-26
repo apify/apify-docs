@@ -18,7 +18,7 @@ Your proxy settings and password are on the [Proxy](https://console.apify.com/pr
 
 ## Proxy types
 
-Each proxy type has distinct advantages, disadvantages, and pricing. Use them to access websites from different geographies and with different levels of anonymity.
+Each proxy type has distinct advantages, disadvantages, and pricing. Use them to access websites from different geographies and with different levels of anonymity. To check whether your plan includes enough datacenter IP addresses, [estimate how many you need](./estimate-ip-addresses.md).
 
 <CardGrid>
     <Card

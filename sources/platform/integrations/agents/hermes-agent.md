@@ -19,7 +19,7 @@ For more details about Hermes Agent, refer to the [official documentation](https
 Before integrating Apify with Hermes Agent, you'll need:
 
 - _An Apify account_ - If you don't have one, [sign up here](https://console.apify.com/sign-up).
-- _Apify API token_ - Get your token from the **API & Integrations** section in [Apify Console](https://console.apify.com/settings/integrations).
+- _Apify API token_ - Get your token from the **API & Integrations** section in [Apify Console](https://console.apify.com/settings/integrations?utm_source=hermes-agent&utm_medium=integrations).
 - _Hermes Agent_ - Version 0.18.1 or later. Install the CLI from the [official documentation](https://hermes-agent.nousresearch.com/docs).
 - _Python 3.11 to 3.13_ - Required to install the plugin.
 
@@ -42,7 +42,7 @@ Run the setup command to save your Apify API token:
 hermes apify-setup
 ```
 
-This prompts for your `APIFY_API_TOKEN`, saves it to `~/.hermes/.env`, and enables the `apify` toolset for the CLI. You can find your token in the **API & Integrations** section of [Apify Console](https://console.apify.com/settings/integrations).
+This prompts for your `APIFY_API_TOKEN`, saves it to `~/.hermes/.env`, and enables the `apify` toolset for the CLI. You can find your token in the **API & Integrations** section of [Apify Console](https://console.apify.com/settings/integrations?utm_source=hermes-agent&utm_medium=integrations).
 
 To skip the interactive prompt, pass the token directly:
 
@@ -106,7 +106,7 @@ Actor execution time varies depending on the task complexity. `apify_collect` re
 ### Authentication errors
 
 - _Check your API token_ - Verify `APIFY_API_TOKEN` is set in `~/.hermes/.env`. Re-run `hermes apify-setup` to update it.
-- _Get a new token_ - Find or generate one in the **API & Integrations** section of [Apify Console](https://console.apify.com/settings/integrations).
+- _Get a new token_ - Find or generate one in the **API & Integrations** section of [Apify Console](https://console.apify.com/settings/integrations?utm_source=hermes-agent&utm_medium=integrations).
 
 ### Plugin or tool not available
 
