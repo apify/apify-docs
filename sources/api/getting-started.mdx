@@ -8,10 +8,10 @@ The Apify API provides programmatic access to the [Apify platform](https://docs.
 
 ```mermaid
 graph LR
-    A[HTTP Client] <--> B[Apify API]
-    B --> C[Actor Run]
+    A[HTTP client] <--> B[Apify API]
+    B --> C[Actor run]
     C --> D1[Dataset]
-    C --> D2[Key-Value Store]
+    C --> D2[Key-value store]
 ```
 
 The diagram illustrates the basic workflow when using the Apify API:
@@ -20,7 +20,7 @@ The diagram illustrates the basic workflow when using the Apify API:
 1. When you request to run an Actor, the Apify API creates and manages an Actor run instance on the platform.
 1. The Actor processes data and stores results in Apify's storage systems:
    * **Dataset**: Structured storage optimized for tabular or list-type data, ideal for scraped items or processed results.
-   * **Key-Value Store**: Flexible storage for various data types (including images, JSON, HTML, and text), perfect for configuration settings and non-tabular outputs.
+   * **Key-value store**: Flexible storage for various data types (including images, JSON, HTML, and text), perfect for configuration settings and non-tabular outputs.
 
 ## Prerequisites
 
@@ -180,19 +180,19 @@ Expected response codes:
 
 The Apify API uses standard [HTTP status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status) according to REST conventions. The codes you're most likely to encounter are described below.
 
-### `200` OK
+### 200 OK
 
 The request has succeeded.
 
-### `201` Created
+### 201 Created
 
 The request has been fulfilled and a new resource has been created.
 
-### `302` Found
+### 302 Found
 
 A redirection response indicating that the requested resource has been temporarily moved to a different URL.
 
-### `400` Bad Request
+### 400 Bad request
 
 The server cannot process the request due to client error, such as request syntax, invalid request parameters, or invalid data format. This occurs when:
 
@@ -200,7 +200,7 @@ The server cannot process the request due to client error, such as request synta
 * Required parameters are missing
 * Data validation fails for Dataset items
 
-### `408` Request Timeout
+### 408 Request timeout
 
 The server timed out waiting for the request to complete.
 
