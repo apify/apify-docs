@@ -1,7 +1,7 @@
 post:
   tags:
     - Actors/Actor builds
-  summary: Abort build
+  summary: Abort Actor build
   description: |
     **[DEPRECATED]** API endpoints related to build of the Actor were moved
     under new namespace [`actor-builds`](#/reference/actor-builds). Aborts an

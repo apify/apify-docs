@@ -10,20 +10,16 @@ toc_max_heading_level: 4
 
 :::info Publishing and monetizing Actors
 
-Anyone is welcome to [publish Actors](/actors/publishing) in the store, and you can even [monetize your Actors](/actors/publishing/monetize). For more information about how to monetize your Actor, best practices, SEO, and promotion tips and tricks, head over to the [Marketing checklist](/academy/actor-marketing-playbook/promote-your-actor/checklist) section of the Apify Developers Academy.
+Anyone is welcome to [publish Actors](/actors/publishing) in the store, and you can even [monetize your Actors](/actors/monetize). For more information about how to monetize your Actor, best practices, SEO, and promotion tips and tricks, head over to the [Marketing checklist](/academy/actor-marketing-playbook/promote-your-actor/checklist) section of the Apify Developers Academy.
 
 :::
-
-import RentalSunset from '../../../../_partials/_rental-sunsetting.mdx';
 
 ## Pricing models
 
 All Actors in [Apify Store](https://apify.com/store) fall into one of the three pricing models:
 
-1. [**Pay per event**](#pay-per-event) - you pay for specific events the Actor creator defines, such as generating a single result or starting the Actor. Most Actors include platform usage in the price, but some may charge it separately - check the Actor's pricing for details.
-1. [**Pay per usage**](#pay-per-usage) - you only pay for the platform resources (compute units, data transfer, etc.) the
- Actor consumes. There are no additional charges from the Actor developer.
-1. [**Rental**](#rental-actors) - to continue using the Actor after the trial period, you must rent the Actor from the developer and pay a flat monthly fee in addition to the costs associated with the platform usage that the Actor generates.
+- [**Pay per event**](#pay-per-event) - you pay for specific events the Actor creator defines, such as generating a single result or starting the Actor. Most Actors include platform usage in the price, but some may charge it separately - check the Actor's pricing for details.
+- [**Pay per usage**](#pay-per-usage) - you only pay for the platform resources (compute units, data transfer, etc.) the Actor consumes. There are no additional charges from the Actor developer.
 
 :::note Post-run storage costs
 After a run finishes, any interactions with the dataset - such as reading or writing additional data - incur standard platform usage costs. This applies to all pricing models. Unnamed datasets are automatically removed after your data retention period, so long-term storage is rarely a concern.
@@ -71,31 +67,17 @@ _For more information on platform usage cost see the [usage and resources](../us
 
 :::
 
-### Rental Actors
+## Actors under maintenance
 
-<RentalSunset/>
+An Actor gets the **Under maintenance** label when it fails Apify's [automated tests](/actors/publishing/test), or when its developer sets it. Its page then shows the **This Actor is under maintenance** banner, sometimes with a message from the developer. If you run it, the run can fail or return incomplete results.
 
-Rental Actors are Actors for which you have to pay a recurring fee to the developer after your trial period ends.
+If an Actor you use is under maintenance:
 
-Most rental Actors have a _free trial_ period. The length of the trial is displayed on each Actor's page.
+- Run it with a small input and check the results.
+- On the Actor's **Issues** tab, look for an issue that describes your problem. If there isn't one, create one to ask the developer.
+- To find a replacement, select **Show similar Actors** in the banner, or search [Apify Store](https://apify.com/store).
 
-![Rental Actor example](../images/store/rental-actor-example.png)
-
-You don't need a paid plan to start a rental Actor's free trial. After the trial, you must subscribe to one of [Apify's paid plans](https://apify.com/pricing) to continue renting and using the Actor. If you are on a paid plan, the monthly rental fee is automatically subtracted from your prepaid platform usage when the trial expires, then recurs monthly. If you are not on a paid plan when the trial ends, you are not charged but cannot use the Actor until you subscribe.
-
-You always prepay the rental fee for the following month. The first payment occurs when the trial expires, then recurs monthly. You can check when the next payment is due by opening the Actor in Apify Console - you'll also receive a notification when it happens.
-
-_Example_: You activate a 7-day trial at _noon on April 1, 2021_. Without cancellation, you are charged at _noon on April 8, 2021_, then _May 8, 2021_.
-
-[//]: # (TODO better link for platform usage costs explaining what it is!)
-
-Rental fees are subtracted automatically from your prepaid platform usage, similarly to [compute units](../usage_and_resources.md). Most of the fee goes directly to the developer, and you also pay normal [platform usage costs](https://apify.com/pricing) on top - usage cost estimates are usually included in each rental Actor's README ([see an example](https://apify.com/compass/crawler-google-places#how-much-will-it-cost)). If your prepaid usage is insufficient, any overage is covered in the next invoice.
-
-You can cancel the rental at any time during the trial or afterward so you are not charged when the current rental period expires. You can always turn it back on later.
-
-To see a breakdown of rental charges, go to the **Actors** tab within the **Current period** tab in the [Billing](https://console.apify.com/billing) section.
-
-![Rental Actors billing in Apify Console](../images/store/billing-paid-actors.png)
+Actors under maintenance rank lower in Apify Store. If an Actor keeps failing the tests, Apify deprecates it.
 
 ## Report issues with Actors
 

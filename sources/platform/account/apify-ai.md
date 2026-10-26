@@ -37,10 +37,9 @@ Apify AI always asks for your confirmation before it runs an Actor. Nothing is c
 
 ## Excluded Actors
 
-Apify AI can run most Actors in Apify Store, but excludes two categories:
+Apify AI can run most Actors in Apify Store. However, due to security reasons, it excludes full-permission Actors.
 
-- _Full-permission Actors_ - excluded for security. A [full-permission Actor](/actors/running/permissions#full-permission-actors) can access your entire account and all its data. In Apify Console, you stay in control and decide every run yourself. In Apify AI, the LLM chooses and runs Actors for you, so Apify doesn't let it run Actors that have full access to your account.
-- _Rental Actors_ - excluded because their subscription-based model doesn't fit the sporadic, on-demand way Apify AI runs Actors.
+A [full-permission Actor](/actors/running/permissions#full-permission-actors) can access your entire account and all its data. In Apify Console, you stay in control and decide every run yourself. In Apify AI, the LLM chooses and runs Actors for you, so Apify doesn't let it run Actors that have full access to your account.
 
 ## Out of current scope
 

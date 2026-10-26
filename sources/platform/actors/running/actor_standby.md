@@ -47,6 +47,10 @@ This approach can be useful if you cannot modify the request headers.
     https://rag-web-browser.apify.actor/search?query=apify&token=my_apify_token
     ```
 
+The platform removes the token from the request before forwarding it, so the token doesn't reach the Actor's code. If the Actor reads the `Authorization` header for its own authentication, send your Apify token in the `X-Apify-Authorization` header instead.
+
+If you're developing a Standby Actor, use the token from the `APIFY_TOKEN` [environment variable](../development/programming_interface/environment_variables.md#system-environment-variables) to call the Apify API, as in any other Actor.
+
 :::tip Scoped tokens
 You can use [scoped tokens](/integrations/api#limited-permissions) to send standby requests. This is useful for allowing third-party services to interact with your Actor without granting access to your entire account.
 
@@ -101,7 +105,7 @@ sure to use that in your application if you wish to use the custom configuration
 No, the Standby runs are billed in the same fashion as the normal runs.
 However, running Actors in Standby mode might have unexpected costs, as the Actors run in the background and consume resources even when no requests are being sent until they are terminated after the idle timeout period.
 
-For Actors monetized with the [pay-per-event pricing model](/actors/publishing/monetize/pay-per-event), you pay the platform usage costs of the Standby runs in addition to the event charges.
+For Actors monetized with the [pay-per-event pricing model](/actors/monetize/pay-per-event), you pay the platform usage costs of the Standby runs in addition to the event charges.
 
 ## Are the Standby runs shared among users
 

@@ -126,7 +126,7 @@ If you plan to charge for the Actor, ask the AI agent to help you think through 
 
 ```text
 Read the Actor monetization and pricing guide:
-https://docs.apify.com/actors/publishing/monetize
+https://docs.apify.com/actors/monetize
 Then inspect this repository and recommend the most suitable
 pricing model for this Actor. Explain your reasoning and flag
 anything we should fix before publishing.
