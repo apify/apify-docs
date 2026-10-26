@@ -328,7 +328,7 @@ The following example demonstrates a dataset record with hidden fields, includin
 }
 ```
 
-Data excluding hidden fields, termed as "clean" data, can be downloaded from the [Apify Console](https://console.apify.com/storage?tab=datasets) using the **Clean items** option. Alternatively, you can download it via API by applying `clean=true` or `clean=1` as [URL parameters](/api/v2/dataset-items-get).
+Data excluding hidden fields, termed as "clean" data, can be downloaded from the [Apify Console](https://console.apify.com/storage?tab=datasets) using the **Clean items** option. Alternatively, you can download it via API by applying `clean=true` or `clean=1` as URL parameters of the [Get dataset items](/api/v2/dataset-items-get) endpoint.
 
 ## XML format extension
 
@@ -424,7 +424,7 @@ To read from or write to a dataset that belongs to a different Actor or task run
 
 ### Rate limiting
 
-The rate limit for pushing data to a dataset through the [API](/api/v2/dataset-items-post) is capped at _400 requests per second_ for each dataset, a measure to prevent overloading Apify servers.
+The rate limit for pushing data to a dataset through the [Store items in dataset](/api/v2/dataset-items-post) endpoint is capped at _400 requests per second_ for each dataset, a measure to prevent overloading Apify servers.
 
 For all other dataset [API endpoints](/api/v2/storage-datasets), the rate limit is 60 requests per second for each dataset.
 
