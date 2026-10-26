@@ -14,8 +14,8 @@ import ApifyPluginSkillPrompts from '@site/sources/_partials/_apify-plugin-skill
 The [Apify plugin for ZCode](https://github.com/apify/apify-zcode-plugin) connects ZCode to Apify's library of [Actors](https://apify.com/store) and bundles:
 
 - The [Apify MCP server](/mcp) for searching Apify Store, running Actors, and retrieving datasets through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro).
-- An `apify` routing subagent that picks the right tool or skill from a natural-language request
-- Five built-in skills for common workflows (see [Bundled skills](#bundled-skills) below)
+- An `apify` routing subagent that picks the right tool or skill from a natural-language request.
+- Five built-in skills for common workflows (see [Bundled skills](#bundled-skills) below).
 
 This guide covers installation from the ZCode plugin marketplace.
 
