@@ -36,3 +36,9 @@ properties:
   gitHubGistUrl:
     type: string
     description: URL of the GitHub Gist to clone the source code from. Applies when the `sourceType` is `GITHUB_GIST`.
+  actorPath:
+    type: string
+    examples: [actors/typescript-actor]
+    description: The Actor's folder inside the uploaded source, as a path relative to the upload root with `/` separators,
+      for example `actors/typescript-actor`. Applies when the `sourceType` is `SOURCE_FILES` or `TARBALL`. When omitted,
+      the upload root is the Actor's folder. Never empty, with no leading or trailing `/` and no `.` or `..` segments.
