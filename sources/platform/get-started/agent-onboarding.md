@@ -90,7 +90,7 @@ The pattern is the same across every integration method: pick an Actor, send inp
 
 :::caution Cost controls
 
-When an agent calls Actors automatically, set run limits to prevent surprise bills. Pass these as query parameters on the [run Actor endpoint](/api/v2/actors-runs-post):
+When an agent calls Actors automatically, set run limits to prevent surprise bills. Pass these as query parameters on the [Run Actor](/api/v2/actors-runs-post) endpoint:
 
 - `maxTotalChargeUsd` - cap the total amount charged for the run. Works for all pricing models.
 - `maxItems` - cap how many results you pay for on an Actor priced per result.
@@ -237,14 +237,14 @@ For HTTP-native integrations or languages without a dedicated client. Base URL: 
 
 | Action | Method | Endpoint |
 | :--- | :--- | :--- |
-| [Search Actors in Store](/api/v2/store-get) | `GET` | `/v2/store` |
-| [Get Actor details](/api/v2/actor-get) | `GET` | `/v2/actors/{actorId}` |
-| [Run an Actor](/api/v2/actors-runs-post) | `POST` | `/v2/actors/{actorId}/runs` |
-| [Run Actor (sync, get results)](/api/v2/actor-run-sync-get-dataset-items-post) | `POST` | `/v2/actors/{actorId}/run-sync-get-dataset-items` |
-| [Get run status](/api/v2/actor-run-get) | `GET` | `/v2/actor-runs/{runId}` |
+| [Get list of Actors in Store](/api/v2/store-get) | `GET` | `/v2/store` |
+| [Get Actor](/api/v2/actor-get) | `GET` | `/v2/actors/{actorId}` |
+| [Run Actor](/api/v2/actors-runs-post) | `POST` | `/v2/actors/{actorId}/runs` |
+| [Run Actor synchronously and get dataset items](/api/v2/actor-run-sync-get-dataset-items-post) | `POST` | `/v2/actors/{actorId}/run-sync-get-dataset-items` |
+| [Get Actor run](/api/v2/actor-run-get) | `GET` | `/v2/actor-runs/{runId}` |
 | [Get dataset items](/api/v2/dataset-items-get) | `GET` | `/v2/datasets/{datasetId}/items` |
 
-The sync endpoint ([`run-sync-get-dataset-items`](/api/v2/actor-run-sync-get-dataset-items-post)) runs an Actor and returns results in a single request (waits up to 5 minutes). Use [async endpoints](/api/v2/actors-runs-post) for longer runs.
+The [Run Actor synchronously and get dataset items](/api/v2/actor-run-sync-get-dataset-items-post) endpoint runs an Actor and returns results in a single request (waits up to 5 minutes). Use the asynchronous [Run Actor](/api/v2/actors-runs-post) endpoint for longer runs.
 
 For runs that take longer than the sync timeout, prefer [webhooks](/integrations/webhooks) over polling - Apify will POST a notification to your URL when the run finishes, avoiding wasted requests.
 

@@ -102,7 +102,7 @@ getById:
     Gets a value stored in the key-value store under a specific key.
 
     The response body has the same `Content-Encoding` header as it was set in
-    [Put record](#tag/Key-value-storesRecord/operation/keyValueStore_record_put).
+    [Set key-value store record](/api/v2/key-value-store-record-put).
 
     If the request does not define the `Accept-Encoding` HTTP header with the
     right encoding, the record will be decompressed.
@@ -290,7 +290,7 @@ postById:
   description: |
     Stores a value under a specific key to the key-value store.
 
-    This endpoint is an alias for the [`PUT` record](#tag/Key-value-storesRecord/operation/keyValueStore_record_put) method and behaves identically.
+    This endpoint is an alias for the [Set key-value store record](/api/v2/key-value-store-record-put) endpoint and behaves identically.
   operationId: keyValueStore_record_post
   parameters:
     - $ref: "../../parameters/keyValueStoreParameters.yaml#/storeId"
