@@ -1,7 +1,7 @@
 get:
   tags:
     - Actor runs
-  summary: Get run
+  summary: Get Actor run
   description: |
     This is not a single endpoint, but an entire group of endpoints that lets
     you retrieve the run or any of its default storages.
@@ -59,7 +59,7 @@ get:
 put:
   tags:
     - Actor runs
-  summary: Update run
+  summary: Update Actor run
   description: |
     This endpoint can be used to update both the run's status message and to configure its general resource access level.
 
@@ -136,7 +136,7 @@ put:
 delete:
   tags:
     - Actor runs
-  summary: Delete run
+  summary: Delete Actor run
   description: |
     Delete the run. Only finished runs can be deleted. Only the person or
     organization that initiated the run can delete it.

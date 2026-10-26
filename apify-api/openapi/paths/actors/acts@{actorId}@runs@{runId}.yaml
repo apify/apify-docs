@@ -1,7 +1,7 @@
 get:
   tags:
     - Actors/Actor runs
-  summary: Get run
+  summary: Get Actor run
   description: |
     **[DEPRECATED]** API endpoints related to run of the Actor were moved under
     new namespace [`actor-runs`](#/reference/actor-runs).

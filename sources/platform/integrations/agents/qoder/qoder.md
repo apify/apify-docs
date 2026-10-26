@@ -119,7 +119,7 @@ The plugin bundles the Apify MCP server and connects to its default endpoint, so
 - **IDE and Desktop:** on the first action that needs your account, the app opens a browser tab for the Apify OAuth flow.
 - **QoderWork:** open the `apify` plugin, and under **Connectors** select **Auth** on the Apify connector.
 
-Review the permissions and allow access to finish signing in. The connection stays authenticated for future sessions, and you can revoke access at any time in [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations?utm_source=qoder&utm_medium=integrations).
+Review the permissions and allow access to finish signing in. The connection stays authenticated for future sessions, and you can revoke access at any time in [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations).
 
 ## Run your first prompt
 
@@ -159,7 +159,7 @@ QoderWake runs digital employees called Wakers. Add the Apify MCP server as a cu
 
 1. Restart QoderWake again. The connector status changes to connected, and the Waker can call the Apify tools.
 
-The Waker gains the Apify MCP tools for searching Apify Store, running Actors, and retrieving datasets. To revoke access later, select **Reset authorization** on the connector, or manage the connection in [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations?utm_source=qoder&utm_medium=integrations).
+The Waker gains the Apify MCP tools for searching Apify Store, running Actors, and retrieving datasets. To revoke access later, select **Reset authorization** on the connector, or manage the connection in [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations).
 
 ### JetBrains plugin
 
