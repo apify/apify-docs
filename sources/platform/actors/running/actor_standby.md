@@ -17,7 +17,7 @@ If the Actor defines a [web server schema](../development/actor_definition/web_s
 
 You don't need to start the Actor. Send a request to that hostname and endpoint, and you get the results.
 
-![Endpoints tab on the Actor detail page](./images/actor_standby/standby-tab.png)
+![Server tab on the Actor detail page](./images/actor_standby/standby-tab.png)
 
 ## Standby URLs
 
@@ -33,7 +33,7 @@ The Actor also responds on a URL built from its ID, which keeps working if the A
 https://92c4oi4fpzy7rprlf.apify.actor
 ```
 
-The Standby URL stays the same for all runs of the Actor, so you can share it publicly or hardcode it in applications that call the Actor. Copy the URL from the **Endpoints** tab instead of building it from the username and Actor name, because some Actors use a different hostname format, like `rag-web-browser.apify.actor` in the examples below.
+The Standby URL stays the same for all runs of the Actor, so you can share it publicly or hardcode it in applications that call the Actor. Copy the URL from the **Server** tab instead of building it from the username and Actor name, because some Actors use a different hostname format, like `rag-web-browser.apify.actor` in the examples below.
 
 ## Send requests to the Actor
 
@@ -114,14 +114,14 @@ The Standby configuration has these properties:
 | Idle timeout (seconds) | If a run receives no HTTP requests within this time, the platform stops it. The next request might then need a new run, which can take a few seconds to start. A higher idle timeout improves responsiveness but costs more, because the run stays active longer. |
 | Build | The Actor build that Standby runs use: a build tag (for example `latest`) or a build number (for example `0.1.2`). |
 
-You can see the current values in the **Endpoints** tab of the Actor detail page. If you own the Actor, you can change its default Standby configuration in the **Settings** tab.
+You can see the current values in the **Server** tab of the Actor detail page. If you own the Actor, you can change its default Standby configuration in the **Settings** tab.
 
 ### Override the configuration with a task
 
 If you use an Actor built by someone else, the Actor-level hostname always uses the developer's default configuration. To override it:
 
 1. In [Apify Console](https://console.apify.com), create a new task from the Actor.
-1. Open the **Endpoints** tab of the created task.
+1. Open the **Server** tab of the created task.
 1. Modify the configuration as needed.
 1. In your application, use the task's hostname instead of the Actor's.
 
