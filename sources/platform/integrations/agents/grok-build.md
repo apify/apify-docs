@@ -43,7 +43,7 @@ This guide covers installation from the plugin's GitHub repository.
     grok plugin list
     ```
 
-    The **apify** plugin appears in the list.
+    The `apify` plugin appears in the list.
 
 ## Authenticate to Apify
 
@@ -59,7 +59,7 @@ The plugin bundles the Apify MCP server. Read-only tools like searching Apify St
 
 1. Select the Apify MCP server and press `i` to start the OAuth flow. Grok Build opens a browser tab for Apify.
 
-1. Review the permissions and click **Allow access**. Apify requests access to your profile and to run Actors and manage your runs and storage on your behalf.
+1. Review the permissions and select **Allow access**. Apify requests access to your profile and to run Actors and manage your runs and storage on your behalf.
 
 1. After you finish the OAuth flow, the **[needs auth]** label disappears and the Apify MCP server is connected.
 
