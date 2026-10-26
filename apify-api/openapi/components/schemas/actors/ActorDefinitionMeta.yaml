@@ -1,0 +1,10 @@
+title: ActorDefinitionMeta
+description: Additional information about the Actor.
+type: object
+properties:
+  templateId:
+    type: string
+    description: The ID of the template from which the Actor was created.
+  generatedBy:
+    type: string
+    description: The tool or model that generated the Actor.

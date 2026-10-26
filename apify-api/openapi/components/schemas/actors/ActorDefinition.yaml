@@ -9,6 +9,12 @@ properties:
   name:
     type: string
     description: The name of the Actor.
+  title:
+    type: string
+    description: The human-readable display title of the Actor, shown in Apify Console and Apify Store.
+  description:
+    type: string
+    description: The description of the Actor.
   version:
     type: string
     pattern: ^[0-9]+(\.[0-9]+)+$
@@ -16,6 +22,8 @@ properties:
   buildTag:
     type: string
     description: The tag name to be applied to a successful build of the Actor. Defaults to 'latest' if not specified.
+  meta:
+    $ref: ./ActorDefinitionMeta.yaml
   environmentVariables:
     type: object
     additionalProperties:
@@ -33,6 +41,9 @@ properties:
   input:
     type: [object, "null"]
     description: The input schema object, the full specification can be found in [Apify docs](https://docs.apify.com/platform/actors/development/actor-definition/input-schema)
+  output:
+    type: [object, "null"]
+    description: The output schema object, the full specification can be found in [Apify docs](https://docs.apify.com/platform/actors/development/actor-definition/output-schema)
   changelog:
     type: [string, "null"]
     description: The path to the CHANGELOG file displayed in the Actor's information tab.
@@ -42,6 +53,14 @@ properties:
       dataset:
         type: object
         description: Defines the schema of items in your dataset, the full specification can be found in [Apify docs](https://docs.apify.com/platform/actors/development/actor-definition/dataset-schema)
+      datasets:
+        type: object
+        additionalProperties:
+          type: object
+        description: Maps dataset aliases to the schemas of the Actor's datasets, the full specification can be found in [Apify docs](https://docs.apify.com/platform/storage/dataset-schema/multiple-datasets)
+      keyValueStore:
+        type: object
+        description: Defines the schema of the Actor's default key-value store, the full specification can be found in [Apify docs](https://docs.apify.com/platform/storage/key-value-store-schema)
   defaultMemoryMbytes:
     oneOf:
       - type: string
@@ -60,3 +79,9 @@ properties:
   usesStandbyMode:
     type: boolean
     description: Specifies whether Standby mode is enabled for the Actor.
+  webServerSchema:
+    type: object
+    description: The OpenAPI v3 specification of the web server running in the Actor, the full specification can be found in [Apify docs](https://docs.apify.com/platform/actors/development/actor-definition/web-server-schema)
+  webServerMcpPath:
+    type: string
+    description: The HTTP path where the Actor's web server exposes its MCP (Model Context Protocol) server, for example `/mcp`.
