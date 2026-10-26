@@ -158,7 +158,7 @@ The `patternKey` and `patternValue` properties were removed on June 30, 2026. Se
 ## Removal of `patternKey` and `patternValue` {#deprecation-of-patternkey-and-patternvalue}
 
 ::::warning Removed properties
-Apify removed `patternKey` and `patternValue` from the input schema on June 30, 2026. A build whose input schema still contains either property fails with a validation error. Existing builds keep running. Replace both properties before you build the Actor again.
+The `patternKey` and `patternValue` properties were removed from the input schema on June 30, 2026. A build whose input schema still contains either property fails with a validation error. Existing builds keep running. Replace both properties before you build the Actor again.
 ::::
 
 The two properties validated keys and values in objects and arrays. Their replacements are standard [JSON schema](https://json-schema.org/), which also lets you validate sub-properties.
