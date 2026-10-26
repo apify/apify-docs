@@ -116,7 +116,7 @@ Use the **Abort Actor run** button to stop the run at any time.
 
 When the run completes, click **Next: Import dataset** to go straight to the **Import Data from Dataset** page with the run's default dataset pre-filled. Follow the [import steps](#import-a-dataset) to load the results into Snowflake.
 
-![Completed Actor run with Next: Import dataset button](../images/snowflake/snowflake-actor-run-complete.webp)
+![Completed Actor run with Import dataset button](../images/snowflake/snowflake-actor-run-complete.webp)
 
 ## Import a dataset
 
@@ -194,8 +194,8 @@ On the **Schedules** page, select **Create new schedule** and follow the four st
     ![Schedule setup step with the frequency tabs and the next runs preview](../images/snowflake/snowflake-schedule-setup.webp)
 
 1. **Actor or task setup** - pick **Choose an Actor** and enter its input, or pick **Choose a task** and optionally enter input overrides. Select **Continue** to start a preview run. The schedule repeats this run, so its dataset shows you the data each scheduled run produces.
-1. **Import dataset** - when the preview run finishes, select **Continue** and configure the import as on the [Import Dataset](#import-a-dataset) page. The dataset is locked to the preview run's, since every scheduled run imports the dataset it produces itself. For the same reason, **Unwind** and **Flatten** aren't available, and **Offset** and **Limit** apply to the preview only.
-1. **Review** - check the schedule and its destination table, then fill in the Snowflake connection details: **Snowflake account identifier**, **Snowflake username**, the PAT, and optionally a **Snowflake warehouse**. For the username, enter your _login name_, which you find in Snowsight under your name > **Connect a tool to Snowflake** > **Login name**. Select **Save and start**.
+1. **Import dataset** - when the preview run finishes, select **Continue** and configure the import as described in [Import a dataset](#import-a-dataset). The dataset is locked to the preview run's dataset, since every scheduled run imports the dataset it produces itself. For the same reason, **Unwind** and **Flatten** aren't available, and **Offset** and **Limit** apply to the preview only.
+1. **Review** - check the schedule and its destination table. Then fill in the Snowflake connection details: **Snowflake account identifier**, **Snowflake username**, **Snowflake programmatic access token (PAT)**, and optionally **Snowflake warehouse**. For the username, enter your login name, which you find in Snowsight under your name > **Connect a tool to Snowflake** > **Login name**. Select **Save and start**.
 
     ![Review step with the Snowflake destination credentials and the Save and start button](../images/snowflake/snowflake-schedule-review.webp)
 
