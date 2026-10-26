@@ -67,7 +67,7 @@ put:
 
     When providing your API authentication token, we recommend using the
     request's `Authorization` header, rather than the URL.
-    [Learn more](/api/v2/getting-started#authentication)
+    For details, see [Authentication](/api/v2/getting-started#authentication).
 
     The response is the `Version` object as
     returned by the [Get Actor version](/api/v2/actor-version-get) endpoint.

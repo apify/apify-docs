@@ -75,7 +75,7 @@ To create a new [schedule](/api/v2/schedules) using the Apify API, send a `POST`
 You can find your [secret API token](/integrations) under the [API & Integrations](https://console.apify.com/settings/integrations) tab of your Apify account settings.
 
 :::caution API authentication recommendations
-When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. [Learn more](/api/v2/getting-started#authentication)
+When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. For details, see [Authentication](/api/v2/getting-started#authentication).
 :::
 
 In the `POST` request's payload should be a JSON object specifying the schedule's name, your [user ID](https://console.apify.com/settings/integrations), and the schedule's _actions_.
