@@ -1,23 +1,19 @@
-title: CreateOrUpdateVersionRequest
+title: UpdateVersionRequest
 type: object
 properties:
   versionNumber:
-    type: [string, "null"]
+    type: string
     pattern: ^([0-9]|[1-9][0-9])\.([0-9]|[1-9][0-9])$
     examples: ["1.6"]
     description: The version number of the Actor. Two numbers separated by a dot,
       that represent the `MAJOR.MINOR` part of the semantic versioning.
   sourceType:
-    anyOf:
-      - $ref: ./VersionSourceType.yaml
-      - type: "null"
+    $ref: ./WritableVersionSourceType.yaml
     description: Where the source code of the version lives.
   envVars:
-    anyOf:
-      - type: array
-        items:
-          $ref: ./EnvVar.yaml
-      - type: "null"
+    type: array
+    items:
+      $ref: ./EnvVarRequest.yaml
     description: Environment variables for the version.
   applyEnvVarsToBuild:
     type: [boolean, "null"]
@@ -32,17 +28,11 @@ properties:
     description: Applies when the `sourceType` is `SOURCE_FILES`. Represents the Actor's
       file structure as an array of files and folders.
   gitRepoUrl:
-    type: [string, "null"]
+    type: string
     description: URL of the Git repository to clone the source code from. Applies when the `sourceType` is `GIT_REPO`.
   tarballUrl:
-    type: [string, "null"]
+    type: string
     description: URL of the zip archive to download the source code from. Applies when the `sourceType` is `TARBALL`.
   gitHubGistUrl:
-    type: [string, "null"]
+    type: string
     description: URL of the GitHub Gist to clone the source code from. Applies when the `sourceType` is `GITHUB_GIST`.
-  actorPath:
-    type: [string, "null"]
-    examples: [actors/typescript-actor]
-    description: The Actor's folder inside the uploaded source, as a path relative to the upload root with `/` separators,
-      for example `actors/typescript-actor`. Applies when the `sourceType` is `SOURCE_FILES` or `TARBALL`. When omitted,
-      the upload root is the Actor's folder. Never empty, with no leading or trailing `/` and no `.` or `..` segments.

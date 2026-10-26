@@ -12,7 +12,7 @@ properties:
     description: |
       Time when the task was published, or `null` if the task isn't published.
       This field is server-controlled. To publish or unpublish a task, use the
-      [Update task](/api/v2/actor-task-put) endpoint and set `isPublic`.
+      [Update Actor task](/api/v2/actor-task-put) endpoint and set `isPublic`.
     examples: ["2025-06-16T09:20:45.777Z"]
   seoTitle:
     type: [string, "null"]

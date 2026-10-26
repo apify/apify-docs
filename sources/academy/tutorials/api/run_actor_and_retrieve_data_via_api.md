@@ -85,7 +85,7 @@ If we press **Send**, it will immediately return some info about the run. The `s
 
 ![Actor run info in Postman](./images/run-info-postman.png)
 
-We will later use this **run info** JSON to retrieve the run's output data. This info about the run can also be retrieved with another call to the [**Get run**](/api/v2/actor-run-get) endpoint.
+We will later use this **run info** JSON to retrieve the run's output data. This info about the run can also be retrieved with another call to the [**Get Actor run**](/api/v2/actor-run-get) endpoint.
 
 ## JavaScript and Python client {#javascript-and-python-client}
 
@@ -234,7 +234,7 @@ Once your server receives this request from the webhook, you know that the event
 
 What if you don't have a server, and the run you'd like to do is much too long to use a synchronous call? In cases like these, periodic **polling** of the run's status is the solution.
 
-When we run the Actor with the [usual API call](#run-an-actor-or-task) shown above, we will back a response with the **run info** object. From this JSON object, we can then extract the ID of the Actor run that we just started from the `id` field. Then, we can set an interval that will poll the Apify API (let's say every 5 seconds) by calling the [**Get run**](/api/v2/actor-run-get) endpoint to retrieve the run's status.
+When we run the Actor with the [usual API call](#run-an-actor-or-task) shown above, we will back a response with the **run info** object. From this JSON object, we can then extract the ID of the Actor run that we just started from the `id` field. Then, we can set an interval that will poll the Apify API (let's say every 5 seconds) by calling the [**Get Actor run**](/api/v2/actor-run-get) endpoint to retrieve the run's status.
 
 Replace the `RUN_ID` in the following URL with the ID you extracted earlier:
 
@@ -276,7 +276,7 @@ https://api.apify.com/v2/datasets/DATASET_ID/items?format=csv&offset=250000
 
 When you want to retrieve something from a key-value store, the `defaultKeyValueStoreId` is _not_ enough. You also need to know the name (or **key**) of the record you want to retrieve.
 
-If you have a single output JSON, the convention is to return it as a record named `OUTPUT` to the default key-value store. To retrieve the record's content, call the [**Get record**](/api/v2/key-value-store-record-get) endpoint.
+If you have a single output JSON, the convention is to return it as a record named `OUTPUT` to the default key-value store. To retrieve the record's content, call the [**Get key-value store record**](/api/v2/key-value-store-record-get) endpoint.
 
 ```cURL
 https://api.apify.com/v2/key-value-stores/STORE_ID/records/RECORD_KEY

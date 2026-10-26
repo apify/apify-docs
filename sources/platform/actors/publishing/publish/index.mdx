@@ -1,6 +1,6 @@
 ---
 title: Publish your Actor
-description: Prepare your Actor for publication on Apify Store.
+description: Publish your Actor on Apify Store, where anyone can discover and use it. Learn about the publishing requirements and choose whether to share its source code.
 slug: /actors/publishing/publish
 sidebar_position: 1
 ---
@@ -9,9 +9,14 @@ By publishing your Actor, you make it available to the public on [Apify Store](h
 
 ## Before you start
 
-Before you publish your Actor, update its README file. The README becomes your Actor's public detail page on Apify Store. It's where users can learn about your Actor and how to use it.
+To publish an Actor on Apify Store, you must first:
 
-For details, see [Create an Actor README](/actors/publishing/actor-readme).
+- Accept the [Store Publishing Terms and Conditions](/legal/store-publishing-terms-and-conditions).
+- Build and run your Actor at least once.
+- Update your [Actor README](/actors/publishing/actor-readme).
+- Define the [input](/actors/development/actor-definition/input-schema) and [output](/actors/development/actor-definition/output-schema) schemas of your Actor.
+
+If your Actor requires [full permissions](/actors/development/permissions), or you want to publish more than 10 Actors, you must also [verify your identity](/actors/monetize/monthly-payouts#verify-your-identity).
 
 ## Make your Actor public
 
@@ -25,7 +30,7 @@ To make your Actor available on Apify Store:
 Complete all required fields in the following sections:
 
 1. In the **Display information** section, add an Actor logo and [description](/academy/actor-marketing-playbook/actor-basics/actor-description).
-1. In the **Monetization** section, [set up monetization](/actors/publishing/monetize) for your Actor.
+1. In the **Monetization** section, [set up monetization](/actors/monetize) for your Actor.
 1. In the **Sample output** section, add a sample output for your Actor. If the [input schema](/actors/development/actor-definition/input-schema) already includes the sample output, it's added automatically.
 1. In the **Output schema** section, define the [output schema](/actors/development/actor-definition/output-schema) of your Actor. Optionally, define also the following schemas:
     - [Dataset schema](/storage/dataset-schema)
@@ -37,11 +42,10 @@ Once all sections are marked as completed, select **Publish on Store**.
 
 ## Verify the publication
 
-To verify that your Actor has been published:
+To verify that your Actor has been published, use one of these methods:
 
-1. Go to the [Apify Store](https://apify.com/store).
-1. Search for your Actor's name.
-1. Select your Actor's card and review its dedicated page.
+- Open `https://apify.com/YOUR_USERNAME/YOUR_ACTOR_NAME` in a private browser window. If the Actor's page loads, your Actor is published.
+- Call the [Get Actor](/api/v2/actor-get) API endpoint. If the `isPublic` property in the response is `true`, your Actor is published.
 
 ## Publish Actor's source code
 

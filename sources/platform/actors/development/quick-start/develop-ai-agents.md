@@ -122,7 +122,7 @@ Pay-per-event pricing can charge users per token. To do this, extract token coun
 
 ## Monetize with pay-per-event pricing
 
-[Pay-per-event (PPE)](/actors/publishing/monetize/pay-per-event) pricing lets you charge users for specific actions your agent performs. Use `Actor.charge()` from the [JavaScript SDK](/sdk/js/reference/class/Actor#charge) or [Python SDK](/sdk/python/reference/class/Actor#charge) to bill users for events like API calls, generated results, or token usage.
+[Pay-per-event (PPE)](/actors/monetize/pay-per-event) pricing lets you charge users for specific actions your agent performs. Use `Actor.charge()` from the [JavaScript SDK](/sdk/js/reference/class/Actor#charge) or [Python SDK](/sdk/python/reference/class/Actor#charge) to bill users for events like API calls, generated results, or token usage.
 
 ### PPE for AI agents
 
@@ -143,7 +143,7 @@ If an Actor's net profit goes negative (for example, from free-tier users consum
 
 :::
 
-For detailed pricing guidance, see the [pay-per-event documentation](/actors/publishing/monetize/pay-per-event).
+For detailed pricing guidance, see the [pay-per-event documentation](/actors/monetize/pay-per-event).
 
 ## Deploy to Apify
 
