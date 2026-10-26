@@ -156,7 +156,7 @@ async def main() -> None:
 
 ### Run termination
 
-A run ends when its process exits, when it migrates to another machine, or when it stays idle for longer than the idle timeout. Apart from the [readiness probe](#readiness-probe), the platform doesn't check your server's health while the run is alive. A server that stays up but stops responding keeps receiving requests, so on an unrecoverable error, exit the process instead of swallowing the error.
+A run ends when its process exits, when it stays idle for longer than the idle timeout, or when the platform replaces it. During a worker migration, the platform doesn't move the run to another machine. Instead, it starts a replacement run, waits until that run is ready, then stops sending requests to the old run and aborts it. Apart from the [readiness probe](#readiness-probe), the platform doesn't check your server's health while the run is alive. A server that stays up but stops responding keeps receiving requests, so on an unrecoverable error, exit the process instead of swallowing the error.
 
 ## Detect the run mode
 

@@ -62,17 +62,17 @@ The platform removes the token from the request before forwarding it, so the tok
 
 If you're developing a Standby Actor, use the token from the `APIFY_TOKEN` [environment variable](../development/programming_interface/environment_variables.md#system-environment-variables) to call the Apify API, as in any other Actor.
 
-To let third-party services call your Actor without access to your entire account, send Standby requests with [scoped tokens](/integrations/api#limited-permissions).
+Scoped tokens work for Standby requests. To let a third-party service call your Actor without access to your entire account, give it a [scoped token](/integrations/api#limited-permissions) with only the permissions it needs.
 
 :::caution Restricted access is not supported
 
-Standby mode doesn't support [restricting what an Actor can access](/integrations/api#restricted-access-restrict-what-actors-can-access-using-the-scope-of-this-actor) with a scoped token.
+A scoped token also has a [restricted access](/integrations/api#restricted-access-restrict-what-actors-can-access-using-the-scope-of-this-actor) option that limits what the Actor's run can access. Standby mode doesn't support that option.
 
 :::
 
 ## Run the Actor in normal mode
 
-You can still modify the input and select **Start** to run the Actor in normal mode. The platform always allows it, but the Actor might not support it. The run might start in the Standby mode, fail, or return empty results. Check the Actor README for what the Actor supports.
+If the Actor has no input schema, Apify Console disables the **Input** tab. Otherwise, you can modify the input and select **Start** to run the Actor in normal mode. The Actor might not support normal mode. The run might then start in Standby mode, fail, or return empty results. Check the Actor README for what the Actor supports.
 
 ## Limits and scaling
 
@@ -113,30 +113,31 @@ The Standby configuration has these properties:
 | Memory (MB) | The amount of memory (RAM) allocated for the Actor in Standby mode, in megabytes. More memory usually lets the Actor handle more requests in parallel, but it also consumes more compute units and costs more. |
 | Idle timeout (seconds) | If a run receives no HTTP requests within this time, the platform stops it. The next request might then need a new run, which can take a few seconds to start. A higher idle timeout improves responsiveness but costs more, because the run stays active longer. |
 | Build | The Actor build that Standby runs use: a build tag (for example `latest`) or a build number (for example `0.1.2`). |
+| Validate and pass Actor input | If enabled, the platform validates the Actor input and passes it to the run even when the run starts in Standby mode. Use it to start Standby runs with different configurations. If disabled, the input applies only to manual runs and testing, independent of Standby mode. |
 
-You can see the current values in the **Server** tab of the Actor detail page. If you own the Actor, you can change its default Standby configuration in the **Settings** tab.
+If you own the Actor, you can see and change its default Standby configuration in the **Settings** tab.
 
 ### Override the configuration with a task
 
 If you use an Actor built by someone else, the Actor-level hostname always uses the developer's default configuration. To override it:
 
-1. In [Apify Console](https://console.apify.com), create a new task from the Actor.
-1. Open the **Server** tab of the created task.
+1. In [Apify Console](https://console.apify.com), open the Actor and select **Save as a new task**.
+1. Open the task's **Settings** tab.
 1. Modify the configuration as needed.
 1. In your application, use the task's hostname instead of the Actor's.
 
 :::note Developers can lock the configuration
 
-The Actor's developer can lock the Standby configuration. In that case, the task-level settings have no effect.
+If the developer locked the Standby configuration, the task-level settings have no effect.
 
 :::
 
 ## Billing
 
-The platform bills Standby runs like normal runs, but the costs can surprise you. A Standby run consumes resources in the background even when no requests arrive, until the idle timeout stops it.
+The platform bills Standby runs like normal runs. A Standby run also consumes resources while it waits for requests, until the idle timeout stops it. Expect usage even when no requests arrive.
 
 For Actors monetized with the [pay-per-event pricing model](/actors/monetize/pay-per-event), you pay the platform usage costs of the Standby runs in addition to the event charges.
 
 ## Use Standby Actors as MCP servers
 
-If the Actor exposes a [Model Context Protocol (MCP)](../../agents/mcp.md) server, its MCP endpoint is the Standby URL followed by the path defined in the Actor's [`webServerMcpPath`](../development/actor_definition/actor_json.md) property. Authenticate requests to the MCP endpoint the same way as any other Standby request.
+If the Actor exposes a [Model Context Protocol (MCP)](../../agents/mcp.md) server, its MCP endpoint is the Standby URL followed by the path defined in the Actor's [`webServerMcpPath`](../development/actor_definition/actor_json.md) property. Apify Console shows the MCP URL in the Actor's **Server** tab. Authenticate requests to the MCP endpoint the same way as any other Standby request.
