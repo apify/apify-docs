@@ -158,7 +158,7 @@ To continue the run:
 1. If the run has a limit, enter a higher value in **Maximum cost per run**, or turn on **No maximum limit**.
 1. Select **Resurrect**.
 
-To do the same with the API, pass `maxTotalChargeUsd` to the [Resurrect run](/api/v2/actor-run-resurrect-post) endpoint.
+To do the same with the API, pass `maxTotalChargeUsd` to the [Resurrect Actor run](/api/v2/actor-run-resurrect-post) endpoint.
 
 ### Data retention
 
