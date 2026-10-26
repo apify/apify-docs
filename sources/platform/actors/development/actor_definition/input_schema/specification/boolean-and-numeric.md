@@ -2,7 +2,7 @@
 title: Boolean and numeric input types
 sidebar_label: Boolean and numeric
 sidebar_position: 2
-description: Define boolean and numeric input fields in an Actor input schema - checkboxes with group captions, integers and numbers with minimum, maximum, and units.
+description: Define boolean and numeric input fields in an Actor input schema - checkboxes with group captions, integers and numbers with ranges and units.
 slug: /actors/development/actor-definition/input-schema/specification/v1/boolean-and-numeric
 ---
 

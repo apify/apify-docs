@@ -2,7 +2,7 @@
 title: Object input type
 sidebar_label: Object
 sidebar_position: 3
-description: Define object input fields in an Actor input schema - proxy configuration, free-form JSON, sub-schema validation with required and additional properties, and the schema-based editor.
+description: Define object input fields in an Actor input schema - proxy configuration, free-form JSON, sub-schema validation, and the schema-based editor.
 slug: /actors/development/actor-definition/input-schema/specification/v1/object
 ---
 

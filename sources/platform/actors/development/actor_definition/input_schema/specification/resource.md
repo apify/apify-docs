@@ -2,7 +2,7 @@
 title: Resource input type
 sidebar_label: Resource
 sidebar_position: 5
-description: Let users pick a dataset, key-value store, request queue, or MCP connector from their account as Actor input, and declare the permissions the Actor needs on it.
+description: Let users pick a dataset, key-value store, request queue, or MCP connector as Actor input, and declare the permissions it needs.
 slug: /actors/development/actor-definition/input-schema/specification/v1/resource
 ---
 

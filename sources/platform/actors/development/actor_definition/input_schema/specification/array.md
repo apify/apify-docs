@@ -2,7 +2,7 @@
 title: Array input type
 sidebar_label: Array
 sidebar_position: 4
-description: Define array input fields in an Actor input schema - start URL lists, key-value pairs, multiselect with fixed or suggested values, item validation, and the schema-based editor.
+description: Define array input fields in an Actor input schema - start URL lists, key-value pairs, multiselect, item validation, and the schema-based editor.
 slug: /actors/development/actor-definition/input-schema/specification/v1/array
 ---
 

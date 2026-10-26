@@ -2,7 +2,7 @@
 title: String input type
 sidebar_label: String
 sidebar_position: 1
-description: Define string input fields in an Actor input schema - text and code editors, select with fixed or suggested values, date pickers, file upload, and validation.
+description: Define string input fields in an Actor input schema - text and code editors, select with fixed or suggested values, date pickers, and file upload.
 slug: /actors/development/actor-definition/input-schema/specification/v1/string
 ---
 
