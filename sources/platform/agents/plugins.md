@@ -150,13 +150,15 @@ Read the full [OpenCode guide](/integrations/opencode).
 </TabItem>
 <TabItem value="grok-build" label="Grok Build">
 
-In Grok Build, install the plugin from its repository:
+Install the plugin from its repository:
 
-```text
-/install-plugin https://github.com/apify/apify-grok-build-plugin
+```bash
+grok plugin install apify/apify-grok-build-plugin
 ```
 
-Grok Build opens the Apify sign-in on the first Actor run. There's no Apify guide for Grok Build yet, so check the [plugin README](https://github.com/apify/apify-grok-build-plugin) for details.
+Grok Build opens the Apify sign-in on the first Actor run.
+
+Read the full [Grok Build guide](/integrations/grok-build).
 
 </TabItem>
 <TabItem value="kimi-code" label="Kimi Code">
