@@ -153,4 +153,87 @@ Most types also support additional properties defining, for example, the UI inpu
 | [Array](./array.md) | `json`, `requestListSources`, `pseudoUrls`, `globs`, `keyValue`, `stringList`, `fileupload`, `select`, `schemaBased`, `hidden` | Start URLs, lists, key-value pairs, multiple choice, arrays with validated items |
 | [Resource](./resource.md) | `resourcePicker`, `textfield`, `hidden` | A dataset, key-value store, request queue, or MCP connector the user picks from their account |
 
-The `patternKey` and `patternValue` properties were removed on June 30, 2026. See [Removed properties](./removed-properties.md) for what replaces them.
+The `patternKey` and `patternValue` properties were removed on June 30, 2026. See [Removal of `patternKey` and `patternValue`](#deprecation-of-patternkey-and-patternvalue) for what replaces them.
+
+## Removal of `patternKey` and `patternValue` {#deprecation-of-patternkey-and-patternvalue}
+
+::::warning Removed properties
+Apify removed `patternKey` and `patternValue` from the input schema on June 30, 2026. A build whose input schema still contains either property fails with a validation error. Existing builds keep running. Replace both properties before you build the Actor again.
+::::
+
+The two properties validated keys and values in objects and arrays. Their replacements are standard [JSON schema](https://json-schema.org/), which also lets you validate sub-properties.
+
+### Alternatives for arrays
+
+For arrays, you can replace `patternKey` and `patternValue` by using the `items` property with a subschema.
+
+Example of replacing `patternValue` for an array of strings:
+
+```json title="Old approach with patternValue"
+{
+    "title": "Tags",
+    "type": "array",
+    "description": "Enter tags",
+    "editor": "stringList",
+    "patternValue": "^[a-zA-Z0-9-_]+$"
+}
+```
+
+```json title="New approach with items subschema"
+{
+    "title": "Tags",
+    "type": "array",
+    "description": "Enter tags",
+    "editor": "stringList",
+    "items": {
+        "type": "string",
+        "pattern": "^[a-zA-Z0-9-_]+$"
+    }
+}
+```
+
+Example of replacing both `patternKey` and `patternValue` for an array with key-value pairs:
+
+```json title="Old approach with patternKey and patternValue"
+{
+    "title": "Headers",
+    "type": "array",
+    "description": "HTTP headers",
+    "editor": "keyValue",
+    "patternKey": "^[a-zA-Z0-9-]+$",
+    "patternValue": "^.+$"
+}
+```
+
+```json title="New approach with items subschema"
+{
+    "title": "Headers",
+    "type": "array",
+    "description": "HTTP headers",
+    "editor": "keyValue",
+    "items": {
+        "type": "object",
+        "properties": {
+            "key": {
+                "title": "Name",
+                "type": "string",
+                "description": "Header name",
+                "pattern": "^[a-zA-Z0-9-]+$"
+            },
+            "value": {
+                "title": "Value",
+                "type": "string",
+                "description": "Header value",
+                "pattern": "^.+$"
+            }
+        },
+        "required": ["key", "value"]
+    }
+}
+```
+
+### Alternatives for objects
+
+For objects, there is no direct replacement for `patternKey` and `patternValue` properties.
+
+If you need to validate object properties, consider using a predefined schema with the `properties` field instead of allowing arbitrary properties with validation patterns.
