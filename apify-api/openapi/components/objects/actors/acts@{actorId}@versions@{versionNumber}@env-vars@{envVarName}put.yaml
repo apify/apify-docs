@@ -72,7 +72,7 @@ put:
 
     When providing your API authentication token, we recommend using the
     request's `Authorization` header, rather than the URL.
-    For details, see [Authentication](/api/v2/getting-started#authentication).
+    For details, see [Authentication](/api/v2#authentication).
 
     The response is the `EnvVar` object as returned by the
     [Get environment variable of Actor version](/api/v2/actor-version-env-var-get)
