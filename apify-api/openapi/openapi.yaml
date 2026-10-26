@@ -439,7 +439,7 @@ info:
     These endpoints have a rate limit of _200 requests per second per resource_:
 
     * [Get key-value store record](/api/v2/key-value-store-record-get)
-    * [Set key-value store record](/api/v2/key-value-store-record-put)
+    * [Set key-value store record](/api/v2/key-value-store-record-put) and its [`POST` variant](/api/v2/key-value-store-record-post)
     * [Delete key-value store record](/api/v2/key-value-store-record-delete)
     * [Get list of key-value store keys](/api/v2/key-value-store-keys-get)
 
@@ -456,7 +456,8 @@ info:
 
     * [Run Actor](/api/v2/actors-runs-post)
     * [Run Actor task](/api/v2/actor-task-runs-post)
-    * [Run Actor task synchronously and get key-value store record](/api/v2/actor-task-run-sync-post)
+    * [Run Actor task synchronously and get key-value store record](/api/v2/actor-task-run-sync-post) and its [`GET` variant](/api/v2/actor-task-run-sync-get)
+    * [Run Actor task synchronously and get dataset items](/api/v2/actor-task-run-sync-get-dataset-items-post) and its [`GET` variant](/api/v2/actor-task-run-sync-get-dataset-items-get)
     * [Metamorph Actor run](/api/v2/actor-run-metamorph-post)
     * [Store items in dataset](/api/v2/dataset-items-post)
 
