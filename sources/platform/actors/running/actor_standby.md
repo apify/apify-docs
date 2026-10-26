@@ -12,7 +12,7 @@ To build your own Standby Actor, see [Develop Actors in Standby mode](../develop
 
 ## Check whether an Actor supports Standby mode
 
-If an Actor has Standby mode enabled, its detail page shows the **Endpoints** tab. The tab contains the hostname of the Actor's server, and the Actor README describes the endpoints, the parameters they accept, and what they return.
+If an Actor has Standby mode enabled, its detail page shows the **Server** tab. The tab contains the hostname of the Actor's server, and the Actor README describes the endpoints, the parameters they accept, and what they return.
 If the Actor defines a [web server schema](../development/actor_definition/web_server_schema/index.md), the tab also shows an interactive list of its endpoints, where you can send requests directly from the browser.
 
 You don't need to start the Actor. Send a request to that hostname and endpoint, and you get the results.
@@ -52,7 +52,7 @@ Authenticate Standby requests the same way as [requests to the Apify API](../../
       https://rag-web-browser.apify.actor/search?query=apify
     ```
 
-1. Append the token to the request URL as the `token` query parameter. Use this when you can't modify the request headers.
+1. Append the token to the request URL as the `token` query parameter. It's less secure, so use this only when you can't modify the request headers.
 
     ```text
     https://rag-web-browser.apify.actor/search?query=apify&token=my_apify_token
@@ -72,7 +72,7 @@ Standby mode doesn't support [restricting what an Actor can access](/integration
 
 ## Run the Actor in normal mode
 
-You can still modify the input and select **Start** to run the Actor in normal mode. The platform always allows it, but the Actor might not support it. The run might fail or return empty results. Check the Actor README for what the Actor supports.
+You can still modify the input and select **Start** to run the Actor in normal mode. The platform always allows it, but the Actor might not support it. The run might start in the Standby mode, fail, or return empty results. Check the Actor README for what the Actor supports.
 
 ## Limits and scaling
 
@@ -100,7 +100,7 @@ Within this window, the platform first selects an Actor run to handle the reques
 
 ### Rate limits
 
-The platform rate-limits incoming requests to Standby Actors per user account. The limit is the same on all standard subscription plans, and custom plans can raise it. Responses include the current limit in the `X-RateLimit-Limit` header. When you exceed the limit, the platform responds with a `429` error.
+The platform rate-limits incoming requests to Standby Actors per user account. The limit is the same on all standard subscription plans, and custom plans can raise it. Responses include the current limit in the `X-RateLimit-Limit` header. When you exceed the limit, the platform responds with a [`429 Too Many Requests`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/429) error.
 
 ## Standby configuration
 
