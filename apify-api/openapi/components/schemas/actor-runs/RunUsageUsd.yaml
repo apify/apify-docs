@@ -38,3 +38,6 @@ properties:
   PROXY_SERPS:
     type: [number, "null"]
     examples: [0.003]
+  PROXY_UNBLOCKER_UNITS:
+    type: [number, "null"]
+    examples: [0]

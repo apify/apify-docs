@@ -1,0 +1,14 @@
+title: WebhookDatasetTransformation
+description: Selects which dataset item fields are included in the output.
+type: object
+properties:
+  fields:
+    type: array
+    items:
+      type: string
+    examples: [[title, url]]
+  omit:
+    type: array
+    items:
+      type: string
+    examples: [[html]]

@@ -1,0 +1,14 @@
+title: RegisterDeploymentKeyRequest
+required:
+  - actorId
+  - repoName
+type: object
+properties:
+  actorId:
+    type: string
+    description: ID or `username~name` of the Actor whose deployment key to register.
+    examples: [janedoe~my-actor]
+  repoName:
+    type: string
+    description: URL of the repository to register the key on. Its host must match the provider.
+    examples: [https://github.com/janedoe/my-actor]

@@ -1,0 +1,30 @@
+title: CreateGitRepoRequest
+required:
+  - workspace
+  - repoName
+  - isPrivate
+type: object
+properties:
+  workspace:
+    type: string
+    description: |
+      Where to create the repository, as the `id` of one of the provider's workspaces. On GitLab, this is the
+      numeric namespace ID.
+    examples: [janedoe]
+  repoName:
+    type: string
+    examples: [my-actor]
+  isPrivate:
+    type: boolean
+    examples: [true]
+  files:
+    type: array
+    description: Files to commit as the initial commit. Can't be combined with `templateArchiveUrl`.
+    items:
+      $ref: ./GitRepoFile.yaml
+  templateArchiveUrl:
+    type: string
+    description: |
+      URL of an Actor template archive whose files are committed as the initial commit. Can't be combined with
+      `files`.
+    examples: [https://github.com/apify/actor-templates/blob/master/dist/templates/js-start.zip?raw=true]

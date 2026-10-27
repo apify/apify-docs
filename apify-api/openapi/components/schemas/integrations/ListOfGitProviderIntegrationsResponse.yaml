@@ -1,0 +1,9 @@
+title: ListOfGitProviderIntegrationsResponse
+required:
+  - data
+type: object
+properties:
+  data:
+    type: array
+    items:
+      $ref: ./GitProviderIntegration.yaml

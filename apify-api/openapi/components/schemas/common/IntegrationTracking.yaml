@@ -1,0 +1,15 @@
+title: IntegrationTracking
+type: object
+description: Information about the third-party integration that created the resource.
+properties:
+  platform:
+    type: string
+    examples: [zapier]
+    description: Name of the integration platform.
+  appId:
+    type: string
+    description: ID of the integration app.
+  isAiTool:
+    type: boolean
+    examples: [false]
+    description: Whether the resource was created by an AI tool.

@@ -1,0 +1,21 @@
+title: ScheduleUiState
+type: object
+description: >-
+  State of the schedule editor in Apify Console. It's removed when an API update changes
+  `cronExpression` or `timezone`.
+properties:
+  version:
+    type: integer
+    examples: [1]
+    description: Version of the editor state format.
+  data:
+    type: object
+    description: Editor form values, such as the frequency settings the cron expression was built from.
+    additionalProperties: true
+    properties:
+      cronExpression:
+        type: string
+        examples: ["0 8 * * *"]
+      timezone:
+        type: string
+        examples: [UTC]

@@ -27,6 +27,10 @@ properties:
     type: [string, "null"]
     format: date-time
     x-internal: true
+  notifiedAboutRentalToPpePriceChangeAt:
+    type: [string, "null"]
+    format: date-time
+    x-internal: true
   reasonForChange:
     type: [string, "null"]
     x-internal: true

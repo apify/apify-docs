@@ -1,0 +1,40 @@
+get:
+  tags:
+    - Actors
+  summary: Get list of Actor OAuth accounts
+  description: |
+    Gets the accounts you connected through the Actor OAuth connection, including their OAuth tokens. Only accounts
+    that finished authorization are returned.
+
+    There are at most 5 accounts per user and connection, so the list is not paginated.
+  operationId: actorOAuthAccounts_get
+  parameters:
+    - name: connectionId
+      in: path
+      description: Actor OAuth connection ID.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: kD9fm2Xp4cJq7Lw8N
+  responses:
+    "200":
+      description: ""
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/actor-oauth/ListOfActorOAuthAccountsResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      $ref: ../../components/responses/NotFound.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
+  deprecated: false

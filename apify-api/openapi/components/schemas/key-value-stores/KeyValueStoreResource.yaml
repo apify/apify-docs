@@ -12,6 +12,9 @@ properties:
   name:
     type: [string, "null"]
     examples: [d7b9MDYsbtX5L7XAj]
+  title:
+    type: [string, "null"]
+    examples: [My Store]
   userId:
     type: [string, "null"]
     examples: [BPWDBd7Z9c746JAnF]
