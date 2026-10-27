@@ -76,7 +76,9 @@ info:
     the [x402 protocol](https://docs.apify.com/platform/integrations/x402)
     (`PAYMENT-SIGNATURE` header) and
     [Skyfire](https://docs.apify.com/platform/integrations/skyfire)
-    (`skyfire-pay-id` header).
+    (`skyfire-pay-id` header), and the
+    [Machine Payments Protocol (MPP)](https://docs.apify.com/integrations/mpp)
+    (`Authorization: Payment` header).
 
     Agents can also pay once and receive a temporary API token with a fixed
     spend cap from the Apify Agent General Interface at
