@@ -38,38 +38,7 @@ post:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/restartOnError"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/build"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/webhooks"
-    - name: forcePermissionLevel
-      in: query
-      description: |
-        Overrides the Actor's permission level for this specific run. Use to test restricted permissions
-        before deploying changes to your Actor or to temporarily elevate or restrict access. If you don't specify this
-        parameter, the Actor uses its configured default permission level. For more information on permissions, see the
-        [documentation](https://docs.apify.com/platform/actors/development/permissions).
-      style: form
-      explode: true
-      schema:
-        type: string
-        enum:
-          - LIMITED_PERMISSIONS
-          - FULL_PERMISSIONS
-        example: LIMITED_PERMISSIONS
-    - name: standbyDeployment
-      in: query
-      description: |
-        The Actor Standby deployment to start the run in. Only valid for runs that Actor Standby starts (with the
-        `STANDBY` origin), any other run rejects it. Multi-tenant Standby Actors require one of the `MULTI_TENANT_*`
-        values, where the free-user and paying-user pools are only available for pay-per-event Actors. User-hosted
-        Standby Actors only accept `SINGLE_TENANT`, which is also their default.
-      style: form
-      explode: true
-      schema:
-        type: string
-        enum:
-          - SINGLE_TENANT
-          - MULTI_TENANT_FREE_USERS
-          - MULTI_TENANT_PAYING_USERS
-          - MULTI_TENANT_OWNER_PAID
-        example: SINGLE_TENANT
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/forcePermissionLevel"
   requestBody:
     description: ""
     content:
@@ -146,38 +115,7 @@ get:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/restartOnError"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/build"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/webhooks"
-    - name: forcePermissionLevel
-      in: query
-      description: |
-        Overrides the Actor's permission level for this specific run. Use to test restricted permissions
-        before deploying changes to your Actor or to temporarily elevate or restrict access. If you don't specify this
-        parameter, the Actor uses its configured default permission level. For more information on permissions, see the
-        [documentation](https://docs.apify.com/platform/actors/development/permissions).
-      style: form
-      explode: true
-      schema:
-        type: string
-        enum:
-          - LIMITED_PERMISSIONS
-          - FULL_PERMISSIONS
-        example: LIMITED_PERMISSIONS
-    - name: standbyDeployment
-      in: query
-      description: |
-        The Actor Standby deployment to start the run in. Only valid for runs that Actor Standby starts (with the
-        `STANDBY` origin), any other run rejects it. Multi-tenant Standby Actors require one of the `MULTI_TENANT_*`
-        values, where the free-user and paying-user pools are only available for pay-per-event Actors. User-hosted
-        Standby Actors only accept `SINGLE_TENANT`, which is also their default.
-      style: form
-      explode: true
-      schema:
-        type: string
-        enum:
-          - SINGLE_TENANT
-          - MULTI_TENANT_FREE_USERS
-          - MULTI_TENANT_PAYING_USERS
-          - MULTI_TENANT_OWNER_PAID
-        example: SINGLE_TENANT
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/forcePermissionLevel"
   responses:
     "201":
       description: ""
