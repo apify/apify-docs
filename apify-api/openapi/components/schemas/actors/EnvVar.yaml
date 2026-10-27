@@ -15,3 +15,7 @@ properties:
     type: [boolean, "null"]
     examples: [false]
     description: Whether the environment variable is encrypted. Secret values aren't returned by the API.
+  valueHash:
+    type: string
+    examples: [a1b2c3]
+    description: A short hash of the secret value, to detect value changes. Returned only for secret environment variables, in place of `value`.

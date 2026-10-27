@@ -1,12 +1,23 @@
 get:
   tags:
     - Users/Usage
-  summary: Get user's limits
+  summary: Get user's limits by ID
   description: |
-    Returns a complete summary of your account's limits. It is the same
-    information you will see on your account's [Limits page](https://console.apify.com/billing#/limits). The returned data
-    includes the current usage cycle, a summary of your limits, and your current usage.
-  operationId: users_me_limits_get
+    Returns the same summary of limits as [Get user's limits](/api/v2/users-me-limits-get), for an account given by
+    its ID or username.
+
+    You can only access your own account, or the organization your API token belongs to. API tokens with
+    limited permissions can't use this endpoint.
+  operationId: users_limits_get
+  parameters:
+    - name: userId
+      in: path
+      description: User ID or username of your account, or of the organization your API token belongs to.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: HGzIk8z78YcAPEB
   responses:
     "200":
       description: ""
@@ -21,23 +32,34 @@ get:
       $ref: ../../components/responses/Unauthorized.yaml
     "403":
       $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      $ref: ../../components/responses/NotFound.yaml
     "405":
       $ref: ../../components/responses/MethodNotAllowed.yaml
     "429":
       $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
-  x-legacy-doc-urls:
-    - https://docs.apify.com/api/v2#/reference/users/account-and-usage-limits/get-limits
-    - https://docs.apify.com/api/v2#/reference/users/get-limits
-    - https://docs.apify.com/api/v2#tag/UsersAccount-and-usage-limits/operation/users_me_limits_get
 put:
   tags:
     - Users/Usage
-  summary: Update user's limits
+  summary: Update user's limits by ID
   description: |
-    Updates the account's limits manageable on your account's [Limits page](https://console.apify.com/billing#/limits).
-    Specifically the: `maxMonthlyUsageUsd` and `dataRetentionDays` limits (see request body schema for more details).
-  operationId: users_me_limits_put
+    Updates the same limits as [Update user's limits](/api/v2/users-me-limits-put), for an account given by its ID
+    or username.
+
+    You can only access your own account, or the organization your API token belongs to. API tokens with
+    limited permissions can't use this endpoint.
+    For an organization, you also need the permission to manage the organization.
+  operationId: users_limits_put
+  parameters:
+    - name: userId
+      in: path
+      description: User ID or username of your account, or of the organization your API token belongs to.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: HGzIk8z78YcAPEB
   requestBody:
     description: ""
     content:
@@ -58,6 +80,8 @@ put:
       $ref: ../../components/responses/Unauthorized.yaml
     "403":
       $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      $ref: ../../components/responses/NotFound.yaml
     "405":
       $ref: ../../components/responses/MethodNotAllowed.yaml
     "413":
@@ -67,7 +91,3 @@ put:
     "429":
       $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
-  x-legacy-doc-urls:
-    - https://docs.apify.com/api/v2#/reference/users/account-and-usage-limits/update-limits
-    - https://docs.apify.com/api/v2#/reference/users/update-limits
-    - https://docs.apify.com/api/v2#tag/UsersAccount-and-usage-limits/operation/users_me_limits_put

@@ -117,7 +117,7 @@ The tables below demonstrate the Apify platform's default resource limits. For A
         </tr>
         <tr>
             <td>Maximum number of concurrent Actor runs per user </td>
-            <td>25</td>
+            <td>5</td>
             <td>32</td>
             <td>128</td>
             <td>256</td>

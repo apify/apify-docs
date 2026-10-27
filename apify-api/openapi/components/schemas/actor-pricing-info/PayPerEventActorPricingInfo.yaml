@@ -18,3 +18,7 @@ allOf:
               $ref: ./ActorChargeEvent.yaml
       minimalMaxTotalChargeUsd:
         type: [number, "null"]
+      isPPEPlatformUsagePaidByUser:
+        type: [boolean, "null"]
+        examples: [false]
+        description: If `true`, the platform usage of the run is charged to the user running the Actor, in addition to the event prices.

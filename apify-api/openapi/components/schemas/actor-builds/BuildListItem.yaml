@@ -3,7 +3,6 @@ required:
   - id
   - status
   - startedAt
-  - usageTotalUsd
   - buildNumber
 type: object
 properties:
@@ -29,6 +28,7 @@ properties:
   usageTotalUsd:
     type: number
     examples: [0.02]
+    description: Total cost in USD for this build. Requires authentication token to access.
   buildNumber:
     type: string
     pattern: ^([0-9]|[1-9][0-9])\.([0-9]|[1-9][0-9])(\.[1-9][0-9]{0,4})$

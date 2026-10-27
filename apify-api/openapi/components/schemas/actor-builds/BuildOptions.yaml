@@ -13,3 +13,10 @@ properties:
   diskMbytes:
     type: [integer, "null"]
     examples: [2048]
+  tag:
+    type: [string, "null"]
+    examples: [latest]
+    description: The tag passed when starting the build. Present only when the `tag` parameter was used.
+  debug:
+    type: [boolean, "null"]
+    description: Whether this is a debug build. Present only on debug builds.

@@ -38,6 +38,7 @@ post:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/restartOnError"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/build"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/webhooks"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/forcePermissionLevel"
   requestBody:
     description: ""
     content:
@@ -114,6 +115,7 @@ get:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/restartOnError"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/build"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/webhooks"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/forcePermissionLevel"
   responses:
     "201":
       description: ""

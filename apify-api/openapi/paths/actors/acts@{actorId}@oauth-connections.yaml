@@ -1,0 +1,35 @@
+get:
+  tags:
+    - Actors
+  summary: Get list of Actor OAuth connections
+  description: |
+    Gets the OAuth connections configured on the Actor. Each connection defines an OAuth provider that users of the
+    Actor can connect their accounts through. Only public credential fields are returned, never the client secret.
+
+    An Actor has at most 5 connections, so the list is not paginated.
+
+    You need read access to the Actor.
+  operationId: actor_oauthConnections_get
+  parameters:
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
+  responses:
+    "200":
+      description: ""
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/actor-oauth/ListOfActorOAuthConnectionsResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      $ref: ../../components/responses/NotFound.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
+  deprecated: false

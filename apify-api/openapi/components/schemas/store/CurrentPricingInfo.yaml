@@ -47,3 +47,31 @@ properties:
     type: [object, "null"]
     description: Per-event pricing configuration for pay-per-event Actors.
     additionalProperties: true
+  pricePerUnitUsd:
+    type: number
+    description: Price per unit in USD. Present only for `FLAT_PRICE_PER_MONTH` and non-tiered `PRICE_PER_DATASET_ITEM` pricing.
+    examples: [5]
+  trialMinutes:
+    type: integer
+    description: Length of the free trial in minutes. Present only for `FLAT_PRICE_PER_MONTH` pricing.
+    examples: [1440]
+  unitName:
+    type: string
+    description: Name of the charged unit. Present only for `PRICE_PER_DATASET_ITEM` pricing.
+    examples: [result]
+  tieredPricing:
+    type: object
+    description: Price per unit for each pricing tier. Present only for tiered `PRICE_PER_DATASET_ITEM` pricing.
+    additionalProperties:
+      type: object
+      properties:
+        tieredPricePerUnitUsd:
+          type: number
+    examples:
+      - FREE:
+          tieredPricePerUnitUsd: 0.005
+  notifiedAboutRentalToPpePriceChangeAt:
+    type: [string, "null"]
+    format: date-time
+    examples: [null]
+    x-internal: true

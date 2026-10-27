@@ -23,3 +23,9 @@ properties:
     type: [string, "null"]
     description: Key of the input record in the key-value store.
     examples: [INPUT-METAMORPH-1]
+  buildTags:
+    type: array
+    items:
+      type: string
+    description: Build tags of the build used for the metamorphed Actor.
+    examples: [[latest]]

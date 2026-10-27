@@ -12,8 +12,9 @@ properties:
   profile:
     $ref: ./UserProfile.yaml
   email:
-    type: string
+    type: [string, "null"]
     format: email
+    description: Primary email of the user. It is `null` when the email is not verified.
     examples: [bob@example.com]
   proxy:
     $ref: ./ProxyResource.yaml
@@ -28,3 +29,7 @@ properties:
   isPaying:
     type: boolean
     examples: [true]
+  organizationOwnerUserId:
+    type: [string, "null"]
+    description: ID of the user who owns the organization. Present only for organization accounts.
+    examples: [wRsJZtadYvn4mBZmm]

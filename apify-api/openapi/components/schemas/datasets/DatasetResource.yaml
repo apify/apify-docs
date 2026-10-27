@@ -16,6 +16,9 @@ properties:
   name:
     type: [string, "null"]
     examples: [d7b9MDYsbtX5L7XAj]
+  title:
+    type: [string, "null"]
+    examples: [My Dataset]
   userId:
     type: string
     examples: [wRsJZtadYvn4mBZmm]

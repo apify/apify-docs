@@ -23,6 +23,7 @@ get:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/status"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/startedAfter"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/startedBefore"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/deployment"
   responses:
     "200":
       description: ""
@@ -94,21 +95,7 @@ post:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/build"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/waitForFinishRun"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/webhooks"
-    - name: forcePermissionLevel
-      in: query
-      description: |
-        Overrides the Actor's permission level for this specific run. Use to test restricted permissions
-        before deploying changes to your Actor or to temporarily elevate or restrict access. If you don't specify this
-        parameter, the Actor uses its configured default permission level. For more information on permissions, see the
-        [documentation](https://docs.apify.com/platform/actors/development/permissions).
-      style: form
-      explode: true
-      schema:
-        type: string
-        enum:
-          - LIMITED_PERMISSIONS
-          - FULL_PERMISSIONS
-        example: LIMITED_PERMISSIONS
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/forcePermissionLevel"
   requestBody:
     description: ""
     content:

@@ -1,17 +1,26 @@
 get:
   tags:
     - Users/Usage
-  summary: Get user's monthly usage
+  summary: Get user's monthly usage by ID
   description: |
-    Returns a complete summary of your usage for the current monthly usage cycle,
-    an overall sum, as well as a daily breakdown of usage. It is the same
-    information you will see on your account's [Billing > Historical usage page](https://console.apify.com/billing/historical-usage). The information
-    includes your use of Actors, compute, data transfer, and storage.
+    Returns the same summary of monthly usage as [Get user's monthly usage](/api/v2/users-me-usage-monthly-get),
+    for an account given by its ID or username.
 
-    Using the `date` parameter will show your usage in the monthly usage cycle that
+    You can only access your own account, or the organization your API token belongs to. API tokens with
+    limited permissions can't use this endpoint.
+
+    Using the `date` parameter will show the usage in the monthly usage cycle that
     includes that date.
-  operationId: users_me_usage_monthly_get
+  operationId: users_usage_monthly_get
   parameters:
+    - name: userId
+      in: path
+      description: User ID or username of your account, or of the organization your API token belongs to.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: HGzIk8z78YcAPEB
     - name: date
       in: query
       description: Date in the YYYY-MM-DD format.
@@ -34,12 +43,10 @@ get:
       $ref: ../../components/responses/Unauthorized.yaml
     "403":
       $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      $ref: ../../components/responses/NotFound.yaml
     "405":
       $ref: ../../components/responses/MethodNotAllowed.yaml
     "429":
       $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
-  x-legacy-doc-urls:
-    - https://docs.apify.com/api/v2#/reference/users/monthly-usage/get-monthly-usage
-    - https://docs.apify.com/api/v2#/reference/users/get-monthly-usage
-    - https://docs.apify.com/api/v2#tag/UsersMonthly-usage/operation/users_me_usage_monthly_get

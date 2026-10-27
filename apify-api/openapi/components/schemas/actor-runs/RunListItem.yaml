@@ -58,3 +58,5 @@ properties:
   defaultRequestQueueId:
     type: string
     examples: [so93g2shcDzK3pA85]
+  standby:
+    $ref: ./RunStandby.yaml

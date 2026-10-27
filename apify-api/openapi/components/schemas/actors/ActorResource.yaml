@@ -79,7 +79,7 @@ properties:
   deploymentKey:
     type: string
     examples: [ssh-rsa AAAA ...]
-    description: The Actor's public SSH key, used as a deployment key for private Git repositories.
+    description: The Actor's public SSH key, used as a deployment key for private Git repositories. Returned only by the get Actor endpoint.
   title:
     type: [string, "null"]
     examples: [Google Search Extractor]
