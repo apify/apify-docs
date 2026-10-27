@@ -126,9 +126,8 @@ properties:
     examples: [4h/M]
   monitoringLevel:
     type: [string, "null"]
-    description: |
-      Level of monitoring services included in the plan. The only level is `STANDARD`.
-      `null` or missing means the plan includes no monitoring service.
+    enum: [STANDARD, null]
+    description: Level of monitoring services included in the plan. `null` or missing means the plan includes no monitoring service.
     examples: [STANDARD]
   isPayingCustomer:
     type: boolean
