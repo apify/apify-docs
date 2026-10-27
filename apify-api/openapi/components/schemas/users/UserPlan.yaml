@@ -119,9 +119,16 @@ properties:
     examples: [ANNUAL]
   personalizedSupport:
     type: [string, "null"]
+    description: |
+      Hours of personalized support with Apify engineers included in the plan, as `Nh/P`: `N` hours per period
+      `P`, where `P` is `M` (monthly), `Q` (quarterly), `B` (every 6 months) or `A` (annually), for example `1h/M`.
+      `null` or missing means the plan includes no personalized support.
     examples: [4h/M]
   monitoringLevel:
     type: [string, "null"]
+    description: |
+      Level of monitoring services included in the plan. The only level is `STANDARD`.
+      `null` or missing means the plan includes no monitoring service.
     examples: [STANDARD]
   isPayingCustomer:
     type: boolean
