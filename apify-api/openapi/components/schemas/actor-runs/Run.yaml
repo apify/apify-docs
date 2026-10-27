@@ -93,7 +93,7 @@ properties:
     anyOf:
       - $ref: ./RunStandby.yaml
       - type: "null"
-    description: Standby configuration of the run. `null` for runs that are not Actor Standby runs.
+    description: Server Actor deployment of this run, `null` for runs not started by a Server Actor request.
   integrationTracking:
     description: Present only when the run was started by a third-party integration.
     $ref: ../common/IntegrationTracking.yaml
