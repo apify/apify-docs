@@ -39,7 +39,7 @@ GET https://api.apify.com/v2/users/me
 
 Expected response codes:
 
-* `200`
+* 200
 
 ## Basic workflow
 
@@ -60,9 +60,9 @@ POST https://api.apify.com/v2/actors/:actorId/run-sync
 
 Expected response codes:
 
-* `201`
-* `400`
-* `408`
+* 201
+* 400
+* 408
 
 #### Asynchronously
 
@@ -74,7 +74,7 @@ POST https://api.apify.com/v2/actors/:actorId/runs
 
 Expected response codes:
 
-* `201`
+* 201
 
 ### 2. Retrieve results
 
@@ -100,7 +100,7 @@ Optional query parameters:
 
 Expected response codes:
 
-* `200`
+* 200
 
 #### From a Key-value store
 
@@ -110,8 +110,8 @@ GET https://api.apify.com/v2/key-value-stores/:storeId/records/:recordKey
 
 Expected response codes:
 
-* `200`
-* `302`
+* 200
+* 302
 
 ### Additional operations
 
@@ -125,7 +125,7 @@ GET https://api.apify.com/v2/logs/:buildOrRunId
 
 Expected response codes:
 
-* `200`
+* 200
 
 #### Monitor run status
 
@@ -135,7 +135,7 @@ GET https://api.apify.com/v2/actor-runs/:runId
 
 Expected response codes:
 
-* `200`
+* 200
 
 #### Store data in Dataset
 
@@ -149,8 +149,8 @@ If any item in the request fails validation, the entire request will be rejected
 
 Expected response codes:
 
-* `201`
-* `400`
+* 201
+* 400
 
 #### Store data in Key-value store
 
@@ -164,7 +164,7 @@ Include your data in the request body and set the appropriate `Content-Type` hea
 
 Expected response codes:
 
-* `201`
+* 201
 
 ## HTTP status code descriptions
 
