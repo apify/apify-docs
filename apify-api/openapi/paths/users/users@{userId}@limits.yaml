@@ -1,0 +1,93 @@
+get:
+  tags:
+    - Users/Usage
+  summary: Get user's limits by ID
+  description: |
+    Returns the same summary of limits as [Get user's limits](/api/v2/users-me-limits-get), for an account given by
+    its ID or username.
+
+    You can only access your own account, or the organization your API token belongs to. API tokens with
+    limited permissions can't use this endpoint.
+  operationId: users_limits_get
+  parameters:
+    - name: userId
+      in: path
+      description: User ID or username of your account, or of the organization your API token belongs to.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: HGzIk8z78YcAPEB
+  responses:
+    "200":
+      description: ""
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/users/AccountLimitsResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      $ref: ../../components/responses/NotFound.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
+  deprecated: false
+put:
+  tags:
+    - Users/Usage
+  summary: Update user's limits by ID
+  description: |
+    Updates the same limits as [Update user's limits](/api/v2/users-me-limits-put), for an account given by its ID
+    or username.
+
+    You can only access your own account, or the organization your API token belongs to. API tokens with
+    limited permissions can't use this endpoint.
+    For an organization, you also need the permission to manage the organization.
+  operationId: users_limits_put
+  parameters:
+    - name: userId
+      in: path
+      description: User ID or username of your account, or of the organization your API token belongs to.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: HGzIk8z78YcAPEB
+  requestBody:
+    description: ""
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/users/UpdateLimitsRequest.yaml
+  responses:
+    "201":
+      description: ""
+      headers: {}
+      content:
+        application/json:
+          schema:
+            type: object
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      $ref: ../../components/responses/NotFound.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "413":
+      $ref: ../../components/responses/PayloadTooLarge.yaml
+    "415":
+      $ref: ../../components/responses/UnsupportedMediaType.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
+  deprecated: false

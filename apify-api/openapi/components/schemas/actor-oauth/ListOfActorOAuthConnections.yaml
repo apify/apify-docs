@@ -1,0 +1,13 @@
+title: ListOfActorOAuthConnections
+required:
+  - total
+  - items
+type: object
+properties:
+  total:
+    type: integer
+    examples: [1]
+  items:
+    type: array
+    items:
+      $ref: ./ActorOAuthConnection.yaml

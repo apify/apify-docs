@@ -87,3 +87,43 @@ properties:
     type: object
     description: Pricing details for this plan.
     additionalProperties: true
+  planVersion:
+    type: number
+    description: Version of the plan definition.
+    examples: [2]
+  legacyPlanId:
+    type: string
+    description: ID of the legacy plan this plan was migrated from.
+    examples: [STARTER]
+  planTags:
+    type: array
+    items:
+      type: string
+    examples: [[]]
+  overageThresholdUsd:
+    type: number
+    description: Mid-cycle overage threshold above which the user is billed for the current-cycle overage.
+    examples: [500]
+  maxMonthlyUnblockerUnits:
+    type: integer
+    examples: [1000000]
+  maxPublicActorTaskCount:
+    type: integer
+    examples: [100]
+  maxPublicActorTaskCountPerActor:
+    type: integer
+    examples: [10]
+  forceBillingInterval:
+    type: string
+    description: If set, the plan can be subscribed only in this billing interval.
+    examples: [ANNUAL]
+  personalizedSupport:
+    type: string
+    examples: [4h/M]
+  monitoringLevel:
+    type: string
+    examples: [STANDARD]
+  isPayingCustomer:
+    type: boolean
+    description: Marks the user as a paying customer even without a subscription.
+    examples: [false]

@@ -43,3 +43,12 @@ properties:
   gitHubGistUrl:
     type: [string, "null"]
     description: URL of the GitHub Gist to clone the source code from. Applies when the `sourceType` is `GITHUB_GIST`.
+  githubWebhookId:
+    type: [integer, "null"]
+    description: ID of the GitHub webhook that triggers a build on push. Present when build on push is enabled for a GitHub repository.
+  gitlabWebhookId:
+    type: [integer, "null"]
+    description: ID of the GitLab webhook that triggers a build on push. Present when build on push is enabled for a GitLab repository.
+  bitbucketWebhookId:
+    type: [string, "null"]
+    description: ID of the Bitbucket webhook that triggers a build on push. Present when build on push is enabled for a Bitbucket repository.

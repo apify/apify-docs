@@ -22,6 +22,10 @@ properties:
     type: integer
     minimum: 0
     examples: [2048]
+  restartOnError:
+    type: [boolean, "null"]
+    examples: [false]
+    description: Whether to automatically restart the run if it fails.
   maxItems:
     type: [integer, "null"]
     minimum: 0
@@ -30,3 +34,7 @@ properties:
     type: [number, "null"]
     minimum: 0
     examples: [5]
+  isMaxTotalChargeUsdSetByUser:
+    type: boolean
+    examples: [true]
+    description: Whether the user explicitly set `maxTotalChargeUsd` when starting the run. Not present for pay-per-result Actors.

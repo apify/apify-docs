@@ -45,3 +45,6 @@ properties:
   scheduleCount:
     type: integer
     examples: [77]
+  monthlyUnblockerUnits:
+    type: number
+    examples: [1520]

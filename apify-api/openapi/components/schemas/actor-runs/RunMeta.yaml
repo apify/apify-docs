@@ -18,3 +18,19 @@ properties:
     type: [string, "null"]
     format: date-time
     description: Time when the run was scheduled.
+  actorRunId:
+    type: string
+    examples: [HG7ML7M8z78YcAPEB]
+    description: ID of the Actor run that started this run. Present only when the run was started from another run.
+  webhookDispatchId:
+    type: string
+    examples: [asdLZtadYvn4mBZmm]
+    description: ID of the webhook dispatch that started the run. Present only when the run was started by a webhook.
+  scheduledAct2Id:
+    type: string
+    examples: [c6KfSgoQzFhMk3etc]
+    description: ID of the schedule action that started the Actor. Present only on runs of Actors started by a schedule.
+  scheduledActorTaskId:
+    type: string
+    examples: [c6KfSgoQzFhMk3etc]
+    description: ID of the schedule action that started the Actor task. Present only on runs of tasks started by a schedule.

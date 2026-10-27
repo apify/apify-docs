@@ -70,6 +70,49 @@ properties:
       actor-start: 1
       page-crawled: 150
       data-extracted: 75
+  accountedChargedEventCounts:
+    description: A map of charged event types to the number of their charges that have already been accounted for billing. Present only for pay-per-event Actors.
+    type: [object, "null"]
+    additionalProperties:
+      type: integer
+    example:
+      actor-start: 1
+      page-crawled: 150
+  eventUsage:
+    description: >-
+      Cost breakdown of the pay-per-event charges in USD, keyed by event type.
+      Present only for pay-per-event runs, and not when the run was started by the Actor's owner.
+    type: object
+    additionalProperties:
+      $ref: ./RunEventUsage.yaml
+  externalChargedTotalUsd:
+    type: number
+    examples: [0.5]
+    description: Total price in USD of the pay-per-event charges made to other users. Present only on multi-tenant Standby runs.
+  standby:
+    $ref: ./RunStandby.yaml
+  integrationTracking:
+    description: Present only when the run was started by a third-party integration.
+    $ref: ../common/IntegrationTracking.yaml
+  createdByOrganizationMemberUserId:
+    type: string
+    examples: [7sT5jcggjjA9fNcxF]
+    description: ID of the organization member who started the run. Present only for runs started on behalf of an organization.
+  consoleUrl:
+    type: string
+    format: uri
+    examples: ["https://console.apify.com/view/runs/HG7ML7M8z78YcAPEB"]
+    description: URL of the run in Apify Console. Returned only by the [Get Actor run](/api/v2/actor-run-get) endpoint.
+  output:
+    type: object
+    description: >-
+      Output links of the run, generated from the output schema of the Actor build.
+      Present only if the build defines an output schema.
+    additionalProperties:
+      type: string
+      format: uri
+    example:
+      results: "https://api.apify.com/v2/datasets/wmKPijuyDnPZAPRMk/items"
   options:
     description: Configuration options for the Actor run.
     $ref: ./RunOptions.yaml

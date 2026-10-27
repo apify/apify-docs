@@ -1,0 +1,17 @@
+title: GitRepo
+description: URLs of a newly created repository.
+required:
+  - sshUrl
+  - httpsUrl
+  - htmlUrl
+type: object
+properties:
+  sshUrl:
+    type: string
+    examples: [git@github.com:janedoe/my-actor.git]
+  httpsUrl:
+    type: string
+    examples: [https://github.com/janedoe/my-actor.git]
+  htmlUrl:
+    type: string
+    examples: [https://github.com/janedoe/my-actor]

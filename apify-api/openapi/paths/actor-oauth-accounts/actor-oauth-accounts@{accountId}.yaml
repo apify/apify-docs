@@ -1,0 +1,41 @@
+get:
+  tags:
+    - Actors
+  summary: Get Actor OAuth account
+  description: |
+    Gets an account connected through an Actor OAuth connection, including its OAuth tokens.
+
+    This endpoint only accepts the API token of an Actor run (the `APIFY_TOKEN` environment variable of the run).
+    The run must belong to the Actor that the account's OAuth connection is configured on, and the account must
+    belong to the user the run's token acts for. Any other token gets a `403` error.
+  operationId: actorOAuthAccount_get
+  parameters:
+    - name: accountId
+      in: path
+      description: Actor OAuth account ID.
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: Rk3mP8xQ2vN5tY7wZ
+  responses:
+    "200":
+      description: ""
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/actor-oauth/ActorOAuthAccountResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      $ref: ../../components/responses/NotFound.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
+  deprecated: false

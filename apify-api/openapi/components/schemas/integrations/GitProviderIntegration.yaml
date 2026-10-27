@@ -1,0 +1,27 @@
+title: GitProviderIntegration
+description: A connected git provider account the user can create repositories through.
+required:
+  - id
+  - provider
+  - workspaces
+type: object
+properties:
+  id:
+    type: string
+    description: |
+      The provider ID to use in the `providerId` path parameter: `github-app` for the GitHub App, or the ID of a
+      connected GitLab or Bitbucket integration.
+    examples: [github-app]
+  provider:
+    type: string
+    enum: [github, gitlab, bitbucket]
+    examples: [github]
+  workspaces:
+    type: array
+    description: The workspaces the account can create a repository in. Empty if listing them failed.
+    items:
+      $ref: ./GitProviderWorkspace.yaml
+  addWorkspaceUrl:
+    type: string
+    description: URL where the user can install the GitHub App on another account or organization. Only for the GitHub App.
+    examples: [https://github.com/apps/apify/installations/new]
