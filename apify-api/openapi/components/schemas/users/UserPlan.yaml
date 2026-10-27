@@ -118,10 +118,10 @@ properties:
     description: If set, the plan can be subscribed only in this billing interval.
     examples: [ANNUAL]
   personalizedSupport:
-    type: string
+    type: [string, "null"]
     examples: [4h/M]
   monitoringLevel:
-    type: string
+    type: [string, "null"]
     examples: [STANDARD]
   isPayingCustomer:
     type: boolean
