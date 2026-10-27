@@ -100,7 +100,7 @@ Always return a response. Otherwise, the platform never marks the run as ready, 
 
 :::
 
-The example below tells normal requests from readiness probes.
+The example below handles readiness probes separately from normal requests.
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">

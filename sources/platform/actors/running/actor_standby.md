@@ -70,7 +70,7 @@ A scoped token also has a [restricted access](/integrations/api#restricted-acces
 
 ## Run the Actor in normal mode
 
-If the Actor has no input schema, Apify Console disables the **Input** tab. Otherwise, you can modify the input and select **Start** to run the Actor in normal mode. The Actor might not support normal mode. The run might then start in Standby mode, fail, or return empty results. Check the Actor README for what the Actor supports.
+If the Actor has no input schema, Apify Console disables the **Input** tab. Otherwise, you can modify the input and select **Start** to run the Actor in normal mode. Not every Standby Actor supports normal mode. If it doesn't, the run might fail, return empty results, or start in Standby mode. Check the Actor README for what the Actor supports.
 
 ## Limits and scaling
 
