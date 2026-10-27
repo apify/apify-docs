@@ -22,9 +22,6 @@ properties:
   userId:
     type: string
     examples: [wRsJZtadYvn4mBZmm]
-  username:
-    type: [string, "null"]
-    examples: [janedoe]
   createdAt:
     type: string
     format: date-time
