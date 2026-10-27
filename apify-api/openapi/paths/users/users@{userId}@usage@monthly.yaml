@@ -12,7 +12,6 @@ get:
     includes that date.
   operationId: users_me_usage_monthly_get
   parameters:
-    - $ref: "../../components/parameters/userParameters.yaml#/userId"
     - name: date
       in: query
       description: Date in the YYYY-MM-DD format.
