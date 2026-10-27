@@ -78,6 +78,13 @@ info:
     [Skyfire](https://docs.apify.com/platform/integrations/skyfire)
     (`skyfire-pay-id` header).
 
+    Agents can also pay once with x402 or the
+    [Machine Payments Protocol (MPP)](https://docs.apify.com/integrations/mpp)
+    and receive a temporary API token with a fixed spend cap from the Apify
+    Agent General Interface (AGI) at
+    [https://agi.apify.com](https://agi.apify.com). Use that token as a regular
+    `Bearer` token.
+
     ## Basic usage
     <span id="/introduction/basic-usage"></span>
 
@@ -340,9 +347,9 @@ info:
     ## Errors
     <span id="/introduction/errors"></span>
 
-    The Apify API uses common HTTP status codes: `2xx` range for success, `4xx`
+    The Apify API uses common HTTP status codes: 2xx range for success, 4xx
     range for errors caused by the caller
-    (invalid requests) and `5xx` range for server errors (these are rare).
+    (invalid requests) and 5xx range for server errors (these are rare).
     Each error response contains a JSON object defining the `error` property,
     which is an object with
     the `type` and `message` properties that contain the error code and a
@@ -369,37 +376,37 @@ info:
         <th>message</th>
       </tr>
       <tr>
-        <td><code>400</code></td>
+        <td>400</td>
         <td><code>invalid-request</code></td>
         <td>POST data must be a JSON object</td>
       </tr>
       <tr>
-        <td><code>400</code></td>
+        <td>400</td>
         <td><code>invalid-value</code></td>
         <td>Invalid value provided: Comments required</td>
       </tr>
       <tr>
-        <td><code>400</code></td>
+        <td>400</td>
         <td><code>invalid-record-key</code></td>
         <td>Record key contains invalid character</td>
       </tr>
       <tr>
-        <td><code>401</code></td>
+        <td>401</td>
         <td><code>token-not-provided</code></td>
         <td>Authentication token was not provided</td>
       </tr>
       <tr>
-        <td><code>404</code></td>
+        <td>404</td>
         <td><code>record-not-found</code></td>
         <td>Store was not found</td>
       </tr>
       <tr>
-        <td><code>429</code></td>
+        <td>429</td>
         <td><code>rate-limit-exceeded</code></td>
         <td>You have exceeded the rate limit of ... requests per second</td>
       </tr>
       <tr>
-        <td><code>405</code></td>
+        <td>405</td>
         <td><code>method-not-allowed</code></td>
         <td>This API endpoint can only be accessed using the following HTTP methods: OPTIONS, POST</td>
       </tr>
@@ -486,7 +493,7 @@ info:
 
     1. Define a variable `DELAY=500`
     2. Send the HTTP request to the API endpoint
-    3. If the response has status code not equal to `429` then you are done. Otherwise:
+    3. If the response has status code not equal to 429 then you are done. Otherwise:
        * Wait for a period of time chosen randomly from the interval `DELAY` to `2*DELAY` milliseconds
        * Double the future wait period by setting `DELAY = 2*DELAY`
        * Continue with step 2
