@@ -7,6 +7,10 @@ get:
     can be seen on public profile pages (e.g. https://apify.com/apify).
 
     This operation requires no authentication token.
+
+    When the request is authenticated with an API token of the requested user account, or with a token
+    that impersonates it, the response also contains the private information, the same as in
+    [Get private user data](/api/v2/users-me-get). Tokens with limited permissions never receive it.
   operationId: user_get
   parameters:
     - name: userId
@@ -24,7 +28,9 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/users/UserPublicInfoResponse.yaml
+            anyOf:
+              - $ref: ../../components/schemas/users/UserPublicInfoResponse.yaml
+              - $ref: ../../components/schemas/users/UserPrivateInfoResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
     "401":

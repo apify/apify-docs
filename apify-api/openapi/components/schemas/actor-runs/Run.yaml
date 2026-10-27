@@ -90,7 +90,10 @@ properties:
     examples: [0.5]
     description: Total price in USD of the pay-per-event charges made to other users. Present only on multi-tenant Standby runs.
   standby:
-    $ref: ./RunStandby.yaml
+    anyOf:
+      - $ref: ./RunStandby.yaml
+      - type: "null"
+    description: Standby configuration of the run. `null` for runs that are not Actor Standby runs.
   integrationTracking:
     description: Present only when the run was started by a third-party integration.
     $ref: ../common/IntegrationTracking.yaml

@@ -10,3 +10,9 @@ allOf:
       lockExpiresAt:
         $ref: ./SharedProperties.yaml#/LockExpiresAt
         description: The timestamp when the lock on this request expires. Only present while the request is locked.
+      lockByClient:
+        type: string
+        description: |
+          Key of the client that last locked the request. It is set when the request is locked and removed only by
+          an explicit unlock or by an update of the request, so it can still be present after the lock has expired.
+        examples: [my-client-key]
