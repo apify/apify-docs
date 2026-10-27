@@ -23,8 +23,6 @@ The easiest way to start is a Standby template, in [Apify Console](https://conso
 
 To enable or change Standby mode for an existing Actor, open the **Settings** tab of the Actor and find the Actor Standby settings.
 
-![Standby settings in the Actor's Settings tab](./images/standby-creators.png)
-
 To enforce the same Standby configuration for all users of your Actor, enable **Prevent users from overriding standby parameters** in the same settings. Users then can't override it by creating a task.
 
 ### Enable Standby in the source code

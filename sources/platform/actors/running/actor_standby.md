@@ -17,8 +17,6 @@ If the Actor defines a [web server schema](../development/actor_definition/web_s
 
 You don't need to start the Actor. Send a request to that hostname and endpoint, and you get the results.
 
-![Server tab on the Actor detail page](./images/actor_standby/standby-tab.png)
-
 ## Standby URLs
 
 The Standby URL typically combines the Actor owner's username and the Actor name, for example:
