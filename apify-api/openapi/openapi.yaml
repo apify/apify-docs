@@ -81,7 +81,7 @@ info:
     (`Authorization: Payment` header).
 
     Agents can also pay once and receive a temporary API token with a fixed
-    spend cap from the Apify Agent General Interface at
+    spend cap from the Apify Agent General Interface (AGI) at
     [https://agi.apify.com](https://agi.apify.com).
 
     ## Basic usage
