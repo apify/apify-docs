@@ -162,7 +162,7 @@ To use SuperScraper API, you can deploy it with an Apify API token and access it
 ## General resources
 
 - Creating your Actor: [Actor sources](https://docs.apify.com/academy/getting-started/creating-actors)
-- Use it, build it or buy it? [Choosing the right solution on Apify](https://help.apify.com/en/articles/3024655-choosing-the-right-solution)
+- Use it, build it, or buy it? [Run, build, or hire experts](https://docs.apify.com/get-started#run-build-or-hire-experts)
 - How to programmatically retrieve data with the [Apify API](https://www.youtube.com/watch?v=ViYYDHSBAKM&t=0s)
 - Improved way to [build your scrapers from a Git repo](https://www.youtube.com/watch?v=8QJetr-BYdQ)
 - Webinar on [how to build and monetize Actors](https://www.youtube.com/watch?v=4nxStxC1BJM) on Apify Store
