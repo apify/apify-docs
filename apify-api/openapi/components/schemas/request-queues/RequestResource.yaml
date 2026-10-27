@@ -7,3 +7,6 @@ allOf:
   - properties:
       id:
         $ref: ./SharedProperties.yaml#/RequestId
+      lockExpiresAt:
+        $ref: ./SharedProperties.yaml#/LockExpiresAt
+        description: The timestamp when the lock on this request expires. Only present while the request is locked.

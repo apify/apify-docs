@@ -1,0 +1,44 @@
+put:
+  tags:
+    - Actors/Actor versions
+  summary: Update Actor version build on push
+  description: |
+    Turns automatic builds on push on or off for an Actor version whose source is a git repository.
+
+    Enabling registers a push webhook on the repository through the connected git account given by `providerId`, so
+    that every push to the repository builds the version. Disabling turns the webhook off on GitHub, or removes it
+    on GitLab and Bitbucket.
+
+    You need write access to the Actor. The version must have its source type set to a git repository, and the
+    connected account must have permission to manage the repository's webhooks.
+  operationId: actor_version_buildOnPush_put
+  parameters:
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/versionNumber"
+  requestBody:
+    description: ""
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/actors/UpdateBuildOnPushRequest.yaml
+    required: true
+  responses:
+    "204":
+      $ref: ../../components/responses/NoContent.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      $ref: ../../components/responses/NotFound.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "413":
+      $ref: ../../components/responses/PayloadTooLarge.yaml
+    "415":
+      $ref: ../../components/responses/UnsupportedMediaType.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
+  deprecated: false

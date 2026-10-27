@@ -44,3 +44,8 @@ properties:
     anyOf:
       - $ref: ./TaskStats.yaml
       - type: "null"
+  isPublic:
+    type: boolean
+    description: |
+      Whether the task is published. Based on the `publicConfig.publishedAt` field.
+    examples: [false]

@@ -1,0 +1,50 @@
+title: KeyValueStoreListItem
+required:
+  - id
+  - createdAt
+  - modifiedAt
+  - accessedAt
+type: object
+properties:
+  id:
+    type: string
+    examples: [WkzbQMuFYuamGv3YF]
+  name:
+    type: [string, "null"]
+    examples: [d7b9MDYsbtX5L7XAj]
+  title:
+    type: [string, "null"]
+    examples: [My Store]
+  userId:
+    type: [string, "null"]
+    examples: [BPWDBd7Z9c746JAnF]
+  username:
+    type: [string, "null"]
+    examples: [janedoe]
+  createdAt:
+    type: string
+    format: date-time
+    examples: ["2019-12-12T07:34:14.202Z"]
+  modifiedAt:
+    type: string
+    format: date-time
+    examples: ["2019-12-13T08:36:13.202Z"]
+  accessedAt:
+    type: string
+    format: date-time
+    examples: ["2019-12-14T08:36:13.202Z"]
+  actId:
+    type: [string, "null"]
+    examples: [null]
+  actRunId:
+    type: [string, "null"]
+    examples: [null]
+  schema:
+    type: [object, string, "null"]
+    description: Optional JSON schema describing the keys stored in the key-value store. Older stores return it as a JSON string.
+  generalAccess:
+    anyOf:
+      - $ref: ../common/GeneralAccess.yaml
+      - type: "null"
+  stats:
+    $ref: ./KeyValueStoreListStats.yaml

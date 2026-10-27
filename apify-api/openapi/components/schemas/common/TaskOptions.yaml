@@ -19,3 +19,12 @@ properties:
   restartOnError:
     type: [boolean, "null"]
     examples: [false]
+  isMaxTotalChargeUsdSetByUser:
+    type: [boolean, "null"]
+    examples: [true]
+    description: Whether the user explicitly set `maxTotalChargeUsd`. Returned only in schedule action `runOptions`, and only if it was provided.
+  forcePermissionLevel:
+    description: Permission level to run the Actor with, overriding the Actor's own setting. Returned only in schedule action `runOptions`, and only if it was provided.
+    anyOf:
+      - $ref: ../actors/ActorPermissionLevel.yaml
+      - type: "null"

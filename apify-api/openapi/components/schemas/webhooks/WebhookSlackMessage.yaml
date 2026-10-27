@@ -1,0 +1,13 @@
+title: WebhookSlackMessage
+description: Slack message configuration. Present only when `actionType` is `SLACK_MESSAGE`.
+type: object
+properties:
+  userIntegrationId:
+    type: string
+    examples: [kLcd8Z4dzXN1z3QzS]
+  channelId:
+    type: string
+    examples: [C01234ABCDE]
+  messageTemplate:
+    type: string
+    examples: ["Actor run {{resource.id}} finished."]

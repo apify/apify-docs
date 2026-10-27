@@ -1,0 +1,7 @@
+title: ActorOAuthAccountResponse
+required:
+  - data
+type: object
+properties:
+  data:
+    $ref: ./ActorOAuthAccount.yaml

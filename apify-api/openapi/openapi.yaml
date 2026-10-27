@@ -524,12 +524,16 @@ paths:
     $ref: "paths/actors/acts@{actorId}@versions.yaml"
   "/v2/actors/{actorId}/versions/{versionNumber}":
     $ref: "paths/actors/acts@{actorId}@versions@{versionNumber}.yaml"
+  "/v2/actors/{actorId}/versions/{versionNumber}/build-on-push":
+    $ref: "paths/actors/acts@{actorId}@versions@{versionNumber}@build-on-push.yaml"
   "/v2/actors/{actorId}/versions/{versionNumber}/env-vars":
     $ref: "paths/actors/acts@{actorId}@versions@{versionNumber}@env-vars.yaml"
   "/v2/actors/{actorId}/versions/{versionNumber}/env-vars/{envVarName}":
     $ref: "paths/actors/acts@{actorId}@versions@{versionNumber}@env-vars@{envVarName}.yaml"
   "/v2/actors/{actorId}/webhooks":
     $ref: "paths/actors/acts@{actorId}@webhooks.yaml"
+  "/v2/actors/{actorId}/oauth-connections":
+    $ref: "paths/actors/acts@{actorId}@oauth-connections.yaml"
   "/v2/actors/{actorId}/builds":
     $ref: "paths/actors/acts@{actorId}@builds.yaml"
   "/v2/actors/{actorId}/builds/default":
@@ -706,6 +710,10 @@ paths:
     $ref: "paths/actor-builds/actor-builds@{buildId}@log.yaml"
   "/v2/actor-builds/{buildId}/openapi.json":
     $ref: "paths/actor-builds/actor-builds@{buildId}@openapi.json.yaml"
+  "/v2/actor-oauth-accounts/{connectionId}/accounts":
+    $ref: "paths/actor-oauth-accounts/actor-oauth-accounts@{connectionId}@accounts.yaml"
+  "/v2/actor-oauth-accounts/{accountId}":
+    $ref: "paths/actor-oauth-accounts/actor-oauth-accounts@{accountId}.yaml"
   /v2/key-value-stores:
     $ref: paths/key-value-stores/key-value-stores.yaml
   "/v2/key-value-stores/{storeId}":
@@ -758,6 +766,8 @@ paths:
     $ref: paths/schedules/schedules.yaml
   "/v2/schedules/{scheduleId}":
     $ref: "paths/schedules/schedules@{scheduleId}.yaml"
+  "/v2/schedules/{scheduleId}/invoke":
+    $ref: "paths/schedules/schedules@{scheduleId}@invoke.yaml"
   "/v2/schedules/{scheduleId}/log":
     $ref: "paths/schedules/schedules@{scheduleId}@log.yaml"
   /v2/store:
@@ -772,6 +782,16 @@ paths:
     $ref: paths/users/users@me@usage@monthly.yaml
   /v2/users/me/limits:
     $ref: paths/users/users@me@limits.yaml
+  "/v2/users/{userId}/usage/monthly":
+    $ref: "paths/users/users@{userId}@usage@monthly.yaml"
+  "/v2/users/{userId}/limits":
+    $ref: "paths/users/users@{userId}@limits.yaml"
+  /v2/integrations/git:
+    $ref: paths/integrations/integrations@git.yaml
+  "/v2/integrations/git/{providerId}/create-repo":
+    $ref: "paths/integrations/integrations@git@{providerId}@create-repo.yaml"
+  "/v2/integrations/git/{providerId}/register-deployment-key":
+    $ref: "paths/integrations/integrations@git@{providerId}@register-deployment-key.yaml"
   /v2/browser-info:
     $ref: paths/tools/tools@browser-info.yaml
   /v2/tools/encode-and-sign:

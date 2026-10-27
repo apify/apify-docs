@@ -1,0 +1,23 @@
+title: WebhookGoogleMail
+description: Gmail email configuration. Present only when `actionType` is `GOOGLE_MAIL`.
+type: object
+properties:
+  userIntegrationId:
+    type: string
+    examples: [kLcd8Z4dzXN1z3QzS]
+  emailTo:
+    type: array
+    items:
+      type: string
+    examples: [[bob@example.com]]
+  subject:
+    type: string
+    examples: [Actor run finished]
+  body:
+    type: string
+    examples: ["Actor run {{resource.id}} finished."]
+  attachmentFormat:
+    type: string
+    examples: [csv]
+  attachmentTransformation:
+    $ref: ./WebhookDatasetTransformation.yaml

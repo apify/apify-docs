@@ -34,3 +34,7 @@ properties:
     type: [number, "null"]
     minimum: 0
     examples: [5]
+  isMaxTotalChargeUsdSetByUser:
+    type: boolean
+    examples: [true]
+    description: Whether the user explicitly set `maxTotalChargeUsd` when starting the run. Not present for pay-per-result Actors.

@@ -1,0 +1,16 @@
+title: UpdateBuildOnPushRequest
+required:
+  - providerId
+  - enabled
+type: object
+properties:
+  providerId:
+    type: string
+    description: |
+      The connected git account to register the push webhook through: `github-app` for the GitHub App, or the ID
+      of a connected GitLab or Bitbucket integration, as returned by the [Get git provider integrations](/api/v2/integrations-git-get) endpoint.
+    examples: [github-app]
+  enabled:
+    type: boolean
+    description: "`true` registers the push webhook so that pushes to the repository build the version; `false` turns it off."
+    examples: [true]

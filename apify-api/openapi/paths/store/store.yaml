@@ -103,6 +103,18 @@ get:
         type: boolean
         default: false
         example: true
+    - name: includeInputSchema
+      in: query
+      description: |
+        If `true`, each Actor in the results includes an `inputSchema` field with a compact version of the input
+        schema of its default build (property types and required properties only). With this parameter, `limit`
+        defaults to and can't exceed `10`.
+      style: form
+      explode: true
+      schema:
+        type: boolean
+        default: false
+        example: true
   responses:
     "200":
       description: ""

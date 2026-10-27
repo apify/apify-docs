@@ -33,6 +33,7 @@ get:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/memory"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/maxItems"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/maxTotalChargeUsd"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/restartOnError"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/build"
     - $ref: "../../components/parameters/runSyncParameters.yaml#/outputRecordKey"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/webhooks"

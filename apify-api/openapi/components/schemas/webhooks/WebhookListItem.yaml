@@ -8,7 +8,6 @@ required:
   - condition
   - ignoreSslErrors
   - doNotRetry
-  - requestUrl
 type: object
 properties:
   id:
@@ -55,9 +54,27 @@ properties:
     type: boolean
     examples: [false]
   requestUrl:
-    type: string
+    type: [string, "null"]
     format: uri
+    description: URL of the HTTP request sent by the webhook. It is omitted or `null` for hook actions other than the conventional HTTP case (e.g. Slack or email notifications).
     examples: ["http://example.com/"]
+  headersTemplate:
+    type: [string, "null"]
+    examples: ['{\n "Authorization": "Bearer ..."}']
+  title:
+    type: [string, "null"]
+    examples: [Notify on failure]
+  description:
+    type: [string, "null"]
+    examples: [this is webhook description]
+  slackMessage:
+    $ref: ./WebhookSlackMessage.yaml
+  googleMail:
+    $ref: ./WebhookGoogleMail.yaml
+  googleDrive:
+    $ref: ./WebhookGoogleDrive.yaml
+  githubIssue:
+    $ref: ./WebhookGithubIssue.yaml
   lastDispatch:
     anyOf:
       - $ref: ./WebhookLastDispatch.yaml

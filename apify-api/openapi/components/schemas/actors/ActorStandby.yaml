@@ -26,3 +26,13 @@ properties:
     type: [boolean, "null"]
     description: Whether to pass the Actor's input to the standby run. If `false`, the standby runs
       start with no input.
+  tenancy:
+    type: [string, "null"]
+    examples: [SINGLE_TENANT]
+    description: Whether each user gets their own standby runs (`SINGLE_TENANT`) or runs are shared across users (`MULTI_TENANT`). Set by Apify.
+  isConsoleAuthEnabled:
+    type: [boolean, "null"]
+    description: Whether standby requests can be authenticated with an Apify Console session. Set by Apify.
+  isTokenlessEnabled:
+    type: [boolean, "null"]
+    description: Whether standby requests can be made without an API token. Set by Apify.
