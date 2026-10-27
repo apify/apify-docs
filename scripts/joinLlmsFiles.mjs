@@ -138,6 +138,37 @@ const SECTION_ORDER = [
     'Legal documents',
 ];
 
+// Sections moved from llms.txt to their own build/<dir>/llms.txt, keyed by their
+// `## ` heading. Keeps the root index under the limit in scripts/checkLlmsSize.mjs.
+// nginx.conf lists the same dirs to serve their llms.txt as text/markdown.
+const SPLIT_SECTIONS = {
+    'Apify API': {
+        dir: 'api',
+        description:
+            'Endpoints to manage Actors, runs, builds, tasks, datasets, key-value stores, request queues, schedules, webhooks, and your account.',
+    },
+    'Apify Academy': {
+        dir: 'academy',
+        description:
+            'Free courses and tutorials on web scraping in JavaScript and Python, browser automation, anti-scraping protections, and building and deploying Actors.',
+    },
+    'Legal documents': {
+        dir: 'legal',
+        description:
+            'Terms and conditions, privacy and cookie policies, data processing addendums, and the terms for publishing Actors in Apify Store.',
+    },
+    actors: {
+        dir: 'actors',
+        description:
+            'Develop, test, and deploy Actors, run them with tasks, schedules, and monitoring, then publish and monetize them in Apify Store.',
+    },
+    integrations: {
+        dir: 'integrations',
+        description:
+            'Connect Actors to workflow tools like n8n and Zapier, AI agents and frameworks, data warehouses, and your own code through the Apify API and webhooks.',
+    },
+};
+
 /**
  * Remove llms.txt list entries (`- [Title](url): description` lines) whose
  * URL matches any of LLMS_INDEX_EXCLUDE_PATTERNS. Section headings (`## ...`)
@@ -230,6 +261,35 @@ function reorderSections(content) {
     return header + sections.map((s) => s.content.replace(/\n*$/, '\n')).join('\n');
 }
 
+/**
+ * Move SPLIT_SECTIONS out of llms.txt into their own llms.txt files and leave
+ * a link to each in their place. postbuild runs indentLlmsFile.mjs first, so
+ * the moved entries keep their indentation and the new links get none.
+ */
+async function splitSections(llmsPath) {
+    const [header, ...sections] = (await fs.readFile(llmsPath, 'utf8')).split(/^(?=## )/m);
+
+    const kept = [];
+    for (const section of sections) {
+        const name = section.match(/^## (.+)$/m)[1].trim();
+        if (!SPLIT_SECTIONS[name]) {
+            kept.push(section);
+            continue;
+        }
+        const { dir, description } = SPLIT_SECTIONS[name];
+        // The section's landing page comes first. Its title reads better than headings
+        // like `actors`, which the plugin takes from the URL.
+        const title = section.match(/^- \[([^\]]+)\]/m)?.[1] ?? name;
+        const index = `# ${title} | Apify Documentation\n\n> One section of the Apify documentation. The main index is at ${SITE_URL}/llms.txt\n\n${section}`;
+        await fs.mkdir(path.join(BUILD_DIR, dir), { recursive: true });
+        await fs.writeFile(path.join(BUILD_DIR, dir, 'llms.txt'), index, 'utf8');
+        kept.push(`## ${name}\n\n- [${title}](${SITE_URL}/${dir}/llms.txt): ${description}\n\n`);
+        console.log(`Moved "${name}" from build/llms.txt to build/${dir}/llms.txt`);
+    }
+
+    await fs.writeFile(llmsPath, header + kept.join(''), 'utf8');
+}
+
 async function joinFiles() {
     await fs.mkdir(BUILD_DIR, { recursive: true });
     const llmsPath = path.join(BUILD_DIR, 'llms.txt');
@@ -283,4 +343,11 @@ for (const llmsFile of ['llms.txt', 'llms-full.txt']) {
         console.error(`Failed to sanitize ${llmsFile}:`, err);
         process.exit(1);
     }
+}
+
+try {
+    await splitSections(path.join(BUILD_DIR, 'llms.txt'));
+} catch (err) {
+    console.error('Failed to split llms.txt:', err);
+    process.exit(1);
 }

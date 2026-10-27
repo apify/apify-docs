@@ -49,7 +49,7 @@
         "test:llms-size": "node ./scripts/checkLlmsSize.mjs",
         "test:nav-headers": "node ./scripts/checkNavHeaders.mjs",
         "postinstall": "patch-package",
-        "postbuild": "node ./scripts/joinLlmsFiles.mjs && node ./scripts/indentLlmsFile.mjs && node ./scripts/addNavHeaders.mjs"
+        "postbuild": "node ./scripts/indentLlmsFile.mjs && node ./scripts/joinLlmsFiles.mjs && node ./scripts/addNavHeaders.mjs"
     },
     "devDependencies": {
         "@apify/oxlint-config": "^0.3.0",
