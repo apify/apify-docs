@@ -775,10 +775,10 @@ paths:
     $ref: "paths/users/users@{userId}.yaml"
   /v2/users/me:
     $ref: paths/users/users@me.yaml
-  /v2/users/me/usage/monthly:
-    $ref: paths/users/users@me@usage@monthly.yaml
-  /v2/users/me/limits:
-    $ref: paths/users/users@me@limits.yaml
+  "/v2/users/{userId}/usage/monthly":
+    $ref: "paths/users/users@{userId}@usage@monthly.yaml"
+  "/v2/users/{userId}/limits":
+    $ref: "paths/users/users@{userId}@limits.yaml"
   /v2/browser-info:
     $ref: paths/tools/tools@browser-info.yaml
   /v2/tools/encode-and-sign:
