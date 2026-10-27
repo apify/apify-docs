@@ -26,6 +26,9 @@ properties:
   isAdHoc:
     type: [boolean, "null"]
     examples: [false]
+  isApifyIntegration:
+    type: [boolean, "null"]
+    examples: [false]
   shouldInterpolateStrings:
     type: [boolean, "null"]
     examples: [false]
