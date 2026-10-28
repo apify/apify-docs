@@ -36,9 +36,9 @@ Most pay-per-event Actors include [platform usage](../usage_and_resources.md) in
 
 When starting a run, you can define a maximum charge limit to prevent unexpected charges. The Actor terminates gracefully when it reaches that limit. Even if it doesn't stop immediately, you are never charged above the limit.
 
-All your charges appear on your invoices and in the [Historical usage tab](https://console.apify.com/billing/historical-usage) in the **Billing** section of Apify Console. The cost of each run also appears on the run detail page.
+All your charges appear on your invoices and in the [**Historical usage**](https://console.apify.com/billing/historical-usage) tab in the **Billing** section of Apify Console. The cost of each run also appears on the run detail page.
 
-If charges seem incorrect, contact the Actor's developer or [Apify support](https://apify.com/contact). You can also [open an issue](#report-issues-with-actors) on the Actor's page in Apify Console.
+If charges seem incorrect, [open an issue](#report-issues-with-actors) on the Actor's page in Apify Console or contact [Apify support](https://apify.com/contact).
 
 ### Pay per usage
 
