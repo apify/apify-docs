@@ -8,6 +8,9 @@
 //
 // If none of a page's commits count, its newest commit is used instead.
 //
+// Pages with a `last_review: YYYY-MM-DD` frontmatter field with a date on or
+// after the cutoff are skipped.
+//
 // Requires the full git history (fetch-depth: 0 in GitHub Actions).
 
 import { execFileSync } from 'node:child_process';
@@ -20,6 +23,7 @@ const IGNORE_FILE = '.staleness-check-ignore';
 const REPO_URL = 'https://github.com/apify/apify-docs';
 
 const FRONTMATTER = /^---\r?\n[\s\S]*?\r?\n---(\r?\n|$)/;
+const LAST_REVIEW = /^last_review:\s*['"]?(\d{4}-\d{2}-\d{2})['"]?\s*$/m;
 
 const isDocFile = (file) => /\.mdx?$/.test(file);
 
@@ -52,6 +56,12 @@ function pageBodyAt(sha, path) {
         if (error.stderr?.includes('does not exist in')) return null;
         throw error;
     }
+}
+
+// A missing or malformed date returns undefined, so the page is checked as usual
+function lastReview(file) {
+    const frontmatter = fs.readFileSync(file, 'utf8').match(FRONTMATTER)?.[0] ?? '';
+    return frontmatter.match(LAST_REVIEW)?.[1];
 }
 
 function lastContentEdit(file) {
@@ -87,6 +97,7 @@ const stalePages = git('ls-files', DOCS_DIR)
     .trim()
     .split('\n')
     .filter(isDocFile)
+    .filter((file) => !(lastReview(file) >= cutoffDate))
     .map((file) => ({ file, ...lastContentEdit(file) }))
     .filter(({ date }) => date < cutoffDate)
     .sort((a, b) => a.date.localeCompare(b.date));
@@ -102,6 +113,8 @@ const lines = [
     `${stalePages.length} pages in \`${DOCS_DIR}\` haven't been edited since ${cutoffDate}.`,
     '',
     `Frontmatter-only changes, and commits that change more than ${BULK_FILE_LIMIT} \`.md\`/\`.mdx\` files or are listed in \`${IGNORE_FILE}\`, don't count as edits.`,
+    '',
+    `If a page is still correct, add \`last_review: YYYY-MM-DD\` to its frontmatter. The check will skip it for ${STALE_AFTER_MONTHS} months from the review date.`,
 ];
 for (const section of [...bySection.keys()].sort()) {
     const pages = bySection.get(section);
