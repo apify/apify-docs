@@ -60,10 +60,10 @@ If your Actor supports multiple use cases, publish a task for each one. A web sc
 Once your task runs reliably and produces the output you want users to see, publish it from Apify Console. The **Publishing** tab guides you through each requirement.
 
 1. From your task's page in Apify Console, open the **Publishing** tab.
-1. Complete the three sections: [Page details](#page-details), [Input](#input), and [Dataset schema](#dataset-schema).
+1. Complete the three required sections: [Page details](#page-details), [Input](#input), and [Dataset schema](#dataset-schema). Optionally, add an [FAQ](#faq).
 1. Select **Publish task**.
 
-![The Publishing tab showing the Publish task button and three sections to complete.](./images/public-tasks/task-publishing-tab.webp)
+![The Publishing tab showing the Publish task button, three required sections, and the optional FAQ.](./images/public-tasks/task-publishing-tab.webp)
 
 ### Page details
 
@@ -120,6 +120,29 @@ The **Dataset schema** section selects which view of the Actor's dataset is rend
 
 For more on configuring views, see [Dataset schema](/storage/dataset-schema).
 
+### FAQ
+
+The optional **FAQ** section adds questions and answers to the landing page. The answers help people decide to run your task. They also give search engines and AI agents facts to quote in their answers.
+
+- **Generate FAQ:** writes questions and answers with AI, based on the task's title, description, and input, and on the Actor's README and dataset schema. If the task already has an FAQ, the AI uses it as a draft and replaces it after you confirm.
+- **Add question:** adds a question and answer that you write yourself.
+
+Review and edit the generated questions and answers, then select **Save**. An FAQ can include up to 10 questions. Each question can be up to 120 characters, and each answer up to 250 characters.
+
+![FAQ section with the Generate FAQ button, two question-and-answer pairs with character counters, and the Add question button.](./images/public-tasks/task-publishing-faq.webp)
+
+:::tip Write answers that stand alone
+
+AI agents and search engines often quote a single answer without the question it answers. Name the task in each answer instead of starting with "It" or "Yes." Write "The Amazon price tracker task returns the product title, price, and image URL," not "Yes, it returns prices."
+
+Aim for 3 to 8 questions, such as:
+
+- What does the output contain?
+- What input does the task need?
+- How do I run the task through the API or on a schedule?
+
+:::
+
 ### Publish confirmation
 
 When you select **Publish task**, a confirmation dialog reminds you that your runs and data stay private. Once published, anyone on Apify can duplicate and run your task with their own input.
@@ -158,6 +181,8 @@ A task can only be published when all of the following hold:
 - The Actor has fewer than 10 published tasks.
 
 `publicConfig.seoTitle` (up to 60 characters) and `publicConfig.seoDescription` (up to 160 characters) are optional. They appear in search results only and fall back to the task's title and description when empty. Search engines display only that much text, so they cut a longer title or 400-character description if you leave these fields empty.
+
+`publicConfig.faq` is optional too. It holds up to 10 `{ "question": "...", "answer": "..." }` objects, with questions up to 120 characters and answers up to 250 characters. Neither can be blank.
 
 If any requirement is unmet, the request fails and none of the update is applied, so the task never ends up half-configured.
 
@@ -267,18 +292,24 @@ Keep the task name short, descriptive, and focused on the use case keyword.
 
 ### Landing page content
 
-![A published task landing page showing the SEO title, input configuration, and dataset preview.](./images/public-tasks/task-landing-page.webp)
+![A published task landing page showing the task title, description, input values, and output fields.](./images/public-tasks/task-landing-page.webp)
 
-The landing page displays the information you configured in the [Page details](#page-details), [Input](#input), and [Dataset schema](#dataset-schema) sections:
+The landing page shows what you configured on the **Publishing** tab, in this order:
 
-- The **SEO title** and **SEO description** at the top of the page.
-- The selected **input fields** with their exact configured values.
-- A preview of the **Dataset schema fields** based on the dataset view you selected.
-- A call-to-action button that lets users try the task right away.
+- The task **title** and **description**, with a preview of the output fields
+- A **Try for free** button that lets users try the task right away
+- An **example dataset** table, if you generated example data in the [Dataset schema](#dataset-schema) section
+- The selected **input fields** with their configured values, and the output fields from the dataset view you selected
+- **How it works:** the steps to run the task, with a **Sign up** button
+- **Integrations:** tools such as Zapier, Make, and n8n, and code examples that run the task with its input
+- The [FAQ](#faq), if you added one
+- Related tasks
+
+The markdown version of the page includes the FAQ too. Search results show the **SEO title** and **SEO description** instead of the title and description.
 
 ### After a user tries your task
 
-When a user clicks the call-to-action button, Apify creates a new task under their account with the same input configuration. The user can change, run, and manage it without affecting your original task. Your runs, data, and configuration stay private.
+When a user selects **Try for free** or **Sign up**, Apify creates a new task under their account with the same input configuration. The user can change, run, and manage it without affecting your original task. Your runs, data, and configuration stay private.
 
 ## Next steps
 
