@@ -23,7 +23,9 @@ The [`apify-haystack`](https://pypi.org/project/apify-haystack/) package connect
 
 - Python 3.11 or newer
 - An [Apify account](https://console.apify.com/sign-up) and your API token from the [Integrations](https://console.apify.com/settings/integrations) page in Apify Console
-- An [OpenAI API key](https://platform.openai.com/account/api-keys) for the examples on this page. Haystack supports many other model providers too.
+- An [OpenAI API key](https://platform.openai.com/account/api-keys) for the examples on this page
+
+Haystack supports many other model providers too.
 
 ## Installation
 
@@ -203,7 +205,7 @@ crawler = ApifyDatasetFromActorCall(
 
 ## Run components asynchronously
 
-Every component has `run_async`, and `ApifyActorTool` works with `Agent.run_async`. `Pipeline.run_async` uses them to wait for Actor runs without blocking the event loop:
+Every component has `run_async`, and `ApifyActorTool` works with `Agent.run_async`. `Pipeline.run_async` uses them to wait for Actor runs without blocking the event loop. This example runs the `indexing` pipeline from [Answer questions about website content](#answer-questions-about-website-content):
 
 ```python
 import asyncio
@@ -215,7 +217,7 @@ When an Actor or task run finishes with any status other than `SUCCEEDED`, the c
 
 ## Save and load pipelines
 
-The components and the tool support [Haystack serialization](https://docs.haystack.deepset.ai/docs/serialization). They save the API token as the name of its environment variable, never as its value. Haystack only loads classes and functions from modules you trust, so allow `apify_haystack` and the module with your mapping function, if you use one:
+The components and the tool support [Haystack serialization](https://docs.haystack.deepset.ai/docs/serialization). They save the API token as the name of its environment variable, never as its value. Haystack only loads classes and functions from modules you trust, so allow `apify_haystack` and the module with your mapping function, if you use one. This example saves and restores the `indexing` pipeline from [Answer questions about website content](#answer-questions-about-website-content):
 
 ```python
 from haystack import Pipeline
