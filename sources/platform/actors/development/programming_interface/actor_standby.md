@@ -9,7 +9,7 @@ sidebar_position: 9
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-While a traditional Actor runs a single job and stops, an Actor in Standby mode runs a persistent HTTP server and responds to incoming requests in real time. For the user-facing overview of Standby mode, including endpoints, authentication, scaling, configuration, and billing, see [Actor Standby mode](../../running/actor_standby.md).
+While a regular Actor runs a single job and stops, an Actor in Standby mode runs a persistent HTTP server and responds to incoming requests in real time. For the user-facing overview of Standby mode, including endpoints, authentication, scaling, configuration, and billing, see [Actor Standby mode](../../running/actor_standby.md).
 
 ## Enable Standby mode
 
@@ -27,7 +27,7 @@ To enforce the same Standby configuration for all users of your Actor, enable **
 
 ### Enable Standby in the source code
 
-You can also enable Standby mode by setting the [`usesStandbyMode`](../actor_definition/actor_json.md) property to `true` in the `.actor/actor.json` file. When you push the Actor with the [Apify CLI](https://docs.apify.com/cli/), the setting syncs to the platform.
+You can enable Standby mode by setting the [`usesStandbyMode`](../actor_definition/actor_json.md) property to `true` in the `.actor/actor.json` file. When you push the Actor with the [Apify CLI](https://docs.apify.com/cli/), the setting syncs to the platform.
 
 ## Run an HTTP server
 
@@ -154,7 +154,9 @@ async def main() -> None:
 
 ### Run termination
 
-A run ends when its process exits, when it stays idle for longer than the idle timeout, or when the platform replaces it. During a worker migration, the platform doesn't move the run to another machine. Instead, it starts a replacement run, waits until that run is ready, then stops sending requests to the old run and aborts it. Apart from the [readiness probe](#readiness-probe), the platform doesn't check your server's health while the run is alive. A server that stays up but stops responding keeps receiving requests, so on an unrecoverable error, exit the process instead of swallowing the error.
+A run ends when its process exits, when it stays idle for longer than the idle timeout, or when the platform replaces it. During a worker migration, the platform doesn't move the run to another machine. Instead, it starts a replacement run, waits until that run is ready, then stops sending requests to the old run and aborts it.
+
+Apart from the [readiness probe](#readiness-probe), the platform doesn't check your server's health while the run is alive. A server that stays up but stops responding keeps receiving requests, so on an unrecoverable error, exit the process instead of swallowing the error.
 
 ## Detect the run mode
 
@@ -198,7 +200,7 @@ Each Standby Actor has a URL that stays the same for all of its runs. The URL is
 
 Unlike the Standby URL, the [container web server](./container_web_server.md) URL changes with every run. For the URL formats and where users find them, see [Standby URLs](../../running/actor_standby.md#standby-urls).
 
-Requests to the Standby URL require an Apify API token; see [how to authenticate requests](../../running/actor_standby.md#authenticate-requests). If your Actor exposes an MCP server, define the endpoint path with the [`webServerMcpPath`](../actor_definition/actor_json.md) property; see [Use Standby Actors as MCP servers](../../running/actor_standby.md#use-standby-actors-as-mcp-servers).
+Requests to the Standby URL require an Apify API token. See [how to authenticate requests](../../running/actor_standby.md#authenticate-requests). If your Actor exposes an MCP server, define the endpoint path with the [`webServerMcpPath`](../actor_definition/actor_json.md) property. For details, see [Use Standby Actors as MCP servers](../../running/actor_standby.md#use-standby-actors-as-mcp-servers).
 
 ## Monetize Standby Actors
 

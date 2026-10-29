@@ -6,11 +6,11 @@ slug: /actors/running/standby
 sidebar_label: Standby mode
 ---
 
-A traditional Actor runs a single job and then stops. That suits batch jobs, such as a large data extraction or processing task. Some applications can't wait for an Actor to start. In Standby mode, the Actor stays ready in the background and serves incoming HTTP requests in real time, like a web server or an API server.
+A regular Actor runs a single job and then stops. It works great for batch jobs, such as a large data extraction or processing task. However, some applications can't wait for an Actor to start. In Standby mode, the Actor stays ready in the background and serves incoming HTTP requests in real time, like a web server or an API server.
 
 To build your own Standby Actor, see [Develop Actors in Standby mode](../development/programming_interface/actor_standby.md).
 
-## Check whether an Actor supports Standby mode
+## Check if an Actor supports Standby mode
 
 If an Actor has Standby mode enabled, its detail page shows the **Server** tab. The tab contains the hostname of the Actor's server, and the Actor README describes the endpoints, the parameters they accept, and what they return.
 If the Actor defines a [web server schema](../development/actor_definition/web_server_schema/index.md), the tab also shows an interactive list of its endpoints, where you can send requests directly from the browser.
@@ -31,11 +31,11 @@ The Actor also responds on a URL built from its ID, which keeps working if the A
 https://92c4oi4fpzy7rprlf.apify.actor
 ```
 
-The Standby URL stays the same for all runs of the Actor, so you can share it publicly or hardcode it in applications that call the Actor. Copy the URL from the **Server** tab instead of building it from the username and Actor name, because some Actors use a different hostname format, like `rag-web-browser.apify.actor` in the examples below.
+The Standby URL stays the same for all runs of the Actor, so you can share it publicly or hardcode it in applications that call the Actor. Copy the URL from the **Server** tab instead of building it from the username and Actor name, because some Actors use a different hostname format, like `rag-web-browser.apify.actor`.
 
 ## Send requests to the Actor
 
-If you use an Actor built by someone else, its **Readme** tab describes how to pass the input.
+If you use an Actor built by someone else, its README describes how to pass the input.
 
 Actors in Standby mode behave as standard HTTP servers. Use any [HTTP request method](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods), such as GET, POST, PUT, or DELETE, and pass the input in the [query string](https://en.wikipedia.org/wiki/Query_string) or the [request body](https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages#body).
 
@@ -43,14 +43,14 @@ Actors in Standby mode behave as standard HTTP servers. Use any [HTTP request me
 
 Authenticate Standby requests the same way as [requests to the Apify API](../../integrations/programming/api.md). Provide your [API token](../../integrations/programming/api.md#api-token) in one of two ways:
 
-1. _Recommended_: Include the token in the `Authorization` header as `Bearer <token>`. This keeps the token out of server logs.
+- _(Recommended)_ Include the token in the `Authorization` header as `Bearer <token>`. This keeps the token out of server logs.
 
     ```bash
     curl -H "Authorization: Bearer my_apify_token" \
       https://rag-web-browser.apify.actor/search?query=apify
     ```
 
-1. Append the token to the request URL as the `token` query parameter. It's less secure, so use this only when you can't modify the request headers.
+- Append the token to the request URL as the `token` query parameter. It's less secure, so use this option only when you can't modify the request headers.
 
     ```text
     https://rag-web-browser.apify.actor/search?query=apify&token=my_apify_token
@@ -86,15 +86,15 @@ The platform checks a run's readiness once, before the run starts serving reques
 
 :::caution Unresponsive servers aren't detected
 
-If an Actor's server stays up but stops responding, the platform doesn't detect the failure, and requests keep going to that run. To learn how to handle this in your own Actors, see [Run lifecycle](../development/programming_interface/actor_standby.md#run-lifecycle).
+If an Actor's server stays up but stops responding, the platform doesn't detect the failure, and requests keep going to that run. To learn how to handle this situation in your own Actors, see [Run lifecycle](../development/programming_interface/actor_standby.md#run-lifecycle).
 
 :::
 
 ### Request timeouts
 
-A request to a Standby Actor must receive its first response within _5 minutes_. This is the overall timeout for the request.
+A request to a Standby Actor must receive its first response within 5 minutes. This is the overall timeout for the request.
 
-Within this window, the platform first selects an Actor run to handle the request, which can take up to _2 minutes_, for example when a new run needs to start. If no run becomes available within that time, the request fails with a `429` error.
+Within this window, the platform first selects an Actor run to handle the request, which can take up to 2 minutes, for example when a new run needs to start. If no run becomes available within that time, the request fails with a `429` error.
 
 ### Rate limits
 
@@ -106,7 +106,7 @@ The Standby configuration has these properties:
 
 | Property | Description |
 | --- | --- |
-| Max requests per run | The maximum number of concurrent HTTP requests a single Standby Actor run can accept. When a request would exceed this limit, the platform starts a new run to handle it, which can take a few seconds. |
+| Max requests per run | The maximum number of concurrent HTTP requests a single Standby Actor run can accept. When a request exceeds this limit, the platform starts a new run to handle it, which can take a few seconds. |
 | Desired requests per run | The number of concurrent HTTP requests a single Standby Actor run is configured to handle. When requests exceed this number, the platform starts a new run ahead of time to handle the additional requests. |
 | Memory (MB) | The amount of memory (RAM) allocated for the Actor in Standby mode, in megabytes. More memory usually lets the Actor handle more requests in parallel, but it also consumes more compute units and costs more. |
 | Idle timeout (seconds) | If a run receives no HTTP requests within this time, the platform stops it. The next request might then need a new run, which can take a few seconds to start. A higher idle timeout improves responsiveness but costs more, because the run stays active longer. |
@@ -121,7 +121,7 @@ If you use an Actor built by someone else, the Actor-level hostname always uses 
 
 1. In [Apify Console](https://console.apify.com), open the Actor and select **Save as a new task**.
 1. Open the task's **Settings** tab.
-1. Modify the configuration as needed.
+1. Modify the configuration.
 1. In your application, use the task's hostname instead of the Actor's.
 
 :::note Developers can lock the configuration
@@ -132,7 +132,7 @@ If the developer locked the Standby configuration, the task-level settings have 
 
 ## Billing
 
-The platform bills Standby runs like normal runs. A Standby run also consumes resources while it waits for requests, until the idle timeout stops it. Expect usage even when no requests arrive.
+The platform bills Standby runs like regular runs. A Standby run also consumes resources while it waits for requests, until the idle timeout stops it. Expect usage even when no requests arrive.
 
 For Actors monetized with the [pay-per-event pricing model](/actors/monetize/pay-per-event), you pay the platform usage costs of the Standby runs in addition to the event charges.
 
