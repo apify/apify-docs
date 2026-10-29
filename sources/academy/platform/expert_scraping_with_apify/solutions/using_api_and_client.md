@@ -45,7 +45,7 @@ await Actor.init();
 
 const { useClient, memory, fields, maxItems } = await Actor.getInput();
 
-const TASK = 'YOUR_USERNAME~demo-actor-task';
+const TASK = 'YOUR_USERNAME~academy-amazon-scraper-task';
 
 // our future code will go here
 
@@ -198,7 +198,7 @@ await Actor.init();
 
 const { useClient, memory, fields, maxItems } = await Actor.getInput();
 
-const TASK = 'YOUR_USERNAME~demo-actor-task';
+const TASK = 'YOUR_USERNAME~academy-amazon-scraper-task';
 
 const withClient = async () => {
     const client = Actor.newClient();

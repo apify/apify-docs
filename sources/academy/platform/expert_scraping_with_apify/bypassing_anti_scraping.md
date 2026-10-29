@@ -38,7 +38,7 @@ You might have already noticed that we've been using the **RESIDENTIAL** proxy g
 
 This time, we're going to build a trivial proxy-session manager for our Amazon scraping Actor. A session should be used a maximum of 5 times before being rotated; however, if a request fails, the IP should be rotated immediately.
 
-Additionally, the proxies used by our scraper should now only be from the US.
+Our scraper already uses proxies only from the US. Find the code which does that and figure out why it's there.
 
 [**Solution**](./solutions/rotating_proxies.md)
 

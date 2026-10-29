@@ -13,7 +13,8 @@ slug: /expert-scraping-with-apify/solutions/saving-stats
 The code in this solution will be similar to what we already did in the **Handling migrations** solution; however, we'll be storing and logging different data. First, let's create a new file called **Stats.js** and write a utility class for storing our run stats:
 
 ```js
-import Actor from 'apify';
+// Stats.js
+import { Actor } from 'apify';
 
 class Stats {
     constructor() {
@@ -45,17 +46,19 @@ class Stats {
     }
 }
 
-module.exports = new Stats();
+export default new Stats();
 ```
 
 Cool, very similar to the **AsinTracker** class we wrote earlier. We'll now import **Stats** into our **main.js** file and initialize it along with the ASIN tracker:
 
 ```js
+// main.js
+
 // ...
 import Stats from './Stats.js';
 
 await Actor.init();
-await asinTracker.initialize();
+await tracker.initialize();
 await Stats.initialize();
 // ...
 ```
@@ -67,7 +70,7 @@ In order to keep track of errors, we must write a new function within the crawle
 ```js
 const crawler = new CheerioCrawler({
     proxyConfiguration,
-    useSessionPool: true,
+    maxRequestRetries: 10,
     sessionPoolOptions: {
         persistStateKey: 'AMAZON-SESSIONS',
         sessionOptions: {
@@ -75,7 +78,6 @@ const crawler = new CheerioCrawler({
             maxErrorScore: 1,
         },
     },
-    maxConcurrency: 50,
     requestHandler: router,
     // Handle all failed requests
     errorHandler: async ({ error, request }) => {
@@ -93,19 +95,24 @@ Now, we'll increment our **totalSaved** count for every offer added to the datas
 router.addHandler(labels.OFFERS, async ({ $, request }) => {
     const { data } = request.userData;
 
-    const { asin } = data;
+    if (!$('#aod-container').length) {
+        throw new Error('Offers did not load, retrying');
+    }
 
-    for (const offer of $('#aod-offer')) {
-        tracker.incrementASIN(asin);
+    for (const offer of $('#aod-pinned-offer, #aod-offer')) {
+        const element = $(offer);
+        const price = element.find('.apex-pricetopay-value').first().text().trim();
+
+        if (!price) continue;
+
+        tracker.incrementASIN(data.asin);
         // Add 1 to totalSaved for every offer
         Stats.success();
 
-        const element = $(offer);
-
-        await dataset.pushData({
+        await Dataset.pushData({
             ...data,
-            sellerName: element.find('div[id*="soldBy"] a[aria-label]').text().trim(),
-            offer: element.find('.a-price .a-offscreen').text().trim(),
+            sellerName: element.find('#aod-offer-soldBy [aria-label]').text().trim(),
+            offer: price,
         });
     }
 });
@@ -116,22 +123,30 @@ router.addHandler(labels.OFFERS, async ({ $, request }) => {
 Still, in the **OFFERS** handler, we need to add a few extra keys to the items which are pushed to the dataset. Luckily, all of the data required by the task is accessible in the context object.
 
 ```js
-router.addHandler(labels.OFFERS, async ({ $, request }) => {
+router.addHandler(labels.OFFERS, async ({ $, crawler, request }) => {
     const { data } = request.userData;
 
-    const { asin } = data;
+    if (!$('#aod-container').length) {
+        throw new Error('Offers did not load, retrying');
+    }
 
-    for (const offer of $('#aod-offer')) {
-        tracker.incrementASIN(asin);
+    // The request queue gives us the number of pending requests
+    const requestQueue = await crawler.getRequestQueue();
+
+    for (const offer of $('#aod-pinned-offer, #aod-offer')) {
+        const element = $(offer);
+        const price = element.find('.apex-pricetopay-value').first().text().trim();
+
+        if (!price) continue;
+
+        tracker.incrementASIN(data.asin);
         // Add 1 to totalSaved for every offer
         Stats.success();
 
-        const element = $(offer);
-
-        await dataset.pushData({
+        await Dataset.pushData({
             ...data,
-            sellerName: element.find('div[id*="soldBy"] a[aria-label]').text().trim(),
-            offer: element.find('.a-price .a-offscreen').text().trim(),
+            sellerName: element.find('#aod-offer-soldBy [aria-label]').text().trim(),
+            offer: price,
             // Store the handledAt date or current date if that is undefined
             dateHandled: request.handledAt || new Date().toISOString(),
             // Access the number of retries on the request object

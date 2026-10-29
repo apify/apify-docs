@@ -32,7 +32,7 @@ Before moving forward, read about Actor [events](/sdk/js/docs/upgrading/upgradin
 
 ## Our task
 
-Once again returning to our Amazon **demo-actor**, let's say that we need to store an object in memory (as a variable) containing all of the scraped ASINs as keys and the number of offers scraped from each ASIN as values. The object should follow this format:
+Once again returning to our Amazon scraper, **academy-amazon-scraper**, let's say that we need to store an object in memory (as a variable) containing all of the scraped ASINs as keys and the number of offers scraped from each ASIN as values. The object should follow this format:
 
 ```json
 {
