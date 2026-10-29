@@ -89,17 +89,16 @@ Identify your platform on every request, as described in [Monitor and track](/in
 
 ### Full-permission Actors
 
-Most Actors in Apify Store use [limited permissions](/actors/running/permissions#permission-levels). Actors that need full permissions require a one-time approval in Apify Console before you can run them. Until you approve them, API calls fail with a `403` error of type `full-permission-actor-not-approved`. See [Full-permission Actors](/actors/running/permissions#full-permission-actors).
+Most Actors in Apify Store use [limited permissions](/actors/running/permissions#permission-levels). To also let your users run Actors that need [full permissions](/actors/running/permissions#full-permission-actors), select **Allow this token to run full-permission Actors** when you create the token. In **Restricted access** mode, these runs still get only the token's scope, not access to your whole account.
 
-<!-- TODO: confirm how a Restricted access token interacts with full-permission Actors -->
+You must approve each full-permission Actor once in Apify Console before you can run it through the API. Until then, the request fails with a `403` error of type `full-permission-actor-not-approved`.
 
 ## Track the cost of each run
 
 Apify bills every run you start to your Apify account. To pass costs on to your users, read the cost of each run from the [run object](/api/v2/actor-run-get):
 
-- `usageTotalUsd` - the total cost of the run in USD.
-
-<!-- TODO: confirm field(s) that cover pay-per-event charges -->
+- `usageTotalUsd` - the total cost of the run in USD. For pay-per-event Actors, it includes the charged events and any platform usage the Actor charges separately. For pay-per-usage Actors, it's the platform usage.
+- `chargedEventCounts` - how many times the run charged each event, for pay-per-event Actors. Combine it with the event prices in `pricingInfo` to show your users a breakdown.
 
 To cap the cost of a single run, set `maxTotalChargeUsd` when you start it. Learn more about how Actors are priced in [Pricing models](/actors/running/actors-in-store#pricing-models).
 
@@ -107,12 +106,10 @@ To cap the cost of a single run, set `maxTotalChargeUsd` when you start it. Lear
 
 An Actor that runs with a Restricted access token can:
 
-- Read its input and write to its default storages.
+- Read its input and read and write its default storages.
 - Run other Actors, which are restricted the same way.
 
-All other operations fail. This makes it safe to run any Actor from Apify Store with this token.
-
-<!-- TODO: confirm full list -->
+It can't list or manage your other runs, or access storages that aren't its own, unless you add those permissions to the token. This makes it safe to run any Actor from Apify Store with this token.
 
 Some Actors need more access, for example to read an existing dataset you pass in their input. These runs fail with `insufficient permissions` in the log, and there's no way to detect this before you run the Actor. To fix it, add the missing permission to the token's scope. To avoid granting extra access to every Actor, use a separate token for each Actor that needs more permissions. See [Troubleshooting](/integrations/api#my-run-failed-and-i-can-see-insufficient-permissions-in-the-logs).
 
