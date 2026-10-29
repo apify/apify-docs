@@ -46,7 +46,7 @@ A limited-permission Actor can:
 
 This approach ensures the Actor has everything it needs to function while protecting your data from unnecessary exposure.
 
-To limit what Actors can reach under your token, for example when your users choose which Actors run under your account, see [Run Actors with restricted access](/integrations/run-actors-restricted-access).
+You can also restrict the token an Actor receives by starting the run with a scoped token. See [Run Actors with restricted access](/integrations/run-actors-restricted-access).
 
 ### View permission levels in Apify Console and Apify Store
 
