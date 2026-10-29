@@ -108,4 +108,4 @@ const { items } = await readClient.dataset(run.defaultDatasetId).listItems();
 
 Some Actors need more access than a restricted run gets, for example to create a new storage, or to read an existing dataset you pass in their input. These runs fail with `insufficient permissions` in the log, and there's no way to detect this before you run the Actor. To fix it, add the missing permission to the token's scope. To avoid granting extra access to every Actor, use a separate token for each Actor that needs more permissions. See [Troubleshoot insufficient permissions errors](/integrations/api#my-run-failed-and-i-can-see-insufficient-permissions-in-the-logs).
 
-Restricted access isn't supported for Actors in [Standby mode](/actors/running/standby).
+You can't call Actors in [Standby mode](/actors/running/standby) with a Restricted access token. The request fails with a `400` error of type `actor-restricted-access-permission-mode-not-supported`.

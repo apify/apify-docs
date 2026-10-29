@@ -152,7 +152,7 @@ When you run an Actor with a scoped token in this mode, Apify will inject a toke
 This way you can be sure that Actors won't accidentally - or intentionally - access any data they shouldn't. However, Actors might not function properly if the scope is not sufficient.
 
 :::caution Standby mode limitation
-Restricted access mode is not supported for Actors running in [Standby mode](/actors/running/standby). While you can send standby requests using a scoped token configured with restricted access, functionality is not guaranteed.
+Restricted access mode is not supported for Actors running in [Standby mode](/actors/running/standby). Standby requests sent with a scoped token configured with restricted access fail with a `400` error.
 :::
 
 :::tip Transitive restrictions
