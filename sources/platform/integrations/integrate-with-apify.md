@@ -162,7 +162,7 @@ Users create their own Apify accounts and are billed directly by Apify for their
 
 Users access Apify through your platform without needing an Apify account. Apify bills you based on consumption, and you factor costs into your pricing.
 
-Every Actor your users start runs under your Apify account. If you let them choose Actors from Apify Store, run those Actors with a scoped API token so they can't access the rest of your account. To set this up and track the cost of each run, see [Run Actors with restricted access](/integrations/run-actors-restricted-access).
+Every Actor your users start runs under your Apify account. To limit what those Actors can access and to track the cost of each run, see [Run Actors with restricted access](/integrations/run-actors-restricted-access).
 
 ### Monitor and track
 
