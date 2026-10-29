@@ -31,6 +31,8 @@ apify run
 
 For a detailed tutorial, see the [Apify CLI quick start](/cli/docs/quick-start).
 
+`apify run` starts the Actor as a plain process on your machine. To build and run it in a container the way the platform does, with a local console and storages, use the [local Actor runtime](/actors/development/quick-start/locally/actor-runtime).
+
 ## Explore the Actor
 
 The `apify create` command creates a directory with boilerplate code. The exact structure and contents of the directory depend on the template that you choose.
@@ -113,5 +115,6 @@ How to deploy your Actor code to the Apify platform depends on the source type y
 ## Next steps
 
 - For a full list of commands, see the [Apify CLI command reference](/cli/docs/reference).
+- To test builds, input validation, and runs as on the platform without leaving your machine, see the [local Actor runtime](/actors/development/quick-start/locally/actor-runtime).
 - For Actor configuration details, see [Actor definition](/actors/development/actor-definition).
 - To automate your Actor development process, see [Continuous integration](/actors/development/deployment/continuous-integration).
