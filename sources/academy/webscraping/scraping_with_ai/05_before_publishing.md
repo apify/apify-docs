@@ -172,7 +172,7 @@ A useful, reliable Actor can still sit quietly on Apify Store while nobody notic
 - [Record a short demo](/academy/actor-marketing-playbook/promote-your-actor/video-tutorials) that follows one run from input to useful results. It doesn't have to be fancy or polished. Even a rough screencast with some free background music will do. It probably won't rack up huge numbers on YouTube, but you can add it to your README and share it wherever your users hang out.
 - Pick one or two places where people already discuss the problem your Actor solves. Answer questions, show how the Actor helps, and listen to the feedback. That's more useful than dropping the same promotional post everywhere.
 
-Marketing can go much further than this, but that's a course of its own. When you're ready for more, continue with the [marketing checklist](/academy/actor-marketing-playbook/promote-your-actor/checklist) and the guide to [making your Actor easier to find through search](/academy/actor-marketing-playbook/promote-your-actor/seo).
+Marketing can go much further than this, but that's a course of its own. When you're ready for more, continue with the [marketing checklist](/academy/actor-marketing-playbook/promote-your-actor/checklist) and the guide to [making your Actor easier to find through search](/actors/promote/seo).
 
 ## Wrapping up
 
