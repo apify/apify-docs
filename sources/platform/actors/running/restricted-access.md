@@ -6,7 +6,7 @@ sidebar_position: 5.1
 slug: /actors/running/restricted-access
 ---
 
-When you run an Actor, Apify injects an API token into the run so the Actor can call the [Apify API](/api/v2). Depending on the token you start the run with and the Actor's [permission level](/actors/running/permissions), that token can reach more of your account than the Actor needs. This guide shows how to run Actors you don't control with a scoped token, so that each run can only access the resources it needs.
+When you run an Actor, Apify injects an API token into the run so the Actor can call the [Apify API](/api/v2). Depending on the token you start the run with and the Actor's [permission level](/actors/running/permissions), that token can reach more of your account than the Actor needs. This guide shows how to run Actors you don't control with a [scoped token](/integrations/api#limited-permissions), so that each run can only access the resources it needs.
 
 ## Use cases
 
@@ -19,7 +19,7 @@ If you only run a small, fixed set of Actors from trusted developers, such as Ac
 
 ## How restricted access works
 
-A [scoped token](/integrations/api#limited-permissions) set to **Restricted access** passes its own limits on to every Actor it runs. An Actor started this way can:
+A scoped token set to **Restricted access** passes its own limits on to every Actor it runs. An Actor started this way can:
 
 - Read its input, and read and write its default storages.
 - Run other Actors, which get the same restrictions.
@@ -76,7 +76,7 @@ Because the token that starts runs can't read their default storages, use a diff
 
 ## Run an Actor
 
-Start runs with the scoped token, and read results with the separate token. The examples also send the `x-apify-integration-platform` header that every integration should include. See [Monitor and track](/integrations/integrate#monitor-and-track).
+Start runs with the scoped token, and read results with the separate token.
 
 With the REST API:
 
@@ -84,7 +84,6 @@ With the REST API:
 curl -X POST "https://api.apify.com/v2/acts/apify~website-content-crawler/runs" \
   -H "Authorization: Bearer <SCOPED_TOKEN>" \
   -H "Content-Type: application/json" \
-  -H "x-apify-integration-platform: <YOUR_PLATFORM>" \
   -d '{"startUrls": [{"url": "https://docs.apify.com"}]}'
 ```
 
@@ -93,16 +92,10 @@ With the [JavaScript API client](/api/client/js):
 ```javascript
 import { ApifyClient } from 'apify-client';
 
-// Adds the platform header to every request
-const requestInterceptors = [(config) => {
-    config.headers['x-apify-integration-platform'] = '<YOUR_PLATFORM>';
-    return config;
-}];
-
 // Token for starting runs
-const runClient = new ApifyClient({ token: process.env.APIFY_SCOPED_TOKEN, requestInterceptors });
+const runClient = new ApifyClient({ token: process.env.APIFY_SCOPED_TOKEN });
 // Token for reading results
-const readClient = new ApifyClient({ token: process.env.APIFY_READ_TOKEN, requestInterceptors });
+const readClient = new ApifyClient({ token: process.env.APIFY_READ_TOKEN });
 
 const run = await runClient.actor('apify/website-content-crawler').call({
     startUrls: [{ url: 'https://docs.apify.com' }],
