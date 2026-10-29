@@ -159,7 +159,7 @@ Restricted access mode is not supported for Actors running in [Standby mode](/ac
 This restriction is _transitive_, which means that if the Actor runs another Actor, its access will be restricted as well.
 :::
 
-For a step-by-step setup for running Actors you don't control, such as Actors your users pick from Apify Store, see [Run Actors with restricted access](/integrations/run-actors-restricted-access).
+For a step-by-step setup for running Actors you don't control, such as Actors your users pick from Apify Store, see [Run Actors with restricted access](/actors/running/restricted-access).
 
 #### Default run storages
 

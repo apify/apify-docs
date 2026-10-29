@@ -26,7 +26,7 @@ Because all runs happen under your account, you're responsible for keeping your 
 
 Your users decide which Actors run, and every run happens under your Apify account. Without extra setup, a [full-permission Actor](/actors/running/permissions#full-permission-actors) can access your whole account, including data from runs of your other users.
 
-Before you open Actor runs to your users, follow [Run Actors with restricted access](/integrations/run-actors-restricted-access). It shows how to keep your users' run data private and how to start runs with a scoped token that limits what each Actor can reach.
+Before you open Actor runs to your users, follow [Run Actors with restricted access](/actors/running/restricted-access). It shows how to keep your users' run data private and how to start runs with a scoped token that limits what each Actor can reach.
 
 ## Identify your platform
 

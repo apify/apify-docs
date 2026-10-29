@@ -1,8 +1,9 @@
 ---
 title: Run Actors with restricted access
+sidebar_label: Restricted access
 description: Run Actors you don't control, such as ones your users pick from Apify Store, with a scoped API token so they can't reach the rest of your Apify account.
-sidebar_position: 2
-slug: /integrations/run-actors-restricted-access
+sidebar_position: 5.1
+slug: /actors/running/restricted-access
 ---
 
 When you run an Actor, Apify injects an API token into the run so the Actor can call the [Apify API](/api/v2). Depending on the token you start the run with and the Actor's [permission level](/actors/running/permissions), that token can reach more of your account than the Actor needs. This guide shows how to run Actors you don't control with a scoped token, so that each run can only access the resources it needs.
