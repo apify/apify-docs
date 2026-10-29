@@ -59,20 +59,19 @@ After you switch to **Restricted**, any integration that reads datasets or key-v
 
 Create a scoped token that can run Actors and passes its restrictions on to every run:
 
-1. In Apify Console, go to [**Settings > API & Integrations**](https://console.apify.com/settings/integrations). If you integrate through an organization, switch to it first.
+1. In Apify Console, go to [**Settings > API & Integrations**](https://console.apify.com/settings/integrations). If you integrate through an organization, switch to it first, so the token runs Actors under the organization's account.
 1. Select **Create a new token**, and optionally add a description.
 1. Turn on **Limit token permissions**.
 1. Under **Account-level permissions**, find **Actors** and select **Run**. Apify Console selects **Read** with it. This lets the token run any Actor in your account or in Apify Store.
 1. Under **Running Actors**, select **Restricted access**.
 1. **Allow this token to run full-permission Actors** is on by default. To run only Actors with limited permissions, turn it off.
-1. Leave **Allow this token to access default run storages** turned off. This way, the token that starts runs can't read their results, so if it leaks, it can't be used to read your users' results. A leaked token can still start runs billed to your account, so [rotate it](/integrations/api#rotation) right away. See [Default run storages](/integrations/api#default-run-storages).
 1. Select **Create**.
 
 The new token appears in the token list with a **Limited permissions** badge.
 
 ### Read results with a separate token
 
-Because the token that starts runs can't read their default storages, use a different token to read results. This can be your main API token, or a second scoped token with **Read** access to datasets and key-value stores. Keep this token on your backend and never pass it to an Actor.
+By default, the token that starts runs can't read their results, so use a different token to read results. This can be your main API token, or a second scoped token with **Read** access to datasets and key-value stores. Keep this token on your backend and never pass it to an Actor. If the token that starts runs leaks, it can still start runs billed to your account, so [rotate it](/integrations/api#rotation) right away.
 
 ## Run an Actor
 
@@ -107,5 +106,7 @@ const { items } = await readClient.dataset(run.defaultDatasetId).listItems();
 ## Limitations and troubleshooting
 
 Some Actors need more access than a restricted run gets, for example to create a new storage, or to read an existing dataset you pass in their input. These runs fail with `insufficient permissions` in the log, and there's no way to detect this before you run the Actor. To fix it, add the missing permission to the token's scope. To avoid granting extra access to every Actor, use a separate token for each Actor that needs more permissions. See [Troubleshoot insufficient permissions errors](/integrations/api#my-run-failed-and-i-can-see-insufficient-permissions-in-the-logs).
+
+Some Actors run other Actors and read their results. With the default settings, these Actors fail because they can't read the other runs' storages. To fix this, turn on **Allow this token to access default run storages** on the scoped token. The token can then also read the results of runs it starts, so you don't need a separate token to read them. If the token leaks, though, it can also be used to read those results.
 
 You can't call Actors in [Standby mode](/actors/running/standby) with a Restricted access token. The request fails with a `400` error of type `actor-restricted-access-permission-mode-not-supported`.
