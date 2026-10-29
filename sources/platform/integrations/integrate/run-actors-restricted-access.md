@@ -65,7 +65,7 @@ Create a scoped token that can run Actors and passes its restrictions on to ever
 1. Under **Account-level permissions**, find **Actors** and select **Run**. Apify Console selects **Read** with it. This lets the token run any Actor in your account or in Apify Store.
 1. Under **Running Actors**, select **Restricted access**.
 1. **Allow this token to run full-permission Actors** is on by default. To run only Actors with limited permissions, turn it off.
-1. Leave **Allow this token to access default run storages** turned off. This way, the token that starts runs can't read their results, so if it leaks, it can't expose your users' data. See [Default run storages](/integrations/api#default-run-storages).
+1. Leave **Allow this token to access default run storages** turned off. This way, the token that starts runs can't read their results, so if it leaks, it can't be used to read your users' results. A leaked token can still start runs billed to your account, so [rotate it](/integrations/api#rotation) right away. See [Default run storages](/integrations/api#default-run-storages).
 1. Select **Create**.
 
 The new token appears in the token list with a **Limited permissions** badge.
