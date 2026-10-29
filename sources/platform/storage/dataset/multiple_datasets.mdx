@@ -1,6 +1,6 @@
 ---
-title: Multiple datasets
-description: Learn how to use multiple datasets within your Actors to organize and store different types of data separately.
+title: Use multiple datasets
+description: Define more than one dataset in your Actor, write to each from your code, and surface them on the run page so users can find the right output.
 sidebar_position: 3
 slug: /storage/dataset-schema/multiple-datasets
 ---
@@ -127,7 +127,7 @@ The **Export** button on the Run page exports only the `default` dataset.
 
 To export programmatically:
 
-- Call the [Dataset API](/api/v2/dataset-items-get) with the dataset ID from `ACTOR_STORAGES_JSON`. The API returns items in any supported format via query parameters.
+- Call the [Get dataset items](/api/v2/dataset-items-get) endpoint with the dataset ID from `ACTOR_STORAGES_JSON`. The API returns items in any supported format via query parameters.
 - From inside an Actor, open the dataset (see [Access datasets in Actor code](#access-datasets-in-actor-code)), then call `getData` / `get_data` to read items into memory, or `exportTo` / `export_to` to write a JSON or CSV file to the key-value store.
 
 See [Datasets](/storage/dataset) for formats and query parameters.
@@ -161,4 +161,4 @@ The Storage tab shows data but doesn't surface it clearly to end users. To prese
 
 When an Actor uses multiple datasets, only items pushed to the `default` dataset trigger the built-in `apify-default-dataset-item` event. Items in other datasets are not charged automatically.
 
-To charge for items in other datasets, implement custom billing in your Actor code. Refer to the [billing documentation](/actors/publishing/monetize/pay-per-event) for implementation details.
+To charge for items in other datasets, implement custom billing in your Actor code. Refer to the [billing documentation](/actors/monetize/pay-per-event) for implementation details.

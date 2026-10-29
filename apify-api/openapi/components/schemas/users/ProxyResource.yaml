@@ -1,0 +1,13 @@
+title: ProxyResource
+description: Proxy access info. Omitted when the user has no access to Apify Proxy.
+required:
+  - groups
+type: object
+properties:
+  password:
+    type: [string, "null"]
+    examples: [ad78knd9Jkjd86]
+  groups:
+    type: array
+    items:
+      $ref: ./ProxyGroup.yaml

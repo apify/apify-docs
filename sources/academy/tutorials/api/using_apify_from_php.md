@@ -32,7 +32,7 @@ $client = new \GuzzleHttp\Client([
 
 Note that we pass the API token in the header. It can also be passed as a query string `token` parameter, but passing it in the header is preferred and more secure.
 
-To check whether everything works well, we'll try to get information about the [current user](/api/v2/users-me-get).
+To check whether everything works well, we'll try to get information about the current user with the [Get private user data](/api/v2/users-me-get) endpoint.
 
 ```php
 // Call the endpoint using our client
@@ -52,7 +52,7 @@ If, instead of data, you see an error saying `Authentication token is not valid`
 
 Now that we have our guzzle client ready to go, we can run some Actors. Let's try the **Contact Details Scraper** ([vdrmota/contact-info-scraper](https://apify.com/vdrmota/contact-info-scraper)).
 
-The [API reference](/api/v2/actors-runs-post) states that an Actor's input should be passed as JSON in the request body. Other options are passed as query parameters.
+The [Run Actor](/api/v2/actors-runs-post) API reference states that an Actor's input should be passed as JSON in the request body. Other options are passed as query parameters.
 
 ```php
 // To run the Actor, we make a POST request to its run's endpoint
@@ -83,7 +83,7 @@ You should see information about the run, including its ID and the ID of its def
 
 ## Getting the results from dataset
 
-An Actor usually stores its results in a default dataset created separately for each run. The [Actor runs endpoint](/api/v2/actor-runs) lets you get overall info about an Actor run's default dataset.
+An Actor usually stores its results in a default dataset created separately for each run. The [Manage Actor runs](/api/v2/actor-runs) endpoints let you get overall info about an Actor run's default dataset.
 
 ```php
 // Replace <RUN_ID> with the run ID you from earlier
@@ -121,7 +121,7 @@ $parsedResponse = \json_decode($response->getBody(), true);
 echo \json_encode($parsedResponse, JSON_PRETTY_PRINT);
 ```
 
-All the available parameters are described in [our API reference](/api/v2/dataset-items-get) and work both for all datasets.
+All the available parameters are described in the [Get dataset items](/api/v2/dataset-items-get) API reference and work both for all datasets.
 
 ## Getting the results from key-value stores
 

@@ -30,7 +30,7 @@ On the setup screen, configure:
 
 - **Start when** - Events that trigger the integrated Actor. These match webhook [event types](/integrations/webhooks/events) (`run succeeded`, `build failed`, and so on).
 - **Actor input** - The input usually has two parts: static fields whose value doesn't change between runs (for example, a database connection string or table name) and dynamic fields specific to the triggering run (for example, a dataset ID). Static fields go in as-is. Dynamic fields are pulled from the implicit `payload` field (the default for most integration-ready Actors) or set with variables. The **Available variables** button in the input panel lists the variables you can interpolate.
-- **Available variables** - The same variables as in webhooks. The most common is `{{resource}}`, which holds the Run object in the shape returned by the [API](/api/v2/actor-run-get), or the Build object for build event types. Variables support dot notation, `{{resource.defaultDatasetId}}` and `{{resource.defaultKeyValueStoreId}}` cover most cases.
+- **Available variables** - The same variables as in webhooks. The most common is `{{resource}}`, which holds the Run object in the shape returned by the [Get Actor run](/api/v2/actor-run-get) endpoint, or the Build object for build event types. Variables support dot notation, `{{resource.defaultDatasetId}}` and `{{resource.defaultKeyValueStoreId}}` cover most cases.
 
 <img src={require("./images/integration_setup_screen.png").default} alt="Integration setup screen" width="60%" />
 

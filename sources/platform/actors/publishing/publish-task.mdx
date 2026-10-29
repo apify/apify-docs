@@ -7,7 +7,7 @@ sidebar_position: 2
 
 [Actor tasks](/actors/running/tasks) are shareable, pre-configured inputs for your Actors. [Publishing a task](#publish-your-tasks) creates a public landing page that shows what it does, what inputs to provide, and what output to expect. Published tasks also appear in your Actor's **Example tasks** tab, which helps users discover your Actor through search engines and AI agents. For monetized Actors, more discoverability means more paid runs.
 
-You can publish up to 10 tasks per Actor, and up to 100 tasks across your account. To increase these limits, [contact support](http://apify.com/contact).
+You can publish up to 10 tasks per Actor, and up to 100 tasks across your account.
 
 ## Prerequisites
 
@@ -188,7 +188,7 @@ If any requirement is unmet, the request fails and none of the update is applied
 
 ### Publish with an AI agent
 
-The [Apify MCP server](/integrations/mcp) exposes task publishing as tools, so you can describe what you want in your AI client and let the agent do the work: `create-actor-task`, `get-actor-task`, `update-actor-task`, `publish-actor-task`, and `unpublish-actor-task`.
+The [Apify MCP server](/mcp) exposes task publishing as tools, so you can describe what you want in your AI client and let the agent do the work: `create-actor-task`, `get-actor-task`, `update-actor-task`, `publish-actor-task`, and `unpublish-actor-task`.
 
 These tools are in the `tasks` category, which is not enabled by default. Include it in your connection URL:
 
@@ -200,7 +200,7 @@ The requirements above still apply. The agent fills in the display configuration
 
 ### Publish with the API
 
-Create the task with [Create task API endpoint](/api/v2/actor-tasks-post), then configure and publish it with [Update task API endpoint](/api/v2/actor-task-put):
+Create the task with the [Create Actor task](/api/v2/actor-tasks-post) endpoint, then configure and publish it with the [Update Actor task](/api/v2/actor-task-put) endpoint:
 
 ```http
 PUT /v2/actor-tasks/{actorTaskId}
@@ -313,5 +313,5 @@ When a user selects **Try for free** or **Sign up**, Apify creates a new task un
 
 ## Next steps
 
-- Set up [monetization](/actors/publishing/monetize) for your Actor.
+- Set up [monetization](/actors/monetize) for your Actor.
 - Track quality with the [Actor quality score](./quality_score.mdx).

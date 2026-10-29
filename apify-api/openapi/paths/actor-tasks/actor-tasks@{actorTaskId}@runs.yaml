@@ -1,7 +1,7 @@
 get:
   tags:
     - Actor tasks
-  summary: Get list of task runs
+  summary: Get list of Actor task's runs
   description: |
     Get a list of runs of a specific task. The response is a list of objects,
     where each object contains essential information about a single task run.
@@ -43,7 +43,7 @@ get:
                       items:
                         type: array
                         items:
-                          $ref: ../../components/schemas/actor-runs/RunShort.yaml
+                          $ref: ../../components/schemas/actor-runs/RunListItem.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
     "401":
@@ -64,7 +64,7 @@ get:
 post:
   tags:
     - Actor tasks
-  summary: Run task
+  summary: Run Actor task
   description: |
     Runs an Actor task and immediately returns without waiting for the run to
     finish.
@@ -76,18 +76,17 @@ post:
     input property, the Actor run uses the default value defined by the task (or Actor's input
     schema if not defined by the task).
 
-    The response is the Actor Run object as returned by the [Get
-    run](#/reference/actor-runs/run-object-and-its-storages/get-run) endpoint.
+    The response is the Actor Run object as returned by the [Get Actor run](/api/v2/actor-run-get) endpoint.
 
     If you want to wait for the run to finish and receive the actual output of
-    the Actor run as the response, use one of the [Run task
-    synchronously](#/reference/actor-tasks/run-task-synchronously) API endpoints
-    instead.
+    the Actor run as the response, use the [Run Actor task synchronously and get key-value store record](/api/v2/actor-task-run-sync-post)
+    or [Run Actor task synchronously and get dataset items](/api/v2/actor-task-run-sync-get-dataset-items-post)
+    endpoint instead.
 
     To fetch the Actor run results that are typically stored in the default
     dataset, you'll need to pass the ID received in the `defaultDatasetId` field
     received in the response JSON to the
-    [Get dataset items](#/reference/datasets/item-collection/get-items) API endpoint.
+    [Get dataset items](/api/v2/dataset-items-get) API endpoint.
   operationId: actorTask_runs_post
   parameters:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorTaskId"

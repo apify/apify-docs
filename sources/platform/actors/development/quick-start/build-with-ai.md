@@ -10,7 +10,7 @@ pagination_prev: null
 ---
 
 import { AGENTS_PROMPT } from "@site/src/utils/agents-prompt";
-import PromptButton from "@site/src/components/PromptButton";
+import PromptBlock from "@site/src/components/PromptBlock";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ClaudeCodeWebEgress from '@site/sources/_partials/_claude-code-web-egress.mdx';
@@ -20,7 +20,7 @@ This guide provides best practices for building new Actors or improving existing
 :::tip Different goal?
 
 - _Building and deploying AI agents as Actors on Apify?_ See [Develop AI agents on Apify](/actors/development/quick-start/develop-ai-agents) for the full stack - templates, sandboxes, LLM access, and monetization.
-- _Connecting an external AI agent to Apify?_ See [Apify for AI agents](/get-started/agent-onboarding) for MCP, Agent Skills, client libraries, and the REST API.
+- _Connecting an external AI agent to Apify?_ See the [agent quickstart](/get-started/agent-onboarding) for MCP, Agent Skills, client libraries, and the REST API.
 
 :::
 
@@ -53,7 +53,7 @@ The methods on this page are complementary. Start with the [AI coding assistant 
 
 Use the following prompt in your AI coding assistant such as [Cursor](https://cursor.com/), [Claude Code](https://claude.com/product/claude-code), or [GitHub Copilot](https://github.com/features/copilot):
 
-<PromptButton prompt={AGENTS_PROMPT} title="Use pre-built prompt for your AI coding assistant" />
+<PromptBlock prompt={AGENTS_PROMPT} collapsed />
 
 The prompt guides your AI coding assistant to create and deploy an Apify Actor step by step. It walks through setting up the Actor structure, configuring all required files, installing dependencies, running it locally, logging in, and pushing it to the Apify platform.
 
@@ -152,7 +152,7 @@ Every page in the Apify documentation has a **Copy for LLM** button. Use it to a
 
 The entire Apify documentation is available in Markdown format for use with LLMs and AI coding tools. Two consolidated files are available:
 
-- `https://docs.apify.com/llms.txt`: A Markdown file with an index of all documentation pages in Markdown format, based on the [llmstxt.org](https://llmstxt.org/) standard.
+- `https://docs.apify.com/llms.txt`: A Markdown index of the documentation, based on the [llmstxt.org](https://llmstxt.org/) standard. Larger sections, such as the API reference and Academy, have their own index linked from this file.
 - `https://docs.apify.com/llms-full.txt`: All Apify documentation consolidated in a single Markdown file.
 
 :::tip Access Markdown source

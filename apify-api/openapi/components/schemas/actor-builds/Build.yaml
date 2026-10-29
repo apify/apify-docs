@@ -29,7 +29,7 @@ properties:
   status:
     $ref: ../common/ActorJobStatus.yaml
   meta:
-    $ref: ./BuildsMeta.yaml
+    $ref: ./BuildMeta.yaml
   stats:
     anyOf:
       - $ref: ./BuildStats.yaml
@@ -61,10 +61,36 @@ properties:
     type: [string, "null"]
     deprecated: true # Marked as deprecated in favor of actorDefinition.
     examples: ['# Magic Actor\nThis Actor is magic.']
+  changelog:
+    type: [string, "null"]
+    deprecated: true # Marked as deprecated in favor of actorDefinition.
+    examples: ['# Changelog\n## 0.1.1\n- Initial release']
+  exitCode:
+    type: [integer, "null"]
+    examples: [0]
+    description: Exit code of the build process. Set when the build finishes.
+  gitCommitId:
+    type: string
+    examples: [5f1d2b3c4a5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a]
+    description: ID of the Git commit the build was created from. Present only for builds from a Git repository.
+  gitBranchName:
+    type: string
+    examples: [main]
+    description: Name of the Git branch the build was created from. Present only for builds from a Git repository.
+  createdByOrganizationMemberUserId:
+    type: string
+    examples: [klmdEpoiojmdEMlk3]
+    description: ID of the organization member who started the build. Present only for builds started in an organization account.
   buildNumber:
     type: string
     pattern: ^([0-9]|[1-9][0-9])\.([0-9]|[1-9][0-9])(\.[1-9][0-9]{0,4})$
     examples: [0.1.1]
+  imageDigest:
+    type: [string, "null"]
+    description: >-
+      Digest of the built Docker image manifest, without the `sha256:` prefix. Compare digests of two builds
+      to find out whether their image contents differ. `null` if the digest is not available.
+    examples: [1b2f1e8c0d5a4c7f9e3b6a2d8c4e0f7a5b9d3c1e6f8a2b4d0c7e9f1a3b5d7c9e]
   actVersion:
     title: BuildActVersion
     type: object
@@ -73,8 +99,9 @@ properties:
       sourceType:
         $ref: ../actors/VersionSourceType.yaml
       buildTag:
-        type: string
+        type: [string, "null"]
         examples: [experimental]
+        description: The build tag of the Actor version this build was created from. Can be `null` when the version has no build tag, in which case the build is tagged on success only if the `tag` parameter was passed when starting it.
       versionNumber:
         type: string
         pattern: ^([0-9]|[1-9][0-9])\.([0-9]|[1-9][0-9])$
@@ -88,6 +115,14 @@ properties:
         description: Inline source files, present when sourceType is SOURCE_FILES.
         items:
           $ref: ../actors/SourceCodeFile.yaml
+      gitHubGistUrl:
+        type: string
+        description: URL of the GitHub Gist, present when sourceType is GITHUB_GIST.
+        examples: ["https://gist.github.com/jancurn/2dd8fa0dd5bf9ea2b4d5a6e0f6a0e8c5"]
+      tarballUrl:
+        type: string
+        description: URL of the tarball or ZIP file, present when sourceType is TARBALL. Returned only to the Actor owner.
+        examples: ["https://example.com/my-actor.zip"]
   actorDefinition:
     anyOf:
       - $ref: ../actors/ActorDefinition.yaml
@@ -120,6 +155,7 @@ example:
   inputSchema: '{\n  "title": "Schema for ..."}'
   readme: '# Magic Actor\nThis Actor is magic.'
   buildNumber: 0.1.1
+  imageDigest: 1b2f1e8c0d5a4c7f9e3b6a2d8c4e0f7a5b9d3c1e6f8a2b4d0c7e9f1a3b5d7c9e
   actorDefinition:
     actorSpecification: 1
     name: example-actor

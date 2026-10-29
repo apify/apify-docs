@@ -53,10 +53,9 @@ info:
 
     To use your token in a request, either:
 
-    - Add the token to your request's `Authorization` header as `Bearer <token>`.
+    - _(Recommended)_ Add the token to your request's `Authorization` header as `Bearer <token>`.
     E.g., `Authorization: Bearer xxxxxxx`.
-    [More info](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization).
-    (Recommended).
+    For details, see the [`Authorization` header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization) on MDN.
     - Add it as the `token` parameter to your request URL. (Less secure).
 
     Using your token in the request header is more secure than using it as a URL
@@ -79,11 +78,17 @@ info:
     [Skyfire](https://docs.apify.com/platform/integrations/skyfire)
     (`skyfire-pay-id` header).
 
+    Agents can also pay once with x402 or the
+    [Machine Payments Protocol (MPP)](https://docs.apify.com/integrations/mpp)
+    and receive a temporary API token with a fixed spend cap from the Apify
+    Agent General Interface (AGI) at
+    [https://agi.apify.com](https://agi.apify.com). Use that token as a regular
+    `Bearer` token.
+
     ## Basic usage
     <span id="/introduction/basic-usage"></span>
 
-    To run an Actor, send a POST request to the [Run
-    Actor](#/reference/actors/run-collection/run-actor) endpoint using either the
+    To run an Actor, send a POST request to the [Run Actor](/api/v2/actors-runs-post) endpoint using either the
     Actor ID code (e.g. `vKg4IjxZbEYTYeW8T`) or its name (e.g.
     `janedoe~my-actor`):
 
@@ -96,8 +101,7 @@ info:
     `Authorization` header ([recommended](#/introduction/authentication)) or as a
     URL query parameter `?token=[your_token]` (less secure).
 
-    Optionally, you can include the query parameters described in the [Run
-    Actor](#/reference/actors/run-collection/run-actor) section to customize your
+    Optionally, you can include the query parameters described in the [Run Actor](/api/v2/actors-runs-post) section to customize your
     run.
 
     If you're using Node.js, the best way to run an Actor is using the
@@ -111,23 +115,20 @@ info:
 
     A typical workflow is as follows:
 
-    1. Run an Actor or task using the [Run
-    Actor](#/reference/actors/run-collection/run-actor) or [Run
-    task](#/reference/actor-tasks/run-collection/run-task) API endpoints.
-    2. Monitor the Actor run by periodically polling its progress using the [Get
-    run](#/reference/actor-runs/run-object-and-its-storages/get-run) API
+    1. Run an Actor or task using the [Run Actor](/api/v2/actors-runs-post) or
+    [Run Actor task](/api/v2/actor-task-runs-post) API endpoints.
+    2. Monitor the Actor run by periodically polling its progress using the [Get Actor run](/api/v2/actor-run-get) API
     endpoint.
-    3. Fetch the results from the [Get
-    items](#/reference/datasets/item-collection/get-items) API endpoint using the
+    3. Fetch the results from the [Get dataset items](/api/v2/dataset-items-get) API endpoint using the
     `defaultDatasetId`, which you receive in the Run request response.
     Additional data may be stored in a key-value store. You can fetch them from
-    the [Get record](#/reference/key-value-stores/record/get-record) API endpoint
+    the [Get key-value store record](/api/v2/key-value-store-record-get) API endpoint
     using the `defaultKeyValueStoreId` and the store's `key`.
 
-    **Note**: Instead of periodic polling, you can also run your
-    [Actor](#/reference/actors/run-actor-synchronously) or
-    [task](#/reference/actor-tasks/runs-collection/run-task-synchronously)
-    synchronously. This will ensure that the request waits for 300 seconds (5
+    **Note**: Instead of periodic polling, you can also run your Actor or task synchronously with the
+    [Run Actor synchronously and get key-value store record](/api/v2/actor-run-sync-post) or
+    [Run Actor task synchronously and get key-value store record](/api/v2/actor-task-run-sync-post)
+    endpoint. This will ensure that the request waits for 300 seconds (5
     minutes) for the run to finish and returns its output. If the run takes
     longer, the request will time out and throw an error.
 
@@ -153,8 +154,8 @@ info:
     ```
 
     However, there are a few explicitly described exceptions, such as
-    [Get dataset items](#/reference/datasets/item-collection/get-items) or
-    Key-value store [Get record](#/reference/key-value-stores/record/get-record)
+    [Get dataset items](/api/v2/dataset-items-get) or
+    [Get key-value store record](/api/v2/key-value-store-record-get)
     API endpoints, which return data in other formats.
     In case of an error, the response has the HTTP status code in the range of
     4xx or 5xx and the `data` property is replaced with `error`. For example:
@@ -174,14 +175,13 @@ info:
     <span id="/introduction/pagination"></span>
 
     All API endpoints that return a list of records
-    (e.g. [Get list of
-    Actors](#/reference/actors/actor-collection/get-list-of-actors))
+    (e.g. [Get list of Actors](/api/v2/actors-get))
     enforce pagination in order to limit the size of their responses.
 
     Most of these API endpoints are paginated using the `offset` and `limit`
     query parameters.
-    The only exception is [Get list of
-    keys](#/reference/key-value-stores/key-collection/get-list-of-keys),
+    The only exception is
+    [Get list of key-value store keys](/api/v2/key-value-store-keys-get),
     which is paginated using the `exclusiveStartKey` query parameter.
 
     **IMPORTANT**: Each API endpoint that supports pagination enforces a certain
@@ -281,8 +281,8 @@ info:
     store](https://docs.apify.com/platform/storage/key-value-store)
     are not ordered based on numerical indexes,
     but rather by their keys in the UTF-8 binary order.
-    Therefore the [Get list of
-    keys](#/reference/key-value-stores/key-collection/get-list-of-keys)
+    Therefore the
+    [Get list of key-value store keys](/api/v2/key-value-store-keys-get)
     API endpoint only supports pagination using the following query parameters:
 
     <table>
@@ -347,9 +347,9 @@ info:
     ## Errors
     <span id="/introduction/errors"></span>
 
-    The Apify API uses common HTTP status codes: `2xx` range for success, `4xx`
+    The Apify API uses common HTTP status codes: 2xx range for success, 4xx
     range for errors caused by the caller
-    (invalid requests) and `5xx` range for server errors (these are rare).
+    (invalid requests) and 5xx range for server errors (these are rare).
     Each error response contains a JSON object defining the `error` property,
     which is an object with
     the `type` and `message` properties that contain the error code and a
@@ -376,37 +376,37 @@ info:
         <th>message</th>
       </tr>
       <tr>
-        <td><code>400</code></td>
+        <td>400</td>
         <td><code>invalid-request</code></td>
         <td>POST data must be a JSON object</td>
       </tr>
       <tr>
-        <td><code>400</code></td>
+        <td>400</td>
         <td><code>invalid-value</code></td>
         <td>Invalid value provided: Comments required</td>
       </tr>
       <tr>
-        <td><code>400</code></td>
+        <td>400</td>
         <td><code>invalid-record-key</code></td>
         <td>Record key contains invalid character</td>
       </tr>
       <tr>
-        <td><code>401</code></td>
+        <td>401</td>
         <td><code>token-not-provided</code></td>
         <td>Authentication token was not provided</td>
       </tr>
       <tr>
-        <td><code>404</code></td>
+        <td>404</td>
         <td><code>record-not-found</code></td>
         <td>Store was not found</td>
       </tr>
       <tr>
-        <td><code>429</code></td>
+        <td>429</td>
         <td><code>rate-limit-exceeded</code></td>
         <td>You have exceeded the rate limit of ... requests per second</td>
       </tr>
       <tr>
-        <td><code>405</code></td>
+        <td>405</td>
         <td><code>method-not-allowed</code></td>
         <td>This API endpoint can only be accessed using the following HTTP methods: OPTIONS, POST</td>
       </tr>
@@ -433,25 +433,40 @@ info:
     The default rate limit is applied to every API endpoint except a few select ones, which have higher rate limits.
     Each API endpoint returns its rate limit in `X-RateLimit-Limit` header.
 
+    These endpoints have a rate limit of _35 requests per second per resource_:
+
+    * [Batch add requests to request queue](/api/v2/request-queue-requests-batch-post)
+    * [Batch delete requests from request queue](/api/v2/request-queue-requests-batch-delete)
+    * [Get and lock request queue head](/api/v2/request-queue-head-lock-post)
+
+    These endpoints have a rate limit of _100 requests per second per resource_:
+
+    * [Download key-value store records](/api/v2/key-value-store-records-get) (ZIP archive)
+
     These endpoints have a rate limit of _200 requests per second per resource_:
 
-    * CRUD ([get](#/reference/key-value-stores/record/get-record),
-      [put](#/reference/key-value-stores/record/put-record),
-      [delete](#/reference/key-value-stores/record/delete-record))
-      operations on key-value store records
+    * [Get key-value store record](/api/v2/key-value-store-record-get)
+    * [Set key-value store record](/api/v2/key-value-store-record-put) and its [`POST` variant](/api/v2/key-value-store-record-post)
+    * [Delete key-value store record](/api/v2/key-value-store-record-delete)
+    * [Get list of key-value store keys](/api/v2/key-value-store-keys-get)
+
+    These endpoints have a rate limit of _350 requests per second per resource_:
+
+    * [Add request to request queue](/api/v2/request-queue-requests-post)
+    * [Get request from request queue](/api/v2/request-queue-request-get)
+    * [Update request in request queue](/api/v2/request-queue-request-put)
+    * [Delete request from request queue](/api/v2/request-queue-request-delete)
+    * [Prolong lock on request in request queue](/api/v2/request-queue-request-lock-put)
+    * [Delete lock on request in request queue](/api/v2/request-queue-request-lock-delete)
 
     These endpoints have a rate limit of _400 requests per second per resource_:
-    * [Run Actor](#/reference/actors/run-collection/run-actor)
-    * [Run Actor task asynchronously](#/reference/actor-tasks/runs-collection/run-task-asynchronously)
-    * [Run Actor task synchronously](#/reference/actor-tasks/runs-collection/run-task-synchronously)
-    * [Metamorph Actor run](#/reference/actors/metamorph-run/metamorph-run)
-    * [Push items](#/reference/datasets/item-collection/put-items) to dataset
-    * CRUD
-      ([add](#/reference/request-queues/request-collection/add-request),
-      [get](#/reference/request-queues/request-collection/get-request),
-      [update](#/reference/request-queues/request-collection/update-request),
-      [delete](#/reference/request-queues/request-collection/delete-request))
-      operations on requests in request queues
+
+    * [Run Actor](/api/v2/actors-runs-post)
+    * [Run Actor task](/api/v2/actor-task-runs-post)
+    * [Run Actor task synchronously and get key-value store record](/api/v2/actor-task-run-sync-post) and its [`GET` variant](/api/v2/actor-task-run-sync-get)
+    * [Run Actor task synchronously and get dataset items](/api/v2/actor-task-run-sync-get-dataset-items-post) and its [`GET` variant](/api/v2/actor-task-run-sync-get-dataset-items-get)
+    * [Metamorph Actor run](/api/v2/actor-run-metamorph-post)
+    * [Store items in dataset](/api/v2/dataset-items-post)
 
     ### Rate limit exceeded errors
     <span id="/introduction/rate-limiting/rate-limit-exceeded-errors"></span>
@@ -478,7 +493,7 @@ info:
 
     1. Define a variable `DELAY=500`
     2. Send the HTTP request to the API endpoint
-    3. If the response has status code not equal to `429` then you are done. Otherwise:
+    3. If the response has status code not equal to 429 then you are done. Otherwise:
        * Wait for a period of time chosen randomly from the interval `DELAY` to `2*DELAY` milliseconds
        * Double the future wait period by setting `DELAY = 2*DELAY`
        * Continue with step 2
@@ -516,12 +531,16 @@ paths:
     $ref: "paths/actors/acts@{actorId}@versions.yaml"
   "/v2/actors/{actorId}/versions/{versionNumber}":
     $ref: "paths/actors/acts@{actorId}@versions@{versionNumber}.yaml"
+  "/v2/actors/{actorId}/versions/{versionNumber}/build-on-push":
+    $ref: "paths/actors/acts@{actorId}@versions@{versionNumber}@build-on-push.yaml"
   "/v2/actors/{actorId}/versions/{versionNumber}/env-vars":
     $ref: "paths/actors/acts@{actorId}@versions@{versionNumber}@env-vars.yaml"
   "/v2/actors/{actorId}/versions/{versionNumber}/env-vars/{envVarName}":
     $ref: "paths/actors/acts@{actorId}@versions@{versionNumber}@env-vars@{envVarName}.yaml"
   "/v2/actors/{actorId}/webhooks":
     $ref: "paths/actors/acts@{actorId}@webhooks.yaml"
+  "/v2/actors/{actorId}/oauth-connections":
+    $ref: "paths/actors/acts@{actorId}@oauth-connections.yaml"
   "/v2/actors/{actorId}/builds":
     $ref: "paths/actors/acts@{actorId}@builds.yaml"
   "/v2/actors/{actorId}/builds/default":
@@ -698,6 +717,10 @@ paths:
     $ref: "paths/actor-builds/actor-builds@{buildId}@log.yaml"
   "/v2/actor-builds/{buildId}/openapi.json":
     $ref: "paths/actor-builds/actor-builds@{buildId}@openapi.json.yaml"
+  "/v2/actor-oauth-accounts/{connectionId}/accounts":
+    $ref: "paths/actor-oauth-accounts/actor-oauth-accounts@{connectionId}@accounts.yaml"
+  "/v2/actor-oauth-accounts/{accountId}":
+    $ref: "paths/actor-oauth-accounts/actor-oauth-accounts@{accountId}.yaml"
   /v2/key-value-stores:
     $ref: paths/key-value-stores/key-value-stores.yaml
   "/v2/key-value-stores/{storeId}":
@@ -750,6 +773,8 @@ paths:
     $ref: paths/schedules/schedules.yaml
   "/v2/schedules/{scheduleId}":
     $ref: "paths/schedules/schedules@{scheduleId}.yaml"
+  "/v2/schedules/{scheduleId}/invoke":
+    $ref: "paths/schedules/schedules@{scheduleId}@invoke.yaml"
   "/v2/schedules/{scheduleId}/log":
     $ref: "paths/schedules/schedules@{scheduleId}@log.yaml"
   /v2/store:
@@ -764,6 +789,16 @@ paths:
     $ref: paths/users/users@me@usage@monthly.yaml
   /v2/users/me/limits:
     $ref: paths/users/users@me@limits.yaml
+  "/v2/users/{userId}/usage/monthly":
+    $ref: "paths/users/users@{userId}@usage@monthly.yaml"
+  "/v2/users/{userId}/limits":
+    $ref: "paths/users/users@{userId}@limits.yaml"
+  /v2/integrations/git:
+    $ref: paths/integrations/integrations@git.yaml
+  "/v2/integrations/git/{providerId}/create-repo":
+    $ref: "paths/integrations/integrations@git@{providerId}@create-repo.yaml"
+  "/v2/integrations/git/{providerId}/register-deployment-key":
+    $ref: "paths/integrations/integrations@git@{providerId}@register-deployment-key.yaml"
   /v2/browser-info:
     $ref: paths/tools/tools@browser-info.yaml
   /v2/tools/encode-and-sign:

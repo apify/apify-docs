@@ -1,7 +1,7 @@
 post:
   tags:
     - Actors/Actor runs
-  summary: Run Actor synchronously and return key-value store record
+  summary: Run Actor synchronously and get key-value store record
   description: |
     Runs a specific Actor and returns a key-value store record.
 
@@ -26,8 +26,7 @@ post:
     If the connection breaks, you will not receive any information about the run
     and its status.
 
-    To run the Actor asynchronously, use the [Run
-    Actor](#/reference/actors/run-collection/run-actor) API endpoint instead.
+    To run the Actor asynchronously, use the [Run Actor](/api/v2/actors-runs-post) API endpoint instead.
   operationId: actor_runSync_post
   parameters:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
@@ -39,6 +38,7 @@ post:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/restartOnError"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/build"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/webhooks"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/forcePermissionLevel"
   requestBody:
     description: ""
     content:
@@ -84,7 +84,7 @@ post:
 get:
   tags:
     - Actors/Actor runs
-  summary: Run Actor synchronously without input
+  summary: Run Actor synchronously and get key-value store record (GET)
   description: |
     Runs a specific Actor and returns a key-value store record. The response contains the
     record stored under the `OUTPUT` key in the run's default key-value store.
@@ -103,8 +103,7 @@ get:
     If the connection breaks, you will not receive any information about the run
     and its status.
 
-    To run the Actor asynchronously, use the [Run
-    Actor](#/reference/actors/run-collection/run-actor) API endpoint instead.
+    To run the Actor asynchronously, use the [Run Actor](/api/v2/actors-runs-post) API endpoint instead.
   operationId: actor_runSync_get
   parameters:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
@@ -116,6 +115,7 @@ get:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/restartOnError"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/build"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/webhooks"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/forcePermissionLevel"
   responses:
     "201":
       description: ""

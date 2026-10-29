@@ -37,9 +37,7 @@ Actors on Apify Store can be public or private:
 
 ## How Actor monetization works (briefly)
 
-You can monetize your Actors using pay-per-event pricing, where users pay for specific events triggered by the Actor.
-
-For detailed information on which pricing model might work for your Actor, refer to [How Actor monetization works](/academy/actor-marketing-playbook/store-basics/how-actor-monetization-works).
+You can monetize your Actors using pay-per-event pricing, where users pay for specific events triggered by the Actor. For details, see [Monetize Actors](/actors/monetize).
 
 ## Actor ownership on Store
 
@@ -54,9 +52,9 @@ For details, see [Actor developers](/actors/running/store/actor-developers).
 
 It's essential to test your Actors and make sure they work as intended. That's why Apify does it on our side as much as you should do it on yours.
 
-Apify runs automated tests daily to ensure all Actors on Apify Store are functional and reliable. These tests check _if an Actor can successfully run with its default input within 5 minutes_. If an Actor fails for three consecutive days, it’s labeled under maintenance, and the developer is notified. Continuous failures for another 28 days lead to deprecation.
+Apify runs automated tests daily to ensure all Actors on Apify Store are functional and reliable. These tests check whether an Actor's run with its default input succeeds within 5 minutes. If an Actor keeps failing, Apify labels it under maintenance, notifies the developer, and later deprecates it. For the schedule, see [How we test](/actors/publishing/test#how-we-test).
 
-To restore an Actor's health, developers should fix and rebuild it. The testing system will automatically recognize the changes within 24 hours. If your Actor requires longer run times or authentication, contact support to explain why it should be excluded from tests. For more control, you can implement your own tests using the Actor Testing tool available on Apify Store.
+To restore your Actor's health, fix and rebuild it. The tests use the new build within 24 hours. If your Actor can't pass the tests, for example because it needs more than 5 minutes to finish, you can request to skip the tests. For details, see [Actor testing](/actors/publishing/test#skip-the-automated-tests). For more control, you can write your own tests with the [Actor Testing](https://apify.com/pocesar/actor-testing) tool from Apify Store.
 
 ### Actor metrics and reliability score
 
@@ -76,7 +74,7 @@ Learn more about how to handle the [Issues tab](/academy/actor-marketing-playboo
 
 ## How Apify Store search works
 
-Search ranking evaluates parameters similar to those in the [Actor quality score](/actors/publishing/quality-score). As a result, the two correlate strongly: Actors with higher quality scores tend to rank higher in [Apify Store](https://apify.com/store) search and the [Apify MCP server](/integrations/mcp) `search-actors` tool, though no specific position is guaranteed.
+Search ranking evaluates parameters similar to those in the [Actor quality score](/actors/publishing/quality-score). As a result, the two correlate strongly: Actors with higher quality scores tend to rank higher in [Apify Store](https://apify.com/store) search and the [Apify MCP server](/mcp) `search-actors` tool, though no specific position is guaranteed.
 
 To improve your Actor's visibility in search, focus on improving its quality score. For what the score measures and how to influence each category, see [Actor quality score](/actors/publishing/quality-score).
 

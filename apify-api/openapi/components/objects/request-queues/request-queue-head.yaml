@@ -36,7 +36,7 @@ sharedGet: &sharedGet
       content:
         application/json:
           schema:
-            $ref: ../../schemas/request-queues/HeadResponse.yaml
+            $ref: ../../schemas/request-queues/RequestQueueHeadResponse.yaml
     "402":
       $ref: ../../responses/PaymentRequired.yaml
     <<: *commonErrors
@@ -44,7 +44,7 @@ sharedGet: &sharedGet
 
 listById:
   <<: [*sharedGet, *sharedTagById]
-  summary: Get head
+  summary: Get request queue head
   description: |
     Returns given number of first requests from the queue.
 
@@ -72,12 +72,12 @@ listById:
 
 listDefault:
   <<: [*sharedGet, *sharedTagDefault]
-  summary: Get default request queue head
+  summary: Get the default request queue head for an Actor run
   description: |
     Returns the given number of first requests from the default request queue of the Actor run.
 
     This endpoint is a shortcut for getting the run's `defaultRequestQueueId` and then using the
-    [Get head](/api/v2/request-queue-head-get) endpoint.
+    [Get request queue head](/api/v2/request-queue-head-get) endpoint.
   operationId: actorRun_requestQueue_head_get
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
@@ -86,12 +86,12 @@ listDefault:
 
 listLastRun:
   <<: [*sharedGet, *sharedTagLastRun]
-  summary: Get last run's default request queue head
+  summary: Get the default request queue head for an Actor's last run
   description: |
     Returns the given number of first requests from the default request queue of the last Actor run.
 
     This endpoint is a shortcut for getting the last run's `defaultRequestQueueId` and then using the
-    [Get head](/api/v2/request-queue-head-get) endpoint.
+    [Get request queue head](/api/v2/request-queue-head-get) endpoint.
   operationId: actor_runs_last_requestQueue_head_get
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
@@ -102,12 +102,12 @@ listLastRun:
 
 listTaskLastRun:
   <<: [*sharedGet, *sharedTagTaskLastRun]
-  summary: Get last task run's default request queue head
+  summary: Get the default request queue head for an Actor task's last run
   description: |
     Returns the given number of first requests from the default request queue of the last Actor task run.
 
     This endpoint is a shortcut for getting the last task run's `defaultRequestQueueId` and then using the
-    [Get head](/api/v2/request-queue-head-get) endpoint.
+    [Get request queue head](/api/v2/request-queue-head-get) endpoint.
   operationId: actorTask_runs_last_requestQueue_head_get
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"

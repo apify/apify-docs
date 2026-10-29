@@ -1,9 +1,9 @@
 get:
   tags:
     - Actors/Actor versions
-  summary: Get environment variable
+  summary: Get environment variable of Actor version
   description: |
-    Gets a [EnvVar object](#/reference/actors/environment-variable-object) that
+    Gets an `EnvVar` object that
     contains all the details about a specific environment variable of an Actor.
 
     If `isSecret` is set to `true`, then `value` will never be returned.
@@ -59,7 +59,7 @@ post:
 delete:
   tags:
     - Actors/Actor versions
-  summary: Delete environment variable
+  summary: Delete environment variable from Actor version
   description: Deletes a specific environment variable.
   operationId: actor_version_envVar_delete
   parameters:

@@ -70,3 +70,7 @@ properties:
         responseBody:
           type: [string, "null"]
           example: '{"foo": "bar"}'
+        debugPostMessage:
+          type: object
+          description: Response of the Slack `chat.postMessage` call. Present only for successful calls of `SLACK_MESSAGE` webhooks.
+          additionalProperties: true

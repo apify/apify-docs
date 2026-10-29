@@ -12,7 +12,7 @@ slug: /privacy-policy
 <!-- vale off -->
 <!-- markdownlint-disable -->
 
-Last Updated: July 9, 2026
+Last Updated: October 21, 2026
 
 Welcome to the Apify Privacy Policy!
 
@@ -219,7 +219,9 @@ Where AI processing involves third-party service providers, those providers act 
 - **Advertising and analytics partners**. We disclose Personal Data to advertising networks and analytics providers that assist us in measuring, improving, and optimizing our marketing campaigns and website performance. This includes:
     - Uploading hashed customer identifiers (such as email addresses) to advertising platforms including Google, LinkedIn, X (formerly Twitter), and TikTok for custom audience matching, conversion tracking, audience exclusions, and campaign optimization;
     - Allowing third-party cookies, pixels, and similar technologies on our Website to collect information about your browsing behavior for interest-based advertising and analytics purposes.
-    
+ 
+**Google.** Our advertising and analytics partners include Google services, such as Google Analytics and Google Ads. Google may use Personal Data it receives through these services, including when you give consent through the cookie settings on our Website, in accordance with its own policies. For information on how Google uses personal data, see [Google's Business Data Responsibility site](https://business.safety.google/privacy/).
+
     This disclosure may constitute "sharing" of Personal Data for purposes of cross-context behavioral advertising under the California Consumer Privacy Act ("**CCPA**") and similar US state laws.
 
 - **Actor Creators**. When you run a third-party Actor (a program developed by a third-party developer, referred to as a "Creator") through the Platform, the Actor operates under your Account and may access certain data within your Account, depending on the permission level it requires:
@@ -359,4 +361,4 @@ If you have any questions about this Privacy Policy, our privacy practices, or w
 
 Email: privacy@apify.com
 
-Mail: Apify Technologies s.r.o., Vodičkova 704/36, Nové Město, 110 00 Praha 1, Czech Republic, Attn: Apify Legal Team
+Mail: Apify Technologies s.r.o., Na Prikope 959/27, 110 00 Prague 1, Czech Republic, Attn: Apify Legal Team

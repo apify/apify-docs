@@ -28,7 +28,7 @@ unless you fully understand the consequences! You can also consider  [limiting t
 
 You can authenticate the Apify API in two ways. You can either pass the token via the `Authorization` HTTP header or the URL `token` query parameter. We always recommend you use the authentication via the HTTP header as this method is more secure.
 
-Note that some API endpoints, such as [Get list of keys](/api/v2/key-value-store-keys-get),
+Note that some API endpoints, such as [Get list of key-value store keys](/api/v2/key-value-store-keys-get),
 do not require an authentication token because they contain a hard-to-guess identifier that effectively serves as an authentication key.
 
 ## Expiration
@@ -57,7 +57,7 @@ The Personal API tokens are different from your own Personal API tokens mentione
 
 On the other hand the Organization API tokens (only visible if you are the owner or have Manage access tokens permission) have full permissions and are not tied to a specific member of the organization.
 
-## API tokens with limited permissions
+## API tokens with limited permissions {#limited-permissions}
 
 By default, tokens can access all data in your account. If that is not desirable, you can choose to limit the permissions of your token, so that it can only access data needed for the particular use case. We call these tokens **scoped**.
 

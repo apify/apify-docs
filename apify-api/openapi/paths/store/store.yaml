@@ -6,8 +6,7 @@ get:
     Gets the list of public Actors in Apify Store. You can use `search`
     parameter to search Actors by string in title, name, description, username
     and readme.
-    If you need detailed info about a specific Actor, use the [Get
-    Actor](#/reference/actors/actor-object/get-actor) endpoint.
+    If you need detailed info about a specific Actor, use the [Get Actor](/api/v2/actor-get) endpoint.
 
     The endpoint supports pagination using the `limit` and `offset` parameters.
     It will not return more than 1,000 records.
@@ -61,7 +60,6 @@ get:
         type: string
         enum:
           - FREE
-          - FLAT_PRICE_PER_MONTH
           - PRICE_PER_DATASET_ITEM
           - PAY_PER_EVENT
         example: FREE
@@ -105,6 +103,18 @@ get:
         type: boolean
         default: false
         example: true
+    - name: includeInputSchema
+      in: query
+      description: |
+        If `true`, each Actor in the results includes an `inputSchema` field with a compact version of the input
+        schema of its default build (property types and required properties only). With this parameter, `limit`
+        defaults to and can't exceed `10`.
+      style: form
+      explode: true
+      schema:
+        type: boolean
+        default: false
+        example: true
   responses:
     "200":
       description: ""
@@ -113,7 +123,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/store/ListOfActorsInStoreResponse.yaml
+            $ref: ../../components/schemas/store/ListOfStoreActorsResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
     "401":

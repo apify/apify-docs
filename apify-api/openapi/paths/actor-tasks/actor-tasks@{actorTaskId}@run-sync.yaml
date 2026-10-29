@@ -1,7 +1,7 @@
 get:
   tags:
     - Actor tasks
-  summary: Run task synchronously
+  summary: Run Actor task synchronously and get key-value store record (GET)
   description: |
     Runs an Actor task and synchronously returns a key-value store record.
 
@@ -24,7 +24,7 @@ get:
     and its status.
 
     To run the Task asynchronously, use the
-    [Run task asynchronously](#/reference/actor-tasks/run-collection/run-task)
+    [Run Actor task](/api/v2/actor-task-runs-post)
     endpoint instead.
   operationId: actorTask_runSync_get
   parameters:
@@ -33,6 +33,7 @@ get:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/memory"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/maxItems"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/maxTotalChargeUsd"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/restartOnError"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/build"
     - $ref: "../../components/parameters/runSyncParameters.yaml#/outputRecordKey"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/webhooks"
@@ -68,7 +69,7 @@ get:
 post:
   tags:
     - Actor tasks
-  summary: Run task synchronously
+  summary: Run Actor task synchronously and get key-value store record
   description: |
     Runs an Actor task and synchronously returns a key-value store record.
 
@@ -103,8 +104,7 @@ post:
     Just make sure to specify `Content-Type` header to be `application/json` and
     input to be an object.
 
-    To run the task asynchronously, use the [Run
-    task](#/reference/actor-tasks/run-collection/run-task) API endpoint instead.
+    To run the task asynchronously, use the [Run Actor task](/api/v2/actor-task-runs-post) API endpoint instead.
   operationId: actorTask_runSync_post
   parameters:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorTaskId"

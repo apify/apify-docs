@@ -1,0 +1,135 @@
+title: UserPlan
+required:
+  - availableProxyGroups
+type: object
+properties:
+  id:
+    type: string
+    examples: [Personal]
+  description:
+    type: string
+    examples: ["Cost-effective plan for freelancers, developers and students."]
+  isEnabled:
+    type: boolean
+    examples: [true]
+  monthlyBasePriceUsd:
+    type: number
+    examples: [49]
+  monthlyUsageCreditsUsd:
+    type: number
+    examples: [49]
+  usageDiscountPercent:
+    type: number
+    examples: [0]
+  enabledPlatformFeatures:
+    type: array
+    items:
+      type: string
+    example:
+      - ACTORS
+      - STORAGE
+      - PROXY_SERPS
+      - SCHEDULER
+      - WEBHOOKS
+  maxMonthlyUsageUsd:
+    type: number
+    examples: [9999]
+  maxActorMemoryGbytes:
+    type: number
+    examples: [32]
+  maxMonthlyActorComputeUnits:
+    type: number
+    examples: [1000]
+  maxMonthlyResidentialProxyGbytes:
+    type: number
+    examples: [10]
+  maxMonthlyProxySerps:
+    type: integer
+    examples: [30000]
+  maxMonthlyExternalDataTransferGbytes:
+    type: number
+    examples: [1000]
+  maxActorCount:
+    type: integer
+    examples: [100]
+  maxActorTaskCount:
+    type: integer
+    examples: [1000]
+  dataRetentionDays:
+    type: integer
+    examples: [14]
+  availableProxyGroups:
+    $ref: ./AvailableProxyGroups.yaml
+  teamAccountSeatCount:
+    type: integer
+    examples: [1]
+  supportLevel:
+    type: string
+    examples: [COMMUNITY]
+  availableAddOns:
+    type: array
+    items:
+      type: string
+    examples: [[]]
+  tier:
+    type: string
+    examples: [FREE]
+  apiRateLimitBoosts:
+    type: integer
+    examples: [0]
+  maxScheduleCount:
+    type: integer
+    examples: [100]
+  maxConcurrentActorRuns:
+    type: integer
+    examples: [25]
+  planPricing:
+    type: object
+    description: Pricing details for this plan.
+    additionalProperties: true
+  planVersion:
+    type: number
+    description: Version of the plan definition.
+    examples: [2]
+  legacyPlanId:
+    type: string
+    description: ID of the legacy plan this plan was migrated from.
+    examples: [STARTER]
+  planTags:
+    type: array
+    items:
+      type: string
+    examples: [[]]
+  overageThresholdUsd:
+    type: number
+    description: Mid-cycle overage threshold above which the user is billed for the current-cycle overage.
+    examples: [500]
+  maxMonthlyUnblockerUnits:
+    type: integer
+    examples: [1000000]
+  maxPublicActorTaskCount:
+    type: integer
+    examples: [100]
+  maxPublicActorTaskCountPerActor:
+    type: integer
+    examples: [10]
+  forceBillingInterval:
+    type: string
+    description: If set, the plan can be subscribed only in this billing interval.
+    examples: [ANNUAL]
+  personalizedSupport:
+    type: [string, "null"]
+    description: |
+      Hours of personalized support with Apify engineers included in the plan, as `Nh/P`: `N` hours per period
+      `P`, where `P` is `M` (monthly), `Q` (quarterly), `B` (every 6 months) or `A` (annually), for example `1h/M`.
+      `null` or missing means the plan includes no personalized support.
+    examples: [4h/M]
+  monitoringLevel:
+    type: [string, "null"]
+    enum: [STANDARD, null]
+    description: Level of monitoring services included in the plan. `null` or missing means the plan includes no monitoring service.
+    examples: [STANDARD]
+  isPayingCustomer:
+    type: boolean
+    description: Marks the user as a paying customer even without a subscription.
+    examples: [false]

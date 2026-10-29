@@ -1,0 +1,16 @@
+title: WebhookGithubIssue
+description: GitHub issue configuration. Present only when `actionType` is `GITHUB_ISSUE`.
+type: object
+properties:
+  userIntegrationId:
+    type: string
+    examples: [kLcd8Z4dzXN1z3QzS]
+  repository:
+    type: string
+    examples: [apify/apify-docs]
+  title:
+    type: string
+    examples: [Actor run failed]
+  body:
+    type: string
+    examples: ["Actor run {{resource.id}} failed."]

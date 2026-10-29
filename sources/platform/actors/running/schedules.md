@@ -70,12 +70,12 @@ For integrations, you can also add a [webhook](/integrations/webhooks) to your t
 
 ### Apify API
 
-To create a new [schedule](/api/v2/schedules) using the Apify API, send a `POST` request to the [create schedule](/api/v2/schedules-post) endpoint.
+To create a new [schedule](/api/v2/schedules) using the Apify API, send a `POST` request to the [Create schedule](/api/v2/schedules-post) endpoint.
 
 You can find your [secret API token](/integrations) under the [API & Integrations](https://console.apify.com/settings/integrations) tab of your Apify account settings.
 
 :::caution API authentication recommendations
-When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL ([more info](/api/v2#authentication)).
+When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. For details, see [Authentication](/api/v2#authentication).
 :::
 
 In the `POST` request's payload should be a JSON object specifying the schedule's name, your [user ID](https://console.apify.com/settings/integrations), and the schedule's _actions_.
@@ -107,7 +107,7 @@ If the request is successful, you will receive a `201` [HTTP response code](http
 
 You can add multiple Actor and task runs to a schedule with a single `POST` request. Simply add another object with the run's details to the **actions** array in your `POST` request's payload object.
 
-For more information, refer to the [schedules](/api/v2/schedule-get) section in the API documentation.
+For more information, refer to the [Manage schedules](/api/v2/schedules) section in the API documentation.
 
 ## Schedule setup
 

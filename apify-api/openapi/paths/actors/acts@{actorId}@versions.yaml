@@ -1,10 +1,10 @@
 get:
   tags:
     - Actors/Actor versions
-  summary: Get list of versions
+  summary: Get list of Actor versions
   description: |
     Gets the list of versions of a specific Actor. The response is a JSON object
-    with the list of [Version objects](#/reference/actors/version-object), where each
+    with the list of `Version` objects, where each
     contains basic information about a single version.
   operationId: actor_versions_get
   parameters:
@@ -68,10 +68,10 @@ get:
 post:
   tags:
     - Actors/Actor versions
-  summary: Create version
+  summary: Create Actor version
   description: |
-    Creates a version of an Actor using values specified in a [Version
-    object](#/reference/actors/version-object) passed as JSON in the POST
+    Creates a version of an Actor using values specified in a `Version`
+    object passed as JSON in the POST
     payload.
 
     The request must specify `versionNumber` and `sourceType` parameters (as
@@ -79,8 +79,8 @@ post:
     header.
 
     Each `sourceType` requires its own additional properties to be passed to the
-    JSON payload object. These are outlined in the [Version
-    object](#/reference/actors/version-object) table below and in more detail in
+    JSON payload object. These are outlined in the `Version`
+    object table below and in more detail in
     the [Apify
     documentation](https://docs.apify.com/platform/actors/development/deployment/source-types).
 
@@ -97,8 +97,8 @@ post:
     }
     ```
 
-    The response is the [Version object](#/reference/actors/version-object) as
-    returned by the [Get version](#/reference/actors/version-object/get-version) endpoint.
+    The response is the `Version` object as
+    returned by the [Get Actor version](/api/v2/actor-version-get) endpoint.
   operationId: actor_versions_post
   parameters:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
@@ -107,7 +107,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: ../../components/schemas/actors/CreateOrUpdateVersionRequest.yaml
+          $ref: ../../components/schemas/actors/CreateVersionRequest.yaml
         example:
           versionNumber: "0.1"
           sourceType: GIT_REPO

@@ -1,7 +1,7 @@
 get:
   tags:
     - Users/Usage
-  summary: Get monthly usage
+  summary: Get user's monthly usage
   description: |
     Returns a complete summary of your usage for the current monthly usage cycle,
     an overall sum, as well as a daily breakdown of usage. It is the same

@@ -1,0 +1,42 @@
+title: ActorOAuthAccount
+description: An account a user connected through an Actor OAuth connection.
+required:
+  - _id
+  - userId
+  - connectionId
+  - createdAt
+  - modifiedAt
+  - data
+type: object
+properties:
+  _id:
+    type: string
+    examples: [Rk3mP8xQ2vN5tY7wZ]
+  userId:
+    type: string
+    examples: [wRsJZtadYvn4mBZmm]
+  connectionId:
+    type: string
+    examples: [kD9fm2Xp4cJq7Lw8N]
+  createdAt:
+    type: string
+    format: date-time
+    examples: ["2026-01-28T10:00:00.000Z"]
+  modifiedAt:
+    type: string
+    format: date-time
+    examples: ["2026-01-28T10:05:00.000Z"]
+  authorizedAt:
+    type: [string, "null"]
+    format: date-time
+    examples: ["2026-01-28T10:05:00.000Z"]
+  description:
+    type: [string, "null"]
+    description: Label of the connected account, usually its email address.
+    examples: [jane.doe@example.com]
+  data:
+    type: object
+    description: |
+      The OAuth tokens of the account, such as `access_token`, `refresh_token`, `scope` and `expiry_date`. The exact
+      fields depend on the OAuth provider.
+    additionalProperties: true
