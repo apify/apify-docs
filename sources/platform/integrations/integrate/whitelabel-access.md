@@ -16,6 +16,30 @@ A whitelabel integration involves three parties:
 - _Your users_ are the people or companies who use your product. They choose what to run in your product's interface. They don't have Apify accounts and never interact with Apify directly.
 - _Apify_ runs the Actors and bills your account for all runs.
 
+```mermaid
+flowchart LR
+    accTitle: How whitelabel access works
+    accDescr: Your users request data from your product. Your product starts Actor runs in your Apify account with your API token and passes the results back to your users. Apify bills you for all runs, and you charge your users for usage.
+
+    users["Your users<br/>(no Apify account)"]
+
+    subgraph you["You (integration developer)"]
+        product["Your product<br/>(backend + API token)"]
+    end
+
+    subgraph apify["Apify"]
+        runs["Actor runs<br/>in your Apify account"]
+    end
+
+    users -- "Request data" --> product
+    product -- "Start runs" --> runs
+    runs -- "Results" --> product
+    product -- "Results" --> users
+
+    runs -. "Bills you for all runs" .-> product
+    product -. "Charges for usage" .-> users
+```
+
 When one of your users needs data, your product starts an Actor run under your Apify account and passes the results back to the user. Apify charges you for the usage of all your users combined, and you decide how to charge your users for it, for example as part of a subscription or per request.
 
 This differs from [direct user billing](/integrations/integrate#direct-user-billing), where each of your users connects their own Apify account, runs Actors under that account, and pays Apify directly.
