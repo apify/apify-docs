@@ -1,0 +1,18 @@
+# Commits that shouldn't count as content edits under the staleness check.
+# One commit SHA per line, with a comment saying what it was.
+#
+# Skipped automatically: commits that change more than 10 .md/.mdx files at once,
+# frontmatter-only changes, page moves.
+
+
+# fix malformed external URLs missing platform subdomain (#2880)
+0a123c7a
+
+# replace support email with contact link (#2564)
+63d8c824
+
+# update MCP CLI repository URL, link label casing (#2556)
+35400cc4
+
+# move monetization pages under Actors, update nav links (#2846)
+38ab907f
