@@ -6,7 +6,7 @@ sidebar_position: 1
 slug: /integrations/whitelabel
 ---
 
-_Whitelabel access_ lets you build Apify into your own product, so that the people who use your product can run Apify Actors without knowing about Apify or having an Apify account. For example, [Lindy.ai's Instagram integration](https://www.lindy.ai/integrations/instagram) lets Lindy users get Instagram data inside Lindy, while Lindy runs Apify Actors in the background.
+_Whitelabel access_ lets you build Apify into your own product, so that the people who use your product can run Apify Actors without knowing about Apify or having an Apify account. For example, an AI agent platform can let its users pull Instagram data into their agents, while the platform runs Apify Actors in the background.
 
 ## How whitelabel access works
 
