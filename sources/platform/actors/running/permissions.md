@@ -27,6 +27,8 @@ This model protects your data and strengthens platform security by showing what 
 
 Actors that need full permissions clearly indicate this in their detail page and will require your **explicit approval** before running for the first time. Whenever possible, choose Actors that use limited permissions. They are safer, easier to trust, and sufficient for most workflows.
 
+You can also restrict what any Actor can access, including full-permission Actors, by starting the run with a scoped token. See [Run Actors with restricted access](/actors/running/restricted-access).
+
 ## How Actor permissions work
 
 When a user runs an Actor, it receives an Apify API token. Traditionally, this token grants access to the user's entire Apify account via the Apify API. Actors with **full permissions** will continue to operate this way.
