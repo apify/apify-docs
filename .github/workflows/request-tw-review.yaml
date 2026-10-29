@@ -1,0 +1,38 @@
+name: Request TW review by label
+
+on:
+  # Runs from master with a write token, so fork PRs work too. Never check out PR code here.
+  pull_request_target:
+    types: [labeled]
+
+permissions:
+  pull-requests: write
+
+jobs:
+  request_review:
+    name: Request TW review
+    runs-on: ubuntu-latest
+    steps:
+      - name: Request the writer for the team label
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          LABEL: ${{ github.event.label.name }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          PR_AUTHOR: ${{ github.event.pull_request.user.login }}
+        run: |
+          # Team labels → R&D group → technical writer
+          case "$LABEL" in
+            t-core-services|t-infra|t-console|t-unblocking) reviewer=TC-MO ;;  # Foundation
+            t-publishers|t-billing|t-tooling|t-builders|"t-c&c") reviewer=szaganek ;;  # Creators
+            t-acquisition|t-growth|t-ai|t-integrations|t-discovery) reviewer=marcel-rbro ;;  # Integrators
+            *) echo "No writer mapped to $LABEL"; exit 0 ;;
+          esac
+
+          # GitHub rejects a review request from the PR author
+          if [ "$reviewer" = "$PR_AUTHOR" ]; then
+            echo "$reviewer is the PR author, skipping"
+            exit 0
+          fi
+
+          gh pr edit "$PR_NUMBER" --add-reviewer "$reviewer"
