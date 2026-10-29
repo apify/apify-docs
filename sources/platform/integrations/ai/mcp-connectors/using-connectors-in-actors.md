@@ -455,6 +455,6 @@ For the full schema, see [The `mcpServers` rule list](#the-mcpservers-rule-list)
 ## Related pages
 
 - [MCP connectors overview](/integrations/mcp-connectors)
-- [Input schema specification - resource type](/actors/development/actor-definition/input-schema/specification/v1#resource-type)
+- [Input schema specification - resource type](/actors/development/actor-definition/input-schema/specification/v1/resource)
 - [Account settings - MCP connectors](/account/settings#mcp-connectors)
 - [Apify environment variables](/actors/development/programming-interface/environment-variables#system-environment-variables)
