@@ -83,6 +83,12 @@ $ python main.py
 
 Running `httpx.get(url)`, we made a HTTP request and received a response. It's not particularly useful yet, but it's a good start of our scraper.
 
+:::info Client-side rendering
+
+Some websites use JavaScript to render content in the browser. When you download their HTML, you may get an almost empty page, because the data is loaded dynamically. The techniques in this course work for websites that include the data directly in the HTML (server-side rendering). If you encounter a website that loads data with JavaScript, you'll need a browser-based approach. See the [Puppeteer and Playwright course](/academy/puppeteer-playwright) for handling such websites.
+
+:::
+
 :::tip Client and server, request and response
 
 HTTP is a network protocol powering the internet. Understanding it well is an important foundation for successful scraping, but for this course, it's enough to know just the basic flow and terminology:
