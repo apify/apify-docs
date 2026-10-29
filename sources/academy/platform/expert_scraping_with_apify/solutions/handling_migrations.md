@@ -49,13 +49,14 @@ Here is our updated **routes.js** file which is now utilizing this utility class
 
 ```js
 // routes.js
-import { createCheerioRouter, Dataset } from 'crawlee';
-import { BASE_URL, OFFERS_URL, labels } from './constants.js';
+import { createCheerioRouter } from '@crawlee/cheerio';
+
 import tracker from './asinTracker.js';
+import { BASE_URL, labels, OFFERS_URL } from './constants.js';
 
 export const router = createCheerioRouter();
 
-router.addHandler(labels.START, async ({ $, crawler, request }) => {
+router.addHandler(labels.START, async ({ $, addRequests, request }) => {
     const { keyword } = request.userData;
 
     const products = $('div[data-component-type="s-search-result"]:not(.AdHolder)');
@@ -64,6 +65,7 @@ router.addHandler(labels.START, async ({ $, crawler, request }) => {
         throw new Error('No products found, retrying');
     }
 
+    const requests = [];
     for (const product of products) {
         const element = $(product);
         const asin = element.attr('data-asin');
@@ -75,7 +77,7 @@ router.addHandler(labels.START, async ({ $, crawler, request }) => {
 
         const url = `${BASE_URL}/dp/${asin}`;
 
-        await crawler.addRequests([{
+        requests.push({
             url,
             label: labels.PRODUCT,
             userData: {
@@ -86,13 +88,14 @@ router.addHandler(labels.START, async ({ $, crawler, request }) => {
                     keyword,
                 },
             },
-        }]);
+        });
     }
+    await addRequests(requests);
 });
 
 // The PRODUCT handler stays the same
 
-router.addHandler(labels.OFFERS, async ({ $, request }) => {
+router.addHandler(labels.OFFERS, async ({ $, request, pushData }) => {
     const { data } = request.userData;
 
     if (!$('#aod-container').length) {
@@ -109,7 +112,7 @@ router.addHandler(labels.OFFERS, async ({ $, request }) => {
         // offer count
         tracker.incrementASIN(data.asin);
 
-        await Dataset.pushData({
+        await pushData({
             ...data,
             sellerName: element.find('#aod-offer-soldBy [aria-label]').text().trim(),
             offer: price,

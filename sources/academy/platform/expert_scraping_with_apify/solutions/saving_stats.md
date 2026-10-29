@@ -92,7 +92,7 @@ const crawler = new CheerioCrawler({
 Now, we'll increment our **totalSaved** count for every offer added to the dataset.
 
 ```js
-router.addHandler(labels.OFFERS, async ({ $, request }) => {
+router.addHandler(labels.OFFERS, async ({ $, request, pushData }) => {
     const { data } = request.userData;
 
     if (!$('#aod-container').length) {
@@ -109,7 +109,7 @@ router.addHandler(labels.OFFERS, async ({ $, request }) => {
         // Add 1 to totalSaved for every offer
         Stats.success();
 
-        await Dataset.pushData({
+        await pushData({
             ...data,
             sellerName: element.find('#aod-offer-soldBy [aria-label]').text().trim(),
             offer: price,
@@ -123,7 +123,7 @@ router.addHandler(labels.OFFERS, async ({ $, request }) => {
 Still, in the **OFFERS** handler, we need to add a few extra keys to the items which are pushed to the dataset. Luckily, all of the data required by the task is accessible in the context object.
 
 ```js
-router.addHandler(labels.OFFERS, async ({ $, crawler, request }) => {
+router.addHandler(labels.OFFERS, async ({ $, crawler, request, pushData }) => {
     const { data } = request.userData;
 
     if (!$('#aod-container').length) {
@@ -143,7 +143,7 @@ router.addHandler(labels.OFFERS, async ({ $, crawler, request }) => {
         // Add 1 to totalSaved for every offer
         Stats.success();
 
-        await Dataset.pushData({
+        await pushData({
             ...data,
             sellerName: element.find('#aod-offer-soldBy [aria-label]').text().trim(),
             offer: price,

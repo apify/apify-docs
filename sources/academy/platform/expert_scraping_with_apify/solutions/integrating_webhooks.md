@@ -136,7 +136,7 @@ await Actor.pushData(Object.values(filtered));
 await Actor.exit();
 ```
 
-Cool! But **wait**, don't forget to configure the **INPUT_SCHEMA.json** file as well! It's not necessary to do this step, as we'll be calling the Actor through Apify's API within a webhook, but it's still good to get into the habit of writing quality input schemas that describe the input values your Actors are expecting.
+Cool! But **wait**, don't forget to configure the **.actor/input_schema.json** file as well! It's not necessary to do this step, as we'll be calling the Actor through Apify's API within a webhook, but it's still good to get into the habit of writing quality input schemas that describe the input values your Actors are expecting.
 
 ```json
 {

@@ -16,7 +16,7 @@ Thus far, you've run Actors on the platform and written an Actor of your own, wh
 
 In this course, we'll be working with [academy-amazon-scraper](https://github.com/apify-projects/academy-amazon-scraper), a starter project with a ready-made Amazon scraper. It takes a keyword, searches Amazon for it, and saves every offer for each product it finds, so one product can have several offers from different sellers. Each lesson builds on top of this scraper, so you don't need to write one from scratch. Clone the repository and read its README, which explains how the scraper works and how to run it.
 
-Take a look at the files within the project. You'll notice that there is a **Dockerfile** in the **.actor** folder. Every single Actor has a Dockerfile (the Actor's **Image**) which tells Docker how to spin up a container on the Apify platform which can successfully run the Actor's code. "Apify Actors" is a serverless platform that runs multiple Docker containers. For a deeper understanding of Actor Dockerfiles, refer to the [Apify Actor Dockerfile docs](/sdk/js/docs/guides/docker-images#example-dockerfile).
+Take a look at the files within the project. You'll notice that there is a **Dockerfile** in the project's root folder. Every single Actor has a Dockerfile (the Actor's **Image**) which tells Docker how to spin up a container on the Apify platform which can successfully run the Actor's code. "Apify Actors" is a serverless platform that runs multiple Docker containers. For a deeper understanding of Actor Dockerfiles, refer to the [Apify Actor Dockerfile docs](/sdk/js/docs/guides/docker-images#example-dockerfile).
 
 ## Webhooks {#webhooks}
 
