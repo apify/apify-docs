@@ -1,6 +1,5 @@
 ---
 title: Run Actors with restricted access
-sidebar_label: Run Actors with restricted access
 description: Run Actors you don't control, such as ones your users pick from Apify Store, with a scoped API token so they can't reach the rest of your Apify account.
 sidebar_position: 2
 slug: /integrations/run-actors-restricted-access

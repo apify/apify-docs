@@ -1,7 +1,7 @@
 ---
 title: Build a whitelabel integration
 sidebar_label: Whitelabel integration
-description: Build Apify into your product so your users can run Actors without an Apify account. Learn how runs and billing work and what to set up.
+description: Build Apify into your product so your users can run Actors without an Apify account. Learn how runs, billing, and limits work, and what to set up first.
 sidebar_position: 1
 slug: /integrations/whitelabel
 ---
@@ -12,7 +12,7 @@ _Whitelabel access_ lets you build Apify into your own product, so that the peop
 
 A whitelabel integration involves three parties:
 
-- _You_ build a product, such as an AI agent platform or an automation tool, and integrate it with Apify. You have one Apify account, and your backend starts every Actor run with your API token.
+- _You_ build a product, such as an AI agent platform or an automation tool, and integrate it with Apify. Your backend starts every Actor run under your Apify account, using your API token.
 - _Your users_ are the people or companies who use your product. They choose what to run in your product's interface. They don't have Apify accounts and never interact with Apify directly.
 - _Apify_ runs the Actors and bills your account for all runs.
 
@@ -24,7 +24,7 @@ Because all runs happen under your account, you're responsible for keeping your 
 
 ## Secure your account
 
-Your users decide which Actors run, and every run happens under your Apify account. By default, an Actor's run can reach more of your account than it needs, including data from runs of your other users.
+Your users decide which Actors run, and every run happens under your Apify account. Without extra setup, a [full-permission Actor](/actors/running/permissions#full-permission-actors) can access your whole account, including data from runs of your other users.
 
 Before you open Actor runs to your users, follow [Run Actors with restricted access](/integrations/run-actors-restricted-access). It shows how to keep your users' run data private and how to start runs with a scoped token that limits what each Actor can reach.
 
