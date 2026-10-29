@@ -63,11 +63,11 @@ After the External Access Integration is in place, grant the app the remaining p
 
 ### Step 4: Verify the connection
 
-![Apify Snowflake Integration home page](../images/snowflake/snowflake-home.png)
+![Apify Snowflake Integration home page](../images/snowflake/snowflake-home.webp)
 
 Once installation is complete, open the app and go to the **API Token** page to verify the connection is working. If the token secret was configured correctly during setup, the page shows your Apify username and email.
 
-![API Token page showing a connected Apify account](../images/snowflake/snowflake-api-token.png)
+![API Token page showing a connected Apify account](../images/snowflake/snowflake-api-token.webp)
 
 To update your Apify API token later, go to **Configurations** > **Credentials** in App settings, find the secret bound to this app, and update its value.
 
@@ -89,7 +89,7 @@ Choose an Actor from two sources:
 
 You can also type a custom Actor ID (for example, `E2jjCZBezvAZnX8Rb`) directly into the input.
 
-![Run Actor page with Actor source and selection dropdown](../images/snowflake/snowflake-actor-select.png)
+![Run Actor page with Actor source and selection dropdown](../images/snowflake/snowflake-actor-select.webp)
 
 ### Step 2: Configure and run
 
@@ -102,13 +102,13 @@ Expand **Advanced Run Options** to set:
 
 Click **Next: Run Actor** to start the run.
 
-![Actor Input JSON form with Advanced Run Options](../images/snowflake/snowflake-actor-input.png)
+![Actor Input JSON form with Advanced Run Options](../images/snowflake/snowflake-actor-input.webp)
 
 ### Step 3: Monitor the run
 
 The app polls the run status every five seconds and shows live updates. You can also follow the link to **View run in Apify Console** for full logs.
 
-![Actor run in progress with live status updates](../images/snowflake/snowflake-actor-run-status.png)
+![Actor run in progress with live status updates](../images/snowflake/snowflake-actor-run-status.webp)
 
 Use the **Abort Actor run** button to stop the run at any time.
 
@@ -116,7 +116,7 @@ Use the **Abort Actor run** button to stop the run at any time.
 
 When the run completes, click **Next: Import dataset** to go straight to the **Import Data from Dataset** page with the run's default dataset pre-filled. Follow the [import steps](#import-a-dataset) to load the results into Snowflake.
 
-![Completed Actor run with Next: Import dataset button](../images/snowflake/snowflake-actor-run-complete.png)
+![Completed Actor run with Import dataset button](../images/snowflake/snowflake-actor-run-complete.webp)
 
 ## Import a dataset
 
@@ -126,7 +126,7 @@ The **Import Data from Dataset** page lets you fetch items from an Apify dataset
 
 Choose one of your named datasets from the dropdown or enter a custom dataset ID. You can find dataset IDs in [Apify Console](https://console.apify.com/storage/datasets) under **Storage** > **Datasets**.
 
-![Import Dataset page with dataset selector and Advanced options](../images/snowflake/snowflake-import-dataset.png)
+![Import Dataset page with dataset selector and Advanced options](../images/snowflake/snowflake-import-dataset.webp)
 
 Expand **Advanced options** to refine what data is fetched:
 
@@ -146,13 +146,13 @@ Click **Fetch Data** to retrieve a preview of the dataset.
 
 After fetching data, select how you want to load it into Snowflake. You can either [create a new table](#create-new-table) or [insert into an existing table](#insert-into-existing-table).
 
-![Dataset items preview and export mode selector](../images/snowflake/snowflake-dataset-preview.png)
+![Dataset items preview and export mode selector](../images/snowflake/snowflake-dataset-preview.webp)
 
 #### Create new table
 
 The app creates a new table in the `APIFY.DATASETS_EXPORTS` schema in a dedicated database. Select which columns to include, then click **Next: Export**.
 
-![Export settings with column selection](../images/snowflake/snowflake-export-settings.png)
+![Export settings with column selection](../images/snowflake/snowflake-export-settings.webp)
 
 Tables created by the app are only visible to `ACCOUNTADMIN` by default. To grant access to other roles, see [Manage table visibility](#manage-table-visibility).
 
@@ -171,6 +171,51 @@ GRANT APPLICATION ROLE <app_name>.app_public TO ROLE <your_role>;
 Alternatively, open the app in Snowsight, go to the **Access management** tab, and click **Add** to assign the `app_public` role to any account role.
 
 ![Access management tab for granting app_public role](../images/snowflake/snowflake-access-management.png)
+
+## Schedule recurring imports
+
+The **Schedules** page creates recurring Actor or task runs whose results are imported into Snowflake automatically. Each schedule lives in your Apify account: on every run, Apify starts the Actor and, when the run succeeds, imports its dataset into your Snowflake table. Schedules keep running when the app is closed, until you pause or delete them.
+
+![Schedules page with the list of schedules and the Create new schedule button](../images/snowflake/snowflake-schedules.webp)
+
+### Before you start
+
+Scheduled imports run outside Snowflake and connect back to your account to write the data, so each schedule needs:
+
+- A Snowflake [programmatic access token (PAT)](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens) for a user whose role can write to the destination table. Snowflake only accepts a PAT from a user who is subject to a [network policy](https://docs.snowflake.com/en/user-guide/network-policies). Apify Actor runs don't connect from a fixed range of IP addresses, so the policy must allow connections from them.
+- For imports that create a new table, the `app_public` role granted to that user's role, as described in [Manage table visibility](#manage-table-visibility). The app checks for this grant and won't create the schedule without it.
+
+### Create a schedule
+
+On the **Schedules** page, select **Create new schedule** and follow the four steps:
+
+1. **Schedule setup** - enter a **Schedule name** and pick a **Frequency**: every few minutes or hours, daily, weekly, monthly, yearly, or a custom **Cron** expression. The app previews the next five runs. Schedules run in your browser's time zone.
+
+    ![Schedule setup step with the frequency tabs and the next runs preview](../images/snowflake/snowflake-schedule-setup.webp)
+
+1. **Actor or task setup** - pick **Choose an Actor** and enter its input, or pick **Choose a task** and optionally enter input overrides. Select **Continue** to start a preview run. The schedule repeats this run, so its dataset shows you the data each scheduled run produces.
+1. **Import dataset** - when the preview run finishes, select **Continue** and configure the import as described in [Import a dataset](#import-a-dataset). The dataset is locked to the preview run's dataset, since every scheduled run imports the dataset it produces itself. For the same reason, **Unwind** and **Flatten** aren't available, and **Offset** and **Limit** apply to the preview only.
+1. **Review** - check the schedule and its destination table. Then fill in the Snowflake connection details: **Snowflake account identifier**, **Snowflake username**, **Snowflake programmatic access token (PAT)**, and optionally **Snowflake warehouse**. For the username, enter your login name, which you find in Snowsight under your name > **Connect a tool to Snowflake** > **Login name**. Select **Save and start**.
+
+    ![Review step with the Snowflake destination credentials and the Save and start button](../images/snowflake/snowflake-schedule-review.webp)
+
+The Snowflake credentials are stored only in the schedule's configuration in your Apify account.
+
+### Schedule an existing import
+
+After a successful import on the **Import Dataset** page, select **Schedule export** to repeat the Actor run that produced the dataset, with the same input, run options, and destination table. You only name the schedule and set its frequency before the review. This works for a run's default dataset, and not for imports fetched with **Unwind** or **Flatten**.
+
+### Manage schedules
+
+Select a schedule in the list to open its detail page, where you can:
+
+- **Run now** - start a run immediately, outside the schedule.
+- **Pause** - stop the schedule's runs. A paused schedule shows **Resume** instead, which restarts them.
+- **Delete** - remove the schedule and everything it created in your Apify account.
+- **Edit timing** - change the frequency.
+- **Run history** - check each run's status, start time, and the number of rows it imported.
+
+![Schedule detail page with the Run now, Pause, and Delete actions and the run history](../images/snowflake/snowflake-schedule-detail.webp)
 
 ## Next steps
 
