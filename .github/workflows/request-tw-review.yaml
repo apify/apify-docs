@@ -3,7 +3,7 @@ name: Request TW review by label
 on:
   # Runs from master with a write token, so fork PRs work too. Never check out PR code here.
   pull_request_target:
-    types: [labeled]
+    types: [labeled, ready_for_review]
 
 permissions:
   pull-requests: write
@@ -11,28 +11,40 @@ permissions:
 jobs:
   request_review:
     name: Request TW review
+    # Like CODEOWNERS: no requests on drafts or closed PRs
+    if: github.event.pull_request.state == 'open' && !github.event.pull_request.draft
     runs-on: ubuntu-latest
     steps:
       - name: Request the writer for the team label
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
-          LABEL: ${{ github.event.label.name }}
+          # The new label, or all labels when a draft becomes ready
+          LABELS: ${{ github.event.action == 'labeled' && github.event.label.name || join(github.event.pull_request.labels.*.name, ' ') }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
           PR_AUTHOR: ${{ github.event.pull_request.user.login }}
         run: |
-          # Team labels → R&D group → technical writer
-          case "$LABEL" in
-            t-core-services|t-infra|t-console|t-unblocking) reviewer=TC-MO ;;  # Foundation
-            t-publishers|t-billing|t-tooling|t-builders|"t-c&c") reviewer=szaganek ;;  # Creators
-            t-acquisition|t-growth|t-ai|t-integrations|t-discovery) reviewer=marcel-rbro ;;  # Integrators
-            *) echo "No writer mapped to $LABEL"; exit 0 ;;
-          esac
+          set -f  # label names are not globs
+          reviewers=""
+          for label in $LABELS; do
+            # Team labels → R&D group → technical writer
+            case "$label" in
+              t-core-services|t-infra|t-console|t-unblocking) reviewer=TC-MO ;;  # Foundation
+              t-publishers|t-billing|t-tooling|t-builders|"t-c&c") reviewer=szaganek ;;  # Creators
+              t-acquisition|t-growth|t-ai|t-integrations|t-discovery) reviewer=marcel-rbro ;;  # Integrators
+              *) continue ;;
+            esac
+            # GitHub rejects a review request from the PR author
+            [ "$reviewer" = "$PR_AUTHOR" ] && continue
+            case ",$reviewers," in
+              *",$reviewer,"*) ;;
+              *) reviewers="${reviewers:+$reviewers,}$reviewer" ;;
+            esac
+          done
 
-          # GitHub rejects a review request from the PR author
-          if [ "$reviewer" = "$PR_AUTHOR" ]; then
-            echo "$reviewer is the PR author, skipping"
+          if [ -z "$reviewers" ]; then
+            echo "No writer to request for: $LABELS"
             exit 0
           fi
 
-          gh pr edit "$PR_NUMBER" --add-reviewer "$reviewer"
+          gh pr edit "$PR_NUMBER" --add-reviewer "$reviewers"
