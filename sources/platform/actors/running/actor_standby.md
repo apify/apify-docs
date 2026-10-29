@@ -6,7 +6,7 @@ slug: /actors/running/standby
 sidebar_label: Standby mode
 ---
 
-A regular Actor runs a single job and then stops. It works great for batch jobs, such as a large data extraction or processing task. However, some applications can't wait for an Actor to start. In Standby mode, the Actor stays ready in the background and serves incoming HTTP requests in real time, like a web server or an API server.
+A standard Actor runs a single job and then stops. It works great for batch jobs, such as a large data extraction or processing task. However, some applications can't wait for an Actor to start. In Standby mode, the Actor stays ready in the background and serves incoming HTTP requests in real time, like a web server or an API server.
 
 To build your own Standby Actor, see [Develop Actors in Standby mode](../development/programming_interface/actor_standby.md).
 
@@ -58,8 +58,6 @@ Authenticate Standby requests the same way as [requests to the Apify API](../../
 
 The platform removes the token from the request before forwarding it, so the token doesn't reach the Actor's code. If the Actor reads the `Authorization` header for its own authentication, send your Apify token in the `X-Apify-Authorization` header instead.
 
-If you're developing a Standby Actor, use the token from the `APIFY_TOKEN` [environment variable](../development/programming_interface/environment_variables.md#system-environment-variables) to call the Apify API, as in any other Actor.
-
 Scoped tokens work for Standby requests. To let a third-party service call your Actor without access to your entire account, give it a [scoped token](/integrations/api#limited-permissions) with only the permissions it needs.
 
 :::caution Restricted access is not supported
@@ -68,9 +66,11 @@ A scoped token also has a [restricted access](/integrations/api#restricted-acces
 
 :::
 
-## Run the Actor in normal mode
+If you're developing a Standby Actor, use the token from the `APIFY_TOKEN` [environment variable](../development/programming_interface/environment_variables.md#system-environment-variables) to call the Apify API, as in any other Actor.
 
-If the Actor has no input schema, Apify Console disables the **Input** tab. Otherwise, you can modify the input and select **Start** to run the Actor in normal mode. Not every Standby Actor supports normal mode. If it doesn't, the run might fail, return empty results, or start in Standby mode. Check the Actor README for what the Actor supports.
+## Run the Actor in standard mode
+
+If the Actor has an input schema, you can modify the input in the **Input** tab and select **Start** to run the Actor in standard mode. If the Actor has no input schema, Apify Console disables the **Input** tab. Not every Standby Actor supports standard mode. If it doesn't, the run might fail, return empty results, or start in Standby mode. Check the Actor README for what the Actor supports.
 
 ## Limits and scaling
 
@@ -132,7 +132,7 @@ If the developer locked the Standby configuration, the task-level settings have 
 
 ## Billing
 
-The platform bills Standby runs like regular runs. A Standby run also consumes resources while it waits for requests, until the idle timeout stops it. Expect usage even when no requests arrive.
+The platform bills Standby runs like standard runs. A Standby run also consumes resources while it waits for requests, until the idle timeout stops it. Expect usage even when no requests arrive.
 
 For Actors monetized with the [pay-per-event pricing model](/actors/monetize/pay-per-event), you pay the platform usage costs of the Standby runs in addition to the event charges.
 

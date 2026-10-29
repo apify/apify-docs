@@ -9,23 +9,23 @@ sidebar_position: 9
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-While a regular Actor runs a single job and stops, an Actor in Standby mode runs a persistent HTTP server and responds to incoming requests in real time. For the user-facing overview of Standby mode, including endpoints, authentication, scaling, configuration, and billing, see [Actor Standby mode](../../running/actor_standby.md).
+While a standard Actor runs a single job and stops, an Actor in Standby mode runs a persistent HTTP server and responds to incoming requests in real time. For the user-facing overview of Standby mode, including endpoints, authentication, scaling, configuration, and billing, see [Actor Standby mode](../../running/actor_standby.md).
+
+## Start with a template
+
+The fastest way to build a Standby Actor is to create it from a Standby template, in [Apify Console](https://console.apify.com/actors/templates) or with `apify create` in the [Apify CLI](https://docs.apify.com/cli/). The templates contain minimal JavaScript, TypeScript, or Python code, and Standby mode is enabled with default settings.
 
 ## Enable Standby mode
 
-You can enable Standby mode from a template, in Apify Console, or in the Actor's source code.
+For an existing Actor, you can enable Standby mode in Apify Console or in the Actor's source code.
 
-### Start from a template
+### In Apify Console
 
-The easiest way to start is a Standby template, in [Apify Console](https://console.apify.com/actors/templates) or with `apify create` in the [Apify CLI](https://docs.apify.com/cli/). The templates contain minimal JavaScript, TypeScript, or Python code, and Standby mode is enabled with default settings.
-
-### Enable Standby in Apify Console
-
-To enable or change Standby mode for an existing Actor, open the **Settings** tab of the Actor and find the Actor Standby settings.
+To enable or change Standby mode, open the **Settings** tab of the Actor and find the Actor Standby settings.
 
 To enforce the same Standby configuration for all users of your Actor, enable **Prevent users from overriding standby parameters** in the same settings. Users then can't override it by creating a task.
 
-### Enable Standby in the source code
+### In the source code
 
 You can enable Standby mode by setting the [`usesStandbyMode`](../actor_definition/actor_json.md) property to `true` in the `.actor/actor.json` file. When you push the Actor with the [Apify CLI](https://docs.apify.com/cli/), the setting syncs to the platform.
 
