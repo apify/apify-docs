@@ -46,6 +46,8 @@ A limited-permission Actor can:
 
 This approach ensures the Actor has everything it needs to function while protecting your data from unnecessary exposure.
 
+To restrict runs further, for example when your users choose which Actors run under your account, see [Run Actors with restricted access](/integrations/run-actors-restricted-access).
+
 ### View permission levels in Apify Console and Apify Store
 
 To view an Actor's permission level in [Apify Console](https://console.apify.com) or Apify Store, check the badge in the **Security** section. Hover over the badge to see what access the Actor will have when it runs under your account.
