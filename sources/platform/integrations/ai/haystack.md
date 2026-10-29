@@ -162,7 +162,7 @@ Note that:
 
 ## Load data from tasks and datasets
 
-To run a saved Actor task, use `ApifyDatasetFromTaskCall` with the task ID. The `task_input` overrides fields of the input saved in the task. It's required and can't be empty, so pass it to the constructor or to `run()`:
+To run a saved Actor task, use `ApifyDatasetFromTaskCall` with the task ID. The task runs with its saved input. To change some of its fields for a run, pass them in the optional `task_input`:
 
 ```python
 from apify_haystack import ApifyDatasetFromTaskCall
