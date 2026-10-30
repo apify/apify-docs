@@ -179,9 +179,9 @@ Go to Shein's [Jewelry & Accessories](https://shein.com/RecommendSelection/Jewel
   1. Visit the [Jewelry & Accessories](https://shein.com/RecommendSelection/Jewelry-Accessories-sc-017291431.html) page. Close any pop-ups or promotions.
   1. Activate the element selection tool in your DevTools.
   1. Click on the first product to inspect its markup. Repeat with a few others.
-  1. Observe that all products are `section` elements with multiple classes, including `product-card`.
-  1. Since `section` is a generic wrapper, focus on the `product-card` class.
-  1. In the **Console**, execute `document.querySelectorAll('.product-card')`.
+  1. Observe that all products are `div` elements with multiple classes, including `bs-product-card`.
+  1. Since `div` is a generic wrapper, focus on the `bs-product-card` class.
+  1. In the **Console**, execute `document.querySelectorAll('.bs-product-card')`.
   1. At the time of writing, this selector returns 120 results, all representing products. No further narrowing is necessary.
 
 </details>
