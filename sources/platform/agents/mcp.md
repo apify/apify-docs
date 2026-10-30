@@ -126,7 +126,7 @@ The server will download automatically on first use and connect using your API t
 
 ## Agentic payments
 
-Agents can pay for Actor runs without an Apify account. Payments made per request through the MCP server, such as with [Skyfire](/integrations/skyfire), work only with pay-per-event Actors. To run any Actor that uses limited permissions, buy a prepaid token through [agentic payments](/agents/payments) and use it as a Bearer token with the MCP server.
+Agents can pay for Actor runs without an Apify account. [Apify AGI](https://agi.apify.com) sells a prepaid, spend-capped Apify API token for an x402 or MPP payment. Pass the token to the MCP server as a [Bearer token](#streamable-http-with-oauth-recommended), like a regular API token, to run any Actor that uses limited permissions.
 
 ## Tool selection
 
