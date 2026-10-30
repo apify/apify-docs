@@ -2,14 +2,14 @@
 
 The Figma connector can export a whole frame as one SVG with the same content as Figma's **Copy as SVG**. Run the snippets below with its `use_figma` tool, which executes Plugin API code. They only read the file. Follow the connector's own setup first: start a session for the file and load its `figma-use` guidance.
 
-From a link such as `https://www.figma.com/design/<fileKey>/<name>?node-id=7347-98535`, take `<fileKey>` and turn the node ID into `7347:98535`. The link can point to a page, a section, or one of the frames.
+A link has the form `https://www.figma.com/design/<fileKey>/<name>?node-id=<a>-<b>`. Pass `<fileKey>` to the tool and use `<a>:<b>` as the node ID. The link can point to a page, a section, or one of the frames.
 
 ## List the frames
 
-Replace `NODE_ID`. The snippet finds the frames around the linked node, including frames inside sections, and returns each one's size, background color, and the length and hash of its SVG export:
+Set `NODE_ID` to the linked node. The snippet finds the frames around the linked node, including frames inside sections, and returns each one's size, background color, and the length and hash of its SVG export:
 
 ```js
-const NODE_ID = '7347:98535';
+const NODE_ID = '<a>:<b>';
 const node = await figma.getNodeByIdAsync(NODE_ID);
 let page = node;
 while (page.type !== 'PAGE') page = page.parent;
@@ -35,14 +35,14 @@ for (const f of frames.slice(0, 30)) {
 return { page: page.name, linked: node.name, framesFound: frames.length, frames: out };
 ```
 
-The Academy banner file names its frames `<Course name>_Light` and `<Course name>_Dark`, with light backgrounds such as `#FAFAFA` and dark ones such as `#0F0F0F`. Pair the frames by name and check the pair against the backgrounds and sizes. If `framesFound` is over 30, link the section or frame instead of the whole page.
+Pair the frames by name, which usually differs only in a light or dark suffix, and check that the pair has the same size and one light and one dark background. If `framesFound` is over 30, link the section or frame instead of the whole page.
 
 ## Export one frame
 
-Replace `NODE_ID`. The result is the raw SVG text:
+Set `NODE_ID` to the frame's `id` from the list. The result is the raw SVG text:
 
 ```js
-const NODE_ID = '7348:1530';
+const NODE_ID = '<frame id>';
 const OFFSET = 0;
 const node = await figma.getNodeByIdAsync(NODE_ID);
 let page = node;
