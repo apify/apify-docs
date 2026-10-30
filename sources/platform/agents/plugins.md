@@ -34,6 +34,7 @@ The OpenClaw, Hermes Agent, and Kilo Code plugins work differently. Instead of c
 | Claude Code | Yes | Yes | Yes | [`apify/apify-claude-code-plugin`](https://github.com/apify/apify-claude-code-plugin) |
 | Codex (app and CLI) | Yes | Yes | No | [`apify/apify-codex-plugin`](https://github.com/apify/apify-codex-plugin) |
 | Cursor | Yes | Yes | Yes | [`apify/apify-cursor-plugin`](https://github.com/apify/apify-cursor-plugin) |
+| Antigravity (app and CLI) | Yes | Yes | Yes | [`apify/apify-antigravity-plugin`](https://github.com/apify/apify-antigravity-plugin) |
 | GitHub Copilot and VS Code | Yes | Yes | Yes | [`apify/apify-github-copilot-plugin`](https://github.com/apify/apify-github-copilot-plugin) |
 | OpenCode | Yes | Yes | Yes | [`opencode-apify`](https://github.com/apify/apify-opencode-plugin) |
 | Grok Build | Yes | Yes | Yes | [`apify/apify-grok-build-plugin`](https://github.com/apify/apify-grok-build-plugin) |
@@ -107,6 +108,19 @@ The CLI opens the Apify sign-in the first time it calls a tool that needs authen
 1. In Cursor Settings, open **Tools & MCPs**, select **Connect** on the **Apify MCP** server, and complete the Apify sign-in in your browser.
 
 Read the full [Cursor guide](/integrations/cursor).
+
+</TabItem>
+<TabItem value="antigravity" label="Antigravity">
+
+1. In your terminal, install the plugin with the Antigravity CLI:
+
+    ```bash
+    agy plugin install https://github.com/apify/apify-antigravity-plugin
+    ```
+
+1. In the CLI, run `/mcp`, select the Apify server, and select **Authenticate**. Antigravity shows an authorization code. Copy that code, paste it back into the CLI, and select **Submit**.
+
+The desktop app loads the plugin from a folder: extract [`apify-antigravity-plugin.zip`](https://github.com/apify/apify-antigravity-plugin/releases/latest/download/apify-antigravity-plugin.zip) from the latest release into `~/.gemini/config/plugins` (the default folder; see the [Antigravity plugins guide](https://antigravity.google/docs/plugins) for the current one), then open **Customizations** > **Installed** > **Apify** and select **Sign in** on the **Accounts** tab. Read the full [Antigravity guide](/integrations/antigravity).
 
 </TabItem>
 <TabItem value="github-copilot" label="GitHub Copilot">
