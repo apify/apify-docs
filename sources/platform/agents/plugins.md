@@ -156,7 +156,7 @@ Install the plugin from its repository:
 grok plugin install apify/apify-grok-build-plugin
 ```
 
-Grok Build opens the Apify sign-in on the first Actor run.
+Sign in from `/mcps`: select the Apify MCP server and press `i`.
 
 Read the full [Grok Build guide](/integrations/grok-build).
 

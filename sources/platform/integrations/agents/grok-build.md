@@ -87,10 +87,6 @@ Example prompts that route to specific skills:
 
 ## Troubleshooting
 
-### The `/plugins` command isn't available
-
-Plugins require a local installation of Grok Build. Install or update Grok Build locally, then restart your session.
-
 ### Browser doesn't open, or OAuth fails
 
 If the browser doesn't open automatically, copy the OAuth URL shown in the terminal and paste it into your browser manually.
