@@ -7,7 +7,7 @@ argument-hint: FIGMA_LINK | light.svg dark.svg
 
 # Adaptive SVG
 
-The technique and the merge script are documented for everyone in "Light and dark variants" in `standards/page-structure.md`. Read it first. This skill adds what an agent needs on top: getting the variants out of Figma and confirming the details with the user.
+People merge light and dark variants with `pnpm svg:adaptive`, as "Light and dark variants" in `standards/page-structure.md` describes. This skill adds what an agent needs on top: getting the variants out of Figma, handling merge errors, and confirming the details with the user.
 
 ## Process
 
@@ -16,6 +16,17 @@ The technique and the merge script are documented for everyone in "Light and dar
    - From **files**: the light export has a light background, the dark one a dark one
 2. **Decide where it goes** - match the frame or file name to its use. For a course image, that's the card in `sources/academy/homepage_content.json` with the same title, and its `imageUrl`. An existing image at that path gets replaced. Ask the user to confirm the pair, the target file, and where it's wired up before going further
 3. **Get the originals** - put both variants in `/tmp/adaptive-svg/<name>/light.svg` and `dark.svg`, outside the repo. From Figma, export each frame and check it as `references/figma.md` describes
-4. **Merge** - `pnpm svg:adaptive /tmp/adaptive-svg/<name>/light.svg /tmp/adaptive-svg/<name>/dark.svg static/img/<section>/<name>.svg`. If it stops, follow the table in the standards section. Don't edit the SVGs to make them fit
+4. **Merge** - `pnpm svg:adaptive /tmp/adaptive-svg/<name>/light.svg /tmp/adaptive-svg/<name>/dark.svg static/img/<section>/<name>.svg`. Don't edit the SVGs to make them fit. If it stops:
+
+   | Message | Cause | Fix |
+   | --- | --- | --- |
+   | `N children in light, M in dark` or `<x> in light, <y> in dark` | Not the same drawing: a layer is hidden in one frame, or the frames don't belong together | Ask the user to align the frames in Figma, then export again |
+   | `attribute 'x' is only in one variant` | Usually `stroke` or `opacity` set in one frame only | Ask the user to fix the frame, then export again |
+   | `non-color attribute 'x' differs` | A real difference in geometry or opacity | Ask whether it's intended. An `opacity` change can become a color change in Figma |
+   | `already has a <style> block` | An input is already adaptive | Use plain exports |
+   | `the variants are identical` | The same frame or file twice | Check the pairing |
+   | `can't reproduce the file exactly` | The input isn't a plain SVG export | Export again from Figma |
+
+   A warning that a value differs by a few thousandths is Figma's rounding in text converted to paths. The script keeps the light value
 5. **Wire it up** - reference only the merged file, and delete any source exports from the repo
 6. **Hand over** - show the user the script's output and which files changed, remind them to check the theme toggle on the preview build, and ask before committing or opening a pull request

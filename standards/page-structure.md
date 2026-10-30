@@ -258,32 +258,19 @@ platform/
 
 ### Light and dark variants
 
-Illustrations designed in both themes, such as the Academy course images in `static/img/academy/`, ship as one SVG that switches with the site's theme toggle. Don't add separate `*-dark.svg` files or use `imageUrlDarkTheme`.
+An illustration with a dark variant, such as an Academy course image, is one SVG that follows the site's theme toggle. Don't add a separate `*-dark.svg` or use `imageUrlDarkTheme`.
 
-1. In Figma, the dark variant must be a recolored copy of the light frame, with the same layers in the same order
-1. Export each frame with **Copy as SVG** and save both outside the repo
-1. Merge them, naming the result after what it shows, with no `-light` or `-dark` suffix:
+1. In Figma, make the dark frame a recolored copy of the light one, with the same layers
+1. Copy each frame as SVG and save both outside the repo
+1. Merge them into one file named after what the image shows:
 
    ```bash
    pnpm svg:adaptive light.svg dark.svg static/img/academy/<name>.svg
    ```
 
-1. Reference only the merged file, for example in `imageUrl` in `sources/academy/homepage_content.json`
-1. On the pull request's preview build, switch the theme toggle and check that the image follows it
+1. Reference the merged file, for example in `imageUrl` in `sources/academy/homepage_content.json`, and try the theme toggle on the preview build
 
-The script keeps the light markup and turns every color that differs between the variants into a CSS custom property, defined in a `<style>` block and overridden inside `@media (prefers-color-scheme: dark)`. Colors that stay the same, such as the Apify orange, remain literal. Before writing the file, the script checks that the result matches both variants. Docusaurus sets `color-scheme` on the page from the theme toggle, and the browser passes it to SVGs loaded through `<img>`, so the image follows the toggle rather than the OS setting. Opened directly in a browser tab, it follows the OS setting instead.
-
-When the merge stops:
-
-| Message | Cause | Fix |
-| --- | --- | --- |
-| `N children in light, M in dark` or `<x> in light, <y> in dark` | The variants aren't the same drawing. A layer is hidden in one of them, or they come from different frames | Export both from frames that differ only in color. Don't edit the SVG to make it fit |
-| `attribute 'x' is only in one variant` | Usually `stroke` or `opacity` set in one variant only | Fix the frame in Figma and export again |
-| `non-color attribute 'x' differs` | A real difference in geometry or opacity | Check whether it's intended. Turn an `opacity` change into a color change in Figma |
-| `already has a <style> block` | An input is already adaptive | Use plain exports |
-| `the variants are identical` | The same file was passed twice | Check the inputs |
-
-A warning that a value differs by a few thousandths at most is Figma's rounding in text converted to paths. The script keeps the light value.
+The script stores the colors that differ as CSS variables with a dark mode override. If the two exports aren't the same drawing, it stops and says where they differ.
 
 ## Lists
 
