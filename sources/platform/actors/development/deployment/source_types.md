@@ -80,10 +80,10 @@ Apify generates a unique deployment key for each Actor, so you don't need to reu
 
 ### Actor monorepos
 
-To manage multiple Actors in a single repository, use the `dockerContextDir` property in the [Actor definition](/actors/development/actor-definition/actor-json) to set the Docker context directory. By default, the Docker context is the Actor's directory, the one holding `.actor/actor.json`, so the build can't reach shared code outside it. Set `dockerContextDir` to a path relative to `.actor/` that points to the repository root, for example `../../..`. In the Dockerfile, copy both the Actor's source and any shared code into the Docker image.
+By default, the Docker context is the Actor's directory, which contains `.actor/actor.json`, so the Dockerfile can't copy shared code from outside it. To manage multiple Actors in a single repository, set the `dockerContextDir` property in the [Actor definition](/actors/development/actor-definition/actor-json). Point it to a directory that contains both the Actor and the shared code, usually the repository root. The path is relative to `.actor/`, for example `../../..` for an Actor in `actors/javascript-actor`. In the Dockerfile, copy both the Actor's source and any shared code into the Docker image.
 
 To enable sharing Dockerfiles between multiple Actors, the Actor build process passes the `ACTOR_PATH_IN_DOCKER_CONTEXT` build argument to the Docker build.
-It contains the relative path from `dockerContextDir` to the Actor's directory, the one holding `.actor/actor.json`. For a Git source, that is the folder in the Git URL. When the Docker context is the Actor's directory, the value is an empty string.
+It contains the relative path from the Docker context to the Actor's directory. For a Git repository source, the Actor's directory is the one you add to the URL after the branch or tag, such as `actors/javascript-actor` in `#main:actors/javascript-actor`. When the Docker context is the Actor's directory, the value is an empty string.
 
 For an example, see the [`apify/actor-monorepo-example`](https://github.com/apify/actor-monorepo-example) repository. To build Actors from this monorepo, you would set the source URL (including branch name and folder) as `https://github.com/apify/actor-monorepo-example#main:actors/javascript-actor` and `https://github.com/apify/actor-monorepo-example#main:actors/typescript-actor` respectively.
 
@@ -93,7 +93,7 @@ Actors can also use source code from a Zip archive hosted on an external URL. Th
 
 :::note Automatic use of ZIP file
 
-This source type is used automatically when you deploy with the [Apify CLI](/cli) and the source size exceeds 3 MB.
+When you deploy with the [Apify CLI](/cli) and the source exceeds 3 MB, the CLI uses this source type automatically.
 
 :::
 

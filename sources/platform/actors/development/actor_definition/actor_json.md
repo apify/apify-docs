@@ -70,7 +70,7 @@ Actor `name`, `version`, `buildTag`, and `environmentVariables` are currently on
 
 :::
 
-Path values are relative to the `.actor/` directory that holds `actor.json`, so `../` reaches the Actor's root directory. This applies to `dockerfile`, `dockerContextDir`, `readme`, and `changelog`, and to `input`, `output`, `storages.dataset`, `storages.datasets`, `storages.keyValueStore`, and `webServerSchema` when you set them to a file path instead of an embedded object.
+Path values are relative to the `.actor/` directory, so `../` points to the Actor's directory. This applies to `dockerfile`, `dockerContextDir`, `readme`, and `changelog`. It also applies to `input`, `output`, `storages.dataset`, `storages.datasets`, `storages.keyValueStore`, and `webServerSchema` when they hold a file path instead of an embedded object.
 
 | Property | Type | Description |
 | --- | --- | --- |

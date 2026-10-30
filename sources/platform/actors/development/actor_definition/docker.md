@@ -187,8 +187,8 @@ Apify uses Docker to build and run Actors. If you create an Actor from a templat
 
 To use a custom `Dockerfile`, you can either:
 
-- Reference it from the `dockerfile` field in `.actor/actor.json`, using a path relative to the `.actor/` directory,
-- Store it in `.actor/Dockerfile` or `Dockerfile` in the root directory (searched in this order of preference).
+- Set the `dockerfile` field in `.actor/actor.json` to the Dockerfile's path, relative to `.actor/`,
+- Store it in `.actor/Dockerfile` or `Dockerfile` in the Actor's directory (searched in this order of preference).
 
 If no `Dockerfile` is provided, the system uses the following default:
 
