@@ -6,6 +6,7 @@ import { isRegexpStringMatch } from '@docusaurus/theme-common';
 import Layout from '@docusaurus/theme-classic/lib/theme/Layout/index';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import { usePluginData } from '@docusaurus/useGlobalData';
+import clsx from 'clsx';
 import React from 'react';
 
 export default function LayoutWrapper(props) {
@@ -15,10 +16,7 @@ export default function LayoutWrapper(props) {
     const baseUrl = useBaseUrl('/');
     const { pathname } = useLocation();
     const currentPath = pathname.replace(new RegExp(`^${baseUrl}`), '').trim();
-    const hasSubNavbar =
-        subNavbar &&
-        (!subNavbar.pathRegex || isRegexpStringMatch(subNavbar.pathRegex, pathname)) &&
-        !currentPath.startsWith('api/v2');
+    const hasSubNavbar = subNavbar && (!subNavbar.pathRegex || isRegexpStringMatch(subNavbar.pathRegex, pathname));
     const docsPluginData = useAllDocsData();
     const typedocPluginData = usePluginData('docusaurus-plugin-typedoc-api') ?? {};
 
@@ -46,7 +44,7 @@ export default function LayoutWrapper(props) {
                 ) : null}
             </Head>
             <div
-                className={`layout-wrapper ${hasSubNavbar ? 'layout-wrapper--subnavbar' : ''}`}
+                className={clsx('layout-wrapper', hasSubNavbar && 'layout-wrapper--subnavbar')}
                 style={{
                     margin: 0,
                     padding: 0,
