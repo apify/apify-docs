@@ -35,7 +35,7 @@ for (const f of frames.slice(0, 30)) {
 return { page: page.name, linked: node.name, framesFound: frames.length, frames: out };
 ```
 
-Pair the frames by name, which usually differs only in a light or dark suffix, and check that the pair has the same size and one light and one dark background. If `framesFound` is over 30, link the section or frame instead of the whole page.
+Frame names follow no convention, but they usually say which variant is light and which is dark. Pair the frames by name, then check that the pair has the same size and one light and one dark background. If the pairing is unclear, ask the user. If `framesFound` is over 30, link the section or frame instead of the whole page.
 
 ## Export one frame
 
