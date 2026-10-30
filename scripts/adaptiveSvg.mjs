@@ -10,11 +10,10 @@
 //
 // See "Light and dark variants" in standards/page-structure.md.
 //
-// Claude wrote this code, and no human here understands it in depth. It works: the check above runs
-// on every merge, and its output matches static/img/academy/scraping-with-ai.svg, which was
-// checked pixel by pixel in a browser.
-// If it breaks, ask an agent to fix it against the failing pair of exports rather than patching it
-// by hand.
+// Generated with an AI agent. The built-in check validates every merge against both inputs, and the
+// output matches static/img/academy/scraping-with-ai.svg, which was checked in a browser. If it
+// breaks, regenerate or fix it with an agent against the failing pair of exports rather than
+// patching it by hand.
 //
 // Usage:
 //   pnpm svg:adaptive LIGHT.svg DARK.svg static/img/<section>/<name>.svg
@@ -193,13 +192,15 @@ async function main() {
     }
     const lightText = await readFile(lightPath, 'utf8');
     const light = parse(lightText);
+    // The output is built from the light file's markup, and only attribute values come from the dark
+    // file, so only the light file has to serialize back unchanged
     if (serialize(light.doc.children) !== lightText) {
         throw new MergeError(`${lightPath}: can't reproduce the file exactly, use a plain SVG export`);
     }
     const dark = parse(await readFile(darkPath, 'utf8'));
     const { output, count } = merge(light, dark);
     try {
-        check(output, parse(await readFile(lightPath, 'utf8')), dark);
+        check(output, parse(lightText), dark);
     } catch (error) {
         if (error instanceof MergeError) error.message = `Check of the merged file failed: ${error.message}`;
         throw error;

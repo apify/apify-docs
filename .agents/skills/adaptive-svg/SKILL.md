@@ -22,11 +22,13 @@ People merge light and dark variants with `pnpm svg:adaptive`, as "Light and dar
    | --- | --- | --- |
    | `N children in light, M in dark` or `<x> in light, <y> in dark` | Not the same drawing: a layer is hidden in one frame, or the frames don't belong together | Ask the user to align the frames in Figma, then export again |
    | `attribute 'x' is only in one variant` | Usually `stroke` or `opacity` set in one frame only | Ask the user to fix the frame, then export again |
+   | `non-color attribute 'href' differs` or `'xlink:href' differs` | The frame has an embedded image. Figma names it after the node ID, so it differs between the frames. The script doesn't support embedded images | Ask the user to replace the image with vector shapes or drop it. Don't edit the SVGs by hand |
+   | `non-color attribute 'style' differs` | Usually a color set in inline CSS, such as `style="fill:#000"`, instead of as an attribute. Plain Figma exports don't produce this | Export again with Copy as SVG or `exportAsync` |
    | `non-color attribute 'x' differs` | A real difference in geometry or opacity | Ask whether it's intended. An `opacity` change can become a color change in Figma |
    | `already has a <style> block` | An input is already adaptive | Use plain exports |
    | `the variants are identical` | The same frame or file twice | Check the pairing |
    | `can't reproduce the file exactly` | The input isn't a plain SVG export | Export again from Figma |
 
    A warning that a value differs by a few thousandths is Figma's rounding in text converted to paths. The script keeps the light value
-5. **Wire it up** - reference only the merged file, and delete any source exports from the repo
+5. **Wire it up** - reference only the merged file, and make sure no source exports ended up in the repo
 6. **Hand over** - show the user the script's output and which files changed, remind them to check the theme toggle on the preview build, and ask before committing or opening a pull request
