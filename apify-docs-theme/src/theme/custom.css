@@ -401,6 +401,21 @@ footer .col {
     height: 58px;
 }
 
+/* Sum of the visible navbar rows: `.navbar__inner` (68px each) and `.navbar__sub` (58px). */
+.layout-wrapper {
+    --ifm-navbar-height: 68px;
+}
+
+@media (min-width: 997px) {
+    .layout-wrapper {
+        --ifm-navbar-height: 136px;
+    }
+
+    .layout-wrapper--subnavbar {
+        --ifm-navbar-height: 194px;
+    }
+}
+
 html[data-theme='dark'] .navbar__sub {
     background: var(--color-neutral-background-muted);
 }
