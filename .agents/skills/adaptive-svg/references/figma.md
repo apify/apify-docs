@@ -54,13 +54,13 @@ return svg.slice(OFFSET, OFFSET + 40000);
 
 A `use_figma` result is limited to 48 KB, so one call returns at most 40,000 characters. Run the variants as separate calls. For a longer export, run it again with `OFFSET` set to 40000, 80000, and so on, and join the parts.
 
-Write the text exactly as returned to `/tmp/adaptive-svg/<name>/light.svg` or `dark.svg`, then compare it with the length and hash from the list:
+Write the text exactly as returned to `/tmp/adaptive-svg/<name>/light.svg` or `dark.svg`, then compute its length and hash the same way the list did:
 
 ```bash
-python3 -I .agents/skills/adaptive-svg/scripts/svg_hash.py /tmp/adaptive-svg/<name>/light.svg LENGTH HASH
+node -e "const t = require('fs').readFileSync(process.argv[1], 'utf8').trimEnd(); let h = 5381; for (let i = 0; i < t.length; i++) h = (Math.imul(h, 33) ^ t.charCodeAt(i)) >>> 0; console.log('length=' + t.length + ' hash=' + h)" /tmp/adaptive-svg/<name>/light.svg
 ```
 
-The export passes through the conversation before it's written, so a mismatch means it changed on the way. Write it again from the tool result. Don't fix it up by hand.
+Both numbers must match the list. The export passes through the conversation before it's written, so a mismatch means it changed on the way, and a changed color would merge without an error. Write it again from the tool result. Don't fix it up by hand.
 
 ## Other ways to get the SVG
 

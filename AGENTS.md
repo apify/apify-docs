@@ -25,6 +25,7 @@ vale sync               # Download Vale styles (first time only)
 vale "path/to/file.md" --minAlertLevel=error  # Prose style check
 pnpm api:rebuild        # Regenerate API docs from OpenAPI specs
 pnpm openapi:lint       # Validate OpenAPI spec (Redocly + Spectral + YAML)
+pnpm svg:adaptive L D O # Merge light and dark SVG variants into one adaptive SVG
 ```
 
 ## Architecture
@@ -182,7 +183,7 @@ Documentation skills live in `.agents/skills/` ([AgentSkills spec](https://agent
 - `.agents/skills/doc-write/` - Writing and editing documentation pages
 - `.agents/skills/tutorial/` - Creating structured tutorials
 - `.agents/skills/api-doc/` - OpenAPI specification and API documentation
-- `.agents/skills/adaptive-svg/` - Merging light and dark SVG exports into one theme-adaptive image
+- `.agents/skills/adaptive-svg/` - Adding light and dark illustrations from Figma as one theme-adaptive SVG
 
 ## Review checklist
 
