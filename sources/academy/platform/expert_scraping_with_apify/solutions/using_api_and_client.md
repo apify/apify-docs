@@ -13,7 +13,7 @@ slug: /expert-scraping-with-apify/solutions/using-api-and-client
 Since we need to create another Actor, we'll once again use the `apify create` command and start from an empty template. This time, let's call our project **actor-caller**:
 
 ```text
-$ apify create filter-caller
+$ apify create actor-caller
 ? Choose the programming language of your new Actor:
 ❯ JavaScript
   TypeScript
@@ -23,7 +23,7 @@ $ apify create filter-caller
 Again, use the arrow down key to select **Empty JavaScript Project**:
 
 ```text
-$ apify create filter-actor
+$ apify create actor-caller
 ✔ Choose the programming language of your new Actor: JavaScript
 ? Choose a template for your new Actor. Detailed information about the template will be shown in the next step.
   Crawlee + Playwright + Chrome

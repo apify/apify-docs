@@ -24,7 +24,7 @@ We didn't provide much explanation for this initially, as it was not directly re
 
 > Go ahead and try commenting out the proxy configuration code then running the scraper. What happens?
 
-In order to rotate sessions, we must utilize the [**SessionPool**](https://crawlee.dev/api/core/class/AutoscaledPool), which our crawler has actually been using all along, because the **useSessionPool** option is **true** by default. The SessionPool advances the concept of proxy rotation by tying proxies to user-like sessions and rotating those instead. In addition to a proxy, each user-like session has cookies attached to it (and potentially a browser fingerprint as well).
+In order to rotate sessions, we must utilize the [**SessionPool**](https://crawlee.dev/api/core/class/SessionPool), which our crawler has actually been using all along, because the **useSessionPool** option is **true** by default. The SessionPool advances the concept of proxy rotation by tying proxies to user-like sessions and rotating those instead. In addition to a proxy, each user-like session has cookies attached to it (and potentially a browser fingerprint as well).
 
 ## Configuring SessionPool {#configuring-session-pool}
 
