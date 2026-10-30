@@ -10,7 +10,7 @@ slug: /expert-scraping-with-apify/solutions/handling-migrations
 
 ---
 
-Let's first head into our **demo-actor** and create a new file named **asinTracker.js** in the **src** folder. Within this file, we are going to build a utility class which will allow us to store, modify, persist, and log our tracked ASIN data.
+Let's first head into our **academy-amazon-scraper** and create a new file named **asinTracker.js** in the **src** folder. Within this file, we are going to build a utility class which will allow us to store, modify, persist, and log our tracked ASIN data.
 
 Here's the skeleton of our class:
 
@@ -40,7 +40,7 @@ class ASINTracker {
 // It is only a utility class, so we will immediately
 // create an instance of it and export that. We only
 // need one instance for our use case.
-module.exports = new ASINTracker();
+export default new ASINTracker();
 ```
 
 Multiple techniques exist for storing data in memory; however, this is the most modular way, as all state-persistence and modification logic will be held in this file.
@@ -50,75 +50,72 @@ Here is our updated **routes.js** file which is now utilizing this utility class
 ```js
 // routes.js
 import { createCheerioRouter } from '@crawlee/cheerio';
-import { BASE_URL, OFFERS_URL, labels } from './constants';
-import tracker from './asinTracker';
-import { dataset } from './main.js';
+
+import tracker from './asinTracker.js';
+import { BASE_URL, labels, OFFERS_URL } from './constants.js';
 
 export const router = createCheerioRouter();
 
-router.addHandler(labels.START, async ({ $, crawler, request }) => {
+router.addHandler(labels.START, async ({ $, addRequests, request }) => {
     const { keyword } = request.userData;
 
-    const products = $('div > div[data-asin]:not([data-asin=""])');
+    const products = $('div[data-component-type="s-search-result"]:not(.AdHolder)');
 
+    if (!products.length) {
+        throw new Error('No products found, retrying');
+    }
+
+    const requests = [];
     for (const product of products) {
         const element = $(product);
-        const titleElement = $(element.find('.a-text-normal[href]'));
-
-        const url = `${BASE_URL}${titleElement.attr('href')}`;
+        const asin = element.attr('data-asin');
+        if (!asin) continue;
 
         // For each product, add it to the ASIN tracker
         // and initialize its collected offers count to 0
-        tracker.incrementASIN(element.attr('data-asin'));
+        tracker.incrementASIN(asin);
 
-        await crawler.addRequest([{
+        const url = `${BASE_URL}/dp/${asin}`;
+
+        requests.push({
             url,
             label: labels.PRODUCT,
             userData: {
                 data: {
-                    title: titleElement.first().text().trim(),
-                    asin: element.attr('data-asin'),
+                    title: element.find('h2[aria-label]').text().trim(),
+                    asin,
                     itemUrl: url,
                     keyword,
                 },
             },
-        }]);
+        });
     }
+    await addRequests(requests);
 });
 
-router.addHandler(labels.PRODUCT, async ({ $, crawler, request }) => {
+// The PRODUCT handler stays the same
+
+router.addHandler(labels.OFFERS, async ({ $, request, pushData }) => {
     const { data } = request.userData;
 
-    const element = $('div#productDescription');
+    if (!$('#aod-container').length) {
+        throw new Error('Offers did not load, retrying');
+    }
 
-    await crawler.addRequests([{
-        url: OFFERS_URL(data.asin),
-        label: labels.OFFERS,
-        userData: {
-            data: {
-                ...data,
-                description: element.text().trim(),
-            },
-        },
-    }]);
-});
+    for (const offer of $('#aod-pinned-offer, #aod-offer')) {
+        const element = $(offer);
+        const price = element.find('.apex-pricetopay-value').first().text().trim();
 
-router.addHandler(labels.OFFERS, async ({ $, request }) => {
-    const { data } = request.userData;
+        if (!price) continue;
 
-    const { asin } = data;
-
-    for (const offer of $('#aod-offer')) {
         // For each offer, add 1 to the ASIN's
         // offer count
-        tracker.incrementASIN(asin);
+        tracker.incrementASIN(data.asin);
 
-        const element = $(offer);
-
-        await dataset.pushData({
+        await pushData({
             ...data,
-            sellerName: element.find('div[id*="soldBy"] a[aria-label]').text().trim(),
-            offer: element.find('.a-price .a-offscreen').text().trim(),
+            sellerName: element.find('#aod-offer-soldBy [aria-label]').text().trim(),
+            offer: price,
         });
     }
 });
@@ -135,7 +132,7 @@ In order to persist our ASIN tracker object, let's use the `Actor.on` function t
 import { Actor } from 'apify';
 // We've updated our constants.js file to include the name
 // of this new key in the key-value store
-const { ASIN_TRACKER } = require('./constants');
+import { ASIN_TRACKER } from './constants.js';
 
 class ASINTracker {
     constructor() {
@@ -158,7 +155,7 @@ class ASINTracker {
     }
 }
 
-module.exports = new ASINTracker();
+export default new ASINTracker();
 ```
 
 ## Handling resurrections {#handling-resurrections}
@@ -170,7 +167,7 @@ In order to fix this, let's create a method called `initialize` which will be ca
 ```js
 // asinTracker.js
 import { Actor } from 'apify';
-import { ASIN_TRACKER } from './constants';
+import { ASIN_TRACKER } from './constants.js';
 
 class ASINTracker {
     constructor() {
@@ -203,7 +200,7 @@ class ASINTracker {
     }
 }
 
-module.exports = new ASINTracker();
+export default new ASINTracker();
 ```
 
 We'll now call this function at the top level of the **main.js** file to ensure it is the first thing that gets called when the Actor starts up:
@@ -212,7 +209,7 @@ We'll now call this function at the top level of the **main.js** file to ensure 
 // main.js
 
 // ...
-import tracker from './asinTracker';
+import tracker from './asinTracker.js';
 
 // The Actor.init() function should be executed before
 // the tracker's initialization

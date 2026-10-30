@@ -13,7 +13,7 @@ slug: /expert-scraping-with-apify/solutions/using-api-and-client
 Since we need to create another Actor, we'll once again use the `apify create` command and start from an empty template. This time, let's call our project **actor-caller**:
 
 ```text
-$ apify create filter-caller
+$ apify create actor-caller
 ? Choose the programming language of your new Actor:
 ❯ JavaScript
   TypeScript
@@ -23,7 +23,7 @@ $ apify create filter-caller
 Again, use the arrow down key to select **Empty JavaScript Project**:
 
 ```text
-$ apify create filter-actor
+$ apify create actor-caller
 ✔ Choose the programming language of your new Actor: JavaScript
 ? Choose a template for your new Actor. Detailed information about the template will be shown in the next step.
   Crawlee + Playwright + Chrome
@@ -45,7 +45,7 @@ await Actor.init();
 
 const { useClient, memory, fields, maxItems } = await Actor.getInput();
 
-const TASK = 'YOUR_USERNAME~demo-actor-task';
+const TASK = 'YOUR_USERNAME~academy-amazon-scraper-task';
 
 // our future code will go here
 
@@ -146,7 +146,7 @@ if (useClient) await withClient();
 else await withAPI();
 ```
 
-And before we push to the platform, let's not forget to write an input schema in the **INPUT_SCHEMA.JSON** file:
+And before we push to the platform, let's not forget to write an input schema in the **.actor/input_schema.json** file:
 
 ```json
 {
@@ -172,7 +172,7 @@ And before we push to the platform, let's not forget to write an input schema in
       "title": "Fields",
       "type": "array",
       "description": "Enter the dataset fields to export to CSV",
-      "prefill": ["title", "url", "price"],
+      "prefill": ["title", "itemUrl", "offer"],
       "editor": "stringList"
     },
     "maxItems": {
@@ -198,7 +198,7 @@ await Actor.init();
 
 const { useClient, memory, fields, maxItems } = await Actor.getInput();
 
-const TASK = 'YOUR_USERNAME~demo-actor-task';
+const TASK = 'YOUR_USERNAME~academy-amazon-scraper-task';
 
 const withClient = async () => {
     const client = Actor.newClient();

@@ -8,15 +8,9 @@ slug: /expert-scraping-with-apify/solutions/integrating-webhooks
 
 **Learn how to integrate webhooks into your Actors. Webhooks are a super powerful tool, and can be used to do almost anything!**
 
-:::caution Updates coming
-
-This lesson is subject to change because it currently relies on code from our archived **Web scraping basics for JavaScript devs** course. For now you can still access the archived course, but we plan to completely retire it in a few months. This lesson will be updated to remove the dependency.
-
-:::
-
 ---
 
-In this lesson we'll be writing a new Actor and integrating it with our beloved Amazon scraping Actor. First, we'll navigate to the same directory where our **demo-actor** folder lives, and run `apify create filter-actor` _(once again, you can name the Actor whatever you want, but for this lesson, we'll be calling the new Actor **filter-actor**)_. When prompted about the programming language, select **JavaScript**:
+In this lesson we'll be writing a new Actor and integrating it with our beloved Amazon scraping Actor. First, we'll navigate to the same directory where our **academy-amazon-scraper** folder lives, and run `apify create filter-actor` _(once again, you can name the Actor whatever you want, but for this lesson, we'll be calling the new Actor **filter-actor**)_. When prompted about the programming language, select **JavaScript**:
 
 ```text
 $ apify create filter-actor
@@ -80,15 +74,23 @@ const { items } = await dataset.getData();
 
 While several methods can achieve the goal output of this Actor, using the [`Array.reduce()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce) is the most concise approach
 
+Prices are strings like `$1,080.59`, so before comparing them, we need to turn them into numbers. Let's write a small helper function which drops everything except digits and the decimal point:
+
+```js
+const parsePrice = (offer) => Number(offer.replace(/[^\d.]/g, ''));
+```
+
+Now we can find the cheapest offer for each ASIN:
+
 ```js
 const filtered = items.reduce((acc, curr) => {
     // Grab the price of the item matching our current
     // item's ASIN in the map. If it doesn't exist, set
     // "prevPrice" to null
-    const prevPrice = acc?.[curr.asin] ? +acc[curr.asin].offer.slice(1) : null;
+    const prevPrice = acc?.[curr.asin] ? parsePrice(acc[curr.asin].offer) : null;
 
     // Grab the price of our current offer
-    const price = +curr.offer.slice(1);
+    const price = parsePrice(curr.offer);
 
     // If the item doesn't yet exist in the map, add it.
     // Or, if the current offer's price is less than the
@@ -118,9 +120,11 @@ const dataset = await Actor.openDataset(datasetId);
 
 const { items } = await dataset.getData();
 
+const parsePrice = (offer) => Number(offer.replace(/[^\d.]/g, ''));
+
 const filtered = items.reduce((acc, curr) => {
-    const prevPrice = acc?.[curr.asin] ? +acc[curr.asin].offer.slice(1) : null;
-    const price = +curr.offer.slice(1);
+    const prevPrice = acc?.[curr.asin] ? parsePrice(acc[curr.asin].offer) : null;
+    const price = parsePrice(curr.offer);
 
     if (!acc[curr.asin] || prevPrice > price) acc[curr.asin] = curr;
 
@@ -132,7 +136,7 @@ await Actor.pushData(Object.values(filtered));
 await Actor.exit();
 ```
 
-Cool! But **wait**, don't forget to configure the **INPUT_SCHEMA.json** file as well! It's not necessary to do this step, as we'll be calling the Actor through Apify's API within a webhook, but it's still good to get into the habit of writing quality input schemas that describe the input values your Actors are expecting.
+Cool! But **wait**, don't forget to configure the **.actor/input_schema.json** file as well! It's not necessary to do this step, as we'll be calling the Actor through Apify's API within a webhook, but it's still good to get into the habit of writing quality input schemas that describe the input values your Actors are expecting.
 
 ```json
 {
@@ -200,11 +204,11 @@ Next, within the Amazon scraping Actor, we will click the **Integrations** tab a
 
 We have chosen to run the webhook once the Actor has succeeded, which means that its default dataset will surely be populated. Since the filtering Actor is expecting the default dataset ID of the Amazon Actor, we use the `resource` variable to grab hold of the `defaultDatasetId`.
 
-Click **Save**, then run the Amazon **demo-actor** again.
+Click **Save**, then run the **academy-amazon-scraper** Actor again.
 
 ## Making sure it worked {#checking-the-webhook}
 
-If everything worked, then at the end of the **demo-actor**'s run, we should see this within the **Integrations** tab:
+If everything worked, then at the end of the **academy-amazon-scraper** run, we should see this within the **Integrations** tab:
 
 ![Webhook succeeded](./images/webhook-succeeded.png)
 
