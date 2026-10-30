@@ -1,6 +1,6 @@
 ---
 name: adaptive-svg
-description: Add an illustration with light and dark variants as one SVG that follows the site theme, copied from Figma or from exported files. Use when user says "add course images from Figma", pastes a Figma link with light and dark illustrations, "make this SVG adaptive", "join light and dark images", "add dark mode to this illustration", "here is the light and dark version", or "adaptive-svg". Handles getting the variants, merging, checking the result, and wiring the image up.
+description: Merge light and dark variants of an illustration, such as an Academy course image, into one SVG that follows the site theme. Use when the user shares light and dark illustrations from Figma or as files, asks to add a course image, or asks to make an SVG adaptive or give it a dark mode.
 allowed-tools: Read Write Edit Bash Glob Grep
 argument-hint: FIGMA_LINK | light.svg dark.svg
 ---
