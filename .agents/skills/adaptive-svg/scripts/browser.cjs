@@ -1,11 +1,13 @@
 // Launches Chromium for the verification scripts. Uses, in order:
-// $CHROME_PATH, the newest Chromium downloaded by Playwright, installed Google Chrome.
+// $CHROME_PATH, the newest Chromium downloaded by Playwright (in $PLAYWRIGHT_BROWSERS_PATH
+// or the default cache), installed Google Chrome.
 const { chromium } = require('playwright-core');
 const { existsSync, readdirSync } = require('node:fs');
 const { join } = require('node:path');
 const os = require('node:os');
 
 const CACHES = [
+    process.env.PLAYWRIGHT_BROWSERS_PATH,
     join(os.homedir(), 'Library/Caches/ms-playwright'),
     join(os.homedir(), '.cache/ms-playwright'),
 ];

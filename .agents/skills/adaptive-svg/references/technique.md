@@ -43,7 +43,7 @@ Infima, the CSS framework under Docusaurus, sets `html { color-scheme: var(--ifm
 ## When the merge stops
 
 | Error | Cause | Fix |
-|---|---|---|
+| --- | --- | --- |
 | `N children in light, M in dark` or `<x> in light, <y> in dark` | The variants aren't the same drawing. Either a layer is hidden in one of them, or they were exported from different frames | Ask for both exports from the same frame. Don't hand-edit the tree to make it fit |
 | `attribute 'x' is only in one variant` | Usually `stroke` or `opacity` set in one variant only | Re-export, or decide by hand which value is right and add it to the other file before merging |
 | `non-color attribute 'x' differs` | Real geometry or opacity difference | Check whether it's intended. An `opacity` change can be turned into a color change in Figma instead |
@@ -55,7 +55,7 @@ Infima, the CSS framework under Docusaurus, sets `html { color-scheme: var(--ifm
 - A page created with `page.setContent()` is `about:blank`, which can't load `file://` images. It renders broken-image icons that compare as equal, so the check passes when it shouldn't. `verify.cjs` loads its page from disk and fails if the image doesn't decode
 - `verify.cjs` also fails if the light and dark sources render the same, because then matching them proves nothing
 - Screenshots are compared byte for byte. For a pixel count of a mismatch, use `magick compare -metric AE a.png b.png diff.png`
-- The repo has no Playwright dependency. Install `playwright-core` in a scratch directory and point `NODE_PATH` at it. `browser.cjs` uses `$CHROME_PATH`, then a Chromium downloaded by Playwright, then installed Google Chrome
+- The repo has no Playwright dependency. Install `playwright-core` in a scratch directory and point `NODE_PATH` at it. `browser.cjs` uses `$CHROME_PATH`, then a Chromium downloaded by Playwright, looking in `$PLAYWRIGHT_BROWSERS_PATH` and the default cache, then installed Google Chrome
 
 ## Prior art
 
