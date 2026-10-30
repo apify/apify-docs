@@ -44,6 +44,8 @@ Install the plugin with the `agy` CLI, or by adding it to the Antigravity app pl
 
     The `apify` plugin is listed as enabled with 5 skills, 1 agent, 1 rule, and 1 MCP server.
 
+You can also install from the [release ZIP](https://github.com/apify/apify-antigravity-plugin/releases/latest/download/apify-antigravity-plugin.zip): extract it into `~/.gemini/config/plugins` as described for the [Antigravity app](#antigravity-app). The CLI and the app share that folder.
+
 ### Antigravity app
 
 The app loads plugins from a folder on your machine.
