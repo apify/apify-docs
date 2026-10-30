@@ -9,7 +9,7 @@ argument-hint: FIGMA_LINK | light.svg dark.svg
 
 Merge a light and a dark variant of an illustration into one SVG that switches colors with the site theme, as "Light and dark variants" in `standards/page-structure.md` describes. There's no script for the merge. Do it however works for the pair at hand. What counts is the check in step 4: each mode of the merged file renders the same as the variant it came from.
 
-Locally, the skill expects macOS, because it reads the variants from the clipboard with `pbpaste`. In a cloud environment, where the agent can't reach the user's clipboard, the user uploads the variants as files instead.
+Locally, the agent reads the variants from the clipboard: with `pbpaste` on macOS, or the system's equivalent elsewhere. In a cloud environment, where the agent can't reach the user's clipboard, the user uploads the variants as files instead.
 
 ## Process
 

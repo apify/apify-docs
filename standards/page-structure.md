@@ -262,7 +262,7 @@ An illustration with a dark variant, such as an Academy course image, is one SVG
 
 The file keeps the light variant's markup, with each color that differs between the variants replaced by a CSS variable. A `<style>` block at the top sets the light values and overrides them inside `@media (prefers-color-scheme: dark)`. See `static/img/academy/scraping-with-ai.svg` for an example.
 
-To add one, ask an agent to use the `adaptive-svg` skill on macOS. It asks you to copy each variant in Figma with **Copy as SVG**, merges them, and checks that each mode of the result renders the same as the original variant. Then reference the merged file, for example in `imageUrl` in `sources/academy/homepage_content.json`, and try the theme toggle on the preview build.
+To add one, ask an agent to use the `adaptive-svg` skill.
 
 ## Lists
 
