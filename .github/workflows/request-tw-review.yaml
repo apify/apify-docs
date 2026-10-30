@@ -3,7 +3,7 @@ name: Request TW review by label
 on:
   # Runs from master with a write token, so fork PRs work too. Never check out PR code here.
   pull_request_target:
-    types: [labeled, ready_for_review]
+    types: [opened, labeled, ready_for_review]
 
 permissions:
   pull-requests: write
@@ -12,7 +12,7 @@ jobs:
   request_review:
     name: Request TW review
     # Like CODEOWNERS: no requests on drafts or closed PRs
-    if: github.event.pull_request.state == 'open' && !github.event.pull_request.draft
+    if: github.event.action != 'opened' && github.event.pull_request.state == 'open' && !github.event.pull_request.draft
     runs-on: ubuntu-latest
     steps:
       - name: Request the writer for the team label
@@ -48,3 +48,35 @@ jobs:
           fi
 
           gh pr edit "$PR_NUMBER" --add-reviewer "$reviewers"
+
+  fallback:
+    name: Request triage TW when no writer is set
+    # PRs from writers and bots need no triage
+    if: >-
+      (github.event.action == 'opened' || github.event.action == 'ready_for_review')
+      && !github.event.pull_request.draft
+      && github.event.pull_request.user.type != 'Bot'
+      && !contains(fromJSON('["TC-MO", "szaganek", "marcel-rbro"]'), github.event.pull_request.user.login)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Request TC-MO if no writer was requested
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          # The PR toolkit adds the team label 20-30 s after the PR is ready; give the label job time to run
+          sleep 90
+
+          writers=$(gh pr view "$PR_NUMBER" --json reviewRequests,reviews,state,isDraft --jq '
+            if .state != "OPEN" or .isDraft then "skip"
+            else [.reviewRequests[].login, .reviews[].author.login]
+              | map(select(. == "TC-MO" or . == "szaganek" or . == "marcel-rbro")) | join(",")
+            end')
+
+          if [ -n "$writers" ]; then
+            echo "Nothing to do: $writers"
+            exit 0
+          fi
+
+          gh pr edit "$PR_NUMBER" --add-reviewer TC-MO
