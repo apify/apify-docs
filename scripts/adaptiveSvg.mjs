@@ -10,6 +10,12 @@
 //
 // See "Light and dark variants" in standards/page-structure.md.
 //
+// Claude wrote this code, and no human here understands it in depth. It works: the check above runs
+// on every merge, and its output matches static/img/academy/scraping-with-ai.svg, which was
+// checked pixel by pixel in a browser.
+// If it breaks, ask an agent to fix it against the failing pair of exports rather than patching it
+// by hand.
+//
 // Usage:
 //   pnpm svg:adaptive LIGHT.svg DARK.svg static/img/<section>/<name>.svg
 
