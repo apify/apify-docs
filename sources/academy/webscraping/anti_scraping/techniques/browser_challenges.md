@@ -3,6 +3,7 @@ title: Browser challenges
 description: Learn how to navigate browser challenges like Cloudflare's to effectively scrape data from protected websites.
 sidebar_position: 5
 slug: /anti-scraping/techniques/browser-challenges
+pagination: true
 ---
 
 > Learn how to navigate browser challenges like Cloudflare's to effectively scrape data from protected websites.

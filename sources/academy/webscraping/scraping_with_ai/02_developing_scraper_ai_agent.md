@@ -2,6 +2,7 @@
 title: Developing a scraper with AI agent
 description: Improve your Apify scraper using the Cursor AI agent. Set up local development, clean up price data, and push changes back to the Apify platform.
 slug: /scraping-with-ai/developing-scraper-with-ai-agent
+pagination: true
 ---
 
 **In this lesson, we'll keep improving our app for tracking prices on an e-commerce website. We'll get its code onto our computer and use Cursor to streamline how we update our scraper.**

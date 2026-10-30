@@ -3,6 +3,7 @@ title: VI - Creating multiple browser contexts
 description: Learn what a browser context is, how to create one, how to emulate devices, and how to use browser contexts to automate multiple sessions at one time.
 sidebar_position: 2.6
 slug: /puppeteer-playwright/browser-contexts
+pagination: true
 ---
 
 import Tabs from '@theme/Tabs';

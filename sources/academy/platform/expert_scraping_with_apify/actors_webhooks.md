@@ -4,6 +4,7 @@ description: Learn more advanced details about Actors, how they work, and the de
 sidebar_position: 6.1
 sidebar_label: I - Webhooks & advanced Actor overview
 slug: /expert-scraping-with-apify/actors-webhooks
+pagination: true
 ---
 
 **Learn more advanced details about Actors, how they work, and the default configurations they can take. Also, learn how to integrate your Actor with webhooks.**
