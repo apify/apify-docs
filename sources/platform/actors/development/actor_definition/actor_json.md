@@ -70,6 +70,8 @@ Actor `name`, `version`, `buildTag`, and `environmentVariables` are currently on
 
 :::
 
+Path values are relative to the `.actor/` directory, so `../` points to the Actor's directory. This applies to `dockerfile`, `dockerContextDir`, `readme`, and `changelog`. It also applies to `input`, `output`, `storages.dataset`, `storages.datasets`, `storages.keyValueStore`, and `webServerSchema` when they hold a file path instead of an embedded object.
+
 | Property | Type | Description |
 | --- | --- | --- |
 | `actorSpecification` | Required | The version of the Actor specification. This property must be set to `1`, which is the only version available. |
