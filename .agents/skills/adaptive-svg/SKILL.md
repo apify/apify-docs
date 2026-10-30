@@ -9,7 +9,7 @@ argument-hint: FIGMA_LINK | light.svg dark.svg
 
 Merge a light and a dark variant of an illustration into one SVG that switches colors with the site theme, as "Light and dark variants" in `standards/page-structure.md` describes. There's no script for the merge. Do it however works for the pair at hand. What counts is the check in step 4: each mode of the merged file renders the same as the variant it came from.
 
-The skill expects macOS, because it reads the variants from the clipboard with `pbpaste`.
+Locally, the skill expects macOS, because it reads the variants from the clipboard with `pbpaste`. In a cloud environment, where the agent can't reach the user's clipboard, the user uploads the variants as files instead.
 
 ## Process
 
@@ -26,6 +26,12 @@ The skill expects macOS, because it reads the variants from the clipboard with `
    ```
 
    The file must start with `<svg` and end with `</svg>`. Its first `<rect>` is usually the background, which tells light from dark. If it's the wrong variant, or not an SVG, ask the user to copy it again. Repeat for `dark.svg`
+
+   In a cloud environment, ask for both variants at once instead:
+
+   > In Figma, click the outermost frame of each variant, right-click it, and choose **Copy as SVG**. Paste each into a text editor, save it as `light.svg` or `dark.svg`, and attach both files to your next message.
+
+   Copy the attached files to `/tmp/adaptive-svg/<name>/` and check them the same way. If the attachments aren't available as files, ask the user to attach them again. Don't recreate them from text in the conversation
 3. **Merge** into `static/img/<section>/<name>.svg`. See [The merged file](#the-merged-file) for the result and [What the variants differ in](#what-the-variants-differ-in) for what to expect
 4. **Check** - render each mode of the merged file and compare it with the original variant, as [Checking the result](#checking-the-result) describes. Don't hand over a file that fails
 5. **Wire it up** - reference only the merged file, and make sure no source exports ended up in the repo
