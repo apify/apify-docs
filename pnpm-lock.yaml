@@ -309,9 +309,6 @@ importers:
       cross-env:
         specifier: ^10.1.0
         version: 10.1.0
-      htmlparser2:
-        specifier: ^8.0.2
-        version: 8.0.2
       markdownlint:
         specifier: ^0.41.1
         version: 0.41.1(supports-color@8.1.1)

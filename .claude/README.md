@@ -53,7 +53,7 @@ Tutorial creation - Build structured, educational tutorials
 Documentation review - Check quality and compliance before submission
 
 #### /adaptive-svg
-Adaptive images - Turn light and dark variants copied from Figma or exported as SVG into one image that follows the site theme
+Adaptive images - Merge light and dark variants copied from Figma into one image that follows the site theme, and check that each mode renders as before
 
 ## Quick start
 

@@ -260,17 +260,9 @@ platform/
 
 An illustration with a dark variant, such as an Academy course image, is one SVG that follows the site's theme toggle. Don't add a separate `*-dark.svg` or use `imageUrlDarkTheme`.
 
-1. In Figma, make the dark frame a recolored copy of the light one, with the same layers
-1. Select each frame, right-click it, choose **Copy as SVG**, and save it outside the repo with `pbpaste > light.svg` or `pbpaste > dark.svg`
-1. Merge them into one file named after what the image shows:
+The file keeps the light variant's markup, with each color that differs between the variants replaced by a CSS variable. A `<style>` block at the top sets the light values and overrides them inside `@media (prefers-color-scheme: dark)`. See `static/img/academy/scraping-with-ai.svg` for an example.
 
-   ```bash
-   pnpm svg:adaptive light.svg dark.svg static/img/academy/<name>.svg
-   ```
-
-1. Reference the merged file, for example in `imageUrl` in `sources/academy/homepage_content.json`, and try the theme toggle on the preview build
-
-The script stores the colors that differ as CSS variables with a dark mode override. If the two exports aren't the same drawing, it stops and says where they differ.
+To add one, ask an agent to use the `adaptive-svg` skill on macOS. It asks you to copy each variant in Figma with **Copy as SVG**, merges them, and checks that each mode of the result renders the same as the original variant. Then reference the merged file, for example in `imageUrl` in `sources/academy/homepage_content.json`, and try the theme toggle on the preview build.
 
 ## Lists
 

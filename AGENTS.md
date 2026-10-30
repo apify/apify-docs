@@ -25,7 +25,6 @@ vale sync               # Download Vale styles (first time only)
 vale "path/to/file.md" --minAlertLevel=error  # Prose style check
 pnpm api:rebuild        # Regenerate API docs from OpenAPI specs
 pnpm openapi:lint       # Validate OpenAPI spec (Redocly + Spectral + YAML)
-pnpm svg:adaptive L D O # Merge light and dark SVG variants into one adaptive SVG
 ```
 
 ## Architecture
