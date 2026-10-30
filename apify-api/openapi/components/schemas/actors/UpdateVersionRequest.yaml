@@ -36,3 +36,13 @@ properties:
   gitHubGistUrl:
     type: string
     description: URL of the GitHub Gist to clone the source code from. Applies when the `sourceType` is `GITHUB_GIST`.
+  actorPath:
+    type: [string, "null"]
+    examples: [actors/typescript-actor]
+    description: The Actor's directory inside the uploaded source, as a path relative to the upload root with `/` separators,
+      for example `actors/typescript-actor`. Applies when the `sourceType` is `SOURCE_FILES` or `TARBALL`. The API rejects it
+      when the `sourceType` is `GIT_REPO` or `GITHUB_GIST`. On an update without `sourceType`, the API checks it against the
+      version's stored source type. When the version has no `actorPath`, the upload root is the Actor's directory. Never
+      empty, with no leading or trailing `/` and no `.` or `..` segments. An update that sends `sourceType`, `sourceFiles`,
+      or `tarballUrl` without `actorPath` removes the stored `actorPath`, so send it again with every upload. An update of
+      other fields, such as `envVars` or `buildTag`, keeps it. Send `null` to remove it.

@@ -62,6 +62,10 @@ put:
     If the object does not define a specific property, its value will not be
     updated.
 
+    An update that sends `sourceType`, `sourceFiles`, or `tarballUrl` without
+    `actorPath` removes the version's stored `actorPath`. For a monorepo
+    version, send `actorPath` again with every upload.
+
     The request needs to specify the `Content-Type: application/json` HTTP
     header!
 
