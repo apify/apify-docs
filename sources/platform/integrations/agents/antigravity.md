@@ -56,7 +56,7 @@ The app loads plugins from a folder on your machine.
     git clone https://github.com/apify/apify-antigravity-plugin ~/.gemini/config/plugins/apify
     ```
 
-    To enable the plugin for a single project only, put the `apify` folder in `.agents/plugins/` inside that project instead.
+    To enable the plugin for a single project only, put the `apify` folder in `.agents/plugins/` inside that project instead. These are the default plugin folders at the time of writing; check the current locations in the [Antigravity plugins guide](https://antigravity.google/docs/plugins).
 
 1. Open **Customizations** > **Installed** and make sure **Apify** is listed under **Plugins**. It shows **Setup required** until you sign in.
 
