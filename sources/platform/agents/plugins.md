@@ -120,7 +120,7 @@ Read the full [Cursor guide](/integrations/cursor).
 
 1. In the CLI, run `/mcp`, select the Apify server, and select **Authenticate**. Antigravity shows an authorization code. Copy that code, paste it back into the CLI, and select **Submit**.
 
-The desktop app loads the plugin from a folder: clone the repository into `~/.gemini/config/plugins/apify`, then open **Customizations** > **Installed** > **Apify** and select **Sign in** on the **Accounts** tab. Read the full [Antigravity guide](/integrations/antigravity).
+The desktop app loads the plugin from a folder: extract [`apify-antigravity-plugin.zip`](https://github.com/apify/apify-antigravity-plugin/releases/latest/download/apify-antigravity-plugin.zip) from the latest release into `~/.gemini/config/plugins`, then open **Customizations** > **Installed** > **Apify** and select **Sign in** on the **Accounts** tab. Read the full [Antigravity guide](/integrations/antigravity).
 
 </TabItem>
 <TabItem value="github-copilot" label="GitHub Copilot">

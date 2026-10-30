@@ -26,7 +26,7 @@ import ApifyPluginSkillPrompts from '@site/sources/_partials/_apify-plugin-skill
 
 ## Install the plugin
 
-Install the plugin with the `agy` CLI, or by cloning it into the Antigravity app plugins folder.
+Install the plugin with the `agy` CLI, or by adding it to the Antigravity app plugins folder.
 
 ### Antigravity CLI
 
@@ -48,13 +48,15 @@ Install the plugin with the `agy` CLI, or by cloning it into the Antigravity app
 
 The app loads plugins from a folder on your machine.
 
-1. Clone the plugin repository into your global plugins folder:
+1. Download [`apify-antigravity-plugin.zip`](https://github.com/apify/apify-antigravity-plugin/releases/latest/download/apify-antigravity-plugin.zip) from the latest release and extract it into your global plugins folder, so the plugin ends up in `~/.gemini/config/plugins/apify`.
+
+    If you have Git, you can clone the repository instead, which makes updates a `git pull`:
 
     ```bash
     git clone https://github.com/apify/apify-antigravity-plugin ~/.gemini/config/plugins/apify
     ```
 
-    To enable the plugin for a single project only, clone it into `.agents/plugins/apify` inside that project instead.
+    To enable the plugin for a single project only, put the `apify` folder in `.agents/plugins/` inside that project instead.
 
 1. Open **Customizations** > **Installed** and make sure **Apify** is listed under **Plugins**. It shows **Setup required** until you sign in.
 
