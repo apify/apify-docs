@@ -256,6 +256,14 @@ platform/
 │       └── run-button.webp
 ```
 
+### Light and dark variants
+
+An illustration with a dark variant, such as an Academy course image, is one SVG that follows the site's theme toggle. Don't add a separate `*-dark.svg` or use `imageUrlDarkTheme`.
+
+The file keeps the light variant's markup, with each color that differs between the variants replaced by a CSS variable. A `<style>` block at the top sets the light values and overrides them inside `@media (prefers-color-scheme: dark)`. See `static/img/academy/scraping-with-ai.svg` for an example.
+
+To add one, ask an agent to use the `adaptive-svg` skill.
+
 ## Lists
 
 Use numbered lists for sequential steps where order matters, and bullet points for non-sequential items, features, and options.
