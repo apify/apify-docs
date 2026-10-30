@@ -55,7 +55,7 @@ Infima, the CSS framework under Docusaurus, sets `html { color-scheme: var(--ifm
 - A page created with `page.setContent()` is `about:blank`, which can't load `file://` images. It renders broken-image icons that compare as equal, so the check passes when it shouldn't. `verify.cjs` loads its page from disk and fails if the image doesn't decode
 - `verify.cjs` also fails if the light and dark sources render the same, because then matching them proves nothing
 - Screenshots are compared byte for byte. For a pixel count of a mismatch, use `magick compare -metric AE a.png b.png diff.png`
-- The repo has no Playwright dependency. Install `playwright-core` in a scratch directory and point `NODE_PATH` at it. `browser.cjs` uses `$CHROME_PATH`, then a Chromium downloaded by Playwright, looking in `$PLAYWRIGHT_BROWSERS_PATH` and the default cache, then installed Google Chrome
+- The repo has no Playwright dependency. The scripts load `playwright` from `NODE_PATH` and launch the Chromium build that matches its version. `playwright install chromium` downloads that build. A newer `playwright` next to an older preinstalled browser fails with `Executable doesn't exist`, so use the installation the sandbox already has instead of adding another one
 
 ## Prior art
 

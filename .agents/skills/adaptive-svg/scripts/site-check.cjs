@@ -6,7 +6,7 @@
 // For every matching <img>, it takes screenshots in all four combinations of
 // site theme and OS color scheme. Each image must ignore the OS setting and
 // must look different in the light and dark site themes.
-const { launch } = require('./browser.cjs');
+const { chromium } = require('playwright');
 const { mkdirSync, writeFileSync } = require('node:fs');
 const { join } = require('node:path');
 
@@ -18,7 +18,7 @@ async function main() {
     const [url, outDir, srcFilter = '.svg'] = process.argv.slice(2);
     mkdirSync(outDir, { recursive: true });
 
-    const browser = await launch();
+    const browser = await chromium.launch();
     const shots = {}; // image name -> combination -> PNG buffer
     for (const site of ['light', 'dark']) {
         for (const os of ['light', 'dark']) {

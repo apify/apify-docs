@@ -19,17 +19,25 @@ One SVG file holds both color schemes. A `<style>` block defines the light color
 2. **Decide where it goes** - match the frame or file name to its use. For a course image, that's the card in `sources/academy/homepage_content.json` with the same title, and its `imageUrl`. An existing image at that path gets replaced. Ask the user to confirm the pair, the target file, and where it's wired up before going further
 3. **Get the originals** - put both variants in a scratch directory outside the repo, such as `/tmp/adaptive-svg/<name>/light.svg` and `dark.svg`. Verification needs them, and they must not be committed. From Figma, export each frame and check it with `svg_hash.py` as `references/figma.md` describes
 4. **Merge** - `python3 -I .agents/skills/adaptive-svg/scripts/merge_svg.py LIGHT.svg DARK.svg static/img/<section>/<name>.svg`. Name the result after what it shows, with no `-light` or `-dark` suffix
-5. **Verify** - install the browser driver once, outside the repo, then compare renders:
+5. **Verify** - the scripts need Playwright with its Chromium. Many sandboxes already have it, so install it outside the repo only if it's missing:
 
    ```bash
-   npm install --prefix /tmp/adaptive-svg playwright-core
-   NODE_PATH=/tmp/adaptive-svg/node_modules node .agents/skills/adaptive-svg/scripts/verify.cjs \
+   node -e "require('playwright')" 2>/dev/null || {
+     npm install --prefix /tmp/adaptive-svg playwright &&
+     /tmp/adaptive-svg/node_modules/.bin/playwright install chromium
+   }
+   ```
+
+   Then compare renders:
+
+   ```bash
+   NODE_PATH="/tmp/adaptive-svg/node_modules:$NODE_PATH" node .agents/skills/adaptive-svg/scripts/verify.cjs \
      LIGHT.svg DARK.svg static/img/<section>/<name>.svg /tmp/adaptive-svg/<name>/shots
    ```
 
    Every line must say `ok`, which means pixel-identical to the source in both OS and site-toggle modes. Look at one light and one dark screenshot too
 6. **Wire it up** - reference only the merged file, for example `imageUrl` in `sources/academy/homepage_content.json`, and delete any source exports from the repo
 7. **Hand over** - show the user the verify output and a light and a dark screenshot, then ask before committing or opening a pull request
-8. **Check the deployed page** (optional, on a preview build or after merge) - `NODE_PATH=/tmp/adaptive-svg/node_modules node .agents/skills/adaptive-svg/scripts/site-check.cjs <page URL> /tmp/adaptive-svg/site /img/<section>/`
+8. **Check the deployed page** (optional, on a preview build or after merge) - `NODE_PATH="/tmp/adaptive-svg/node_modules:$NODE_PATH" node .agents/skills/adaptive-svg/scripts/site-check.cjs <page URL> /tmp/adaptive-svg/site /img/<section>/`
 
 If `merge_svg.py` stops with an error, see `.agents/skills/adaptive-svg/references/technique.md` before editing anything by hand.

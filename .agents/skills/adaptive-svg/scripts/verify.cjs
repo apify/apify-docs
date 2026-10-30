@@ -3,7 +3,7 @@
 //
 // Renders each SVG through <img>, the way the docs site embeds it, and compares
 // the screenshots byte for byte. Screenshots stay in OUT_DIR for inspection.
-const { launch } = require('./browser.cjs');
+const { chromium } = require('playwright');
 const { mkdirSync, writeFileSync, readFileSync } = require('node:fs');
 const { join, resolve } = require('node:path');
 const { pathToFileURL } = require('node:url');
@@ -34,7 +34,7 @@ async function main() {
     const svgs = { light, dark, adaptive };
     mkdirSync(outDir, { recursive: true });
 
-    const browser = await launch();
+    const browser = await chromium.launch();
     const shots = {};
     for (const [name, key, scheme, pageScheme] of CASES) {
         const page = await browser.newPage({ deviceScaleFactor: 2, colorScheme: scheme });
