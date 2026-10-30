@@ -261,7 +261,7 @@ platform/
 An illustration with a dark variant, such as an Academy course image, is one SVG that follows the site's theme toggle. Don't add a separate `*-dark.svg` or use `imageUrlDarkTheme`.
 
 1. In Figma, make the dark frame a recolored copy of the light one, with the same layers
-1. Copy each frame as SVG and save both outside the repo
+1. Select each frame, right-click it, choose **Copy as SVG**, and save it outside the repo with `pbpaste > light.svg` or `pbpaste > dark.svg`
 1. Merge them into one file named after what the image shows:
 
    ```bash
