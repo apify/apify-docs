@@ -182,6 +182,7 @@ Documentation skills live in `.agents/skills/` ([AgentSkills spec](https://agent
 - `.agents/skills/doc-write/` - Writing and editing documentation pages
 - `.agents/skills/tutorial/` - Creating structured tutorials
 - `.agents/skills/api-doc/` - OpenAPI specification and API documentation
+- `.agents/skills/adaptive-svg/` - Merging light and dark SVG exports into one theme-adaptive image
 
 ## Review checklist
 
