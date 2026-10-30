@@ -38,6 +38,7 @@ The OpenClaw, Hermes Agent, and Kilo Code plugins work differently. Instead of c
 | OpenCode | Yes | Yes | Yes | [`opencode-apify`](https://github.com/apify/apify-opencode-plugin) |
 | Grok Build | Yes | Yes | Yes | [`apify/apify-grok-build-plugin`](https://github.com/apify/apify-grok-build-plugin) |
 | Kimi Code | Yes | Yes | No | [`apify/apify-kimi-code-plugin`](https://github.com/apify/apify-kimi-code-plugin) |
+| Devin | Yes | Yes | Yes | [`apify/apify-devin-plugin`](https://github.com/apify/apify-devin-plugin) |
 | Qoder and Qwen Code | Yes | Yes | Yes | [`apify/apify-qoder-plugin`](https://github.com/apify/apify-qoder-plugin) |
 | DeepSeek Harness | Yes | Yes | No | [`dsh-apify-plugin`](https://github.com/apify/apify-deepseek-harness-plugin) |
 | OpenClaw | Native tool | No | No | [`@apify/apify-openclaw-plugin`](https://github.com/apify/apify-openclaw-plugin) |
@@ -177,6 +178,23 @@ Grok Build opens the Apify sign-in on the first Actor run. There's no Apify guid
     ```
 
 Read the full [Kimi Code CLI guide](/integrations/kimi-code-cli).
+
+</TabItem>
+<TabItem value="devin" label="Devin">
+
+1. In your terminal, install the plugin from its repository:
+
+    ```bash
+    devin plugins install apify/apify-devin-plugin
+    ```
+
+1. Sign in to Apify:
+
+    ```bash
+    devin mcp login apify
+    ```
+
+Read the full [Devin CLI guide](/integrations/devin).
 
 </TabItem>
 <TabItem value="qoder" label="Qoder">
