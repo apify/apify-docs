@@ -20,6 +20,10 @@ properties:
   name:
     type: string
     examples: [my-task]
+  nameLowerCase:
+    type: string
+    examples: [my-task]
+    description: Task name in lowercase.
   username:
     type: [string, "null"]
     examples: [janedoe]

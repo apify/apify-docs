@@ -8,10 +8,10 @@ The Apify API provides programmatic access to the [Apify platform](https://docs.
 
 ```mermaid
 graph LR
-    A[HTTP Client] <--> B[Apify API]
-    B --> C[Actor Run]
+    A[HTTP client] <--> B[Apify API]
+    B --> C[Actor run]
     C --> D1[Dataset]
-    C --> D2[Key-Value Store]
+    C --> D2[Key-value store]
 ```
 
 The diagram illustrates the basic workflow when using the Apify API:
@@ -20,26 +20,16 @@ The diagram illustrates the basic workflow when using the Apify API:
 1. When you request to run an Actor, the Apify API creates and manages an Actor run instance on the platform.
 1. The Actor processes data and stores results in Apify's storage systems:
    * **Dataset**: Structured storage optimized for tabular or list-type data, ideal for scraped items or processed results.
-   * **Key-Value Store**: Flexible storage for various data types (including images, JSON, HTML, and text), perfect for configuration settings and non-tabular outputs.
+   * **Key-value store**: Flexible storage for various data types (including images, JSON, HTML, and text), perfect for configuration settings and non-tabular outputs.
 
 ## Prerequisites
 
 Before you can start using the API, check if you have all the necessary prerequisites:
 
-* An Apify account with an API token.
+* An Apify account with an API token. Most requests need to be authenticated with the Apify API token passed via the `Authorization` HTTP header. For details, see [Authentication](/api/v2#authentication).
 * A tool to make HTTP requests (cURL, Postman, or your preferred programming language).
 
-## Authentication
-
-You must authenticate all API requests presented on this page. You can authenticate using your API token:
-
-```http
-Authorization: Bearer YOUR_API_TOKEN
-```
-
-You can find your API token in Apify Console under **[Settings > API & Integrations](https://console.apify.com/settings/integrations)**.
-
-### Verify your account
+### Verify your access
 
 To check your API credentials or account details:
 
@@ -49,7 +39,7 @@ GET https://api.apify.com/v2/users/me
 
 Expected response codes:
 
-* `200`
+* 200
 
 ## Basic workflow
 
@@ -70,9 +60,9 @@ POST https://api.apify.com/v2/actors/:actorId/run-sync
 
 Expected response codes:
 
-* `201`
-* `400`
-* `408`
+* 201
+* 400
+* 408
 
 #### Asynchronously
 
@@ -84,7 +74,7 @@ POST https://api.apify.com/v2/actors/:actorId/runs
 
 Expected response codes:
 
-* `201`
+* 201
 
 ### 2. Retrieve results
 
@@ -110,7 +100,7 @@ Optional query parameters:
 
 Expected response codes:
 
-* `200`
+* 200
 
 #### From a Key-value store
 
@@ -120,8 +110,8 @@ GET https://api.apify.com/v2/key-value-stores/:storeId/records/:recordKey
 
 Expected response codes:
 
-* `200`
-* `302`
+* 200
+* 302
 
 ### Additional operations
 
@@ -135,7 +125,7 @@ GET https://api.apify.com/v2/logs/:buildOrRunId
 
 Expected response codes:
 
-* `200`
+* 200
 
 #### Monitor run status
 
@@ -145,7 +135,7 @@ GET https://api.apify.com/v2/actor-runs/:runId
 
 Expected response codes:
 
-* `200`
+* 200
 
 #### Store data in Dataset
 
@@ -159,8 +149,8 @@ If any item in the request fails validation, the entire request will be rejected
 
 Expected response codes:
 
-* `201`
-* `400`
+* 201
+* 400
 
 #### Store data in Key-value store
 
@@ -174,23 +164,25 @@ Include your data in the request body and set the appropriate `Content-Type` hea
 
 Expected response codes:
 
-* `201`
+* 201
 
-## HTTP Status Code Descriptions
+## HTTP status code descriptions
 
-### `200` OK
+The Apify API uses standard [HTTP status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status) according to REST conventions. The codes you're most likely to encounter are described below.
+
+### 200 OK
 
 The request has succeeded.
 
-### `201` Created
+### 201 Created
 
 The request has been fulfilled and a new resource has been created.
 
-### `302` Found
+### 302 Found
 
 A redirection response indicating that the requested resource has been temporarily moved to a different URL.
 
-### `400` Bad Request
+### 400 Bad Request
 
 The server cannot process the request due to client error, such as request syntax, invalid request parameters, or invalid data format. This occurs when:
 
@@ -198,7 +190,7 @@ The server cannot process the request due to client error, such as request synta
 * Required parameters are missing
 * Data validation fails for Dataset items
 
-### `408` Request Timeout
+### 408 Request Timeout
 
 The server timed out waiting for the request to complete.
 

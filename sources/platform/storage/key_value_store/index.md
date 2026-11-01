@@ -54,7 +54,7 @@ If you are accessing your key-value stores using the `username~store-name` [stor
 
 :::tip Authentication
 
-When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. For more information, refer to the [API integration](../../integrations/programming/api.md#authentication) documentation.
+When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. For more information, refer to the [API integration](/api/v2#authentication) documentation.
 
 :::
 
@@ -289,7 +289,7 @@ Key-value storage uses the [AWS S3](https://aws.amazon.com/s3/) service. Accordi
 
 Operations on a single record ([get](/api/v2/key-value-store-record-get), [put](/api/v2/key-value-store-record-put), [delete](/api/v2/key-value-store-record-delete)) and [getting the list of keys](/api/v2/key-value-store-keys-get) are limited to _200 requests per second_ per store.
 
-[Downloading all records](/api/v2/key-value-store-records-get) as a ZIP archive is limited to _100 requests per second_ per store.
+The [Download key-value store records](/api/v2/key-value-store-records-get) endpoint, which returns a ZIP archive, is limited to _100 requests per second_ per store.
 
 All other key-value store [API endpoints](/api/v2/storage-key-value-stores) use the default limit of _60 requests per second_ per store.
 

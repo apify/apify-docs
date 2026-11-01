@@ -127,7 +127,7 @@ The **Export** button on the Run page exports only the `default` dataset.
 
 To export programmatically:
 
-- Call the [Dataset API](/api/v2/dataset-items-get) with the dataset ID from `ACTOR_STORAGES_JSON`. The API returns items in any supported format via query parameters.
+- Call the [Get dataset items](/api/v2/dataset-items-get) endpoint with the dataset ID from `ACTOR_STORAGES_JSON`. The API returns items in any supported format via query parameters.
 - From inside an Actor, open the dataset (see [Access datasets in Actor code](#access-datasets-in-actor-code)), then call `getData` / `get_data` to read items into memory, or `exportTo` / `export_to` to write a JSON or CSV file to the key-value store.
 
 See [Datasets](/storage/dataset) for formats and query parameters.

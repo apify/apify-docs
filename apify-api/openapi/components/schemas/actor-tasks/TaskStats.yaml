@@ -4,3 +4,10 @@ properties:
   totalRuns:
     type: integer
     examples: [15]
+  lastRunStartedAt:
+    type: [string, "null"]
+    format: date-time
+    examples: ["2019-11-30T07:34:24.202Z"]
+    description: >-
+      Time when the last run of the task started. In the task list, it's `null` if the task has no runs.
+      In a single task, it's omitted if the task has no runs.

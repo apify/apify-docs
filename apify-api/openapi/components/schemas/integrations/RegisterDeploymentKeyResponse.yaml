@@ -1,0 +1,14 @@
+title: RegisterDeploymentKeyResponse
+required:
+  - data
+type: object
+properties:
+  data:
+    type: object
+    required:
+      - repoName
+    properties:
+      repoName:
+        type: string
+        description: The normalized URL of the repository the key is registered on.
+        examples: [https://github.com/janedoe/my-actor]

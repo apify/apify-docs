@@ -81,7 +81,8 @@ byActorRunId:
   summary: Metamorph Actor run
   description: |
     **[DEPRECATED]** API endpoints related to run of the Actor were moved under
-    new namespace [`actor-runs`](#/reference/actor-runs). Transforms an Actor run
+    new namespace `actor-runs`
+    ([Manage Actor runs](/api/v2/actor-runs)). Transforms an Actor run
     into a run of another Actor with a new input.
 
     This is useful if you want to use another Actor to finish the work
@@ -120,7 +121,7 @@ lastRunByActor:
     Transforms the last run of the specified Actor into a run of another Actor with
     a new input.
 
-    This endpoint is a shortcut for [Metamorph run](#/reference/actor-runs/metamorph-run/metamorph-run)
+    This endpoint is a shortcut for [Metamorph Actor run](/api/v2/actor-run-metamorph-post)
     on the Actor's last run.
   operationId: actor_runs_last_metamorph_post
   parameters:
@@ -139,7 +140,7 @@ lastRunByActorTask:
     Transforms the last run of the specified Actor task into a run of another Actor with
     a new input.
 
-    This endpoint is a shortcut for [Metamorph run](#/reference/actor-runs/metamorph-run/metamorph-run)
+    This endpoint is a shortcut for [Metamorph Actor run](/api/v2/actor-run-metamorph-post)
     on the Actor task's last run.
   operationId: actorTask_runs_last_metamorph_post
   parameters:

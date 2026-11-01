@@ -90,6 +90,18 @@ schema:
   const: "constantValue"
 ```
 
+### Links to API endpoints
+
+Applies to every link to an API reference page, in the OpenAPI spec and in `sources/`:
+
+- Use the endpoint's current `summary` as the link text, exactly as written in the spec: `[Get dataset items](/api/v2/dataset-items-get)`, not `[List items](…)`, `[API](…)` or `[documentation](…)`. Keep "endpoint" or "API reference" outside the link: `use the [Run Actor](/api/v2/actors-runs-post) endpoint`
+- Exception for lists: when a sentence lists several related endpoints, you can shorten each link to the word that tells them apart, as long as the surrounding text names the resource. For example, `CRUD ([add](…), [get](…), [update](…), [delete](…)) operations on requests` or `endpoints for [Actors](…) and [tasks](…)`. A link to a single endpoint still uses its full summary
+- Link to an endpoint group page with that group's current title, for example `[Manage Actor runs](/api/v2/actor-runs)`
+- Link to the page path (`/api/v2/<page-id>`), never to legacy anchors such as `#/reference/...` or `#tag/.../operation/...`. Those anchors only exist on the target page itself, so they lead nowhere from any other page
+- When you rename an endpoint's `summary`, update the link text of every link to it across the repo (`grep -rn "/api/v2/<page-id>"`)
+- When two endpoints share a summary, add the path after the link to tell them apart
+- Exception: link text that has to match a name in another product, such as Bubble plugin action names, stays as it is
+
 ### Python API client model generation
 
 `apify-client-python` generates its Pydantic models from the **published** spec, and it pulls them on its own schedule - this repo does not push anything to it:

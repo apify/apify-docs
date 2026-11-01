@@ -6,3 +6,6 @@ properties:
   message:
     type: string
     description: Human-readable error message describing what went wrong.
+  data:
+    type: object
+    description: Additional machine-readable details about the error. Present only for some error types.

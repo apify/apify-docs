@@ -6,8 +6,7 @@ get:
     Gets the list of public Actors in Apify Store. You can use `search`
     parameter to search Actors by string in title, name, description, username
     and readme.
-    If you need detailed info about a specific Actor, use the [Get
-    Actor](#/reference/actors/actor-object/get-actor) endpoint.
+    If you need detailed info about a specific Actor, use the [Get Actor](/api/v2/actor-get) endpoint.
 
     The endpoint supports pagination using the `limit` and `offset` parameters.
     It will not return more than 1,000 records.
@@ -98,6 +97,18 @@ get:
         automatically (e.g. Actors from developers who haven't passed KYC, or
         full-permission Actors without a large user base). Set to `true` to
         bypass this safety filtering and include all Actors in the results.
+      style: form
+      explode: true
+      schema:
+        type: boolean
+        default: false
+        example: true
+    - name: includeInputSchema
+      in: query
+      description: |
+        If `true`, each Actor in the results includes an `inputSchema` field with a compact version of the input
+        schema of its default build (property types and required properties only). With this parameter, `limit`
+        defaults to and can't exceed `10`.
       style: form
       explode: true
       schema:

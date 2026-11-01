@@ -23,6 +23,9 @@ properties:
   name:
     type: string
     examples: [my-task]
+  title:
+    type: [string, "null"]
+    examples: [My task]
   username:
     type: [string, "null"]
     examples: [janedoe]
@@ -41,3 +44,8 @@ properties:
     anyOf:
       - $ref: ./TaskStats.yaml
       - type: "null"
+  isPublic:
+    type: boolean
+    description: |
+      Whether the task is published. Based on the `publicConfig.publishedAt` field.
+    examples: [false]

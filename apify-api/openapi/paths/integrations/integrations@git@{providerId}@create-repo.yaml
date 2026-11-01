@@ -1,0 +1,51 @@
+post:
+  tags:
+    - Users
+  summary: Create git repository
+  description: |
+    Creates a repository through a connected git account and commits the initial files into it, either the given
+    `files` or the files of an Actor template archive (`templateArchiveUrl`).
+  operationId: integrations_git_createRepo_post
+  parameters:
+    - name: providerId
+      in: path
+      description: |
+        The connected git account to use: `github-app` for the GitHub App, or the ID of a connected GitLab or
+        Bitbucket integration, as returned by [Get git provider integrations](/api/v2/integrations-git-get).
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: github-app
+  requestBody:
+    description: ""
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/integrations/CreateGitRepoRequest.yaml
+    required: true
+  responses:
+    "201":
+      description: ""
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/integrations/GitRepoResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      $ref: ../../components/responses/NotFound.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "413":
+      $ref: ../../components/responses/PayloadTooLarge.yaml
+    "415":
+      $ref: ../../components/responses/UnsupportedMediaType.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
+  deprecated: false

@@ -48,7 +48,7 @@ If you are accessing your request queues using the `username~store-name` [store 
 
 :::tip Pass tokens in the Authorization header
 
-When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. [More info](../integrations/programming/api.md#authentication).
+When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. [More info](/api/v2#authentication).
 
 :::
 

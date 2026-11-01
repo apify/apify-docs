@@ -2,8 +2,10 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 
 const BUILD_DIR = path.resolve('build');
-const WARN_LIMIT = 90_000;
-const ERROR_LIMIT = 100_000;
+// The llmstxt.org spec asks for an llms.txt small enough to fit in context.
+// The ora agent-readiness audit sets that at 30,000 characters.
+const WARN_LIMIT = 27_000;
+const ERROR_LIMIT = 30_000;
 
 async function checkFile(filePath) {
     try {

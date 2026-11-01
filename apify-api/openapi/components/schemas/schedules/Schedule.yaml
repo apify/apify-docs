@@ -6,6 +6,13 @@ ScheduleListItem:
       required:
         - actions
       properties:
+        title:
+          type: [string, "null"]
+        notifications:
+          $ref: ./ScheduleNotifications.yaml
+        integrationTracking:
+          description: Present only when the schedule was created by a third-party integration.
+          $ref: ../common/IntegrationTracking.yaml
         actions:
           type: array
           items:
@@ -27,6 +34,11 @@ Schedule:
           type: [string, "null"]
         notifications:
           $ref: ./ScheduleNotifications.yaml
+        uiState:
+          $ref: ./ScheduleUiState.yaml
+        integrationTracking:
+          description: Present only when the schedule was created by a third-party integration.
+          $ref: ../common/IntegrationTracking.yaml
         actions:
           type: array
           items:

@@ -1,0 +1,18 @@
+title: GitRepoFile
+description: A file to commit into the new repository.
+required:
+  - path
+  - content
+  - encoding
+type: object
+properties:
+  path:
+    type: string
+    examples: [src/main.js]
+  content:
+    type: string
+    examples: ["console.log('Hello');"]
+  encoding:
+    type: string
+    enum: [utf-8, base64]
+    examples: [utf-8]

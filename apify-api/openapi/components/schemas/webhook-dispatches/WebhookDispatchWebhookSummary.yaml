@@ -2,6 +2,10 @@ title: WebhookDispatchWebhookSummary
 description: A summary of the webhook that triggered this dispatch.
 type: object
 properties:
+  _id:
+    type: string
+    description: ID of the webhook. The API returns it under `_id`, not `id`.
+    examples: [YiKoxjkaS9gjGTqhF]
   actionType:
     type: string
     examples: [HTTP_REQUEST]
@@ -15,3 +19,14 @@ properties:
   isAdHoc:
     type: boolean
     examples: [false]
+  isApifyIntegration:
+    type: [boolean, "null"]
+    examples: [false]
+  slackMessage:
+    $ref: ../webhooks/WebhookSlackMessage.yaml
+  googleMail:
+    $ref: ../webhooks/WebhookGoogleMail.yaml
+  googleDrive:
+    $ref: ../webhooks/WebhookGoogleDrive.yaml
+  githubIssue:
+    $ref: ../webhooks/WebhookGithubIssue.yaml

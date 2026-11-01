@@ -32,7 +32,7 @@ Each skill contains its own `references/` and `scripts/` (formerly in `workflows
 
 ### For Claude Code users
 
-1. **Start a new session**: Claude Code reads `CLAUDE.md` (symlink to `AGENTS.md`)
+1. **Start a new session**: Claude Code reads `AGENTS.md`
 2. **Use skills**: Type `/doc-write`, `/api-doc`, `/tutorial`, or `/review-docs`
 3. **Reference standards**: See `standards/` for detailed rules, `AGENTS.md` for summary
 
@@ -104,7 +104,7 @@ npm start            # Preview changes
 
 ## Best practices
 
-1. **Read `CLAUDE.md` first**
+1. **Read `AGENTS.md` first**
 2. **Check `standards/`** - Detailed rules for writing, formatting, terminology
 3. **Use the appropriate skill** - Designed for specific documentation tasks
 4. **Run linters before committing** - `npm run lint:md`, `npm run lint:code`, and `vale`

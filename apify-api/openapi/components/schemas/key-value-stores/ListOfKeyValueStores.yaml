@@ -12,4 +12,4 @@ allOf:
       items:
         type: array
         items:
-          $ref: ./KeyValueStoreResource.yaml
+          $ref: ./KeyValueStoreListItem.yaml

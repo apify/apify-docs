@@ -438,6 +438,11 @@ const plugins = [
 ];
 
 const scripts = [
+    // Stores first-touch and FirstPromoter cookies on .apify.com, which Console reads at signup.
+    {
+        src: 'https://apify.com/ext/bootstrap.js',
+        async: true,
+    },
     {
         src: 'https://widget.kapa.ai/kapa-widget.bundle.js',
         'data-website-id': 'a9937f98-9c9d-44d9-a433-fec4cb1c114d',

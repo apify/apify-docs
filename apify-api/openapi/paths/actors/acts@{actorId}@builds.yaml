@@ -58,7 +58,7 @@ post:
   description: |
     Builds an Actor.
     The response is the build object as returned by the
-    [Get build](#/reference/actors/build-object/get-build) endpoint.
+    [Get Actor build](/api/v2/actor-build-get) endpoint.
   operationId: actors_builds_post
   parameters:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"

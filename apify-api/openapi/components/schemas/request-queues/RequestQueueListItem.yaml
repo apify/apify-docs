@@ -2,9 +2,7 @@ title: RequestQueueListItem
 description: A shortened request queue object for list responses.
 required:
   - id
-  - name
   - userId
-  - username
   - createdAt
   - modifiedAt
   - accessedAt
@@ -17,9 +15,13 @@ properties:
   id:
     $ref: ./SharedProperties.yaml#/QueueId
   name:
-    type: string
+    type: [string, "null"]
     description: The name of the request queue.
     examples: [some-name]
+  title:
+    type: [string, "null"]
+    description: The title of the request queue.
+    examples: [My Queue]
   userId:
     $ref: ./SharedProperties.yaml#/QueueUserId
   username:
@@ -56,4 +58,4 @@ properties:
       - $ref: ../common/GeneralAccess.yaml
       - type: "null"
   stats:
-    $ref: ./RequestQueueStats.yaml
+    $ref: ./RequestQueueListStats.yaml

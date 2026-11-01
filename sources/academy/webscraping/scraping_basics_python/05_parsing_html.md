@@ -86,7 +86,7 @@ Sales
 
 :::note Dynamic websites
 
-The Warehouse returns full HTML in its initial response, but many other sites add some content after the page loads or after user interaction. In such cases, what we'd see in DevTools could differ from `response.text` in Python. Learn how to handle these scenarios in our [API Scraping](../api_scraping/index.md) and [Puppeteer & Playwright](../puppeteer_playwright/index.md) courses.
+The Warehouse returns full HTML in its initial response, but many other sites add some content after the page loads or after user interaction. In such cases, what we'd see in DevTools could differ from `response.text` in Python. Learn how to handle these scenarios in our [API Scraping](/academy/api-scraping) and [Puppeteer & Playwright](/academy/puppeteer-playwright) courses.
 
 :::
 
