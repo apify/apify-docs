@@ -14,7 +14,7 @@ import ApifyPluginSkillPrompts from '@site/sources/_partials/_apify-plugin-skill
 - The [Apify MCP server](/mcp) for searching Apify Store, running Actors, and retrieving datasets through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro).
 - An `apify` routing agent that picks the right tool or skill from a natural-language request.
 - An always-on `apify` rule with the same routing guidance, so every session knows when to use Apify.
-- Five built-in skills for common workflows (see [Bundled skills](#bundled-skills) below).
+- Five built-in [skills](#bundled-skills) for common workflows.
 
 <ThirdPartyDisclaimer />
 
@@ -26,7 +26,7 @@ import ApifyPluginSkillPrompts from '@site/sources/_partials/_apify-plugin-skill
 
 ## Install the plugin
 
-Install the plugin with the `agy` CLI, or by adding it to the Antigravity app plugins folder.
+Install the plugin with the [`agy` CLI](#antigravity-cli), or by adding it to the [Antigravity app](#antigravity-app) plugins folder.
 
 ### Antigravity CLI
 
@@ -73,7 +73,7 @@ Antigravity opens a browser tab for the Apify OAuth flow and shows an authorizat
 
 ## Run your first prompt
 
-Describe what you want in natural language. The `apify` rule and agent route the request to the right tool or skill, so you don't need to name tools yourself. To talk to the agent directly, start the CLI with `agy --agent apify`, or pick **apify** from the app's **Main Agent** menu.
+Describe what you want in natural language. The `apify` rule and agent route the request to the right tool or skill, so you don't need to name tools yourself. To talk to the agent directly, start the CLI with `agy --agent apify`, or select **apify** from the app's **Main Agent** menu.
 
 > Use Apify to find a good Actor for scraping Google Maps places. Show me the best option, its input requirements, pricing model, and what kind of dataset output it returns. Do not run the Actor yet.
 
@@ -99,7 +99,7 @@ Restart the CLI or the app after installing the plugin, then run `/mcp` in the C
 
 ### Antigravity picks the wrong skill
 
-Start the CLI with `agy --agent apify`, or pick **apify** from the app's **Main Agent** menu, so the routing agent handles the request. The agent owns the guardrails that pick the right skill and avoid common traps, such as confusing the `apify` and `apify-client` packages.
+Start the CLI with `agy --agent apify`, or select **apify** from the app's **Main Agent** menu, so the routing agent handles the request. The agent owns the guardrails that pick the right skill and avoid common traps, such as confusing the `apify` and `apify-client` packages.
 
 ### Browser doesn't open, or OAuth fails
 
@@ -113,7 +113,7 @@ export APIFY_TOKEN=<YOUR_API_TOKEN>
 
 - Long-running Actors may exceed the time a single tool call waits for completion. Reduce the scope or split the work across multiple prompts.
 - Each Actor run consumes Apify platform usage from your plan in addition to any Antigravity usage. See [Billing](/account/billing) for details.
-- Skills that edit files in your project (Actor development, actorization, and SDK integration) make local changes - review them before deploying or committing.
+- Skills that edit files in your project (Actor development, actorization, and SDK integration) make local changes. Review them before deploying or committing.
 
 ## Related integrations
 
@@ -123,5 +123,5 @@ export APIFY_TOKEN=<YOUR_API_TOKEN>
 ## Resources
 
 - [Apify plugin for Antigravity](https://github.com/apify/apify-antigravity-plugin) - Source repository and README with advanced setup notes
-- [Antigravity plugins guide](https://antigravity.google/docs/plugins/) - Official docs for managing Antigravity plugins
+- [Antigravity plugins guide](https://antigravity.google/docs/plugins) - Official docs for managing Antigravity plugins
 - [Apify Store](https://apify.com/store) - Browse Actors you can run from Antigravity
