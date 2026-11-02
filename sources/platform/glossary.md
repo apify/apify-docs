@@ -39,7 +39,7 @@ An [API token](/integrations/api) is a secret key tied to your Apify account tha
 
 ## Apify AI
 
-[Apify AI](/account/apify-ai) is a conversational interface inside Apify Console for finding and running Actors in natural language, instead of keyword search. It runs on the same search and execution backend as [Apify Store](https://apify.com/store) search and the [Apify MCP server](/integrations/mcp).
+[Apify AI](/account/apify-ai) is a conversational interface inside Apify Console for finding and running Actors in natural language, instead of keyword search. It runs on the same search and execution backend as [Apify Store](https://apify.com/store) search and the [Apify MCP server](/mcp).
 
 ## Apify API
 
@@ -59,7 +59,7 @@ The [Apify MCP Proxy](/integrations/mcp-connectors) is the component of the Apif
 
 ## Apify MCP server
 
-The [Apify MCP server](/integrations/mcp) is the server that exposes Actors as tools over the Model Context Protocol, so AI assistants and agents can discover and run them. Clients such as Claude, ChatGPT, and Cursor connect to it and call Actors as part of a conversation, without custom integration code.
+The [Apify MCP server](/mcp) is the server that exposes Actors as tools over the Model Context Protocol, so AI assistants and agents can discover and run them. Clients such as Claude, ChatGPT, and Cursor connect to it and call Actors as part of a conversation, without custom integration code.
 
 ## Apify Proxy
 
@@ -111,7 +111,7 @@ A [key-value store](/storage/key-value-store) is storage for unstructured or aux
 
 ## MCP connectors
 
-[MCP connectors](/integrations/mcp-connectors) let an Actor call third-party services, such as Notion, Slack, and GitHub, over the Model Context Protocol using credentials you authorize once in your account settings. They work in the opposite direction to the [Apify MCP server](/integrations/mcp), which exposes Actors to outside AI clients.
+[MCP connectors](/integrations/mcp-connectors) let an Actor call third-party services, such as Notion, Slack, and GitHub, over the Model Context Protocol using credentials you authorize once in your account settings. They work in the opposite direction to the [Apify MCP server](/mcp), which exposes Actors to outside AI clients.
 
 ## Output
 
@@ -123,11 +123,11 @@ An [output schema](/actors/development/actor-definition/output-schema) is the de
 
 ## Pay-per-event
 
-[Pay-per-event](/actors/publishing/monetize/pay-per-event) (PPE) is a pricing model that charges users for specific events an Actor emits, such as each result or action, rather than for compute time. Its [pay-per-event plus usage](/actors/publishing/monetize/pay-per-event#platform-usage-costs) option also charges users the Actor's platform usage costs, which lowers its [quality score](/actors/publishing/quality-score).
+[Pay-per-event](/actors/monetize/pay-per-event) (PPE) is a pricing model that charges users for specific events an Actor emits, such as each result or action, rather than for compute time. Its [pay-per-event plus usage](/actors/monetize/pay-per-event#platform-usage-costs) option also charges users the Actor's platform usage costs, which lowers its [quality score](/actors/publishing/quality-score).
 
 ## Pay-per-usage
 
-[Pay-per-usage](/actors/publishing/monetize#pricing-models) is one of the two pricing models on Apify Store. Users pay only the usage costs an Actor generates on the Apify platform.
+[Pay-per-usage](/actors/monetize#pricing-models) is one of the two pricing models on Apify Store. Users pay only the usage costs an Actor generates on the Apify platform.
 
 ## Proxy
 
