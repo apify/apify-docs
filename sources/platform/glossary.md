@@ -27,7 +27,7 @@ An [Actor task](/actors/running/tasks) is a saved, reusable input configuration 
 
 ## Agentic payments
 
-Agentic payments let AI agents pay for and run Actors without an Apify account or ongoing billing. With [x402](/integrations/x402) (stablecoins on Base or Solana) or the [Machine Payments Protocol (MPP)](/integrations/mpp) (stablecoins on Tempo or Solana), the agent pays once for a prepaid [API token](#api-token) through [Apify AGI](#apify-agi), Apify's entry point for agents, and runs Actors until its balance runs out. A prepaid token runs only Actors that use [limited permissions](/actors/development/permissions). With [Skyfire](/integrations/skyfire), the agent pays for each run with a pre-funded Skyfire token.
+[Agentic payments](/agents/payments) let AI agents pay for and run Actors without an Apify account or ongoing billing. With [x402](/integrations/x402) (stablecoins on Base or Solana) or the [Machine Payments Protocol (MPP)](/integrations/mpp) (stablecoins on Tempo or Solana), the agent pays once for a prepaid [API token](#api-token) through [Apify AGI](#apify-agi), Apify's entry point for agents, and runs Actors until its balance runs out. A prepaid token runs only Actors that use [limited permissions](/actors/development/permissions). With [Skyfire](/integrations/skyfire), the agent pays for each run with a pre-funded Skyfire token.
 
 ## API token
 
