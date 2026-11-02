@@ -33,10 +33,16 @@ properties:
       - MULTI_TENANT
       - null
     examples: [SINGLE_TENANT]
-    description: Whether each user gets their own standby runs (`SINGLE_TENANT`) or runs are shared across users (`MULTI_TENANT`). Only Apify administrators can change this value. Other users can only send the current value, or `SINGLE_TENANT` if it's not set yet.
+    description: |
+      Whether each user gets their own standby runs (`SINGLE_TENANT`) or runs are shared across users (`MULTI_TENANT`).
+      When creating an Actor, omit this field or set it to `SINGLE_TENANT`. When updating an Actor, only Apify administrators can change it; other users can only send the current value, or `SINGLE_TENANT` if it's not set yet.
   isConsoleAuthEnabled:
     type: [boolean, "null"]
-    description: Whether standby requests can be authenticated with an Apify Console session. Only Apify administrators can change this value. Other users can only send the current value, or `false` if it's not set yet.
+    description: |
+      Whether standby requests can be authenticated with an Apify Console session.
+      When creating an Actor, omit this field or set it to `false`. When updating an Actor, only Apify administrators can change it; other users can only send the current value, or `false` if it's not set yet.
   isTokenlessEnabled:
     type: [boolean, "null"]
-    description: Whether standby requests can be made without an API token. Only Apify administrators can change this value. Other users can only send the current value, or `false` if it's not set yet.
+    description: |
+      Whether standby requests can be made without an API token.
+      When creating an Actor, omit this field or set it to `false`. When updating an Actor, only Apify administrators can change it; other users can only send the current value, or `false` if it's not set yet.
