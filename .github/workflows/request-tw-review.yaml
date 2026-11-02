@@ -6,6 +6,7 @@ on:
     types: [opened, labeled, ready_for_review]
     paths:
       - 'sources/**'
+      - 'apify-api/**'
 
 permissions:
   pull-requests: write
