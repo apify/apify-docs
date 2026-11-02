@@ -22,7 +22,7 @@ import ApifyPluginSkillPrompts from '@site/sources/_partials/_apify-plugin-skill
 
 - [An Apify account](https://console.apify.com/sign-up) - sign up for free if you don't have one.
 - [Antigravity](https://antigravity.google) - the desktop app, or the Antigravity CLI (`agy`) version 1.4.0 or newer, installed and signed in.
-- Gemini Enterprise: if your organization manages MCP servers, check the [AI developer tools settings](https://docs.cloud.google.com/gemini/enterprise/docs/ai-developer-tools-settings) for how admins allow remote servers such as `https://mcp.apify.com`.
+- [Gemini Enterprise AI developer tools settings](https://docs.cloud.google.com/gemini/enterprise/docs/ai-developer-tools-settings) - only if your organization manages MCP servers, where admins must allow remote servers such as `https://mcp.apify.com`.
 
 ## Install the plugin
 
@@ -42,9 +42,9 @@ Install the plugin with the `agy` CLI, or by adding it to the Antigravity app pl
     agy plugin list
     ```
 
-    The `apify` plugin is listed as enabled with 5 skills, 1 agent, 1 rule, and 1 MCP server.
+    The `apify` plugin is listed as enabled, with its skills, agent, rule, and MCP server.
 
-You can also install from the [release ZIP](https://github.com/apify/apify-antigravity-plugin/releases/latest/download/apify-antigravity-plugin.zip): extract it into `~/.gemini/config/plugins` as described for the [Antigravity app](#antigravity-app). The CLI and the app share that folder.
+You can also install from the [release ZIP](https://github.com/apify/apify-antigravity-plugin/releases/latest/download/apify-antigravity-plugin.zip): extract it into `~/.gemini/config/plugins`, the folder the CLI and the app share.
 
 ### Antigravity app
 
@@ -69,7 +69,7 @@ The plugin bundles the Apify MCP server, which signs you in with OAuth. No API t
 - CLI: run `/mcp`, select the Apify server, and select **Authenticate**.
 - App: open **Customizations** > **Installed** > **Apify**, select the **Accounts** tab, and select **Sign in** next to the `apify` account.
 
-Antigravity opens a browser tab for the Apify OAuth flow and shows an authorization code. Copy that code, paste it back into Antigravity, and select **Submit**. The connection stays authenticated for future sessions, and you can revoke access at any time in [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations).
+Antigravity opens a browser tab for the Apify OAuth flow, which ends with an authorization code. Copy the code, then paste it at the CLI prompt and press Enter, or paste it into the app and select **Submit**. The connection stays authenticated for future sessions, and you can revoke access at any time in [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations).
 
 ## Run your first prompt
 
@@ -103,10 +103,18 @@ Start the CLI with `agy --agent apify`, or pick **apify** from the app's **Main 
 
 ### Browser doesn't open, or OAuth fails
 
-The MCP sign-in needs a browser. If you run Antigravity over SSH or in another environment without one, sign in once on a machine with a browser, or use the skills that don't need the MCP server. The Actor development, actorization, and scraping skills work with the Apify CLI after `apify login`. When that login is not possible, set `APIFY_TOKEN` instead. The SDK integration skill uses the `apify-client` package and reads `APIFY_TOKEN` from your environment. Copy your token from [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations?utm_source=antigravity&utm_medium=integrations) and set it before starting Antigravity:
+The MCP sign-in doesn't need a browser on the machine that runs Antigravity. Over SSH or in a container, open the sign-in link that Antigravity shows in a browser on any machine, then paste the authorization code back at the `agy` prompt.
+
+If you can't use OAuth at all, use the skills that don't need the MCP server and authenticate them with your API token. Copy it from [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations?utm_source=antigravity&utm_medium=integrations) and set it before starting Antigravity:
 
 ```bash
 export APIFY_TOKEN=<YOUR_API_TOKEN>
+```
+
+The SDK integration skill uses the `apify-client` package, which reads `APIFY_TOKEN` from your environment. The Actor development, actorization, and scraping skills use the Apify CLI. Older CLI versions ignore the variable, so log in with it once:
+
+```bash
+apify login --token "$APIFY_TOKEN"
 ```
 
 ## Limitations
