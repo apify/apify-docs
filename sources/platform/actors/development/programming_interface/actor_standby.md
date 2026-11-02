@@ -30,7 +30,7 @@ For an existing Actor, you can enable the server interface in Apify Console or i
 
 ### In Apify Console
 
-To enable or change the server interface, open the **Settings** tab of the Actor and find the **Actor Standby** settings.
+To enable or change the server interface, open the **Settings** tab of the Actor and find the **Server** section.
 
 ### In the source code
 
@@ -47,8 +47,8 @@ Before you switch an Actor to multi-tenant, make sure that:
 
 To switch the tenancy:
 
-1. In [Apify Console](https://console.apify.com), open the Actor and go to **Settings** > **Actor Standby**.
-1. Set **Standby mode tenancy** to **Multi-tenant** and confirm.
+1. In [Apify Console](https://console.apify.com), open the Actor and go to **Settings** > **Server**.
+1. Set **Server tenancy** to **Multi-tenant** and confirm.
 
 :::caution The switch applies to all callers at once
 
@@ -290,6 +290,6 @@ The tenancy applies to the whole Actor as soon as you confirm it. To test before
 
 A single-tenant Server Actor starts a separate run in each caller's account, and the caller pays for the platform usage of that run. Callers can override your server configuration by creating a task.
 
-To enforce the same server configuration for all callers, enable **Prevent users from overriding standby parameters** in the Actor's **Settings** tab. Users then can't override it by creating a task.
+To enforce the same server configuration for all callers, enable **Prevent users from overriding server settings** in the **Server** section of the Actor's **Settings** tab. Users then can't override it by creating a task.
 
 A single-tenant Server Actor charges events like a standard run, as described in [Pay-per-event pricing model](/actors/monetize/pay-per-event).

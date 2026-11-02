@@ -100,7 +100,7 @@ The platform scales Server Actor runs automatically and applies timeouts and rat
 
 ### Automatic scaling
 
-The platform scales the Actor to match the incoming requests. For a multi-tenant Server Actor, it starts runs in the developer's account, and the developer's configuration decides how many. For a single-tenant Server Actor, it starts runs in your account, which appear in the Actor **Runs** tab with the origin set to Standby. These runs aren't shared with other users, even when you use the Actor-level hostname with the default configuration.
+The platform scales the Actor to match the incoming requests. For a multi-tenant Server Actor, it starts runs in the developer's account, and the developer's configuration decides how many. For a single-tenant Server Actor, it starts runs in your account, which appear in the Actor **Runs** tab with the origin shown as **Server**. These runs aren't shared with other users, even when you use the Actor-level hostname with the default configuration.
 
 The platform checks a run's readiness once, before the run starts serving requests, and performs no health checks after that.
 
