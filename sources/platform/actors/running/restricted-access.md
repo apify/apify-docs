@@ -12,14 +12,14 @@ When you run an Actor, Apify injects an API token into the run so the Actor can 
 
 Use this setup when you don't control which Actors run under your account. For example:
 
-- Your platform lets users select and run any Actor from [Apify Store](https://apify.com/store) using your API token, without having their own Apify account. See [Build a whitelabel integration](/integrations/whitelabel).
+- You let users of your platform select and run any Actor from [Apify Store](https://apify.com/store) using your API token, without having their own Apify account. See [Build a whitelabel integration](/integrations/whitelabel).
 - You run Actors from developers you don't know or trust.
 
 If you only run a small, fixed set of Actors from trusted developers, such as Actors maintained by Apify, you probably don't need this setup.
 
 ## How restricted access works
 
-A scoped token set to **Restricted access** passes its own limits on to every Actor it runs. An Actor started this way can:
+A scoped token set to [**Restricted access**](#create-a-scoped-token-to-run-actors) passes its own limits on to every Actor it runs. An Actor started this way can:
 
 - Read its input, and read and write its default storages.
 - Run other Actors, which get the same restrictions.
@@ -40,7 +40,7 @@ The setup has three parts: [restrict access to your run data](#restrict-access-t
 
 Two account settings can expose your runs to others, even when you use a scoped token:
 
-- If [General resource access](/account/collaboration/general-resource-access) is set to **Anyone with ID can read**, anyone who knows the ID of a storage, run, or build can read it without an API token. An Actor running under your account could use this to read the storages of runs started by your other users.
+- With [General resource access](/account/collaboration/general-resource-access) set to **Anyone with ID can read**, anyone who knows the ID of a storage, run, or build can read it without an API token. An Actor running under your account could use this to read the storages of runs started by your other users.
 - With **Share run data with developers** turned on, the developer of each public Actor you run can see the input and output of your runs. This applies even if your general resource access is **Restricted**. See [Automatically sharing runs with public Actor creators](/account/collaboration/general-resource-access#automatically-sharing-runs-with-public-actor-creators).
 
 To turn off both:
@@ -67,11 +67,13 @@ Create a scoped token that can run Actors and passes its restrictions on to ever
 1. **Allow this token to run full-permission Actors** is on by default. To run only Actors with limited permissions, turn it off.
 1. Select **Create**.
 
-The new token appears in the token list with a **Limited permissions** badge.
+The new token appears in the token list with a **Limited permissions** badge. If it leaks, it can still start runs billed to your account, so [rotate it](/integrations/api#rotation) right away.
 
 ### Read results with a separate token
 
-By default, the token that starts runs can't read their results, so use a different token to read results. This can be your main API token, or a second scoped token with **Read** access to datasets and key-value stores. Keep this token on your backend and never pass it to an Actor. If the token that starts runs leaks, it can still start runs billed to your account, so [rotate it](/integrations/api#rotation) right away.
+By default, the token that starts runs can't read their results, so use a different token to read results. This can be your main API token, or a second scoped token with **Read** access to datasets and key-value stores. Keep this token on your backend and never pass it to an Actor.
+
+Alternatively, turn on **Allow this token to access default run storages** on the scoped token. The token can then read the results of runs it starts, so you don't need a separate token. If the token leaks, though, it can also be used to read those results.
 
 ## Run an Actor
 
@@ -107,6 +109,6 @@ const { items } = await readClient.dataset(run.defaultDatasetId).listItems();
 
 Some Actors need more access than a restricted run gets, for example to create a new storage, or to read an existing dataset you pass in their input. These runs fail with `insufficient permissions` in the log, and there's no way to detect this before you run the Actor. To fix it, add the missing permission to the token's scope. To avoid granting extra access to every Actor, use a separate token for each Actor that needs more permissions. See [Troubleshoot insufficient permissions errors](/integrations/api#my-run-failed-and-i-can-see-insufficient-permissions-in-the-logs).
 
-Some Actors run other Actors and read their results. With the default settings, these Actors fail because they can't read the other runs' storages. To fix this, turn on **Allow this token to access default run storages** on the scoped token. The token can then also read the results of runs it starts, so you don't need a separate token to read them. If the token leaks, though, it can also be used to read those results.
+Some Actors run other Actors and read their results. With the default settings, these Actors fail because they can't read the other runs' storages. To fix this, turn on **Allow this token to access default run storages** on the scoped token. See [Read results with a separate token](#read-results-with-a-separate-token) for the trade-off.
 
 You can't call Actors in [Standby mode](/actors/running/standby) with a Restricted access token. The request fails with a `400` error of type `actor-restricted-access-permission-mode-not-supported`.

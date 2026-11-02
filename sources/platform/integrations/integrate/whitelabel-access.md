@@ -60,18 +60,16 @@ Apify doesn't know which of your users started a run, so keep that mapping in yo
 
 1. When a user starts an Actor, store the run `id` from the API response together with your user's ID.
 1. To find out when the run finishes without polling, add an [ad-hoc webhook](/integrations/webhooks/ad-hoc-webhooks) when you start the run, pointing to your backend.
-1. When the run finishes, look up the user by the run ID, then read the results and the cost of the run.
+1. When the run finishes, look up the user by the run ID, then read the results and the cost of the run. See [Pass costs on to your users](#pass-costs-on-to-your-users).
 
 ## Pass costs on to your users
 
-Apify bills all runs to your account. To charge your users for what they use, read the cost of each finished run from the [run object](/api/v2/actor-run-get):
+Apify bills all runs to your account. To charge your users for what they use, read the cost of each finished run from the [Get run](/api/v2/actor-run-get) API response:
 
 - `usageTotalUsd` is the total cost of the run in USD. For pay-per-event Actors, it includes the charged events and any platform usage the Actor charges on top. For pay-per-usage Actors, it's the platform usage. The value can change shortly after the run finishes, while Apify accounts for the last charged events.
 - `eventUsage` breaks down the cost of a pay-per-event run by event type, which you can show to your users.
 
 To cap what a single run can cost, set `maxTotalChargeUsd` when you start it, for example based on the user's remaining budget in your product. Before you offer an Actor to your users, check its pricing. See [Actor pricing models](/actors/running/actors-in-store#pricing-models).
-
-To protect your account from unexpected usage across all users, set usage limits in the **Limits** tab of **Billing** in Apify Console. See [Billing limits](/account/billing#limits).
 
 ## Plan for limits
 
@@ -79,5 +77,6 @@ All your users share the limits of your Apify account:
 
 - Concurrent runs: Your plan sets the maximum number of Actor runs at the same time. See [Apify platform limits](/account/limits#apify-platform-limits).
 - API rate limits: Apify limits requests per user and per resource. See [Rate limiting](/api/v2#rate-limiting).
+- Usage limits: Set them in the **Limits** tab of **Billing** in Apify Console to protect your account from unexpected usage. See [Billing limits](/account/billing#limits).
 
 To raise the limits on a paid plan, [contact support](https://apify.com/contact).
