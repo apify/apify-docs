@@ -33,6 +33,12 @@
             "imageUrl": "/img/academy/api-scraping.svg"
         },
         {
+            "title": "Puppeteer and Playwright",
+            "link": "/academy/puppeteer-playwright",
+            "description": "Learn in-depth how to use two of the most popular Node.js libraries for controlling a headless browser - Puppeteer and Playwright.",
+            "imageUrl": "/img/academy/puppeteer-playwright.svg"
+        },
+        {
             "title": "Anti-scraping protections",
             "link": "/academy/anti-scraping",
             "description": "Understand the various anti-scraping measures different sites use to prevent bots from accessing them, and how to appear more human to fix these issues.",
