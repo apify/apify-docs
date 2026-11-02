@@ -1,0 +1,15 @@
+title: WebhookGoogleDrive
+description: Google Drive upload configuration. Present only when `actionType` is `GOOGLE_DRIVE`.
+type: object
+properties:
+  userIntegrationId:
+    type: string
+    examples: [kLcd8Z4dzXN1z3QzS]
+  filename:
+    type: string
+    examples: [results]
+  format:
+    type: [string, "null"]
+    examples: [json]
+  transformation:
+    $ref: ./WebhookDatasetTransformation.yaml

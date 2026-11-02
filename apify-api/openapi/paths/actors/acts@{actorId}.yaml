@@ -114,7 +114,7 @@ put:
 
     To provide the authentication token, we recommend using the request's
     `Authorization` header, rather than the URL. For details,
-    see [Authentication](/api/v2/getting-started#authentication).
+    see [Authentication](/api/v2#authentication).
 
     ### Make an Actor public
 
@@ -205,7 +205,6 @@ put:
             value:
               name: MyActor
               isPublic: false
-              versions: []
               taggedBuilds:
                 latest:
                   buildId: z2EryhbfhgSyqj6Hn
@@ -214,7 +213,6 @@ put:
             value:
               name: MyActor
               isPublic: false
-              versions: []
               taggedBuilds:
                 latest: null
           taggedBuildsMultipleOperations:
@@ -222,7 +220,6 @@ put:
             value:
               name: MyActor
               isPublic: false
-              versions: []
               taggedBuilds:
                 latest:
                   buildId: z2EryhbfhgSyqj6Hn

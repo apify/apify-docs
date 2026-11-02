@@ -6,7 +6,7 @@ category: platform
 slug: /account/apify-ai
 ---
 
-Apify AI is a conversational AI interface inside [Apify Console](https://console.apify.com) that lets you find and run [Actors](/actors) using natural language. It uses the same search and execution backend as [Apify Store](https://apify.com/store) search and the [Apify MCP server](/integrations/mcp).
+Apify AI is a conversational AI interface inside [Apify Console](https://console.apify.com) that lets you find and run [Actors](/actors) using natural language. It uses the same search and execution backend as [Apify Store](https://apify.com/store) search and the [Apify MCP server](/mcp).
 
 :::note Apify AI is in beta
 
@@ -37,10 +37,9 @@ Apify AI always asks for your confirmation before it runs an Actor. Nothing is c
 
 ## Excluded Actors
 
-Apify AI can run most Actors in Apify Store, but excludes two categories:
+Apify AI can run most Actors in Apify Store. However, due to security reasons, it excludes full-permission Actors.
 
-- _Full-permission Actors_ - excluded for security. A [full-permission Actor](/actors/running/permissions#full-permission-actors) can access your entire account and all its data. In Apify Console, you stay in control and decide every run yourself. In Apify AI, the LLM chooses and runs Actors for you, so Apify doesn't let it run Actors that have full access to your account.
-- _Rental Actors_ - excluded because their subscription-based model doesn't fit the sporadic, on-demand way Apify AI runs Actors.
+A [full-permission Actor](/actors/running/permissions#full-permission-actors) can access your entire account and all its data. In Apify Console, you stay in control and decide every run yourself. In Apify AI, the LLM chooses and runs Actors for you, so Apify doesn't let it run Actors that have full access to your account.
 
 ## Out of current scope
 
@@ -70,6 +69,6 @@ Search ranking in Apify AI uses parameters similar to those evaluated by the [Ac
 
 ## Related
 
-- [Apify MCP server](/integrations/mcp) - the programmatic interface to the same backend for external AI agents and CLIs.
+- [Apify MCP server](/mcp) - the programmatic interface to the same backend for external AI agents and CLIs.
 - [Actor quality score](/actors/publishing/quality-score) - the metric that correlates with search ranking across surfaces.
 - [Apify Console](/account/console) - the web application where Apify AI lives, in the Apify Store search bar and the dashboard widget.

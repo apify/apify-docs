@@ -165,7 +165,7 @@ export default function Home() {
                             icon={<MCP />}
                             title="MCP"
                             description="Discover and use Actors with AI agents and LLMs via Apify MCP server."
-                            to="/integrations/mcp"
+                            to="/mcp"
                         />
                     </div>
                 </div>

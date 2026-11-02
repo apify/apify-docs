@@ -83,7 +83,7 @@ The `eventData` object identifies the entities involved in the trigger event.
 
 ### Resource (Actor run)
 
-For `ACTOR.RUN.*` events, `resource` is the run document - the same object returned by the [Get run](/api/v2/actor-run-get) API endpoint. Frequently used fields include:
+For `ACTOR.RUN.*` events, `resource` is the run document - the same object returned by the [Get Actor run](/api/v2/actor-run-get) API endpoint. Frequently used fields include:
 
 | Path                                | Type            | Description                                                                       |
 |-------------------------------------|-----------------|-----------------------------------------------------------------------------------|
@@ -109,7 +109,7 @@ For `ACTOR.RUN.*` events, `resource` is the run document - the same object retur
 
 ### Resource (Actor build)
 
-For `ACTOR.BUILD.*` events, `resource` is the build document - the same object returned by the [Get build](/api/v2/actor-build-get) API endpoint. Frequently used fields include:
+For `ACTOR.BUILD.*` events, `resource` is the build document - the same object returned by the [Get Actor build](/api/v2/actor-build-get) API endpoint. Frequently used fields include:
 
 | Path                       | Type           | Description                                                                                  |
 |----------------------------|----------------|----------------------------------------------------------------------------------------------|

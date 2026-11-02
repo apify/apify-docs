@@ -4,6 +4,7 @@ description: Learn in-depth how to use two of the most popular Node.js libraries
 sidebar_position: 5
 category: web scraping & automation
 slug: /puppeteer-playwright
+pagination: true
 ---
 
 import Tabs from '@theme/Tabs';

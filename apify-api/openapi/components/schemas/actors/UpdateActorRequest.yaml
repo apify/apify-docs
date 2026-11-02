@@ -16,9 +16,7 @@ properties:
     description: Whether the Actor is available to users in Apify Store. If `false`, the Actor is private
       and only visible to you.
   actorPermissionLevel:
-    anyOf:
-      - $ref: ./ActorPermissionLevel.yaml
-      - type: "null"
+    $ref: ./ActorPermissionLevel.yaml
   seoTitle:
     type: [string, "null"]
     examples: [Free Instagram scraper]
@@ -41,11 +39,15 @@ properties:
     deprecated: true # Use defaultRunOptions.restartOnError instead
   versions:
     type: array
+    minItems: 1
     items:
-      $ref: ./CreateOrUpdateVersionRequest.yaml
+      $ref: ./CreateVersionRequest.yaml
     description: "An array of `Version` objects. Each object represents a specific version of the
       Actor's source code: its location, builds, and environment configuration."
   pricingInfos:
+    description: >-
+      The Actor's pricing records. You can't add the `FLAT_PRICE_PER_MONTH` or `PRICE_PER_DATASET_ITEM` records,
+      because these pricing models are no longer supported.
     type: array
     items:
       $ref: ../actor-pricing-info/ActorRunPricingInfo.yaml

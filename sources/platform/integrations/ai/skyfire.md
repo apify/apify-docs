@@ -30,7 +30,7 @@ With Skyfire integration, agents can discover available Apify Actors, execute sc
 
 ## Use Skyfire with Apify MCP server
 
-The [Apify MCP server](https://docs.apify.com/integrations/mcp) provides the simplest way for agents to access Apify's Actor library using Skyfire payments.
+The [Apify MCP server](/mcp) provides the simplest way for agents to access Apify's Actor library using Skyfire payments.
 
 ### Prerequisites
 
@@ -172,7 +172,7 @@ Once you send the `skyfire-pay-id` header, the protocol is inferred from it, so 
 
 ### Run an Actor
 
-Make a standard Actor run request to the [run Actor endpoint](https://docs.apify.com/api/v2#/reference/actors/run-collection/run-actor), but include the Skyfire PAY token in the header.
+Make a standard Actor run request to the [Run Actor](/api/v2/actors-runs-post) endpoint, but include the Skyfire PAY token in the header.
 
 ```bash title="Example of using the synchronous run endpoint"
 curl -X POST \
@@ -186,13 +186,13 @@ curl -X POST \
   }'
 ```
 
-You can also use the asynchronous [run Actor endpoint](https://docs.apify.com/api/v2#/reference/actors/run-collection/run-actor) if you don't need to wait for results immediately.
+You can also use the asynchronous [Run Actor](/api/v2/actors-runs-post) endpoint if you don't need to wait for results immediately.
 
 ### Access the run and its storages
 
-To access a run and its storages, reuse the same `skyfire-pay-id` header as authentication. As long as you send the token that paid for the run, you can call the [run](https://docs.apify.com/api/v2#/reference/actor-runs/run-object-and-its-storages/get-run), [dataset](https://docs.apify.com/api/v2#/reference/datasets), and [key-value store](https://docs.apify.com/api/v2#/reference/key-value-stores) endpoints for that run and its default storages.
+To access a run and its storages, reuse the same `skyfire-pay-id` header as authentication. As long as you send the token that paid for the run, you can call the [run](/api/v2/actor-run-get), [dataset](/api/v2/storage-datasets), and [key-value store](/api/v2/storage-key-value-stores) endpoints for that run and its default storages.
 
-This is useful when you start a run asynchronously with the [Run Actor](https://docs.apify.com/api/v2#/reference/actors/run-collection/run-actor) endpoint and then poll its status or fetch results separately.
+This is useful when you start a run asynchronously with the [Run Actor](/api/v2/actors-runs-post) endpoint and then poll its status or fetch results separately.
 
 ```bash
 # Get run status - authenticate with the same Skyfire PAY token
@@ -212,7 +212,7 @@ Not all Actors in Apify Store are eligible.
 
 <AgenticPaymentsEligibility />
 
-Apify maintains a curated list of Actors approved for agentic payments. To check if an Actor supports agentic payments, use the `allowsAgenticUsers=true` query parameter when [searching the store via API](https://docs.apify.com/api/v2#/reference/store/store-actors-collection/get-list-of-actors-in-store).
+Apify maintains a curated list of Actors approved for agentic payments. To check if an Actor supports agentic payments, use the `allowsAgenticUsers=true` query parameter when searching the store with the [Get list of Actors in Store](/api/v2/store-get) endpoint.
 
 ```text
 https://api.apify.com/v2/store?allowsAgenticUsers=true
@@ -233,7 +233,7 @@ The following operations are not supported with agentic payments:
 
 ## Resources
 
-- **[Model Context Protocol documentation](https://docs.apify.com/integrations/mcp)** - Complete guide to using the Apify MCP server
+- **[Model Context Protocol documentation](/mcp)** - Complete guide to using the Apify MCP server
 - **[Skyfire documentation](https://skyfire.xyz/)** - Official Skyfire guides and API reference
 - **[Apify API reference](https://docs.apify.com/api/v2)** - Complete API documentation for direct integration
 - **[Actor permissions](https://docs.apify.com/actors/development/permissions)** - Understanding Actor permission levels

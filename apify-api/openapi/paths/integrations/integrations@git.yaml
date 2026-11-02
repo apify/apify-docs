@@ -1,0 +1,32 @@
+get:
+  tags:
+    - Users
+  summary: Get git provider integrations
+  description: |
+    Gets your connected git provider accounts (GitHub App, GitLab and Bitbucket), each with the workspaces you can
+    create a repository in. Only authorized accounts are returned, and accounts whose access was revoked are left
+    out.
+
+    Use the `id` of an integration as the `providerId` in the
+    [Create git repository](/api/v2/integrations-git-create-repo-post) and
+    [Register deployment key](/api/v2/integrations-git-register-deployment-key-post) endpoints.
+  operationId: integrations_git_get
+  responses:
+    "200":
+      description: ""
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/integrations/ListOfGitProviderIntegrationsResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
+  deprecated: false

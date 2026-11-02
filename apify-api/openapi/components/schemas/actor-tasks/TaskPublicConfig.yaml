@@ -12,7 +12,7 @@ properties:
     description: |
       Time when the task was published, or `null` if the task isn't published.
       This field is server-controlled. To publish or unpublish a task, use the
-      [Update task](/api/v2/actor-task-put) endpoint and set `isPublic`.
+      [Update Actor task](/api/v2/actor-task-put) endpoint and set `isPublic`.
     examples: ["2025-06-16T09:20:45.777Z"]
   seoTitle:
     type: [string, "null"]
@@ -43,3 +43,24 @@ properties:
     description: |
       Key of the dataset view from the Actor's dataset schema used to display results. Must be
       one of the views declared on the resolved dataset. You can't publish a task without it.
+  categorization:
+    type: [string, "null"]
+    description: ID of the use-case category of the task.
+  highlightedFields:
+    type: [array, "null"]
+    description: Names of the dataset fields highlighted on the public task page.
+    items:
+      type: string
+  faq:
+    type: [array, "null"]
+    description: Frequently asked questions displayed on the public task page.
+    items:
+      type: object
+      required:
+        - question
+        - answer
+      properties:
+        question:
+          type: string
+        answer:
+          type: string

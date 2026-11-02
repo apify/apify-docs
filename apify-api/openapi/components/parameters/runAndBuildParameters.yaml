@@ -248,6 +248,23 @@ maxTotalChargeUsd:
     format: double
     example: 5
 
+forcePermissionLevel:
+  name: forcePermissionLevel
+  in: query
+  description: |
+    Overrides the Actor's permission level for this specific run. Use to test restricted permissions
+    before deploying changes to your Actor or to temporarily elevate or restrict access. If you don't specify this
+    parameter, the Actor uses its configured default permission level. For more information on permissions, see the
+    [documentation](https://docs.apify.com/platform/actors/development/permissions).
+  style: form
+  explode: true
+  schema:
+    type: string
+    enum:
+      - LIMITED_PERMISSIONS
+      - FULL_PERMISSIONS
+    example: LIMITED_PERMISSIONS
+
 status:
   name: status
   in: query
@@ -289,6 +306,22 @@ startedBefore:
     type: string
     format: date-time
     example: "2025-09-17T23:59:59.000Z"
+
+deployment:
+  name: deployment
+  in: query
+  description: |
+    Single Actor Standby deployment or comma-separated list of deployments (`SINGLE_TENANT`, `MULTI_TENANT_FREE_USERS`,
+    `MULTI_TENANT_PAYING_USERS` or `MULTI_TENANT_OWNER_PAID`). Used to filter Actor Standby runs by the pool that
+    serves them. Requires the `status` parameter with only non-terminal statuses (`READY`, `RUNNING`, `TIMING-OUT` or
+    `ABORTING`).
+  style: form
+  explode: false
+  schema:
+    type: array
+    items:
+      type: string
+    example: [SINGLE_TENANT]
 
 scheduleId:
   name: scheduleId

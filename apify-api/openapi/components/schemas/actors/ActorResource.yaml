@@ -33,7 +33,7 @@ properties:
     examples: [Extract data from hundreds of places fast.]
     description: Short description of the Actor, displayed in Apify Store and Console.
   restartOnError:
-    type: boolean
+    type: [boolean, "null"]
     examples: [false]
     deprecated: true # Use defaultRunOptions.restartOnError instead
   isPublic:
@@ -61,6 +61,8 @@ properties:
     description: "An array of `Version` objects. Each object represents a specific version of the
       Actor's source code: its location, builds, and environment configuration."
   pricingInfos:
+    description: >-
+      The Actor's pricing records, including past ones.
     type: array
     items:
       $ref: ../actor-pricing-info/ActorRunPricingInfo.yaml
@@ -77,7 +79,7 @@ properties:
   deploymentKey:
     type: string
     examples: [ssh-rsa AAAA ...]
-    description: The Actor's public SSH key, used as a deployment key for private Git repositories.
+    description: The Actor's public SSH key, used as a deployment key for private Git repositories. Returned only by the get Actor endpoint.
   title:
     type: [string, "null"]
     examples: [Google Search Extractor]

@@ -1,7 +1,7 @@
 get:
   tags:
     - Actors/Actor runs
-  summary: Get list of runs
+  summary: Get list of Actor's runs
   description: |
     Gets the list of runs of a specific Actor. The response is a list of
     objects, where each object contains basic information about a single Actor run.
@@ -23,6 +23,7 @@ get:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/status"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/startedAfter"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/startedBefore"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/deployment"
   responses:
     "200":
       description: ""
@@ -71,18 +72,17 @@ post:
     The Actor is started with the default options; you can override them using
     various URL query parameters.
 
-    The response is the Run object as returned by the [Get
-    run](#/reference/actor-runs/run-object-and-its-storages/get-run) API
+    The response is the Run object as returned by the [Get Actor run](/api/v2/actor-run-get) API
     endpoint.
 
     If you want to wait for the run to finish and receive the actual output of
-    the Actor as the response, please use one of the [Run Actor
-    synchronously](#/reference/actors/run-actor-synchronously) API endpoints
-    instead.
+    the Actor as the response, please use the [Run Actor synchronously and get key-value store record](/api/v2/actor-run-sync-post)
+    or [Run Actor synchronously and get dataset items](/api/v2/actor-run-sync-get-dataset-items-post)
+    endpoint instead.
 
     To fetch the Actor run results that are typically stored in the default
     dataset, you'll need to pass the ID received in the `defaultDatasetId` field
-    received in the response JSON to the [Get dataset items](#/reference/datasets/item-collection/get-items)
+    received in the response JSON to the [Get dataset items](/api/v2/dataset-items-get)
     API endpoint.
   operationId: actors_runs_post
   parameters:
@@ -95,21 +95,7 @@ post:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/build"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/waitForFinishRun"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/webhooks"
-    - name: forcePermissionLevel
-      in: query
-      description: |
-        Overrides the Actor's permission level for this specific run. Use to test restricted permissions
-        before deploying changes to your Actor or to temporarily elevate or restrict access. If you don't specify this
-        parameter, the Actor uses its configured default permission level. For more information on permissions, see the
-        [documentation](https://docs.apify.com/platform/actors/development/permissions).
-      style: form
-      explode: true
-      schema:
-        type: string
-        enum:
-          - LIMITED_PERMISSIONS
-          - FULL_PERMISSIONS
-        example: LIMITED_PERMISSIONS
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/forcePermissionLevel"
   requestBody:
     description: ""
     content:

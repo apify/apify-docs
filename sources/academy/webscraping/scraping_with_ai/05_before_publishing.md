@@ -2,6 +2,7 @@
 title: Before publishing to Apify Store
 description: Use AI to prepare your scraper for other users by improving its first-run experience, Apify Store listing, documentation, and maintenance plan.
 slug: /scraping-with-ai/before-publishing-to-apify-store
+pagination: true
 ---
 
 **In this lesson, we'll prepare our app for tracking prices on an e-commerce website for other people to use. We'll use Cursor to inspect and improve its first-run experience and documentation, prepare its Apify Store listing, and make a plan for keeping it reliable.**
@@ -126,7 +127,7 @@ If you plan to charge for the Actor, ask the AI agent to help you think through 
 
 ```text
 Read the Actor monetization and pricing guide:
-https://docs.apify.com/actors/publishing/monetize
+https://docs.apify.com/actors/monetize
 Then inspect this repository and recommend the most suitable
 pricing model for this Actor. Explain your reasoning and flag
 anything we should fix before publishing.
@@ -172,7 +173,7 @@ A useful, reliable Actor can still sit quietly on Apify Store while nobody notic
 - [Record a short demo](/academy/actor-marketing-playbook/promote-your-actor/video-tutorials) that follows one run from input to useful results. It doesn't have to be fancy or polished. Even a rough screencast with some free background music will do. It probably won't rack up huge numbers on YouTube, but you can add it to your README and share it wherever your users hang out.
 - Pick one or two places where people already discuss the problem your Actor solves. Answer questions, show how the Actor helps, and listen to the feedback. That's more useful than dropping the same promotional post everywhere.
 
-Marketing can go much further than this, but that's a course of its own. When you're ready for more, continue with the [marketing checklist](/academy/actor-marketing-playbook/promote-your-actor/checklist) and the guide to [making your Actor easier to find through search](/academy/actor-marketing-playbook/promote-your-actor/seo).
+Marketing can go much further than this, but that's a course of its own. When you're ready for more, continue with the [marketing checklist](/academy/actor-marketing-playbook/promote-your-actor/checklist) and the guide to [making your Actor easier to find through search](/actors/promote/seo).
 
 ## Wrapping up
 

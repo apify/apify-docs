@@ -1,7 +1,7 @@
 get:
   tags:
     - Actor tasks
-  summary: Get list of tasks
+  summary: Get list of Actor tasks
   description: |
     Gets the complete list of tasks that a user has created or used.
 
@@ -83,13 +83,13 @@ get:
 post:
   tags:
     - Actor tasks
-  summary: Create task
+  summary: Create Actor task
   description: |
     Create a new task with settings specified by the object passed as JSON in
     the POST payload.
 
     The response is the full task object as returned by the
-    [Get task](/api/v2/actor-task-get) endpoint.
+    [Get Actor task](/api/v2/actor-task-get) endpoint.
 
     The request needs to specify the `Content-Type: application/json` HTTP header!
 

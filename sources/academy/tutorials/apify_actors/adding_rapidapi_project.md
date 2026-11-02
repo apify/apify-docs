@@ -120,7 +120,7 @@ Once you’ve saved the settings, go to the **Endpoints** tab, and click the **T
 
 Ready to monetize your Actor and start earning? Check out these guides:
 
-- [Set up monetization for your Actor](https://docs.apify.com/actors/publishing/monetize)
+- [Set up monetization for your Actor](https://docs.apify.com/actors/monetize)
 - [Publish your Actor on Apify Store](https://docs.apify.com/actors/publishing/publish)
 
 You can also extend your Actor with custom logic and leverage additional Apify platform features, such as storage or web scraping capabilities.

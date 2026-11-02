@@ -3,7 +3,7 @@
 ## Before you start
 
 1. Review this guide completely
-2. Setup you development environment
+2. Set up your development environment
 3. Familiarize yourself with the [documentation style guide](standards/)
 
 ## Development setup
@@ -95,7 +95,7 @@ This project uses an agent-agnostic approach: standards and workflows live at th
 
 - **`standards/`** - Writing, formatting, terminology, and quality rules
 - **`.agents/skills/`** - Documentation skills with processes, references, and scripts (AgentSkills spec)
-- **`AGENTS.md`** - Condensed summary + pointers (also `CLAUDE.md` via symlink)
+- **`AGENTS.md`** - Condensed summary + pointers (also `GEMINI.md` via symlink)
 
 ### Skills (AgentSkills standard)
 
