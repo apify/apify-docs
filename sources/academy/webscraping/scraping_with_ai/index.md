@@ -5,6 +5,7 @@ sidebar_position: 1
 sidebar_label: Web scraping with AI and Apify
 category: web scraping
 slug: /scraping-with-ai
+pagination: true
 ---
 
 import DocCardList from '@theme/DocCardList';
