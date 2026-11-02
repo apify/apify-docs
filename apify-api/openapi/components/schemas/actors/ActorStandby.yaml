@@ -28,11 +28,15 @@ properties:
       start with no input.
   tenancy:
     type: [string, "null"]
+    enum:
+      - SINGLE_TENANT
+      - MULTI_TENANT
+      - null
     examples: [SINGLE_TENANT]
-    description: Whether each user gets their own standby runs (`SINGLE_TENANT`) or runs are shared across users (`MULTI_TENANT`). Set by Apify.
+    description: Whether each user gets their own standby runs (`SINGLE_TENANT`) or runs are shared across users (`MULTI_TENANT`). Only Apify administrators can change this value. Other users can only send the current value, or `SINGLE_TENANT` if it's not set yet.
   isConsoleAuthEnabled:
     type: [boolean, "null"]
-    description: Whether standby requests can be authenticated with an Apify Console session. Set by Apify.
+    description: Whether standby requests can be authenticated with an Apify Console session. Only Apify administrators can change this value. Other users can only send the current value, or `false` if it's not set yet.
   isTokenlessEnabled:
     type: [boolean, "null"]
-    description: Whether standby requests can be made without an API token. Set by Apify.
+    description: Whether standby requests can be made without an API token. Only Apify administrators can change this value. Other users can only send the current value, or `false` if it's not set yet.
