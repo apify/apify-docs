@@ -3,6 +3,7 @@ title: Paginating through results
 description: Learn how to paginate through results on websites that use either page number-based pagination or dynamic lazy-loading pagination.
 sidebar_position: 2
 slug: /puppeteer-playwright/common-use-cases/paginating-through-results
+pagination: true
 ---
 
 import Tabs from '@theme/Tabs';

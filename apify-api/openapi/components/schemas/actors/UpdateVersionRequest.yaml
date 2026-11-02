@@ -32,7 +32,7 @@ properties:
     description: URL of the Git repository to clone the source code from. Applies when the `sourceType` is `GIT_REPO`.
   tarballUrl:
     type: string
-    description: URL of the tarball to download the source code from. Applies when the `sourceType` is `TARBALL`.
+    description: URL of the zip archive to download the source code from. Applies when the `sourceType` is `TARBALL`.
   gitHubGistUrl:
     type: string
     description: URL of the GitHub Gist to clone the source code from. Applies when the `sourceType` is `GITHUB_GIST`.

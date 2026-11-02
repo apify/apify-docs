@@ -4,6 +4,7 @@ description: Gain an in-depth understanding of the two main ways of programmatic
 sidebar_position: 6.4
 sidebar_label: IV - Apify API & client
 slug: /expert-scraping-with-apify/apify-api-and-client
+pagination: true
 ---
 
 **Gain an in-depth understanding of the two main ways of programmatically interacting with the Apify platform - through the API, and through a client.**

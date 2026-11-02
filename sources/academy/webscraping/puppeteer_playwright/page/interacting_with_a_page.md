@@ -3,6 +3,7 @@ title: Interacting with a page
 description: Learn how to programmatically do actions on a page such as clicking, typing, and pressing keys. Also, discover a common roadblock that comes up when automating.
 sidebar_position: 1
 slug: /puppeteer-playwright/page/interacting-with-a-page
+pagination: true
 ---
 
 import Tabs from '@theme/Tabs';

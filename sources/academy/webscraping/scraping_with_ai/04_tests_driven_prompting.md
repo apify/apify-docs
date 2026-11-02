@@ -2,6 +2,7 @@
 title: Using examples as a spec for AI
 description: Improve your Apify scraper by adding automated tests with real-world examples that an AI agent can use as a spec.
 slug: /scraping-with-ai/tests-driven-prompting
+pagination: true
 ---
 
 **In this lesson, we'll keep developing our app for tracking prices on an e-commerce website. We'll describe edge cases with real-world examples, and Cursor will use them not only to get things right, but also to check that nothing breaks next time we change something.**

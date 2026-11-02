@@ -3,6 +3,7 @@ title: Locating HTML elements on a web page with browser DevTools
 sidebar_label: "DevTools: Locating HTML elements"
 description: Lesson about using the browser tools for developers to manually find products on an e-commerce website.
 slug: /scraping-basics-javascript/devtools-locating-elements
+pagination: true
 ---
 
 import LegacyJsCourseAdmonition from '@site/src/components/LegacyJsCourseAdmonition';
