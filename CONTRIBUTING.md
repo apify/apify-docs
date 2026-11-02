@@ -13,7 +13,7 @@
 1. **Git**
 2. **Node.js 24** (see [.nvmrc](.nvmrc) file)
 3. **GitHub access**
-4. **pnpm 10** package manager (pinned via `packageManager` in `package.json`; `corepack enable` picks it up automatically)
+4. **pnpm 11** package manager (pinned via `packageManager` in `package.json`; `corepack enable` picks it up automatically)
 
 ### Installation steps
 
