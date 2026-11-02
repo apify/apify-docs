@@ -197,7 +197,7 @@ throwaway branch).
 - **Coverage is the Console-surface slice.** `pages.json` covers the account
   section (dashboard, settings, 2FA, billing, promo codes, general resource
   access, organization usage) and storage (overview, datasets, key-value
-  stores, request queues) — routes and landing-page elements. (`console/store.md`
+  stores, request queues, sharing) — routes and landing-page elements. (`console/store.md`
   was dropped: it has no bold UI element labels to test.) Widening further is a
   follow-up: add to `pages.json`, re-extract, review, commit. Actors, tasks and
   schedules are the obvious next section, but most of their labels sit on detail

@@ -10,6 +10,7 @@
     "sources/platform/storage/index.md",
     "sources/platform/storage/dataset/index.md",
     "sources/platform/storage/key_value_store/index.md",
-    "sources/platform/storage/request_queue.md"
+    "sources/platform/storage/request_queue.md",
+    "sources/platform/storage/share.md"
   ]
 }
