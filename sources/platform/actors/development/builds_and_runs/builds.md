@@ -6,18 +6,16 @@ sidebar_position: 7
 slug: /actors/development/builds-and-runs/builds
 ---
 
-## Understand Actor builds
-
 Before an Actor can be run, it needs to be built. The build process creates a snapshot of a specific version of the Actor's settings, including its [source code](../actor_definition/source_code.md) and [environment variables](../programming_interface/environment_variables.md). This snapshot is then used to create a Docker image containing everything the Actor needs for its run, such as `npm` packages, web browsers, etc.
 
-### Build numbers
+## Build numbers
 
 Each build is assigned a unique build number in the format _MAJOR\.MINOR\.BUILD_ (e.g. _1\.2\.345_):
 
 - _MAJOR\.MINOR_ corresponds to the Actor version number
 - _BUILD_ is an automatically incremented number starting at **1**.
 
-### Build resources
+## Build resources
 
 By default, builds have the following resource allocations:
 
@@ -28,24 +26,21 @@ Check out the [Resource limits](../../running/index.md) section for more details
 
 ## Versioning
 
-To support active development, Actors can have multiple versions of source code and associated settings, such as the base image and environment. Each version is denoted by a version number of the form _MAJOR.MINOR_, following [Semantic Versioning](https://semver.org/) principles.
+To support active development, Actors can have multiple versions of source code and associated settings, such as the base image and environment. Each version has a number in the `major.minor` format, following [semantic versioning](https://semver.org/) principles.
 
 For example, an Actor might have:
 
-- Production version _1.1_
-- Beta version _1.2_ that contains new features but is still backward compatible
-- Development version _2.0_ that contains breaking changes.
+- Production version `1.1`
+- Beta version `1.2` that contains new features but is still backward compatible
+- Development version `2.0` that contains breaking changes
+
+See also [Version public Actors](/actors/development/version-public-actors).
 
 ## Tags
 
-Tags simplify the process of specifying which build to use when running an Actor. Instead of using a version number, you can use a tag such as _latest_ or _beta_. Tags are unique, meaning only one build can be associated with a specific tag.
+Tags simplify the process of specifying which build to use when running an Actor. Instead of using a version number, you can use a tag such as `latest` or `beta`. A tag points to only one build and always points to the newest build of the version it belongs to.
 
-To set a tag for builds of a specific Actor version:
-
-1. Set the `Build tag` property.
-2. When a new build of that version is successfully finished, it's automatically assigned the tag.
-
-By default, the builds are set to the _latest_ tag.
+By default, the builds are set to the `latest` tag.
 
 ## Cache
 
