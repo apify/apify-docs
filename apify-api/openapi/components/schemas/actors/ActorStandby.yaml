@@ -33,9 +33,7 @@ properties:
       - MULTI_TENANT
       - null
     examples: [SINGLE_TENANT]
-    description: |
-      Whether each user gets their own standby runs (`SINGLE_TENANT`) or runs are shared across users (`MULTI_TENANT`).
-      When creating an Actor, omit this field or set it to `SINGLE_TENANT`. When updating an Actor, only Apify administrators can change it; other users can only send the current value, or `SINGLE_TENANT` if it's not set yet.
+    description: Whether each user gets their own standby runs (`SINGLE_TENANT`) or runs are shared across users (`MULTI_TENANT`).
   isConsoleAuthEnabled:
     type: [boolean, "null"]
     description: |
