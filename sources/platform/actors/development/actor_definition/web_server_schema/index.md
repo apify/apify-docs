@@ -94,11 +94,11 @@ The build process validates `webServerSchema`, similar to other Actor schemas li
 
 The platform doesn't enforce the schema at runtime. Unlike input schema, the web server schema only documents your Actor's interface. The platform forwards incoming requests to your server without validating them or your server's responses against the schema. Your server must validate requests itself.
 
-Once deployed, the **Server** tab appears automatically on the Actor's detail page when you enable [standby mode](/actors/development/programming-interface/standby). It renders your spec with [Swagger UI](https://swagger.io/tools/swagger-ui/) and handles authentication automatically - Actor users can send requests without configuring API tokens.
+Once deployed, the **Server** tab appears automatically on the Actor's detail page when you enable the [server interface](/actors/development/programming-interface/standby). It renders your spec with [Swagger UI](https://swagger.io/tools/swagger-ui/) and handles authentication automatically - Actor users can send requests without configuring API tokens.
 
 :::note Servers field is overwritten
 
-Your `servers` array is replaced with the Actor's standby URL at display time. Custom server URLs are ignored.
+Your `servers` array is replaced with the Actor's server interface URL at display time. Custom server URLs are ignored.
 
 :::
 
@@ -106,6 +106,6 @@ Your `servers` array is replaced with the Actor's standby URL at display time. C
 
 | Field | Description |
 | --- | --- |
-| `usesStandbyMode` | Must be `true` for the **Server** tab to appear. See [standby mode](/actors/development/programming-interface/standby). |
+| `usesStandbyMode` | Must be `true` for the **Server** tab to appear. See [Develop Server Actors](/actors/development/programming-interface/standby). |
 | `webServerSchema` | The OpenAPI spec that powers the **Server** tab. Defined in [`.actor/actor.json`](/actors/development/actor-definition/actor-json) as an inline object or a path to a JSON file. |
-| `webServerMcpPath` | The HTTP path where the Actor exposes its MCP server. The Actor's MCP endpoint is the Standby URL followed by this path. See [`.actor/actor.json`](/actors/development/actor-definition/actor-json). |
+| `webServerMcpPath` | The HTTP path where the Actor exposes its MCP server. The Actor's MCP endpoint is the server interface URL followed by this path. See [`.actor/actor.json`](/actors/development/actor-definition/actor-json). |

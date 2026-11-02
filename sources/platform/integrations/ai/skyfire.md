@@ -227,7 +227,7 @@ Your Skyfire PAY token must have at least _$5_ available to run Actors. However,
 The following operations are not supported with agentic payments:
 
 - Schedule creation or management
-- Standby run initiation
+- Requests to Server Actors
 - Integration setup such as webhooks to external services
 - Actor resurrection after the payment token has been settled
 
