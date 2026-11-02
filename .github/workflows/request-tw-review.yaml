@@ -4,6 +4,8 @@ on:
   # Runs from master with a write token, so fork PRs work too. Never check out PR code here.
   pull_request_target:
     types: [opened, labeled, ready_for_review]
+    paths:
+      - 'sources/**'
 
 permissions:
   pull-requests: write
@@ -30,7 +32,7 @@ jobs:
             # Team labels → R&D group → technical writer
             case "$label" in
               t-core-services|t-infra|t-console|t-unblocking) reviewer=TC-MO ;;  # Foundation
-              t-publishers|t-billing|t-tooling|t-builders|"t-c&c") reviewer=szaganek ;;  # Creators
+              t-publishers|t-billing|t-tooling|t-builders) reviewer=szaganek ;;  # Creators
               t-acquisition|t-growth|t-ai|t-integrations|t-discovery) reviewer=marcel-rbro ;;  # Integrators
               *) continue ;;
             esac
