@@ -23,7 +23,7 @@ awk '
         # Indent of the step: the "-" on this line, or on the line above if "name:" comes first
         step_indent = ($0 ~ /^ *- /) ? indent : prev_indent
     }
-    in_step && /node-version-file: *\.nvmrc *$/ { has_file = 1 }
+    in_step && /node-version-file: *["\047]?\.nvmrc["\047]? *$/ { has_file = 1 }
     in_step && /check-latest: *true *$/ { has_latest = 1 }
     /^ *- / { prev_indent = indent }
     END { check(); exit failed }
