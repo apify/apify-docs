@@ -1,0 +1,32 @@
+## Lifecycle
+
+Each run and build starts with the initial status **READY** and goes through one or more transitional statuses to one of the terminal statuses.
+
+```mermaid
+flowchart LR
+    accTitle: Actor run and build lifecycle
+    accDescr: READY moves to RUNNING. RUNNING ends as SUCCEEDED or FAILED, goes through TIMING-OUT to TIMED-OUT, or goes through ABORTING to ABORTED.
+
+    READY --> RUNNING
+    RUNNING --> SUCCEEDED
+    RUNNING --> FAILED
+    RUNNING --> TIMING-OUT --> TIMED-OUT
+    RUNNING --> ABORTING --> ABORTED
+
+    class SUCCEEDED success
+    class FAILED error
+    class TIMED-OUT,ABORTED warning
+```
+
+While a run or build is still **READY**, it can also time out, or you can abort it.
+
+| Status | Type | Description |
+| --- | --- | --- |
+| READY | initial | Started but not allocated to any worker yet |
+| RUNNING | transitional | Executing on a worker machine |
+| SUCCEEDED | terminal | Finished successfully |
+| FAILED | terminal | Run failed |
+| TIMING-OUT | transitional | Timing out now |
+| TIMED-OUT | terminal | Timed out |
+| ABORTING | transitional | Run is being aborted |
+| ABORTED | terminal | Run aborted |

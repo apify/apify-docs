@@ -6,6 +6,8 @@ description: Learn about Actor builds and runs, including how Docker images are 
 slug: /actors/development/builds-and-runs
 ---
 
+import ActorJobLifecycle from '@site/sources/_partials/_actor-job-lifecycle.mdx';
+
 Actor **builds** and **runs** are fundamental concepts within the Apify platform. Understanding them is crucial for effective use of the platform.
 
 ## Build an Actor
@@ -39,41 +41,4 @@ flowchart LR
     AD -- "start Actor" --> Run
 ```
 
-## Lifecycle
-
-Actor builds and runs share a common lifecycle. Each build and run begins with the initial status **READY** and progress through one or more transitional statuses to reach a terminal status.
-
-```mermaid
-flowchart LR
-    subgraph Transitional states
-        RUNNING
-        TIMING-OUT
-        ABORTING
-    end
-
-    subgraph Terminal states
-        SUCCEEDED
-        FAILED
-        TIMED-OUT
-        ABORTED
-    end
-
-    READY --> RUNNING
-              RUNNING --> SUCCEEDED
-              RUNNING --> FAILED
-              RUNNING --> TIMING-OUT --> TIMED-OUT
-              RUNNING --> ABORTING --> ABORTED
-```
-
----
-
-| Status | Type | Description |
-| --- | --- | --- |
-| READY | initial | Started but not allocated to any worker yet |
-| RUNNING | transitional | Executing on a worker machine |
-| SUCCEEDED | terminal | Finished successfully |
-| FAILED | terminal | Run failed |
-| TIMING-OUT | transitional | Timing out now |
-| TIMED-OUT | terminal | Timed out |
-| ABORTING | transitional | Run is being aborted |
-| ABORTED | terminal | Run aborted |
+<ActorJobLifecycle />
