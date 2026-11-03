@@ -50,7 +50,7 @@ Before connecting your AI to Apify, you need:
 
 ## Connect and authorize
 
-To discover Actors and search the documentation, you can connect [without an account](#use-without-an-account). To run Actors, connect in one of two ways: use our hosted service using [Streamable HTTP with OAuth](#streamable-http-with-oauth-recommended), or run the server locally for development and testing using [local stdio](#local-stdio).
+To discover Actors and search the documentation, you can connect [without an account](#use-without-an-account). To run Actors, connect in one of two ways: use our hosted service with [Streamable HTTP with OAuth](#streamable-http-with-oauth-recommended), or run the server locally for development and testing using [local stdio](#local-stdio).
 
 :::tip Structured output schemas
 
@@ -149,6 +149,8 @@ By default, the MCP server loads the `actors` and `docs` tool categories, the `a
 
 `https://mcp.apify.com?tools=actors,docs,apify/rag-web-browser`
 
+For instance, `https://mcp.apify.com?tools=storage` loads only the storage tools, without `search-actors` or `call-actor`. The default Actors don't belong to any category, so `?tools=actors,docs` drops them too. To keep them, list them explicitly: `?tools=actors,docs,apify/rag-web-browser,apify/web-fetch`.
+
 For minimal setups where you only need specific Actors:
 
 `https://mcp.apify.com?tools=apify/instagram-scraper,apify/google-search-scraper`
@@ -156,8 +158,6 @@ For minimal setups where you only need specific Actors:
 This configuration approach works for both hosted and local setups. For the CLI version:
 
 `npx @apify/actors-mcp-server --tools actors,docs,apify/web-scraper`
-
-For example, `https://mcp.apify.com?tools=storage` loads only the storage tools, without `search-actors` or `call-actor`. The default Actors don't belong to any category, so `?tools=actors,docs` drops them too. To keep them, list them explicitly: `?tools=actors,docs,apify/rag-web-browser,apify/web-fetch`.
 
 To select your tools visually, use the [MCP configurator](https://mcp.apify.com/), then copy the generated configuration to your client.
 
