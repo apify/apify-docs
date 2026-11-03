@@ -45,7 +45,7 @@ Due to security reasons, the MCP server intentionally excludes full-permission A
 Before connecting your AI to Apify, you need:
 
 - _An Apify account_ - You need one unless your agent uses only the [tools that work without an account](#use-without-an-account) or pays through [agentic payments](#agentic-payments). Sign up for an Apify account, if you don't have one.
-- _MCP client_ - An AI agent or client that supports Model Context Protocol (MCP). This could be Anthropic's Claude for Desktop, a VS Code extension with MCP support, or any application that implements the MCP specification. The [official MCP documentation](https://modelcontextprotocol.io/clients) maintains a list of compatible clients.
+- _MCP client_ - An AI agent or client that supports Model Context Protocol (MCP). This could be Anthropic's [claude.ai](/integrations/claude-ai) or Claude Desktop, a VS Code extension with MCP support, or any application that implements the MCP specification. The [official MCP documentation](https://modelcontextprotocol.io/clients) maintains a list of compatible clients.
 - _Apify API token_ (optional) - Only needed for the [local stdio server](#local-stdio) or the [Bearer token option](#streamable-http-with-oauth-recommended). The recommended remote connection signs you in with OAuth instead. Get your token from the **API & Integrations** section in [Apify Console](https://console.apify.com/settings/integrations) and keep it secure.
 
 ## Connect and authorize
