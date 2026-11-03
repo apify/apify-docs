@@ -80,7 +80,7 @@ To limit what a single run can cost, set `maxTotalChargeUsd` when you start it, 
 All your users share the limits of your Apify account:
 
 - Concurrent runs: Your plan sets the maximum number of Actor runs at the same time. See [Apify platform limits](/account/limits#apify-platform-limits).
-- API rate limits: Apify limits requests per Apify account and per resource, so all your users share them. See [Rate limiting](/api/v2#rate-limiting).
+- API rate limits: Apify limits requests per Apify account and per resource. See [Rate limiting](/api/v2#rate-limiting).
 - Usage limits: You can set usage limits in the **Limits** tab of **Billing** in Apify Console to protect your account from unexpected usage. See [Billing limits](/account/billing#limits).
 
 To raise the limits on a paid plan, [contact support](https://apify.com/contact).

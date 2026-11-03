@@ -15,7 +15,7 @@ Use this setup when you don't control which Actors run under your account. For e
 - You let users of your platform select and run any Actor from [Apify Store](https://apify.com/store) using your API token, without having their own Apify account. See [Build a whitelabel integration](/integrations/whitelabel).
 - You run Actors from developers you don't know or trust.
 
-If you only run a small, fixed set of Actors from developers you trust, such as Actors maintained by Apify, you don't need this setup. A [scoped token](/integrations/api#limited-permissions) that can run only those Actors is enough.
+If you only run a small, fixed set of Actors from developers you trust, such as Actors maintained by Apify, you don't need this setup. A scoped token that can run only those Actors is enough.
 
 ## How restricted access works
 
@@ -71,14 +71,13 @@ The new token appears in the token list with a **Limited permissions** badge. If
 
 ### Read results with a separate token
 
-By default, the token that starts runs can't read their results, so use a different token to read results. This can be your main API token, or a second scoped token with **Read** access to datasets and key-value stores. Keep this token on your backend and never pass it to an Actor.
+By default, the token that starts runs can't read their results, so use a different token to read results. Use your main API token or a second scoped token with **Read** access to datasets and key-value stores. Keep this token on your backend and never pass it to an Actor.
 
-Alternatively, turn on **Allow this token to access default run storages** on the scoped token. The token can then read the results of runs it starts, so you don't need a separate token. If the token leaks, anyone who has it can also read those results.
+Alternatively, turn on **Allow this token to access default run storages** in the scoped token's settings. The token can then read the results of runs it starts, so you don't need a separate token. If the token leaks, anyone who has it can also read those results.
 
 ## Run an Actor
 
-Start runs with the scoped token, and read results with a separate token.
-With the REST API:
+Start a run with the REST API:
 
 ```bash
 curl -X POST "https://api.apify.com/v2/acts/apify~website-content-crawler/runs" \
@@ -87,7 +86,7 @@ curl -X POST "https://api.apify.com/v2/acts/apify~website-content-crawler/runs" 
   -d '{"startUrls": [{"url": "https://docs.apify.com"}]}'
 ```
 
-With the [JavaScript API client](/api/client/js):
+Start a run and read its results with the [JavaScript API client](/api/client/js):
 
 ```javascript
 import { ApifyClient } from 'apify-client';
@@ -110,4 +109,4 @@ Some Actors need more access than a restricted run gets, for example to create a
 
 Some Actors run other Actors and read their results. With the default settings, these Actors fail because they can't read the other runs' storages. To fix this, turn on **Allow this token to access default run storages** on the scoped token. See [Read results with a separate token](#read-results-with-a-separate-token) for the trade-off.
 
-You can't call Actors in [Standby mode](/actors/running/standby) with a Restricted access token. The request fails with a `400` error of type `actor-restricted-access-permission-mode-not-supported`.
+You can't call Actors in [Standby mode](/actors/running/standby) with a scoped token set to **Restricted access**. The request fails with a `400` error of type `actor-restricted-access-permission-mode-not-supported`.
