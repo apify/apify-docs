@@ -23,9 +23,7 @@ The [`apify-haystack`](https://pypi.org/project/apify-haystack/) package connect
 
 - Python 3.11 or newer
 - An [Apify account](https://console.apify.com/sign-up) and your API token from the [Integrations](https://console.apify.com/settings/integrations) page in Apify Console
-- An [OpenAI API key](https://platform.openai.com/account/api-keys) for the examples on this page
-
-Haystack supports many other model providers too.
+- An [OpenAI API key](https://platform.openai.com/account/api-keys) for the examples on this page. Haystack also supports other model providers.
 
 ## Installation
 
@@ -42,7 +40,18 @@ export APIFY_TOKEN="YOUR-APIFY-API-TOKEN"
 export OPENAI_API_KEY="YOUR-OPENAI-API-KEY"
 ```
 
-The components read the token from `APIFY_TOKEN`, or from `APIFY_API_TOKEN` if `APIFY_TOKEN` isn't set. To read it from another variable, pass a Haystack `Secret`, for example `apify_token=Secret.from_env_var("MY_APIFY_TOKEN")`.
+The components read the token from `APIFY_TOKEN`, or from `APIFY_API_TOKEN` if `APIFY_TOKEN` isn't set. To read it from another variable, pass a Haystack `Secret`:
+
+```python
+from haystack.utils import Secret
+
+from apify_haystack import ApifyDatasetLoader
+
+loader = ApifyDatasetLoader(
+    dataset_id="YOUR-DATASET-ID",
+    apify_token=Secret.from_env_var("MY_APIFY_TOKEN"),
+)
+```
 
 ## Answer questions about website content
 
