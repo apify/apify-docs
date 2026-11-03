@@ -32,7 +32,7 @@ Users want to know what data the Actor provides, what inputs it takes, and what 
 
 Let's move the current README to a different file. A `CONTRIBUTING.md` file may be a good choice, as it is a common convention for documenting setup, design decisions, and contribution guidelines for developers. We'll then create a new `README.md` that serves as the Actor's landing page. Ask the AI agent to draft it:
 
-```text
+```prompt title="Draft user README prompt"
 Move the current README content to CONTRIBUTING.md.
 Then read https://docs.apify.com/actors/publishing/actor-readme
 and draft a new README focused on users.
@@ -90,7 +90,7 @@ Let them take control of the computer with a single goal: run the Actor for the 
 
 If you can't find such a friend, ask an AI chat or agent other than the one that wrote the README. Use this prompt as a starting point:
 
-```text
+```prompt title="User testing session prompt"
 Imitate a user testing session. You are an Apify Store user
 who has just found this Actor and its README. Work out what
 the Actor does, what it's useful for, and how to run it for
@@ -125,7 +125,7 @@ We can use the same approach for other parts of the Store listing, such as the [
 
 If you plan to charge for the Actor, ask the AI agent to help you think through pricing as well:
 
-```text
+```prompt title="Recommend pricing prompt"
 Read the Actor monetization and pricing guide:
 https://docs.apify.com/actors/monetize
 Then inspect this repository and recommend the most suitable

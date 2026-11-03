@@ -18,7 +18,7 @@ argument-hint: topic
    - **Reference**: brief description → parameters/options → examples → related pages
 5. **Quality check** - run `pnpm lint:md` and `vale` before finishing
 
-Key rules: US English, active voice, imperative tone, sentence case headings, bold for UI elements only, all admonitions need titles, code blocks need language tags.
+Key rules: US English, active voice, imperative tone, sentence case headings, bold for UI elements only, all admonitions need titles, code blocks need language tags, prompt examples go in a titled `prompt` code block.
 
 For detailed structure templates, see `.agents/skills/doc-write/references/doc-structures.md`.
 For edge cases and process notes, see `.agents/skills/doc-write/references/process.md`.

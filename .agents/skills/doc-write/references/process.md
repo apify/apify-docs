@@ -42,7 +42,7 @@ Follow the structure template for the doc type in `.agents/skills/doc-write/refe
 - Run `vale "<file>" --minAlertLevel=error`
 - Run `pnpm start` (or `pnpm build`) to verify no broken links or slug conflicts
 
-Key rules: US English, active voice, imperative tone, sentence case headings, bold for UI elements only, all admonitions need titles, code blocks need language tags.
+Key rules: US English, active voice, imperative tone, sentence case headings, bold for UI elements only, all admonitions need titles, code blocks need language tags, prompt examples go in a titled `prompt` code block.
 
 ## Edge cases
 

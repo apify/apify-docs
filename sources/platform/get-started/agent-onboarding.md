@@ -37,7 +37,7 @@ Every Apify Actor follows the same pattern: send input as JSON, get structured d
 
 After [connecting the MCP server](#mcp-server) to your AI assistant, ask:
 
-```text
+```prompt title="Find and summarize Apify docs pages"
 Use Apify's RAG Web Browser to find the top 3 pages about Apify documentation, then summarize.
 ```
 

@@ -152,6 +152,7 @@ Use `pnpm start:dev` + nginx to serve all repos together locally. See `CONTRIBUT
 1. **Broken links on build** - `onBrokenLinks: 'throw'` fails CI. Check slugs match file paths
 1. **Missing frontmatter** - Description or slug errors break SEO and navigation
 1. **Missing code block language** - Always specify language for syntax highlighting
+1. **Prompt examples as blockquotes or `text` blocks** - Use a `prompt` code block with a `title`, see `standards/page-structure.md#prompt-examples`
 1. **Stale API docs locally** - Run `pnpm api:rebuild` after changing OpenAPI specs
 
 ## Quick reference
