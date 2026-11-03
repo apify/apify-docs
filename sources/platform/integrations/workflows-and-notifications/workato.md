@@ -170,15 +170,23 @@ Select a key-value store and a key to retrieve the corresponding record as a tex
 
 ![Screenshot of the get key-value store record action configuration in Workato](../images/workato/get-key-val.png)
 
+#### Web Fetch
+
+Fetch one page and return it in the formats you choose.
+
+The action calls the [Web Fetch](https://apify.com/apify/web-fetch) Actor and returns the page as Markdown, HTML, plain text, a list of links, or the raw content (base64-encoded for binary files). It uses Markdown unless you clear **Formats**, in which case Web Fetch picks the format from the content type. Custom HTTP headers go in as JSON, for example `{"Accept-Language": "fr-FR"}`. The response also includes the final URL, the HTTP status code, and other fetch details and page metadata.
+
+The action still returns a page with an error status, such as 404. Read the status in **Fetch > HTTP status code**. The action fails only when Web Fetch can't reach the page. It skips content the page loads with JavaScript. To crawl more than one page, use **Run Actor** with [Website Content Crawler](https://apify.com/apify/website-content-crawler).
+
 #### Scrape single URL
 
-Scrapes a single URL using a selected Apify crawler.
+:::caution Deprecated
 
-Provide a single URL and a desired crawler type to get structured scraped data from that page as a JSON object. This action provides immediate, on-demand scraping capabilities:
+Use the [Web Fetch](#web-fetch) action for new recipes. Existing recipes that use Scrape single URL keep working.
 
-- Scrapes content from a single specified URL.
-- Supports three crawler types: **Adaptive Crawler**, **Firefox Headless Browser**, and **Cheerio** (fast, raw HTTP).
-- Returns extracted content in structured format (text, markdown, HTML, metadata).
+:::
+
+Existing recipes still scrape one URL with the crawler configured on the action and return the page as JSON.
 
 ![Screenshot of the scrape single URL action configuration in Workato](../images/workato/scrape-url.png)
 
