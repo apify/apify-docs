@@ -35,7 +35,7 @@ If your team works in a workflow platform or a data tool, you don't need code. A
 
 ## Connect an AI agent
 
-Agents and coding assistants have their own section, with the ways to connect, a quickstart, and a setup guide for each client.
+The For AI agents pages cover the ways to connect, a quickstart, and a setup guide for each client.
 
 - [For AI agents](/agents) - learn how to connect an agent.
 - [AI integrations](/integrations/ai) - agent frameworks, SDKs, and vector databases.

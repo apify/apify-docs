@@ -21,7 +21,7 @@ Sign up for an [Apify account](https://console.apify.com/sign-up). The free plan
 
 ## Connect the MCP server
 
-The [Apify MCP server](/mcp) connects your agent to the full Apify platform via the [Model Context Protocol](https://modelcontextprotocol.io/). No local installation needed for remote-capable clients.
+The [Apify MCP server](/mcp) connects your agent to the Apify platform via the [Model Context Protocol](https://modelcontextprotocol.io/). No local installation needed for remote-capable clients.
 
 If you don't have an Apify account yet, connect to `https://mcp.apify.com/?tools=search-actors,fetch-actor-details,search-apify-docs,fetch-apify-docs`. These tools search Actors and the documentation without an API token, but can't run Actors. For details, see [using the MCP server without an account](/mcp#use-without-an-account).
 
@@ -50,7 +50,7 @@ For client-specific steps, use the [MCP Configurator](https://mcp.apify.com), wh
 
 Every Apify Actor follows the same pattern: send input as JSON, get structured data back. With the MCP server connected, ask your agent to use the agent-optimized [RAG Web Browser](https://apify.com/apify/rag-web-browser) Actor:
 
-```text
+```prompt
 Use Apify's RAG Web Browser to find the top 3 pages about Apify documentation, then summarize.
 ```
 
