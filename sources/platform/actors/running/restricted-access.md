@@ -24,11 +24,11 @@ A scoped token set to [**Restricted access**](#create-a-scoped-token-to-run-acto
 - Read its input, and read and write its default storages.
 - Run the Actors the token can run. These runs get the same restrictions.
 
-It can't list or manage your other runs, create new storages, or access storages that aren't its own, unless you add those permissions to the token or your account settings make them readable by ID. See [Restrict access to your run data](#restrict-access-to-your-run-data). This limits what any Actor from Apify Store can reach in your account.
+It can't list or manage your other runs, create new storages, or access storages that aren't its own, unless you add those permissions to the token.
 
 ### Full-permission Actors
 
-Actors in Apify Store use either [limited or full permissions](/actors/running/permissions#permission-levels). If your token can run [full-permission Actors](/actors/running/permissions#full-permission-actors), these runs still get only the token's scope in **Restricted access** mode, not access to your whole account.
+Actors in Apify Store use either [limited or full permissions](/actors/running/permissions#permission-levels). If your token can run [full-permission Actors](/actors/running/permissions#full-permission-actors), in **Restricted access** mode these runs get only the token's scope, not access to your whole account.
 
 You must approve each full-permission Actor once in Apify Console before you can run it through the API. Until then, the request fails with a `403` error of type `full-permission-actor-not-approved`.
 
@@ -73,12 +73,11 @@ The new token appears in the token list with a **Limited permissions** badge. If
 
 By default, the token that starts runs can't read their results, so use a different token to read results. This can be your main API token, or a second scoped token with **Read** access to datasets and key-value stores. Keep this token on your backend and never pass it to an Actor.
 
-Alternatively, turn on **Allow this token to access default run storages** on the scoped token. The token can then read the results of runs it starts, so you don't need a separate token. If the token leaks, though, it can also be used to read those results.
+Alternatively, turn on **Allow this token to access default run storages** on the scoped token. The token can then read the results of runs it starts, so you don't need a separate token. If the token leaks, anyone who has it can also read those results.
 
 ## Run an Actor
 
-Start runs with the scoped token, and read results with the separate token.
-
+Start runs with the scoped token, and read results with a separate token.
 With the REST API:
 
 ```bash
@@ -107,7 +106,7 @@ const { items } = await readClient.dataset(run.defaultDatasetId).listItems();
 
 ## Limitations and troubleshooting
 
-Some Actors need more access than a restricted run gets, for example to create a new storage. These runs fail with `insufficient permissions` in the log, and there's no way to detect this before you run the Actor. If you pass an existing storage in the input that the token can't access, Apify doesn't start the run, and the API request fails with an `insufficient-permissions` error. To fix it, add the missing permission to the token's scope. To avoid granting extra access to every Actor, use a separate token for each Actor that needs more permissions. See [Troubleshoot insufficient permissions errors](/integrations/api#my-run-failed-and-i-can-see-insufficient-permissions-in-the-logs).
+Some Actors need more access than a restricted run gets, for example to create a new storage. These runs fail with `insufficient permissions` in the log, and you can't detect this before you run the Actor. To fix it, add the missing permission to the token's scope. To avoid granting extra access to every Actor, use a separate token for each Actor that needs more permissions. See [Troubleshoot insufficient permissions errors](/integrations/api#my-run-failed-and-i-can-see-insufficient-permissions-in-the-logs).
 
 Some Actors run other Actors and read their results. With the default settings, these Actors fail because they can't read the other runs' storages. To fix this, turn on **Allow this token to access default run storages** on the scoped token. See [Read results with a separate token](#read-results-with-a-separate-token) for the trade-off.
 
