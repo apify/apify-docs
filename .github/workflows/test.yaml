@@ -13,10 +13,11 @@ jobs:
             -   name: Checkout Source code
                 uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
-            -   name: Use Node.js 24
+            -   name: Use Node.js
                 uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
                 with:
-                    node-version: 24
+                    node-version-file: .nvmrc
+                    check-latest: true
 
             -   uses: apify/actions/pnpm-install@v1.3.1
 
@@ -268,10 +269,11 @@ jobs:
                     files_ignore: '!sources/api/*.{md,mdx}'
                     separator: ","
 
-            -   name: Use Node.js 24
+            -   name: Use Node.js
                 uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
                 with:
-                    node-version: 24
+                    node-version-file: .nvmrc
+                    check-latest: true
 
             -   uses: apify/actions/pnpm-install@v1.3.1
 
@@ -292,10 +294,11 @@ jobs:
             -   name: Checkout Source code
                 uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
-            -   name: Use Node.js 24
+            -   name: Use Node.js
                 uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
                 with:
-                    node-version: 24
+                    node-version-file: .nvmrc
+                    check-latest: true
 
             -   uses: apify/actions/pnpm-install@v1.3.1
 

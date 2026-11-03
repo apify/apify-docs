@@ -17,10 +17,11 @@ jobs:
                 with:
                     fetch-depth: 0  # The check reads commit history of each page
 
-            -   name: Use Node.js 24
+            -   name: Use Node.js
                 uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
                 with:
-                    node-version: 24
+                    node-version-file: .nvmrc
+                    check-latest: true
 
             -   name: Find stale pages
                 run: node scripts/checkStaleness.mjs > staleness-report.md
