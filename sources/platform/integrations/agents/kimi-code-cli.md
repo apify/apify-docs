@@ -98,7 +98,7 @@ Example prompts that route to specific skills:
 
 Each skill is also registered as a slash command, so you can start a workflow directly. The canonical form is `/skill:<name>`, and the shorthand works when the name isn't taken by a built-in command:
 
-```text
+```prompt title="Run the ultimate scraper skill"
 /apify-ultimate-scraper scrape reviews from a Google Maps listing
 ```
 

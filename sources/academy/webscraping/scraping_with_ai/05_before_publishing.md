@@ -112,7 +112,7 @@ Once you publish your Actor, Apify Store itself will join the feedback party. Ap
 
 Our Actor needs a good name. But what makes a name good? The [Name your Actor](/academy/build-and-publish/apify-store/name-your-actor) guide has plenty of advice. Let's give it to the AI agent and brainstorm together:
 
-```text
+```prompt title="Brainstorm Actor names prompt"
 Read the Actor naming guide:
 https://docs.apify.com/academy/build-and-publish/apify-store/name-your-actor
 Then inspect this repository and suggest 20 suitable names for this Actor.

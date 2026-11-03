@@ -157,7 +157,9 @@ For example, to use `apify-ultimate-scraper`:
 
 1. Ask Manus to perform a task, for example:
 
-    > "Get the top 10 posts from @natgeo on Instagram"
+    ```prompt title="Get top Instagram posts"
+    Get the top 10 posts from @natgeo on Instagram.
+    ```
 
 Manus will load the skill instructions and use the appropriate Apify Actors to complete the task.
 
