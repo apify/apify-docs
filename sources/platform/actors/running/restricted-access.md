@@ -80,7 +80,7 @@ Alternatively, turn on **Allow this token to access default run storages** in th
 Start a run with the REST API:
 
 ```bash
-curl -X POST "https://api.apify.com/v2/acts/apify~website-content-crawler/runs" \
+curl -X POST "https://api.apify.com/v2/actors/apify~website-content-crawler/runs" \
   -H "Authorization: Bearer <SCOPED_TOKEN>" \
   -H "Content-Type: application/json" \
   -d '{"startUrls": [{"url": "https://docs.apify.com"}]}'
