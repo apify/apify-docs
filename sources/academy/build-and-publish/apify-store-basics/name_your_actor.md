@@ -29,11 +29,7 @@ Your Actor's name consists of four parts: actual name, SEO name, URL, and GitHub
 
 The Actor name provides a human-readable name. The name is the most important real estate from an SEO standpoint. It should exactly match the most likely search query that potential users of your Actor will use. At the same time, it should give your Actor a clear name for people who will use it every day.
 
-:::tip
-
-Your Actor's name should be _40-50 characters_ long. You can change your Actor name freely in Apify Console.
-
-:::
+Your Actor's name should be 40-50 characters long. You can change it in Apify Console.
 
 ### Actor name vs. SEO name
 
