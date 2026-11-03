@@ -67,7 +67,9 @@ Open the agent picker in the chat composer and select the `apify` agent.
 
 With the `apify` agent selected, describe what you want in plain language.
 
-> Use Apify to find a good Actor for scraping Google Maps places. Show me the best option, its input requirements, pricing model, and what kind of dataset output it returns. Do not run the Actor yet.
+```prompt title="Find a Google Maps Actor"
+Use Apify to find a good Actor for scraping Google Maps places. Show me the best option, its input requirements, pricing model, and what kind of dataset output it returns. Do not run the Actor yet.
+```
 
 The agent searches Apify Store, fetches the top Actor's details, and summarizes its inputs, pricing, and output - without running the Actor.
 

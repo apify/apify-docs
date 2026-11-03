@@ -71,7 +71,9 @@ The connection stays authenticated for future sessions. You can revoke access at
 
 In any new Codex CLI chat, describe what you want in natural language. Because this bundle exposes the MCP tools and skills directly, be explicit about the workflow you want.
 
-> Use Apify to find a good Actor for scraping Google Maps places. Show me the best option, its input requirements, pricing model, and what kind of dataset output it returns. Do not run the Actor yet.
+```prompt title="Find a Google Maps Actor"
+Use Apify to find a good Actor for scraping Google Maps places. Show me the best option, its input requirements, pricing model, and what kind of dataset output it returns. Do not run the Actor yet.
+```
 
 Codex searches Apify Store and fetches the top Actor's details through the `apify` MCP server.
 

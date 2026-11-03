@@ -79,11 +79,15 @@ The connection stays authenticated for future sessions. You can revoke access at
 
 Describe what you want in natural language. The `apify` agent routes the request to the right tool or skill, so you don't need to name tools yourself.
 
-> List what Apify tools you have available.
+```prompt title="List available Apify tools"
+List what Apify tools you have available.
+```
 
 To go further, ask it to find an Actor for a task:
 
-> Use Apify to find a good Actor for scraping Google Maps places. Show me the best option, its input requirements, pricing model, and what kind of dataset output it returns. Do not run the Actor yet.
+```prompt title="Find a Google Maps Actor"
+Use Apify to find a good Actor for scraping Google Maps places. Show me the best option, its input requirements, pricing model, and what kind of dataset output it returns. Do not run the Actor yet.
+```
 
 ### Manage the extension
 
@@ -144,11 +148,15 @@ QwenWork uses an installed skill automatically when a task matches the trigger c
 
 With the connector added, describe a task in natural language and QwenWork calls the Apify tools:
 
-> Use Apify to find 10 highly rated coffee shops in Seattle with name, address, rating, phone, and website.
+```prompt title="Find coffee shops in Seattle"
+Use Apify to find 10 highly rated coffee shops in Seattle with name, address, rating, phone, and website.
+```
 
 To scope a source directly, name the Actor's target:
 
-> Use Apify to scrape the latest 50 posts from a public Instagram profile and return them as a table.
+```prompt title="Scrape Instagram posts"
+Use Apify to scrape the latest 50 posts from a public Instagram profile and return them as a table.
+```
 
 ## Bundled skills
 

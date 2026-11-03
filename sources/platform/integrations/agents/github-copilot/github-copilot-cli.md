@@ -69,7 +69,9 @@ If no browser tab opened during installation, or `apify-mcp-server` shows as dis
 
 Describe what you want in plain language.
 
-> Use Apify to find a good Actor for scraping Google Maps places. Show me the best option, its input requirements, pricing model, and what kind of dataset output it returns. Do not run the Actor yet.
+```prompt title="Find a Google Maps Actor"
+Use Apify to find a good Actor for scraping Google Maps places. Show me the best option, its input requirements, pricing model, and what kind of dataset output it returns. Do not run the Actor yet.
+```
 
 The agent searches Apify Store, fetches the top Actor's details, and summarizes its inputs, pricing, and output - without running the Actor.
 

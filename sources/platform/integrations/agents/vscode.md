@@ -60,7 +60,9 @@ The connection stays authenticated for future sessions. You can revoke access at
 
 Open Chat, select the **apify** agent from the mode picker, and describe what you want in natural language. The agent routes the request to the right tool or skill, so you don't need to name tools yourself.
 
-> Use Apify to find a good Actor for scraping Google Maps places. Show me the best option, its input requirements, pricing model, and what kind of dataset output it returns. Do not run the Actor yet.
+```prompt title="Find a Google Maps Actor"
+Use Apify to find a good Actor for scraping Google Maps places. Show me the best option, its input requirements, pricing model, and what kind of dataset output it returns. Do not run the Actor yet.
+```
 
 The agent searches Apify Store, fetches the top Actor's details through the Apify MCP server, and summarizes its inputs, pricing, and output - all without running the Actor.
 
