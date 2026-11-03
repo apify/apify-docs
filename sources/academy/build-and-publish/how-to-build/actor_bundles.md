@@ -3,7 +3,7 @@ title: Actor bundles
 description: Learn what an Actor bundle is, explore existing examples, and discover how to promote them.
 sidebar_position: 3
 category: build-and-publish
-slug: /actor-marketing-playbook/product-optimization/actor-bundles
+slug: /build-and-publish/how-to/actor-bundles
 ---
 
 **Learn what an Actor bundle is, explore existing examples, and discover how to promote them.**

@@ -3,7 +3,7 @@ title: Importance of Actor URL
 description: Learn how to set your Actor’s URL (technical name) and name effectively when creating it on Apify. Follow best practices to optimize your Actor’s web presence and ensure it stands out on Apify Store.
 sidebar_position: 6
 category: build-and-publish
-slug: /actor-marketing-playbook/actor-basics/importance-of-actor-url
+slug: /build-and-publish/apify-store/importance-of-actor-url
 ---
 
 **Actor URL (or technical name, as we call it), is the page URL of the Actor shown on the web. When you're creating an Actor, you can set the URL yourself along with the Actor name. Here are best practices on how to do it well.**
@@ -24,7 +24,7 @@ This part of the manual is only applicable to new Actors. _Once set, existing Ac
 
 ## How to choose a URL
 
-The right naming can propel or hinder the success of the Actor on Google Search. Just as naming your Actor is important, so is choosing its URL. The only difference is, once set, the URL is intended to be permanent (more on this [later](/academy/actor-marketing-playbook/actor-basics/importance-of-actor-url)). What's the formula for the best Actor URL?
+The right naming can propel or hinder the success of the Actor on Google Search. Just as naming your Actor is important, so is choosing its URL. The only difference is, once set, the URL is intended to be permanent (more on this [later](/academy/build-and-publish/apify-store/importance-of-actor-url)). What's the formula for the best Actor URL?
 
 ### Brainstorming
 
@@ -74,7 +74,7 @@ Once set, the page URL should not be changed. Because of those two important rea
 
 If you absolutely have to change the URL, you will have to communicate that fact to your users.
 
-💡 Learn more about the easiest ways to communicate with your users: [Emails to Actor users](/academy/actor-marketing-playbook/interact-with-users/emails-to-actor-users)
+💡 Learn more about the easiest ways to communicate with your users: [Emails to Actor users](/academy/build-and-publish/interact-with-users/emails-to-actor-users)
 
 ## How and where to set the Actor URL
 

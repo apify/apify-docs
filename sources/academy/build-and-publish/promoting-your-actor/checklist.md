@@ -3,7 +3,7 @@ title: Marketing checklist
 description: A comprehensive, actionable checklist to promote your Actor. Follow this step-by-step guide to reach more users through social media, content marketing, and community engagement.
 sidebar_position: 0
 category: build-and-publish
-slug: /actor-marketing-playbook/promote-your-actor/checklist
+slug: /build-and-publish/promote-your-actor/checklist
 ---
 
 You're a developer, not a marketer. You built something awesome, and now you need people to find it. This checklist breaks down the marketing process into simple, actionable steps.
@@ -108,7 +108,7 @@ Product Hunt drives significant traffic and visibility. A successful launch brin
 
 Create a Product Hunt listing for your Actor. Schedule it for a weekday morning (Tuesday through Thursday works best). Prepare assets: logo, screenshots, and demo video.
 
-Learn more in the [Product Hunt guide](/academy/actor-marketing-playbook/promote-your-actor/product-hunt).
+Learn more in the [Product Hunt guide](/academy/build-and-publish/promote-your-actor/product-hunt).
 
 ### Submit to Hacker News
 
@@ -158,7 +158,7 @@ Developers love reading about other developers' journeys. This positions you as 
 
 Share your development process, challenges you faced, and how you solved them. Post on dev.to, Medium, Hashnode, or your personal blog.
 
-Learn more in the [Blogs and blog resources guide](/academy/actor-marketing-playbook/promote-your-actor/blogs-and-blog-resources).
+Learn more in the [Blogs and blog resources guide](/academy/build-and-publish/promote-your-actor/blogs-and-blog-resources).
 
 ### Create a "Best X" article for Medium
 

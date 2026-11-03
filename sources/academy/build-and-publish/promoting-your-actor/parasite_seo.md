@@ -3,7 +3,7 @@ title: Parasite SEO
 description: Explore parasite SEO, a unique strategy that leverages third-party sites to boost rankings and drive traffic to your tools.
 sidebar_position: 3
 category: build-and-publish
-slug: /actor-marketing-playbook/promote-your-actor/parasite-seo
+slug: /build-and-publish/promote-your-actor/parasite-seo
 ---
 
 **Do you want to attract more users to your Actors? Consider parasite SEO, a non-conventional method of ranking that leverages third-party sites.**
