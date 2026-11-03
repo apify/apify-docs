@@ -199,7 +199,7 @@ Use Apify to find a good Actor for scraping Google Maps places.
 - Write the title in sentence case and name what the prompt does. Don't repeat the sentence that introduces the prompt.
 - Don't wrap the prompt in quotation marks. They're copied along with the text.
 - Don't use blockquotes, italics, or `text` code blocks for prompts.
-- For a long prompt that should start hidden, import the `PromptBlock` component and the prompt text from `src/utils/`, then set `title` and `collapsed`: `<PromptBlock prompt={MY_PROMPT} title="Set up your AI coding assistant" collapsed />`.
+- For a long prompt that should start hidden, import the `PromptBlock` component and the prompt text from `src/utils/`, then set `collapsed`: `<PromptBlock prompt={MY_PROMPT} collapsed />`. A collapsed prompt can keep the default title.
 
 ### Version matching
 
