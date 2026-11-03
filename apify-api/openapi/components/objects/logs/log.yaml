@@ -83,6 +83,7 @@ getByBuildId:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/buildId"
     - $ref: "../../parameters/logParameters.yaml#/stream"
     - $ref: "../../parameters/logParameters.yaml#/download"
+    - $ref: "../../parameters/logParameters.yaml#/raw"
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-builds/build-log/get-log
     - https://docs.apify.com/api/v2#/reference/actor-builds/get-log
