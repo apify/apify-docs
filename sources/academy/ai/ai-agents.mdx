@@ -33,17 +33,13 @@ Apify provides a complete platform for building and deploying AI agents with the
 
 ### Step 1: Define the use case
 
-This tutorial creates a social media analysis agent that analyzes Instagram posts based on user queries using the [Instagram Scraper Actor](https://apify.com/apify/instagram-scraper).
+This tutorial creates a social media analysis agent that analyzes Instagram posts based on user queries using the [Instagram Scraper Actor](https://apify.com/apify/instagram-scraper). For example, a user can ask:
 
-_Example:_
+```prompt title="Analyze AI trends on Instagram"
+Analyze the last 10 posts from @openai and summarize AI trends.
+```
 
-- _Input:_
-
-    ```prompt title="Analyze AI trends on Instagram"
-    Analyze the last 10 posts from @openai and summarize AI trends.
-    ```
-
-- _Output:_ Trend analysis based on post content.
+The agent responds with a trend analysis based on the post content.
 
 ### Step 2: Configure input and output
 
@@ -51,12 +47,7 @@ Define the input format (URL, JSON configuration, or text query) and output form
 
 _Example input:_
 
-- User query:
-
-    ```prompt title="Analyze AI trends on Instagram"
-    Analyze @openai posts for AI trends.
-    ```
-
+- User query: "Analyze @openai posts for AI trends"
 - OpenAI model selection (e.g., `gpt-4`)
 
 _Example output:_

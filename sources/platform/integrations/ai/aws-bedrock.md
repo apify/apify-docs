@@ -61,7 +61,7 @@ On this page, you can:
 
 For example, you can use the following instructions:
 
-```plaintext
+```prompt title="Agent instructions"
 You are a smart and helpful assistant.
 Answer question based on the search results.
 Use an expert, friendly, and informative tone
