@@ -2039,7 +2039,7 @@ div[class^='navbarSearchContainer'] {
     stroke: var(--color-neutral-separator-subtle) !important;
 }
 
-.docusaurus-mermaid-container :is(.nodeLabel, .cluster-label span, .label text) {
+.docusaurus-mermaid-container :is(.nodeLabel, .label text) {
     color: var(--color-neutral-text) !important;
     fill: var(--color-neutral-text) !important;
 }

@@ -8,7 +8,7 @@ slug: /actors/development/builds-and-runs
 
 import ActorJobLifecycle from '@site/sources/_partials/_actor-job-lifecycle.mdx';
 
-Actor **builds** and **runs** are fundamental concepts within the Apify platform. Understanding them is crucial for effective use of the platform.
+Actor builds and runs are fundamental concepts within the Apify platform. Understanding them is crucial for effective use of the platform.
 
 ```mermaid
 flowchart LR

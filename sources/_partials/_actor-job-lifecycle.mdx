@@ -4,7 +4,7 @@ Each run and build starts with the initial status **READY** and goes through one
 
 ```mermaid
 flowchart LR
-    accTitle: Actor run and build lifecycle
+    accTitle: Lifecycle of an Actor run and build
     accDescr: READY moves to RUNNING. RUNNING ends as SUCCEEDED or FAILED, goes through TIMING-OUT to TIMED-OUT, or goes through ABORTING to ABORTED.
 
     READY --> RUNNING
