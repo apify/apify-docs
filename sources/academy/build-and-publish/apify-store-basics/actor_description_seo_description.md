@@ -3,7 +3,7 @@ title: Actor description & SEO description
 description: Learn about Actor description and meta description. Where to set them and best practices for both content and length.
 sidebar_position: 3
 category: build-and-publish
-slug: /actor-marketing-playbook/actor-basics/actor-description
+slug: /build-and-publish/apify-store/actor-description
 ---
 
 Learn about Actor description and meta description. Where to set them and best practices for both content and length.

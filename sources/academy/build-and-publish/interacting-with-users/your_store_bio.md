@@ -3,7 +3,7 @@ title: Your Apify Store bio
 description: Your Apify Store bio is all about helping you promote your tools & skills.
 sidebar_position: 3
 category: build-and-publish
-slug: /actor-marketing-playbook/interact-with-users/your-store-bio
+slug: /build-and-publish/interact-with-users/your-store-bio
 ---
 
 ## Your Apify Store bio and Store “README”
