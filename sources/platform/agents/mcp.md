@@ -197,9 +197,9 @@ To select your tools visually, use the [MCP configurator](https://mcp.apify.com/
 | `get-schedule` | `schedules` | | Get a schedule's cron expression, time zone, state, and next run |
 | `update-schedule` | `schedules` | | Change a schedule's cron expression, time zone, state, or actions |
 | `delete-schedule` | `schedules` | | Delete a schedule permanently |
-| `report-problem` | `dev` | ✅ | Report a problem with the MCP server to Apify. Not loaded by default for Claude clients |
+| `report-problem` | `dev` | ✅ | Report a problem with the MCP server to Apify |
 
-The server withholds `report-problem` when you [turn off telemetry](#opt-out-of-telemetry), and doesn't load it by default for Claude clients. To request it explicitly, add `report-problem` or the `dev` category to the `tools` parameter.
+The server withholds `report-problem` when you [turn off telemetry](#opt-out-of-telemetry), and doesn't load it by default for some MCP clients. To request it explicitly, add `report-problem` or the `dev` category to the `tools` parameter.
 
 :::note Retrieving Actor results
 
