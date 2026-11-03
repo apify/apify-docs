@@ -3,3 +3,6 @@
 # apify-docs workspace. Keeps the test harness fully isolated from the main
 # docs build's dependency tree.
 packages: []
+
+# Supply-chain cooldown: only install versions published at least 7 days ago.
+minimumReleaseAge: 10080
