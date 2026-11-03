@@ -34,7 +34,7 @@ This guide covers setup in claude.ai in your browser. For the desktop app, see t
 
 1. Select the **Apify** plugin, marked with a verified badge.
 
-    <!-- TODO: screenshot of the Discover search results with the verified Apify plugin -->
+    <!-- TODO: screenshot of the Discover results, cropped to the verified Apify plugin -->
 
 1. Select **Add**.
 
@@ -54,15 +54,9 @@ The plugin bundles the Apify MCP server as a connector. Connect it and sign in t
 
 1. Keep the detected settings and select **Add**. Claude opens the Apify sign-in page.
 
-    <!-- TODO: screenshot of the Add custom connector dialog with the detected authentication settings -->
+1. The Apify sign-in page warns that the application was registered dynamically and wasn't verified by Apify. This warning is expected for Claude. Check that the Apify account is correct and that the redirect URL is `https://claude.ai/api/mcp/auth_callback`, then select **Allow access**.
 
-1. Check the Apify account and that the redirect URL in the warning is `https://claude.ai/api/mcp/auth_callback`, then select **Allow access**.
-
-    :::caution Dynamic registration warning
-
-    The Apify sign-in page warns that the application was registered dynamically and wasn't verified by Apify. This warning is expected for Claude.
-
-    :::
+    <!-- TODO: screenshot of the Apify sign-in page with the dynamic registration warning (light theme, #F86606 border on Allow access) -->
 
 1. Back in claude.ai, check that the `apify` connector shows as connected.
 
@@ -80,7 +74,7 @@ Use Apify to find a good Actor for scraping Google Maps places. Show me the best
 
 Claude searches Apify Store, fetches the top Actor's details through the Apify MCP server, and summarizes its inputs, pricing, and output - all without running the Actor.
 
-<!-- TODO: screenshot of a chat with Apify tool calls and results -->
+<!-- TODO: screenshot of a chat, cropped to the Apify tool calls and the result -->
 
 ## Bundled skills
 
@@ -116,7 +110,7 @@ Open **Customize** > **Connectors** and select the **Yours** tab. The `apify` co
 
 If `apify` isn't listed, or shows **Connect**, connect it as described in [Authenticate to Apify](#authenticate-to-apify). To reach the plugin page, open **Customize** > **Plugins**, select the **Yours** tab, and select the **Apify** plugin.
 
-Also check that the chat has the connector turned on: select **+** in the message box, then **Connectors**.
+Also check that the chat has the connector turned on: select **+** in the message box, then **Connectors**. If tools still don't run, check the connector's tool permissions and make sure Apify tools are set to **Always allow** or **Ask first**, not blocked.
 
 ### Authentication errors or wrong Apify account
 
