@@ -50,7 +50,7 @@ Before connecting your AI to Apify, you need:
 
 ## Connect and authorize
 
-To discover Actors and search the documentation, you can connect [without an account](#use-without-an-account). To run Actors, connect in one of two ways: use our hosted service with [Streamable HTTP with OAuth](#streamable-http-with-oauth-recommended), or run the server locally for development and testing using [local stdio](#local-stdio).
+To discover Actors and search the documentation, you can connect [without an account](#use-without-an-account). To run Actors, connect in one of two ways: use the hosted Apify service with [Streamable HTTP with OAuth](#streamable-http-with-oauth-recommended), or run the server locally for development and testing with [local stdio](#local-stdio).
 
 :::tip Structured output schemas
 
@@ -66,6 +66,8 @@ The Apify MCP server accepts requests without an API token when the `tools` quer
 - `fetch-actor-details`
 - `search-apify-docs`
 - `fetch-apify-docs`
+- `apify-api-search`
+- `apify-api-details`
 
 For example, the following URL connects without authentication:
 
@@ -147,13 +149,15 @@ Agents can pay for Actor runs without an Apify account. Payments made per reques
 
 By default, the MCP server loads the `actors` and `docs` tool categories, the `apify/rag-web-browser` and `apify/web-fetch` Actors, and `report-problem`. To choose different tools, set the `tools` parameter in the server URL. The parameter replaces the default selection instead of adding to it, so list everything you want to load:
 
-`https://mcp.apify.com?tools=actors,docs,apify/rag-web-browser`
+`https://mcp.apify.com?tools=actors,docs,apify/rag-web-browser,apify/web-fetch`
 
-For instance, `https://mcp.apify.com?tools=storage` loads only the storage tools, without `search-actors` or `call-actor`. The default Actors don't belong to any category, so `?tools=actors,docs` drops them too. To keep them, list them explicitly: `?tools=actors,docs,apify/rag-web-browser,apify/web-fetch`.
+For instance, `https://mcp.apify.com?tools=storage` loads only the storage tools, without `search-actors` or `call-actor`. The default Actors don't belong to any category, so `?tools=actors,docs` also drops them.
 
 For minimal setups where you only need specific Actors:
 
 `https://mcp.apify.com?tools=apify/instagram-scraper,apify/google-search-scraper`
+
+Each Actor you select with the `tools` parameter becomes a tool of its own, named `{username}--{actor-name}`. For example, the server exposes `apify/rag-web-browser` as `apify--rag-web-browser`. The server replaces dots in the username with `-dot-` and shortens names longer than 64 characters by adding a hash suffix to keep them unique.
 
 This configuration approach works for both hosted and local setups. For the CLI version:
 
@@ -193,21 +197,17 @@ To select your tools visually, use the [MCP configurator](https://mcp.apify.com/
 | `get-schedule` | `schedules` | | Get a schedule's cron expression, time zone, state, and next run |
 | `update-schedule` | `schedules` | | Change a schedule's cron expression, time zone, state, or actions |
 | `delete-schedule` | `schedules` | | Delete a schedule permanently |
-| `report-problem` | `dev` | ✅ | Report a problem with the MCP server to Apify |
+| `report-problem` | `dev` | ✅ | Report a problem with the MCP server to Apify. Not loaded by default for Claude clients |
 
-The server withholds `report-problem` when you turn off telemetry with `telemetry-enabled=false`, and doesn't load it by default for some MCP clients. To request it explicitly, add `report-problem` or the `dev` category to the `tools` parameter.
+The server withholds `report-problem` when you [turn off telemetry](#opt-out-of-telemetry), and doesn't load it by default for Claude clients. To request it explicitly, add `report-problem` or the `dev` category to the `tools` parameter.
 
 :::note Retrieving Actor results
 
 `call-actor` returns the run's status and storage IDs, not its output. To read the results, use `get-dataset-items` with the `datasetId` from the run. It supports limit, offset, and field filtering.
 
-Whenever `call-actor` or a specific [Actor tool](#actor-tool-names) such as `apify--rag-web-browser` is loaded, the server also adds `get-actor-run`, `get-dataset-items`, `get-key-value-store-record`, and `abort-actor-run`, even if you didn't select them. A default configuration therefore exposes them too.
+Whenever `call-actor` or a specific Actor tool such as `apify--rag-web-browser` is loaded, the server also adds `get-actor-run`, `get-dataset-items`, `get-key-value-store-record`, and `abort-actor-run`, even if you didn't select them. A default configuration therefore exposes them too.
 
 :::
-
-#### Actor tool names
-
-Each Actor you select with the `tools` parameter becomes a tool of its own, named `{username}--{actor-name}`. For example, the server exposes `apify/rag-web-browser` as `apify--rag-web-browser`. The server replaces dots in the username with `-dot-`, and shortens names longer than 64 characters, adding a hash suffix to keep them unique.
 
 #### Find and call any Actor on demand
 
