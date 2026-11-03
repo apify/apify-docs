@@ -148,7 +148,7 @@ QwenWork uses an installed skill automatically when a task matches the trigger c
 
 With the connector added, describe a task in natural language and QwenWork calls the Apify tools:
 
-```prompt title="Find coffee shops in Seattle"
+```prompt title="Scrape local business data"
 Use Apify to find 10 highly rated coffee shops in Seattle with name, address, rating, phone, and website.
 ```
 
