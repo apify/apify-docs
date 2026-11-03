@@ -198,6 +198,7 @@ The table below describes the available parameters.
             <br/>- <code>groups-RESIDENTIAL</code> when using [residential proxies](./residential_proxy.md).
             <br/>- <code>groups-GOOGLE_SERP</code> when using [Google SERP proxies](./google_serp_proxy.md).
             <br/>- <code>groups-UNBLOCKER</code> when using [Unblocker](./unblocker.md).
+            <br/>- <code>groups-GROUP1+GROUP2</code> when using multiple groups.
         </td>
     </tr>
     <tr>
