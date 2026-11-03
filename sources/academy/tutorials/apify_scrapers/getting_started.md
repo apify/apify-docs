@@ -35,7 +35,7 @@ This takes you to the **Input and options** tab of the task configuration. Befor
 
 Scroll down to the **Performance and limits** section and set the **Max pages per run** option to **10**. This tells your task to finish after 10 pages have been visited. We don't need to crawl the whole domain to see that the Actor works.
 
-> This also helps with keeping your [compute unit](/actors/running/usage-and-resources) (CU) consumption low. To get an idea, our free plan includes 10 CUs and this run will consume about 0.04 CU, so you can run it 250 times a month for free. If you accidentally go over the limit, no worries, we won't charge you for it. You just won't be able to run more tasks that month.
+> This limit also helps keep your [compute unit](/actors/running/usage-and-resources) (CU) consumption low. The free plan includes $5 of prepaid platform usage every month. A short run like this one uses only a fraction of a CU, so you can run it many times before you reach the limit. If you use up your prepaid usage, you won't be able to use the platform until your next billing cycle starts.
 
 Now click **Save & Run**! *(in the bottom-left part of your screen)*
 
