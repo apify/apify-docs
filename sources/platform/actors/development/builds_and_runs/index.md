@@ -35,4 +35,6 @@ When you start the build process for your Actor, you create a _build_. A build i
 
 To create a _run_, you take your _build_ and start it with some input.
 
+## Lifecycle
+
 <ActorJobLifecycle />

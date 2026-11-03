@@ -75,6 +75,8 @@ Both **Actor runs** and **builds** have the **Origin** field indicating how the 
 |`CI`|From a CI/CD pipeline (for example, GitHub Actions)|
 |`MCP`|From the [Apify MCP Server](/mcp)|
 
+## Lifecycle
+
 <ActorJobLifecycle />
 
 ### Abort a run
