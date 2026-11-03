@@ -188,7 +188,7 @@ result = client.actor('apify/web-scraper').call()
 
 ### Prompt examples
 
-Put a prompt the reader sends to an AI agent or assistant in a `prompt` code block. It renders as a prompt card with a **Copy prompt** button, and needs no import. Always set a title, or the card falls back to the generic "Ready-to-use prompt for your AI assistant":
+Put a prompt the reader sends to an AI agent or assistant in a `prompt` code block. It renders as a prompt card with a **Copy prompt** button, and needs no import. The card's default title is "Ready-to-use prompt for your AI assistant". Use it where it fits, but usually set your own with `title`:
 
 ````markdown
 ```prompt title="Find a Google Maps Actor"
@@ -196,10 +196,9 @@ Use Apify to find a good Actor for scraping Google Maps places.
 ```
 ````
 
-- Write the title in sentence case and name what the prompt does. Don't repeat the sentence that introduces the prompt.
 - Don't wrap the prompt in quotation marks. They're copied along with the text.
 - Don't use blockquotes, italics, or `text` code blocks for prompts.
-- For a long prompt that should start hidden, import the `PromptBlock` component and the prompt text from `src/utils/`, then set `collapsed`: `<PromptBlock prompt={MY_PROMPT} collapsed />`. A collapsed prompt can keep the default title.
+- For a long prompt that should start hidden, import the `PromptBlock` component and the prompt text from `src/utils/`, then set `collapsed`: `<PromptBlock prompt={MY_PROMPT} collapsed />`.
 
 ### Version matching
 

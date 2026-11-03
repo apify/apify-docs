@@ -56,7 +56,7 @@ Verify frontmatter has all required fields. Run `pnpm build` to catch broken lin
 
 ### Code examples don't render correctly
 
-Ensure every code block has a language specifier. Prompt examples use a titled `prompt` code block, see `standards/page-structure.md#prompt-examples`. For code tabs, use the exact Docusaurus `Tabs`/`TabItem` import pattern from `.agents/skills/tutorial/references/tutorial-template.md`.
+Ensure every code block has a language specifier. Prompt examples use a `prompt` code block, see `standards/page-structure.md#prompt-examples`. For code tabs, use the exact Docusaurus `Tabs`/`TabItem` import pattern from `.agents/skills/tutorial/references/tutorial-template.md`.
 
 ### Tutorial doesn't appear in sidebar
 

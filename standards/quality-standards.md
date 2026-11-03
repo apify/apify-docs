@@ -68,7 +68,7 @@ Before submitting documentation, verify:
 - [ ] Code examples are complete and runnable
 - [ ] Syntax highlighting specified for all code blocks
 - [ ] Code tabs used for multi-language examples
-- [ ] Prompt examples use a titled `prompt` code block (see [page-structure.md](page-structure.md#prompt-examples))
+- [ ] Prompt examples use a `prompt` code block (see [page-structure.md](page-structure.md#prompt-examples))
 - [ ] Dockerfile tags match package.json versions
 - [ ] Examples tested and working with current versions
 - [ ] Comments only where logic isn't self-evident
