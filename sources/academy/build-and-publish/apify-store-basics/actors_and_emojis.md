@@ -3,7 +3,7 @@ title: Actors and emojis
 description: Discover how emojis can boost your Actors by grabbing attention, simplifying navigation, and enhancing clarity. Improve user experience and engagement on Apify Store.
 sidebar_position: 4
 category: build-and-publish
-slug: /actor-marketing-playbook/actor-basics/actors-and-emojis
+slug: /build-and-publish/apify-store/emojis
 ---
 
 Using emojis in Actors is a science on its own. Learn how emojis enhance the user experience in Actors by grabbing attention, simplifying navigation, and making information clearer.
