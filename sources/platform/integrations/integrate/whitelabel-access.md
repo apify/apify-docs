@@ -69,7 +69,9 @@ Apify bills all runs to your account. To charge your users for what they use, re
 - `usageTotalUsd` is the total cost of the run in USD. For pay-per-event Actors, it includes the charged events and any platform usage the Actor charges on top. For pay-per-usage Actors, it's the platform usage. The value can change shortly after the run finishes, while Apify accounts for the last charged events.
 - `eventUsage` breaks down the cost of a pay-per-event run by event type, which you can show to your users.
 
-To cap what a single run can cost, set `maxTotalChargeUsd` when you start it, for example based on the user's remaining budget in your product. Before you offer an Actor to your users, check its pricing. See [Actor pricing models](/actors/running/actors-in-store#pricing-models).
+Runs of pay-per-result Actors don't include these fields, so you can't read their cost from the run object.
+
+To limit what a single run can cost, set `maxTotalChargeUsd` when you start it, for example based on the user's remaining budget in your product. The run stops when it reaches the limit. Before you offer an Actor to your users, check its pricing. See [Actor pricing models](/actors/running/actors-in-store#pricing-models).
 
 ## Plan for limits
 

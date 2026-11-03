@@ -22,9 +22,9 @@ If you only run a small, fixed set of Actors from developers you trust, such as 
 A scoped token set to [**Restricted access**](#create-a-scoped-token-to-run-actors) passes its own limits on to every Actor it runs. An Actor started this way can:
 
 - Read its input, and read and write its default storages.
-- Run other Actors, which get the same restrictions.
+- Run the Actors the token can run. These runs get the same restrictions.
 
-It can't list or manage your other runs, create new storages, or access storages that aren't its own, unless you add those permissions to the token. This limits what any Actor from Apify Store can reach in your account.
+It can't list or manage your other runs, create new storages, or access storages that aren't its own, unless you add those permissions to the token or your account settings make them readable by ID. See [Restrict access to your run data](#restrict-access-to-your-run-data). This limits what any Actor from Apify Store can reach in your account.
 
 ### Full-permission Actors
 
@@ -41,13 +41,13 @@ The setup has three parts: [restrict access to your run data](#restrict-access-t
 Two account settings can expose your runs to others, even when you use a scoped token:
 
 - With [General resource access](/account/collaboration/general-resource-access) set to **Anyone with ID can read**, anyone who knows the ID of a storage, run, or build can read it without an API token. An Actor running under your account could use this to read the storages of runs started by your other users.
-- With **Share run data with developers** turned on, the developer of each public Actor you run can see the input and output of your runs. This applies even if your general resource access is **Restricted**. See [Automatically sharing runs with public Actor creators](/account/collaboration/general-resource-access#automatically-sharing-runs-with-public-actor-creators).
+- With Actors selected under **Share run data with developers**, the developer of each selected public Actor can see the input and output of your runs. This applies even if your general resource access is **Restricted**. See [Automatically sharing runs with public Actor creators](/account/collaboration/general-resource-access#automatically-sharing-runs-with-public-actor-creators).
 
 To turn off both:
 
 1. In [Apify Console](https://console.apify.com), go to **Settings > Login & Privacy**. For organization accounts, go to **Settings > Security & Privacy**.
 1. Under **General resource access**, select **Restricted**.
-1. Turn off **Share run data with developers**.
+1. Under **Share run data with developers**, clear **All Actors** and any individual Actors.
 
 :::caution Anonymous reads stop working
 
@@ -107,7 +107,7 @@ const { items } = await readClient.dataset(run.defaultDatasetId).listItems();
 
 ## Limitations and troubleshooting
 
-Some Actors need more access than a restricted run gets, for example to create a new storage, or to read an existing dataset you pass in their input. These runs fail with `insufficient permissions` in the log, and there's no way to detect this before you run the Actor. To fix it, add the missing permission to the token's scope. To avoid granting extra access to every Actor, use a separate token for each Actor that needs more permissions. See [Troubleshoot insufficient permissions errors](/integrations/api#my-run-failed-and-i-can-see-insufficient-permissions-in-the-logs).
+Some Actors need more access than a restricted run gets, for example to create a new storage. These runs fail with `insufficient permissions` in the log, and there's no way to detect this before you run the Actor. If you pass an existing storage in the input that the token can't access, Apify doesn't start the run, and the API request fails with an `insufficient-permissions` error. To fix it, add the missing permission to the token's scope. To avoid granting extra access to every Actor, use a separate token for each Actor that needs more permissions. See [Troubleshoot insufficient permissions errors](/integrations/api#my-run-failed-and-i-can-see-insufficient-permissions-in-the-logs).
 
 Some Actors run other Actors and read their results. With the default settings, these Actors fail because they can't read the other runs' storages. To fix this, turn on **Allow this token to access default run storages** on the scoped token. See [Read results with a separate token](#read-results-with-a-separate-token) for the trade-off.
 
