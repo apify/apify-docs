@@ -10,7 +10,7 @@ You already have a stack, and you want the data your Actors produce in it. That 
 
 ## Call an Actor from your code
 
-Everything in Apify Console is also available through the REST API, with official clients for JavaScript and Python.
+Everything in Apify Console is also available through the REST API, with official clients for JavaScript and Python:
 
 - [API integration](/integrations/api) - get a token, authenticate, and scope what the token can access.
 - [API reference](/api/v2) - every endpoint, with the run and dataset calls you'll use most.
@@ -37,7 +37,7 @@ If your team works in a workflow platform or a data tool, you don't need code. A
 
 Agents and coding assistants have their own section, with the ways to connect, a quickstart, and a setup guide for each client.
 
-- [For AI agents](/agents) - start here to connect an agent.
+- [For AI agents](/agents) - learn how to connect an agent.
 - [AI integrations](/integrations/ai) - agent frameworks, SDKs, and vector databases.
 
-To run Actors by hand first, start with [Run Actors](/get-started/run-actors). To build your own Actor, see [Build Actors](/get-started/build-actors).
+To run Actors manually, start with [Run Actors](/get-started/run-actors). To build your own Actor, see [Build Actors](/get-started/build-actors).

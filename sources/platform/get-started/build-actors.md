@@ -45,14 +45,14 @@ Deployment turns your source code into a build - a Docker image the platform can
 
 ## Publish to Store
 
-Publishing puts your Actor in front of everyone browsing Apify Store. A good public Actor is more than working code. It needs a clear input schema, a README that explains what it does and how to use it, and reliable runs that strangers can depend on. The publishing guide covers all of it.
+Publishing makes your Actor available to everyone browsing Apify Store. A good public Actor is more than working code. It needs a clear input schema, a README that explains what it does and how to use it, and reliable runs that strangers can depend on. The publishing guide covers all of it.
 
 - [Publish your Actor](/actors/publishing) in Apify Store.
 - Call your Actors from your own code with the [API](/api/v2) or the [API clients](/academy/getting-started/apify-client).
 
 ## Monetize your Actor
 
-A published Actor can earn money. You pick a pricing model, complete your billing and payment details, and set the price, and the platform pays you for the runs other users start.
+A published Actor can earn money. You pick a pricing model, complete your billing and payment details, and set the price. The platform pays you for the runs other users start.
 
 - [Monetize Actors](/actors/monetize) - the pricing models, fees, and what users pay.
 - [Set up monetization](/actors/monetize/set-up-monetization) - turn pricing on for an Actor you have published.

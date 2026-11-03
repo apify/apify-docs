@@ -15,7 +15,7 @@ Apify also serves a quickstart for agents to read directly at [`apify.com/agents
 
 ## Prerequisites
 
-Sign up to [Apify Console](https://console.apify.com/sign-up). The free plan includes monthly platform usage credits with no credit card required. Get your API token from **[Console > Settings > Integrations](https://console.apify.com/settings/integrations)**.
+Sign up for an [Apify account](https://console.apify.com/sign-up). The free plan includes monthly platform usage credits with no credit card required. Get your API token from **[Console > Settings > Integrations](https://console.apify.com/settings/integrations)**.
 
 <ClaudeCodeWebEgress />
 
@@ -42,7 +42,7 @@ To connect a client that supports remote MCP servers, such as Claude Code, Curso
 
 1. Restart your client and sign in when prompted. OAuth handles authentication automatically.
 
-Claude Desktop doesn't accept a remote server URL in its configuration file. Add `https://mcp.apify.com` as a custom connector instead, as described in the [Claude Desktop integration guide](/integrations/claude-desktop).
+Claude Desktop doesn't accept a remote server URL in its configuration file. Add `https://mcp.apify.com` as a custom connector instead. For details, see [Claude Desktop integration guide](/integrations/claude-desktop).
 
 For client-specific steps, use the [MCP Configurator](https://mcp.apify.com), which generates ready-to-paste configs.
 
@@ -65,7 +65,7 @@ When an agent calls Actors automatically, set run limits to prevent surprise bil
 - `timeout` (seconds) - cap how long a single run can last.
 - `memory` (MB) - set memory as a power of 2, minimum 128. Lower memory means lower cost per second.
 
-See [Usage and resources](/actors/running/usage-and-resources) and [Billing](/account/billing) for details.
+For details, see [Usage and resources](/actors/running/usage-and-resources) and [Billing](/account/billing).
 
 :::
 
