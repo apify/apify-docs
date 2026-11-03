@@ -6,7 +6,7 @@ sidebar_position: 5.1
 slug: /actors/running/restricted-access
 ---
 
-When you run an Actor, Apify injects an API token into the run so the Actor can call the [Apify API](/api/v2). Depending on the token you start the run with and the Actor's [permission level](/actors/running/permissions), that token can reach more of your account than the Actor needs. This guide shows how to run Actors you don't control with a [scoped token](/integrations/api#limited-permissions), so that each run can only access the resources it needs.
+When you run an Actor, Apify passes it an API token that acts on your behalf, so the Actor can call the [Apify API](/api/v2). What this token can access depends on the token you used to start the run and on the Actor's [permission level](/actors/running/permissions). If you start a full-permission Actor with your main API token, the Actor can access your whole account, including your other runs and their data. This guide shows how to run Actors you don't control with a [scoped token](/integrations/api#limited-permissions), so that each run can only access the resources it needs.
 
 ## Use cases
 
@@ -15,7 +15,7 @@ Use this setup when you don't control which Actors run under your account. For e
 - You let users of your platform select and run any Actor from [Apify Store](https://apify.com/store) using your API token, without having their own Apify account. See [Build a whitelabel integration](/integrations/whitelabel).
 - You run Actors from developers you don't know or trust.
 
-If you only run a small, fixed set of Actors from trusted developers, such as Actors maintained by Apify, you probably don't need this setup.
+If you only run a small, fixed set of Actors from developers you trust, such as Actors maintained by Apify, you don't need this setup. A [scoped token](/integrations/api#limited-permissions) that can run only those Actors is enough.
 
 ## How restricted access works
 
