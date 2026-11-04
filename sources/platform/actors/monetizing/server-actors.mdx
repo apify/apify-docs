@@ -147,7 +147,7 @@ Each run in your account also records what it charged:
 
 ## Price your events
 
-Requests to the server interface are usually short, such as a single lookup. If your Actor offers both interfaces, consider a slightly higher event price for requests to the server interface, because callers get lower latency and higher concurrency.
+Requests to the server interface are usually short, such as a single lookup. If your Actor offers both interfaces, set a slightly higher event price for requests to the server interface, because callers get lower latency and higher concurrency.
 
 Aim for the input interface to be cheaper than the server interface once a caller needs more than 10 results. A run started through the input interface also charges the Actor start event, while a request to the server interface doesn't:
 

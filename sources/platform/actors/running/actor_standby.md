@@ -6,7 +6,7 @@ slug: /actors/running/standby
 sidebar_label: Server Actors
 ---
 
-A standard Actor runs a single job and then stops. It works great for batch jobs, such as a large data extraction or processing task. However, some applications can't wait for an Actor to start. Server Actors (formerly Actor Standby mode) solve this with a server interface: the Actor stays ready in the background and serves incoming HTTP requests in real time, like a web server or an API server.
+A standard Actor runs a single job and then stops. It works great for batch jobs, such as a large data extraction or processing task. However, some applications can't wait for an Actor to start. Server Actors (formerly Actor Standby mode) solve this with a server interface. The Actor stays ready in the background and serves incoming HTTP requests in real time, like a web server or an API server.
 
 A Server Actor is either multi-tenant or single-tenant. A multi-tenant Server Actor runs in the developer's account and serves all its callers, while a single-tenant Server Actor starts a separate run in your account. This page describes what both have in common, then what [tenancy](#how-tenancy-affects-you) changes for you.
 
@@ -90,7 +90,7 @@ For what applies only to runs in your own account, see [Single-tenant Server Act
 
 ## Run the Actor through its input interface
 
-If the Actor has an input schema, you can modify the input in the **Input** tab and select **Start** to run the Actor through its input interface, like a standard Actor. If the Actor has no input schema, Apify Console disables the **Input** tab. Not every Server Actor supports the input interface. If it doesn't, the run might fail, return empty results, or start its server. Check the Actor README for what the Actor supports.
+If the Actor has an input schema, you can run it through its input interface, like a standard Actor. Modify the input in the **Input** tab and select **Start**. If the Actor has no input schema, Apify Console disables the **Input** tab. Not every Server Actor supports the input interface. If it doesn't, the run might fail, return empty results, or start its server. Check the Actor README for what the Actor supports.
 
 Tasks of a multi-tenant Server Actor don't serve requests to the server interface. A task that runs the Actor through its input interface keeps working.
 

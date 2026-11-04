@@ -9,7 +9,7 @@ sidebar_position: 9
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-While a standard Actor runs a single job and stops, a Server Actor (formerly an Actor in Standby mode) runs a persistent HTTP server and responds to incoming requests in real time. Every Actor has an input interface, where users give it an input and start a run. A Server Actor also has a server interface, where users call its URL and get the response directly.
+A standard Actor runs a single job and stops. A Server Actor (formerly an Actor in Standby mode) runs a persistent HTTP server and responds to incoming requests in real time. Every Actor has an input interface, where users give it an input and start a run. A Server Actor also has a server interface, where users call its URL and get the response directly.
 
 A Server Actor is either multi-tenant or single-tenant:
 
@@ -46,7 +46,7 @@ Multi-tenant pays off when many different callers send the same small piece of w
 
 - Many distinct callers use it. Every caller who would have started their own run now shares yours, so the savings grow with the number of callers.
 - One request returns one answer, such as a profile lookup, a price check, a search query, or an MCP tool call.
-- The work is short and the startup is long. If your median run lasts one to three seconds, callers mostly wait for the container to start, and runs that are already warm remove that wait.
+- The work is short and the startup is long. If your median run lasts 1 to 3 seconds, callers mostly wait for the container to start, and runs that are already warm remove that wait.
 - The Actor is idle between calls. With shared runs, the same traffic keeps a few runs busy instead of many runs idle.
 
 Keep the Actor single-tenant when:
@@ -97,7 +97,7 @@ A Server Actor must run an HTTP server that listens on a specific port. The plat
 
 The server must listen on the port defined by the `ACTOR_WEB_SERVER_PORT` environment variable. If you use the Apify SDK, read the port from the Actor configuration instead: the option is named `containerPort` in JavaScript and `web_server_port` in Python.
 
-If your server must listen on a specific port that you can't change in code, define `ACTOR_WEB_SERVER_PORT` as a custom [environment variable](../environment_variables.md) of the Actor, with that port as the value. The platform then proxies the requests to your port.
+If you can't change your server's port in code, define `ACTOR_WEB_SERVER_PORT` as a custom [environment variable](../environment_variables.md) of the Actor, set to that port. The platform then proxies the requests to your port.
 
 ### Example server
 
@@ -279,7 +279,7 @@ The header contains only the ID. Your Actor doesn't receive the caller's name, e
 
 ## Monetize Server Actors
 
-Monetize Server Actors with the [pay-per-event pricing model](/actors/monetize/pay-per-event). How you charge depends on the tenancy:
+How you monetize a Server Actor depends on its tenancy:
 
 - A multi-tenant Server Actor uses pay-per-event or pay-per-usage pricing, and you cover the platform usage of its runs. With pay-per-event pricing, it charges each request instead of each run. See [Monetize multi-tenant Server Actors](/actors/monetize/server-actors).
 - A single-tenant Server Actor charges events like a standard run, as described in [Pay-per-event pricing model](/actors/monetize/pay-per-event). Callers cover both the platform usage costs of their runs and the event costs.
