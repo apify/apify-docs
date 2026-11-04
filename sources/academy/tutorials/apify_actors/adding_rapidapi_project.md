@@ -108,13 +108,13 @@ You can click the **Actor detail** link, or go to **Apify Console > My Actors**,
 
 ![Server interface setting in the Actor settings](.//adding_rapidapi_project/standby.png)
 
-:::info Two modes of Actors
+:::info Batch jobs and Server Actors
 
-Actors can run in two modes: as batch processing jobs that execute a single task and stop, or in **Standby mode** as a web server. For use cases like deploying an API that needs to respond to incoming requests in real-time, Standby mode is the best choice. It keeps your Actor running continuously and ready to handle HTTP requests like a standard web server.
+Actors can run as batch jobs that execute a single task and stop, or as Server Actors that run a web server. To deploy an API that responds to incoming requests in real time, use a Server Actor. It keeps your Actor running and ready to handle HTTP requests like a standard web server.
 
 :::
 
-Once you’ve saved the settings, go to the **Endpoints** tab, and click the **Test endpoint** button. It will start the Actor, and you can test it. Once the Actor is running, you're done with the migration!
+Once you’ve saved the settings, go to the **Server** tab, and click the **Test endpoint** button. It will start the Actor, and you can test it. Once the Actor is running, you're done with the migration!
 
 ## Next steps
 

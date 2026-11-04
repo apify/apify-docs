@@ -272,6 +272,7 @@ Every authenticated request to your Actor carries an `X-Apify-User-ID` header wi
 http.createServer(async (req, res) => {
     const userId = req.headers['x-apify-user-id'];
     // Rate-limit, block, or count usage per user here.
+    res.end('OK\n');
 });
 ```
 
