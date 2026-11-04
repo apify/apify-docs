@@ -209,7 +209,7 @@ overrides:
   css-minimizer-webpack-plugin>serialize-javascript: ^7.0.4
   yaml@1: ^2.0.0
   lodash: ^4.18.0
-  js-yaml@>=4.0.0 <5.0.0: ^4.1.1
+  js-yaml@>=4.0.0 <5.0.0: ^5.0.0
 
 importers:
 
@@ -6333,10 +6333,6 @@ packages:
   js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
 
-  js-yaml@4.3.2:
-    resolution: {integrity: sha512-SFNOvSJ+Dgf/9An904Yx+CgSlIPCkIpao4qo51lpee25TIRejdH3rhR4EZMGoNx3/TP3O+wzWuiTFl4sqbltzA==}
-    hasBin: true
-
   js-yaml@5.2.3:
     resolution: {integrity: sha512-n+mUVyUX5bVv7G/G2zyIHOhdxfuU1dY2NOFzTQUWiMUbFss8b57NFlgCCaggU78wSw5KVS9cllzeLyzyR+n5nw==}
     hasBin: true
@@ -9470,7 +9466,7 @@ snapshots:
 
   '@11ty/gray-matter@1.0.0':
     dependencies:
-      js-yaml: 4.3.2
+      js-yaml: 5.4.1
       kind-of: 6.0.3
       section-matter: 1.0.0
       strip-bom-string: 1.0.0
@@ -9733,7 +9729,7 @@ snapshots:
     dependencies:
       '@jsdevtools/ono': 7.1.3
       '@types/json-schema': 7.0.15
-      js-yaml: 4.3.2
+      js-yaml: 5.4.1
 
   '@apify/docs-search-modal@1.4.0(@algolia/client-search@5.61.0)(@babel/core@7.29.7(supports-color@5.5.0))(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react-is@16.13.1)(react@19.3.1)(search-insights@2.17.3)(supports-color@5.5.0)':
     dependencies:
@@ -12704,7 +12700,7 @@ snapshots:
       '@types/react-router-config': 5.0.11
       combine-promises: 1.2.0
       fs-extra: 11.4.1
-      js-yaml: 4.3.2
+      js-yaml: 5.4.1
       lodash: 4.18.1
       react: 19.3.1
       react-dom: 19.3.1(react@19.3.1)
@@ -12754,7 +12750,7 @@ snapshots:
       '@types/react-router-config': 5.0.11
       combine-promises: 1.2.0
       fs-extra: 11.4.1
-      js-yaml: 4.3.2
+      js-yaml: 5.4.1
       lodash: 4.18.1
       react: 19.3.1
       react-dom: 19.3.1(react@19.3.1)
@@ -13504,7 +13500,7 @@ snapshots:
       '@docusaurus/utils-common': 3.10.2(@swc/core@1.16.21)(@swc/html@1.16.21)(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.32))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.33.0)(postcss@8.5.32)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(supports-color@5.5.0)(svgo@3.3.5)(uglify-js@3.19.3)
       fs-extra: 11.4.1
       joi: 17.13.3
-      js-yaml: 4.3.2
+      js-yaml: 5.4.1
       lodash: 4.18.1
       tslib: 2.9.1
     transitivePeerDependencies:
@@ -13536,7 +13532,7 @@ snapshots:
       '@docusaurus/utils-common': 3.10.2(@swc/core@1.16.21)(@swc/html@1.16.21)(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.32))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.33.0)(postcss@8.5.32)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(supports-color@8.1.1)(svgo@3.3.5)(uglify-js@3.19.3)
       fs-extra: 11.4.1
       joi: 17.13.3
-      js-yaml: 4.3.2
+      js-yaml: 5.4.1
       lodash: 4.18.1
       tslib: 2.9.1
     transitivePeerDependencies:
@@ -13574,7 +13570,7 @@ snapshots:
       github-slugger: 1.5.0
       globby: 11.1.0
       jiti: 1.21.7
-      js-yaml: 4.3.2
+      js-yaml: 5.4.1
       lodash: 4.18.1
       micromatch: 4.0.8
       p-queue: 6.6.2
@@ -13619,7 +13615,7 @@ snapshots:
       github-slugger: 1.5.0
       globby: 11.1.0
       jiti: 1.21.7
-      js-yaml: 4.3.2
+      js-yaml: 5.4.1
       lodash: 4.18.1
       micromatch: 4.0.8
       p-queue: 6.6.2
@@ -14742,7 +14738,7 @@ snapshots:
       colorette: 1.4.0
       https-proxy-agent: 7.0.6(supports-color@8.1.1)
       js-levenshtein: 1.1.6
-      js-yaml: 4.3.2
+      js-yaml: 5.4.1
       minimatch: 5.1.9
       pluralize: 8.0.0
       yaml-ast-parser: 0.0.43
@@ -16577,7 +16573,7 @@ snapshots:
   cosmiconfig@8.3.6(typescript@7.0.2):
     dependencies:
       import-fresh: 3.3.1
-      js-yaml: 4.3.2
+      js-yaml: 5.4.1
       parse-json: 5.2.0
       path-type: 4.0.0
     optionalDependencies:
@@ -18567,10 +18563,6 @@ snapshots:
   js-levenshtein@1.1.6: {}
 
   js-tokens@4.0.0: {}
-
-  js-yaml@4.3.2:
-    dependencies:
-      argparse: 2.0.1
 
   js-yaml@5.2.3:
     dependencies:
