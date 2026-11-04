@@ -16,7 +16,7 @@ A Server Actor is either multi-tenant or single-tenant:
 - A multi-tenant Server Actor runs in your account and serves all its callers from shared runs. Callers pay for events, and you cover the platform usage.
 - A single-tenant Server Actor starts a separate run in each caller's account, and the caller pays for the platform usage.
 
-Most of this page applies to both. The sections on [tenancy](#choose-the-tenancy) and [migration](#migrate-an-actor-to-multi-tenant) cover multi-tenant, and [Single-tenant Server Actors](#single-tenant-server-actors) covers what differs for single-tenant.
+Most of this page applies to both. [Choose the tenancy](#choose-the-tenancy) covers multi-tenant, and [Single-tenant Server Actors](#single-tenant-server-actors) covers what differs for single-tenant. To move an existing Actor to multi-tenant, see [Migrate an Actor to multi-tenant](./migrate-to-multi-tenant.md).
 
 For the caller's view, including endpoints, authentication, scaling, configuration, and billing, see [Server Actors](../../running/actor_standby.md). To charge callers of a multi-tenant Server Actor, see [Monetize multi-tenant Server Actors](/actors/monetize/server-actors).
 
@@ -38,7 +38,27 @@ You can enable the server interface by setting the [`usesStandbyMode`](../actor_
 
 ## Choose the tenancy
 
-Tenancy decides whose account runs your Actor. A multi-tenant Server Actor serves all callers from runs in your account. A single-tenant Server Actor starts a run in each caller's account. To decide which one fits your Actor, see [Check whether your Actor fits](#check-whether-your-actor-fits).
+Tenancy decides whose account runs your Actor. A multi-tenant Server Actor serves all callers from runs in your account. A single-tenant Server Actor starts a run in each caller's account.
+
+### Check whether your Actor fits
+
+Multi-tenant pays off when many different callers send the same small piece of work. Your Actor is a good fit when:
+
+- Many distinct callers use it. Every caller who would have started their own run now shares yours, so the savings grow with the number of callers.
+- One request returns one answer, such as a profile lookup, a price check, a search query, or an MCP tool call.
+- The work is short and the startup is long. If your median run lasts one to three seconds, callers mostly wait for the container to start, and runs that are already warm remove that wait.
+- The Actor is idle between calls. With shared runs, the same traffic keeps a few runs busy instead of many runs idle.
+
+Keep the Actor single-tenant when:
+
+- It runs long batch jobs, such as a crawl that runs for 20 minutes and writes thousands of results.
+- Callers put their own API keys, cookies, or account details in the input. They need their own run.
+- State belongs to one caller, such as a per-organization web app or a session tied to one user.
+- It uses a pricing model other than pay per event or pay per usage. Migrate the pricing first.
+
+### Switch the tenancy
+
+If the Actor already has callers, or doesn't have the server interface yet, follow [Migrate an Actor to multi-tenant](./migrate-to-multi-tenant.md) first.
 
 Before you switch an Actor to multi-tenant, make sure that:
 
@@ -263,54 +283,6 @@ Monetize Server Actors with the [pay-per-event pricing model](/actors/monetize/p
 
 - A multi-tenant Server Actor uses pay-per-event or pay-per-usage pricing, and you cover the platform usage of its runs. With pay-per-event pricing, it charges each request instead of each run. See [Monetize multi-tenant Server Actors](/actors/monetize/server-actors).
 - A single-tenant Server Actor charges events like a standard run, as described in [Pay-per-event pricing model](/actors/monetize/pay-per-event). Callers cover both the platform usage costs of their runs and the event costs.
-
-## Migrate an Actor to multi-tenant
-
-Most Actors need two changes to become multi-tenant: pay-per-event pricing, and charging per request instead of per run. This applies whether your Actor already has the server interface or not.
-
-### Check whether your Actor fits
-
-Multi-tenant pays off when many different callers send the same small piece of work. Your Actor is a good fit when:
-
-- Many distinct callers use it. Every caller who would have started their own run now shares yours, so the savings grow with the number of callers.
-- One request returns one answer, such as a profile lookup, a price check, a search query, or an MCP tool call.
-- The work is short and the startup is long. If your median run lasts one to three seconds, callers mostly wait for the container to start, and runs that are already warm remove that wait.
-- The Actor is idle between calls. With shared runs, the same traffic keeps a few runs busy instead of many runs idle.
-
-Keep the Actor single-tenant when:
-
-- It runs long batch jobs, such as a crawl that runs for 20 minutes and writes thousands of results.
-- Callers put their own API keys, cookies, or account details in the input. They need their own run.
-- State belongs to one caller, such as a per-organization web app or a session tied to one user.
-- It uses a pricing model other than pay per event or pay per usage. Migrate the pricing first.
-
-### Migrate a standard Actor
-
-1. Run an HTTP server on the port from `ACTOR_WEB_SERVER_PORT`, and set `usesStandbyMode` to `true`. See [Run an HTTP server](#run-an-http-server).
-1. Branch on how the run started. See [Determine which interface started the Actor](#determine-which-interface-started-the-actor).
-1. Describe your endpoints. See [Describe your endpoints](#describe-your-endpoints).
-1. Charge each request. See [Charge for a request](/actors/monetize/server-actors#charge-for-a-request).
-1. Switch the tenancy to multi-tenant. See [Choose the tenancy](#choose-the-tenancy).
-
-Your input schema keeps working, so users can still run the Actor through its input interface.
-
-### Migrate a single-tenant Server Actor
-
-Your Actor already runs an HTTP server, so the migration is mostly about how you charge. In single-tenant, one run belongs to one caller, so the run knows whom to charge. In multi-tenant, one run serves many callers, so each charge has to name the request it's for. See [Charge for a request](/actors/monetize/server-actors#charge-for-a-request).
-
-Before you switch an Actor that already has callers:
-
-- Send the request ID with every charge. Single-tenant runs ignore it, so the same code works before and after the switch.
-- Check that your plan has enough memory and concurrent runs to serve all your callers.
-- Review the max requests per run, desired requests per run, and idle timeout settings. In single-tenant, each caller brought their own run, so these settings barely mattered. In multi-tenant, they decide how much traffic your runs handle and what it costs you.
-- Tell users who created tasks of your Actor that those tasks stop serving requests to the server interface. Tasks that run the Actor through its input interface keep working.
-
-### Test the change
-
-The tenancy applies to the whole Actor as soon as you confirm it. To test before your callers see the change:
-
-- Build your changes under a [build tag](../builds_and_runs/builds.md) other than the one in the **Build** setting. Callers don't get the changes until you point the setting at the new tag. This prepares the code, but it doesn't test the multi-tenant path, because the tenancy applies to every build.
-- Create a second, private Actor from the same source, enable the server interface and multi-tenant there, and send test requests to its URL. Once it behaves as expected, build the same changes into the original Actor and switch its tenancy. Don't publish the copy.
 
 ## Single-tenant Server Actors
 
