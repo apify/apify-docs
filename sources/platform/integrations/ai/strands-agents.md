@@ -258,7 +258,7 @@ agent(
 )
 ```
 
-For long-running Actors, such as large crawls or datasets with thousands of items, set `timeout_secs` in your prompt. [Limits on agent-supplied values](#limits-on-agent-supplied-values) explains the default ceiling and how to raise it. For example:
+For long-running Actors, such as large crawls or datasets with thousands of items, set `timeout_secs` in your prompt. See [Limits on agent-supplied values](#limits-on-agent-supplied-values) for the default ceiling and how to raise it. For example:
 
 ```python
 agent(
@@ -403,16 +403,6 @@ Example prompt:
 ```text
 Run my task 'john/daily-news-scrape' and summarize the top 10 results.
 ```
-
-#### `apify_scrape_url` (deprecated)
-
-`apify_scrape_url` is deprecated and will be removed in a future release. Use `apify_web_fetch` instead. It is no longer part of `APIFY_CORE_TOOLS`, and calling it emits a `FutureWarning`. Existing code that imports it directly keeps working.
-
-| Parameter | Type | Default | Description |
-| --- | --- | --- | --- |
-| `url` | `str` | *required* | The URL to scrape (must include `http://` or `https://`) |
-| `timeout_secs` | `int` | `120` | Maximum wait time in seconds |
-| `crawler_type` | `str` | `"cheerio"` | Engine: `"cheerio"` (fast, no JS), `"playwright:adaptive"` (renders JS when needed), `"playwright:firefox"` (full JS, best anti-bot bypass) |
 
 ---
 
@@ -640,6 +630,22 @@ Example prompt:
 ```text
 Get the last 15 posts from https://www.facebook.com/apifytech newer than 1 month ago.
 ```
+
+---
+
+### Deprecated tools
+
+The following tools aren't part of any tool set and will be removed in a future release. Existing code that imports them directly keeps working.
+
+#### `apify_scrape_url`
+
+`apify_scrape_url` is deprecated. Use `apify_web_fetch` instead. Calling it emits a `FutureWarning`.
+
+| Parameter | Type | Default | Description |
+| --- | --- | --- | --- |
+| `url` | `str` | *required* | The URL to scrape (must include `http://` or `https://`) |
+| `timeout_secs` | `int` | `120` | Maximum wait time in seconds |
+| `crawler_type` | `str` | `"cheerio"` | Engine: `"cheerio"` (fast, no JS), `"playwright:adaptive"` (renders JS when needed), `"playwright:firefox"` (full JS, best anti-bot bypass) |
 
 ## Production environment best practices
 
