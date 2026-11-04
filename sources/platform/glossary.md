@@ -83,7 +83,7 @@ A [build](/actors/development/builds-and-runs/builds) is a versioned Docker imag
 
 ## Compute unit
 
-A [compute unit](/actors/running/usage-and-resources) (CU) is the Apify platform's usage and billing unit, equal to 1 GB of memory running for one hour. Allocating more memory to an [Actor run](#actor-run) consumes CUs faster.
+A [compute unit](/actors/running/usage-and-resources/compute-units) (CU) is the Apify platform's usage and billing unit, equal to 1 GB of memory running for one hour. Allocating more memory to an [Actor run](#actor-run) consumes CUs faster.
 
 ## Crawlee
 
