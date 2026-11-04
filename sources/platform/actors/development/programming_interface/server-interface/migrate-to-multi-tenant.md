@@ -36,4 +36,4 @@ Before you switch an Actor that already has users:
 The tenancy applies to the whole Actor within 2 minutes of when you confirm it. To test before your users see the change:
 
 - Build your changes under a [build tag](../../builds_and_runs/builds.md) other than the one in the **Build** setting. Users don't get the changes until you point the setting at the new tag. This prepares the code, but it doesn't test the multi-tenant path, because the tenancy applies to every build.
-- Create a second, private Actor from the same source, enable the server interface and multi-tenant there, and send test requests to its URL. Once it behaves as expected, build the same changes into the original Actor and switch its tenancy. Don't publish the copy.
+- Create a second, private Actor from the same source, enable the server interface and multi-tenant there, and send test requests to its URL. Once it behaves as expected, build the same changes into the original Actor and switch its tenancy. Don't publish the copy. Requests from your own account aren't charged, so this test doesn't cover charging.
