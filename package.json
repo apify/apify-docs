@@ -54,9 +54,9 @@
     "devDependencies": {
         "@apify/oxlint-config": "^0.3.0",
         "@apify/tsconfig": "^0.2.0",
-        "@stoplight/spectral-cli": "^6.16.3",
-        "@types/react": "^19.2.18",
-        "babel-plugin-styled-components": "^2.3.0",
+        "@stoplight/spectral-cli": "^6.17.0",
+        "@types/react": "^19.3.0",
+        "babel-plugin-styled-components": "^2.3.1",
         "bats": "^1.13.0",
         "cross-env": "^10.1.0",
         "markdownlint": "^0.41.1",
@@ -70,8 +70,8 @@
         "typescript": "7.0.2"
     },
     "dependencies": {
-        "@apify/ui-icons": "^1.50.0",
-        "@apify/ui-library": "^1.164.3",
+        "@apify/ui-icons": "^1.59.0",
+        "@apify/ui-library": "^1.172.1",
         "@docusaurus/core": "~3.10.2",
         "@docusaurus/faster": "~3.10.2",
         "@docusaurus/plugin-client-redirects": "~3.10.2",
@@ -80,20 +80,20 @@
         "@docusaurus/theme-common": "~3.10.2",
         "@docusaurus/theme-mermaid": "~3.10.2",
         "@docusaurus/utils": "~3.10.2",
-        "@redocly/cli": "^2.49.0",
+        "@redocly/cli": "^2.72.1",
         "@signalwire/docusaurus-plugin-llms-txt": "^1.2.2",
         "clsx": "^2.1.1",
         "docusaurus-plugin-image-zoom": "^3.0.1",
         "docusaurus-plugin-openapi-docs": "^4.7.1",
         "docusaurus-theme-openapi-docs": "^4.7.1",
-        "postcss-preset-env": "^11.5.1",
+        "postcss-preset-env": "^11.6.2",
         "prism-react-renderer": "^2.4.1",
         "prop-types": "^15.8.1",
         "raw-loader": "^4.0.2",
-        "react": "^19.2.8",
-        "react-dom": "^19.2.8",
-        "styled-components": "^6.5.3",
-        "unist-util-visit": "^5.1.0"
+        "react": "^19.3.1",
+        "react-dom": "^19.3.1",
+        "styled-components": "^6.6.0",
+        "unist-util-visit": "^5.2.0"
     },
     "browserslist": {
         "production": [

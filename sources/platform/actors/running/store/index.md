@@ -7,7 +7,7 @@ slug: /actors/running/actors-in-store
 
 :::info Publishing and monetizing Actors
 
-Anyone is welcome to [publish Actors](/actors/publishing) in the store, and you can even [monetize your Actors](/actors/monetize). For more information about how to monetize your Actor, best practices, SEO, and promotion tips and tricks, head over to the [Marketing checklist](/academy/actor-marketing-playbook/promote-your-actor/checklist) section of the Apify Developers Academy.
+Anyone is welcome to [publish Actors](/actors/publishing) in the store, and you can even [monetize your Actors](/actors/monetize). For more information about how to monetize your Actor, best practices, SEO, and promotion tips and tricks, head over to the [Marketing checklist](/academy/build-and-publish/promote-your-actor/checklist) section of the Apify Developers Academy.
 
 :::
 

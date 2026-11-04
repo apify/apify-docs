@@ -3,7 +3,7 @@ title: Handle Actor issues
 description: Learn how the Issues tab can help you improve your Actor, engage with users, and build a reliable, user-friendly solution.
 sidebar_position: 2
 category: build-and-publish
-slug: /actor-marketing-playbook/interact-with-users/issues-tab
+slug: /build-and-publish/interact-with-users/issues-tab
 ---
 
 **Once you publish your Actor in Apify Store, it opens the door to new users, feedback, and… issue reports. Users can create issues and add comments after trying your Actor. But why is this space so important?**
