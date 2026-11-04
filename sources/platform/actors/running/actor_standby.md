@@ -8,7 +8,7 @@ sidebar_label: Server Actors
 
 A standard Actor runs a single job and then stops. It works great for batch jobs, such as a large data extraction or processing task. However, some applications can't wait for an Actor to start. Server Actors (formerly Actor Standby mode) solve this with a server interface. The Actor stays ready in the background and serves incoming HTTP requests in real time, like a web server or an API server.
 
-A Server Actor is either multi-tenant or single-tenant. A multi-tenant Server Actor runs in the developer's account and serves all its callers, while a single-tenant Server Actor starts a separate run in your account. This page describes what both have in common, then what [tenancy](#how-tenancy-affects-you) changes for you.
+A Server Actor is either multi-tenant or single-tenant. A multi-tenant Server Actor runs in the developer's account and serves all its callers, while a single-tenant Server Actor starts a separate run in your account. Most of this page applies to both. [Multi-tenant and single-tenant Server Actors](#multi-tenant-and-single-tenant-server-actors) describes what the tenancy changes for you.
 
 To build your own Server Actor, see [Develop Server Actors](../development/programming_interface/server-interface/index.md).
 
@@ -70,23 +70,23 @@ A scoped token also has a [restricted access](/integrations/api#restricted-acces
 
 If you're developing a Server Actor, use the token from the `APIFY_TOKEN` [environment variable](../development/programming_interface/environment_variables.md#system-environment-variables) to call the Apify API, as in any other Actor.
 
-## How tenancy affects you
+## Multi-tenant and single-tenant Server Actors
 
-The Actor's developer sets its tenancy. The Actor's detail page shows it in the **Features** section, as **Multi-tenant** or **Single-tenant**. Tenancy decides whose account runs the Actor, who pays for the platform usage, and who controls the configuration.
+The Actor's developer sets its tenancy. The Actor's detail page shows it in the **Features** section, as **Multi-tenant** or **Single-tenant**. Tenancy decides whose account runs the Actor, what you pay for, and whether you can change the server configuration.
 
-| Aspect | Multi-tenant | Single-tenant |
-| --- | --- | --- |
-| Where the runs live | The developer's account, shared by all callers | Your account, used only by you |
-| Runs in your **Runs** tab | No | Yes |
-| What you pay | Event charges only | Platform usage, plus event charges for pay-per-event Actors |
-| Who sets the configuration | The developer | The developer, and you can override it with a task |
-| Tasks | Not supported for the server interface | Supported |
+### Multi-tenant Server Actors
 
-When you call a multi-tenant Server Actor, no runs appear in your account. The Actor appears in your recently used Actors instead.
+A multi-tenant Server Actor runs in the developer's account and serves all its callers from shared runs. You pay only for the events the Actor charges, not for the platform usage of its runs. No runs appear in your **Runs** tab, and the Actor appears in your recently used Actors instead.
 
-A multi-tenant Server Actor receives your Apify user ID in the `X-Apify-User-ID` header, so its developer can rate-limit or count requests per caller. The Actor doesn't receive your name, email, or API token, and it can't start runs or read storages in your account.
+The developer sets the server configuration, and you can't override it with a task.
 
-For what applies only to runs in your own account, see [Single-tenant Server Actors](#single-tenant-server-actors).
+The Actor receives your Apify user ID in the `X-Apify-User-ID` header, so its developer can rate-limit or count requests per caller. The Actor doesn't receive your name, email, or API token, and it can't start runs or read storages in your account.
+
+### Single-tenant Server Actors
+
+A single-tenant Server Actor starts its runs in your account, and only you use them. You pay for the platform usage of those runs, plus the event charges if the Actor uses pay-per-event pricing.
+
+The developer sets the default server configuration. Unless the developer locked it, you can [override it with a task](#override-the-configuration-with-a-task).
 
 ## Run the Actor through its input interface
 
@@ -126,21 +126,17 @@ If your account goes over its monthly usage hard limit, the platform rejects you
 
 ## Billing
 
-For a multi-tenant Server Actor, you pay only the event charges. You don't pay for the platform usage of the runs that serve you.
+For a multi-tenant Server Actor, you pay only for the events it charges. You don't pay for the platform usage of the runs that serve you.
 
-For a single-tenant Server Actor, you also pay for the platform usage of your runs. See [Billing of single-tenant runs](#billing-of-single-tenant-runs).
+For a single-tenant Server Actor, the platform bills your runs like standard runs. A run also consumes resources while it waits for requests, until the idle timeout stops it, so expect usage even when no requests arrive. If the Actor uses the [pay-per-event pricing model](/actors/monetize/pay-per-event), you pay the event charges in addition to the platform usage.
 
 ## Use Server Actors as MCP servers
 
 If the Actor exposes a [Model Context Protocol (MCP)](../../agents/mcp.md) server, its MCP endpoint is the server interface URL followed by the path defined in the Actor's [`webServerMcpPath`](../development/actor_definition/actor_json.md) property. Apify Console shows the MCP URL in the Actor's **Server** tab. Authenticate requests to the MCP endpoint the same way as any other request to a Server Actor.
 
-## Single-tenant Server Actors
+## Override the configuration with a task
 
-A single-tenant Server Actor starts its runs in your account. You pay for their platform usage, and unless the developer locked it, you can change their server configuration with a task.
-
-### Override the configuration with a task
-
-If you use an Actor built by someone else, the Actor-level hostname always uses the developer's default [server configuration](../development/programming_interface/server-interface/index.md#configure-the-server). To override it:
+You can override the server configuration only for a single-tenant Server Actor. If you use an Actor built by someone else, the Actor-level hostname always uses the developer's default [server configuration](../development/programming_interface/server-interface/index.md#configure-the-server). To override it:
 
 1. In [Apify Console](https://console.apify.com), open the Actor and select **Save as a new task**.
 1. Open the task's **Settings** tab.
@@ -152,9 +148,3 @@ If you use an Actor built by someone else, the Actor-level hostname always uses 
 If the developer locked the server configuration, the task-level settings have no effect.
 
 :::
-
-### Billing of single-tenant runs
-
-The platform bills single-tenant Server Actor runs like standard runs. A run also consumes resources while it waits for requests, until the idle timeout stops it. Expect usage even when no requests arrive.
-
-For Actors monetized with the [pay-per-event pricing model](/actors/monetize/pay-per-event), you pay the platform usage costs of the runs in addition to the event charges.
