@@ -42,7 +42,7 @@ Tenancy decides whose account runs your Actor. A multi-tenant Server Actor serve
 
 Before you switch an Actor to multi-tenant, make sure that:
 
-- The Actor uses the [pay-per-event pricing model](/actors/monetize/pay-per-event).
+- The Actor uses the [pay-per-event pricing model](/actors/monetize/pay-per-event) or [pay per usage](/actors/monetize#pricing-models). A pay-per-usage Actor serves all callers from the pool for your own requests, so you pay for all of its platform usage and callers pay nothing.
 - The server interface is enabled.
 
 To switch the tenancy:
@@ -55,6 +55,19 @@ To switch the tenancy:
 The change takes effect within 2 minutes for everyone already calling your Actor. Their next request goes to a run in your account instead of a run in theirs. Nothing is queued or staged, so switch only when your account can carry the traffic. Switching back to single-tenant takes effect the same way.
 
 :::
+
+## Configure the server
+
+The server configuration decides how the platform sizes and scales your Actor's runs. Set its defaults in the **Server** section of the Actor's **Settings** tab. For a multi-tenant Server Actor, the configuration applies to the runs that serve all callers. For a single-tenant Server Actor, callers can override it with a task, unless you [prevent it](#single-tenant-server-actors).
+
+| Property | Description |
+| --- | --- |
+| Max requests per run | The maximum number of concurrent HTTP requests a single Server Actor run can accept. When a request exceeds this limit, the platform starts a new run to handle it, which can take a few seconds. |
+| Desired requests per run | The number of concurrent HTTP requests a single Server Actor run is configured to handle. When requests exceed this number, the platform starts a new run ahead of time to handle the additional requests. |
+| Memory (MB) | The amount of memory (RAM) allocated for the Actor's server, in megabytes. More memory usually lets the Actor handle more requests in parallel, but it also consumes more compute units and costs more. |
+| Idle timeout (seconds) | If a run receives no HTTP requests within this time, the platform stops it. The next request might then need a new run, which can take a few seconds to start. A higher idle timeout improves responsiveness but costs more, because the run stays active longer. |
+| Build | The Actor build that Server Actor runs use: a build tag (for example `latest`) or a build number (for example `0.1.2`). |
+| Validate and pass Actor input | If enabled, the platform validates the Actor input and passes it to the run even when the run starts its server. Use it to start Server Actor runs with different configurations. If disabled, the input applies only to manual runs and testing, independent of the server interface. |
 
 ## Run an HTTP server
 
@@ -115,7 +128,7 @@ Describe your Actor's endpoints, their parameters, and responses with a [web ser
 
 ## Run lifecycle
 
-The platform starts and stops Server Actor runs based on the incoming request load. It stops a run that receives no requests within the idle timeout and starts a new run when requests arrive again. Don't keep data only in the run's memory. Persist anything you need to a [dataset or key-value store](../../../storage/index.md). For details, see [how scaling works](../../running/actor_standby.md#automatic-scaling), [the server configuration](../../running/actor_standby.md#server-configuration), and [the timeouts and rate limits](../../running/actor_standby.md#limits-and-scaling) that apply to incoming requests.
+The platform starts and stops Server Actor runs based on the incoming request load. It stops a run that receives no requests within the idle timeout and starts a new run when requests arrive again. Don't keep data only in the run's memory. Persist anything you need to a [dataset or key-value store](../../../storage/index.md). For details, see [how scaling works](../../running/actor_standby.md#automatic-scaling), [the server configuration](#configure-the-server), and [the timeouts and rate limits](../../running/actor_standby.md#limits-and-scaling) that apply to incoming requests.
 
 For a multi-tenant Server Actor, the platform keeps separate pools of runs for paying callers, free callers, and your own requests, and routes each request to one of them. For how the pools affect billing, see [How requests reach your runs](/actors/monetize/server-actors#how-requests-reach-your-runs). All pools run in your account and count against its memory and concurrent run limits, so set the server configuration to match the traffic you expect.
 
@@ -231,12 +244,25 @@ Unlike the server interface URL, the [container web server](./container_web_serv
 
 Requests to the server interface URL require an Apify API token. See [how to authenticate requests](../../running/actor_standby.md#authenticate-requests). If your Actor exposes an MCP server, define the endpoint path with the [`webServerMcpPath`](../actor_definition/actor_json.md) property. For details, see [Use Server Actors as MCP servers](../../running/actor_standby.md#use-server-actors-as-mcp-servers).
 
+## Identify the caller
+
+Every authenticated request to your Actor carries an `X-Apify-User-ID` header with the caller's Apify user ID. The platform sets it after it validates the caller's token. Use it to rate-limit, block, or count requests per caller.
+
+```javascript
+http.createServer(async (req, res) => {
+    const userId = req.headers['x-apify-user-id'];
+    // Rate-limit, block, or count usage per caller here.
+});
+```
+
+The header contains only the ID. Your Actor doesn't receive the caller's name, email, or API token, and it can't start runs, read storages, or act in the caller's account.
+
 ## Monetize Server Actors
 
 Monetize Server Actors with the [pay-per-event pricing model](/actors/monetize/pay-per-event). How you charge depends on the tenancy:
 
-- A multi-tenant Server Actor must use pay-per-event pricing. It charges each request instead of each run, and you cover the platform usage of its runs. See [Monetize multi-tenant Server Actors](/actors/monetize/server-actors).
-- A single-tenant Server Actor charges events like a standard run, and users cover both the platform usage costs of their runs and the event costs.
+- A multi-tenant Server Actor uses pay-per-event or pay-per-usage pricing. With pay-per-event pricing, it charges each request instead of each run, and you cover the platform usage of its runs. See [Monetize multi-tenant Server Actors](/actors/monetize/server-actors).
+- A single-tenant Server Actor charges events like a standard run, as described in [Pay-per-event pricing model](/actors/monetize/pay-per-event). Users cover both the platform usage costs of their runs and the event costs.
 
 ## Migrate an Actor to multi-tenant
 
@@ -256,7 +282,7 @@ Keep the Actor single-tenant when:
 - It runs long batch jobs, such as a crawl that runs for 20 minutes and writes thousands of results.
 - Callers put their own API keys, cookies, or account details in the input. They need their own run.
 - State belongs to one caller, such as a per-organization web app or a session tied to one user.
-- It doesn't use pay-per-event pricing. Migrate the pricing first.
+- It uses a pricing model other than pay per event or pay per usage. Migrate the pricing first.
 
 ### Migrate a standard Actor
 
@@ -274,7 +300,7 @@ Your Actor already runs an HTTP server, so the migration is mostly about how you
 
 Before you switch an Actor that already has callers:
 
-- Make your code support both ways of charging until the switch takes effect.
+- Send the request ID with every charge. Single-tenant runs ignore it, so the same code works before and after the switch.
 - Check that your plan has enough memory and concurrent runs to serve all your callers.
 - Review the max requests per run, desired requests per run, and idle timeout settings. In single-tenant, each caller brought their own run, so these settings barely mattered. In multi-tenant, they decide how much traffic your runs absorb and what it costs you.
 - Tell users who created tasks of your Actor that those tasks stop serving requests to the server interface. Tasks that run the Actor through its input interface keep working.
@@ -291,5 +317,3 @@ The tenancy applies to the whole Actor as soon as you confirm it. To test before
 A single-tenant Server Actor starts a separate run in each caller's account, and the caller pays for the platform usage of that run. Callers can override your server configuration by creating a task.
 
 To enforce the same server configuration for all callers, enable **Prevent users from overriding server settings** in the **Server** section of the Actor's **Settings** tab. Users then can't override it by creating a task.
-
-A single-tenant Server Actor charges events like a standard run, as described in [Pay-per-event pricing model](/actors/monetize/pay-per-event).

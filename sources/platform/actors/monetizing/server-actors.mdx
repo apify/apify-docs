@@ -12,13 +12,15 @@ To build the Actor and switch it to multi-tenant, see [Develop Server Actors](/a
 
 ## Who pays for what
 
-A multi-tenant Server Actor must use the [pay-per-event pricing model](/actors/monetize/pay-per-event). Who pays depends on who sent the request:
+A multi-tenant Server Actor uses the [pay-per-event pricing model](/actors/monetize/pay-per-event) or [pay per usage](/actors/monetize#pricing-models). For a pay-per-event Actor, who pays depends on who sent the request:
 
 | Request from | Event charges | Platform usage |
 | --- | --- | --- |
 | A caller on a paid plan | The caller pays. You earn them minus the Apify margin. | Deducted from your payout |
 | A caller on a free plan | The caller is charged. You earn nothing. | Covered by Apify |
 | You, the Actor's owner | Not charged. They only update statistics. | Charged to your account |
+
+If the Actor uses pay per usage, the platform serves every request from the pool for your own requests. You pay for all of its platform usage, and callers pay nothing.
 
 Platform usage covers the compute, data transfer, proxy usage, and storage operations of the runs. Storage retention is charged to the account that owns the storage.
 
@@ -30,44 +32,45 @@ The platform serves every request to a multi-tenant Server Actor from a pool of 
 | --- | --- |
 | `MULTI_TENANT_PAYING_USERS` | Callers on a paid plan |
 | `MULTI_TENANT_FREE_USERS` | Callers on a free plan |
-| `MULTI_TENANT_OWNER_PAID` | You, the Actor's owner |
+| `MULTI_TENANT_OWNER_PAID` | You, the Actor's owner, and all callers of a pay-per-usage Actor |
 
-The platform picks the pool like this:
-
-- A direct request goes to the pool that matches the caller's plan.
-- A call from another multi-tenant Server Actor's paying or free pool goes to the same pool.
-- A call from an owner pool stays in the owner pool when both Actors belong to the same developer. Otherwise, the calling developer's plan picks the pool.
-
-Runs are shared within a pool, not across pools. A caller who upgrades from a free plan to a paid plan starts reaching different runs. Each run shows its pool in its `standby.deployment` property, returned by the [Get Actor run](/api/v2/actor-run-get) endpoint.
+Runs are shared within a pool, not across pools. Each run shows its pool in its `standby.deployment` property, returned by the [Get Actor run](/api/v2/actor-run-get) endpoint.
 
 ## Charge for a request
 
-The platform adds an `X-Actor-Request-ID` header with a unique ID to every request it forwards to a multi-tenant Server Actor. To charge the caller for that request, send the header's value as `requestId` in the body of the [Charge events in Actor run](/api/v2/post-charge-run) endpoint. Authenticate with the run's `APIFY_TOKEN`, and use the run's `ACTOR_RUN_ID` in the endpoint path.
+The platform adds an `X-Actor-Request-ID` header with a unique ID to every request it forwards to a Server Actor. To charge the caller for that request, send the header's value as `requestId` in the body of the [Charge events in Actor run](/api/v2/post-charge-run) endpoint. Authenticate with the run's `APIFY_TOKEN`, and use the run's `ACTOR_RUN_ID` in the endpoint path.
+
+Runs of a single-tenant Server Actor ignore `requestId`, so you can send it with every charge, whatever the tenancy. The same code keeps working when you switch the tenancy.
 
 Follow these rules when you charge:
 
 - Charge before you send the final response or close the WebSocket connection. After the request ends, its ID stops working.
 - Charge within 10 minutes. A request ID is valid for at most 10 minutes.
-- Charge [custom events](/actors/monetize/pay-per-event#custom-events). The synthetic `apify-actor-start` and `apify-default-dataset-item` events don't charge multi-tenant requests.
+- Charge [custom events](/actors/monetize/pay-per-event#custom-events). The synthetic `apify-actor-start` and `apify-default-dataset-item` events belong to the run, which is in your account, so they don't charge callers.
 - Send a unique `idempotency-key` header with each charge, so that a retried charge isn't counted twice.
+
+If the request ID is missing, has expired, or belongs to another Actor or pool, the endpoint returns a `400` error and charges nothing.
 
 The Apify SDKs don't support request IDs yet, so call the endpoint directly. The example below charges one `result` event for each request:
 
 ```javascript
+import { randomUUID } from 'node:crypto';
 import http from 'node:http';
 
 const { APIFY_TOKEN, ACTOR_RUN_ID, ACTOR_WEB_SERVER_PORT } = process.env;
 
-async function charge(requestId, eventName, count = 1) {
+async function charge({ requestId, eventName, count = 1, idempotencyKey }) {
+    const body = { eventName, count };
+    if (requestId) body.requestId = requestId;
+
     const response = await fetch(`https://api.apify.com/v2/actor-runs/${ACTOR_RUN_ID}/charge`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${APIFY_TOKEN}`,
-            // Unique per charge. Add a counter if you charge the same event more than once per request.
-            'idempotency-key': `${requestId}:${eventName}`,
+            'idempotency-key': idempotencyKey,
         },
-        body: JSON.stringify({ eventName, count, requestId }),
+        body: JSON.stringify(body),
     });
     if (!response.ok) throw new Error(`Charging failed: ${await response.text()}`);
 }
@@ -78,26 +81,23 @@ http.createServer(async (req, res) => {
         return;
     }
 
-    // Do the work for this request here.
+    // Requests you send to the run locally have no request ID.
+    const requestId = req.headers['x-actor-request-id'];
 
-    await charge(req.headers['x-actor-request-id'], 'result');
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.end('Request processed\n');
+    try {
+        // Do the work for this request here.
+
+        // Reuse the same key if you retry this charge. Use a new key for each further charge.
+        await charge({ requestId, eventName: 'result', idempotencyKey: `${requestId ?? randomUUID()}:result` });
+        res.writeHead(200, { 'Content-Type': 'text/plain' });
+        res.end('Request processed\n');
+    } catch (error) {
+        console.error(error);
+        res.writeHead(500, { 'Content-Type': 'text/plain' });
+        res.end('Request failed\n');
+    }
 }).listen(ACTOR_WEB_SERVER_PORT);
 ```
-
-## Identify the caller
-
-Every authenticated request to your Actor carries an `X-Apify-User-ID` header with the caller's Apify user ID. The platform sets it after it validates the caller's token. Use it to rate-limit, block, or count requests per caller.
-
-```javascript
-http.createServer(async (req, res) => {
-    const userId = req.headers['x-apify-user-id'];
-    // Rate-limit, block, or count usage per caller here.
-});
-```
-
-The header contains only the ID. Your Actor doesn't receive the caller's name, email, or API token, and it can't start runs, read storages, or act in the caller's account.
 
 ## Call another multi-tenant Server Actor
 
@@ -124,6 +124,8 @@ async function callServerActor(actorUrl, parentRequestId) {
 
 Forwarding the request ID keeps the original caller's pricing tier, which selects the receiving Actor's event prices. Without it, the receiving Actor uses your pricing tier. Forwarding the ID doesn't change which pool serves the call or who pays for it. Custom event prices that the receiving Actor's developer set for you still apply.
 
+If the forwarded ID has expired or doesn't belong to a request your Actor is serving, the platform rejects the call with a `400` error.
+
 The receiving Actor gets a new request ID. It charges its events with that ID and forwards it if it calls another Actor.
 
 Who pays for the receiving Actor's events depends on the request your Actor was serving:
@@ -131,6 +133,8 @@ Who pays for the receiving Actor's events depends on the request your Actor was 
 - For a paying caller's request, the receiving Actor's event charges are deducted from your Actor's payout.
 - For a free caller's request, the call creates no payout and no deduction for either developer.
 - For your own request, charges from another developer's Actor go to your account. Between your own Actors, the events only update statistics.
+
+When you own both Actors, Apify takes no margin on the receiving Actor's events. If your Actor calls a single-tenant Server Actor or starts a standard run, that run starts in your account, and you pay for it like any other run of yours.
 
 ## See what you earn and what you pay
 

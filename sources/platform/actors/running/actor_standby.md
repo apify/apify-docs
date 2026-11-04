@@ -72,7 +72,7 @@ If you're developing a Server Actor, use the token from the `APIFY_TOKEN` [envir
 
 ## How tenancy affects you
 
-The Actor's developer sets its tenancy. Tenancy decides whose account runs the Actor, who pays for the platform usage, and who controls the configuration.
+The Actor's developer sets its tenancy. The Actor's detail page shows it in the **Features** section, as **Multi-tenant** or **Single-tenant**. Tenancy decides whose account runs the Actor, who pays for the platform usage, and who controls the configuration.
 
 | Aspect | Multi-tenant | Single-tenant |
 | --- | --- | --- |
@@ -80,7 +80,7 @@ The Actor's developer sets its tenancy. Tenancy decides whose account runs the A
 | Runs in your **Runs** tab | No | Yes |
 | What you pay | Event charges only | Platform usage, plus event charges for pay-per-event Actors |
 | Who sets the configuration | The developer | The developer, and you can override it with a task |
-| Tasks | Not supported | Supported |
+| Tasks | Not supported for the server interface | Supported |
 
 When you call a multi-tenant Server Actor, no runs appear in your account. The Actor appears in your recently used Actors instead.
 
@@ -136,26 +136,11 @@ If the Actor exposes a [Model Context Protocol (MCP)](../../agents/mcp.md) serve
 
 ## Single-tenant Server Actors
 
-A single-tenant Server Actor starts its runs in your account. You pay for their platform usage, and unless the developer locked it, you can change their configuration with a task.
-
-### Server configuration
-
-The server configuration has these properties:
-
-| Property | Description |
-| --- | --- |
-| Max requests per run | The maximum number of concurrent HTTP requests a single Server Actor run can accept. When a request exceeds this limit, the platform starts a new run to handle it, which can take a few seconds. |
-| Desired requests per run | The number of concurrent HTTP requests a single Server Actor run is configured to handle. When requests exceed this number, the platform starts a new run ahead of time to handle the additional requests. |
-| Memory (MB) | The amount of memory (RAM) allocated for the Actor's server, in megabytes. More memory usually lets the Actor handle more requests in parallel, but it also consumes more compute units and costs more. |
-| Idle timeout (seconds) | If a run receives no HTTP requests within this time, the platform stops it. The next request might then need a new run, which can take a few seconds to start. A higher idle timeout improves responsiveness but costs more, because the run stays active longer. |
-| Build | The Actor build that Server Actor runs use: a build tag (for example `latest`) or a build number (for example `0.1.2`). |
-| Validate and pass Actor input | If enabled, the platform validates the Actor input and passes it to the run even when the run starts its server. Use it to start Server Actor runs with different configurations. If disabled, the input applies only to manual runs and testing, independent of the server interface. |
-
-If you own the Actor, you can see and change its default server configuration in the **Settings** tab. The developer of a multi-tenant Server Actor uses the same properties to size the runs that serve all callers.
+A single-tenant Server Actor starts its runs in your account. You pay for their platform usage, and unless the developer locked it, you can change their server configuration with a task.
 
 ### Override the configuration with a task
 
-If you use an Actor built by someone else, the Actor-level hostname always uses the developer's default configuration. To override it:
+If you use an Actor built by someone else, the Actor-level hostname always uses the developer's default [server configuration](../development/programming_interface/actor_standby.md#configure-the-server). To override it:
 
 1. In [Apify Console](https://console.apify.com), open the Actor and select **Save as a new task**.
 1. Open the task's **Settings** tab.
