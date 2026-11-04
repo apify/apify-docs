@@ -201,7 +201,7 @@ Alternatively, open the app in Snowsight, go to the **Access management** tab, a
 
 ## Schedule recurring imports
 
-The **Schedules** page creates recurring Actor or task runs whose results are imported into Snowflake automatically. Each schedule lives in your Apify account: on every run, Apify starts the Actor and, when the run succeeds, imports its dataset into your Snowflake table. Schedules keep running when the app is closed, until you pause or delete them.
+The **Schedules** page creates recurring Actor or task runs whose results are imported into Snowflake automatically. Each schedule lives in your Apify account: on every run, Apify starts the Actor and, when the run succeeds, imports its dataset into your Snowflake table. For each schedule, the app creates four resources in your Apify account: an Apify schedule, a [task](/actors/running/tasks) that runs the Actor, an import task that loads the run's dataset into Snowflake, and a webhook that starts the import task when the Actor run succeeds. Schedules keep running when the app is closed, until you pause or delete them.
 
 ![Schedules page with the list of schedules and the Create new schedule button](../images/snowflake/snowflake-schedules.webp)
 
@@ -243,7 +243,7 @@ On the **Schedules** page, select **Create new schedule** and follow the four st
 
 1. **Actor or task setup** - pick **Choose an Actor** and enter its input, or pick **Choose a task** to run one of your saved [Apify tasks](/actors/running/tasks) and optionally enter input overrides. Select **Continue** to start a preview run. The schedule repeats this run, so its dataset shows you the data each scheduled run produces.
 1. **Import dataset** - when the preview run finishes, select **Continue** and configure the import as described in [Import a dataset](#import-a-dataset). The dataset is locked to the preview run's dataset, since every scheduled run imports the dataset it produces itself. For the same reason, **Unwind** and **Flatten** aren't available, and **Offset** and **Limit** apply to the preview only.
-1. **Review** - check the schedule and its destination table. Then fill in the Snowflake connection details: **Snowflake account identifier**, **Snowflake username**, **Snowflake programmatic access token (PAT)**, and optionally **Snowflake warehouse**. For the username, enter your Snowflake user name, which `SELECT CURRENT_USER();` returns. The step shows a query that looks up all these values. The credentials are stored only in the schedule's configuration in your Apify account. Select **Save and start**.
+1. **Review** - check the schedule and its destination table. Then fill in the Snowflake connection details: **Snowflake account identifier**, **Snowflake username**, **Snowflake programmatic access token (PAT)**, and optionally **Snowflake warehouse**. For the username, enter your Snowflake user name, which `SELECT CURRENT_USER();` returns. The step shows a query that looks up all these values. The credentials are saved in the schedule's import task in your Apify account, with the PAT [encrypted](/actors/development/actor-definition/input-schema/secret-input), so nobody can read it back, including in Apify Console. Anyone with access to the task can still run it, so give the PAT's role only the access the import needs. Select **Save and start**.
 
     ![Review step with the Snowflake destination credentials and the Save and start button](../images/snowflake/snowflake-schedule-review.webp)
 
@@ -257,7 +257,7 @@ Select a schedule in the list to open its detail page, where you can:
 
 - **Run now** - start a run immediately, outside the schedule.
 - **Pause** - stop the schedule's runs. A paused schedule shows **Resume** instead, which restarts them.
-- **Delete** - remove the schedule and the Apify schedule, task, and webhook it created. Data already imported into Snowflake stays in your tables.
+- **Delete** - remove the schedule and the Apify schedule, both tasks, and the webhook it created. Data already imported into Snowflake stays in your tables.
 - **Edit timing** - change the frequency.
 - **Run history** - check each run's status, start time, and the number of rows it imported. A failed import shows the error in the **Message** column.
 
