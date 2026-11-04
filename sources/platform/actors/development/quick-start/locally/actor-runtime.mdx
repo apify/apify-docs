@@ -12,7 +12,7 @@ import PromptBlock from "@site/src/components/PromptBlock";
 
 The _Actor runtime_ is a local Apify platform that runs as a single container on your machine. You point the [Apify CLI](/cli/docs) at it, and `apify push`, `apify call`, and the other commands work the way they do against the Apify platform. The difference is that builds and runs happen on your computer, use no platform compute, and after the first build the runtime itself needs no network connection.
 
-The runtime is a development tool, not a place to host Actors. Use it to test an Actor the way the platform will run it, before you deploy. The `apify runtime` commands are in preview.
+The runtime is a development tool, not a place to host Actors. Use it to test an Actor the way the platform will run it, before you deploy.
 
 ## Runtime compared with `apify run`
 
@@ -28,15 +28,12 @@ With the runtime, `apify call` builds the Actor's Docker image and runs it in a 
 
 ## Before you start
 
+{/* TODO: replace X.Y.Z below with the first Apify CLI release that ships the `apify runtime` commands. */}
+
 - Install [Docker](https://docs.docker.com/get-docker/) or [Podman](https://podman.io/docs/installation) and make sure it's running. The CLI uses the first engine it finds on your `PATH`. Set `APIFY_CONTAINER_ENGINE=podman` to pick Podman.
-- Install the Apify CLI from the `runtime` release channel:
+- [Install the Apify CLI](/cli/docs/installation) version X.Y.Z or later, the first release with the `apify runtime` commands. Check what you have with `apify --version`, and update an older install with `npm install -g apify-cli`.
 
-    ```bash
-    npm install -g apify-cli@runtime
-    apify --version
-    ```
-
-    The version must contain `runtime`. If `apify runtime` answers `Command runtime not found`, another copy of the CLI is first on your `PATH`. Run `which -a apify` to find it, or open a new terminal.
+    If `apify runtime` answers `Command runtime not found` after the update, an older copy of the CLI is first on your `PATH`. Run `which -a apify` to find it, or open a new terminal.
 
 - Have an Actor to work with. Create one with `apify create my-actor`, or use an existing project.
 
