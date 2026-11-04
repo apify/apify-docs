@@ -1,12 +1,12 @@
 ---
 title: Monetize multi-tenant Server Actors
-description: Charge callers of multi-tenant Server Actors per request, call other Server Actors, and learn how platform usage and event charges affect your payout.
+description: Charge users of multi-tenant Server Actors per request, call other Server Actors, and learn how platform usage and event charges affect your payout.
 slug: /actors/monetize/server-actors
 sidebar_position: 1.2
 sidebar_label: Multi-tenant Server Actors
 ---
 
-A multi-tenant Server Actor runs in your account and serves many callers from shared runs. Callers pay for events, and you or Apify pay for the platform usage of the runs, depending on who called. This page explains who pays for what, how to charge each request, and how Apify bills calls between Server Actors.
+A multi-tenant Server Actor runs in your account and serves many users from shared runs. Users pay for events, and you or Apify pay for the platform usage of the runs, depending on who called. This page explains who pays for what, how to charge each request, and how Apify bills calls between Server Actors.
 
 To build the Actor and switch it to multi-tenant, see [Develop Server Actors](/actors/development/programming-interface/standby). A single-tenant Server Actor charges events like a standard run, as described in [Pay-per-event pricing model](/actors/monetize/pay-per-event).
 
@@ -16,29 +16,29 @@ A multi-tenant Server Actor uses the [pay-per-event pricing model](/actors/monet
 
 | Request from | Event charges | Platform usage |
 | --- | --- | --- |
-| A caller on a paid plan | The caller pays. You earn them minus [Apify's share](/actors/monetize/pricing-and-costs#calculate-your-profit). | Deducted from your payout |
-| A caller on a free plan | The caller pays. You earn nothing. | Covered by Apify |
+| A user on a paid plan | The user pays. You earn them minus [Apify's share](/actors/monetize/pricing-and-costs#calculate-your-profit). | Deducted from your payout |
+| A user on a free plan | The user pays. You earn nothing. | Covered by Apify |
 | You, the Actor's owner | Not charged. They only update statistics. | Charged to your account |
 
-If the Actor uses pay per usage, the platform serves every request from the [pool](#how-requests-reach-your-runs) for your own requests. You pay for all of its platform usage, and callers pay nothing.
+If the Actor uses pay per usage, the platform serves every request from the [pool](#how-requests-reach-your-runs) for your own requests. You pay for all of its platform usage, and users pay nothing.
 
 Platform usage covers the compute, data transfer, proxy usage, and storage operations of the runs. The account that owns a storage pays for its retention.
 
 ## How requests reach your runs
 
-The platform serves every request to a multi-tenant Server Actor from a pool of runs in your account. It keeps one pool for each type of caller:
+The platform serves every request to a multi-tenant Server Actor from a pool of runs in your account. It keeps one pool for each type of user:
 
 | Pool | Serves |
 | --- | --- |
-| `MULTI_TENANT_PAYING_USERS` | Callers on a paid plan |
-| `MULTI_TENANT_FREE_USERS` | Callers on a free plan |
-| `MULTI_TENANT_OWNER_PAID` | You, the Actor's owner, and all callers of a pay-per-usage Actor |
+| `MULTI_TENANT_PAYING_USERS` | Users on a paid plan |
+| `MULTI_TENANT_FREE_USERS` | Users on a free plan |
+| `MULTI_TENANT_OWNER_PAID` | You, the Actor's owner, and all users of a pay-per-usage Actor |
 
-Callers share the runs within a pool, not across pools. Each run shows its pool in its `standby.deployment` property, returned by the [Get Actor run](/api/v2/actor-run-get) endpoint.
+Users share the runs within a pool, not across pools. Each run shows its pool in its `standby.deployment` property, returned by the [Get Actor run](/api/v2/actor-run-get) endpoint.
 
 ## Charge for a request
 
-The platform adds an `X-Actor-Request-ID` header with a unique ID to every request it forwards to a Server Actor. To charge the caller for that request, send the header's value as `requestId` in the body of the [Charge events in Actor run](/api/v2/post-charge-run) endpoint. Authenticate with the run's `APIFY_TOKEN`, and use the run's `ACTOR_RUN_ID` in the endpoint path.
+The platform adds an `X-Actor-Request-ID` header with a unique ID to every request it forwards to a Server Actor. To charge the user for that request, send the header's value as `requestId` in the body of the [Charge events in Actor run](/api/v2/post-charge-run) endpoint. Authenticate with the run's `APIFY_TOKEN`, and use the run's `ACTOR_RUN_ID` in the endpoint path.
 
 Runs of a single-tenant Server Actor ignore `requestId`, so the same charging code works for both tenancies and keeps working when you switch.
 
@@ -46,7 +46,7 @@ Follow these rules when you charge:
 
 - Charge before you send the final response or close the WebSocket connection. After the request ends, its ID stops working.
 - Charge within 10 minutes. A request ID is valid for at most 10 minutes.
-- Charge [custom events](/actors/monetize/pay-per-event#custom-events). The [synthetic](/actors/monetize/pay-per-event#synthetic-events) `apify-actor-start` and `apify-default-dataset-item` events belong to the run, which is in your account, so they don't charge callers.
+- Charge [custom events](/actors/monetize/pay-per-event#custom-events). The [synthetic](/actors/monetize/pay-per-event#synthetic-events) `apify-actor-start` and `apify-default-dataset-item` events belong to the run, which is in your account, so they don't charge users.
 - Send a unique `idempotency-key` header with each charge, so the platform doesn't count a retried charge twice.
 
 If the request ID is missing, has expired, or belongs to another Actor or pool, the endpoint returns a `400` error and charges nothing.
@@ -122,7 +122,7 @@ async function callServerActor(actorUrl, parentRequestId) {
 }
 ```
 
-Forwarding the request ID keeps the original caller's pricing tier, which selects the receiving Actor's event prices. Without it, the receiving Actor uses your pricing tier. Forwarding the ID doesn't change which pool serves the call or who pays for it. Custom event prices that the receiving Actor's developer set for you still apply.
+Forwarding the request ID keeps the original user's pricing tier, which selects the receiving Actor's event prices. Without it, the receiving Actor uses your pricing tier. Forwarding the ID doesn't change which pool serves the call or who pays for it. Custom event prices that the receiving Actor's developer set for you still apply.
 
 If the forwarded ID has expired or doesn't belong to a request your Actor is serving, the platform rejects the call with a `400` error.
 
@@ -130,26 +130,26 @@ The receiving Actor gets a new request ID. It charges its events with that ID an
 
 Who pays for the receiving Actor's events depends on the request your Actor was serving:
 
-- For a paying caller's request, the platform deducts the receiving Actor's event charges from your Actor's payout.
-- For a free caller's request, the call creates no payout and no deduction for either developer.
+- For a paying user's request, the platform deducts the receiving Actor's event charges from your Actor's payout.
+- For a free user's request, the call creates no payout and no deduction for either developer.
 - For your own request, charges from another developer's Actor go to your account. Between your own Actors, the events only update statistics.
 
 When you own both Actors, Apify takes no share of the receiving Actor's events. If your Actor calls a single-tenant Server Actor or starts a standard run, that run starts in your account, and you pay for it like any other run of yours.
 
 ## See what you earn and what you pay
 
-[Actor analytics](https://console.apify.com/actors/insights/analytics) show your revenue from paying callers. They also show what the platform deducts from that revenue: the platform usage and the charges for calls to other Actors. For how payouts are calculated and paid, see [Monthly payouts](/actors/monetize/monthly-payouts).
+[Actor analytics](https://console.apify.com/actors/insights/analytics) show your revenue from paying users. They also show what the platform deducts from that revenue: the platform usage and the charges for calls to other Actors. For how payouts are calculated and paid, see [Monthly payouts](/actors/monetize/monthly-payouts).
 
 Each run in your account also records what it charged:
 
-- `externalChargedEvents` counts the events the run charged to callers, for each [discount tier](/actors/monetize/pricing-and-costs#discount-tiers).
+- `externalChargedEvents` counts the events the run charged to users, for each [discount tier](/actors/monetize/pricing-and-costs#discount-tiers).
 - `externalChargedTotalUsd` is the total price of those events, at the prices in effect when they were charged. It isn't the run's platform usage cost or your payout.
 
 ## Price your events
 
-Requests to the server interface are usually short, such as a single lookup. If your Actor offers both interfaces, set a slightly higher event price for requests to the server interface, because callers get lower latency and higher concurrency.
+Requests to the server interface are usually short, such as a single lookup. If your Actor offers both interfaces, set a slightly higher event price for requests to the server interface, because users get lower latency and higher concurrency.
 
-Aim for the input interface to be cheaper than the server interface once a caller needs more than 10 results. A run started through the input interface also charges the Actor start event, while a request to the server interface doesn't:
+Aim for the input interface to be cheaper than the server interface once a user needs more than 10 results. A run started through the input interface also charges the Actor start event, while a request to the server interface doesn't:
 
 | Results per call | Input interface compared to server interface |
 | --- | --- |

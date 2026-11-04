@@ -8,7 +8,7 @@ sidebar_label: Server Actors
 
 A standard Actor runs a single job and then stops. It works great for batch jobs, such as a large data extraction or processing task. However, some applications can't wait for an Actor to start. Server Actors (formerly Actor Standby mode) solve this with a server interface. The Actor stays ready in the background and serves incoming HTTP requests in real time, like a web server or an API server.
 
-A Server Actor is either multi-tenant or single-tenant. A multi-tenant Server Actor runs in the developer's account and serves all its callers, while a single-tenant Server Actor starts a separate run in your account. Most of this page applies to both. [Multi-tenant and single-tenant Server Actors](#multi-tenant-and-single-tenant-server-actors) describes what the tenancy changes for you.
+A Server Actor is either multi-tenant or single-tenant. A multi-tenant Server Actor runs in the developer's account and serves all its users, while a single-tenant Server Actor starts a separate run in your account. Most of this page applies to both. [Multi-tenant and single-tenant Server Actors](#multi-tenant-and-single-tenant-server-actors) describes what the tenancy changes for you.
 
 To build your own Server Actor, see [Develop Server Actors](../development/programming_interface/server-interface/index.md).
 
@@ -76,11 +76,11 @@ The Actor's developer sets its tenancy. The Actor's detail page shows it in the 
 
 ### Multi-tenant Server Actors
 
-A multi-tenant Server Actor runs in the developer's account and serves all its callers from shared runs. You pay only for the events the Actor charges, not for the platform usage of its runs. No runs appear in your **Runs** tab, and the Actor appears in your recently used Actors instead.
+A multi-tenant Server Actor runs in the developer's account and serves all its users from shared runs. You pay only for the events the Actor charges, not for the platform usage of its runs. No runs appear in your **Runs** tab, and the Actor appears in your recently used Actors instead.
 
 The developer sets the server configuration, and you can't override it with a task.
 
-The Actor receives your Apify user ID in the `X-Apify-User-ID` header, so its developer can rate-limit or count requests per caller. The Actor doesn't receive your name, email, or API token, and it can't start runs or read storages in your account.
+The Actor receives your Apify user ID in the `X-Apify-User-ID` header, so its developer can rate-limit or count requests per user. The Actor doesn't receive your name, email, or API token, and it can't start runs or read storages in your account.
 
 ### Single-tenant Server Actors
 
