@@ -9,7 +9,9 @@ slug: /integrations/strands-agents
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
-The [Strands Agents SDK](https://github.com/strands-agents/sdk-python) is an open-source Python SDK by AWS for building AI agents. It follows a model-tools-prompt pattern: the SDK sends the prompt to the model, executes any tool calls the model requests, and feeds the results back until the task is complete.
+The [Strands Agents SDK](https://github.com/strands-agents/harness-sdk) is an open-source Python SDK by AWS for building AI agents.
+
+It follows a model-tools-prompt pattern: the SDK sends the prompt to the model, executes any tool calls the model requests, and feeds the results back until the task is complete.
 
 The [strands-apify](https://pypi.org/project/strands-apify/) package provides 18 tools grouped into three tool sets, giving your agent scraping, crawling, search, and social media capabilities through the [Apify platform](https://apify.com/).
 
@@ -17,9 +19,9 @@ The [strands-apify](https://pypi.org/project/strands-apify/) package provides 18
 
 ## Prerequisites
 
-- Python 3.10 or newer
+- Python 3.11 or newer
 - [An Apify account](https://console.apify.com) and Apify API token from the [Integrations](https://console.apify.com/settings/integrations?utm_source=strands-agents&utm_medium=integrations) page in Apify Console
-- At least one model provider configured. Strands supports Amazon Bedrock, OpenAI, Anthropic, Google Gemini, Ollama, LiteLLM, and LMStudio.
+- At least one configured model provider, such as Amazon Bedrock, OpenAI, Anthropic, Google Gemini, Ollama, LiteLLM, or LMStudio
 
 ## Installation
 
@@ -49,6 +51,14 @@ The package reads the following environment variables:
 | --- | --- | --- |
 | `APIFY_TOKEN` | Apify API token used to authorize Actor runs and dataset reads. | Yes |
 | `STRANDS_APIFY_QUIET` | Set to `1` to suppress the diagnostic panel printed on each tool call. Auto-suppressed in non-interactive environments. | No |
+| `STRANDS_APIFY_MAX_TIMEOUT_SECS` | Ceiling for `timeout_secs`. Default `600`. | No |
+| `STRANDS_APIFY_MAX_ITEMS` | Ceiling for `limit`, `dataset_items_limit`, `results_limit`, `search_limit`, `max_reviews`, and `max_pages`. Default `1000`. LinkedIn profile posts stays at its own `100` unless this is set lower. | No |
+| `STRANDS_APIFY_MAX_CRAWL_DEPTH` | Ceiling for `max_depth`. Default `5`. | No |
+| `STRANDS_APIFY_MAX_MEMORY_MBYTES` | Ceiling for `memory_mbytes`. Default and maximum `32768`; it can only be lowered. | No |
+
+### Limits on agent-supplied values
+
+Tools cap numeric arguments at the ceilings in the table before calling Apify. `memory_mbytes` is rounded up to a power of 2 and is at least 128. For a longer run, raise `STRANDS_APIFY_MAX_TIMEOUT_SECS`. To read past the item ceiling, call `apify_get_dataset_items` with `offset`.
 
 ## Configure your model provider
 
@@ -126,18 +136,19 @@ Strands also supports Google Gemini, LiteLLM, and LMStudio. See the [Strands mod
 
 ## Quick start
 
-This example scrapes a single URL and summarizes it:
+This example fetches a single web page and summarizes it:
 
 ```python
 from strands import Agent
-from strands_apify import apify_scrape_url
+from strands_apify import apify_web_fetch
 
-agent = Agent(model=model, tools=[apify_scrape_url])
+# `model` comes from the "Configure your model provider" section above.
+agent = Agent(model=model, tools=[apify_web_fetch])
 
-agent("Scrape https://docs.apify.com and summarize the page in three bullet points.")
+agent("Fetch https://docs.apify.com and summarize the page in three bullet points.")
 ```
 
-The agent calls `apify_scrape_url`, returns markdown to the model, and the model produces the summary.
+The agent calls `apify_web_fetch`, returns markdown to the model, and the model produces the summary.
 
 ## Choose the right tool set
 
@@ -145,7 +156,7 @@ The agent calls `apify_scrape_url`, returns markdown to the model, and the model
 
 | Tool set             | Tools | Use case                                                                                |
 | -------------------- | ----- | --------------------------------------------------------------------------------------- |
-| `APIFY_CORE_TOOLS`   | 6     | Run any Actor or saved task, fetch dataset items, scrape single URLs to markdown        |
+| `APIFY_CORE_TOOLS`   | 6     | Run any Actor or saved task, fetch dataset items, fetch single web pages                |
 | `APIFY_SEARCH_TOOLS` | 5     | Google Search, Google Maps, YouTube, multi-page website crawling, e-commerce            |
 | `APIFY_SOCIAL_TOOLS` | 7     | Instagram, LinkedIn, Twitter/X, TikTok, Facebook                                        |
 
@@ -165,9 +176,9 @@ Three ways to import tools:
 1. Import individual tools for tighter control:
 
     ```python
-    from strands_apify import apify_scrape_url, apify_google_search_scraper
+    from strands_apify import apify_web_fetch, apify_google_search_scraper
 
-    agent = Agent(model=model, tools=[apify_scrape_url, apify_google_search_scraper])
+    agent = Agent(model=model, tools=[apify_web_fetch, apify_google_search_scraper])
     ```
 
 1. Mix tool sets with individual tools:
@@ -186,26 +197,28 @@ Three ways to import tools:
 
 ## Examples
 
+The web research example builds its own OpenAI `model`. The other examples reuse the `model` from [Configure your model provider](#configure-your-model-provider).
+
 ### Web research agent
 
-This agent searches Google, scrapes the top result, and summarizes it:
+This agent searches Google, fetches the top result, and summarizes it:
 
 ```python
 import os
 from strands import Agent
 from strands.models.openai import OpenAIModel
-from strands_apify import apify_google_search_scraper, apify_scrape_url
+from strands_apify import apify_google_search_scraper, apify_web_fetch
 
 model = OpenAIModel(
     client_args={"api_key": os.getenv("OPENAI_API_KEY")},
     model_id="gpt-4.1",
 )
 
-agent = Agent(model=model, tools=[apify_google_search_scraper, apify_scrape_url])
+agent = Agent(model=model, tools=[apify_google_search_scraper, apify_web_fetch])
 
 agent(
     "Search Google for 'Strands Agents SDK AWS' and return the top 3 results. "
-    "Then scrape the first result and summarize the page content in 3 bullet points."
+    "Then fetch the first result and summarize the page content in 3 bullet points."
 )
 ```
 
@@ -224,9 +237,9 @@ agent("Find the latest 10 tweets mentioning #WebScraping and summarize the main 
 
 ### Run any Actor from Apify Store
 
-The pre-built tools cover the most common use cases, but [Apify Store](https://apify.com/store) has thousands of Actors. Use `apify_run_actor_and_get_dataset` to give your agent access to any of them.
+The prebuilt tools cover the most common use cases, but [Apify Store](https://apify.com/store) has thousands of Actors. Use `apify_run_actor_and_get_dataset` to give your agent access to any of them.
 
-Unlike pre-built tools (like `apify_google_search_scraper`) that expose typed parameters, `apify_run_actor_and_get_dataset` requires you to provide the Actor's input JSON directly. Your prompt must include the correct input shape.
+Unlike prebuilt tools (like `apify_google_search_scraper`) that expose typed parameters, `apify_run_actor_and_get_dataset` requires you to provide the Actor's input JSON directly. Your prompt must include the correct input shape.
 
 1. Find the Actor on [Apify Store](https://apify.com/store).
 1. Check the **Input** tab for the expected JSON schema.
@@ -245,7 +258,7 @@ agent(
 )
 ```
 
-For long-running Actors (large crawls, datasets with thousands of items), increase `timeout_secs` in your prompt - the default is 300 seconds:
+For long-running Actors, such as large crawls or datasets with thousands of items, set `timeout_secs` in your prompt. See [Limits on agent-supplied values](#limits-on-agent-supplied-values) for the default ceiling and how to raise it. For example:
 
 ```python
 agent(
@@ -263,24 +276,28 @@ The agent passes `run_input` as a JSON object to the Actor. For Actors with comp
 
 ## Tool reference
 
-This section lists every tool in `strands-apify` with its parameters, default values, and an example prompt you can use directly in your agent.
+This section lists every tool in `strands-apify` with its parameters, default values, and an example prompt you can use directly in your agent. Numeric parameters such as `timeout_secs`, `memory_mbytes`, and item limits are capped as described in [Limits on agent-supplied values](#limits-on-agent-supplied-values).
 
 ### Core tools
 
-The following tools are included in the `APIFY_CORE_TOOLS` tool set. They cover running Actors, fetching dataset items, scraping single URLs, and executing saved tasks.
+The following tools are included in the `APIFY_CORE_TOOLS` tool set. They cover running Actors, fetching dataset items, fetching single web pages, and executing saved tasks.
 
-#### `apify_scrape_url`
+#### `apify_web_fetch`
 
-Scrape a single URL and return its content as markdown. No Actor input schema needed.
+Fetch a single web page and return its content as markdown, HTML, plain text, links, or raw content. Uses [Web Fetch](https://apify.com/apify/web-fetch), which answers in one real-time request and handles bot protection on its own. No Actor input schema needed. For multi-page crawls, use `apify_website_content_crawler`.
 
 | Parameter | Type | Default | Description |
 | --- | --- | --- | --- |
-| `url` | `str` | *required* | The URL to scrape (must include `http://` or `https://`) |
-| `timeout_secs` | `int` | `120` | Maximum wait time in seconds |
-| `crawler_type` | `str` | `"cheerio"` | Engine: `"cheerio"` (fast, no JS), `"playwright:adaptive"` (renders JS when needed), `"playwright:firefox"` (full JS, best anti-bot bypass) |
+| `url` | `str` | *required* | The URL to fetch (must include `http://` or `https://`) |
+| `formats` | `list[str]` | `["markdown"]` | Any of `"markdown"`, `"html"`, `"text"`, `"links"`, and `"raw"` (original bytes, base64-encoded for binary content). Use `["raw"]` for images, archives, and other binary files. |
+| `headers` | `dict` | `None` | HTTP headers to send to the target URL (e.g. `{"Accept-Language": "fr-FR"}`) |
+| `wait_ms` | `int` | `None` | Milliseconds to wait after the page loads, from 1 to 60000. Renders the page in a real browser so content loaded later by JavaScript is included, but makes the request slower. |
+| `timeout_secs` | `int` | `180` | Maximum wait time in seconds |
 
-```prompt title="Scrape and summarize a page"
-Scrape https://docs.apify.com/academy and summarize the page.
+The result includes `url`, `final_url` (after redirects), `title`, `http_status` (the target page's own status, e.g. `404` for a missing page), and one key per requested format.
+
+```prompt title="Fetch and summarize a page"
+Fetch https://docs.apify.com/academy and summarize the page.
 ```
 
 #### `apify_run_actor`
@@ -319,18 +336,19 @@ Run any Actor and fetch its dataset results in a single call. Provides access to
 Run the Actor 'apify/rag-web-browser' with input {"query": "latest AI safety research", "maxResults": 5} and summarize the results.
 ```
 
+The tool doesn't validate `run_input` against the Actor's input schema. A mismatch fails on the Actor run.
+
 :::tip How to use this tool effectively
 
 1. Browse [Apify Store](https://apify.com/store) and find the Actor you need.
 1. Open the Actor's page and check the **Input** tab for the JSON schema.
 1. In your agent prompt, provide the Actor ID and the input as a JSON object.
-1. There is no schema validation on the agent side. The input must match what the Actor expects.
 
 :::
 
 #### `apify_get_dataset_items`
 
-Fetch items from an existing Apify dataset. Use this after `apify_run_actor` to retrieve results, or to paginate through large datasets.
+Fetch items from an existing Apify dataset. Use this after `apify_run_actor` to get results, or to paginate through large datasets.
 
 | Parameter | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -382,7 +400,7 @@ The following tools are included in the `APIFY_SEARCH_TOOLS` tool set. They cove
 
 #### `apify_google_search_scraper`
 
-Search Google and return structured results (organic links, ads, People Also Ask). Uses [Google Search Scraper](https://apify.com/apify/google-search-scraper).
+Search Google and return structured results (organic links, ads, and People Also Ask). Uses [Google Search Scraper](https://apify.com/apify/google-search-scraper).
 
 | Parameter | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -430,7 +448,7 @@ Search YouTube for 'AWS re:Invent 2025 keynote' and return the top 5 videos with
 
 #### `apify_website_content_crawler`
 
-Crawl a website and extract content from multiple pages as markdown. Uses [Website Content Crawler](https://apify.com/apify/website-content-crawler). This is the multi-page version - use `apify_scrape_url` for single pages.
+Crawl a website and extract content from multiple pages as markdown. Uses [Website Content Crawler](https://apify.com/apify/website-content-crawler). This is the multi-page version. For single pages, use `apify_web_fetch`.
 
 | Parameter | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -515,7 +533,7 @@ Find 10 machine learning engineers in London and return their profile summaries.
 
 #### `apify_linkedin_profile_detail`
 
-Get full details from a single LinkedIn profile (experience, education, skills). Uses [LinkedIn Profile Detail](https://apify.com/apimaestro/linkedin-profile-detail). No LinkedIn account or cookies required.
+Get full details from a single LinkedIn profile (experience, education, and skills). Uses [LinkedIn Profile Detail](https://apify.com/apimaestro/linkedin-profile-detail). No LinkedIn account or cookies required.
 
 | Parameter | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -577,14 +595,31 @@ Scrape posts from a Facebook page or profile. Uses [Facebook Posts Scraper](http
 Get the last 15 posts from https://www.facebook.com/apifytech newer than 1 month ago.
 ```
 
+---
+
+### Deprecated tools
+
+The following tools aren't part of any tool set and will be removed in a future release. Existing code that imports them directly keeps working.
+
+#### `apify_scrape_url`
+
+`apify_scrape_url` is deprecated. Use `apify_web_fetch` instead. Calling it emits a `FutureWarning`.
+
+| Parameter | Type | Default | Description |
+| --- | --- | --- | --- |
+| `url` | `str` | *required* | The URL to scrape (must include `http://` or `https://`) |
+| `timeout_secs` | `int` | `120` | Maximum wait time in seconds |
+| `crawler_type` | `str` | `"cheerio"` | Engine: `"cheerio"` (fast, no JS), `"playwright:adaptive"` (renders JS when needed), `"playwright:firefox"` (full JS, best anti-bot bypass) |
+
 ## Production environment best practices
 
-- Increase `timeout_secs` to 600+ when crawling large sites or scraping high-volume datasets. The default is 300 seconds.
+- Increase `timeout_secs` when crawling large sites or scraping high-volume datasets. See [Limits on agent-supplied values](#limits-on-agent-supplied-values) for the ceiling.
+- Lower the `STRANDS_APIFY_MAX_*` ceilings to limit how much a single agent tool call can run or return.
 - Paginate datasets with `apify_get_dataset_items` using `limit` and `offset` instead of fetching everything in one call.
 - Pin Actor versions by passing the `build` parameter (e.g. `build="1.2.3"` or `build="beta"`) to `apify_run_actor` / `apify_run_actor_and_get_dataset`.
 - Monitor Actor costs in [Apify Console](https://console.apify.com/). Agentic loops can call Actors multiple times per user request. Set a billing limit to control spending.
 - Register only the tools your agent needs. For example, if you only search Google and scrape one URL, register exactly those two tools instead of `APIFY_SEARCH_TOOLS` or `APIFY_ALL_TOOLS`.
-- The package auto-detects non-interactive environments (CI, Docker, web services, Lambda) and suppresses the rich diagnostic panel. To suppress in interactive shells, set `STRANDS_APIFY_QUIET=1`.
+- Set `STRANDS_APIFY_QUIET=1` to hide the diagnostic panel in an interactive shell. Non-interactive environments (CI, Docker, web services, and Lambda) hide it on their own.
 
 ## Troubleshooting
 
@@ -594,15 +629,15 @@ Get the last 15 posts from https://www.facebook.com/apifytech newer than 1 month
 | `apify-client package is required` | Missing dependency | Run `pip install strands-apify` |
 | `Invalid URL` or `urls[N]: Invalid URL scheme '...'` | URL is not well-formed http(s) | Confirm the URL has an `http://` or `https://` scheme and a valid host. The index in `urls[N]` points to the offending entry. |
 | Actor run finishes with status `FAILED` | Invalid input or Actor error | Check the `statusMessage` in the error text, or check the full run logs in [Apify Console](https://console.apify.com). |
-| Actor run finishes with status `TIMED-OUT` | Timeout too short for the workload | Increase the `timeout_secs` parameter (use 600+ for large crawls) |
+| Actor run finishes with status `TIMED-OUT` | Timeout too short for the workload | Increase the `timeout_secs` parameter. For runs longer than 600 seconds, also raise `STRANDS_APIFY_MAX_TIMEOUT_SECS`. |
 | Agent selects the wrong tool | Too many tools registered or ambiguous prompt | Reduce the number of registered tools, add more context to the prompt, or use a more capable model |
 | Empty results from social media tools | Private or geo-restricted profile | Verify the profile is public. Test with a known public account first. |
 
 ## Resources
 
 - [Strands Agents SDK documentation](https://strandsagents.com/)
-- [Strands Agents SDK GitHub repository](https://github.com/strands-agents/sdk-python)
+- [Strands Agents SDK GitHub repository](https://github.com/strands-agents/harness-sdk)
 - [strands-apify on PyPI](https://pypi.org/project/strands-apify/)
 - [strands-apify GitHub repository](https://github.com/apify/strands-apify)
 - [Apify Store](https://apify.com/store)
-- [Apify API reference](https://docs.apify.com/api/v2)
+- [Apify API reference](/api/v2)
