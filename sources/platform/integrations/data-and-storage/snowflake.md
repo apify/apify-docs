@@ -193,7 +193,7 @@ Tables created by the app live in `APIFY_EXPORTS.DATASETS_EXPORTS` and are owned
 GRANT APPLICATION ROLE <app_name>.app_public TO ROLE <your_role>;
 ```
 
-Replace `<app_name>` with the name of the installed app and `<your_role>` with the role you query data with. After this one-time grant, the role can read all current and future tables the app exports. Scheduled imports that create a new table also need it, see [Before you start](#before-you-start).
+Replace `<app_name>` with the name of the installed app and `<your_role>` with the role you query data with. After this one-time grant, the role can read all current and future tables the app exports. Scheduled imports that create a new table also need this grant. For details, see [Before you start](#before-you-start).
 
 Alternatively, open the app in Snowsight, go to the **Access management** tab, and select **Add** to assign the `app_public` role to any account role.
 
