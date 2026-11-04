@@ -84,7 +84,7 @@ The Actor receives your Apify user ID in the `X-Apify-User-ID` header, so its de
 
 ### Single-tenant Server Actors
 
-A single-tenant Server Actor starts its runs in your account, and only you use them. You pay for the platform usage of those runs, plus the event charges if the Actor uses pay-per-event pricing.
+A single-tenant Server Actor starts its runs in your account, and only you use them. You pay for the platform usage of those runs, plus the event charges if the Actor uses the [pay-per-event pricing model](/actors/monetize/pay-per-event).
 
 The developer sets the default server configuration. Unless the developer locked it, you can [override it with a task](#override-the-configuration-with-a-task).
 
@@ -126,9 +126,9 @@ If your account goes over its monthly usage hard limit, the platform rejects you
 
 ## Billing
 
-For a multi-tenant Server Actor, you pay only for the events it charges. You don't pay for the platform usage of the runs that serve you.
+What you pay for depends on the tenancy, as described in [Multi-tenant and single-tenant Server Actors](#multi-tenant-and-single-tenant-server-actors).
 
-For a single-tenant Server Actor, the platform bills your runs like standard runs. A run also consumes resources while it waits for requests, until the idle timeout stops it, so expect usage even when no requests arrive. If the Actor uses the [pay-per-event pricing model](/actors/monetize/pay-per-event), you pay the event charges in addition to the platform usage.
+For a single-tenant Server Actor, the platform bills your runs like standard runs. A run also consumes resources while it waits for requests, until the idle timeout stops it, so expect usage even when no requests arrive.
 
 ## Use Server Actors as MCP servers
 

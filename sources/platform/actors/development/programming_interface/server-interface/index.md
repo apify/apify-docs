@@ -13,7 +13,7 @@ A standard Actor runs a single job and stops. A Server Actor (formerly an Actor 
 
 A Server Actor is either multi-tenant or single-tenant:
 
-- A multi-tenant Server Actor runs in your account and serves all its users from shared runs. Users pay for events, and you cover the platform usage.
+- A multi-tenant Server Actor runs in your account and serves all its users from shared runs. Users pay for events, and you or Apify cover the platform usage, depending on the user.
 - A single-tenant Server Actor starts a separate run in each user's account, and the user pays for the platform usage.
 
 Most of this page applies to both. [Choose the tenancy](#choose-the-tenancy) covers multi-tenant, and [Single-tenant Server Actors](#single-tenant-server-actors) covers what differs for single-tenant. To move an existing Actor to multi-tenant, see [Migrate an Actor to multi-tenant](./migrate-to-multi-tenant.md).
@@ -281,7 +281,7 @@ The header contains only the ID. Your Actor doesn't receive the user's name, ema
 
 How you monetize a Server Actor depends on its tenancy:
 
-- A multi-tenant Server Actor uses pay-per-event or pay-per-usage pricing, and you cover the platform usage of its runs. With pay-per-event pricing, it charges each request instead of each run. See [Monetize multi-tenant Server Actors](/actors/monetize/server-actors).
+- A multi-tenant Server Actor uses pay-per-event or pay-per-usage pricing, and you or Apify cover the platform usage of its runs. With pay-per-event pricing, it charges each request instead of each run. See [Monetize multi-tenant Server Actors](/actors/monetize/server-actors).
 - A single-tenant Server Actor charges events like a standard run, as described in [Pay-per-event pricing model](/actors/monetize/pay-per-event). Users cover both the platform usage costs of their runs and the event costs.
 
 ## Single-tenant Server Actors

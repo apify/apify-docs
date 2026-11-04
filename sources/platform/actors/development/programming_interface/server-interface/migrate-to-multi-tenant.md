@@ -6,16 +6,16 @@ slug: /actors/development/programming-interface/standby/migrate-to-multi-tenant
 sidebar_position: 1
 ---
 
-Most Actors need two changes to become multi-tenant: pay-per-event pricing, and charging per request instead of per run. This applies whether your Actor already has the server interface or not.
+A multi-tenant Actor needs pay-per-event or pay-per-usage pricing. With pay-per-event pricing, it also has to charge each request instead of each run. This applies whether your Actor already has the server interface or not.
 
 Before you start, [check whether your Actor fits](./index.md#check-whether-your-actor-fits) multi-tenant. For how Server Actors work, see [Develop Server Actors](./index.md).
 
 ## Migrate a standard Actor
 
 1. Run an HTTP server on the port from `ACTOR_WEB_SERVER_PORT`, and set `usesStandbyMode` to `true`. See [Run an HTTP server](./index.md#run-an-http-server).
-1. Branch on how the run started. See [Determine which interface started the Actor](./index.md#determine-which-interface-started-the-actor).
+1. Handle runs started through either interface. See [Determine which interface started the Actor](./index.md#determine-which-interface-started-the-actor).
 1. Describe your endpoints. See [Describe your endpoints](./index.md#describe-your-endpoints).
-1. Charge each request. See [Charge for a request](/actors/monetize/server-actors#charge-for-a-request).
+1. If the Actor uses pay-per-event pricing, charge each request. See [Charge for a request](/actors/monetize/server-actors#charge-for-a-request).
 1. Switch the tenancy to multi-tenant. See [Switch the tenancy](./index.md#switch-the-tenancy).
 
 Your input schema keeps working, so users can still run the Actor through its input interface.
