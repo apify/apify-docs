@@ -32,9 +32,9 @@ This guide covers setup in claude.ai in your browser. For the desktop app, see t
 
 1. Select the **Discover** tab and search for "Apify".
 
-1. Select the **Apify** plugin, marked with a verified badge.
+1. Select the **Apify** entry labeled **Plugin**. The **Apify** entry labeled **Desktop extension** is for [Claude Desktop](/integrations/claude-desktop#desktop-extension) only.
 
-    <!-- TODO: screenshot of the Discover results, cropped to the verified Apify plugin -->
+    ![Discover tab search results for Apify, with the Apify plugin highlighted above the Apify Desktop extension](images/claude-ai/01-discover-apify-plugin.webp)
 
 1. Select **Add**.
 
@@ -46,17 +46,17 @@ The plugin bundles the Apify MCP server as a connector. Connect it and sign in t
 
 1. On the **Apify** plugin page, open the **Connectors** tab. The `apify` connector shows as **Not added**.
 
-    The plugin page stays open after you select **Add**. To get back to it later, open **Customize** > **Plugins**, select the **Yours** tab, and select the **Apify** plugin.
-
 1. Select **Connect**. The **Add custom connector** dialog opens with the name and server URL already filled in.
 
-1. Select **Continue**. Claude detects the authentication settings from the server.
+    ![Apify plugin page in claude.ai with the Connectors tab open, the apify connector marked Not added, and the Connect button highlighted](images/claude-ai/02-plugin-connectors-tab.webp)
 
-1. Keep the detected settings and select **Add**. Claude opens the Apify sign-in page.
+1. Select **Continue**, keep the detected settings, and select **Add**. On the Apify sign-in page, choose the user or organization account Claude should use.
 
-1. The Apify sign-in page warns that the application was registered dynamically and wasn't verified by Apify. This warning is expected for Claude. Check that the Apify account is correct and that the redirect URL is `https://claude.ai/api/mcp/auth_callback`, then select **Allow access**.
+1. On the **Claude asks for permission** page, a warning says that the application was registered dynamically and wasn't verified by Apify. This warning is expected for Claude.
 
-    <!-- TODO: screenshot of the Apify sign-in page with the dynamic registration warning (light theme, #F86606 border on Allow access) -->
+    Check that the Apify account and the redirect URL `https://claude.ai/api/mcp/auth_callback` are correct, then select **Allow access**.
+
+    ![Apify permission page for Claude with the dynamic registration warning, the redirect URL, the selected account, and the Allow access button highlighted](images/claude-ai/03-apify-consent.webp)
 
 1. Back in claude.ai, check that the `apify` connector shows as connected.
 
@@ -73,8 +73,6 @@ Use Apify to find a good Actor for scraping Google Maps places. Show me the best
 ```
 
 Claude searches Apify Store, fetches the top Actor's details through the Apify MCP server, and summarizes its inputs, pricing, and output - all without running the Actor.
-
-<!-- TODO: screenshot of a chat, cropped to the Apify tool calls and the result -->
 
 ## Bundled skills
 
@@ -114,7 +112,7 @@ Also check that the chat has the connector turned on: select **+** in the messag
 
 ### Authentication errors or wrong Apify account
 
-Remove the `apify` connector and connect it again to trigger a new sign-in. On the Apify sign-in page, use **Wrong account?** to pick the account Claude should use.
+Remove the `apify` connector and connect it again to trigger a new sign-in. On the **Claude asks for permission** page, use **Wrong account?** to pick the account Claude should use.
 
 ## Limitations
 
