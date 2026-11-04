@@ -10,7 +10,7 @@ A standard Actor runs a single job and then stops. It works great for batch jobs
 
 A Server Actor is either multi-tenant or single-tenant. A multi-tenant Server Actor runs in the developer's account and serves all its callers, while a single-tenant Server Actor starts a separate run in your account. This page describes what both have in common, then what [tenancy](#how-tenancy-affects-you) changes for you.
 
-To build your own Server Actor, see [Develop Server Actors](../development/programming_interface/actor_standby.md).
+To build your own Server Actor, see [Develop Server Actors](../development/programming_interface/server-interface/index.md).
 
 ## Check if an Actor is a Server Actor
 
@@ -106,7 +106,7 @@ The platform checks a run's readiness once, before the run starts serving reques
 
 :::caution Unresponsive servers aren't detected
 
-If an Actor's server stays up but stops responding, the platform doesn't detect the failure, and requests keep going to that run. To learn how to handle this situation in your own Actors, see [Run lifecycle](../development/programming_interface/actor_standby.md#run-lifecycle).
+If an Actor's server stays up but stops responding, the platform doesn't detect the failure, and requests keep going to that run. To learn how to handle this situation in your own Actors, see [Run lifecycle](../development/programming_interface/server-interface/index.md#run-lifecycle).
 
 :::
 
@@ -140,7 +140,7 @@ A single-tenant Server Actor starts its runs in your account. You pay for their 
 
 ### Override the configuration with a task
 
-If you use an Actor built by someone else, the Actor-level hostname always uses the developer's default [server configuration](../development/programming_interface/actor_standby.md#configure-the-server). To override it:
+If you use an Actor built by someone else, the Actor-level hostname always uses the developer's default [server configuration](../development/programming_interface/server-interface/index.md#configure-the-server). To override it:
 
 1. In [Apify Console](https://console.apify.com), open the Actor and select **Save as a new task**.
 1. Open the task's **Settings** tab.

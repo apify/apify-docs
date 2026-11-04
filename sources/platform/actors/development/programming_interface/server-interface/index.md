@@ -18,7 +18,7 @@ A Server Actor is either multi-tenant or single-tenant:
 
 Most of this page applies to both. [Choose the tenancy](#choose-the-tenancy) covers multi-tenant, and [Single-tenant Server Actors](#single-tenant-server-actors) covers what differs for single-tenant. To move an existing Actor to multi-tenant, see [Migrate an Actor to multi-tenant](./migrate-to-multi-tenant.md).
 
-For the caller's view, including endpoints, authentication, scaling, configuration, and billing, see [Server Actors](../../running/actor_standby.md). To charge callers of a multi-tenant Server Actor, see [Monetize multi-tenant Server Actors](/actors/monetize/server-actors).
+For the caller's view, including endpoints, authentication, scaling, configuration, and billing, see [Server Actors](../../../running/actor_standby.md). To charge callers of a multi-tenant Server Actor, see [Monetize multi-tenant Server Actors](/actors/monetize/server-actors).
 
 ## Start with a template
 
@@ -34,7 +34,7 @@ To enable or change the server interface, open the **Settings** tab of the Actor
 
 ### In the source code
 
-You can enable the server interface by setting the [`usesStandbyMode`](../actor_definition/actor_json.md) property to `true` in the `.actor/actor.json` file. When you push the Actor with the [Apify CLI](https://docs.apify.com/cli/), the setting syncs to the platform.
+You can enable the server interface by setting the [`usesStandbyMode`](../../actor_definition/actor_json.md) property to `true` in the `.actor/actor.json` file. When you push the Actor with the [Apify CLI](https://docs.apify.com/cli/), the setting syncs to the platform.
 
 ## Choose the tenancy
 
@@ -97,7 +97,7 @@ A Server Actor must run an HTTP server that listens on a specific port. The plat
 
 The server must listen on the port defined by the `ACTOR_WEB_SERVER_PORT` environment variable. If you use the Apify SDK, read the port from the Actor configuration instead: the option is named `containerPort` in JavaScript and `web_server_port` in Python.
 
-If your server must listen on a specific port that you can't change in code, define `ACTOR_WEB_SERVER_PORT` as a custom [environment variable](./environment_variables.md) of the Actor, with that port as the value. The platform then proxies the requests to your port.
+If your server must listen on a specific port that you can't change in code, define `ACTOR_WEB_SERVER_PORT` as a custom [environment variable](../environment_variables.md) of the Actor, with that port as the value. The platform then proxies the requests to your port.
 
 ### Example server
 
@@ -144,11 +144,11 @@ async def main() -> None:
 
 ## Describe your endpoints
 
-Describe your Actor's endpoints, their parameters, and responses with a [web server schema](../actor_definition/web_server_schema/index.md) defined in the [`.actor/actor.json`](../actor_definition/actor_json.md) file. Based on that definition, Apify Console renders an interactive **Server** tab on the Actor's detail page, where users can browse the endpoints and send requests directly from the browser. Describe the endpoints in your Actor's [README](../../publishing/publish/actor-readme.mdx) as well, because users see the README in Apify Store before they open the Actor's detail page.
+Describe your Actor's endpoints, their parameters, and responses with a [web server schema](../../actor_definition/web_server_schema/index.md) defined in the [`.actor/actor.json`](../../actor_definition/actor_json.md) file. Based on that definition, Apify Console renders an interactive **Server** tab on the Actor's detail page, where users can browse the endpoints and send requests directly from the browser. Describe the endpoints in your Actor's [README](../../../publishing/publish/actor-readme.mdx) as well, because users see the README in Apify Store before they open the Actor's detail page.
 
 ## Run lifecycle
 
-The platform starts and stops Server Actor runs based on the incoming request load. It stops a run that receives no requests within the idle timeout and starts a new run when requests arrive again. Don't keep data only in the run's memory. Persist anything you need to a [dataset or key-value store](../../../storage/index.md). For details, see [how scaling works](../../running/actor_standby.md#automatic-scaling), [the server configuration](#configure-the-server), and [the timeouts and rate limits](../../running/actor_standby.md#limits-and-scaling) that apply to incoming requests.
+The platform starts and stops Server Actor runs based on the incoming request load. It stops a run that receives no requests within the idle timeout and starts a new run when requests arrive again. Don't keep data only in the run's memory. Persist anything you need to a [dataset or key-value store](../../../../storage/index.md). For details, see [how scaling works](../../../running/actor_standby.md#automatic-scaling), [the server configuration](#configure-the-server), and [the timeouts and rate limits](../../../running/actor_standby.md#limits-and-scaling) that apply to incoming requests.
 
 For a multi-tenant Server Actor, the platform keeps separate pools of runs for paying callers, free callers, and your own requests, and routes each request to one of them. For how the pools affect billing, see [How requests reach your runs](/actors/monetize/server-actors#how-requests-reach-your-runs). All pools run in your account and count against its memory and concurrent run limits, so set the server configuration to match the traffic you expect.
 
@@ -260,9 +260,9 @@ async def main() -> None:
 
 Each Server Actor has a URL that stays the same for all of its runs. The URL is exposed as the `ACTOR_STANDBY_URL` environment variable and as the `standbyUrl` option in `Actor.config`.
 
-Unlike the server interface URL, the [container web server](./container_web_server.md) URL changes with every run. For the URL formats and where users find them, see [Get the server interface URL](../../running/actor_standby.md#get-the-server-interface-url).
+Unlike the server interface URL, the [container web server](../container_web_server.md) URL changes with every run. For the URL formats and where users find them, see [Get the server interface URL](../../../running/actor_standby.md#get-the-server-interface-url).
 
-Requests to the server interface URL require an Apify API token. See [how to authenticate requests](../../running/actor_standby.md#authenticate-requests). If your Actor exposes an MCP server, define the endpoint path with the [`webServerMcpPath`](../actor_definition/actor_json.md) property. For details, see [Use Server Actors as MCP servers](../../running/actor_standby.md#use-server-actors-as-mcp-servers).
+Requests to the server interface URL require an Apify API token. See [how to authenticate requests](../../../running/actor_standby.md#authenticate-requests). If your Actor exposes an MCP server, define the endpoint path with the [`webServerMcpPath`](../../actor_definition/actor_json.md) property. For details, see [Use Server Actors as MCP servers](../../../running/actor_standby.md#use-server-actors-as-mcp-servers).
 
 ## Identify the caller
 
