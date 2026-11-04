@@ -104,9 +104,9 @@ Actor detail https://console.apify.com/actors/aOc...
 Success: Actor was deployed to Apify cloud and built there.
 ```
 
-You can click the **Actor detail** link, or go to **Apify Console > My Actors**, and click on your Actor. Now, click on the Settings tab, and enable **Actor Standby**:
+You can click the **Actor detail** link, or go to **Apify Console > My Actors**, and click on your Actor. Now, click on the Settings tab, and in the **Server** section, turn on **Enable server interface**:
 
-![Standby Actor](.//adding_rapidapi_project/standby.png)
+![Server interface setting in the Actor settings](.//adding_rapidapi_project/standby.png)
 
 :::info Two modes of Actors
 

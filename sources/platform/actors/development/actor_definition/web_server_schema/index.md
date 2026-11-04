@@ -6,7 +6,7 @@ description: Attach an OpenAPI specification to your Actor to enable the interac
 slug: /actors/development/actor-definition/web-server-schema
 ---
 
-The `webServerSchema` field in `.actor/actor.json` attaches an [OpenAPI 3.x](https://spec.openapis.org/oas/v3.0.3) specification to your Actor. You can define the schema for any Actor that exposes an HTTP server. When you enable [standby mode](/actors/development/programming-interface/standby), Apify Console and Apify Store render an interactive **Server** tab on the Actor's detail page. From there you can browse endpoints, inspect request and response schemas, and send requests directly from the browser.
+The `webServerSchema` field in `.actor/actor.json` attaches an [OpenAPI 3.x](https://spec.openapis.org/oas/v3.0.3) specification to your Actor. You can define the schema for any Actor that exposes an HTTP server. When you enable the [server interface](/actors/development/programming-interface/standby), Apify Console and Apify Store render an interactive **Server** tab on the Actor's detail page. From there you can browse endpoints, inspect request and response schemas, and send requests directly from the browser.
 
 ![Apify Console showing the Server tab rendered from the Actor's OpenAPI spec](../images/console-standby-openapi-swagger.png)
 
