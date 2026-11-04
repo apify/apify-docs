@@ -37,3 +37,9 @@ To learn more about Apify's security practices, data protection measures, and co
 ## Security whitepaper
 
 For how the Apify platform is built and operated to protect your data, read the [Apify Security Whitepaper](https://apify.com/security-whitepaper.pdf).
+
+## Next steps
+
+- [Access rights](/account/collaboration/access-rights) - who can see and run what in your account.
+- [Actor permissions](/actors/development/permissions) - the permission levels an Actor runs with.
+- [Two-factor authentication](/account/two-factor-authentication) - protect your account sign-in.
