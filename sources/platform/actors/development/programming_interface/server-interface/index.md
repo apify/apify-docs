@@ -275,7 +275,7 @@ http.createServer(async (req, res) => {
 });
 ```
 
-The header contains only the ID. Your Actor doesn't receive the user's name, email, or API token, and it can't start runs, read storages, or act in the user's account.
+The header contains only the ID. Your Actor doesn't receive the user's name, email, or API token. A multi-tenant Server Actor also can't start runs, read storages, or act in the user's account.
 
 ## Monetize Server Actors
 

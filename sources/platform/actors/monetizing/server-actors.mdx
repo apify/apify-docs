@@ -45,7 +45,6 @@ Runs of a single-tenant Server Actor ignore `requestId`, so the same charging co
 Follow these rules when you charge:
 
 - Charge before you send the final response or close the WebSocket connection. After the request ends, its ID stops working.
-- Charge within 10 minutes. A request ID is valid for at most 10 minutes.
 - Charge [custom events](/actors/monetize/pay-per-event#custom-events). The [synthetic](/actors/monetize/pay-per-event#synthetic-events) `apify-actor-start` and `apify-default-dataset-item` events belong to the run, which is in your account, so they don't charge users.
 - Send a unique `idempotency-key` header with each charge, so the platform doesn't count a retried charge twice.
 
@@ -140,10 +139,7 @@ When you own both Actors, Apify takes no share of the receiving Actor's events. 
 
 [Actor analytics](https://console.apify.com/actors/insights/analytics) show your revenue from paying users. They also show what the platform deducts from that revenue: the platform usage and the charges for calls to other Actors. For how payouts are calculated and paid, see [Monthly payouts](/actors/monetize/monthly-payouts).
 
-Each run in your account also records what it charged:
-
-- `externalChargedEvents` counts the events the run charged to users, for each [discount tier](/actors/monetize/pricing-and-costs#discount-tiers).
-- `externalChargedTotalUsd` is the total price of those events, at the prices in effect when they were charged. It isn't the run's platform usage cost or your payout.
+Each run in your account also records the total price of the events it charged to users, in its `externalChargedTotalUsd` property. It uses the prices in effect when the events were charged. It isn't the run's platform usage cost or your payout.
 
 ## Price your events
 
