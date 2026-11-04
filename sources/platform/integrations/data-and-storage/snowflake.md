@@ -42,11 +42,20 @@ In Snowsight, open the **Data Products** menu and navigate to the **Marketplace*
 
 ### Step 2: Set up External Access Integration
 
-During installation, the app prompts you to create a `Network Rule` and an `External Access Integration` so the app can reach the Apify API. The suggested network rule allows `api.apify.com` for the Apify API, and `images.apifyusercontent.com`, `apify-image-uploads-prod.s3.amazonaws.com`, and `apify-image-uploads-prod.s3.us-east-1.amazonaws.com` for Actor pictures.
+During installation, the app prompts you to create a `Network Rule` and an `External Access Integration` so the app can reach the Apify API. The suggested network rule allows `api.apify.com` for the Apify API. It also allows `images.apifyusercontent.com`, `apify-image-uploads-prod.s3.amazonaws.com`, and `apify-image-uploads-prod.s3.us-east-1.amazonaws.com` for Actor pictures.
 
 Follow the instructions shown in the setup screen to create the External Access Integration. On the same screen, select **Configure** next to **Apify API Token** and bind a Snowflake secret of type Generic String containing your [Apify API token](https://console.apify.com/settings/integrations). To choose between a personal and an organization token, see [Choose an API token](#choose-an-api-token).
 
 ![External connections setup during app installation](../images/snowflake/snowflake-setup-eai.png)
+
+#### Choose an API token
+
+The app uses one Apify API token for every Snowflake user in the account. Every run, import, and schedule the app creates belongs to the Apify account that owns that token and is billed to it.
+
+- _Organization token_ (recommended for teams) - billed to your [Apify organization](/account/collaboration/organization) and not tied to any one member. In [Apify Console](https://console.apify.com/settings/integrations), switch to your organization, then go to **Settings** > **API & Integrations**. Only the organization owner and members with the _Manage organization access keys_ permission can see organization tokens.
+- _Personal token_ - every Snowflake user of the app acts as you. Use it only for single-user setups.
+
+To switch tokens later, go to **Admin** > **Security** > **Secrets** in Snowsight, find the secret bound to the app, and update its value.
 
 ### Step 3: Grant required privileges
 
@@ -67,15 +76,6 @@ The **API Token** page shows the connection status on its own. If the app isn't 
 
 ![API Token page showing the connection status and token guidance](../images/snowflake/snowflake-api-token.webp)
 
-#### Choose an API token
-
-The app uses one Apify API token for every Snowflake user in the account. Every run, import, and schedule the app creates belongs to the Apify account that owns that token and is billed to it.
-
-- _Organization token_ (recommended for teams) - billed to your [Apify organization](/account/collaboration/organization) and not tied to any one member. In [Apify Console](https://console.apify.com/settings/integrations), switch to your organization in the top-left corner, then go to **Settings** > **API & Integrations**. Only the organization owner and members with the _Manage organization access keys_ permission can see organization tokens.
-- _Personal token_ - every Snowflake user of the app acts as you. Use it only for single-user setups.
-
-To switch tokens later, go to **Admin** > **Security** > **Secrets** in Snowsight, find the secret bound to the app, and update its value.
-
 ## Run an Actor
 
 The **Run Actor** page lets you start an Apify Actor run from within Snowflake and then import its results:
@@ -94,7 +94,7 @@ Use **Actor source** to pick where the Actor comes from:
 
 Search for the Actor under **Choose an Actor**, or type an Actor ID or name, such as `compass/crawler-google-places`. Then select **Configure Actor**.
 
-![Run actor page with the Actor source and Choose an Actor fields](../images/snowflake/snowflake-actor-select.webp)
+![Run Actor page with the Actor source and Choose an Actor fields](../images/snowflake/snowflake-actor-select.webp)
 
 ### Step 2: Configure and run
 
@@ -107,7 +107,7 @@ Expand **Advanced run options** to set:
 
 Select **Run Actor** to start the run.
 
-![Run actor page with the Actor input and Advanced run options](../images/snowflake/snowflake-actor-input.webp)
+![Run Actor page with the Actor input and Advanced run options](../images/snowflake/snowflake-actor-input.webp)
 
 ### Step 3: Monitor the run
 
@@ -149,9 +149,9 @@ The app reads the dataset's first item when you select it, so **Advanced options
 | **Flatten**          | Fields whose nested objects are flattened into the parent using dot notation, so `{"foo": {"bar": 1}}` becomes `{"foo.bar": 1}`. |
 | **Offset**           | Number of items to skip from the beginning of the dataset.                                                                       |
 | **Limit**            | Maximum number of items to fetch.                                                                                                |
-| **Clean**            | Excludes empty items and hidden fields, which start with `#`.                                                                    |
-| **Descending order** | Returns items in reverse order.                                                                                                  |
-| **Signature**        | Required only for a dataset shared with you as a signed link.                                                                    |
+| **Clean**            | Whether to exclude empty items and hidden fields, which start with `#`.                                                          |
+| **Descending order** | Whether to return items in reverse order.                                                                                        |
+| **Signature**        | Signature of a dataset shared with you as a signed link. Leave it empty for your own datasets.                                   |
 
 Select **Fetch data** to retrieve a preview of the dataset.
 
@@ -201,7 +201,14 @@ Alternatively, open the app in Snowsight, go to the **Access management** tab, a
 
 ## Schedule recurring imports
 
-The **Schedules** page creates recurring Actor or task runs whose results are imported into Snowflake automatically. Each schedule lives in your Apify account: on every run, Apify starts the Actor and, when the run succeeds, imports its dataset into your Snowflake table. For each schedule, the app creates four resources in your Apify account: an Apify schedule, a [task](/actors/running/tasks) that runs the Actor, an import task that loads the run's dataset into Snowflake, and a webhook that starts the import task when the Actor run succeeds. Schedules keep running when the app is closed, until you pause or delete them.
+The **Schedules** page creates recurring Actor or task runs whose results are imported into Snowflake automatically. Each schedule lives in your Apify account: on every run, Apify starts the Actor and, when the run succeeds, imports its dataset into your Snowflake table. Schedules keep running when the app is closed, until you pause or delete them.
+
+For each schedule, the app creates these resources in your Apify account:
+
+- An Apify schedule that starts the runs
+- An [Apify task](/actors/running/tasks) that runs the Actor
+- An import task that loads each run's dataset into Snowflake
+- A webhook that starts the import task when the Actor run succeeds
 
 ![Schedules page with the list of schedules and the Create new schedule button](../images/snowflake/snowflake-schedules.webp)
 
@@ -210,7 +217,7 @@ The **Schedules** page creates recurring Actor or task runs whose results are im
 Scheduled imports run outside Snowflake and connect back to your account to write the data, so each schedule needs:
 
 - A Snowflake [programmatic access token (PAT)](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens) for a user whose role can write to the destination table. Snowflake only accepts a PAT that a [network policy](https://docs.snowflake.com/en/user-guide/network-policies) applies to, as described in [Allow the PAT from any IP address](#allow-the-pat-from-any-ip-address).
-- For imports that create a new table, the `app_public` role granted to that user's role, as described in [Manage table visibility](#manage-table-visibility). The app checks for this grant and won't create the schedule without it.
+- The `app_public` role granted to that user's role, for imports that create a new table, as described in [Manage table visibility](#manage-table-visibility). The app checks for this grant and won't create the schedule without it.
 
 #### Allow the PAT from any IP address
 
@@ -242,8 +249,10 @@ On the **Schedules** page, select **Create new schedule** and follow the four st
     ![Schedule setup step with the frequency tabs and the next runs preview](../images/snowflake/snowflake-schedule-setup.webp)
 
 1. **Actor or task setup** - pick **Choose an Actor** and enter its input, or pick **Choose a task** to run one of your saved [Apify tasks](/actors/running/tasks) and optionally enter input overrides. Select **Continue** to start a preview run. The schedule repeats this run, so its dataset shows you the data each scheduled run produces.
-1. **Import dataset** - when the preview run finishes, select **Continue** and configure the import as described in [Import a dataset](#import-a-dataset). The dataset is locked to the preview run's dataset, since every scheduled run imports the dataset it produces itself. For the same reason, **Unwind** and **Flatten** aren't available, and **Offset** and **Limit** apply to the preview only.
-1. **Review** - check the schedule and its destination table. Then fill in the Snowflake connection details: **Snowflake account identifier**, **Snowflake username**, **Snowflake programmatic access token (PAT)**, and optionally **Snowflake warehouse**. For the username, enter your Snowflake user name, which `SELECT CURRENT_USER();` returns. The step shows a query that looks up all these values. The credentials are saved in the schedule's import task in your Apify account, with the PAT [encrypted](/actors/development/actor-definition/input-schema/secret-input), so nobody can read it back, including in Apify Console. Anyone with access to the task can still run it, so give the PAT's role only the access the import needs. Select **Save and start**.
+1. **Import dataset** - when the preview run finishes, select **Continue** and configure the import as described in [Import a dataset](#import-a-dataset). The app locks the dataset to the preview run's dataset, since every scheduled run imports the dataset it produces itself. For the same reason, **Unwind** and **Flatten** aren't available, and **Offset** and **Limit** apply to the preview only.
+1. **Review** - check the schedule and its destination table. Then fill in the Snowflake connection details: **Snowflake account identifier**, **Snowflake username**, **Snowflake programmatic access token (PAT)**, and optionally **Snowflake warehouse**. For the username, enter your Snowflake user name, which `SELECT CURRENT_USER();` returns. The step shows a query that looks up all these values. Select **Save and start**.
+
+    The app saves the credentials in the schedule's import task in your Apify account. It stores the PAT encrypted as a [secret input](/actors/development/actor-definition/input-schema/secret-input), so nobody can read it back, including in Apify Console. Anyone with access to the task can still run it, so give the PAT's role only the access the import needs.
 
     ![Review step with the Snowflake destination credentials and the Save and start button](../images/snowflake/snowflake-schedule-review.webp)
 
@@ -261,7 +270,7 @@ Select a schedule in the list to open its detail page, where you can:
 - **Edit timing** - change the frequency.
 - **Run history** - check each run's status, start time, and the number of rows it imported. A failed import shows the error in the **Message** column.
 
-When the PAT expires or is revoked, the schedule keeps starting runs, but their imports fail and **Run history** shows Snowflake's authentication error. The app can't change a schedule's credentials. To use a new PAT, delete the schedule and create it again.
+When the PAT expires or is revoked, the schedule keeps starting runs, which still use credits, but their imports fail and **Run history** shows Snowflake's authentication error. The app can't change a schedule's credentials. To use a new PAT, delete the schedule and create it again.
 
 ![Schedule detail page with the Run now, Pause, and Delete actions and the run history](../images/snowflake/snowflake-schedule-detail.webp)
 
