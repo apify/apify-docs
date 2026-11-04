@@ -3,7 +3,7 @@ title: How to create a great input schema
 description: Optimizing your input schema. Learn to design and refine your input schema with best practices for a better user experience.
 sidebar_position: 2
 category: build-and-publish
-slug: /actor-marketing-playbook/product-optimization/how-to-create-a-great-input-schema
+slug: /build-and-publish/how-to/input-schema
 ---
 
 Optimizing your input schema. Learn to design and refine your input schema with best practices for a better user experience.
@@ -120,7 +120,7 @@ Unfortunately, when it comes to UX, there's only so much you can achieve armed w
 
 :::tip Using emojis
 
-Read more on the use of emojis: [Actors and emojis](/academy/actor-marketing-playbook/actor-basics/actors-and-emojis)
+Read more on the use of emojis: [Actors and emojis](/academy/build-and-publish/apify-store/emojis)
 
 :::
 

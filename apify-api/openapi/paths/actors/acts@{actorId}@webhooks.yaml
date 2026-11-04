@@ -1,7 +1,7 @@
 get:
   tags:
     - Actors/Webhook collection
-  summary: Get list of webhooks
+  summary: Get list of Actor's webhooks
   description: |
     Gets the list of webhooks of a specific Actor. The response is a JSON with
     the list of objects, where each object contains basic information about a single webhook.
@@ -25,7 +25,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/webhooks/ListOfWebhooksResponse.yaml
+            $ref: ../../components/schemas/webhooks/ListOfWebhookResourcesResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
     "401":

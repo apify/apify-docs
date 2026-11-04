@@ -1,0 +1,28 @@
+title: RequestQueueListStats
+description: Statistics about request queue operations and storage, as returned in request queue lists.
+type: object
+properties:
+  deleteCount:
+    type: integer
+    description: The number of delete operations performed on the request queue.
+    examples: [0]
+  headItemReadCount:
+    type: integer
+    description: The number of times requests from the head were read.
+    examples: [5]
+  readCount:
+    type: integer
+    description: The total number of read operations performed on the request queue.
+    examples: [100]
+  writeCount:
+    type: integer
+    description: The total number of write operations performed on the request queue.
+    examples: [10]
+  s3StorageBytes:
+    type: integer
+    description: The storage size in bytes of requests stored in S3.
+    examples: [0]
+  dynamodbStorageBytes:
+    type: integer
+    description: The storage size in bytes of requests stored in DynamoDB.
+    examples: [1024]

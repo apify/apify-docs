@@ -3,6 +3,7 @@ title: Crawling sitemaps
 description: Learn how to extract all of a website's listings even if they limit the number of results pages. See code examples for setting up your scraper.
 sidebar_position: 2
 slug: /advanced-web-scraping/crawling/crawling-sitemaps
+pagination: true
 ---
 
 In the previous lesson, we learned what is the utility (and dangers) of crawling sitemaps. In this lesson, we will go in-depth to how to crawl sitemaps.

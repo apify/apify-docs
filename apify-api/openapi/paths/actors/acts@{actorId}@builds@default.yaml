@@ -1,7 +1,7 @@
 get:
   tags:
     - Actors/Actor builds
-  summary: Get default build
+  summary: Get default Actor build
   description: |
     Get the default build for an Actor.
 

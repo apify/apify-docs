@@ -1,9 +1,9 @@
 get:
   tags:
     - Actors/Actor versions
-  summary: Get version
+  summary: Get Actor version
   description: |
-    Gets a [Version object](#/reference/actors/version-object) that contains all the details about a specific version of an Actor.
+    Gets a `Version` object that contains all the details about a specific version of an Actor.
   operationId: actor_version_get
   parameters:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
@@ -43,7 +43,7 @@ post:
 delete:
   tags:
     - Actors/Actor versions
-  summary: Delete version
+  summary: Delete Actor version
   description: |
     Deletes a specific version of Actor's source code.
   operationId: actor_version_delete

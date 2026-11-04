@@ -3,7 +3,7 @@ title: Name your Actor
 description: Learn Apify’s standards for naming Actors and how to choose the right name for your scraping and automation tools and maximize visibility on Apify Store.
 sidebar_position: 7
 category: build-and-publish
-slug: /actor-marketing-playbook/actor-basics/name-your-actor
+slug: /build-and-publish/apify-store/name-your-actor
 ---
 
 **Apify's standards for Actor naming. Learn how to choose the right name for scraping and automation Actors and how to optimize your Actor for search engines.**
@@ -22,18 +22,14 @@ Your Actor's name consists of four parts: actual name, SEO name, URL, and GitHub
   - Actor SEO name (name shown on Google Search, optional), e.g. _Booking.com Hotel Data Scraper_.
   - If the SEO name is not set, the Actor name will be the default name shown on Google.
 - Actor URL (technical name), e.g. _booking-scraper_.
-  - More on it on [Importance of Actor URL](/academy/actor-marketing-playbook/actor-basics/importance-of-actor-url) page.
+  - More on it on [Importance of Actor URL](/academy/build-and-publish/apify-store/importance-of-actor-url) page.
 - GitHub repository name (best to keep it similar to the other ones, for convenience), e.g. _actor-booking-scraper_.
 
 ## Actor name
 
 The Actor name provides a human-readable name. The name is the most important real estate from an SEO standpoint. It should exactly match the most likely search query that potential users of your Actor will use. At the same time, it should give your Actor a clear name for people who will use it every day.
 
-:::tip
-
-Your Actor's name should be _40-50 characters_ long. You can change your Actor name freely in Apify Console.
-
-:::
+Your Actor's name should be 40-50 characters long. You can change it in Apify Console.
 
 ### Actor name vs. SEO name
 
@@ -152,6 +148,6 @@ Below are examples for the [Google Sheets](https://apify.com/lukaskrivka/google
 
 :::warning Renaming your Actor
 
-You may rename your Actor freely, except when it comes to the Actor URL. Remember to read [Importance of Actor URL](/academy/actor-marketing-playbook/actor-basics/importance-of-actor-url) to find out why!
+You may rename your Actor freely, except when it comes to the Actor URL. Remember to read [Importance of Actor URL](/academy/build-and-publish/apify-store/importance-of-actor-url) to find out why!
 
 :::

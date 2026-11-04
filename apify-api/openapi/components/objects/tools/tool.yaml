@@ -40,12 +40,15 @@ get:
 
 post:
   <<: *shared
+  summary: Get browser info (POST)
   operationId: tools_browser_info_post
 
 put:
   <<: *shared
+  summary: Get browser info (PUT)
   operationId: tools_browser_info_put
 
 delete:
   <<: *shared
+  summary: Get browser info (DELETE)
   operationId: tools_browser_info_delete

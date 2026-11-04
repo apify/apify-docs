@@ -3,6 +3,7 @@ title: Parsing HTML with Python
 sidebar_label: Parsing HTML
 description: Lesson about building a Python application for watching prices. Using the Beautiful Soup library to parse HTML code of a product listing page.
 slug: /scraping-basics-python/parsing-html
+pagination: true
 ---
 
 import CodeBlock from '@theme/CodeBlock';
@@ -86,7 +87,7 @@ Sales
 
 :::note Dynamic websites
 
-The Warehouse returns full HTML in its initial response, but many other sites add some content after the page loads or after user interaction. In such cases, what we'd see in DevTools could differ from `response.text` in Python. Learn how to handle these scenarios in our [API Scraping](../api_scraping/index.md) and [Puppeteer & Playwright](../puppeteer_playwright/index.md) courses.
+The Warehouse returns full HTML in its initial response, but many other sites add some content after the page loads or after user interaction. In such cases, what we'd see in DevTools could differ from `response.text` in Python. Learn how to handle these scenarios in our [API Scraping](/academy/api-scraping) and [Puppeteer & Playwright](/academy/puppeteer-playwright) courses.
 
 :::
 

@@ -2,6 +2,7 @@
 title: Developing a scraper with AI chat
 description: Use ChatGPT and Apify to build a price-tracking web scraper with no coding knowledge. Learn how AI-generated code runs automatically in the cloud.
 slug: /scraping-with-ai/developing-scraper-with-ai-chat
+pagination: true
 ---
 
 **In this lesson, we'll use ChatGPT and the Apify platform to create an app for tracking prices on an e-commerce website.**
@@ -44,7 +45,7 @@ Once we have an active account, we can start working on our scraper. Using the p
 
 ## Creating a new Actor
 
-After logging in, we land on a page called **Apify Store**. Apify serves as both infrastructure where we can privately deploy and run our own scrapers, and as a marketplace where anyone can offer ready-made scrapers to others for rent. But let's hold off on exploring Apify Store for now. We'll navigate to **My Actors** under the **Development** menu:
+After logging in, we land on a page called **Apify Store**. Apify serves as both infrastructure where we can privately deploy and run our own scrapers, and as a marketplace where anyone can offer ready-made scrapers for others to use. But let's hold off on exploring Apify Store for now. We'll navigate to **My Actors** under the **Development** menu:
 
 ![Apify Store welcome screen with Development menu highlighted](images/apify-nav-store.webp)
 
@@ -176,7 +177,7 @@ If you're still stuck, open a clean new chat in ChatGPT and try the same prompt 
 
 Despite a few flaws, we've successfully created our first working prototype of a price-watching app with no coding knowledge.
 
-And thanks to Apify, our scraper can [run automatically on a weekly basis](https://docs.apify.com/actors/running/schedules), we have its output [ready to download in a variety of formats](https://docs.apify.com/storage/dataset), we can [monitor its runs](https://docs.apify.com/actors/running/monitoring), and we can [work around anti-scraping measures](https://docs.apify.com/proxy).
+And thanks to Apify, our scraper can [run automatically on a weekly basis](/actors/running/schedules), we have its output [ready to download in a variety of formats](/storage/dataset), we can [monitor its runs](/actors/running/monitoring), and we can [work around anti-scraping measures](/proxy).
 
 To improve our project further, we'd copy the code, ask ChatGPT to refine it, paste it back into the Web IDE, and rebuild.
 

@@ -1,7 +1,7 @@
 get:
   tags:
     - Actors/Actor builds
-  summary: Get list of builds
+  summary: Get list of Actor's builds
   description: |
     Gets the list of builds of a specific Actor. The response is a JSON with the
     list of objects, where each object contains basic information about a single build.
@@ -58,7 +58,7 @@ post:
   description: |
     Builds an Actor.
     The response is the build object as returned by the
-    [Get build](#/reference/actors/build-object/get-build) endpoint.
+    [Get Actor build](/api/v2/actor-build-get) endpoint.
   operationId: actors_builds_post
   parameters:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"

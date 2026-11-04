@@ -1,7 +1,7 @@
 get:
   tags:
     - Webhooks/Webhooks
-  summary: Get collection
+  summary: Get list of webhook's dispatches
   description: Gets a given webhook's list of dispatches.
   operationId: webhook_webhookDispatches_get
   parameters:

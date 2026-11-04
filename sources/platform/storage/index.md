@@ -112,7 +112,7 @@ In Apify Console:
 1. Click on the **Actions** menu and choose **Rename**.
 1. Enter a new name. Your storage is now preserved indefinitely.
 
-Via API: get the storage's ID from the run that generated it using the [Get run](/api/v2/actor-run-get) endpoint, then rename it using the `Update [storage]` endpoint (for example, [Update dataset](/api/v2/dataset-put)).
+Via API: get the storage's ID from the run that generated it using the [Get Actor run](/api/v2/actor-run-get) endpoint, then rename it using the `Update [storage]` endpoint (for example, [Update dataset](/api/v2/dataset-put)).
 
 The SDKs and clients each have their own naming conventions. See:
 
@@ -196,4 +196,4 @@ Named storages are only removed upon your request. You can delete storages in th
   [dataset](/api/client/python#datasetclient),
   [key-value store](/api/client/python/reference/class/KeyValueStoreClient),
   or [request queue](/api/client/python/reference/class/RequestQueueClient) clients.
-* [API](/api/v2/key-value-store-delete) - using the `Delete [store]` endpoint, where `[store]` is the storage type you want to delete.
+* API - using the [Delete dataset](/api/v2/dataset-delete), [Delete key-value store](/api/v2/key-value-store-delete), or [Delete request queue](/api/v2/request-queue-delete) endpoint.

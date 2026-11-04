@@ -1,4 +1,6 @@
 title: FlatPricePerMonthActorPricingInfo
+description: Rental pricing model, which is no longer supported.
+deprecated: true
 allOf:
   - $ref: ./CommonActorPricingInfo.yaml
   - type: object
@@ -12,7 +14,13 @@ allOf:
         const: FLAT_PRICE_PER_MONTH
       trialMinutes:
         type: integer
-        description: For how long this Actor can be used for free in trial period
+        description: >-
+          Number of minutes a user could run the Actor for free before having to rent it.
+          Apify no longer offers rental pricing, so you can see this field only in pricing history
+          and in runs started before rented Actors moved to other pricing models.
       pricePerUnitUsd:
         type: number
-        description: Monthly flat price in USD
+        description: >-
+          Monthly flat price in USD.
+          Apify no longer offers rental pricing, so you can see this field only in pricing history
+          and in runs started before rented Actors moved to other pricing models.

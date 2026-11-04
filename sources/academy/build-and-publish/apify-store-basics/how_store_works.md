@@ -3,7 +3,7 @@ title: How Apify Store works
 description: Learn how to create and publish your own Actor, and join a growing community of innovators in scraping and web automation.
 sidebar_position: 1
 category: build-and-publish
-slug: /actor-marketing-playbook/store-basics/how-store-works
+slug: /build-and-publish/apify-store/how-store-works
 ---
 
 **Out of thousands of Actors on [Apify Store](https://apify.com/store) marketplace, most of them were created by developers just like you. Let's get acquainted with the concept of Apify Store and what it takes to publish an Actor there.**
@@ -26,7 +26,7 @@ The term "Actor" is used because, like human actors, these programs follow a scr
 - _Automation Actors_: for example, [Content Checker](https://apify.com/jakubbalada/content-checker) monitors website content for changes and emails you once a change occurs.
 - _Bundles_: chains of multiple Actors united by a common data point or target website. For example, [Restaurant Review Aggregator](https://apify.com/tri_angle/restaurant-review-aggregator) can scrape reviews from six platforms at once.
 
-Learn more about bundles here: [Actor bundles](/academy/actor-marketing-playbook/product-optimization/actor-bundles)
+Learn more about bundles here: [Actor bundles](/academy/build-and-publish/how-to/actor-bundles)
 
 ## Public and private Actors
 
@@ -37,7 +37,7 @@ Actors on Apify Store can be public or private:
 
 ## How Actor monetization works (briefly)
 
-You can monetize your Actors using pay-per-event pricing, where users pay for specific events triggered by the Actor. For details, see [Monetize Actors](/actors/publishing/monetize).
+You can monetize your Actors using pay-per-event pricing, where users pay for specific events triggered by the Actor. For details, see [Monetize Actors](/actors/monetize).
 
 ## Actor ownership on Store
 
@@ -52,9 +52,9 @@ For details, see [Actor developers](/actors/running/store/actor-developers).
 
 It's essential to test your Actors and make sure they work as intended. That's why Apify does it on our side as much as you should do it on yours.
 
-Apify runs automated tests daily to ensure all Actors on Apify Store are functional and reliable. These tests check _if an Actor can successfully run with its default input within 5 minutes_. If an Actor fails for three consecutive days, it’s labeled under maintenance, and the developer is notified. Continuous failures for another 28 days lead to deprecation.
+Apify runs automated tests daily to ensure all Actors on Apify Store are functional and reliable. These tests check whether an Actor's run with its default input succeeds within 5 minutes. If an Actor keeps failing, Apify labels it under maintenance, notifies the developer, and later deprecates it. For the schedule, see [How we test](/actors/publishing/test#how-we-test).
 
-To restore an Actor's health, developers should fix and rebuild it. The testing system will automatically recognize the changes within 24 hours. If your Actor requires longer run times or authentication, contact support to explain why it should be excluded from tests. For more control, you can implement your own tests using the Actor Testing tool available on Apify Store.
+To restore your Actor's health, fix and rebuild it. The tests use the new build within 24 hours. If your Actor can't pass the tests, for example because it needs more than 5 minutes to finish, you can request to skip the tests. For details, see [Actor testing](/actors/publishing/test#skip-the-automated-tests). For more control, you can write your own tests with the [Actor Testing](https://apify.com/pocesar/actor-testing) tool from Apify Store.
 
 ### Actor metrics and reliability score
 
@@ -70,7 +70,7 @@ Each Actor has an **Issues** tab in Apify Console and on the web. Here, users ca
 
 Since the **Issues** tab is public, the level of activity - or lack thereof - can be observed by potential users and may serve as an indicator of the Actor's reliability. A well-maintained Issues tab with prompt responses suggests an active and dependable Actor.
 
-Learn more about how to handle the [Issues tab](/academy/actor-marketing-playbook/interact-with-users/issues-tab)
+Learn more about how to handle the [Issues tab](/academy/build-and-publish/interact-with-users/issues-tab)
 
 ## How Apify Store search works
 

@@ -1,0 +1,15 @@
+title: RunEventUsage
+type: object
+description: Cost of a single pay-per-event event type charged during the run.
+required:
+  - eventTotalUsd
+  - eventTitle
+properties:
+  eventTotalUsd:
+    type: number
+    examples: [0.15]
+    description: Total cost of all charges of this event in USD.
+  eventTitle:
+    type: string
+    examples: [Page crawled]
+    description: Human-readable title of the event.

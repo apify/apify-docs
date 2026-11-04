@@ -3,6 +3,7 @@ title: Parsing HTML with Node.js
 sidebar_label: Parsing HTML
 description: Lesson about building a Node.js application for watching prices. Using the Cheerio library to parse HTML code of a product listing page.
 slug: /scraping-basics-javascript/parsing-html
+pagination: true
 ---
 
 import CodeBlock from '@theme/CodeBlock';
@@ -129,7 +130,7 @@ Sales
 
 :::note Dynamic websites
 
-The Warehouse returns full HTML in its initial response, but many other sites add some content after the page loads or after user interaction. In such cases, what we'd see in DevTools could differ from `await response.text()` in Node.js. Learn how to handle these scenarios in our [API Scraping](../api_scraping/index.md) and [Puppeteer & Playwright](../puppeteer_playwright/index.md) courses.
+The Warehouse returns full HTML in its initial response, but many other sites add some content after the page loads or after user interaction. In such cases, what we'd see in DevTools could differ from `await response.text()` in Node.js. Learn how to handle these scenarios in our [API Scraping](/academy/api-scraping) and [Puppeteer & Playwright](/academy/puppeteer-playwright) courses.
 
 :::
 

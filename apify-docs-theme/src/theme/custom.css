@@ -401,6 +401,21 @@ footer .col {
     height: 58px;
 }
 
+/* Sum of the visible navbar rows: `.navbar__inner` (68px each) and `.navbar__sub` (58px). */
+.layout-wrapper {
+    --ifm-navbar-height: 68px;
+}
+
+@media (min-width: 997px) {
+    .layout-wrapper {
+        --ifm-navbar-height: 136px;
+    }
+
+    .layout-wrapper--subnavbar {
+        --ifm-navbar-height: 194px;
+    }
+}
+
 html[data-theme='dark'] .navbar__sub {
     background: var(--color-neutral-background-muted);
 }
@@ -2015,4 +2030,61 @@ div[class^='navbarSearchContainer'] {
 }
 .openapi-array-bracket-close::before {
     content: ']';
+}
+
+/* Mermaid diagrams use the theme tokens, so both colour modes follow the palette.
+   Mermaid's class names aren't a stable API, so re-check these after a Mermaid upgrade. */
+.docusaurus-mermaid-container {
+    margin-bottom: var(--ifm-leading);
+    text-align: center;
+}
+
+.docusaurus-mermaid-container :is(.node, .cluster) rect {
+    rx: 6px;
+    ry: 6px;
+}
+
+.docusaurus-mermaid-container .node :is(rect, circle, ellipse, polygon, path) {
+    fill: var(--color-neutral-card-background) !important;
+    stroke: var(--color-neutral-border) !important;
+}
+
+.docusaurus-mermaid-container .cluster rect {
+    fill: var(--color-neutral-background-subtle) !important;
+    stroke: var(--color-neutral-separator-subtle) !important;
+}
+
+.docusaurus-mermaid-container :is(.nodeLabel, .label text) {
+    color: var(--color-neutral-text) !important;
+    fill: var(--color-neutral-text) !important;
+}
+
+.docusaurus-mermaid-container .flowchart-link {
+    stroke: var(--color-neutral-icon-subtle) !important;
+}
+
+.docusaurus-mermaid-container .marker {
+    fill: var(--color-neutral-icon-subtle) !important;
+    stroke: var(--color-neutral-icon-subtle) !important;
+}
+
+.docusaurus-mermaid-container :is(.edgeLabel, .edgeLabel p, .labelBkg) {
+    background-color: var(--color-neutral-background) !important;
+    color: var(--color-neutral-text-muted) !important;
+}
+
+/* House node classes: `class NODE_ID success` in a diagram, no classDef needed */
+.docusaurus-mermaid-container .node.success > :is(rect, path, polygon) {
+    fill: var(--color-success-background-subtle) !important;
+    stroke: var(--color-success-icon) !important;
+}
+
+.docusaurus-mermaid-container .node.warning > :is(rect, path, polygon) {
+    fill: var(--color-warning-background-subtle) !important;
+    stroke: var(--color-warning-icon) !important;
+}
+
+.docusaurus-mermaid-container .node.error > :is(rect, path, polygon) {
+    fill: var(--color-danger-background-subtle) !important;
+    stroke: var(--color-danger-icon) !important;
 }

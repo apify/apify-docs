@@ -71,7 +71,7 @@ If you are accessing your datasets using the `username~store-name` [store ID for
 
 :::tip Pass tokens in the Authorization header
 
-When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. [More info](../../integrations/programming/api.md#authentication).
+When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. [More info](/api/v2#authentication).
 
 :::
 
@@ -109,7 +109,7 @@ Use `%2C` instead of commas for URL encoding, as `%2C` represents a comma. For m
 
 :::
 
-To add data to a dataset, issue a POST request to the [Put items](/api/v2/dataset-items-post) endpoint with the data as a JSON object payload.
+To add data to a dataset, issue a POST request to the [Store items in dataset](/api/v2/dataset-items-post) endpoint with the data as a JSON object payload.
 
 ```text
 https://api.apify.com/v2/datasets/{DATASET_ID}/items
@@ -328,7 +328,7 @@ The following example demonstrates a dataset record with hidden fields, includin
 }
 ```
 
-Data excluding hidden fields, termed as "clean" data, can be downloaded from the [Apify Console](https://console.apify.com/storage?tab=datasets) using the **Clean items** option. Alternatively, you can download it via API by applying `clean=true` or `clean=1` as [URL parameters](/api/v2/dataset-items-get).
+Data excluding hidden fields, termed as "clean" data, can be downloaded from the [Apify Console](https://console.apify.com/storage?tab=datasets) using the **Clean items** option. Alternatively, you can download it via API by applying `clean=true` or `clean=1` as URL parameters of the [Get dataset items](/api/v2/dataset-items-get) endpoint.
 
 ## XML format extension
 
@@ -424,7 +424,7 @@ To read from or write to a dataset that belongs to a different Actor or task run
 
 ### Rate limiting
 
-The rate limit for pushing data to a dataset through the [API](/api/v2/dataset-items-post) is capped at _400 requests per second_ for each dataset, a measure to prevent overloading Apify servers.
+The rate limit for pushing data to a dataset through the [Store items in dataset](/api/v2/dataset-items-post) endpoint is capped at _400 requests per second_ for each dataset, a measure to prevent overloading Apify servers.
 
 For all other dataset [API endpoints](/api/v2/storage-datasets), the rate limit is 60 requests per second for each dataset.
 

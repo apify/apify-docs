@@ -25,7 +25,7 @@ Before you begin, make sure you have:
 
     ![Selecting the Apify app in Pipedream](../images/pipedream-select-app.png)
 
-    - **Apify** - Authenticate with your Apify API token. Find it in [Apify Console](https://console.apify.com/settings/integrations) under **Settings > Integrations**.
+    - **Apify** - Authenticate with your Apify API token. Find it in [Apify Console](https://console.apify.com/settings/integrations?utm_source=pipedream&utm_medium=integrations) under **Settings > Integrations**.
     - **Apify (OAuth)** - Authorize access to your Apify account via OAuth.
 1. Follow the prompts to authenticate your account.
 

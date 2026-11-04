@@ -73,7 +73,7 @@ The plugin bundles the Apify MCP server and connects to its default endpoint, wh
 
 1. Back in the terminal, the `apify` server status changes to connected and the Apify tools become available.
 
-The connection stays authenticated for future sessions. You can revoke access at any time in [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations?utm_source=qwen&utm_medium=integrations).
+The connection stays authenticated for future sessions. You can revoke access at any time in [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations).
 
 ### Run your first prompt
 
@@ -122,7 +122,7 @@ Add the Apify MCP server under **Extensions > Connectors**. It authenticates thr
 
 1. Sign in to Apify and allow access. The browser redirects back to QwenWork, and the connector connects.
 
-The Apify tools for searching Apify Store, running Actors, and retrieving datasets are then available in tasks and chat. You can also paste a JSON configuration instead of filling in the form. To revoke access later, remove the connector or manage the connection in [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations?utm_source=qwen&utm_medium=integrations).
+The Apify tools for searching Apify Store, running Actors, and retrieving datasets are then available in tasks and chat. You can also paste a JSON configuration instead of filling in the form. To revoke access later, remove the connector or manage the connection in [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations).
 
 ### Add the Apify skills
 

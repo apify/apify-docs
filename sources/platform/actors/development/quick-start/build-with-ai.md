@@ -5,8 +5,6 @@ sidebar_label: Build with AI
 description: Build new Actors or improve existing ones using AI coding tools by providing the right context, prompts, Agent Skills, and the Apify MCP server.
 slug: /actors/development/quick-start/build-with-ai
 toc_max_heading_level: 4
-pagination_next: null
-pagination_prev: null
 ---
 
 import { AGENTS_PROMPT } from "@site/src/utils/agents-prompt";
@@ -152,7 +150,7 @@ Every page in the Apify documentation has a **Copy for LLM** button. Use it to a
 
 The entire Apify documentation is available in Markdown format for use with LLMs and AI coding tools. Two consolidated files are available:
 
-- `https://docs.apify.com/llms.txt`: A Markdown file with an index of all documentation pages in Markdown format, based on the [llmstxt.org](https://llmstxt.org/) standard.
+- `https://docs.apify.com/llms.txt`: A Markdown index of the documentation, based on the [llmstxt.org](https://llmstxt.org/) standard. Larger sections, such as the API reference and Academy, have their own index linked from this file.
 - `https://docs.apify.com/llms-full.txt`: All Apify documentation consolidated in a single Markdown file.
 
 :::tip Access Markdown source

@@ -5,6 +5,7 @@ sidebar_position: 8
 sidebar_label: Web scraping basics with JS (old)
 category: web scraping
 slug: /scraping-basics-javascript/legacy
+pagination: true
 noindex: true
 ---
 
