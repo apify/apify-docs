@@ -31,11 +31,11 @@ We should use widely popular formats that have well-defined solutions for all th
 Producing results line by line is an efficient approach to handling large datasets, but to simplify this lesson, we'll store all our data in one variable. This'll take three changes to our program:
 
 ```py
-import httpx
+import httpx2
 from bs4 import BeautifulSoup
 
 url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
-response = httpx.get(url)
+response = httpx2.get(url)
 response.raise_for_status()
 
 html_code = response.text
@@ -89,7 +89,7 @@ The JSON format is popular primarily among developers. We use it for storing dat
 In Python, we can read and write JSON using the [`json`](https://docs.python.org/3/library/json.html) standard library module. We'll begin with imports:
 
 ```py
-import httpx
+import httpx2
 from bs4 import BeautifulSoup
 # highlight-next-line
 import json
@@ -156,7 +156,7 @@ When browsing the directory on macOS, we can see a nice preview of the file's co
 Now that's nice, but we didn't want Alice, Bob, kickbox, or TypeScript. What we actually want is a CSV containing `Sony XBR-950G BRAVIA 4K HDR Ultra HD TV`, right? Let's do this! First, let's add `csv` to our imports:
 
 ```py
-import httpx
+import httpx2
 from bs4 import BeautifulSoup
 import json
 # highlight-next-line
