@@ -87,7 +87,7 @@ Amazon adjusts the page to the location of the visitor. If our scraper used prox
 
 **Q: Which proxy groups do users get on the free plan? Can they access the proxy from their computer?**
 
-**A:** All users have access to the **BUYPROXIES94952**, **GOOGLE_SERP** and **RESIDENTIAL** groups. Free users cannot access the proxy from outside the Apify platform (paying users can).
+**A:** The free plan includes 5 datacenter proxy IPs. Free users can also use residential proxies, Google SERP proxies, and Unblocker, which are paid from the plan's monthly prepaid usage. The [Proxy page](https://console.apify.com/proxy/groups) in Apify Console shows which proxy groups your account can use. Free users can use Apify Proxy only from Actors running on the Apify platform, not from their own computer (paying users can).
 
 **Q: How can you prevent an error from occurring if one of the proxy groups that a user has is removed? What are the best practices for these scenarios?**
 
