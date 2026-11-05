@@ -7,6 +7,7 @@ slug: /integrations/deepseek-harness
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 import ApifyPluginSkillPrompts from '@site/sources/_partials/_apify-plugin-skill-prompts.mdx';
+import FindGoogleMapsActorPrompt from '@site/sources/_partials/_find-google-maps-actor-prompt.mdx';
 
 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) (`dsh`) is DeepSeek's open-source agent harness. It boots a profile, an ordered stack of plugin layers. It then runs the agent in your terminal or in a local web GUI, backed by the model provider you configure.
 
@@ -109,9 +110,7 @@ To set a DeepSeek key before launch instead, put `DEEPSEEK_API_KEY` in the same 
 
 Describe what you want in natural language. The `apify` skill loads on Apify requests and routes them, so you don't need to name tools yourself.
 
-```prompt title="Find a Google Maps Actor"
-Use Apify to find a good Actor for scraping Google Maps places. Show me the best option, its input requirements, pricing model, and what kind of dataset output it returns. Do not run the Actor yet.
-```
+<FindGoogleMapsActorPrompt />
 
 The router searches Apify Store, fetches the top Actor's details through the Apify MCP server, and summarizes its inputs, pricing, and output - all without running the Actor.
 

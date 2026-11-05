@@ -9,6 +9,7 @@ import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integrati
 import AgentPluginLimitations from '@site/sources/_partials/_agent-plugin-limitations.mdx';
 import ApifyPluginSkills from '@site/sources/_partials/_apify-plugin-skills.mdx';
 import ApifyPluginSkillPrompts from '@site/sources/_partials/_apify-plugin-skill-prompts.mdx';
+import FindGoogleMapsActorPrompt from '@site/sources/_partials/_find-google-maps-actor-prompt.mdx';
 
 The [GitHub Copilot desktop app](https://github.com/features/ai/github-app) is GitHub's standalone Copilot client. It runs agentic coding sessions in a chat interface, connects to your repositories, and supports plugins, skills, and Model Context Protocol (MCP) servers.
 
@@ -67,9 +68,7 @@ Open the agent picker in the chat composer and select the `apify` agent.
 
 With the `apify` agent selected, describe what you want in plain language.
 
-```prompt title="Find a Google Maps Actor"
-Use Apify to find a good Actor for scraping Google Maps places. Show me the best option, its input requirements, pricing model, and what kind of dataset output it returns. Do not run the Actor yet.
-```
+<FindGoogleMapsActorPrompt />
 
 The agent searches Apify Store, fetches the top Actor's details, and summarizes its inputs, pricing, and output - without running the Actor.
 

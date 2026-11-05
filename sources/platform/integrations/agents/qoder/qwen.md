@@ -8,6 +8,7 @@ slug: /integrations/qwen
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 import ApifyPluginSkills from '@site/sources/_partials/_apify-plugin-skills.mdx';
 import ApifyPluginSkillPrompts from '@site/sources/_partials/_apify-plugin-skill-prompts.mdx';
+import FindGoogleMapsActorPrompt from '@site/sources/_partials/_find-google-maps-actor-prompt.mdx';
 
 Alibaba ships two agent tools under the Qwen name, and both can call Apify [Actors](https://apify.com/store). They connect to Apify in different ways:
 
@@ -85,9 +86,7 @@ List what Apify tools you have available.
 
 To go further, ask it to find an Actor for a task:
 
-```prompt title="Find a Google Maps Actor"
-Use Apify to find a good Actor for scraping Google Maps places. Show me the best option, its input requirements, pricing model, and what kind of dataset output it returns. Do not run the Actor yet.
-```
+<FindGoogleMapsActorPrompt />
 
 ### Manage the extension
 
