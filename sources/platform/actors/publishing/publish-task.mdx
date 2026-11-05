@@ -187,8 +187,6 @@ Publishing past either limit returns an error. To raise the limits for your acco
 
 `publicConfig.faq` is optional too. It holds up to 10 `{ "question": "...", "answer": "..." }` objects, with questions up to 120 characters and answers up to 250 characters. Neither can be blank.
 
-The API has no separate slug field. The landing page URL is built from the task `name`, so pick a name that matches the use case. See [URL structure](#url-structure).
-
 If any requirement is unmet, the request fails with an error that lists every problem, and none of the update is applied. A task is never left half-configured or silently unpublished.
 
 Editing an already published task works differently. If an edit leaves the task invalid, for example because the Actor's dataset schema no longer has the view you picked, the landing page is hidden until you fix it. The task stays published and still shows as **Public**, so check the **Publishing** tab, which marks the section that needs fixing.
@@ -296,6 +294,8 @@ https://apify.com/john/google-maps-scraper/examples/analyze-local-business-compe
 ```
 
 Keep the task name short, descriptive, and focused on the use case keyword.
+
+There's no separate slug field in Apify Console or the API. To change the URL, rename the task, or update its `name` through the API.
 
 ### Landing page content
 
