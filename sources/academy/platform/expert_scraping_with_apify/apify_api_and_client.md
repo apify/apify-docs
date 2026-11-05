@@ -36,7 +36,7 @@ In the previous lesson, we created the **academy-amazon-scraper-task** task for 
 
 Though it's a bit unintuitive, this is a perfect activity for learning how to use both the Apify API and the Apify JavaScript client.
 
-The new Actor should take the following input values, which be mapped to parameters in the API calls:
+The new Actor should take the following input values, which will be mapped to parameters in the API calls:
 
 ```json
 {
