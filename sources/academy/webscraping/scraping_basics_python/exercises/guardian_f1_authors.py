@@ -10,12 +10,10 @@ def download(url: str) -> BeautifulSoup:
 
 
 def parse_author(article_soup: BeautifulSoup) -> str | None:
-    link = article_soup.select_one('a[rel="author"]')
-    if link:
-        return link.text.strip()
-    address = article_soup.select_one('aside address')
-    if address:
-        return address.text.strip()
+    for selector in ['a[rel="author"]', 'aside address']:
+        element = article_soup.select_one(selector)
+        if element and element.text.strip():
+            return element.text.strip()
     return None
 
 
