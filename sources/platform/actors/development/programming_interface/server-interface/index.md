@@ -277,7 +277,12 @@ http.createServer(async (req, res) => {
 });
 ```
 
-The header contains only the ID. Your Actor doesn't receive the user's name, email, or API token. A multi-tenant Server Actor also can't start runs, read storages, or act in the user's account.
+The header contains only the ID. Your Actor doesn't receive the user's name, email, or API token.
+
+What the run knows about the user depends on the tenancy:
+
+- In a single-tenant Server Actor, the run belongs to the user. `APIFY_TOKEN` and `APIFY_USER_ID` belong to the user, and storages that the run creates belong to the user's account.
+- In a multi-tenant Server Actor, the run belongs to you and serves many users. `APIFY_TOKEN` and `APIFY_USER_ID` belong to you, and storages that the run creates belong to your account, and every request the run serves can reach them. The `X-Apify-User-ID` header is the only way to tell users apart. The Actor can't start runs, read storages, or act in the user's account.
 
 ## Monetize Server Actors
 
