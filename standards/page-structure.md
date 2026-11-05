@@ -198,6 +198,8 @@ Use Apify to find a good Actor for scraping Google Maps places.
 
 - Don't wrap the prompt in quotation marks. They're copied along with the text.
 - Don't use blockquotes, italics, or `text` code blocks for prompts.
+- A slash command followed by a natural-language request is a prompt. A bare command, like `/plugin install apify`, isn't, and stays in a `text` code block.
+- A short example request mentioned within a sentence can stay inline, in quotation marks. Use a `prompt` block when the reader is meant to copy and send it.
 - For a long prompt that should start hidden, import the `PromptBlock` component and the prompt text from `src/utils/`, then set `collapsed`: `<PromptBlock prompt={MY_PROMPT} collapsed />`.
 
 ### Version matching
