@@ -6,7 +6,7 @@ slug: /actors/development/programming-interface/server-actors/migrate-to-multi-t
 sidebar_position: 1
 ---
 
-Migrating to multi-tenant moves your Actor's main work, such as scraping a page, out of the run and into the handler for each HTTP request. A run no longer does one job and stops. It stays up and does the work once for each request it receives.
+For an Actor without the server interface, the migration moves its main work, such as scraping a page, into the handler for each HTTP request. A run no longer does one job and stops. It stays up and does the work once for each request it receives.
 
 To earn from a multi-tenant Actor, use pay-per-event pricing and charge each request instead of each run. With pay per usage, users pay nothing, and you pay for the Actor's platform usage. This applies whether your Actor already has the server interface or not.
 
@@ -15,7 +15,7 @@ Before you start, [check whether your Actor fits](./index.md#check-whether-your-
 ## Migrate an Actor without the server interface
 
 1. Run an HTTP server on the port from `ACTOR_WEB_SERVER_PORT`, and set `usesStandbyMode` to `true`. See [Run an HTTP server](./index.md#run-an-http-server).
-1. Move the Actor's main work into the request handler, so each request does its work and returns the result in the response.
+1. Move the Actor's main work into the request handler, so the Actor does the work for each request and returns the result in the response.
 1. Handle runs started through either interface. See [Determine which interface started the Actor](./index.md#determine-which-interface-started-the-actor).
 1. Describe your endpoints. See [Describe your endpoints](./index.md#describe-your-endpoints).
 1. If the Actor uses pay-per-event pricing, charge each request. See [Charge for a request](/actors/monetize/server-actors#charge-for-a-request).

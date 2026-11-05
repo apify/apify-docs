@@ -110,7 +110,7 @@ You can click the **Actor detail** link, or go to **Apify Console > My Actors**,
 
 :::info Batch jobs and Server Actors
 
-Actors can run as batch jobs that execute a single task and stop, or as Server Actors that run a web server. To deploy an API that responds to incoming requests in real time, use a Server Actor. It keeps your Actor running and ready to handle HTTP requests like a standard web server.
+You can use an Actor in two ways. Through its input interface, it runs a single job and stops. Through its server interface, it answers HTTP requests in real time. To deploy an API that responds to incoming requests in real time, use a Server Actor. It keeps your Actor running and ready to handle HTTP requests like a standard web server.
 
 :::
 

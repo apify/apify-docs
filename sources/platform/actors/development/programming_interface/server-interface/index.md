@@ -55,7 +55,7 @@ Keep the Actor single-tenant when:
 - State belongs to one user, such as a per-organization web app or a login session.
 - It uses a pricing model other than pay per event or pay per usage. Migrate the pricing first.
 
-Long batch jobs, such as a crawl that runs for 20 minutes and writes thousands of results, suit the input interface whatever the tenancy. Keep the input interface for them alongside the server interface.
+Long batch jobs, such as a crawl that runs for 20 minutes and writes thousands of results, suit the input interface in either tenancy. Keep the input interface for them alongside the server interface.
 
 ### Switch the tenancy
 
@@ -63,7 +63,7 @@ If the Actor already has users, or doesn't have the server interface yet, follow
 
 Before you switch an Actor to multi-tenant, make sure that:
 
-- The Actor uses the [pay-per-event pricing model](/actors/monetize/pay-per-event), which is the only way to earn from a multi-tenant Server Actor. It can also use [pay per usage](/actors/monetize#pricing-models), but then users pay nothing, and you pay for its platform usage.
+- The Actor uses the [pay-per-event pricing model](/actors/monetize/pay-per-event) or [pay per usage](/actors/monetize#pricing-models). Pay per event is the only way to earn from a multi-tenant Server Actor. With pay per usage, users pay nothing, and you pay for its platform usage.
 - The server interface is enabled.
 
 To switch the tenancy:
@@ -281,18 +281,18 @@ The header contains only the ID. Your Actor doesn't receive the user's name, ema
 
 What the run knows about the user depends on the tenancy:
 
-- In a single-tenant Server Actor, the run belongs to the user. `APIFY_TOKEN` and `APIFY_USER_ID` belong to the user, and storages that the run creates belong to the user's account.
-- In a multi-tenant Server Actor, the run belongs to you and serves many users. `APIFY_TOKEN` and `APIFY_USER_ID` belong to you, and storages that the run creates belong to your account, and every request the run serves can reach them. The `X-Apify-User-ID` header is the only way to tell users apart. The Actor can't start runs, read storages, or act in the user's account.
+- In a single-tenant Server Actor, the run belongs to the user, and so do `APIFY_TOKEN`, `APIFY_USER_ID`, and the storages that the run creates.
+- In a multi-tenant Server Actor, the run belongs to you and serves many users. `APIFY_TOKEN`, `APIFY_USER_ID`, and the storages that the run creates belong to you. The `X-Apify-User-ID` header is the only way to tell users apart, so use it to keep each user's data separate.
 
 ## Monetize Server Actors
 
 How you monetize a Server Actor depends on its tenancy:
 
-- You earn from a multi-tenant Server Actor only with pay-per-event pricing. The Actor charges each request instead of each run, and you or Apify cover the platform usage of its runs. With pay per usage, users pay nothing, and you pay for its platform usage. See [Monetize multi-tenant Server Actors](/actors/monetize/server-actors).
-- A single-tenant Server Actor charges events like a run started through the input interface, as described in [Pay-per-event pricing model](/actors/monetize/pay-per-event). Unlike those runs, users always cover both the platform usage costs of their runs and the event costs.
+- For a multi-tenant Server Actor, pay-per-event pricing is the only way to earn. The Actor charges each request instead of each run, and you or Apify cover the platform usage of its runs. With pay per usage, users pay nothing, and you pay for its platform usage. See [Monetize multi-tenant Server Actors](/actors/monetize/server-actors).
+- For a single-tenant Server Actor, you charge events the same way as for a run started through the input interface, as described in [Pay-per-event pricing model](/actors/monetize/pay-per-event). Unlike those runs, users always cover both the platform usage costs of their runs and the event costs.
 
 ## Single-tenant Server Actors
 
 A single-tenant Server Actor starts a separate run in each user's account, and the user pays for the platform usage of that run. Users can override your server configuration by creating a task.
 
-To enforce the same server configuration for all users, enable **Prevent users from overriding server settings** in the **Server** section of the Actor's **Settings** tab. Users then can't override it by creating a task. If all users get the same configuration anyway, consider switching the Actor to multi-tenant. Users then pay only for events, and their requests are more likely to reach a run that has already started.
+To enforce the same server configuration for all users, enable **Prevent users from overriding server settings** in the **Server** section of the Actor's **Settings** tab. Users then can't override it by creating a task. If all users get the same configuration anyway, consider [switching the Actor to multi-tenant](#switch-the-tenancy). Users then pay only for events, and their requests are more likely to reach a run that has already started.

@@ -76,11 +76,11 @@ The Actor's developer sets its tenancy. The Actor's detail page shows it in the 
 
 ### Multi-tenant Server Actors
 
-A multi-tenant Server Actor works like any other API on the internet. Its developer runs and manages it, and you send requests to it. It runs in the developer's account and serves all its users from shared runs. You pay only for the events the Actor charges, not for the platform usage of its runs. No runs appear in your **Runs** tab, and the Actor appears in your recently used Actors instead.
+A multi-tenant Server Actor works like any other API on the internet. Its developer manages it, and you send requests to it. It runs in the developer's account and serves all its users from shared runs. You pay only for the events the Actor charges, not for the platform usage of its runs. No runs appear in your **Runs** tab, and the Actor appears in your recently used Actors instead.
 
 The developer sets the server configuration, and you can't override it with a task.
 
-The developer sees only your Apify user ID. The Actor doesn't receive your name, email, or API token, and it can't start runs or read storages in your account.
+The Actor receives only your Apify user ID, not your name, email, or API token. It can't start runs or read storages in your account.
 
 ### Single-tenant Server Actors
 
