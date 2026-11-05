@@ -10,7 +10,7 @@ slug: /expert-scraping-with-apify/apify-api-and-client
 
 ---
 
-You can use one of the two main ways to programmatically interact with the Apify platform: by directly using [Apify's RESTful API](/api/v2), or by using the [JavaScript](/api/client/js) and [Python](/api/client/python) API clients. In the next two lessons, we'll be focusing on the first two.
+You can use one of the two main ways to programmatically interact with the Apify platform: by directly using [Apify's RESTful API](/api/v2), or by using the [JavaScript](/api/client/js) and [Python](/api/client/python) API clients. In this lesson, we'll be focusing on the API and the JavaScript client.
 
 > Apify's API and JavaScript API client allow us to do anything a regular user can do when interacting with the platform's web interface, only programmatically.
 
