@@ -147,7 +147,9 @@ import { ASIN_TRACKER } from './constants.js';
 class ASINTracker {
     constructor() {
         this.state = {};
+    }
 
+    initialize() {
         Actor.on('persistState', async () => {
             await Actor.setValue(ASIN_TRACKER, this.state);
         });
@@ -168,11 +170,13 @@ class ASINTracker {
 export const tracker = new ASINTracker();
 ```
 
+The listener is registered in the `initialize()` method and not in the constructor, because the `tracker` object is created as soon as **asinTracker.js** is imported, which is before `Actor.init()` runs. On the Apify platform, `Actor.init()` replaces the event manager, so a listener registered before it never receives the **persistState** event. Locally the event manager isn't replaced, so the mistake would go unnoticed with `apify run`. We'll call `initialize()` from **main.js** right after `Actor.init()`.
+
 ## Handling resurrections {#handling-resurrections}
 
-Great! Now our state will be persisted every 60 seconds in the key-value store. However, we're not done. Let's say that the Actor migrates and is resurrected. We never actually update the `state` variable of our `ASINTracker` class with the state stored in the key-value store, so as our code currently stands, we still don't support state-persistence on migrations.
+Great! Once `initialize()` is called, our state will be persisted every 60 seconds in the key-value store. However, we're not done. Let's say that the Actor migrates and is resurrected. We never actually update the `state` variable of our `ASINTracker` class with the state stored in the key-value store, so as our code currently stands, we still don't support state-persistence on migrations.
 
-In order to fix this, let's create a method called `initialize` which will be called at the very beginning of the Actor's run, and will check the key-value store for a previous state under the key **ASIN-TRACKER**. If a previous state does live there, then it will update the class' `state` variable with the value read from the key-value store:
+In order to fix this, let's extend the `initialize` method, so that before it starts persisting the state, it checks the key-value store for a previous state under the key **ASIN-TRACKER**. If a previous state does live there, then it will update the class' `state` variable with the value read from the key-value store:
 
 ```js
 // asinTracker.js
@@ -183,12 +187,6 @@ import { ASIN_TRACKER } from './constants.js';
 class ASINTracker {
     constructor() {
         this.state = {};
-
-        Actor.on('persistState', async () => {
-            await Actor.setValue(ASIN_TRACKER, this.state);
-        });
-
-        setInterval(() => log.info('ASIN tracker', this.state), 10000);
     }
 
     async initialize() {
@@ -199,6 +197,12 @@ class ASINTracker {
         // If the data does exist, replace the current state
         // (initialized as an empty object) with the data
         if (data) this.state = data;
+
+        Actor.on('persistState', async () => {
+            await Actor.setValue(ASIN_TRACKER, this.state);
+        });
+
+        setInterval(() => log.info('ASIN tracker', this.state), 10000);
     }
 
     incrementASIN(asin) {
@@ -214,7 +218,7 @@ class ASINTracker {
 export const tracker = new ASINTracker();
 ```
 
-We'll now call this function at the top level of the **main.js** file to ensure it is the first thing that gets called when the Actor starts up:
+We'll now call this method at the top level of the **main.js** file to ensure it is the first thing that gets called when the Actor starts up:
 
 ```js
 // main.js
