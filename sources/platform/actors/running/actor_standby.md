@@ -104,12 +104,6 @@ For a multi-tenant Server Actor, the developer manages scaling, and you only sen
 
 The platform checks a run's readiness once, before the run starts serving requests, and performs no health checks after that.
 
-:::caution Unresponsive servers aren't detected
-
-If an Actor's server stays up but stops responding, the platform doesn't detect the failure, and requests keep going to that run. To learn how to handle this situation in your own Actors, see [Run lifecycle](../development/programming_interface/server-interface/index.md#run-lifecycle).
-
-:::
-
 ### Request timeouts
 
 A request to a Server Actor must receive its first response within 5 minutes. This is the overall timeout for the request.
