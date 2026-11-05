@@ -179,7 +179,9 @@ A task can only be published when all of the following hold:
 - `publicConfig.inputSchemaFields` names at least one field that exists in the task's input. These are the input values shown on the page.
 - `publicConfig.datasetView` is one of the view keys declared in the Actor's [dataset schema](/storage/dataset-schema), and the view has at least one field. Set `publicConfig.datasetName` too if the Actor declares more than one dataset.
 - You have write access to both the task and its Actor.
-- The Actor has fewer than 10 published tasks, and your account has fewer than 100. Publishing past either limit returns an error. To raise the limits for your account, [contact support](https://apify.com/contact).
+- The Actor has fewer than 10 published tasks, and your account has fewer than 100.
+
+Publishing past either limit returns an error. To raise the limits for your account, [contact support](https://apify.com/contact).
 
 `publicConfig.seoTitle` (up to 60 characters) and `publicConfig.seoDescription` (up to 160 characters) are optional. They appear in search results only and fall back to the task's title and description when empty. Search engines display only that much text, so they cut a longer title or 400-character description if you leave these fields empty.
 
