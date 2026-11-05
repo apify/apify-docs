@@ -10,32 +10,38 @@ slug: /expert-scraping-with-apify/solutions/integrating-webhooks
 
 ---
 
-In this lesson we'll be writing a new Actor and integrating it with our beloved Amazon scraping Actor. First, we'll navigate to the same directory where our **academy-amazon-scraper** folder lives, and run `apify create filter-actor` _(once again, you can name the Actor whatever you want, but for this lesson, we'll be calling the new Actor **filter-actor**)_. When prompted about the programming language, select **JavaScript**:
+In this lesson we'll be writing a new Actor and integrating it with our beloved Amazon scraping Actor. First, we'll navigate to the same directory where our **academy-amazon-scraper** folder lives, and run `apify create filter-actor` _(once again, you can name the Actor whatever you want, but for this lesson, we'll be calling the new Actor **filter-actor**)_. When asked what you want to build, select **Any use case**:
 
 ```text
 $ apify create filter-actor
-? Choose the programming language of your new Actor:
-❯ JavaScript
-  TypeScript
-  Python
+? What do you want to build?
+  Web scraper
+  AI agent
+  API & data pipeline
+  Browser automation
+ ──────────────
+❯ Any use case
 ```
 
-Then use the arrow down key to select **Empty JavaScript Project**:
+Then select **JavaScript** as the programming language and use the arrow down key to select **Empty JavaScript Actor**:
 
 ```text
 $ apify create filter-actor
+✔ What do you want to build? Any use case
 ✔ Choose the programming language of your new Actor: JavaScript
-? Choose a template for your new Actor. Detailed information about the template will be shown in the next step.
-  Crawlee + Playwright + Chrome
-  Crawlee + Playwright + Camoufox
-  Bootstrap CheerioCrawler
-  Cypress
-❯ Empty JavaScript Project
-  Standby JavaScript Project
+? Choose a template for your new Actor. More info at https://apify.com/templates
+  JavaScript site crawler (Crawlee + Cheerio)
+  JavaScript one-page scraper (Cheerio)
+  JavaScript browser crawler (Crawlee + Puppeteer + Chrome)
+  JavaScript browser crawler (Crawlee + Playwright + Chrome)
+  JavaScript stealth crawler (Crawlee + Playwright + Camoufox)
+  JavaScript minimal site crawler (Crawlee + Cheerio)
+  JavaScript test runner (Cypress)
+❯ Empty JavaScript Actor
   ...
 ```
 
-As a last step, confirm the choices by **Install template** and wait until our new Actor is ready.
+As a last step, when asked how to set up the source code, select **Local only**, and wait until our new Actor is ready.
 
 ## Building the new Actor {#building-the-new-actor}
 

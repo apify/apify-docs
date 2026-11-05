@@ -10,32 +10,38 @@ slug: /expert-scraping-with-apify/solutions/using-api-and-client
 
 ---
 
-Since we need to create another Actor, we'll once again use the `apify create` command and start from an empty template. This time, let's call our project **actor-caller**:
+Since we need to create another Actor, we'll once again use the `apify create` command and start from an empty template. This time, let's call our project **actor-caller**. When asked what you want to build, select **Any use case** again:
 
 ```text
 $ apify create actor-caller
-? Choose the programming language of your new Actor:
-❯ JavaScript
-  TypeScript
-  Python
+? What do you want to build?
+  Web scraper
+  AI agent
+  API & data pipeline
+  Browser automation
+ ──────────────
+❯ Any use case
 ```
 
-Again, use the arrow down key to select **Empty JavaScript Project**:
+Again, select **JavaScript** as the programming language and use the arrow down key to select **Empty JavaScript Actor**:
 
 ```text
 $ apify create actor-caller
+✔ What do you want to build? Any use case
 ✔ Choose the programming language of your new Actor: JavaScript
-? Choose a template for your new Actor. Detailed information about the template will be shown in the next step.
-  Crawlee + Playwright + Chrome
-  Crawlee + Playwright + Camoufox
-  Bootstrap CheerioCrawler
-  Cypress
-❯ Empty JavaScript Project
-  Standby JavaScript Project
+? Choose a template for your new Actor. More info at https://apify.com/templates
+  JavaScript site crawler (Crawlee + Cheerio)
+  JavaScript one-page scraper (Cheerio)
+  JavaScript browser crawler (Crawlee + Puppeteer + Chrome)
+  JavaScript browser crawler (Crawlee + Playwright + Chrome)
+  JavaScript stealth crawler (Crawlee + Playwright + Camoufox)
+  JavaScript minimal site crawler (Crawlee + Cheerio)
+  JavaScript test runner (Cypress)
+❯ Empty JavaScript Actor
   ...
 ```
 
-Confirm the choices by **Install template** and wait until our new Actor is ready. Now let's also set up some boilerplate, grabbing our inputs and creating a constant variable for the task:
+When asked how to set up the source code, select **Local only**, and wait until our new Actor is ready. Now let's also set up some boilerplate, grabbing our inputs and creating a constant variable for the task:
 
 ```js
 import { Actor } from 'apify';
