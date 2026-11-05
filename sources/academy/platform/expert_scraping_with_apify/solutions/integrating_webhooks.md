@@ -177,7 +177,7 @@ Success: Actor was deployed to Apify cloud and built there.
 
 ## Setting up the webhook {#setting-up-the-webhook}
 
-We'll use the [Apify API](/academy/api/run-actor-and-retrieve-data-via-api) to set up the webhook. To compose the HTTP request, we'll need either the ID of our Actor or its technical name. Let's take a second look at the end of the output of the `apify push` command:
+We'll set up the webhook in Apify Console, and the webhook will start the filter Actor by calling the [Apify API](/academy/api/run-actor-and-retrieve-data-via-api). To compose the URL of that HTTP request, we'll need either the ID of our Actor or its technical name. Let's take a second look at the end of the output of the `apify push` command:
 
 ```text
 ...
