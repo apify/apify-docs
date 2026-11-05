@@ -71,7 +71,7 @@ This section controls how your task appears on the landing page and in search re
 
 - **Title:** the heading shown on the landing page. Required to publish.
 - **Description:** the summary shown under the heading on the landing page. Required to publish.
-- **Slug:** the URL path for your task's landing page, generated from the task name. To change it, rename the task.
+- **Slug:** the URL path for your task's landing page, generated from the task name. To change it, rename the task. Renaming a published task changes its URL, and the old URL stops working.
 - **SEO title:** the page title in search results. Falls back to the task title when empty.
 - **SEO description:** the meta description in search results. Falls back to the task description when empty.
 
@@ -189,7 +189,7 @@ The API has no separate slug field. The landing page URL is built from the task 
 
 If any requirement is unmet, the request fails with an error that lists every problem, and none of the update is applied. A task is never left half-configured or silently unpublished.
 
-Editing an already published task works differently. If an edit leaves the task invalid, for example because the Actor's dataset schema no longer has the view you picked, the landing page is hidden until you fix it. The task stays published.
+Editing an already published task works differently. If an edit leaves the task invalid, for example because the Actor's dataset schema no longer has the view you picked, the landing page is hidden until you fix it. The task stays published and still shows as **Public**, so check the **Publishing** tab, which marks the section that needs fixing.
 
 ### Publish with an AI agent
 
