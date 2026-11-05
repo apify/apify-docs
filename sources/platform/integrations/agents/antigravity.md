@@ -73,7 +73,7 @@ Antigravity opens a browser tab for the Apify OAuth flow, which ends with an aut
 
 ## Run your first prompt
 
-Describe what you want in natural language. The `apify` rule and agent route the request to the right tool or skill, so you don't need to name tools yourself. To talk to the agent directly, start the CLI with `agy --agent apify`, or select **apify** from the app's **Main Agent** menu.
+Describe what you want in natural language. The `apify` rule and agent route the request to the right tool or skill, so you don't need to name tools yourself. To talk to the agent directly, start the CLI with `agy --agent apify`, or select **apify** from the app's **Agents** menu.
 
 > Use Apify to find a good Actor for scraping Google Maps places. Show me the best option, its input requirements, pricing model, and what kind of dataset output it returns. Do not run the Actor yet.
 
@@ -91,7 +91,7 @@ The Actor development, actorization, and scraping skills call the Apify CLI. Ins
 
 ## Troubleshooting
 
-Most problems are a plugin that did not load, the wrong skill, or OAuth on a machine without a browser.
+Most problems are a plugin that did not load, the wrong skill, OAuth on a machine without a browser, or the terminal sandbox.
 
 ### The Apify MCP server doesn't appear
 
@@ -99,7 +99,11 @@ Restart the CLI or the app after installing the plugin, then run `/mcp` in the C
 
 ### Antigravity picks the wrong skill
 
-Start the CLI with `agy --agent apify`, or select **apify** from the app's **Main Agent** menu, so the routing agent handles the request. The agent owns the guardrails that pick the right skill and avoid common traps, such as confusing the `apify` and `apify-client` packages.
+Start the CLI with `agy --agent apify`, or select **apify** from the app's **Agents** menu, so the routing agent handles the request. The agent owns the guardrails that pick the right skill and avoid common traps, such as confusing the `apify` and `apify-client` packages.
+
+### Commands that need the network hang or fail
+
+With the default permission preset, Antigravity runs agent commands in a [terminal sandbox](https://antigravity.google/docs/sandbox) without network access. Commands that need the network, such as `npm install` or Apify CLI commands, retry and then fail. The Apify CLI then reports that it couldn't verify your API token, even though your login is fine. Let the agent run the command outside the sandbox and approve the request, or allow the domains the command needs in your [agent permissions](https://antigravity.google/docs/agent-settings).
 
 ### Browser doesn't open, or OAuth fails
 
