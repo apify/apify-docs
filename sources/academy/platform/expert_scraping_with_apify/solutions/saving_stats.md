@@ -49,13 +49,16 @@ class Stats {
 export const stats = new Stats();
 ```
 
-Cool, very similar to the **ASINTracker** class we wrote earlier. We'll now import `stats` into our **main.js** file and initialize it along with the ASIN tracker:
+Cool, very similar to the **ASINTracker** class we wrote earlier. We'll now import `stats` into our **main.js** file and initialize it along with the ASIN tracker. The starter's ESLint config sorts imports alphabetically, so the **Stats.js** import goes after **routes.js**:
 
 ```js
 // main.js
+import { CheerioCrawler } from '@crawlee/cheerio';
+import { Actor, log } from 'apify';
 
-// ...
 import { tracker } from './asinTracker.js';
+import { BASE_URL, labels } from './constants.js';
+import { router } from './routes.js';
 import { stats } from './Stats.js';
 
 await Actor.init();
