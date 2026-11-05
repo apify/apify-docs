@@ -29,7 +29,7 @@ You can use one of the two main ways to programmatically interact with the Apify
 
 ## Our task
 
-We'll be creating another new Actor, which will have two jobs:
+In the previous lesson, we created the **academy-amazon-scraper-task** task for our Amazon Actor. Now, we'll be creating another new Actor, which will have two jobs:
 
 1. Programmatically call the task for the Amazon Actor.
 2. Export its results into CSV format under a new key called **OUTPUT** in the default key-value store.
