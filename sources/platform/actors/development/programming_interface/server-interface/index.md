@@ -2,7 +2,7 @@
 title: Develop Server Actors
 sidebar_label: Server interface
 description: Develop Server Actors that run a persistent HTTP server, choose multi-tenant or single-tenant hosting, and serve fast real-time API responses to users.
-slug: /actors/development/programming-interface/standby
+slug: /actors/development/programming-interface/server-actors
 sidebar_position: 9
 ---
 

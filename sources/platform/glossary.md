@@ -147,7 +147,7 @@ A [schedule](/actors/running/schedules) is a cron-based trigger that runs an Act
 
 ## Server Actors
 
-[Server Actors](/actors/running/standby), formerly Actor Standby, run an HTTP server that stays ready in the background and responds to requests in real time, without a cold start on each call. Use them for Actors that serve as live endpoints rather than batch jobs.
+[Server Actors](/actors/running/server-actors), formerly Actor Standby, run an HTTP server that stays ready in the background and responds to requests in real time, without a cold start on each call. Use them for Actors that serve as live endpoints rather than batch jobs.
 
 ## Webhook
 

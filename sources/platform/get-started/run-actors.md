@@ -38,7 +38,7 @@ Once a manual run produces the data you want, you rarely keep starting it by han
 - [Save your input as a task](/actors/running/tasks) so you can re-run it without re-typing the configuration.
 - [Schedule an Actor](/actors/running/schedules) to run automatically.
 - [Send results to your tools](/integrations) - Make, Zapier, n8n, Slack, webhooks, and more.
-- [Use an Actor as a live API](/actors/running/standby) through its server interface.
+- [Use an Actor as a live API](/actors/running/server-actors) through its server interface.
 - [Monitor your runs](/actors/running/monitoring) to catch failures and track performance.
 - Run Actors programmatically via the [API](/api/v2) or the [CLI](/cli/docs).
 

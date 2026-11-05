@@ -71,7 +71,7 @@ Both **Actor runs** and **builds** have the **Origin** field indicating how the 
 |`TEST`|From the Actor's test page in Apify Console|
 |`WEBHOOK`|Using a webhook|
 |`ACTOR`|From another Actor run|
-|`STANDBY`|From a request to a [Server Actor](./standby)|
+|`STANDBY`|From a request to a [Server Actor](./actor_standby.md)|
 |`CI`|From a CI/CD pipeline (for example, GitHub Actions)|
 |`MCP`|From the [Apify MCP Server](/mcp)|
 

@@ -2,7 +2,7 @@
 title: Migrate an Actor to multi-tenant
 sidebar_label: Migrate to multi-tenant
 description: Move a standard Actor or a single-tenant Server Actor to multi-tenant by running an HTTP server, charging each request, and testing before you switch.
-slug: /actors/development/programming-interface/standby/migrate-to-multi-tenant
+slug: /actors/development/programming-interface/server-actors/migrate-to-multi-tenant
 sidebar_position: 1
 ---
 

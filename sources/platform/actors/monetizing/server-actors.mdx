@@ -8,7 +8,7 @@ sidebar_label: Multi-tenant Server Actors
 
 A multi-tenant Server Actor runs in your account and serves many users from shared runs. Users pay for events, and you or Apify pay for the platform usage of the runs, depending on who called. This page explains who pays for what, how to charge each request, and how Apify bills calls between Server Actors.
 
-To build the Actor and switch it to multi-tenant, see [Develop Server Actors](/actors/development/programming-interface/standby). A single-tenant Server Actor charges events like a standard run, as described in [Pay-per-event pricing model](/actors/monetize/pay-per-event).
+To build the Actor and switch it to multi-tenant, see [Develop Server Actors](/actors/development/programming-interface/server-actors). A single-tenant Server Actor charges events like a standard run, as described in [Pay-per-event pricing model](/actors/monetize/pay-per-event).
 
 ## Who pays for what
 
@@ -102,7 +102,7 @@ http.createServer(async (req, res) => {
 
 When your Actor calls another multi-tenant Server Actor while it serves a request:
 
-1. Send the request to the receiving Actor's [server interface URL](/actors/running/standby#get-the-server-interface-url).
+1. Send the request to the receiving Actor's [server interface URL](/actors/running/server-actors#get-the-server-interface-url).
 1. Authenticate with your run's `APIFY_TOKEN`, not a personal API token. The token tells the platform which run made the call.
 1. Forward the incoming `X-Actor-Request-ID` value in a header with the same name.
 

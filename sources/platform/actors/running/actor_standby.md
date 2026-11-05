@@ -2,7 +2,7 @@
 title: Server Actors
 description: Call Server Actors over HTTP to get real-time responses without waiting for a run to start. Learn about URLs, authentication, tenancy, limits, and billing.
 sidebar_position: 7.3
-slug: /actors/running/standby
+slug: /actors/running/server-actors
 sidebar_label: Server Actors
 ---
 
