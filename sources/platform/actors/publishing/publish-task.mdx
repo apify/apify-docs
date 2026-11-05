@@ -174,7 +174,7 @@ Creating a task never publishes it. There are three steps:
 A task can only be published when all of the following hold:
 
 - The task's Actor is public.
-- The Actor has a successful build with an input schema and a dataset schema.
+- The build the task runs, set in its run options or the Actor's default build, succeeded and has an input schema and a dataset schema.
 - The task has a `title` (3 to 63 characters) and a `description` (up to 400 characters). The landing page renders these.
 - `publicConfig.inputSchemaFields` names at least one field that exists in the task's input. These are the input values shown on the page.
 - `publicConfig.datasetView` is one of the view keys declared in the Actor's [dataset schema](/storage/dataset-schema), and the view has at least one field. Set `publicConfig.datasetName` too if the Actor declares more than one dataset.
