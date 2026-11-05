@@ -123,6 +123,11 @@ properties:
         type: string
         description: URL of the tarball or ZIP file, present when sourceType is TARBALL. Returned only to the Actor owner.
         examples: ["https://example.com/my-actor.zip"]
+      actorPath:
+        type: [string, "null"]
+        description: The Actor's directory inside the uploaded source, present when the version sets it. Applies when
+          sourceType is SOURCE_FILES or TARBALL. On a TARBALL version, only users with write access to the Actor get it.
+        examples: [actors/typescript-actor]
   actorDefinition:
     anyOf:
       - $ref: ../actors/ActorDefinition.yaml
