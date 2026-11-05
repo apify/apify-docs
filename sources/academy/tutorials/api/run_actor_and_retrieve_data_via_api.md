@@ -85,7 +85,7 @@ If we press **Send**, it will immediately return some info about the run. The `s
 
 ![Actor run info in Postman](./images/run-info-postman.png)
 
-We will later use this **run info** JSON to retrieve the run's output data. This info about the run can also be retrieved with another call to the [**Get Actor run**](/api/v2/actor-run-get) endpoint.
+We will later use this **run info** JSON to retrieve the run's output data. This info about the run can also be retrieved with another call to the [Get Actor run](/api/v2/actor-run-get) endpoint.
 
 ## JavaScript and Python client {#javascript-and-python-client}
 
@@ -212,7 +212,7 @@ This solution is quite similar to the synchronous flow. To make the POST request
 https://api.apify.com/v2/actors/apify~web-scraper/runs?token=YOUR_TOKEN&waitForFinish=60
 ```
 
-You can also use the `waitForFinish` parameter with the [**GET Run** endpoint](/api/v2/actor-run-get) to implement a smarter [polling](#polling) system.
+You can also use the `waitForFinish` parameter with the [Get Actor run](/api/v2/actor-run-get) endpoint to implement a smarter [polling](#polling) system.
 
 Once again, the final response will be the **run info object**; however, now its status should be `SUCCEEDED` or `FAILED`. If the run exceeds the `waitForFinish` duration, the status will still be `RUNNING`.
 
@@ -234,7 +234,7 @@ Once your server receives this request from the webhook, you know that the event
 
 What if you don't have a server, and the run you'd like to do is much too long to use a synchronous call? In cases like these, periodic **polling** of the run's status is the solution.
 
-When we run the Actor with the [usual API call](#run-an-actor-or-task) shown above, we will back a response with the **run info** object. From this JSON object, we can then extract the ID of the Actor run that we just started from the `id` field. Then, we can set an interval that will poll the Apify API (let's say every 5 seconds) by calling the [**Get Actor run**](/api/v2/actor-run-get) endpoint to retrieve the run's status.
+When we run the Actor with the [usual API call](#run-an-actor-or-task) shown above, we will back a response with the **run info** object. From this JSON object, we can then extract the ID of the Actor run that we just started from the `id` field. Then, we can set an interval that will poll the Apify API (let's say every 5 seconds) by calling the [Get Actor run](/api/v2/actor-run-get) endpoint to retrieve the run's status.
 
 Replace the `RUN_ID` in the following URL with the ID you extracted earlier:
 
@@ -254,7 +254,7 @@ The **run info** JSON also contains the IDs of the default [dataset](/storage/da
 
 > If you are scraping products, or any list of items with similar fields, the [dataset](/storage/dataset) should be your storage of choice. Don't forget though, that dataset items are immutable. This means that you can only add to the dataset, and not change the content that is already inside it.
 
-To retrieve the data from a dataset, send a GET request to the [**Get dataset items**](/api/v2/dataset-items-get) endpoint and pass the `defaultDatasetId` into the URL. For a GET request to the default dataset, no token is needed.
+To retrieve the data from a dataset, send a GET request to the [Get dataset items](/api/v2/dataset-items-get) endpoint and pass the `defaultDatasetId` into the URL. For a GET request to the default dataset, no token is needed.
 
 ```cURL
 https://api.apify.com/v2/datasets/DATASET_ID/items
@@ -262,7 +262,7 @@ https://api.apify.com/v2/datasets/DATASET_ID/items
 
 By default, it will return the data in JSON format with some metadata. The actual data are in the `items` array.
 
-You can use plenty of additional parameters, to learn more about them, visit our API reference [documentation](/api/v2/dataset-items-get). We will only mention that you can pass a `format` parameter that transforms the response into popular formats like CSV, XML, Excel, RSS, etc.
+You can use plenty of additional parameters, to learn more about them, visit the [Get dataset items](/api/v2/dataset-items-get) API reference. We will only mention that you can pass a `format` parameter that transforms the response into popular formats like CSV, XML, Excel, RSS, etc.
 
 The items are paginated, which means you can ask only for a subset of the data. Specify this using the `limit` and `offset` parameters. This endpoint has a limit of 250,000 items that it can return per request. To retrieve more, you will need to send more requests incrementing the `offset` parameter.
 
@@ -276,13 +276,13 @@ https://api.apify.com/v2/datasets/DATASET_ID/items?format=csv&offset=250000
 
 When you want to retrieve something from a key-value store, the `defaultKeyValueStoreId` is _not_ enough. You also need to know the name (or **key**) of the record you want to retrieve.
 
-If you have a single output JSON, the convention is to return it as a record named `OUTPUT` to the default key-value store. To retrieve the record's content, call the [**Get key-value store record**](/api/v2/key-value-store-record-get) endpoint.
+If you have a single output JSON, the convention is to return it as a record named `OUTPUT` to the default key-value store. To retrieve the record's content, call the [Get key-value store record](/api/v2/key-value-store-record-get) endpoint.
 
 ```cURL
 https://api.apify.com/v2/key-value-stores/STORE_ID/records/RECORD_KEY
 ```
 
-If you don't know the keys (names) of the records in advance, you can retrieve just the keys with the [**List keys**](/api/v2/key-value-store-keys-get) endpoint.
+If you don't know the keys (names) of the records in advance, you can retrieve just the keys with the [Get list of key-value store keys](/api/v2/key-value-store-keys-get) endpoint.
 
 Keep in mind that you can get a maximum of 1000 keys per request, so you will need to paginate over the keys using the `exclusiveStartKey` parameter if you have more than 1000 keys. To do this, after each call, take the last record key and provide it as the `exclusiveStartKey` parameter. You can do this until you get 0 keys back.
 

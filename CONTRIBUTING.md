@@ -95,7 +95,7 @@ This project uses an agent-agnostic approach: standards and workflows live at th
 
 - **`standards/`** - Writing, formatting, terminology, and quality rules
 - **`.agents/skills/`** - Documentation skills with processes, references, and scripts (AgentSkills spec)
-- **`AGENTS.md`** - Condensed summary + pointers (also `CLAUDE.md` via symlink)
+- **`AGENTS.md`** - Condensed summary + pointers (also `GEMINI.md` via symlink)
 
 ### Skills (AgentSkills standard)
 

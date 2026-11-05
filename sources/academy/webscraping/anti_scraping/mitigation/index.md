@@ -3,6 +3,7 @@ title: Anti-scraping mitigation
 description: After learning about the various different anti-scraping techniques websites use, learn how to mitigate them with a few different techniques.
 sidebar_position: 3.2
 slug: /anti-scraping/mitigation
+pagination: true
 ---
 
 **After learning about the various different anti-scraping techniques websites use, learn how to mitigate them with a few different techniques.**

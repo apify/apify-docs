@@ -2,9 +2,11 @@ title: ProxyGroup
 required:
   - name
   - description
-  - availableCount
 type: object
 properties:
+  id:
+    type: string
+    examples: [Hsu2Sk8jPqxd3dNsB]
   name:
     type: string
     examples: [Group1]

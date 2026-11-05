@@ -29,7 +29,7 @@ To make your Actor available on Apify Store:
 
 Complete all required fields in the following sections:
 
-1. In the **Display information** section, add an Actor logo and [description](/academy/actor-marketing-playbook/actor-basics/actor-description).
+1. In the **Display information** section, add an Actor logo and [description](/academy/build-and-publish/apify-store/actor-description).
 1. In the **Monetization** section, [set up monetization](/actors/monetize) for your Actor.
 1. In the **Sample output** section, add a sample output for your Actor. If the [input schema](/actors/development/actor-definition/input-schema) already includes the sample output, it's added automatically.
 1. In the **Output schema** section, define the [output schema](/actors/development/actor-definition/output-schema) of your Actor. Optionally, define also the following schemas:
@@ -42,11 +42,10 @@ Once all sections are marked as completed, select **Publish on Store**.
 
 ## Verify the publication
 
-To verify that your Actor has been published:
+To verify that your Actor has been published, use one of these methods:
 
-1. Go to the [Apify Store](https://apify.com/store).
-1. Search for your Actor's name.
-1. Select your Actor's card and review its dedicated page.
+- Open `https://apify.com/YOUR_USERNAME/YOUR_ACTOR_NAME` in a private browser window. If the Actor's page loads, your Actor is published.
+- Call the [Get Actor](/api/v2/actor-get) API endpoint. If the `isPublic` property in the response is `true`, your Actor is published.
 
 ## Publish Actor's source code
 

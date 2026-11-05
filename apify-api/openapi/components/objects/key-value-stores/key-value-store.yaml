@@ -132,8 +132,7 @@ putById:
     Updates a key-value store's name and general resource access level using a value specified by a JSON object
     passed in the PUT payload.
 
-    The response is the updated key-value store object, as returned by the [Get
-    store](#/reference/key-value-stores/store-object/get-store) API endpoint.
+    The response is the updated key-value store object, as returned by the [Get key-value store](/api/v2/key-value-store-get) API endpoint.
   operationId: keyValueStore_put
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/key-value-stores/store-object/update-store

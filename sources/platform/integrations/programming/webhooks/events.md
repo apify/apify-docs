@@ -31,7 +31,7 @@ The following data is provided for Actor run events:
 }
 ```
 
-To fetch the results from the Actor run, you can use the `actorRunId` event property and call one of the [Run object and its storages](/api/v2/actor-runs) API endpoints. For example:
+To fetch the results from the Actor run, you can use the `actorRunId` event property and call one of the [Manage Actor runs](/api/v2/actor-runs) API endpoints. For example:
 
 ```text
 https://api.apify.com/v2/actor-runs/[ACTOR_RUN_ID]/dataset/items?token=[TOKEN]

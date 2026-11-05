@@ -61,6 +61,26 @@ properties:
     type: [string, "null"]
     deprecated: true # Marked as deprecated in favor of actorDefinition.
     examples: ['# Magic Actor\nThis Actor is magic.']
+  changelog:
+    type: [string, "null"]
+    deprecated: true # Marked as deprecated in favor of actorDefinition.
+    examples: ['# Changelog\n## 0.1.1\n- Initial release']
+  exitCode:
+    type: [integer, "null"]
+    examples: [0]
+    description: Exit code of the build process. Set when the build finishes.
+  gitCommitId:
+    type: string
+    examples: [5f1d2b3c4a5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a]
+    description: ID of the Git commit the build was created from. Present only for builds from a Git repository.
+  gitBranchName:
+    type: string
+    examples: [main]
+    description: Name of the Git branch the build was created from. Present only for builds from a Git repository.
+  createdByOrganizationMemberUserId:
+    type: string
+    examples: [klmdEpoiojmdEMlk3]
+    description: ID of the organization member who started the build. Present only for builds started in an organization account.
   buildNumber:
     type: string
     pattern: ^([0-9]|[1-9][0-9])\.([0-9]|[1-9][0-9])(\.[1-9][0-9]{0,4})$
@@ -95,6 +115,14 @@ properties:
         description: Inline source files, present when sourceType is SOURCE_FILES.
         items:
           $ref: ../actors/SourceCodeFile.yaml
+      gitHubGistUrl:
+        type: string
+        description: URL of the GitHub Gist, present when sourceType is GITHUB_GIST.
+        examples: ["https://gist.github.com/jancurn/2dd8fa0dd5bf9ea2b4d5a6e0f6a0e8c5"]
+      tarballUrl:
+        type: string
+        description: URL of the tarball or ZIP file, present when sourceType is TARBALL. Returned only to the Actor owner.
+        examples: ["https://example.com/my-actor.zip"]
   actorDefinition:
     anyOf:
       - $ref: ../actors/ActorDefinition.yaml

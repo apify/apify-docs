@@ -34,13 +34,13 @@
 
     - The version object contains the source code of a specific version of an Actor.
     - The `sourceType` property indicates where the source code is hosted, and based
-    on its value the Version object has the following additional property:
+    on its value the `Version` object has the following additional property:
 
     | **Value** | **Description**  |
     |---|---|
     | `"SOURCE_FILES"`   | Source code is comprised of multiple files specified in the `sourceFiles` array. Each item of the array is an object with the following fields:<br/> - `name`: File path and name<br/> - `format`: Format of the content, can be either `"TEXT"` or `"BASE64"`<br/> - `content`: File content<br/><br/>Source files can be shown and edited in the Apify Console's Web IDE. |
     | `"GIT_REPO"` | Source code is cloned from a Git repository, whose URL is specified in the `gitRepoUrl` field. |
-    | `"TARBALL"` | Source code is downloaded using a tarball or Zip file from a URL specified in the `tarballUrl` field.  |
+    | `"TARBALL"` | Source code is downloaded as a zip archive from a URL specified in the `tarballUrl` field. |
     |`"GITHUB_GIST"`| Source code is taken from a GitHub Gist, whose URL is specified in the `gitHubGistUrl` field. |
 
     For more information about source code and Actor versions, check out [Source code](https://docs.apify.com/platform/actors/development/actor-definition/source-code)
@@ -373,7 +373,7 @@
     Each schedule is assigned actions for it to perform. Actions can be of two types
     - `RUN_ACTOR` and `RUN_ACTOR_TASK`.
 
-    For details, see the documentation of the [Get schedule](#/reference/schedules/schedule-object/get-schedule) endpoint.
+    For details, see the documentation of the [Get schedule](/api/v2/schedule-get) endpoint.
   x-trait: "true"
 - name: Store
   x-displayName: Get data from Apify Store
@@ -488,7 +488,7 @@
   description: |
     The API endpoint described in this section is convenience endpoint that provides access to last Actor run's log.
 
-    Same as of functionality described in: [Logs](/api/v2/logs)
+    Same as of functionality described in: [Get build and run logs](/api/v2/logs)
 - name: Last Actor run's abort
   x-displayName: Last Actor run's abort
   description: |
@@ -512,7 +512,7 @@
   description: |
     The API endpoint described in this section is convenience endpoint that provides access to last Actor task run's log.
 
-    Same as of functionality described in: [Logs](/api/v2/logs)
+    Same as of functionality described in: [Get build and run logs](/api/v2/logs)
 - name: Last Actor task run's abort
   x-displayName: Last Actor task run's abort
   description: |

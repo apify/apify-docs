@@ -49,3 +49,6 @@ properties:
   maxScheduleCount:
     type: integer
     examples: [100]
+  maxMonthlyUnblockerUnits:
+    type: number
+    examples: [1000000]

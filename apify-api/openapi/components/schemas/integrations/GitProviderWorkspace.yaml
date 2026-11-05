@@ -1,0 +1,16 @@
+title: GitProviderWorkspace
+description: A place the user can create a repository in, such as their own account or an organization, group or workspace they can access.
+required:
+  - id
+  - label
+type: object
+properties:
+  id:
+    type: string
+    description: |
+      The workspace identifier to pass as `workspace` when creating a repository: the account or organization login
+      on GitHub, the numeric namespace ID on GitLab, or the workspace slug on Bitbucket.
+    examples: [janedoe]
+  label:
+    type: string
+    examples: [janedoe]

@@ -58,3 +58,8 @@ properties:
   defaultRequestQueueId:
     type: string
     examples: [so93g2shcDzK3pA85]
+  standby:
+    anyOf:
+      - $ref: ./RunStandby.yaml
+      - type: "null"
+    description: Standby configuration of the run. `null` for runs that are not Actor Standby runs.

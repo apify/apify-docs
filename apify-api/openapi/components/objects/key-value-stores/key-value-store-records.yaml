@@ -181,7 +181,7 @@ postById:
   summary: Store record (POST)
   description: |
     Stores a value under a specific key to the key-value store.
-    This endpoint is an alias for the [`PUT` record](#tag/Key-value-storesRecord/operation/keyValueStore_record_put) method and behaves identically.
+    This endpoint is an alias for the [Set key-value store record](/api/v2/key-value-store-record-put) endpoint and behaves identically.
   operationId: keyValueStore_record_post
   parameters:
     - $ref: "../../parameters/keyValueStoreParameters.yaml#/storeId"
@@ -195,7 +195,7 @@ putDefault:
     Stores a value under a specific key to the key-value store.
 
     This endpoint is a shortcut for getting the run's `defaultKeyValueStoreId` and then using the
-    [PUT record](/api/v2/key-value-store-record-put) endpoint.
+    [Set key-value store record](/api/v2/key-value-store-record-put) endpoint.
   operationId: keyValueStore_record_put
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
@@ -219,7 +219,7 @@ postDefault:
     Stores a value under a specific key to the key-value store.
 
     This endpoint is a shortcut for getting the run's `defaultKeyValueStoreId` and then using the
-    [POST record](/api/v2/key-value-store-record-post) endpoint.
+    [Set key-value store record (POST)](/api/v2/key-value-store-record-post) endpoint.
   operationId: keyValueStore_record_post
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
@@ -233,7 +233,7 @@ putLastRun:
     Stores a value under a specific key to the key-value store.
 
     This endpoint is a shortcut for getting the last run's `defaultKeyValueStoreId` and then using the
-    [PUT record](/api/v2/key-value-store-record-put) endpoint.
+    [Set key-value store record](/api/v2/key-value-store-record-put) endpoint.
   operationId: keyValueStore_record_put
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
@@ -257,7 +257,7 @@ postLastRun:
     Stores a value under a specific key to the key-value store.
 
     This endpoint is a shortcut for getting the last run's `defaultKeyValueStoreId` and then using the
-    [POST record](/api/v2/key-value-store-record-post) endpoint.
+    [Set key-value store record (POST)](/api/v2/key-value-store-record-post) endpoint.
   operationId: keyValueStore_record_post
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
@@ -271,7 +271,7 @@ putTaskLastRun:
     Stores a value under a specific key to the default key-value store of the last Actor task run.
 
     This endpoint is a shortcut for getting the last task run's `defaultKeyValueStoreId` and then using the
-    [PUT record](/api/v2/key-value-store-record-put) endpoint.
+    [Set key-value store record](/api/v2/key-value-store-record-put) endpoint.
   operationId: actorTask_runs_last_keyValueStore_records_put
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
@@ -285,7 +285,7 @@ postTaskLastRun:
     Stores a value under a specific key to the default key-value store of the last Actor task run.
 
     This endpoint is a shortcut for getting the last task run's `defaultKeyValueStoreId` and then using the
-    [POST record](/api/v2/key-value-store-record-post) endpoint.
+    [Set key-value store record (POST)](/api/v2/key-value-store-record-post) endpoint.
   operationId: actorTask_runs_last_keyValueStore_records_post
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"

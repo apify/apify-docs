@@ -63,7 +63,7 @@ getById:
     Returns dataset object for given dataset ID.
 
     This does not return dataset items, only information about the storage itself.
-    To retrieve dataset items, use the [List dataset items](/api/v2/dataset-items-get) endpoint.
+    To retrieve dataset items, use the [Get dataset items](/api/v2/dataset-items-get) endpoint.
 
     :::note
 
@@ -157,7 +157,7 @@ putDefault:
     Updates the default dataset associated with an Actor run.
 
     This endpoint is a shortcut for getting the run's `defaultDatasetId` and then using the
-    [Put dataset](/api/v2/dataset-put) endpoint.
+    [Update dataset](/api/v2/dataset-put) endpoint.
 
   operationId: actorRun_dataset_put
 
@@ -208,7 +208,7 @@ deleteDefault:
     Deletes default dataset associated with an Actor run.
 
     This endpoint is a shortcut for getting the last run's `defaultDatasetId` and then using the
-    [ Delete dataset ](/api/v2/dataset-delete) endpoint.
+    [Delete dataset](/api/v2/dataset-delete) endpoint.
   operationId: actorRun_dataset_delete
 
 deleteLastRun:

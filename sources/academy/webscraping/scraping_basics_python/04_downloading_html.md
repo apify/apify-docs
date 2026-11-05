@@ -3,6 +3,7 @@ title: Downloading HTML with Python
 sidebar_label: Downloading HTML
 description: Lesson about building a Python application for watching prices. Using the HTTPX library to download HTML code of a product listing page.
 slug: /scraping-basics-python/downloading-html
+pagination: true
 ---
 
 import CodeBlock from '@theme/CodeBlock';

@@ -3,6 +3,7 @@ title: Submitting a form with a file attachment
 description: Understand how to download a file, attach it to a form using a headless browser in Playwright or Puppeteer, then submit the form.
 sidebar_position: 4
 slug: /puppeteer-playwright/common-use-cases/submitting-a-form-with-a-file-attachment
+pagination: true
 ---
 
 **Understand how to download a file, attach it to a form using a headless browser in Playwright or Puppeteer, then submit the form.**

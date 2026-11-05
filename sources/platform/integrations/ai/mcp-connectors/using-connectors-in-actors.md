@@ -426,10 +426,13 @@ Three independent layers control which tools are accessible when an Actor uses a
 
 ```mermaid
 flowchart TD
+    accTitle: Tool permission layers
+    accDescr: A tool call must pass layer 0, authentication scope, then layer 1, the connector tool allowlist, then layer 2, the input schema constraints. Only then is the tool available.
+
     A([Tool call])
-    B["Layer 0 — Auth-level permissions<br/>OAuth scopes or API key / PAT permissions<br/>granted when the connector was authorized"]
-    C["Layer 1 — connector tool allowlist<br/>All tools allowed by default;<br/>restrict in Apify Console"]
-    D["Layer 2 — Actor input schema<br/>Tool constraints in mcpServers<br/>act as eligibility filter and runtime ceiling"]
+    B[Layer 0: Authentication scope]
+    C[Layer 1: Connector tool allowlist]
+    D[Layer 2: Input schema constraints]
     E([Tool available])
 
     A --> B
@@ -455,6 +458,6 @@ For the full schema, see [The `mcpServers` rule list](#the-mcpservers-rule-list)
 ## Related pages
 
 - [MCP connectors overview](/integrations/mcp-connectors)
-- [Input schema specification - resource type](/actors/development/actor-definition/input-schema/specification/v1#resource-type)
+- [Input schema specification - resource type](/actors/development/actor-definition/input-schema/specification/v1/resource)
 - [Account settings - MCP connectors](/account/settings#mcp-connectors)
 - [Apify environment variables](/actors/development/programming-interface/environment-variables#system-environment-variables)

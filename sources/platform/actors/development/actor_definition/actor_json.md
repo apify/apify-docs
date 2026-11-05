@@ -70,6 +70,8 @@ Actor `name`, `version`, `buildTag`, and `environmentVariables` are currently on
 
 :::
 
+Path values are relative to the `.actor/` directory, so `../` points to the Actor's directory. This applies to `dockerfile`, `dockerContextDir`, `readme`, and `changelog`. It also applies to `input`, `output`, `storages.dataset`, `storages.datasets`, `storages.keyValueStore`, and `webServerSchema` when they hold a file path instead of an embedded object.
+
 | Property | Type | Description |
 | --- | --- | --- |
 | `actorSpecification` | Required | The version of the Actor specification. This property must be set to `1`, which is the only version available. |
@@ -77,7 +79,7 @@ Actor `name`, `version`, `buildTag`, and `environmentVariables` are currently on
 | `title` | Optional | The `title` property defines the human-readable display title of the Actor, shown in Apify Console and Apify Store. If not specified, the `name` property is used as the title. |
 | `description` | Optional | The description of the Actor. |
 | `version` | Required | The version of the Actor, specified in the format `[Number].[Number]`, e.g., `0.1`, `0.3`, `1.0`, `1.3`, etc. |
-| `buildTag` | Optional | The tag name to be applied to a successful build of the Actor. If not specified, defaults to `latest`. Refer to the [builds](../builds_and_runs/builds.md) for more information. |
+| `buildTag` | Optional | The tag name to apply to a successful build of the Actor. If not specified, builds of version `0.0` get the `latest` tag, and builds of other versions get no tag. For details, see [Actor builds](../builds_and_runs/builds.md). |
 | `meta` | Optional | Metadata object containing additional information about the Actor. Currently supports `templateId` field to identify the template from which the Actor was created. |
 | `environmentVariables` | Optional | A map of environment variables to be used during local development. These variables will also be applied to the Actor when deployed on the Apify platform. For more details, see the [environment variables](/cli/docs/vars) section of the Apify CLI documentation. |
 | `dockerfile` | Optional | The path to the Dockerfile to be used for building the Actor on the platform. If not specified, the system will search for Dockerfiles in the `.actor/Dockerfile` and `Dockerfile` paths, in that order. Refer to the [Dockerfile](./docker.md) section for more information. |
@@ -85,7 +87,7 @@ Actor `name`, `version`, `buildTag`, and `environmentVariables` are currently on
 | `readme` | Optional | The path to the README file to be used on the platform. If not specified, the system will look for README files in the `.actor/README.md` and `README.md` paths, in that order of preference. For details, see [Create an Actor README](/actors/publishing/actor-readme). |
 | `input` | Optional | You can embed your [input schema](./input_schema/index.md) object directly in `actor.json` under the `input` field. You can also provide a path to a custom input schema. If not provided, the input schema at `.actor/INPUT_SCHEMA.json` or `INPUT_SCHEMA.json` is used, in this order of preference. You can also use the `inputSchema` alias interchangeably. |
 | `output` | Optional | You can embed your [output schema](./output_schema/index.md) object directly in `actor.json` under the `output` field. You can also provide a path to a custom output schema. [Read more](/actors/development/actor-definition/output-schema) about Actor output schemas. You can also use the `outputSchema` alias interchangeably. |
-| `changelog` | Optional | The path to the CHANGELOG file displayed in the Information tab of the Actor in Apify Console next to Readme. If not provided, the CHANGELOG at `.actor/CHANGELOG.md` or `CHANGELOG.md` is used, in this order of preference. Your Actor doesn't need to have a CHANGELOG but it is a good practice to keep it updated for published Actors. |
+| `changelog` | Optional | The path to the CHANGELOG file that Apify Console displays in the **Changelog** tab on the Actor's page. If not provided, defaults to `.actor/CHANGELOG.md`, then `CHANGELOG.md`. |
 | `storages.dataset` | Optional | The `storages.dataset` property defines the schema for the Actor's default dataset. Set the property to an embedded dataset schema object or a path to a dataset schema file. [Read about Actor dataset schemas](/storage/dataset-schema). |
 | `storages.datasets` | Optional | The `storages.datasets` property defines multiple datasets for the Actor. Set the property to an object that maps dataset aliases to embedded dataset schema objects or paths to dataset schema files. [Read about multiple dataset schemas](/storage/dataset-schema/multiple-datasets). |
 | `storages.keyValueStore` | Optional | The `storages.keyValueStore` property defines the schema for the Actor's default key-value store. Set the property to an embedded key-value store schema object or a path to a key-value store schema file. [Read about Actor key-value store schemas](/storage/key-value-store-schema). |
