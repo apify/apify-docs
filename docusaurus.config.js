@@ -10,7 +10,6 @@ const { externalLinkProcessor, isInternal } = require('./tools/utils/externalLin
 const { removeLlmButtons } = require('./tools/utils/removeLlmButtons');
 const { rehypeExpandTabs } = require('./tools/utils/rehypeExpandTabs');
 const { rehypeFixCodeLanguage } = require('./tools/utils/rehypeFixCodeLanguage');
-const { rehypeRemoveLlmExcluded } = require('./tools/utils/rehypeRemoveLlmExcluded');
 
 /**
  * Helper to extract text from a node recursively.
@@ -363,8 +362,8 @@ module.exports = {
                             categoryName: 'Glossary',
                         },
                     ],
-                    // Drop UI marked with data-llms-exclude, expand <Tabs>, and fix Prism code language tags before HTML→markdown conversion
-                    beforeDefaultRehypePlugins: [rehypeRemoveLlmExcluded, rehypeExpandTabs, rehypeFixCodeLanguage],
+                    // Expand <Tabs> and fix Prism code language tags before HTML→markdown conversion
+                    beforeDefaultRehypePlugins: [rehypeExpandTabs, rehypeFixCodeLanguage],
                     // Add custom remark processing to remove LLM button text
                     remarkPlugins: [removeLlmButtons],
                 },
