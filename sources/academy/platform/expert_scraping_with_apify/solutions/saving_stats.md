@@ -89,9 +89,16 @@ const crawler = new CheerioCrawler({
 
 ## Tracking total saved {#tracking-total-saved}
 
-Now, we'll increment our **totalSaved** count for every offer added to the dataset.
+Now, we'll increment our **totalSaved** count for every offer added to the dataset. The **OFFERS** handler lives in **routes.js**, so we need to import `stats` there as well:
 
 ```js
+// routes.js
+
+// ...
+import { stats } from './Stats.js';
+
+// ...
+
 router.addHandler(labels.OFFERS, async ({ $, request, pushData }) => {
     const { data } = request.userData;
 
