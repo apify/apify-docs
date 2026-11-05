@@ -38,7 +38,12 @@ First, let's create a repository. This can be done [in a number of ways](https:/
 
 ![Create a new GitHub repo](./images/github-new-repo.png)
 
-Then, we'll run the commands it tells us in our terminal (while within the **academy-amazon-scraper** directory) to initialize the repository locally, and then push all of the files to the remote one.
+GitHub then suggests commands for pushing an existing repository, but we can't use them as they are. We cloned **academy-amazon-scraper** from the starter repository, so its `origin` remote already points to `apify-projects/academy-amazon-scraper`, and `git remote add origin …` would fail with `remote origin already exists`. Instead, we'll point `origin` to our new repository and push all of the files to it. Run the following in the **academy-amazon-scraper** directory, with your own repository URL:
+
+```bash
+git remote set-url origin https://github.com/YOUR_USERNAME/academy-amazon-scraper.git
+git push -u origin main
+```
 
 After you've created your repo, in the Apify platform navigate to your **academy-amazon-scraper** Actor. In the **Source** tab, click the dropdown menu under **Source code** and select **Git repository**. By default, this is set to **Web IDE**, which is what we've been using so far.
 
