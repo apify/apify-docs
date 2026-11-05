@@ -16,13 +16,15 @@ Here's the skeleton of our class:
 
 ```js
 // asinTracker.js
+import { log } from 'apify';
+
 class ASINTracker {
     constructor() {
         this.state = {};
 
         // Log the state to the console every ten
         // seconds
-        setInterval(() => console.log(this.state), 10000);
+        setInterval(() => log.info('ASIN tracker', this.state), 10000);
     }
 
     // Add an offer to the ASIN's offer count
@@ -40,7 +42,7 @@ class ASINTracker {
 // It is only a utility class, so we will immediately
 // create an instance of it and export that. We only
 // need one instance for our use case.
-export default new ASINTracker();
+export const tracker = new ASINTracker();
 ```
 
 Multiple techniques exist for storing data in memory; however, this is the most modular way, as all state-persistence and modification logic will be held in this file.
@@ -51,7 +53,7 @@ Here is our updated **routes.js** file which is now utilizing this utility class
 // routes.js
 import { createCheerioRouter } from '@crawlee/cheerio';
 
-import tracker from './asinTracker.js';
+import { tracker } from './asinTracker.js';
 import { BASE_URL, labels, OFFERS_URL } from './constants.js';
 
 export const router = createCheerioRouter();
@@ -125,13 +127,21 @@ router.addHandler(labels.OFFERS, async ({ $, request, pushData }) => {
 
 The **persistState** event is automatically fired (by default) every 60 seconds by the Apify SDK while the Actor is running and is also fired when the **migrating** event occurs.
 
-In order to persist our ASIN tracker object, let's use the `Actor.on` function to listen for the **persistState** event and store it in the key-value store each time it is emitted.
+In order to persist our ASIN tracker object, let's use the `Actor.on` function to listen for the **persistState** event and store it in the key-value store each time it is emitted. First, we'll add the name of the key-value store key to **constants.js**:
+
+```js
+// constants.js
+
+// ...
+export const ASIN_TRACKER = 'ASIN-TRACKER';
+```
+
+Then we can use it in the tracker:
 
 ```js
 // asinTracker.js
-import { Actor } from 'apify';
-// We've updated our constants.js file to include the name
-// of this new key in the key-value store
+import { Actor, log } from 'apify';
+
 import { ASIN_TRACKER } from './constants.js';
 
 class ASINTracker {
@@ -142,7 +152,7 @@ class ASINTracker {
             await Actor.setValue(ASIN_TRACKER, this.state);
         });
 
-        setInterval(() => console.log(this.state), 10000);
+        setInterval(() => log.info('ASIN tracker', this.state), 10000);
     }
 
     incrementASIN(asin) {
@@ -155,7 +165,7 @@ class ASINTracker {
     }
 }
 
-export default new ASINTracker();
+export const tracker = new ASINTracker();
 ```
 
 ## Handling resurrections {#handling-resurrections}
@@ -166,7 +176,8 @@ In order to fix this, let's create a method called `initialize` which will be ca
 
 ```js
 // asinTracker.js
-import { Actor } from 'apify';
+import { Actor, log } from 'apify';
+
 import { ASIN_TRACKER } from './constants.js';
 
 class ASINTracker {
@@ -177,7 +188,7 @@ class ASINTracker {
             await Actor.setValue(ASIN_TRACKER, this.state);
         });
 
-        setInterval(() => console.log(this.state), 10000);
+        setInterval(() => log.info('ASIN tracker', this.state), 10000);
     }
 
     async initialize() {
@@ -200,7 +211,7 @@ class ASINTracker {
     }
 }
 
-export default new ASINTracker();
+export const tracker = new ASINTracker();
 ```
 
 We'll now call this function at the top level of the **main.js** file to ensure it is the first thing that gets called when the Actor starts up:
@@ -209,7 +220,7 @@ We'll now call this function at the top level of the **main.js** file to ensure 
 // main.js
 
 // ...
-import tracker from './asinTracker.js';
+import { tracker } from './asinTracker.js';
 
 // The Actor.init() function should be executed before
 // the tracker's initialization

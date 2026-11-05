@@ -136,7 +136,7 @@ await Actor.pushData(Object.values(filtered));
 await Actor.exit();
 ```
 
-Cool! But **wait**, don't forget to configure the **.actor/input_schema.json** file as well! It's not necessary to do this step, as we'll be calling the Actor through Apify's API within a webhook, but it's still good to get into the habit of writing quality input schemas that describe the input values your Actors are expecting.
+Cool! But **wait**, don't forget to configure the **.actor/input_schema.json** file as well! New Actors run with [limited permissions](/actors/development/permissions) by default, so they can't read storages they didn't create, such as the dataset of our Amazon scraper. By declaring the `datasetId` input as a dataset with `resourceType` and `resourcePermissions`, we grant the filter Actor read access to the dataset it receives. Both properties are needed, `resourceType` alone isn't enough:
 
 ```json
 {
@@ -148,7 +148,9 @@ Cool! But **wait**, don't forget to configure the **.actor/input_schema.json** f
             "title": "Dataset ID",
             "type": "string",
             "description": "Enter the ID of the dataset.",
-            "editor": "textfield"
+            "editor": "textfield",
+            "resourceType": "dataset",
+            "resourcePermissions": ["READ"]
         }
     },
     "required": ["datasetId"]
@@ -202,7 +204,13 @@ Next, within the Amazon scraping Actor, we will click the **Integrations** tab a
 
 ![Configuring a webhook](./images/adding-webhook.jpg)
 
-We have chosen to run the webhook once the Actor has succeeded, which means that its default dataset will surely be populated. Since the filtering Actor is expecting the default dataset ID of the Amazon Actor, we use the `resource` variable to grab hold of the `defaultDatasetId`.
+We have chosen to run the webhook once the Actor has succeeded, which means that its default dataset will surely be populated. Since the filtering Actor is expecting the default dataset ID of the Amazon Actor, we use the `resource` variable to grab hold of the `defaultDatasetId`. Set the payload template to the following:
+
+```text
+{"datasetId": {{resource.defaultDatasetId}}}
+```
+
+Don't put quotes around the variable. Apify fills in the value already as a JSON string, so with quotes, the filter Actor would receive the literal text `{{resource.defaultDatasetId}}` instead of the dataset ID.
 
 Click **Save**, then run the **academy-amazon-scraper** Actor again.
 

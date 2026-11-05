@@ -14,7 +14,7 @@ The code in this solution will be similar to what we already did in the **Handli
 
 ```js
 // Stats.js
-import { Actor } from 'apify';
+import { Actor, log } from 'apify';
 
 class Stats {
     constructor() {
@@ -33,7 +33,7 @@ class Stats {
             await Actor.setValue('STATS', this.state);
         });
 
-        setInterval(() => console.log(this.state), 10000);
+        setInterval(() => log.info('Stats', this.state), 10000);
     }
 
     addError(url, errorMessage) {
@@ -46,33 +46,33 @@ class Stats {
     }
 }
 
-export default new Stats();
+export const stats = new Stats();
 ```
 
-Cool, very similar to the **AsinTracker** class we wrote earlier. We'll now import **Stats** into our **main.js** file and initialize it along with the ASIN tracker:
+Cool, very similar to the **ASINTracker** class we wrote earlier. We'll now import `stats` into our **main.js** file and initialize it along with the ASIN tracker:
 
 ```js
 // main.js
 
 // ...
-import Stats from './Stats.js';
+import { tracker } from './asinTracker.js';
+import { stats } from './Stats.js';
 
 await Actor.init();
 await tracker.initialize();
-await Stats.initialize();
+await stats.initialize();
 // ...
 ```
 
 ## Tracking errors {#tracking-errors}
 
-In order to keep track of errors, we must write a new function within the crawler's configuration called **errorHandler**. Passed into this function is an object containing an **Error** object for the error which occurred and the **Request** object, as well as information about the session and proxy which were used for the request.
+In order to keep track of errors, we must write a new function within the crawler's configuration called **errorHandler**. Crawlee calls it with two arguments. The first one is the crawling context, which contains the **Request** object, as well as information about the session and proxy which were used for the request. The second one is the **Error** object for the error which occurred.
 
 ```js
 const crawler = new CheerioCrawler({
     proxyConfiguration,
     maxRequestRetries: 10,
     sessionPoolOptions: {
-        persistStateKey: 'AMAZON-SESSIONS',
         sessionOptions: {
             maxUsageCount: 5,
             maxErrorScore: 1,
@@ -80,9 +80,9 @@ const crawler = new CheerioCrawler({
     },
     requestHandler: router,
     // Handle all failed requests
-    errorHandler: async ({ error, request }) => {
+    errorHandler: async ({ request }, error) => {
         // Add an error for this url to our error tracker
-        Stats.addError(request.url, error?.message);
+        stats.addError(request.url, error.message);
     },
 });
 ```
@@ -107,7 +107,7 @@ router.addHandler(labels.OFFERS, async ({ $, request, pushData }) => {
 
         tracker.incrementASIN(data.asin);
         // Add 1 to totalSaved for every offer
-        Stats.success();
+        stats.success();
 
         await pushData({
             ...data,
@@ -141,7 +141,7 @@ router.addHandler(labels.OFFERS, async ({ $, crawler, request, pushData }) => {
 
         tracker.incrementASIN(data.asin);
         // Add 1 to totalSaved for every offer
-        Stats.success();
+        stats.success();
 
         await pushData({
             ...data,

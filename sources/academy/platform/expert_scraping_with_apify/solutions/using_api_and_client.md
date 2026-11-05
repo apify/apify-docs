@@ -56,25 +56,25 @@ await Actor.exit();
 
 When using the `apify-client` package, you can create a new client instance by using `new ApifyClient()`. Within the Apify SDK however, it is not necessary to even install the `apify-client` package, as the `Actor.newClient()` function is available for use.
 
-We'll start by creating a function called `withClient()` and creating a new client, then calling the task:
+We'll start by creating a function called `withClient()` and creating a new client, then calling the task. The first argument of `call()` overrides the task's input, so we pass `undefined` to keep the input saved in the task, and set the memory in the second argument, which holds the run options:
 
 ```js
 const withClient = async () => {
     const client = Actor.newClient();
     const task = client.task(TASK);
 
-    const { id } = await task.call({ memory });
+    const { id } = await task.call(undefined, { memory });
 };
 ```
 
-After the task has run, we'll grab hold of its dataset, then attempt to download the items, plugging in our `maxItems` and `fields` inputs. Then, once the data has been downloaded, we'll push it to the default key-value store under a key named **OUTPUT.csv**.
+After the task has run, we'll grab hold of its dataset, then attempt to download the items, plugging in our `maxItems` and `fields` inputs. Then, once the data has been downloaded, we'll push it to the default key-value store under a key named **OUTPUT**.
 
 ```js
 const withClient = async () => {
     const client = Actor.newClient();
     const task = client.task(TASK);
 
-    const { id } = await task.call({ memory });
+    const { id } = await task.call(undefined, { memory });
 
     const dataset = client.run(id).dataset();
 
@@ -204,7 +204,7 @@ const withClient = async () => {
     const client = Actor.newClient();
     const task = client.task(TASK);
 
-    const { id } = await task.call({ memory });
+    const { id } = await task.call(undefined, { memory });
 
     const dataset = client.run(id).dataset();
 
@@ -241,6 +241,10 @@ if (useClient) {
 
 await Actor.exit();
 ```
+
+## Granting permissions {#granting-permissions}
+
+New Actors run with [limited permissions](/actors/development/permissions) by default, which don't allow them to start a task you own. After you push **actor-caller** to the platform, open its **Settings** tab and in the **Actor permissions** section, select **Full permissions**. Otherwise, the run fails with a `403 insufficient-permissions` error when it tries to start the task.
 
 ## Quiz answers 📝 {#quiz-answers}
 
