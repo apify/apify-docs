@@ -8,11 +8,11 @@ sidebar_label: Multi-tenant Server Actors
 
 A multi-tenant Server Actor runs in your account and serves many users from shared runs. Users pay for events, and you or Apify pay for the platform usage of the runs, depending on who called. This page explains who pays for what, how to charge each request, and how Apify bills calls between Server Actors.
 
-To build the Actor and switch it to multi-tenant, see [Develop Server Actors](/actors/development/programming-interface/server-actors). A single-tenant Server Actor charges events like a standard run, as described in [Pay-per-event pricing model](/actors/monetize/pay-per-event).
+To build the Actor and switch it to multi-tenant, see [Develop Server Actors](/actors/development/programming-interface/server-actors). A single-tenant Server Actor charges events like a run started through the input interface, as described in [Pay-per-event pricing model](/actors/monetize/pay-per-event). Its users also always pay the platform usage of their runs.
 
 ## Who pays for what
 
-A multi-tenant Server Actor uses the [pay-per-event pricing model](/actors/monetize/pay-per-event) or [pay per usage](/actors/monetize#pricing-models). For a pay-per-event Actor, who pays depends on who sent the request:
+To earn from a multi-tenant Server Actor, use the [pay-per-event pricing model](/actors/monetize/pay-per-event). The Actor can also use [pay per usage](/actors/monetize#pricing-models), but then you earn nothing. For a pay-per-event Actor, who pays depends on who sent the request:
 
 | Request from | Event charges | Platform usage |
 | --- | --- | --- |
@@ -133,7 +133,7 @@ Who pays for the receiving Actor's events depends on the request your Actor was 
 - For a free user's request, the call creates no payout and no deduction for either developer.
 - For your own request, charges from another developer's Actor go to your account. Between your own Actors, the events only update statistics.
 
-When you own both Actors, Apify takes no share of the receiving Actor's events. If your Actor calls a single-tenant Server Actor or starts a standard run, that run starts in your account, and you pay for it like any other run of yours.
+When you own both Actors, Apify takes no share of the receiving Actor's events. If your Actor calls a single-tenant Server Actor or starts a run of another Actor through its input interface, that run starts in your account. You pay for it like any other run of yours.
 
 ## See what you earn and what you pay
 
@@ -143,9 +143,9 @@ Each run in your account also records the total price of the events it charged t
 
 ## Price your events
 
-Requests to the server interface are usually short, such as a single lookup. If your Actor offers both interfaces, set a slightly higher event price for requests to the server interface, because users get lower latency and higher concurrency.
+If your Actor offers both interfaces, price them so that each is cheaper for the work it handles best. Bulk work is cheaper to serve as a run, because the run stays busy until it finishes. A single lookup is cheaper to serve as a request to the server interface, because no run has to start for it.
 
-Aim for the input interface to be cheaper than the server interface once a user needs more than 10 results. A run started through the input interface also charges the Actor start event, while a request to the server interface doesn't:
+As a rule of thumb, set a slightly higher event price for requests to the server interface. The input interface then becomes cheaper once a user needs more than 10 results. A run started through the input interface also charges the Actor start event, while a request to the server interface doesn't:
 
 | Results per call | Input interface compared to server interface |
 | --- | --- |

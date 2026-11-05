@@ -6,7 +6,9 @@ slug: /actors/running/server-actors
 sidebar_label: Server Actors
 ---
 
-A standard Actor runs a single job and then stops. It works great for batch jobs, such as a large data extraction or processing task. However, some applications can't wait for an Actor to start. Server Actors (formerly Actor Standby mode) solve this with a server interface. The Actor stays ready in the background and serves incoming HTTP requests in real time, like a web server or an API server.
+There are two ways to use an Actor. Through the input interface, you give it an input and start a run, which suits batch jobs such as a large data extraction. Through the server interface, you send an HTTP request to the Actor's URL and get the response straight back, without waiting for a run to start.
+
+Server Actors (formerly Actor Standby mode) are Actors with the server interface enabled. They stay ready in the background and respond to requests in real time, like any web API.
 
 A Server Actor is either multi-tenant or single-tenant. A multi-tenant Server Actor runs in the developer's account and serves all its users, while a single-tenant Server Actor starts a separate run in your account. Most of this page applies to both. [Multi-tenant and single-tenant Server Actors](#multi-tenant-and-single-tenant-server-actors) describes what the tenancy changes for you.
 
@@ -33,7 +35,7 @@ The Actor also responds on a URL built from its ID, which keeps working if the A
 https://92c4oi4fpzy7rprlf.apify.actor
 ```
 
-The server interface URL stays the same for all runs of the Actor, so you can share it publicly or hardcode it in applications that call the Actor. Copy the URL from the **Server** tab instead of building it from the username and Actor name, because some Actors use a different hostname format, like `rag-web-browser.apify.actor`.
+The server interface URL always stays the same, so you can share it publicly or hardcode it in applications that call the Actor. Copy the URL from the **Server** tab instead of building it from the username and Actor name, because some Actors use a different hostname format, like `rag-web-browser.apify.actor`.
 
 ## Send requests to the Actor
 
@@ -76,7 +78,7 @@ The Actor's developer sets its tenancy. The Actor's detail page shows it in the 
 
 ### Multi-tenant Server Actors
 
-A multi-tenant Server Actor runs in the developer's account and serves all its users from shared runs. You pay only for the events the Actor charges, not for the platform usage of its runs. No runs appear in your **Runs** tab, and the Actor appears in your recently used Actors instead.
+A multi-tenant Server Actor works like any other API on the internet. Its developer runs and manages it, and you send requests to it. It runs in the developer's account and serves all its users from shared runs. You pay only for the events the Actor charges, not for the platform usage of its runs. No runs appear in your **Runs** tab, and the Actor appears in your recently used Actors instead.
 
 The developer sets the server configuration, and you can't override it with a task.
 
@@ -84,13 +86,13 @@ The Actor receives your Apify user ID in the `X-Apify-User-ID` header, so its de
 
 ### Single-tenant Server Actors
 
-A single-tenant Server Actor starts its runs in your account, and only you use them. You pay for the platform usage of those runs, plus the event charges if the Actor uses the [pay-per-event pricing model](/actors/monetize/pay-per-event).
+A single-tenant Server Actor works like a server that you install and configure yourself. It starts its runs in your account, and only you use them. You pay for the platform usage of those runs, plus the event charges if the Actor uses the [pay-per-event pricing model](/actors/monetize/pay-per-event).
 
 The developer sets the default server configuration. Unless the developer locked it, you can [override it with a task](#override-the-configuration-with-a-task).
 
 ## Run the Actor through its input interface
 
-If the Actor has an input schema, you can run it through its input interface, like a standard Actor. Modify the input in the **Input** tab and select **Start**. If the Actor has no input schema, Apify Console disables the **Input** tab. Not every Server Actor supports the input interface. If it doesn't, the run might fail, return empty results, or start its server. Check the Actor README for what the Actor supports.
+If the Actor has an input schema, you can also start a run through its input interface. Modify the input in the **Input** tab and select **Start**. If the Actor has no input schema, Apify Console disables the **Input** tab. Not every Server Actor supports the input interface. If it doesn't, the run might fail, return empty results, or start its server. Check the Actor README for what the Actor supports.
 
 Tasks of a multi-tenant Server Actor don't serve requests to the server interface. A task that runs the Actor through its input interface keeps working.
 
@@ -128,7 +130,7 @@ If your account goes over its monthly usage hard limit, the platform rejects you
 
 What you pay for depends on the tenancy, as described in [Multi-tenant and single-tenant Server Actors](#multi-tenant-and-single-tenant-server-actors).
 
-For a single-tenant Server Actor, the platform bills your runs like standard runs. A run also consumes resources while it waits for requests, until the idle timeout stops it, so expect usage even when no requests arrive.
+For a single-tenant Server Actor, the platform bills your runs like any other runs in your account. A run also consumes resources while it waits for requests, until the idle timeout stops it, so expect usage even when no requests arrive.
 
 ## Use Server Actors as MCP servers
 

@@ -9,7 +9,7 @@ sidebar_position: 9
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-A standard Actor runs a single job and stops. A Server Actor (formerly an Actor in Standby mode) runs a persistent HTTP server and responds to incoming requests in real time. Every Actor has an input interface, where users give it an input and start a run. A Server Actor also has a server interface, where users call its URL and get the response directly.
+There are two ways to use an Actor. Through the input interface, users give it an input and start a run. Through the server interface, users send an HTTP request to the Actor's URL and get the response straight back. Server Actors (formerly Actor Standby mode) are Actors with the server interface enabled. They run a persistent HTTP server and respond to requests in real time.
 
 A Server Actor is either multi-tenant or single-tenant:
 
@@ -51,10 +51,11 @@ Multi-tenant pays off when many different users send the same small piece of wor
 
 Keep the Actor single-tenant when:
 
-- It runs long batch jobs, such as a crawl that runs for 20 minutes and writes thousands of results.
 - Users put their own API keys, cookies, or account details in the input. They need their own run.
 - State belongs to one user, such as a per-organization web app or a login session.
 - It uses a pricing model other than pay per event or pay per usage. Migrate the pricing first.
+
+Long batch jobs, such as a crawl that runs for 20 minutes and writes thousands of results, suit the input interface whatever the tenancy. Keep the input interface for them alongside the server interface.
 
 ### Switch the tenancy
 
@@ -62,7 +63,7 @@ If the Actor already has users, or doesn't have the server interface yet, follow
 
 Before you switch an Actor to multi-tenant, make sure that:
 
-- The Actor uses the [pay-per-event pricing model](/actors/monetize/pay-per-event) or [pay per usage](/actors/monetize#pricing-models). A pay-per-usage Actor serves all users from the [pool](/actors/monetize/server-actors#how-requests-reach-your-runs) for your own requests, so you pay for all of its platform usage and users pay nothing.
+- The Actor uses the [pay-per-event pricing model](/actors/monetize/pay-per-event), which is the only way to earn from a multi-tenant Server Actor. It can also use [pay per usage](/actors/monetize#pricing-models), but then users pay nothing, and you pay for its platform usage.
 - The server interface is enabled.
 
 To switch the tenancy:
@@ -222,7 +223,7 @@ Apart from the [readiness probe](#readiness-probe), the platform doesn't check y
 
 ## Determine which interface started the Actor
 
-Users can still start a Server Actor through its input interface, for example from Apify Console or through the API. To find out which interface started the run, read the `metaOrigin` option in `Actor.config`, or the `APIFY_META_ORIGIN` environment variable if you don't use the Apify SDK. The value `STANDBY` means the server interface started the run. Otherwise, the input interface started it.
+Users can also start a Server Actor through its input interface, for example from Apify Console or through the API. To find out which interface started the run, read the `metaOrigin` option in `Actor.config`, or the `APIFY_META_ORIGIN` environment variable if you don't use the Apify SDK. The value `STANDBY` means the server interface started the run. Otherwise, the input interface started it.
 
 <Tabs groupId="main">
 <TabItem value="JavaScript" label="JavaScript">
@@ -235,7 +236,7 @@ await Actor.init();
 if (Actor.config.get('metaOrigin') === 'STANDBY') {
     // Start your HTTP server here
 } else {
-    // Perform the standard Actor operations here
+    // Process the input here
 }
 ```
 
@@ -250,7 +251,7 @@ async def main() -> None:
         if Actor.configuration.meta_origin == 'STANDBY':
             ...  # Start your HTTP server here
         else:
-            ...  # Perform the standard Actor operations here
+            ...  # Process the input here
 ```
 
 </TabItem>
@@ -282,11 +283,11 @@ The header contains only the ID. Your Actor doesn't receive the user's name, ema
 
 How you monetize a Server Actor depends on its tenancy:
 
-- A multi-tenant Server Actor uses pay-per-event or pay-per-usage pricing, and you or Apify cover the platform usage of its runs. With pay-per-event pricing, it charges each request instead of each run. See [Monetize multi-tenant Server Actors](/actors/monetize/server-actors).
-- A single-tenant Server Actor charges events like a standard run, as described in [Pay-per-event pricing model](/actors/monetize/pay-per-event). Users cover both the platform usage costs of their runs and the event costs.
+- You earn from a multi-tenant Server Actor only with pay-per-event pricing. The Actor charges each request instead of each run, and you or Apify cover the platform usage of its runs. With pay per usage, users pay nothing, and you pay for its platform usage. See [Monetize multi-tenant Server Actors](/actors/monetize/server-actors).
+- A single-tenant Server Actor charges events like a run started through the input interface, as described in [Pay-per-event pricing model](/actors/monetize/pay-per-event). Unlike those runs, users always cover both the platform usage costs of their runs and the event costs.
 
 ## Single-tenant Server Actors
 
 A single-tenant Server Actor starts a separate run in each user's account, and the user pays for the platform usage of that run. Users can override your server configuration by creating a task.
 
-To enforce the same server configuration for all users, enable **Prevent users from overriding server settings** in the **Server** section of the Actor's **Settings** tab. Users then can't override it by creating a task.
+To enforce the same server configuration for all users, enable **Prevent users from overriding server settings** in the **Server** section of the Actor's **Settings** tab. Users then can't override it by creating a task. If all users get the same configuration anyway, consider switching the Actor to multi-tenant. Users then pay only for events, and their requests are more likely to reach a run that has already started.
