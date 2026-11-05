@@ -70,8 +70,6 @@ A scoped token also has a [restricted access](/integrations/api#restricted-acces
 
 :::
 
-If you're developing a Server Actor, use the token from the `APIFY_TOKEN` [environment variable](../development/programming_interface/environment_variables.md#system-environment-variables) to call the Apify API, as in any other Actor.
-
 ## Multi-tenant and single-tenant Server Actors
 
 The Actor's developer sets its tenancy. The Actor's detail page shows it in the **Features** section, as **Multi-tenant** or **Single-tenant**. Tenancy decides whose account runs the Actor, what you pay for, and whether you can change the server configuration.
@@ -82,7 +80,7 @@ A multi-tenant Server Actor works like any other API on the internet. Its develo
 
 The developer sets the server configuration, and you can't override it with a task.
 
-The Actor receives your Apify user ID in the `X-Apify-User-ID` header, so its developer can rate-limit or count requests per user. The Actor doesn't receive your name, email, or API token, and it can't start runs or read storages in your account.
+The developer sees only your Apify user ID. The Actor doesn't receive your name, email, or API token, and it can't start runs or read storages in your account.
 
 ### Single-tenant Server Actors
 
@@ -102,7 +100,7 @@ The platform scales Server Actor runs automatically and applies timeouts and rat
 
 ### Automatic scaling
 
-The platform scales the Actor to match the incoming requests. For a multi-tenant Server Actor, it starts runs in the developer's account, and the developer's configuration decides how many. For a single-tenant Server Actor, it starts runs in your account, which appear in the Actor **Runs** tab with the origin shown as **Server**. These runs aren't shared with other users, even when you use the Actor-level hostname with the default configuration.
+For a multi-tenant Server Actor, the developer manages scaling, and you only send requests. For a single-tenant Server Actor, the platform starts runs in your account to match the incoming requests. They appear in the Actor **Runs** tab with the origin shown as **Server**. These runs aren't shared with other users, even when you use the Actor-level hostname with the default configuration.
 
 The platform checks a run's readiness once, before the run starts serving requests, and performs no health checks after that.
 
@@ -116,7 +114,7 @@ If an Actor's server stays up but stops responding, the platform doesn't detect 
 
 A request to a Server Actor must receive its first response within 5 minutes. This is the overall timeout for the request.
 
-Within this window, the platform first selects an Actor run to handle the request, which can take up to 2 minutes, for example when a new run needs to start. If no run becomes available within that time, the request fails with a `429` error.
+If the platform finds no run to handle the request within 2 minutes, for example because a new run has to start first, the request fails with a `429` error.
 
 ### Rate limits
 
