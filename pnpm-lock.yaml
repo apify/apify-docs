@@ -205,10 +205,7 @@ settings:
 
 overrides:
   openapi-to-postmanv2>js-yaml: 5.4.1
-  copy-webpack-plugin>serialize-javascript: ^7.0.4
-  css-minimizer-webpack-plugin>serialize-javascript: ^7.0.4
   yaml@1: ^2.0.0
-  lodash: ^4.18.0
 
 importers:
 
@@ -6572,6 +6569,9 @@ packages:
   lodash.uniq@4.5.0:
     resolution: {integrity: sha512-xfBaXQd9ryd9dlSDvnvI0lvxfLJlYAZzXomUYzLKtUeOQvOP5piqAWuGtrhWeqaXK9hhoM/iyJc5AV+XfsX3HQ==}
 
+  lodash@4.17.21:
+    resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
+
   lodash@4.18.1:
     resolution: {integrity: sha512-dMInicTPVE8d1e5otfwmmjlxkZoUpiVLwyeTdUsi/Caj/gfzzblBcCE5sRHV/AsjuCmxWrte2TNGSYuCeCq+0Q==}
 
@@ -8031,6 +8031,9 @@ packages:
     resolution: {integrity: sha512-WuyALRjWPDGtt/wzJiadO5AXY+8hZ80hVpe6MyivgraREW751X3SbhRvG3eLKOYN+8VEvqLcf3wdnt44Z4S4SA==}
     engines: {node: '>=10'}
 
+  randombytes@2.1.0:
+    resolution: {integrity: sha512-vYl3iOX+4CKUWuxGi9Ukhie6fsqXqS9FE2Zaic4tNFD2N2QQaXOMFbuKK4QmDHC0JO6B1Zp41J0LpT0oR68amQ==}
+
   range-parser@1.2.0:
     resolution: {integrity: sha512-kA5WQoNVo4t9lNx2kQNFCxKeBl5IbbSNBl1M/tLkw9WCn+hxNBAW5Qh8gdhs63CJnhjJ2zQWFoqPJP2sK1AV5A==}
     engines: {node: '>= 0.6'}
@@ -8538,9 +8541,8 @@ packages:
     resolution: {integrity: sha512-VMbMxbDeehAxpOtWJXlcUS5E8iXh6QmN+BkRX1GARS3wRaXEEgzCcB10gTQazO42tpNIya8xIyNx8fll1OFPrg==}
     engines: {node: '>= 0.8.0'}
 
-  serialize-javascript@7.1.4:
-    resolution: {integrity: sha512-FqlEuoTq/zRmA4Lg6aOqyH3lCHbUtCB0bmHCeFniX2GBdDqMJM3FwdvEhlE5Pim1dlt2FfBdVPmUNNiGhhKqpw==}
-    engines: {node: '>=20.0.0'}
+  serialize-javascript@6.0.2:
+    resolution: {integrity: sha512-Saa1xPByTTq2gdeFZYLLo+RFE35NHZkAbqZeWNd3BpzppeVisAqpDjcp8dyf6uIvEqJRd46jemmyA4iFIeVk8g==}
 
   serve-handler@6.1.7:
     resolution: {integrity: sha512-CinAq1xWb0vR3twAv9evEU8cNWkXCb9kd5ePAHUKJBkOsUpR1wt/CvGdeca7vqumL1U5cSaeVQ6zZMxiJ3yWsg==}
@@ -16553,7 +16555,7 @@ snapshots:
       globby: 13.2.2
       normalize-path: 3.0.0
       schema-utils: 4.8.2(webpack@5.112.2(@swc/core@1.16.21)(@swc/html@1.16.21)(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.32))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.33.0)(postcss@8.5.32)(svgo@3.3.5)(uglify-js@3.19.3))
-      serialize-javascript: 7.1.4
+      serialize-javascript: 6.0.2
       webpack: 5.112.2(@swc/core@1.16.21)(@swc/html@1.16.21)(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.32))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.33.0)(postcss@8.5.32)(svgo@3.3.5)(uglify-js@3.19.3)
 
   core-js-compat@3.51.0:
@@ -16657,7 +16659,7 @@ snapshots:
       jest-worker: 29.7.0
       postcss: 8.5.32
       schema-utils: 4.8.2(webpack@5.112.2(@swc/core@1.16.21)(@swc/html@1.16.21)(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.32))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.33.0)(postcss@8.5.32)(svgo@3.3.5)(uglify-js@3.19.3))
-      serialize-javascript: 7.1.4
+      serialize-javascript: 6.0.2
       webpack: 5.112.2(@swc/core@1.16.21)(@swc/html@1.16.21)(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.32))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.33.0)(postcss@8.5.32)(svgo@3.3.5)(uglify-js@3.19.3)
     optionalDependencies:
       clean-css: 5.3.3
@@ -18765,6 +18767,8 @@ snapshots:
 
   lodash.uniq@4.5.0: {}
 
+  lodash@4.17.21: {}
+
   lodash@4.18.1: {}
 
   longest-streak@3.1.0: {}
@@ -19919,7 +19923,7 @@ snapshots:
       js-yaml: 5.4.1
       json-pointer: 0.6.2
       json-schema-merge-allof: 0.8.1
-      lodash: 4.18.1
+      lodash: 4.17.21
       neotraverse: 0.6.15
       oas-resolver-browser: 2.5.6
       object-hash: 3.0.0
@@ -20933,6 +20937,10 @@ snapshots:
 
   quick-lru@5.1.1: {}
 
+  randombytes@2.1.0:
+    dependencies:
+      safe-buffer: 5.2.1
+
   range-parser@1.2.0: {}
 
   range-parser@1.2.1: {}
@@ -21654,7 +21662,9 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  serialize-javascript@7.1.4: {}
+  serialize-javascript@6.0.2:
+    dependencies:
+      randombytes: 2.1.0
 
   serve-handler@6.1.7:
     dependencies:
