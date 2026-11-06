@@ -54,7 +54,7 @@ The plugin bundles the Apify MCP server as a connector. Connect it and sign in t
 
     Check that the Apify account and the redirect URL `https://claude.ai/api/mcp/auth_callback` are correct, then select **Allow access**.
 
-    ![Apify permission page for Claude with the dynamic registration warning, the redirect URL, the selected account, and the Allow access button highlighted](images/claude-ai/03-apify-consent.webp)
+    ![Apify permission page for Claude with the dynamic registration warning, the redirect URL, the selected account, and the Allow access button highlighted](images/claude-ai/02-apify-consent.webp)
 
 1. Back in claude.ai, check that the `apify` connector shows as connected.
 
@@ -82,7 +82,7 @@ Example prompts that route to specific skills:
 
 ## Connect without the plugin
 
-To choose which Apify tools Claude can use, add the Apify MCP server as a custom connector instead of installing the plugin. This setup doesn't include the plugin's skills or routing agent. On Team and Enterprise plans, an Owner or Primary Owner has to [add the connector for the whole organization](https://support.claude.com/en/articles/11175166) instead.
+To choose which Apify tools Claude can use, add the Apify MCP server as a custom connector instead of installing the plugin. This setup doesn't include the plugin's skills or routing agent. On Team and Enterprise plans, you can't add a custom connector yourself. An Owner or Primary Owner has to [add it for the whole organization](https://support.claude.com/en/articles/11175166).
 
 1. Build your setup in the [Apify MCP server configurator](https://mcp.apify.com) and copy the server URL it generates. To use the default tool set, use `https://mcp.apify.com`.
 1. In claude.ai, open **Customize** > **Connectors**, select **Add**, then select **Add custom connector**.
