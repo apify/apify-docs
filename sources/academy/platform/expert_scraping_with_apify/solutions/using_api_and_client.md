@@ -11,32 +11,38 @@ pagination: true
 
 ---
 
-Since we need to create another Actor, we'll once again use the `apify create` command and start from an empty template. This time, let's call our project **actor-caller**:
+Since we need to create another Actor, we'll once again use the `apify create` command and start from an empty template. This time, let's call our project **actor-caller**. When asked what you want to build, select **Any use case** again:
 
 ```text
-$ apify create filter-caller
-? Choose the programming language of your new Actor:
-❯ JavaScript
-  TypeScript
-  Python
+$ apify create actor-caller
+? What do you want to build?
+  Web scraper
+  AI agent
+  API & data pipeline
+  Browser automation
+ ──────────────
+❯ Any use case
 ```
 
-Again, use the arrow down key to select **Empty JavaScript Project**:
+Again, select **JavaScript** as the programming language and use the arrow down key to select **Empty JavaScript Actor**:
 
 ```text
-$ apify create filter-actor
+$ apify create actor-caller
+✔ What do you want to build? Any use case
 ✔ Choose the programming language of your new Actor: JavaScript
-? Choose a template for your new Actor. Detailed information about the template will be shown in the next step.
-  Crawlee + Playwright + Chrome
-  Crawlee + Playwright + Camoufox
-  Bootstrap CheerioCrawler
-  Cypress
-❯ Empty JavaScript Project
-  Standby JavaScript Project
+? Choose a template for your new Actor. More info at https://apify.com/templates
+  JavaScript site crawler (Crawlee + Cheerio)
+  JavaScript one-page scraper (Cheerio)
+  JavaScript browser crawler (Crawlee + Puppeteer + Chrome)
+  JavaScript browser crawler (Crawlee + Playwright + Chrome)
+  JavaScript stealth crawler (Crawlee + Playwright + Camoufox)
+  JavaScript minimal site crawler (Crawlee + Cheerio)
+  JavaScript test runner (Cypress)
+❯ Empty JavaScript Actor
   ...
 ```
 
-Confirm the choices by **Install template** and wait until our new Actor is ready. Now let's also set up some boilerplate, grabbing our inputs and creating a constant variable for the task:
+When asked how to set up the source code, select **Local only**, and wait until our new Actor is ready. Now let's also set up some boilerplate, grabbing our inputs and creating a constant variable for the task:
 
 ```js
 import { Actor } from 'apify';
@@ -46,7 +52,7 @@ await Actor.init();
 
 const { useClient, memory, fields, maxItems } = await Actor.getInput();
 
-const TASK = 'YOUR_USERNAME~demo-actor-task';
+const TASK = 'YOUR_USERNAME~academy-amazon-scraper-task';
 
 // our future code will go here
 
@@ -57,25 +63,25 @@ await Actor.exit();
 
 When using the `apify-client` package, you can create a new client instance by using `new ApifyClient()`. Within the Apify SDK however, it is not necessary to even install the `apify-client` package, as the `Actor.newClient()` function is available for use.
 
-We'll start by creating a function called `withClient()` and creating a new client, then calling the task:
+We'll start by creating a function called `withClient()` and creating a new client, then calling the task. The first argument of `call()` overrides the task's input, so we pass `undefined` to keep the input saved in the task, and set the memory in the second argument, which holds the run options:
 
 ```js
 const withClient = async () => {
     const client = Actor.newClient();
     const task = client.task(TASK);
 
-    const { id } = await task.call({ memory });
+    const { id } = await task.call(undefined, { memory });
 };
 ```
 
-After the task has run, we'll grab hold of its dataset, then attempt to download the items, plugging in our `maxItems` and `fields` inputs. Then, once the data has been downloaded, we'll push it to the default key-value store under a key named **OUTPUT.csv**.
+After the task has run, we'll grab hold of its dataset, then attempt to download the items, plugging in our `maxItems` and `fields` inputs. Then, once the data has been downloaded, we'll push it to the default key-value store under a key named **OUTPUT**.
 
 ```js
 const withClient = async () => {
     const client = Actor.newClient();
     const task = client.task(TASK);
 
-    const { id } = await task.call({ memory });
+    const { id } = await task.call(undefined, { memory });
 
     const dataset = client.run(id).dataset();
 
@@ -147,43 +153,43 @@ if (useClient) await withClient();
 else await withAPI();
 ```
 
-And before we push to the platform, let's not forget to write an input schema in the **INPUT_SCHEMA.JSON** file:
+And before we push to the platform, let's not forget to write an input schema in the **.actor/input_schema.json** file:
 
 ```json
 {
-  "title": "Actor Caller",
-  "type": "object",
-  "schemaVersion": 1,
-  "properties": {
-    "memory": {
-      "title": "Memory",
-      "type": "integer",
-      "description": "Select memory in megabytes.",
-      "default": 4096,
-      "maximum": 32768,
-      "unit": "MB"
+    "title": "Actor Caller",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "memory": {
+            "title": "Memory",
+            "type": "integer",
+            "description": "Select memory in megabytes.",
+            "default": 4096,
+            "maximum": 32768,
+            "unit": "MB"
+        },
+        "useClient": {
+            "title": "Use client?",
+            "type": "boolean",
+            "description": "Specifies whether the Apify JS client, or the pure Apify API should be used.",
+            "default": true
+        },
+        "fields": {
+            "title": "Fields",
+            "type": "array",
+            "description": "Enter the dataset fields to export to CSV",
+            "prefill": ["title", "itemUrl", "offer"],
+            "editor": "stringList"
+        },
+        "maxItems": {
+            "title": "Max items",
+            "type": "integer",
+            "description": "Fill the maximum number of items to export.",
+            "default": 10
+        }
     },
-    "useClient": {
-      "title": "Use client?",
-      "type": "boolean",
-      "description": "Specifies whether the Apify JS client, or the pure Apify API should be used.",
-      "default": true
-    },
-    "fields": {
-      "title": "Fields",
-      "type": "array",
-      "description": "Enter the dataset fields to export to CSV",
-      "prefill": ["title", "url", "price"],
-      "editor": "stringList"
-    },
-    "maxItems": {
-      "title": "Max items",
-      "type": "integer",
-      "description": "Fill the maximum number of items to export.",
-      "default": 10
-    }
-  },
-  "required": ["useClient", "memory", "fields", "maxItems"]
+    "required": ["useClient", "memory", "fields", "maxItems"]
 }
 ```
 
@@ -199,13 +205,13 @@ await Actor.init();
 
 const { useClient, memory, fields, maxItems } = await Actor.getInput();
 
-const TASK = 'YOUR_USERNAME~demo-actor-task';
+const TASK = 'YOUR_USERNAME~academy-amazon-scraper-task';
 
 const withClient = async () => {
     const client = Actor.newClient();
     const task = client.task(TASK);
 
-    const { id } = await task.call({ memory });
+    const { id } = await task.call(undefined, { memory });
 
     const dataset = client.run(id).dataset();
 
@@ -243,13 +249,17 @@ if (useClient) {
 await Actor.exit();
 ```
 
+## Granting permissions {#granting-permissions}
+
+New Actors run with [limited permissions](/actors/development/permissions) by default, which don't allow them to start a task you own. After you push **actor-caller** to the platform, open its **Settings** tab and in the **Actor permissions** section, select **Full permissions**. Otherwise, the run fails with a `403 insufficient-permissions` error when it tries to start the task.
+
 ## Quiz answers 📝 {#quiz-answers}
 
 **Q: What is the relationship between the Apify API and Apify client? Are there any significant differences?**
 
 **A:** The Apify client mimics the Apify API, so there aren't any super significant differences. It's super handy as it helps with managing the API calls (parsing, error handling, retries, etc) and even adds convenience functions.
 
-The one main difference is that the Apify client automatically uses [**exponential backoff**](/api/client/js/docs#retries-with-exponential-backoff) to deal with errors.
+The one main difference is that the Apify client automatically uses [**exponential backoff**](/api/client/js/docs/concepts/error-handling#retries-with-exponential-backoff) to deal with errors.
 
 **Q: How do you pass input when running an Actor or task via API?**
 
