@@ -1,4 +1,4 @@
-import httpx
+import httpx2
 from bs4 import BeautifulSoup
 
 
@@ -12,7 +12,7 @@ def parse_dimensions(text):
 
 
 url = "https://www.ikea.com/se/en/cat/jonaxel-system-45730/"
-response = httpx.get(url)
+response = httpx2.get(url)
 response.raise_for_status()
 
 soup = BeautifulSoup(response.text, "html.parser")

@@ -190,14 +190,14 @@ First, we split the text into two parts, then we parse the price as a number. Th
 Now, if we use our new function, we should finally get a program that can scrape exact prices for all products, even if they have variants. The whole code should look like this now:
 
 ```py
-import httpx
+import httpx2
 from bs4 import BeautifulSoup
 import json
 import csv
 from urllib.parse import urljoin
 
 def download(url):
-    response = httpx.get(url)
+    response = httpx2.get(url)
     response.raise_for_status()
 
     html_code = response.text
