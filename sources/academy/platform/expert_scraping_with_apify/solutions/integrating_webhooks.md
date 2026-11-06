@@ -78,7 +78,7 @@ Next, we'll grab hold of the dataset's items with the `dataset.getData()` functi
 const { items } = await dataset.getData();
 ```
 
-While several methods can achieve the goal output of this Actor, using the [`Array.reduce()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce) is the most concise approach
+While several methods can achieve the goal output of this Actor, using the [`Array.reduce()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce) is the most concise approach.
 
 Prices are strings like `$1,080.59`, so before comparing them, we need to turn them into numbers. Let's write a small helper function which drops everything except digits and the decimal point:
 
