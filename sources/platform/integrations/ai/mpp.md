@@ -162,7 +162,7 @@ To review what an Actor does and which input it accepts, fetch its Markdown docu
 
 ## Supported Actors
 
-A prepaid token works like a regular API token, so it runs any Actor that uses limited permissions, whatever its pricing model. Actors that need full permissions return an error, because a prepaid account can't approve them. The pay-per-event eligibility rules for agentic payments apply only to payments made per request, such as with [Skyfire](/integrations/skyfire).
+A prepaid token works like a regular API token, so it runs any Actor that uses limited permissions, whatever its pricing model. Actors that need full permissions return an error, because a prepaid account can't approve them.
 
 ## Token pricing and limits
 
