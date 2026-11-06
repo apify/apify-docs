@@ -11,10 +11,6 @@ The Manus integration connects Manus to Apify's library of [Actors](https://apif
 This allows Manus agents to search and run Actors, scrape URLs, and retrieve datasets directly in agent sessions - without writing any code.
 You can also import [Apify Agent Skills](https://github.com/apify/agent-skills) from GitHub to give Manus structured, reusable scraping workflows.
 
-_Example prompt_:
-
-> "Search for 'best project management tools' on Google and summarize the top 10 results"
-
 In this guide, you'll learn how to connect Manus to the Apify MCP server as a custom connector, and how to import Apify Agent Skills from GitHub.
 
 ## Prerequisites
@@ -78,7 +74,9 @@ You can revoke the Manus connector's access to your Apify account at any time in
 
 Try asking Manus something like:
 
-> "Search for 'best project management tools' on Google and summarize the top 10 results"
+```prompt title="Search Google and summarize results"
+Search for 'best project management tools' on Google and summarize the top 10 results.
+```
 
 Manus will call `search-actors` to find [Google Search Scraper](https://apify.com/apify/google-search-scraper), use `call-actor` to run it, and then `get-dataset-items` to retrieve and summarize the results.
 
@@ -159,7 +157,9 @@ For example, to use `apify-ultimate-scraper`:
 
 1. Ask Manus to perform a task, for example:
 
-    > "Get the top 10 posts from @natgeo on Instagram"
+    ```prompt title="Get top Instagram posts"
+    Get the top 10 posts from @natgeo on Instagram.
+    ```
 
 Manus will load the skill instructions and use the appropriate Apify Actors to complete the task.
 

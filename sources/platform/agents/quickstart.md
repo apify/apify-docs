@@ -50,7 +50,7 @@ For client-specific steps, use the [MCP Configurator](https://mcp.apify.com), wh
 
 Every Apify Actor follows the same pattern: send input as JSON, get structured data back. With the MCP server connected, ask your agent to use the agent-optimized [RAG Web Browser](https://apify.com/apify/rag-web-browser) Actor:
 
-```prompt
+```prompt title="Find and summarize Apify docs pages"
 Use Apify's RAG Web Browser to find the top 3 pages about Apify documentation, then summarize.
 ```
 

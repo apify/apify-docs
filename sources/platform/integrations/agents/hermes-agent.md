@@ -78,7 +78,7 @@ Actor IDs accept either the unique ID or the `username~actor-name` format (for e
 
 Once the plugin is set up, your Hermes Agent can:
 
-- _Search for Actors_ - Ask the agent to find an Actor to add to its AI tools. Actors can be scrapers, lead generation tools, or any other kind of tool - for example, try asking it to `find me an Actor to scrape Instagram` and it discovers the right one from [Apify Store](https://apify.com/store).
+- _Search for Actors_ - Ask the agent to find an Actor to add to its AI tools. Actors can be scrapers, lead generation tools, or any other kind of tool - for example, try asking it to "find me an Actor to scrape Instagram" and it discovers the right one from [Apify Store](https://apify.com/store).
 - _Inspect input requirements_ - Fetch an Actor's input schema and README with `apify_discover` before starting a run, so the agent knows exactly what input to provide.
 - _Extract data from any website_ - Scrapers are just one category of Actor. The agent can extract data from Google Search, Instagram, TikTok, YouTube, Google Maps, e-commerce sites, and more.
 - _Batch multiple targets_ - Start up to 10 Actor runs in a single `apify_start` call and collect all results together with `apify_collect`.

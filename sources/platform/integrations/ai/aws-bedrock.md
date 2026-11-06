@@ -61,7 +61,7 @@ On this page, you can:
 
 For example, you can use the following instructions:
 
-```plaintext
+```prompt title="Agent instructions"
 You are a smart and helpful assistant.
 Answer question based on the search results.
 Use an expert, friendly, and informative tone
@@ -109,7 +109,12 @@ The final step is to update the Lambda function to implement the OpenAPI schema 
 #### Step 4: Test the agent
 
 1. Return to the **AWS Bedrock console** and prepare the agent for testing in the embedded chat window.
-1. Test the agent by entering a query, for example: "What is the latest news about AWS Bedrock"
+1. Test the agent by entering a query, for example:
+
+    ```prompt title="Get AWS Bedrock news"
+    What is the latest news about AWS Bedrock?
+    ```
+
 1. Based on your query, the agent will determine the appropriate action to take. You can view the agent's reasoning in the **Trace Step view**. For instance:
 
 ```json

@@ -296,9 +296,7 @@ Fetch a single web page and return its content as markdown, HTML, plain text, li
 
 The result includes `url`, `final_url` (after redirects), `title`, `http_status` (the target page's own status, e.g. `404` for a missing page), and one key per requested format.
 
-Example prompt:
-
-```text
+```prompt title="Fetch and summarize a page"
 Fetch https://docs.apify.com/academy and summarize the page.
 ```
 
@@ -316,9 +314,7 @@ Run any Actor from [Apify Store](https://apify.com/store) and return run metadat
 
 To find the input schema, open the Actor's page on [Apify Store](https://apify.com/store) and check the **Input** tab. The `run_input` JSON object must match that schema.
 
-Example prompt:
-
-```text
+```prompt title="Run an Actor and return run metadata"
 Run the Actor 'apify/website-content-crawler' with input {"startUrls": [{"url": "https://example.com"}], "maxCrawlPages": 5} and return the run metadata.
 ```
 
@@ -336,9 +332,7 @@ Run any Actor and fetch its dataset results in a single call. Provides access to
 | `dataset_items_limit` | `int` | `100` | Maximum dataset items to return |
 | `dataset_items_offset` | `int` | `0` | Items to skip (for pagination) |
 
-Example prompt:
-
-```text
+```prompt title="Run an Actor and summarize results"
 Run the Actor 'apify/rag-web-browser' with input {"query": "latest AI safety research", "maxResults": 5} and summarize the results.
 ```
 
@@ -362,9 +356,7 @@ Fetch items from an existing Apify dataset. Use this after `apify_run_actor` to 
 | `limit` | `int` | `100` | Maximum items to return |
 | `offset` | `int` | `0` | Items to skip (for pagination) |
 
-Example prompt:
-
-```text
+```prompt title="Summarize dataset items"
 Fetch the first 50 items from dataset ID 'abc123' and summarize the key findings.
 ```
 
@@ -379,9 +371,7 @@ Run a saved [Actor task](/actors/running/tasks) with optional input overrides. T
 | `timeout_secs` | `int` | `300` | Maximum wait time in seconds |
 | `memory_mbytes` | `int` | `None` | Memory allocation in MB (uses task default if not set) |
 
-Example prompt:
-
-```text
+```prompt title="Run a saved task"
 Run my saved task 'john/daily-news-scrape' and return the run status.
 ```
 
@@ -398,9 +388,7 @@ Run a saved task and fetch its dataset results in one call.
 | `dataset_items_limit` | `int` | `100` | Maximum dataset items to return |
 | `dataset_items_offset` | `int` | `0` | Items to skip (for pagination) |
 
-Example prompt:
-
-```text
+```prompt title="Run a saved task and summarize results"
 Run my task 'john/daily-news-scrape' and summarize the top 10 results.
 ```
 
@@ -422,9 +410,7 @@ Search Google and return structured results (organic links, ads, and People Also
 | `language_code` | `str` | `None` | Two-letter language code (e.g. `"en"`, `"es"`) |
 | `timeout_secs` | `int` | `300` | Maximum wait time in seconds |
 
-Example prompt:
-
-```text
+```prompt title="Search Google"
 Search Google for 'best python web frameworks 2025' and return the top 5 results.
 ```
 
@@ -441,9 +427,7 @@ Search Google Maps for businesses and places, optionally with reviews. Uses [Goo
 | `max_reviews` | `int` | `5` | Reviews per place (only used when `include_reviews=True`) |
 | `timeout_secs` | `int` | `300` | Maximum wait time in seconds |
 
-Example prompt:
-
-```text
+```prompt title="Find restaurants in Berlin"
 Find the top-rated Italian restaurants in Berlin with reviews.
 ```
 
@@ -458,9 +442,7 @@ Scrape YouTube videos, channels, or search results. Uses [YouTube Scraper](https
 | `results_limit` | `int` | `20` | Maximum results to return |
 | `timeout_secs` | `int` | `300` | Maximum wait time in seconds |
 
-Example prompt:
-
-```text
+```prompt title="Search YouTube videos"
 Search YouTube for 'AWS re:Invent 2025 keynote' and return the top 5 videos with their view counts.
 ```
 
@@ -475,9 +457,7 @@ Crawl a website and extract content from multiple pages as markdown. Uses [Websi
 | `max_depth` | `int` | `2` | Maximum link depth from the start URL |
 | `timeout_secs` | `int` | `300` | Maximum wait time in seconds |
 
-Example prompt:
-
-```text
+```prompt title="Crawl and summarize documentation"
 Crawl https://docs.example.com up to 20 pages and summarize the documentation structure.
 ```
 
@@ -492,9 +472,7 @@ Scrape product data from e-commerce sites (Amazon, eBay, Walmart, and others). U
 | `results_limit` | `int` | `20` | Maximum products to return (relevant for listings) |
 | `timeout_secs` | `int` | `300` | Maximum wait time in seconds |
 
-Example prompt:
-
-```text
+```prompt title="Scrape product details"
 Scrape the product details from https://www.amazon.com/dp/B0EXAMPLE and return the title, price, and rating.
 ```
 
@@ -518,9 +496,7 @@ Scrape Instagram profiles, posts, reels, or hashtags. Uses [Instagram Scraper](h
 | `search_limit` | `int` | `10` | How many search results to process (each yields up to `results_limit` items) |
 | `timeout_secs` | `int` | `300` | Maximum wait time in seconds |
 
-Example prompt:
-
-```text
+```prompt title="Scrape Instagram hashtag posts"
 Scrape the latest 15 posts from the hashtag #webdevelopment on Instagram.
 ```
 
@@ -534,9 +510,7 @@ Scrape recent posts from a LinkedIn profile. Uses [LinkedIn Profile Posts](https
 | `results_limit` | `int` | `20` | Maximum posts to return (capped at 100) |
 | `timeout_secs` | `int` | `300` | Maximum wait time in seconds |
 
-Example prompt:
-
-```text
+```prompt title="Summarize LinkedIn posts"
 Get the last 10 posts from https://www.linkedin.com/in/satyanadella and summarize the main topics.
 ```
 
@@ -553,9 +527,7 @@ Search for LinkedIn profiles by keywords with optional filters. Uses [LinkedIn P
 | `profile_scraper_mode` | `str` | `"Short"` | `"Short"` for basic data, `"Full"` for complete profile details (slower) |
 | `timeout_secs` | `int` | `300` | Maximum wait time in seconds |
 
-Example prompt:
-
-```text
+```prompt title="Find LinkedIn profiles"
 Find 10 machine learning engineers in London and return their profile summaries.
 ```
 
@@ -569,9 +541,7 @@ Get full details from a single LinkedIn profile (experience, education, and skil
 | `include_email` | `bool` | `False` | Include email if publicly available |
 | `timeout_secs` | `int` | `300` | Maximum wait time in seconds |
 
-Example prompt:
-
-```text
+```prompt title="Get LinkedIn profile details"
 Get the full profile details for https://www.linkedin.com/in/example-user including their work experience and education.
 ```
 
@@ -589,9 +559,7 @@ Scrape tweets from Twitter/X by search, handles, or URLs. Uses [Twitter Scraper 
 | `tweet_language` | `str` | `None` | ISO 639-1 language code (e.g. `"en"`, `"es"`) |
 | `timeout_secs` | `int` | `300` | Maximum wait time in seconds |
 
-Example prompt:
-
-```text
+```prompt title="Find popular tweets"
 Find the latest 20 tweets mentioning #AI from the past week, sorted by most popular.
 ```
 
@@ -608,9 +576,7 @@ Scrape TikTok videos by search, hashtag, profile, or direct URL. Uses [TikTok Sc
 | `results_limit` | `int` | `20` | Maximum videos per source |
 | `timeout_secs` | `int` | `300` | Maximum wait time in seconds |
 
-Example prompt:
-
-```text
+```prompt title="Scrape TikTok videos"
 Scrape the top 10 TikTok videos for the hashtag 'programming' and return their view counts.
 ```
 
@@ -625,9 +591,7 @@ Scrape posts from a Facebook page or profile. Uses [Facebook Posts Scraper](http
 | `only_posts_newer_than` | `str` | `None` | Date filter: `"2024-01-01"`, `"1 week ago"`, `"3 months ago"` |
 | `timeout_secs` | `int` | `300` | Maximum wait time in seconds |
 
-Example prompt:
-
-```text
+```prompt title="Get Facebook page posts"
 Get the last 15 posts from https://www.facebook.com/apifytech newer than 1 month ago.
 ```
 
