@@ -110,11 +110,11 @@
     "engines": {
         "node": ">=18.0.0"
     },
-    "packageManager": "pnpm@12.18.0",
+    "packageManager": "pnpm@12.16.1",
     "devEngines": {
         "packageManager": {
             "name": "pnpm",
-            "version": "12.18.0",
+            "version": "12.16.1",
             "onFail": "error"
         }
     }
