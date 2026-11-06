@@ -1,0 +1,28 @@
+title: RecordDirectUploadUrlResponse
+description: Response containing the URL for uploading a record into the key-value store.
+required:
+  - data
+type: object
+properties:
+  data:
+    type: object
+    required:
+      - signedUrl
+      - store
+    properties:
+      signedUrl:
+        type: string
+        format: uri
+        description: |
+          URL to upload the record to with a `PUT` request. It is the URL of the
+          [Set key-value store record](/api/v2/key-value-store-record-put) endpoint for the given
+          store and record key, with the API token passed in the `token` query parameter.
+        examples: ["https://api.apify.com/v2/key-value-stores/WkzbQMuFYuamGv3YF/records/INPUT?token=apify_api_1234567890abcdef"]
+      store:
+        type: object
+        description: |
+          The key-value store the record belongs to. Unlike the other key-value store endpoints,
+          this deprecated endpoint returns the store in its internal representation, so the store
+          ID is in the `_id` property and the set of properties differs from
+          [Get key-value store](/api/v2/key-value-store-get).
+        additionalProperties: true

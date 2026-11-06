@@ -731,6 +731,8 @@ paths:
     $ref: "paths/key-value-stores/key-value-stores@{storeId}@records.yaml"
   "/v2/key-value-stores/{storeId}/records/{recordKey}":
     $ref: "paths/key-value-stores/key-value-stores@{storeId}@records@{recordKey}.yaml"
+  "/v2/key-value-stores/{storeId}/records/{recordKey}/direct-upload-url":
+    $ref: "paths/key-value-stores/key-value-stores@{storeId}@records@{recordKey}@direct-upload-url.yaml"
   /v2/datasets:
     $ref: paths/datasets/datasets.yaml
   "/v2/datasets/{datasetId}":

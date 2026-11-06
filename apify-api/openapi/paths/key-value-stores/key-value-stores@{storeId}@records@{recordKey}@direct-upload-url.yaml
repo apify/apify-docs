@@ -1,0 +1,40 @@
+get:
+  tags:
+    - Storage/Key-value stores
+  summary: Get record direct upload URL
+  description: |
+    Returns a URL that can be used to upload the record with the given key
+    directly into the key-value store.
+
+    The endpoint is deprecated. The API no longer issues pre-signed upload URLs,
+    so for backwards compatibility the returned `signedUrl` is the URL of the
+    [Set key-value store record](/api/v2/key-value-store-record-put) endpoint for the given
+    store and key, with the caller's API token passed in the `token` query parameter.
+    Upload the record with a `PUT` request to that URL instead of calling this endpoint.
+
+    The caller must have write access to the key-value store.
+  operationId: keyValueStore_record_direct_upload_url_get
+  parameters:
+    - $ref: "../../components/parameters/keyValueStoreParameters.yaml#/storeId"
+    - $ref: "../../components/parameters/keyValueStoreParameters.yaml#/recordKey"
+  responses:
+    "201":
+      description: ""
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/key-value-stores/RecordDirectUploadUrlResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      $ref: ../../components/responses/NotFound.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
+  deprecated: true
