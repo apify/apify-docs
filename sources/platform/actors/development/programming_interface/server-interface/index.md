@@ -87,7 +87,7 @@ The server configuration decides how the platform sizes and scales your Actor's 
 | Desired requests per run | The number of concurrent HTTP requests a single Server Actor run is configured to handle. When requests exceed this number, the platform starts a new run ahead of time to handle the additional requests. |
 | Memory (MB) | The amount of memory (RAM) allocated for the Actor's server, in megabytes. More memory usually lets the Actor handle more requests in parallel, but it also consumes more compute units and costs more. |
 | Idle timeout (seconds) | If a run receives no HTTP requests within this time, the platform stops it. The next request might then need a new run, which can take a few seconds to start. A higher idle timeout improves responsiveness but costs more, because the run stays active longer. |
-| Build | The Actor build that Server Actor runs use: a build tag (for example `latest`) or a build number (for example `0.1.2`). |
+| Build | The Actor build that Server Actor runs use: a build tag (for example `latest`) or a build number (for example `0.1.2`). To test another build without changing this setting, see [Send requests to a non-default build](#send-requests-to-a-non-default-build). |
 | Validate and pass Actor input | If enabled, the platform validates the Actor input and passes it to the run even when the run starts its server. Use it to start Server Actor runs with different configurations. If disabled, the input applies only to manual runs and testing, independent of the server interface. |
 
 ## Run an HTTP server
@@ -264,6 +264,12 @@ Each Server Actor has a URL that stays the same for all of its runs. The URL is 
 Unlike the server interface URL, the [container web server](../container_web_server.md) URL changes with every run. For the URL formats and where users find them, see [Get the server interface URL](../../../running/actor_standby.md#get-the-server-interface-url).
 
 Requests to the server interface URL require an Apify API token. See [how to authenticate requests](../../../running/actor_standby.md#authenticate-requests). If your Actor exposes an MCP server, define the endpoint path with the [`webServerMcpPath`](../../actor_definition/actor_json.md) property. For details, see [Use Server Actors as MCP servers](../../../running/actor_standby.md#use-server-actors-as-mcp-servers).
+
+## Send requests to a non-default build
+
+By default, the platform routes requests to the server interface URL to runs that use the build set in the [server configuration](#configure-the-server). For a [single-tenant Server Actor](#single-tenant-server-actors), a user's task can set a different build.
+
+To test a new version of your Server Actor before you make it the default for all users, send requests with the `X-Actor-Build` header. The platform then routes the request to runs that use that build. The header accepts a build number (for example, `0.3.8`) or a build tag (for example, `beta`). The platform marks runs started to handle such requests as an **Ad hoc deployment pool**.
 
 ## Identify the user
 
