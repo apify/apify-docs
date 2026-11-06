@@ -116,7 +116,7 @@ Click the **Playground** button and chat with the agent to test the flow:
 Here is an example agent output for the following query:
 
 ```prompt title="Find a company's TikTok profile"
-Find the TikTok profile of company OpenAI using Google Search and then show me the profile bio and their latest video
+Find OpenAI's TikTok profile using Google Search, then show me the profile bio and their latest video.
 ```
 
 ![Flow - agent output](../images/langflow/agent_output.png)
