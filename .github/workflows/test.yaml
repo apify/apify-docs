@@ -350,15 +350,14 @@ jobs:
             -   name: Fail on oversized SVGs
                 if: "!cancelled() && steps.changed-svgs.outputs.any_changed == 'true'"
                 env:
-                    MAX_SVG_SIZE_MB: 0.5
+                    MAX_SVG_SIZE_BYTES: 500000
                     CHANGED_SVG_FILES: ${{ steps.changed-svgs.outputs.all_changed_files }}
                 run: |
-                    max_bytes=$(awk -v mb="$MAX_SVG_SIZE_MB" 'BEGIN { printf "%d", mb * 1024 * 1024 }')
                     failed=0
                     while IFS= read -r file_path; do
                       size=$(stat -c %s "$file_path")
-                      if [ "$size" -gt "$max_bytes" ]; then
-                        echo "::error file=$file_path::SVG is $((size / 1024)) KB, the limit is $MAX_SVG_SIZE_MB MB. It probably embeds a raster image, see https://github.com/apify/apify-docs/issues/3202"
+                      if [ "$size" -gt "$MAX_SVG_SIZE_BYTES" ]; then
+                        echo "::error file=$file_path::SVG is $size bytes, the limit is $MAX_SVG_SIZE_BYTES bytes. It probably embeds a raster image, see https://github.com/apify/apify-docs/issues/3202"
                         failed=1
                       fi
                     done <<< "$CHANGED_SVG_FILES"
