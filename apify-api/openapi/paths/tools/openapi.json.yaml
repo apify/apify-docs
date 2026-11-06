@@ -1,0 +1,32 @@
+get:
+  tags:
+    - OpenAPI
+  summary: Get OpenAPI definition of Apify API
+  description: |
+    Returns the OpenAPI definition of the Apify API as a JSON document.
+    It is the same document that is published at
+    [https://docs.apify.com/api/openapi.json](https://docs.apify.com/api/openapi.json).
+
+    The response carries an `ETag` header. A request with a matching
+    `If-None-Match` header gets an empty `304 Not Modified` response.
+    No authentication token is required.
+  operationId: openapi_json_get
+  security: []
+  responses:
+    "200":
+      description: The OpenAPI definition of the Apify API.
+      headers: {}
+      content:
+        application/json:
+          schema:
+            type: object
+            description: A standard OpenAPI 3.x JSON document.
+    "304":
+      description: Not Modified. The definition has not changed since the version identified by the `If-None-Match` request header.
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
+  deprecated: false
