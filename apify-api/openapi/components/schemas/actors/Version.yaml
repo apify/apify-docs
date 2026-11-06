@@ -49,7 +49,7 @@ properties:
     maxLength: 255
     examples: [actors/typescript-actor]
     description: The Actor's directory inside the uploaded source, as a path relative to the upload root with `/` separators,
-      for example `actors/typescript-actor`. Applies when the `sourceType` is `SOURCE_FILES` or `TARBALL`. When omitted or
+      for example `actors/typescript-actor`. Applies when the `sourceType` is `SOURCE_FILES` or `TARBALL`. When absent or
       `null`, the upload root is the Actor's directory. On a `TARBALL` version, only users with write access to the Actor
       get it. It has 1 to 255 characters, with no leading, trailing, or repeated `/` and no `.` or `..` segments.
   githubWebhookId:
