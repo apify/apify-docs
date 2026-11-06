@@ -23,9 +23,19 @@ if [[ ! -f "$ABS_DOC" ]]; then
   exit 1
 fi
 
-# Slug for the stored file: strip the sources/platform/ prefix and .md suffix,
-# turn path separators into dashes. e.g. console/settings.md -> console-settings
-SLUG=$(printf '%s' "$DOC_PATH" | sed -e 's#^sources/platform/##' -e 's#\.md$##' -e 's#[/ ]#-#g')
+# Slug for the stored file: strip the sources/platform/ prefix, the .md/.mdx
+# suffix and a trailing /index, then turn path separators into dashes.
+# e.g. account/console.md        -> account-console
+#      account/billing/index.md  -> account-billing   (not account-billing-index)
+#      account/billing/promo.mdx -> account-billing-promo
+# Dropping /index keeps the slug stable when a flat page becomes a directory,
+# so a re-extraction overwrites the existing baseline instead of writing a
+# second file beside it (which the suites would then both load).
+# `.mdx` before `.md`, as two plain expressions: BSD sed (macOS, where TWs run
+# the extractor) has no `\?` in a basic regex, so `\.mdx\?$` silently matches
+# nothing there while working under GNU sed.
+SLUG=$(printf '%s' "$DOC_PATH" \
+  | sed -e 's#^sources/platform/##' -e 's#\.mdx$##' -e 's#\.md$##' -e 's#/index$##' -e 's#[/ ]#-#g')
 OUTPUT_FILE="assertions/$SLUG.json"
 mkdir -p assertions
 
