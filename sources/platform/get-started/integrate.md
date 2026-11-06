@@ -15,7 +15,7 @@ Everything in Apify Console is also available through the REST API, with officia
 - [API integration](/integrations/api) - get a token, authenticate, and scope what the token can access.
 - [API reference](/api/v2) - every endpoint, with the run and dataset calls you'll use most.
 - [API client for JavaScript](/api/client/js) and [API client for Python](/api/client/python) - libraries that call the same API from your code.
-- [Actor Standby](/actors/running/standby) - call an Actor as a live HTTP endpoint instead of starting a run per request.
+- [Server Actors](/actors/running/server-actors) - call an Actor as a live HTTP endpoint instead of starting a run per request.
 
 ## React when a run finishes
 
