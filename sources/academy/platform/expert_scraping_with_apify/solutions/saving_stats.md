@@ -71,6 +71,8 @@ await stats.initialize();
 
 In order to keep track of errors, we must write a new function within the crawler's configuration called **errorHandler**. Crawlee calls it with two arguments. The first one is the crawling context, which contains the **Request** object, as well as information about the session and proxy which were used for the request. The second one is the **Error** object for the error which occurred.
 
+Crawlee calls **errorHandler** only when it's going to retry the request. When the request fails for the last time, Crawlee calls **failedRequestHandler** instead, so to record every error, we need both:
+
 ```js
 const crawler = new CheerioCrawler({
     proxyConfiguration,
@@ -82,9 +84,13 @@ const crawler = new CheerioCrawler({
         },
     },
     requestHandler: router,
-    // Handle all failed requests
+    // Handle failed requests which will be retried
     errorHandler: async ({ request }, error) => {
         // Add an error for this url to our error tracker
+        stats.addError(request.url, error.message);
+    },
+    // Handle requests which failed for the last time
+    failedRequestHandler: async ({ request }, error) => {
         stats.addError(request.url, error.message);
     },
 });
@@ -192,4 +198,4 @@ Then run `apify validate-schema` to check that the schema is still valid. The **
 
 **Q: What is the difference between the `failedRequestHandler` and `errorHandler`?**
 
-**A:** `failedRequestHandler` runs after a request has failed and reached its `maxRetries` count. `errorHandler` runs on every failure and retry.
+**A:** `errorHandler` runs after every failed attempt which Crawlee will retry. `failedRequestHandler` runs instead of it when the request fails for the last time, after it has been retried `maxRequestRetries` times.
