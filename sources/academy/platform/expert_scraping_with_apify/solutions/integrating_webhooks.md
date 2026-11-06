@@ -249,7 +249,7 @@ Additionally, we should be able to see that our **filter-actor** was run, and ha
 
 **Q: What are the types of default storages connected to an Actor's run?**
 
-Every Actor's run is given a default key-value store and a default dataset. The default key-value store by default has the `INPUT` and `OUTPUT` keys. The Actor's request queue is also stored.
+**A:** Every Actor's run is given a default key-value store, a default dataset, and a default request queue. The run's input is stored in the default key-value store under the `INPUT` key.
 
 **Q: Can you change the allocated memory of an Actor while it's running?**
 
