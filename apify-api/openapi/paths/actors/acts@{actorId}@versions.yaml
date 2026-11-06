@@ -97,10 +97,9 @@ post:
     }
     ```
 
-    A `SOURCE_FILES` or `TARBALL` version whose Actor's directory is a
-    subdirectory of the uploaded source, such as in a monorepo, passes that
-    directory in the `actorPath` property, for example
-    `"actorPath": "actors/typescript-actor"`.
+    If the Actor is in a subdirectory of the uploaded `SOURCE_FILES` or
+    `TARBALL` source, such as in a monorepo, set `actorPath` to that
+    directory, for example `"actorPath": "actors/typescript-actor"`.
 
     The response is the `Version` object as
     returned by the [Get Actor version](/api/v2/actor-version-get) endpoint.
