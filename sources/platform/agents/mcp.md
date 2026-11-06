@@ -126,7 +126,7 @@ The server will download automatically on first use and connect using your API t
 
 ## Agentic payments
 
-Agents can pay for Actor runs without an Apify account. [Apify AGI](https://agi.apify.com) sells prepaid, spend-capped Apify API tokens that agents pay for with [x402](/integrations/x402) or [MPP](/integrations/mpp). The token works like a regular API token, so it runs any Actor that uses limited permissions.
+Agents can pay for Actor runs without an Apify account. They buy a prepaid, spend-capped API token from [Apify AGI](https://agi.apify.com) and use it like a regular API token, so it runs any Actor that uses [limited permissions](/actors/development/permissions).
 
 Pass the token to the MCP server in the `Authorization` header:
 
@@ -143,7 +143,7 @@ Pass the token to the MCP server in the `Authorization` header:
 }
 ```
 
-For spending limits and other payment methods, see [agentic payments](/agents/payments).
+For supported payment protocols and spending limits, read [Agentic payments](/agents/payments).
 
 ## Tool selection
 

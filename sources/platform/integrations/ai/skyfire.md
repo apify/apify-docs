@@ -73,8 +73,6 @@ Apify AGI charges only `amount`, and it charges each PAY token once, so repeatin
 
 Send the token as a bearer token to the [Apify API](/api/v2). It acts as an API token until its balance runs out or it expires. Treat it like a secret, and don't print it or store it where others can read it.
 
-The token also works as the bearer credential for the [Apify MCP server](/mcp). Pass it in the `Authorization` header instead of signing in with OAuth.
-
 ```bash
 export TOKEN="apify_api_..."  # the token from the previous step
 
@@ -91,6 +89,8 @@ curl -s "https://agi.apify.com/prepaid-tokens/balance" -H "Authorization: Bearer
 # → {"remainingBalanceUsd":5,"expiresAt":"..."}
 ```
 
+The token also works as the bearer credential for the [Apify MCP server](/mcp). Pass it in the `Authorization` header instead of signing in with OAuth.
+
 ## Supported Actors
 
 A prepaid token works like a regular API token, so it runs any Actor that uses [limited permissions](/actors/development/permissions), whatever its pricing model. Actors that need full permissions return an error, because a prepaid account can't approve them.
@@ -106,4 +106,4 @@ A prepaid token works like a regular API token, so it runs any Actor that uses [
 
 - Read the [Skyfire documentation](https://docs.skyfire.xyz) for details on PAY tokens.
 - Browse [Apify Store](https://apify.com/store) for Actors to run.
-- To pay with stablecoins instead, follow the [x402](/integrations/x402) or [MPP](/integrations/mpp) integration guide.
+- Follow the [x402](/integrations/x402) or [MPP](/integrations/mpp) integration guide to pay with stablecoins.
