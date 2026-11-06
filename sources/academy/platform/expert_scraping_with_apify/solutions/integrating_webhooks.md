@@ -199,19 +199,19 @@ Actor URL: https://console.apify.com/actors/Yk1bieximsduYDydP
 Build URL: https://console.apify.com/actors/Yk1bieximsduYDydP/builds/0.0.1
 ```
 
-The output tells us that our Actor's ID is `Yk1bieximsduYDydP`. With this `actorId`, and our `token`, which is retrievable through **Settings > API & Integrations** in Apify Console, we can construct a link which will call the Actor:
+The output tells us that our Actor's ID is `Yk1bieximsduYDydP`. With this `actorId`, we can construct a link which will call the Actor:
 
 ```text
-https://api.apify.com/v2/actors/Yk1bieximsduYDydP/runs?token=YOUR_TOKEN_HERE
+https://api.apify.com/v2/actors/Yk1bieximsduYDydP/runs
 ```
 
 We can also use our username and the name of the Actor like this:
 
 ```text
-https://api.apify.com/v2/actors/USERNAME~filter-actor/runs?token=YOUR_TOKEN_HERE
+https://api.apify.com/v2/actors/USERNAME~filter-actor/runs
 ```
 
-Whichever one you choose is totally up to your preference.
+Whichever one you choose is totally up to your preference. We don't need to add our API token to the URL, because when a webhook calls the Apify API, Apify [adds the token automatically](/integrations/webhooks/actions#security-considerations). Keeping the token out of the URL also means it isn't stored in the webhook's settings.
 
 Next, within the Amazon scraping Actor, we will click the **Integrations** tab and choose **Webhook**, then fill out the details to look like this:
 
