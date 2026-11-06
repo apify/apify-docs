@@ -447,6 +447,10 @@
   x-displayName: Sign and verify objects
   description: |
     The API endpoints described in this section provide utility tools for encoding and decoding data.
+- name: OpenAPI
+  x-displayName: OpenAPI definition
+  description: |
+    The API endpoint described in this section returns the OpenAPI definition of the Apify API.
 - name: Default dataset
   x-displayName: Default dataset
   description: |

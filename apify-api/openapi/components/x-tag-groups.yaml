@@ -43,6 +43,7 @@
   tags:
     - Tools
     - Tools/Encoding
+    - OpenAPI
 - name: Convenience endpoints
   tags:
     - Default dataset
