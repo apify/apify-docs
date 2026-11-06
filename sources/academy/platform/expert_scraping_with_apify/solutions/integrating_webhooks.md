@@ -172,13 +172,18 @@ Info: Deploying Actor 'filter-actor' to Apify.
 Run: Updated version 0.0 for Actor filter-actor.
 Run: Building Actor filter-actor
 (timestamp) ACTOR: Extracting Actor documentation from README.md
-(timestamp) ACTOR: Building Docker image.
+(timestamp) ACTOR: Building container image (cache enabled).
 ...
-(timestamp) ACTOR: Pushing Docker image to repository.
 (timestamp) ACTOR: Build finished.
-Actor build detail https://console.apify.com/actors/Yk1bieximsduYDydP#/builds/0.0.1
-Actor detail https://console.apify.com/actors/Yk1bieximsduYDydP
-Success: Actor was deployed to Apify cloud and built there.
+Run: Applying build tag "latest"...
+Apify push result: SUCCEEDED
+Upload: SUCCEEDED
+Build: SUCCEEDED
+Actor ID: Yk1bieximsduYDydP
+Build ID: kPd2Wq8sXb7RnT4vE
+Build number: 0.0.1
+Actor URL: https://console.apify.com/actors/Yk1bieximsduYDydP
+Build URL: https://console.apify.com/actors/Yk1bieximsduYDydP/builds/0.0.1
 ```
 
 ## Setting up the webhook {#setting-up-the-webhook}
@@ -187,12 +192,14 @@ We'll set up the webhook in Apify Console, and the webhook will start the filter
 
 ```text
 ...
-Actor build detail https://console.apify.com/actors/Yk1bieximsduYDydP#/builds/0.0.1
-Actor detail https://console.apify.com/actors/Yk1bieximsduYDydP
-Success: Actor was deployed to Apify cloud and built there.
+Actor ID: Yk1bieximsduYDydP
+Build ID: kPd2Wq8sXb7RnT4vE
+Build number: 0.0.1
+Actor URL: https://console.apify.com/actors/Yk1bieximsduYDydP
+Build URL: https://console.apify.com/actors/Yk1bieximsduYDydP/builds/0.0.1
 ```
 
-The URLs tell us that our Actor's ID is `Yk1bieximsduYDydP`. With this `actorId`, and our `token`, which is retrievable through **Settings > API & Integrations** in Apify Console, we can construct a link which will call the Actor:
+The output tells us that our Actor's ID is `Yk1bieximsduYDydP`. With this `actorId`, and our `token`, which is retrievable through **Settings > API & Integrations** in Apify Console, we can construct a link which will call the Actor:
 
 ```text
 https://api.apify.com/v2/actors/Yk1bieximsduYDydP/runs?token=YOUR_TOKEN_HERE
