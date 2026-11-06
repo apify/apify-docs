@@ -315,6 +315,31 @@ jobs:
             -   name: Checkout Source code
                 uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
+            # Runs before the unoptimized images check, which always exits 1
+            # and would skip any step after it.
+            -   name: Get changed SVG files in sources
+                id: changed-svgs
+                uses: tj-actions/changed-files@24d32ffd492484c1d75e0c0b894501ddb9d30d62 # v47.0.0
+                with:
+                    files: sources/**/*.svg
+                    separator: "\n"
+
+            -   name: Fail on oversized SVGs
+                if: steps.changed-svgs.outputs.any_changed == 'true'
+                env:
+                    CHANGED_SVG_FILES: ${{ steps.changed-svgs.outputs.all_changed_files }}
+                run: |
+                    max_bytes=$((512 * 1024))
+                    failed=0
+                    while IFS= read -r file_path; do
+                      size=$(stat -c %s "$file_path")
+                      if [ "$size" -gt "$max_bytes" ]; then
+                        echo "::error file=$file_path::SVG is $((size / 1024)) KB, the limit is 512 KB. It probably embeds a raster image, see https://github.com/apify/apify-docs/issues/3202"
+                        failed=1
+                      fi
+                    done <<< "$CHANGED_SVG_FILES"
+                    exit $failed
+
             -   name: Get changed unoptimized image files in sources
                 id: changed-files
                 uses: tj-actions/changed-files@24d32ffd492484c1d75e0c0b894501ddb9d30d62 # v47.0.0
