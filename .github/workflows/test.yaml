@@ -338,3 +338,27 @@ jobs:
                     echo "If you point the same command at a whole directory, it will convert "
                     echo "and optimize all images inside."
                     exit 1
+
+            -   name: Get changed SVG files in sources
+                id: changed-svgs
+                if: '!cancelled()'  # runs even when above steps fail
+                uses: tj-actions/changed-files@24d32ffd492484c1d75e0c0b894501ddb9d30d62 # v47.0.0
+                with:
+                    files: sources/**/*.svg
+                    separator: "\n"
+
+            -   name: Fail on oversized SVGs
+                if: "!cancelled() && steps.changed-svgs.outputs.any_changed == 'true'"
+                env:
+                    MAX_SVG_SIZE_BYTES: 500000
+                    CHANGED_SVG_FILES: ${{ steps.changed-svgs.outputs.all_changed_files }}
+                run: |
+                    failed=0
+                    while IFS= read -r file_path; do
+                      size=$(stat -c %s "$file_path")
+                      if [ "$size" -gt "$MAX_SVG_SIZE_BYTES" ]; then
+                        echo "::error file=$file_path::SVG is $size bytes, the limit is $MAX_SVG_SIZE_BYTES bytes. It probably embeds a raster image, see https://github.com/apify/apify-docs/issues/3202"
+                        failed=1
+                      fi
+                    done <<< "$CHANGED_SVG_FILES"
+                    exit $failed
