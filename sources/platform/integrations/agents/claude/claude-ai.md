@@ -82,7 +82,7 @@ Example prompts that route to specific skills:
 
 ## Connect without the plugin
 
-To choose which Apify tools Claude can use, add the Apify MCP server as a custom connector instead of installing the plugin. This setup doesn't include the plugin's skills or routing agent. On Team and Enterprise plans, you can't add a custom connector yourself. An Owner or Primary Owner has to [add it for the whole organization](https://support.claude.com/en/articles/11175166).
+To choose which Apify tools Claude can use, add the Apify MCP server as a custom connector instead of installing the plugin. This setup doesn't include the plugin's skills or routing agent. On Team and Enterprise plans, only an Owner or Primary Owner can add a custom connector, and they [add it for the whole organization](https://support.claude.com/en/articles/11175166).
 
 1. Build your setup in the [Apify MCP server configurator](https://mcp.apify.com) and copy the server URL it generates. To use the default tool set, use `https://mcp.apify.com`.
 1. In claude.ai, open **Customize** > **Connectors**, select **Add**, then select **Add custom connector**.
