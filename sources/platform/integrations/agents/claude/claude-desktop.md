@@ -27,7 +27,7 @@ Choose one of the following methods:
 
 ### Apify plugin or custom connector (recommended) {#apify-plugin-or-custom-connector}
 
-The Apify plugin and a custom connector both connect to the hosted Apify MCP server at `https://mcp.apify.com`. Key advantages:
+The Apify plugin bundles the Apify MCP server, skills, and a routing agent. The plugin and a custom connector both connect to the hosted Apify MCP server at `https://mcp.apify.com`. Key advantages:
 
 - Automatic updates - always runs the latest version of the Apify MCP server
 - OAuth authentication - secure sign-in through your browser, no API token needed
@@ -39,7 +39,7 @@ To set either one up, follow the [Claude.ai integration guide](/integrations/cla
 
 Search for "Apify" in the [Claude Desktop connector directory](https://support.claude.com/en/articles/11176164) and install the **Apify** Desktop extension.
 
-Alternatively, download and open the [Apify MCP server `.mcpb` file](https://github.com/apify/actors-mcp-server/releases/latest/download/apify-mcp-server.mcpb) to register the connector automatically.
+Alternatively, download and open the [Apify MCP server `.mcpb` file](https://github.com/apify/actors-mcp-server/releases/latest/download/apify-mcp-server.mcpb) to register the extension automatically.
 
 ## Verify the connection
 
@@ -68,9 +68,9 @@ Before diving into specific issues, check these two things first:
 The MCP server shows as connected but Apify tools don't appear in the tools list, or Claude doesn't recognize any Apify tools in conversation.
 
 - _Check tool permissions._ Individual connector tools can be blocked in your [connector settings](https://support.claude.com/en/articles/11176164). Verify that Apify tools are set to **Always allow** or **Ask first**, not blocked.
-- _Check the connector version._ Claude Desktop may silently downgrade the connector to an older version. If tools aren't appearing despite the connector showing as enabled, remove and re-add the connector to trigger an update.
+- _Check the extension version._ If you use the [Desktop extension](#desktop-extension), Claude Desktop may silently downgrade it to an older version. If tools aren't appearing despite the extension showing as enabled, remove and re-add the extension to trigger an update.
 - _Restart Claude Desktop._ Configuration changes only take effect after a restart.
-- _Reinstall the connector._ Remove the Apify connector and add it again.
+- _Reinstall the extension or connector._ Remove the Apify extension or connector and add it again.
 
 #### Authentication errors
 
@@ -170,7 +170,7 @@ A system-wide installation can coexist with an existing version-manager installa
 
 ## Known limitations
 
-- Claude Desktop may silently downgrade an installed connector to an older version (for example, from 0.9.14 back to 0.9.6). This can cause tools to stop loading even though the connector still shows as enabled. Removing and re-adding the connector may prompt an update, but doesn't always resolve the issue.
+- Claude Desktop may silently downgrade an installed Desktop extension to an older version (for example, from 0.9.14 back to 0.9.6). This can cause tools to stop loading even though the extension still shows as enabled. Removing and re-adding the extension may prompt an update, but doesn't always resolve the issue.
 - Some Claude Desktop versions have inconsistent behavior with remote MCP server connections. Update to the latest version if you experience issues.
 - If the Desktop extension installation fails, use the [Apify plugin or a custom connector](#apify-plugin-or-custom-connector) instead.
 

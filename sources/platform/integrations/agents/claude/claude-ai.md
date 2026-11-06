@@ -48,8 +48,6 @@ The plugin bundles the Apify MCP server as a connector. Connect it and sign in t
 
 1. Select **Connect**. The **Add custom connector** dialog opens with the name and server URL already filled in.
 
-    ![Apify plugin page in claude.ai with the Connectors tab open, the apify connector marked Not added, and the Connect button highlighted](images/claude-ai/02-plugin-connectors-tab.webp)
-
 1. Select **Continue**, keep the detected settings, and select **Add**. On the Apify sign-in page, choose the user or organization account Claude should use.
 
 1. On the **Claude asks for permission** page, a warning says that the application was registered dynamically and wasn't verified by Apify. This warning is expected for Claude.
@@ -84,7 +82,7 @@ Example prompts that route to specific skills:
 
 ## Connect without the plugin
 
-To choose which Apify tools Claude can use, add the Apify MCP server as a custom connector instead of installing the plugin. This setup doesn't include the plugin's skills or routing agent.
+To choose which Apify tools Claude can use, add the Apify MCP server as a custom connector instead of installing the plugin. This setup doesn't include the plugin's skills or routing agent. On Team and Enterprise plans, an Owner or Primary Owner has to [add the connector for the whole organization](https://support.claude.com/en/articles/11175166) instead.
 
 1. Build your setup in the [Apify MCP server configurator](https://mcp.apify.com) and copy the server URL it generates. To use the default tool set, use `https://mcp.apify.com`.
 1. In claude.ai, open **Customize** > **Connectors**, select **Add**, then select **Add custom connector**.
@@ -97,6 +95,8 @@ To choose which Apify tools Claude can use, add the Apify MCP server as a custom
 Claude doesn't let you edit a custom connector. To change the tools later, remove the connector and add it again with a new URL. For the full list of options, see [tool selection](/mcp#tool-selection).
 
 ## Troubleshooting
+
+The following sections cover common issues with the plugin and its Apify connector in claude.ai.
 
 ### The Apify plugin doesn't appear in Discover
 
@@ -131,4 +131,4 @@ Remove the `apify` connector and connect it again to trigger a new sign-in. On t
 
 - [Anthropic: Get started with custom connectors using remote MCP](https://support.claude.com/en/articles/11175166) - Official docs for connectors, including plan availability and organization setup
 - [Apify plugin for Claude](https://github.com/apify/apify-claude-code-plugin) - Source repository for the plugin
-- [Apify Store](https://apify.com/store) - Browse Actors you can run from Claude
+- [Apify Store](https://apify.com/store) - Actors you can run from Claude
