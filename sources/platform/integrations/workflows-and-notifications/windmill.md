@@ -165,7 +165,7 @@ Windmill provides webhook-based triggers that can automatically start workflows 
       ![Apify Webhook](../images/windmill-webhook-config.png)
 
 1. **IMPORTANT**: Test-run this script to **create the webhook in Apify** for the Actor.
-  ![Apify Webhook](../images/windmill-webhook-create-result.png)
+  ![Apify Webhook](../images/windmill-webhook-create-result.webp)
 
 ### Step 3: Adjust the flow logic
 

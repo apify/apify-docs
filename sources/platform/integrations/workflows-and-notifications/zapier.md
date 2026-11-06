@@ -46,11 +46,11 @@ Click the **Select** button next to the **Connect to Apify** title. Or you can s
 
 The connection configuration options open in a new tab in your browser.
 
-![Apify Zapier connection](../images/zapier-choose-account.png)
+![Apify Zapier connection](../images/zapier-choose-account.webp)
 
 Choose the account that you want to connect with Zapier. A new window will appear displaying the information that will be shared between Zapier and Apify.
 
-![Integrations OAuth](../images/zapier-allow-access.png)
+![Integrations OAuth](../images/zapier-allow-access.webp)
 
 Continue by clicking **Allow Access** button.
 

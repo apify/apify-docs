@@ -33,7 +33,7 @@ For n8n Cloud users, installation is even simpler and doesn't require manual pac
 1. Search for **Website Content Crawler by Apify** in the community node registry
 1. Click **Install node** to add the Apify node to your instance
 
-![Website Content Crawler by Apify on n8n](images/operations.png)
+![Website Content Crawler by Apify on n8n](images/operations.webp)
 
 :::note Verified community nodes visibility
 
@@ -86,12 +86,12 @@ If you're running a self-hosted n8n instance, you can install the Apify communit
 
 1. To connect your Apify account to n8n, you can use an OAuth connection (recommended) or an Apify API token. To get the Apify API token, navigate to **[Settings > API & Integrations](https://console.apify.com/settings/integrations)** in Apify Console.
 
-    ![Apify Console token for n8n](../make/images/apify-console-token-for-make.png)
+    ![Apify Console token for n8n](../make/images/apify-console-token-for-make.webp)
 
 1. Find your token under **Personal API tokens** section. You can also create a new API token with multiple customizable permissions by clicking on **+ Create a new token**.
 1. Click the **Copy** icon next to your API token to copy it to your clipboard. Then, return to your n8n workflow interface.
 
-    ![Apify token on n8n](../make/images/Apify_token_on_Make.png)
+    ![Apify token on n8n](../make/images/Apify_token_on_Make.webp)
 
 1. In n8n, click **Create new credential** of the chosen Apify Scraper module.
 1. In the **API key** field, paste the API token you copied from Apify and click **Save**.
@@ -162,7 +162,7 @@ You can select the _Crawler type_ by choosing the rendering engine (browser or H
 
 You can setup Apify's Scraper for AI Crawling node as a tool for your AI Agents.
 
-![Setup AI Agent](./images/setup.png)
+![Setup AI Agent](./images/setup.webp)
 
 ### Dynamic URL crawling
 
