@@ -339,11 +339,9 @@ jobs:
                     echo "and optimize all images inside."
                     exit 1
 
-            # !cancelled() runs the SVG check even when the check above fails,
-            # so a PR gets both reports at once.
             -   name: Get changed SVG files in sources
                 id: changed-svgs
-                if: '!cancelled()'
+                if: '!cancelled()'  # runs even when above steps fail
                 uses: tj-actions/changed-files@24d32ffd492484c1d75e0c0b894501ddb9d30d62 # v47.0.0
                 with:
                     files: sources/**/*.svg
