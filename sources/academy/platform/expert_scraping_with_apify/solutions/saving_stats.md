@@ -163,8 +163,9 @@ router.addHandler(labels.OFFERS, async ({ $, crawler, request, pushData }) => {
             ...data,
             sellerName: element.find('#aod-offer-soldBy [aria-label]').text().trim(),
             offer: price,
-            // Store the handledAt date or current date if that is undefined
-            dateHandled: request.handledAt || new Date().toISOString(),
+            // Crawlee sets request.handledAt only after the handler
+            // finishes, so we use the current date and time
+            dateHandled: new Date().toISOString(),
             // Access the number of retries on the request object
             numberOfRetries: request.retryCount,
             // Grab the number of pending requests from the requestQueue
