@@ -25,7 +25,7 @@
     "dependencies": {
         "@apify/docs-search-modal": "^1.4.0",
         "@apify/ui-icons": "^1.61.0",
-        "@apify/ui-library": "^1.174.0",
+        "@apify/ui-library": "^1.175.0",
         "@docusaurus/theme-common": "^3.10.2",
         "@stackql/docusaurus-plugin-hubspot": "^1.1.0",
         "algoliasearch": "^5.61.0",

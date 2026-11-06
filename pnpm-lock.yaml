@@ -218,8 +218,8 @@ importers:
         specifier: ^1.61.0
         version: 1.61.0(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       '@apify/ui-library':
-        specifier: ^1.174.0
-        version: 1.174.0(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(styled-components@6.6.0(css-to-react-native@3.2.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(supports-color@8.1.1)
+        specifier: ^1.175.0
+        version: 1.175.0(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(styled-components@6.6.0(css-to-react-native@3.2.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(supports-color@8.1.1)
       '@docusaurus/core':
         specifier: ~3.10.2
         version: 3.10.2(@docusaurus/faster@3.10.2(@docusaurus/types@3.10.2(@swc/core@1.16.21)(@swc/html@1.16.21)(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.32))(csso@5.0.5)(html-minifier-terser@7.2.0)(lightningcss@1.33.0)(postcss@8.5.32)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(supports-color@8.1.1)(svgo@3.3.5)(uglify-js@3.19.3))(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.32))(csso@5.0.5)(html-minifier-terser@7.2.0)(postcss@8.5.32)(svgo@3.3.5)(uglify-js@3.19.3))(@mdx-js/react@3.1.1(@types/react@19.3.0)(react@19.3.1))(@rspack/core@1.7.12)(@swc/core@1.16.21)(@swc/html@1.16.21)(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.32))(csso@5.0.5)(debug@4.4.3(supports-color@8.1.1))(html-minifier-terser@7.2.0)(lightningcss@1.33.0)(postcss@8.5.32)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(supports-color@8.1.1)(svgo@3.3.5)(typescript@7.0.2)(uglify-js@3.19.3)
@@ -345,8 +345,8 @@ importers:
         specifier: ^1.61.0
         version: 1.61.0(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       '@apify/ui-library':
-        specifier: ^1.174.0
-        version: 1.174.0(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(styled-components@6.6.0(css-to-react-native@3.2.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(supports-color@5.5.0)
+        specifier: ^1.175.0
+        version: 1.175.0(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(styled-components@6.6.0(css-to-react-native@3.2.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(supports-color@5.5.0)
       '@docusaurus/theme-common':
         specifier: ^3.10.2
         version: 3.10.2(9baf1360abb4f5d7bbc6a4239afe9a8a)
@@ -576,8 +576,8 @@ packages:
       react: 17.x || 18.x || 19.x
       react-dom: 17.x || 18.x || 19.x
 
-  '@apify/ui-library@1.174.0':
-    resolution: {integrity: sha512-xdvIvP/EocQqIjv7bToNcgYPG3iuaL4MoZThd6vUpX47jI+yao8hH8P8zkFuIDtq00iDF50ggpQr36pxmrFSNw==}
+  '@apify/ui-library@1.175.0':
+    resolution: {integrity: sha512-oCBRTphIvfeyoEwfG/0cLg8gI/sDKZoHyaihNPeT8YhiD5UbpnbBNtKIILKpZzJ35Gf7tkp8L5s1PEN1dmD2CQ==}
     peerDependencies:
       react: 17.x || 18.x || 19.x
       react-dom: 17.x || 18.x || 19.x
@@ -8269,8 +8269,8 @@ packages:
     resolution: {integrity: sha512-dYqgNSZbDwkaJ2ceRd9ojCGjBq+mOm9LmtXnAnEGyHhN/5R7iDW2TRw3h+o/jCFxus3P2LfWIIiwowAjANm7IA==}
     engines: {node: '>= 0.4'}
 
-  regexpu-core@6.5.3:
-    resolution: {integrity: sha512-E8VgUoSK+LMQrLboDxavm76MTBGrQhx9RiNuomRmYnZ10Uw12HrI8fkxOOncktb2hBpzIZ9SV/347euQHG5z+g==}
+  regexpu-core@6.5.4:
+    resolution: {integrity: sha512-VpdamrZ9bw4YmvMZfTA3Yg8IHU9Guvg21bonvgjC4l3KfBkOqCPJesHakz7cQeE4Vh4zz4r4Gy6igAcnJxZv9g==}
     engines: {node: '>=4'}
 
   registry-auth-token@5.1.1:
@@ -8284,8 +8284,8 @@ packages:
   regjsgen@0.8.0:
     resolution: {integrity: sha512-RvwtGe3d7LvWiDQXeQw8p5asZUmfU1G/l6WbUXeHta7Y2PEIvBTwH6E2EfmYUK8pxcxEdEmaomqyp0vZZ7C+3Q==}
 
-  regjsparser@0.13.4:
-    resolution: {integrity: sha512-EWV80YgFaVgFrjGCAsV7oybp4GOxbls5RzBg8OB0nKEVXsBJR1JlV8Di1JhCROg3MzTfe1RI8yitIm1eOs68iA==}
+  regjsparser@0.14.1:
+    resolution: {integrity: sha512-IeYboCLG1KBNRksrZQIZ1SV5KVWZiR0ikFokOcA0n63vLvlaFvCsfxN+fd4aXwL0KW3YD+ByRzIgo9ZAHdbldw==}
     hasBin: true
 
   rehype-minify-whitespace@6.0.2:
@@ -9744,7 +9744,7 @@ snapshots:
     dependencies:
       '@algolia/autocomplete-js': 1.19.12(@algolia/client-search@5.61.0)(algoliasearch@4.27.0)(search-insights@2.17.3)
       '@algolia/autocomplete-theme-classic': 1.19.12
-      '@apify/ui-library': 1.174.0(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(styled-components@5.3.11(@babel/core@7.29.13(supports-color@5.5.0))(react-dom@19.3.1(react@19.3.1))(react-is@16.13.1)(react@19.3.1))(supports-color@5.5.0)
+      '@apify/ui-library': 1.175.0(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(styled-components@5.3.11(@babel/core@7.29.13(supports-color@5.5.0))(react-dom@19.3.1(react@19.3.1))(react-is@16.13.1)(react@19.3.1))(supports-color@5.5.0)
       algoliasearch: 4.27.0
       html-entities: 2.6.0
       react: 19.3.1
@@ -9774,7 +9774,7 @@ snapshots:
       react: 19.3.1
       react-dom: 19.3.1(react@19.3.1)
 
-  '@apify/ui-library@1.174.0(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(styled-components@5.3.11(@babel/core@7.29.13(supports-color@5.5.0))(react-dom@19.3.1(react@19.3.1))(react-is@16.13.1)(react@19.3.1))(supports-color@5.5.0)':
+  '@apify/ui-library@1.175.0(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(styled-components@5.3.11(@babel/core@7.29.13(supports-color@5.5.0))(react-dom@19.3.1(react@19.3.1))(react-is@16.13.1)(react@19.3.1))(supports-color@5.5.0)':
     dependencies:
       '@apify/ui-icons': 1.61.0(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       '@floating-ui/react': 0.27.20(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
@@ -9810,7 +9810,7 @@ snapshots:
       - '@types/react-dom'
       - supports-color
 
-  '@apify/ui-library@1.174.0(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(styled-components@6.6.0(css-to-react-native@3.2.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(supports-color@5.5.0)':
+  '@apify/ui-library@1.175.0(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(styled-components@6.6.0(css-to-react-native@3.2.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(supports-color@5.5.0)':
     dependencies:
       '@apify/ui-icons': 1.61.0(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       '@floating-ui/react': 0.27.20(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
@@ -9846,7 +9846,7 @@ snapshots:
       - '@types/react-dom'
       - supports-color
 
-  '@apify/ui-library@1.174.0(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(styled-components@6.6.0(css-to-react-native@3.2.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(supports-color@8.1.1)':
+  '@apify/ui-library@1.175.0(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(styled-components@6.6.0(css-to-react-native@3.2.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(supports-color@8.1.1)':
     dependencies:
       '@apify/ui-icons': 1.61.0(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       '@floating-ui/react': 0.27.20(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
@@ -9984,14 +9984,14 @@ snapshots:
     dependencies:
       '@babel/core': 7.29.13(supports-color@5.5.0)
       '@babel/helper-annotate-as-pure': 7.29.7
-      regexpu-core: 6.5.3
+      regexpu-core: 6.5.4
       semver: 6.3.2
 
   '@babel/helper-create-regexp-features-plugin@7.29.10(@babel/core@7.29.13(supports-color@8.1.1))':
     dependencies:
       '@babel/core': 7.29.13(supports-color@8.1.1)
       '@babel/helper-annotate-as-pure': 7.29.7
-      regexpu-core: 6.5.3
+      regexpu-core: 6.5.4
       semver: 6.3.2
 
   '@babel/helper-define-polyfill-provider@0.6.8(@babel/core@7.29.13(supports-color@5.5.0))(supports-color@5.5.0)':
@@ -21257,12 +21257,12 @@ snapshots:
       gopd: 1.2.0
       set-function-name: 2.0.2
 
-  regexpu-core@6.5.3:
+  regexpu-core@6.5.4:
     dependencies:
       regenerate: 1.5.0
       regenerate-unicode-properties: 10.3.0
       regjsgen: 0.8.0
-      regjsparser: 0.13.4
+      regjsparser: 0.14.1
       unicode-match-property-ecmascript: 2.0.0
       unicode-match-property-value-ecmascript: 2.2.1
 
@@ -21276,7 +21276,7 @@ snapshots:
 
   regjsgen@0.8.0: {}
 
-  regjsparser@0.13.4:
+  regjsparser@0.14.1:
     dependencies:
       jsesc: 3.1.0
 
