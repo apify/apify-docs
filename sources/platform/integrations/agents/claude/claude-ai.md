@@ -8,6 +8,7 @@ slug: /integrations/claude-ai
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 import ApifyPluginSkills from '@site/sources/_partials/_apify-plugin-skills.mdx';
 import ApifyPluginSkillPrompts from '@site/sources/_partials/_apify-plugin-skill-prompts.mdx';
+import FindGoogleMapsActorPrompt from '@site/sources/_partials/_find-google-maps-actor-prompt.mdx';
 
 [Claude.ai](https://claude.ai) is Anthropic's AI assistant in the browser. It answers questions, works with files, and calls external tools through connectors.
 
@@ -66,9 +67,7 @@ New chats have the Apify connector turned on by default. To turn it on or off fo
 
 Describe what you want in natural language. You don't need to name Apify tools yourself.
 
-```prompt title="Example prompt"
-Use Apify to find a good Actor for scraping Google Maps places. Show me the best option, its input requirements, pricing model, and what kind of dataset output it returns. Do not run the Actor yet.
-```
+<FindGoogleMapsActorPrompt />
 
 Claude searches Apify Store, fetches the top Actor's details through the Apify MCP server, and summarizes its inputs, pricing, and output - all without running the Actor.
 
