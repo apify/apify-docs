@@ -454,6 +454,7 @@ postById:
 
     * Brotli: `Content-Encoding: br`
     * Gzip: `Content-Encoding: gzip`
+    * Zstandard: `Content-Encoding: zstd`
     * Deflate: `Content-Encoding: deflate`
   operationId: dataset_items_post
   parameters:
@@ -485,6 +486,7 @@ postDefault:
 
     * Brotli: `Content-Encoding: br`
     * Gzip: `Content-Encoding: gzip`
+    * Zstandard: `Content-Encoding: zstd`
     * Deflate: `Content-Encoding: deflate`
   operationId: actorRun_dataset_items_post
   parameters:
@@ -506,6 +508,7 @@ postLastRun:
 
     * Brotli: `Content-Encoding: br`
     * Gzip: `Content-Encoding: gzip`
+    * Zstandard: `Content-Encoding: zstd`
     * Deflate: `Content-Encoding: deflate`
   operationId: actor_runs_last_dataset_items_post
   parameters:
@@ -529,6 +532,7 @@ postTaskLastRun:
 
     * Brotli: `Content-Encoding: br`
     * Gzip: `Content-Encoding: gzip`
+    * Zstandard: `Content-Encoding: zstd`
     * Deflate: `Content-Encoding: deflate`
   operationId: actorTask_runs_last_dataset_items_post
   parameters:

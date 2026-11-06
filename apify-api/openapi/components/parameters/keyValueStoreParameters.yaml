@@ -93,6 +93,7 @@ Content-Encoding:
     enum:
       - br
       - gzip
+      - zstd
       - deflate
       - identity
     type: string
