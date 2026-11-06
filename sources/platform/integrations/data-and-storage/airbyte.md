@@ -34,7 +34,7 @@ To find your **dataset ID**, you need to navigate to the **Storage** tab in Apif
 
 To find your Apify API token, you need to navigate to the **Settings** tab and select **API & Integrations**. Copy it and paste it in the relevant field in Airbyte.
 
-![Integrations token](../images/apify-integrations-token.png)
+![Integrations token](../images/apify-integrations-token.webp)
 
 And that's it! You now have Apify datasets set up as a Source, and you can use Airbyte to transfer your datasets to one of the available destinations.
 

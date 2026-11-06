@@ -26,12 +26,12 @@ To use these modules, you need an [Apify account](https://console.apify.com) and
 
 1. To connect your Apify account to Make, you can use an OAuth connection (recommended) or an Apify API token. To get the token, go to **[Settings > API & Integrations](https://console.apify.com/settings/integrations)** in Apify Console.
 
-    ![Apify Console sign-up page with email, Gmail, and GitHub sign-up options](images/apify-console-token-for-make.png)
+    ![Apify Console sign-up page with email, Gmail, and GitHub sign-up options](images/apify-console-token-for-make.webp)
 
 1. Find your token under **Personal API tokens**. You can also create a new token with custom permissions by clicking **+ Create a new token**.
 1. Click the **Copy** icon to copy your API token, then return to your Make scenario.
 
-    ![Apify Console Settings page showing Personal API tokens section with token management options](images/Apify_token_on_Make.png)
+    ![Apify Console Settings page showing Personal API tokens section with token management options](images/Apify_token_on_Make.webp)
 
 1. In Make, click **Add** to open the **Create a connection** dialog of the chosen Apify Scraper module.
 1. In the **API token** field, paste your token, provide a clear **Connection name**, and click **Save**.

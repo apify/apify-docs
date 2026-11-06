@@ -63,11 +63,11 @@ After the External Access Integration is in place, grant the app the remaining p
 
 ### Step 4: Verify the connection
 
-![Apify Snowflake Integration home page](../images/snowflake/snowflake-home.png)
+![Apify Snowflake Integration home page](../images/snowflake/snowflake-home.webp)
 
 Once installation is complete, open the app and go to the **API Token** page to verify the connection is working. If the token secret was configured correctly during setup, the page shows your Apify username and email.
 
-![API Token page showing a connected Apify account](../images/snowflake/snowflake-api-token.png)
+![API Token page showing a connected Apify account](../images/snowflake/snowflake-api-token.webp)
 
 To update your Apify API token later, go to **Configurations** > **Credentials** in App settings, find the secret bound to this app, and update its value.
 

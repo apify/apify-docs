@@ -17,7 +17,7 @@ import ThirdPartyDisclaimer from '@site/sources/\_partials/\_third-party-integra
 1. Go to **Settings > API & Integrations > API Tokens**.
 1. Copy your personal API token.
 
-![Apify API token settings](../images/viasocket/viasocket-apify-token.png)
+![Apify API token settings](../images/viasocket/viasocket-apify-token.webp)
 
 :::caution Token security
 Never share your API token publicly or commit it to version control.
@@ -42,7 +42,7 @@ Never share your API token publicly or commit it to version control.
 1. Click **Test** to fetch sample data and verify the trigger works.
 1. Save the trigger configuration.
 
-![Add Apify trigger in viaSocket](../images/viasocket/viasocket-add-trigger.png)
+![Add Apify trigger in viaSocket](../images/viasocket/viasocket-add-trigger.webp)
 
 ## Step 4: Add an action
 
@@ -65,6 +65,6 @@ You can add any supported app as the next step in your flow. The example below u
 1. Use **Flow View** to inspect the flow structure and **Log View** to monitor individual executions.
 1. Re-run a specific execution from **Run History** if needed.
 
-![viaSocket flow monitoring](../images/viasocket/viasocket-monitor.png)
+![viaSocket flow monitoring](../images/viasocket/viasocket-monitor.webp)
 
 For questions or help, join the [Apify Discord community](https://discord.com/invite/jyEM2PRvMU).

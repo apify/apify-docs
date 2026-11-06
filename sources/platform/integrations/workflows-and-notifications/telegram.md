@@ -64,7 +64,7 @@ The connection configuration options open in a new tab in your browser or in a m
 
 In connection configuration, you need to provide your Apify API Token. You can find the token in Apify Console by navigating to **Settings > API & Integrations**.
 
-![Integrations token](../images/apify-integrations-token.png)
+![Integrations token](../images/apify-integrations-token.webp)
 
 Copy the token and paste it into the configuration form and continue with the "Yes, Continue to Apify" button.
 
