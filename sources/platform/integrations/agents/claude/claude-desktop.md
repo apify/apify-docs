@@ -130,9 +130,9 @@ After clearing the cache:
 1. Check the [Claude Desktop logs](#claude-desktop-logs) for errors.
 1. If the issue persists, switch to the [Apify plugin or a custom connector](#apify-plugin-or-custom-connector), which doesn't rely on local packages.
 
-#### Connector does not work in Claude Cowork
+#### Extension does not work in Claude Cowork
 
-The Apify connector shows as connected in Cowork, but Claude doesn't recognize the tools or can't call them. The same connector works fine in regular Claude Chat.
+The Apify extension shows as connected in Cowork, but Claude doesn't recognize the tools or can't call them. The same extension works fine in regular Claude Chat.
 
 Cowork launches local MCP servers with a different mechanism than Claude Chat and requires a system-wide `node` binary. If Node.js is only installed through a version manager (such as nvm, fnm, nodenv, or Volta), Cowork cannot find it and the server fails to start. The [Claude Desktop logs](#claude-desktop-logs) show `spawn node ENOENT` in this case.
 
