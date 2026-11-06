@@ -248,7 +248,7 @@ That's everything! Now, even if the Actor migrates (or is gracefully aborted and
 
 **Q: Why don't you (usually) need to add any special migration handling code for a standard crawling/scraping Actor? Are there any features in Crawlee or Apify SDK that handle this under the hood?**
 
-**A:** Because Apify SDK handles all of the migration handling code for us. If you want to add custom migration-handling code, you can use `Actor.events` to listen for the `migrating` or `persistState` events to save the current state in key-value store (or elsewhere).
+**A:** Because Apify SDK handles all of the migration handling code for us. If you want to add custom migration-handling code, you can use the `Actor.on()` function to listen for the `migrating` or `persistState` events to save the current state in key-value store (or elsewhere).
 
 **Q: How can you intercept the migration event? How much time do you have after this event happens and before the Actor migrates?**
 
