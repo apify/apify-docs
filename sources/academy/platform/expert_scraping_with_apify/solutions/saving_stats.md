@@ -168,6 +168,18 @@ router.addHandler(labels.OFFERS, async ({ $, crawler, request, pushData }) => {
 });
 ```
 
+## Updating the dataset schema {#updating-the-dataset-schema}
+
+The starter describes every field of the dataset items in **.actor/dataset_schema.json**. Let's add the three new fields to its `properties`:
+
+```json
+"dateHandled": { "type": "string", "description": "When the offer was scraped" },
+"numberOfRetries": { "type": "integer", "description": "How many times the request was retried" },
+"currentPendingRequests": { "type": "integer", "description": "Requests pending in the queue" }
+```
+
+Then run `apify validate-schema` to check that the schema is still valid. The **Overview** view in the same file only shows the fields listed in its `transformation.fields`, so if you want to see the new fields there, add them to that list as well.
+
 ## Quiz answers {#quiz-answers}
 
 **Q: Why might you want to store statistics about an Actor's run (or a specific request)?**
