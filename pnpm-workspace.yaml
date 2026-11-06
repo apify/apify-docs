@@ -24,7 +24,6 @@ linkWorkspacePackages: true
 preferWorkspacePackages: true
 publicHoistPattern:
   - "*"
-legacyPeerDeps: true
 
 # pnpm v11 enables strictDepBuilds by default and fails the install if a
 # dependency's build scripts are neither approved nor explicitly declined.
