@@ -147,10 +147,9 @@ For supported payment protocols and spending limits, read [Agentic payments](/ag
 
 ## Tool selection
 
-By default, the MCP server loads the `actors` and `docs` tool categories, the `apify/rag-web-browser` and `apify/web-fetch` Actors, and `report-problem`. You can customize which tools
-are available by adding parameters to the server URL:
+By default, the MCP server loads the `actors` and `docs` tool categories, the `apify/web-search` and `apify/web-fetch` Actors, and `report-problem`. The `tools` parameter replaces the default selection. Include both web Actors to keep web search and fetching available:
 
-`https://mcp.apify.com?tools=actors,docs,apify/rag-web-browser`
+`https://mcp.apify.com?tools=actors,docs,apify/web-search,apify/web-fetch`
 
 For minimal setups where you only need specific Actors:
 
@@ -188,7 +187,7 @@ If the `tools` parameter includes any other tool, or you connect to the default 
 | `search-actors` | `actors` | ✅ | Search for Actors in Apify Store |
 | `fetch-actor-details` | `actors` | ✅ | Retrieve detailed information about a specific Actor, including its input and output schema, README (summary when available, full otherwise), and pricing |
 | `call-actor` | `actors` | ✅ | Run an Actor and wait up to `waitSecs` (0-45, default 30) for it to finish. Pass run limits (`memory`, `timeout`, `maxItems`, `maxTotalChargeUsd`) in `callOptions`, not in the Actor input. Returns the run status and storage IDs, not the results themselves |
-| [`apify/rag-web-browser`](https://apify.com/apify/rag-web-browser) | Actor | ✅ | Browse and extract web data |
+| [`apify/web-search`](https://apify.com/apify/web-search) | Actor | ✅ | Search the web and return search results |
 | [`apify/web-fetch`](https://apify.com/apify/web-fetch) | Actor | ✅ | Fetch one http(s) URL and return its full content, rendering JavaScript and bypassing anti-bot protection |
 | `search-apify-docs` | `docs` | ✅ | Search the Apify documentation for relevant pages |
 | `fetch-apify-docs` | `docs` | ✅ | Fetch the full content of an Apify documentation page by its URL |
@@ -219,7 +218,7 @@ If the `tools` parameter includes any other tool, or you connect to the default 
 
 `call-actor` returns the run's status and storage IDs, not its output. To read the results, use `get-dataset-items` with the `datasetId` from the run. It supports limit, offset, and field filtering.
 
-Whenever `call-actor` or a specific Actor tool such as `apify--rag-web-browser` is loaded, the server also adds `get-actor-run`, `get-dataset-items`, `get-key-value-store-record`, and `abort-actor-run`, even if you didn't select them. A default configuration therefore exposes them too.
+Whenever `call-actor` or a specific Actor tool such as `apify--web-search` is loaded, the server also adds `get-actor-run`, `get-dataset-items`, `get-key-value-store-record`, and `abort-actor-run`, even if you didn't select them. A default configuration therefore exposes them too.
 
 :::
 
@@ -277,7 +276,7 @@ For the local stdio server, opt out of telemetry using a CLI flag or an environm
 
 - For production deployments, explicitly specify which tools to load rather than relying on defaults. This ensures consistent behavior across updates:
 
-    `https://mcp.apify.com?tools=actors,docs,apify/rag-web-browser`
+    `https://mcp.apify.com?tools=actors,docs,apify/web-search,apify/web-fetch`
 
 - For a local stdio server, always use the latest version of the server by appending `@latest` to your npm commands.
 - Monitor your API usage through Apify Console to stay within your plan limits.
