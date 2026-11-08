@@ -21,7 +21,7 @@ In this course we'll use Python to create an application for watching prices. It
 ## What we'll do
 
 - Inspect pages using browser DevTools.
-- Download web pages using the HTTPX library.
+- Download web pages using the HTTPX2 library.
 - Extract data from web pages using the Beautiful Soup library.
 - Save extracted data in various formats, e.g. CSV which MS Excel or Google Sheets can open.
 - Follow links programmatically (crawling).

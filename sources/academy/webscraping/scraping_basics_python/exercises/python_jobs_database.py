@@ -1,14 +1,14 @@
 from datetime import datetime, date, timedelta
 from pprint import pp
 
-import httpx
+import httpx2
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 
 
 today = date.today()
 jobs_url = "https://www.python.org/jobs/type/database/"
-response = httpx.get(jobs_url)
+response = httpx2.get(jobs_url)
 response.raise_for_status()
 
 soup = BeautifulSoup(response.text, "html.parser")

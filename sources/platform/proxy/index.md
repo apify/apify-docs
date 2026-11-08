@@ -252,6 +252,10 @@ If you need to allow communication to `proxy.apify.com`, add the following IP ad
 
 * `18.208.102.16`
 * `35.171.134.41`
+* `54.86.46.232`
+* `34.199.3.62`
+* `100.56.36.137`
+* `184.196.50.194`
 
 ## Troubleshooting
 
