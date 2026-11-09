@@ -83,7 +83,22 @@ The encryption mechanism used for encrypting the secret input fields is the same
 
 The RSA key is unique for each combination of user and Actor, ensuring that no Actor can decrypt input intended for runs of another Actor by the same user, and no user can decrypt input runs of the same Actor by a different user. This isolation of decryption keys enhances the security of sensitive input data.
 
-During Actor execution, the decryption keys are passed as environment variables, restricting the decryption of secret input fields to occur solely within the context of the Actor run. This approach prevents unauthorized access to sensitive input data outside the Actor's execution environment.
+During Actor execution, the decryption key is passed to the Actor run through environment variables, restricting the decryption of secret input fields to occur solely within the context of the Actor run. This approach prevents unauthorized access to sensitive input data outside the Actor's execution environment.
+
+## Decryption environment variables
+
+The platform sets the following [environment variables](../../programming_interface/environment_variables.md) in every Actor run:
+
+| Environment variable | Description |
+| --- | --- |
+| `APIFY_INPUT_SECRETS_PRIVATE_KEY_FILE` | The private RSA key used to decrypt secret input fields, as a base64-encoded PEM string. Despite the variable name, the value is the key itself, not a path to a file. |
+| `APIFY_INPUT_SECRETS_PRIVATE_KEY_PASSPHRASE` | The passphrase that unlocks the private key in `APIFY_INPUT_SECRETS_PRIVATE_KEY_FILE`. |
+
+The Apify SDKs read both variables in `Actor.getInput()` (JavaScript) and `Actor.get_input()` (Python), and decrypt the secret fields only when both variables are set. If either is missing, the SDK returns the encrypted `ENCRYPTED_VALUE:...` strings instead of the original values. Keep these in mind:
+
+- *Local runs don't have the keys.* When you run an Actor locally with an input that you copied from the platform, the secret fields stay encrypted because the variables aren't set. Use plain values in your local input instead.
+- *Without the SDK, decrypt the fields yourself.* If you write your Actor in another language or read the `INPUT` record directly, load the private key from the two variables and decrypt the fields in your code. The [JavaScript SDK](https://github.com/apify/apify-sdk-js) and [Python SDK](https://github.com/apify/apify-sdk-python) source code shows how.
+- *Treat the values as secrets.* Don't log them, store them, or pass them to other services.
 
 ## Example Actor
 
