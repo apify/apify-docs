@@ -91,7 +91,7 @@ The platform sets the following [environment variables](../../programming_interf
 
 | Environment variable | Description |
 | --- | --- |
-| `APIFY_INPUT_SECRETS_PRIVATE_KEY_FILE` | The private RSA key used to decrypt secret input fields, as a base64-encoded PEM string. Despite the variable name, the value is the key itself, not a path to a file. |
+| `APIFY_INPUT_SECRETS_PRIVATE_KEY_FILE` | The private RSA key used to decrypt secret input fields. The value is the full PEM text of the key (including the `-----BEGIN ...-----` header and footer), base64-encoded once more into a single line. Base64-decode it to get the PEM key. Despite the variable name, the value is the key itself, not a path to a file. |
 | `APIFY_INPUT_SECRETS_PRIVATE_KEY_PASSPHRASE` | The passphrase that unlocks the private key in `APIFY_INPUT_SECRETS_PRIVATE_KEY_FILE`. |
 
 The Apify SDKs read both variables in `Actor.getInput()` (JavaScript) and `Actor.get_input()` (Python), and decrypt the secret fields only when both variables are set. If either is missing, the SDK returns the encrypted `ENCRYPTED_VALUE:...` strings instead of the original values. Keep these in mind:
