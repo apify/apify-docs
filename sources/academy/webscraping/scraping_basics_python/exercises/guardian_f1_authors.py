@@ -1,21 +1,19 @@
-import httpx
+import httpx2
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 
 
 def download(url: str) -> BeautifulSoup:
-    response = httpx.get(url)
+    response = httpx2.get(url)
     response.raise_for_status()
     return BeautifulSoup(response.text, "html.parser")
 
 
 def parse_author(article_soup: BeautifulSoup) -> str | None:
-    link = article_soup.select_one('a[rel="author"]')
-    if link:
-        return link.text.strip()
-    address = article_soup.select_one('aside address')
-    if address:
-        return address.text.strip()
+    for selector in ['a[rel="author"]', 'aside address']:
+        element = article_soup.select_one(selector)
+        if element and element.text.strip():
+            return element.text.strip()
     return None
 
 

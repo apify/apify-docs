@@ -19,11 +19,11 @@ import GuardianF1TitlesExercise from '!!raw-loader!roa-loader!./exercises/guardi
 In the previous lesson we've managed to print text of the page's main heading or count how many products are in the listing. Let's combine those two. What happens if we print `.text` for each product card?
 
 ```py
-import httpx
+import httpx2
 from bs4 import BeautifulSoup
 
 url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
-response = httpx.get(url)
+response = httpx2.get(url)
 response.raise_for_status()
 
 html_code = response.text
@@ -70,11 +70,11 @@ As in the browser DevTools lessons, we need to change the code so that it locate
 We should be looking for elements which have the `product-item__title` and `price` classes. We already know how that translates to CSS selectors:
 
 ```py
-import httpx
+import httpx2
 from bs4 import BeautifulSoup
 
 url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
-response = httpx.get(url)
+response = httpx2.get(url)
 response.raise_for_status()
 
 html_code = response.text
@@ -108,11 +108,11 @@ There's still some room for improvement, but it's already much better!
 Often, we want to assume in our code that a certain element exists only once. It's a bit tedious to work with lists when you know you're looking for a single element. For this purpose, Beautiful Soup offers the `.select_one()` method. Like `document.querySelector()` in browser DevTools, it returns just one result or `None`. Let's simplify our code!
 
 ```py
-import httpx
+import httpx2
 from bs4 import BeautifulSoup
 
 url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
-response = httpx.get(url)
+response = httpx2.get(url)
 response.raise_for_status()
 
 html_code = response.text
@@ -170,11 +170,11 @@ We can use Beautiful Soup's `.contents` property to access individual nodes. It 
 It seems like we can read the last element to get the actual amount. Let's fix our program:
 
 ```py
-import httpx
+import httpx2
 from bs4 import BeautifulSoup
 
 url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
-response = httpx.get(url)
+response = httpx2.get(url)
 response.raise_for_status()
 
 html_code = response.text
