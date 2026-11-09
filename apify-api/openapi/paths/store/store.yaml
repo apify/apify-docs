@@ -8,17 +8,43 @@ get:
     and readme.
     If you need detailed info about a specific Actor, use the [Get Actor](/api/v2/actor-get) endpoint.
 
-    The endpoint supports pagination using the `limit` and `offset` parameters.
-    It will not return more than 1,000 records.
+    Without `search`, the endpoint supports pagination using the `limit` and
+    `offset` parameters. It will not return more than 1,000 records per page.
+
+    With `search`, results are ranked by relevance and returned as a single
+    page of at most 100 records. `offset` is ignored and there is no second
+    page. `total` and `count` equal the number of returned items. To narrow
+    the results, use `category`, `username` or `pricingModel`.
   operationId: store_get
   parameters:
-    - $ref: "../../components/parameters/paginationParameters.yaml#/limit"
-    - $ref: "../../components/parameters/paginationParameters.yaml#/offset"
+    - name: limit
+      in: query
+      description: |
+        Maximum number of items to return. The default value as well as the
+        maximum is `1000`. When `search` is used, the maximum is `100` and
+        larger values are reduced to `100`.
+      style: form
+      explode: true
+      schema:
+        type: number
+        format: double
+        example: 100
+    - name: offset
+      in: query
+      description: |
+        Number of items that should be skipped at the start. The default value
+        is `0`. Ignored when `search` is used.
+      style: form
+      explode: true
+      schema:
+        type: number
+        format: double
+        example: 0
     - name: search
       in: query
       description: |
-        String to search by. The search runs on the following fields: `title`,
-        `name`, `description`, `username`, `readme`.
+        String to search by. Results are ranked by relevance and returned as a
+        single page of at most 100 items.
       style: form
       explode: true
       schema:
@@ -27,8 +53,11 @@ get:
     - name: sortBy
       in: query
       description: |
-        Specifies the field by which to sort the results. The supported values
-        are `relevance` (default), `popularity`, `newest` and `lastUpdate`.
+        Deprecated and ignored. The value is accepted for backward
+        compatibility but has no effect. Results are ordered by relevance when
+        `search` is used, and by Store position otherwise. Sort the results
+        on the client if you need a different order.
+      deprecated: true
       style: form
       explode: true
       schema:
@@ -36,12 +65,16 @@ get:
         example: "'popularity'"
     - name: category
       in: query
-      description: Filters the results by the specified category.
+      description: |
+        Filters the results by category. Accepts one or more category IDs,
+        separated by commas and case-insensitive. An Actor must match all of
+        the listed categories. Legacy keys such as `social_media` are still
+        accepted. An unknown category returns a `400` error.
       style: form
       explode: true
       schema:
         type: string
-        example: "'AI'"
+        example: AI_AND_ML
     - name: username
       in: query
       description: Filters the results by the specified username.

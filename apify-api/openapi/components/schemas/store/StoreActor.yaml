@@ -46,21 +46,17 @@ properties:
     format: uri
     examples: ["https://..."]
   stats:
+    description: Actor statistics. Review count and rating are returned here, not at the top level. `bookmarkCount` and `publicActorRunStats30Days` are not returned by the Store endpoint.
     $ref: ../actors/ActorStats.yaml
   currentPricingInfo:
     $ref: ./CurrentPricingInfo.yaml
   isWhiteListedForAgenticPayments:
     type: [boolean, "null"]
     description: Whether the Actor is whitelisted for agentic payment processing.
-  actorReviewCount:
-    type: integer
-    examples: [69]
-  actorReviewRating:
-    type: number
-    examples: [4.7]
-  bookmarkCount:
-    type: integer
-    examples: [1269]
+  isVerified:
+    type: boolean
+    description: Whether the Actor's developer has a verified identity.
+    examples: [false]
   badge:
     type: [string, "null"]
     examples: [null]
