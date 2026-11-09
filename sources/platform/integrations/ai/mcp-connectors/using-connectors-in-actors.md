@@ -288,7 +288,7 @@ Every Actor run receives two environment variables for MCP connector access.
 | Variable | Description |
 | --- | --- |
 | `ACTOR_MCP_CONNECTOR_BASE_URL` | Base URL of the Apify MCP Proxy. Connect to a connector at `${ACTOR_MCP_CONNECTOR_BASE_URL}/<connectorId>`. |
-| `APIFY_TOKEN` | [Run-specific API token](/actors/development/programming-interface/environment-variables#run-specific-credentials) of the user who started the Actor. Use it as the bearer token for proxy requests. |
+| `APIFY_TOKEN` | API token of the user who started the Actor. Use it as the bearer token for proxy requests. |
 
 The Actor uses a standard MCP client to connect to the proxy URL with the token as a bearer credential. No Apify-specific MCP SDK is required.
 

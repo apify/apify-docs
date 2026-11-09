@@ -159,7 +159,7 @@ This connects you directly through Apify infrastructure, bypassing the public In
 | Hostname | `APIFY_PROXY_HOSTNAME` environment variable |
 | Port | `APIFY_PROXY_PORT` environment variable |
 | Username | Specifies the proxy parameters such as groups, [session](#sessions) and location. See [username parameters](#username-parameters) below for details. <br/>**Note**: this is not your Apify username. |
-| Password | `APIFY_PROXY_PASSWORD` environment variable. <br/>**Note**: this is a [run-specific password](../actors/development/programming_interface/environment_variables.md#run-specific-credentials) that differs from your proxy password in Apify Console and expires shortly after the run finishes. |
+| Password | `APIFY_PROXY_PASSWORD` environment variable. Valid only for the current run. |
 
 Example connection string creation:
 

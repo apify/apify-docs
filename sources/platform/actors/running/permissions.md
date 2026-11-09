@@ -29,9 +29,7 @@ Actors that need full permissions clearly indicate this in their detail page and
 
 ## How Actor permissions work
 
-When a user runs an Actor, it receives an Apify API token and a proxy password. Both are created for that run only and expire shortly after the run finishes, so they're different from the API token and proxy password in your Apify Console. For details, see [Run-specific credentials](../development/programming_interface/environment_variables.md#run-specific-credentials).
-
-Actors with **full permissions** receive a token that grants access to your entire Apify account via the Apify API.
+When a user runs an Actor, it receives an Apify API token that is valid only for that run. Traditionally, this token grants access to the user's entire Apify account via the Apify API. Actors with **full permissions** will continue to operate this way.
 
 Actors with **limited permissions** receive a restricted token. This token only allows the Actor to perform a specific set of actions, which covers the vast majority of common use cases.
 

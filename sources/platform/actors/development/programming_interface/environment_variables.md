@@ -73,12 +73,12 @@ Variables prefixed with `APIFY_` are Apify-platform-specific extensions that go 
 
 | Environment variable | Description |
 | -------------------- | ----------- |
-| `APIFY_TOKEN` | Run-specific API token of the user who started the Actor. The token is valid only for this run, expires shortly after the run finishes, and has only the access granted by the Actor's [permission level](/actors/development/permissions#permission-levels) (limited or full). See [Run-specific credentials](#run-specific-credentials). |
+| `APIFY_TOKEN` | API token of the user who started the Actor. Valid only for this run, with access limited by the Actor's [permission level](/actors/development/permissions#permission-levels). |
 | `APIFY_USER_ID` | ID of the user who started the Actor. May differ from the Actor owner. |
 | `APIFY_USER_IS_PAYING` | If it is `1`, it means that the user who started the Actor is a paying user. |
 | `APIFY_IS_AT_HOME` | Contains **1** if the Actor is running on Apify servers. |
 | `APIFY_DEDICATED_CPUS` | Number of CPU cores reserved for the Actor, based on allocated memory. |
-| `APIFY_PROXY_PASSWORD` | Run-specific password for accessing Apify Proxy on behalf of the user who started the Actor. It differs from the user's proxy password shown in Apify Console, can only be used to connect to Apify Proxy, and expires shortly after the run finishes. See [Run-specific credentials](#run-specific-credentials). |
+| `APIFY_PROXY_PASSWORD` | Password for Apify Proxy on behalf of the user who started the Actor. Valid only for this run. |
 | `APIFY_PROXY_PORT` | TCP port number to be used for connecting to Apify Proxy. |
 | `APIFY_PROXY_STATUS_URL` | URL for retrieving proxy status information. Appending `?format=json` to this URL returns the data in JSON format for programmatic processing. |
 | `APIFY_API_PUBLIC_BASE_URL` | Public URL of the Apify API. May be used to interact with the platform programmatically. Typically set to `api.apify.com`. |
@@ -88,15 +88,11 @@ Variables prefixed with `APIFY_` are Apify-platform-specific extensions that go 
 | `APIFY_INPUT_SECRETS_PRIVATE_KEY_PASSPHRASE` | Passphrase for the input secret key specified in `APIFY_INPUT_SECRETS_PRIVATE_KEY_FILE`. |
 | ~~`APIFY_HEADLESS`~~ | _Deprecated_ - on the Apify platform this is always set to **1**, so web browsers inside the Actor always run in headless mode (no windowing system available). |
 
-#### Run-specific credentials
+:::note Run-specific credentials
 
-`APIFY_TOKEN` and `APIFY_PROXY_PASSWORD` aren't the user's own API token and proxy password. Apify generates a new pair of credentials for every Actor run:
+`APIFY_TOKEN` and `APIFY_PROXY_PASSWORD` are generated for each run and expire shortly after it finishes. They differ from the API token and proxy password shown in Apify Console.
 
-- _Scoped to the run_ - each run gets its own credentials, different from the API token and proxy password shown in Apify Console.
-- _Limited by the Actor's permissions_ - `APIFY_TOKEN` has only the access granted by the Actor's [permission level](/actors/development/permissions#permission-levels). With limited permissions, the token can't access the user's other data. `APIFY_PROXY_PASSWORD` can only be used to connect to [Apify Proxy](/proxy).
-- _Short-lived_ - both credentials expire shortly after the run finishes, so they can't be reused once the run is over.
-
-Treat these credentials as secrets while the run is active. Don't log them or store them in datasets, key-value stores, or other output.
+:::
 
 ## Custom environment variables
 
