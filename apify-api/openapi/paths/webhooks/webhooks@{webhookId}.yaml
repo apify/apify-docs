@@ -1,6 +1,7 @@
 get:
   tags:
     - Webhooks/Webhooks
+    - Actor Runtime API/Webhooks
   summary: Get webhook
   description: Gets webhook object with all details.
   operationId: webhook_get
@@ -40,6 +41,7 @@ get:
 put:
   tags:
     - Webhooks/Webhooks
+    - Actor Runtime API/Webhooks
   summary: Update webhook
   description: |
     Updates a webhook using values specified by a webhook object passed as JSON
@@ -104,6 +106,7 @@ put:
 delete:
   tags:
     - Webhooks/Webhooks
+    - Actor Runtime API/Webhooks
   summary: Delete webhook
   description: Deletes a webhook.
   operationId: webhook_delete

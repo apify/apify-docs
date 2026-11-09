@@ -1,6 +1,7 @@
 get:
   tags:
     - Actors/Actor builds
+    - Actor Runtime API/Actor builds
   summary: Get list of Actor's builds
   description: |
     Gets the list of builds of a specific Actor. The response is a JSON with the
@@ -54,6 +55,7 @@ get:
 post:
   tags:
     - Actors/Actor builds
+    - Actor Runtime API/Actor builds
   summary: Build Actor
   description: |
     Builds an Actor.

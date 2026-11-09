@@ -1,6 +1,7 @@
 post:
   tags:
     - Actors/Actor runs
+    - Actor Runtime API/Actor runs
   summary: Run Actor synchronously and get key-value store record
   description: |
     Runs a specific Actor and returns a key-value store record.
@@ -84,6 +85,7 @@ post:
 get:
   tags:
     - Actors/Actor runs
+    - Actor Runtime API/Actor runs
   summary: Run Actor synchronously and get key-value store record (GET)
   description: |
     Runs a specific Actor and returns a key-value store record. The response contains the

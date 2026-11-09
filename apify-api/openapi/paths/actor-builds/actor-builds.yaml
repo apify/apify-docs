@@ -1,6 +1,7 @@
 get:
   tags:
     - Actor builds
+    - Actor Runtime API/Actor builds
   summary: Get list of user's Actor builds
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actor-builds/build-collection/get-user-builds-list

@@ -1,6 +1,7 @@
 post:
   tags:
     - Schedules
+    - Actor Runtime API/Schedules
   summary: Invoke schedule
   description: |
     Immediately runs all actions of the schedule, the same way as the **Run now** button in Apify Console.
