@@ -58,8 +58,13 @@ Actors that pair well with a Lovable front end include:
 
 Example prompts:
 
-- _"Use Apify and build a dashboard that runs the E-commerce Scraping Tool Actor on a list of product URLs and charts the price history."_
-- _"Use Apify and build a console that lists recent Actor runs with status, duration, and a link to each dataset."_
+```prompt title="Build a price history dashboard"
+Use Apify and build a dashboard that runs the E-commerce Scraping Tool Actor on a list of product URLs and charts the price history.
+```
+
+```prompt title="Build an Actor runs console"
+Use Apify and build a console that lists recent Actor runs with status, duration, and a link to each dataset.
+```
 
 Runs started through the connector bill against your Apify plan, and the cost of each run stays visible in Apify Console. Lovable doesn't handle Apify billing.
 

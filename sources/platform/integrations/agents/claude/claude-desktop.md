@@ -62,7 +62,11 @@ Alternatively, download and open the [Apify MCP server `.mcpb` file](https://git
 1. Restart Claude Desktop after saving configuration changes.
 1. Open a new conversation.
 1. Check that Apify tools are available in the tools list.
-1. Test with a prompt like: "Search for web scraping Actors on Apify."
+1. Test with a prompt like:
+
+    ```prompt title="Search for web scraping Actors"
+    Search for web scraping Actors on Apify.
+    ```
 
 ## Troubleshooting
 
