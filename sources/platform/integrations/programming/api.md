@@ -2,7 +2,6 @@
 title: API integration
 description: Use the Apify REST API to control all platform features from your code. Authenticate with an API token and use official JavaScript or Python clients.
 sidebar_label: API integration
-sidebar_position: 1
 slug: /integrations/api
 ---
 
@@ -29,7 +28,7 @@ unless you fully understand the consequences! You can also consider  [limiting t
 
 You can authenticate the Apify API in two ways. You can either pass the token via the `Authorization` HTTP header or the URL `token` query parameter. We always recommend you use the authentication via the HTTP header as this method is more secure.
 
-Note that some API endpoints, such as [Get list of keys](/api/v2/key-value-store-keys-get),
+Note that some API endpoints, such as [Get list of key-value store keys](/api/v2/key-value-store-keys-get),
 do not require an authentication token because they contain a hard-to-guess identifier that effectively serves as an authentication key.
 
 ## Expiration
@@ -58,7 +57,7 @@ The Personal API tokens are different from your own Personal API tokens mentione
 
 On the other hand the Organization API tokens (only visible if you are the owner or have Manage access tokens permission) have full permissions and are not tied to a specific member of the organization.
 
-## API tokens with limited permissions
+## API tokens with limited permissions {#limited-permissions}
 
 By default, tokens can access all data in your account. If that is not desirable, you can choose to limit the permissions of your token, so that it can only access data needed for the particular use case. We call these tokens **scoped**.
 
@@ -153,7 +152,7 @@ When you run an Actor with a scoped token in this mode, Apify will inject a toke
 This way you can be sure that Actors won't accidentally - or intentionally - access any data they shouldn't. However, Actors might not function properly if the scope is not sufficient.
 
 :::caution Standby mode limitation
-Restricted access mode is not supported for Actors running in [Standby mode](/platform/actors/running/standby). While you can send standby requests using a scoped token configured with restricted access, functionality is not guaranteed.
+Restricted access mode is not supported for Actors running in [Standby mode](/actors/running/standby). While you can send standby requests using a scoped token configured with restricted access, functionality is not guaranteed.
 :::
 
 :::tip Transitive restrictions
@@ -162,7 +161,7 @@ This restriction is _transitive_, which means that if the Actor runs another Act
 
 #### Default run storages
 
-When Apify [runs an Actor](/platform/actors/running/runs-and-builds#runs), it automatically creates a set of default storages (a dataset, a key-value store and request queue) that the Actor can use in runtime.
+When Apify [runs an Actor](/actors/running/runs-and-builds#runs), it automatically creates a set of default storages (a dataset, a key-value store and request queue) that the Actor can use in runtime.
 
 You can configure whether the scoped token you are going use to run the Actor should get access to these default storages.
 
@@ -172,7 +171,7 @@ If it’s **on**, the token can implicitly access the default storage of the Act
 
 If the toggle is **off**, the token can still trigger and inspect runs, but access to the default storages is restricted:
 
-- For accounts with **Restricted general resource access**, the token cannot read or write to default storages. [Learn more about restricted general resource access](/platform/collaboration/general-resource-access).
+- For accounts with **Restricted general resource access**, the token cannot read or write to default storages. [Learn more about restricted general resource access](/account/collaboration/general-resource-access).
 - For accounts with **Unrestricted general resource access**, the default storages can still be read anonymously using their IDs, but writing is prevented.
 
 :::tip Clean up run data

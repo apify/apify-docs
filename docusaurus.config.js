@@ -8,6 +8,8 @@ const { config } = require('./apify-docs-theme');
 const { collectSlugs } = require('./tools/utils/collectSlugs');
 const { externalLinkProcessor, isInternal } = require('./tools/utils/externalLink');
 const { removeLlmButtons } = require('./tools/utils/removeLlmButtons');
+const { rehypeExpandTabs } = require('./tools/utils/rehypeExpandTabs');
+const { rehypeFixCodeLanguage } = require('./tools/utils/rehypeFixCodeLanguage');
 
 /**
  * Helper to extract text from a node recursively.
@@ -30,7 +32,7 @@ module.exports = {
     projectName: 'apify-docs',
     scripts: ['/js/custom.js', ...(config.scripts ?? [])],
     future: {
-        experimental_faster: {
+        faster: {
             // swcJsLoader: true,
             swcJsMinimizer: true,
             swcHtmlMinimizer: true,
@@ -91,12 +93,12 @@ module.exports = {
                                 'academy$',
                                 ...collectSlugs(join(__dirname, 'sources', 'academy', 'webscraping')),
                                 ...collectSlugs(join(__dirname, 'sources', 'academy', 'platform')),
-                            ].join('$|')}$`,
+                            ].join('$|academy')}$`,
                         },
                         {
                             label: 'Tutorials',
                             to: `/academy/tutorials`,
-                            activeBaseRegex: `${collectSlugs(join(__dirname, 'sources', 'academy', 'tutorials')).join('$|')}$`,
+                            activeBaseRegex: `academy${collectSlugs(join(__dirname, 'sources', 'academy', 'tutorials')).join('$|academy')}$`,
                         },
                     ],
                 },
@@ -118,10 +120,11 @@ module.exports = {
                     showLastUpdateTime: false,
                     editUrl: 'https://github.com/apify/apify-docs/edit/master/',
                     path: './sources/platform',
-                    routeBasePath: 'platform',
+                    routeBasePath: '/',
                     sidebarPath: require.resolve('./sources/platform/sidebars.js'),
                     rehypePlugins: [externalLinkProcessor],
                 },
+                blog: false,
                 sitemap: {
                     filename: 'sitemap_base.xml',
                 },
@@ -253,6 +256,7 @@ module.exports = {
                 allowedInDev: false,
             },
         ],
+        resolve(__dirname, 'src/plugins/docusaurus-plugin-preview-meta'),
         () => ({
             name: 'webpack-loader-fix',
             configureWebpack() {
@@ -278,7 +282,7 @@ module.exports = {
             /** @type {import('@signalwire/docusaurus-plugin-llms-txt').PluginOptions} */
             ({
                 siteDescription:
-                    'Apify is the largest marketplace of tools for AI. 25,000 ready-made Actors to automate your business. Get real-time web data, track competitors, generate leads, analyze sentiment, and orchestrate your apps. Actors are created by a global community of builders earning over $1M every month. Apify takes care of infrastructure, billing, and distribution.\n\nThe entire content of Apify documentation is available in a single Markdown file at https://docs.apify.com/llms-full.txt\n\nFor pricing details, see https://apify.com/pricing',
+                    'Apify is the largest marketplace of tools for AI. Thousands of ready-made Actors to automate your business. Get real-time web data, track competitors, generate leads, analyze sentiment, and orchestrate your apps. Actors are created by a global community of builders earning over $1M every month. Apify takes care of infrastructure, billing, and distribution.\n\nThe entire content of Apify documentation is available in a single Markdown file at https://docs.apify.com/llms-full.txt\n\nFor pricing details, see https://apify.com/pricing.md\n\nFor autonomous AI agents, the Apify Agent General Interface (AGI) at https://agi.apify.com is the entry point to use and pay for the Apify platform and Actors through agentic payment protocols like x402 or MPP, without account setup or ongoing billing.',
                 content: {
                     includeVersionedDocs: false,
                     enableLlmsFullTxt: true,
@@ -295,7 +299,7 @@ module.exports = {
                                 const isUrlInternal = isInternal(parsedUrl, config.absoluteUrl);
                                 const url = isUrlInternal ? `${config.absoluteUrl}${parsedUrl.pathname}.md` : node.url;
 
-                                if (isUrlInternal && !parsedUrl.pathname) return '';
+                                if (isUrlInternal && !parsedUrl.pathname) return getNodeText(node);
 
                                 if (node.title) return `[${node.title}](${url})`;
                                 const linkText = getNodeText(node);
@@ -343,7 +347,7 @@ module.exports = {
                         },
                         {
                             route: '/academy/**',
-                            categoryName: 'Apify academy',
+                            categoryName: 'Apify Academy',
                         },
                         {
                             route: '/legal/**',
@@ -353,7 +357,13 @@ module.exports = {
                             route: '/platform/**',
                             categoryName: 'Platform documentation',
                         },
+                        {
+                            route: '/glossary',
+                            categoryName: 'Glossary',
+                        },
                     ],
+                    // Expand <Tabs> and fix Prism code language tags before HTML→markdown conversion
+                    beforeDefaultRehypePlugins: [rehypeExpandTabs, rehypeFixCodeLanguage],
                     // Add custom remark processing to remove LLM button text
                     remarkPlugins: [removeLlmButtons],
                 },
@@ -382,7 +392,10 @@ module.exports = {
         parseFrontMatter: async (params) => {
             const result = await params.defaultParseFrontMatter(params);
 
-            if (result.frontMatter.api || result.content.startsWith('<span class="openapi-clients-box">')) {
+            const isPartial = params.filePath.split('/').pop()[0] === '_';
+
+            // Prev/next buttons are off by default, pages opt in with `pagination: true`
+            if (!isPartial && !result.frontMatter.pagination) {
                 result.frontMatter.pagination_next = null;
                 result.frontMatter.pagination_prev = null;
             }
@@ -390,8 +403,6 @@ module.exports = {
             if (result.frontMatter.id === 'apify-api') {
                 result.frontMatter.slug = '/';
             }
-
-            const isPartial = params.filePath.split('/').pop()[0] === '_';
 
             if (!isPartial) {
                 const ogImageURL = new URL('https://apify.com/og-image/docs-article');
@@ -428,6 +439,7 @@ module.exports = {
                 'go',
                 'csharp',
                 'powershell',
+                'rust',
                 'dart',
                 'objectivec',
                 'ocaml',

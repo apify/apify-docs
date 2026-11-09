@@ -19,7 +19,7 @@ Understanding inputs and outputs is essential because they are read/written diff
 
 ## A bit about storage {#about-storage}
 
-You can read/write your inputs/outputs: to the [key-value store](/platform/storage/key-value-store), or to the [dataset](/platform/storage/dataset). The key-value store can be used to store any sort of unorganized/unrelated data in any format, while the data pushed to a dataset typically resembles a table with columns (fields) and rows (items). Each Actor's run is allocated both a default dataset and a default key-value store.
+You can read/write your inputs/outputs: to the [key-value store](/storage/key-value-store), or to the [dataset](/storage/dataset). The key-value store can be used to store any sort of unorganized/unrelated data in any format, while the data pushed to a dataset typically resembles a table with columns (fields) and rows (items). Each Actor's run is allocated both a default dataset and a default key-value store.
 
 When running locally, these storages are accessible through the **storage** folder within your project's root directory, while on the platform they are accessible via Apify's API.
 
@@ -127,7 +127,7 @@ print(solution)
 
 ## Writing output {#writing-output}
 
-Similarly to reading input, you can write the Actor's output either by using the Apify SDK in Node.js or by manually writing a utility function to do so.
+An Actor's results generally go into its storages - a dataset, key-value store, or request queue. Similarly to reading input, you can write them either by using the Apify SDK in Node.js or by manually writing a utility function to do so.
 
 ### Writing output with the Apify SDK
 

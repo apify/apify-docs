@@ -1,7 +1,6 @@
 const fs = require('node:fs');
 const path = require('node:path');
 
-const axios = require('axios');
 const postcssPreset = require('postcss-preset-env');
 
 const { updateChangelog } = require('./markdown');
@@ -26,8 +25,11 @@ function findPathInParentOrThrow(endPath) {
 }
 
 async function generateChangelogFromGitHubReleases(paths, repo, { displayedSidebar } = {}) {
-    const response = await axios.get(`https://api.github.com/repos/${repo}/releases`);
-    const releases = response.data;
+    const response = await fetch(`https://api.github.com/repos/${repo}/releases`);
+    if (!response.ok) {
+        throw new Error(`GitHub releases request failed with status ${response.status}`);
+    }
+    const releases = await response.json();
 
     let markdown = '';
     if (!Array.isArray(releases) || releases.length === 0) return;

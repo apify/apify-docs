@@ -1,11 +1,10 @@
 ---
-title: Container web server
+title: Actor container web server
+sidebar_label: Container web server
 description: Run a web server inside your Actor to expose a unique URL for external HTTP access, enabling both UI interaction and programmatic API calls.
 slug: /actors/development/programming-interface/container-web-server
 sidebar_position: 7
 ---
-
-**Learn about how to run a web server inside your Actor to enable communication with the outside world through both UI and API.**
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -25,7 +24,7 @@ The container web server provides a way how to connect to one specific Actor run
 You can find the container URL in three locations:
 
 - In the web application, on the Actor run details page as the **Container URL** field.
-- In the API as the `containerUrl` property of the [Run object](/api/v2/actor-run-get).
+- In the API as the `containerUrl` property of the Run object returned by the [Get Actor run](/api/v2/actor-run-get) endpoint.
 - In the Actor run's container as the `ACTOR_WEB_SERVER_URL` environment variable.
 
 ## Set up the web server
@@ -37,6 +36,8 @@ The web server inside the container must listen on the port specified by the `AC
 1. Define the `ACTOR_WEB_SERVER_PORT` environment variable with your desired port number.
 
 Check out [Custom environment variables](./environment_variables.md) for more details.
+
+You can describe the web server's API with a [web server schema](../actor_definition/web_server_schema/index.md) in the Actor definition.
 
 ## Example: Start a simple web server
 

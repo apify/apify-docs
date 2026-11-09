@@ -39,8 +39,8 @@ However, please note that if we find that the report is knowingly false, the pro
 
 You can submit a report to the incident resolver in writing via:
 
-- email at whistleblowing[at]apify[dot]com;
-- mail at Apify’s registered office address: Vodičkova 704/36, Nové Město, 110 00 Praha 1 (label the letter as “TO: SR. COUNSEL - CONFIDENTIAL”);
+- email at whistleblowing@apify.com;
+- mail at Apify’s registered office address: Na Prikope 959/27, 110 00 Praha 1 (label the letter as “TO: SR. COUNSEL - CONFIDENTIAL”);
 
 Or verbally:
 
@@ -111,8 +111,8 @@ Nicméně, je třeba zdůraznit, že v případě zjištění, že poskytnuté o
 
 Oznámení můžete podat výše uvedené příslušné osobě buďto písemně:
 
-- e-mailem na whistleblowing[zavináč]apify[tečka]com;
-- poštou zasláním na adresu sídla Apify: Vodičkova 704/36, Nové Město, 110 00 Praha 1 (dopis označte jako “K RUKÁM SR. COUNSEL - DŮVĚRNÉ”);
+- e-mailem na whistleblowing@apify.com;
+- poštou zasláním na adresu sídla Apify: Na Příkopě 959/27, 110 00 Praha 1 (dopis označte jako “K RUKÁM SR. COUNSEL - DŮVĚRNÉ”);
 
 nebo ústně, a to:
 

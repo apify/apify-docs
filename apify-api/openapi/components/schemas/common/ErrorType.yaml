@@ -65,9 +65,11 @@ enum:
   - cannot-metamorph-to-pay-per-result-actor
   - cannot-modify-actor-pricing-too-frequently
   - cannot-modify-actor-pricing-with-immediate-effect
+  - cannot-monetize-without-payout-billing-info
   - cannot-override-paid-actor-trial
   - cannot-permanently-delete-subscription
   - cannot-publish-actor
+  - cannot-publish-actor-task
   - cannot-reduce-last-full-token
   - cannot-reimburse-more-than-original-charge
   - cannot-reimburse-non-rental-charge
@@ -126,6 +128,9 @@ enum:
   - expired-conference-token
   - failed-to-charge-user
   - final-invoice-negative
+  - full-permission-actor-blocked-for-admin
+  - full-permission-actor-not-approved
+  - full-permissions-require-verified-owner
   - github-branch-empty
   - github-issue-already-exists
   - github-public-key-not-found
@@ -142,6 +147,7 @@ enum:
   - input-json-not-object
   - input-json-too-long
   - input-update-collision
+  - input-validation-timed-out
   - insufficient-permissions
   - insufficient-permissions-to-change-field
   - insufficient-security-measures
@@ -213,6 +219,7 @@ enum:
   - max-metamorphs-exceeded
   - max-total-charge-usd-below-minimum
   - max-total-charge-usd-must-be-greater-than-zero
+  - mcp-connector-actor-not-allowed
   - method-not-allowed
   - migration-disabled
   - missing-actor-rights
@@ -227,6 +234,7 @@ enum:
   - missing-settings
   - missing-username
   - monthly-usage-limit-too-low
+  - more-public-actors-require-verified-owner
   - more-than-one-update-not-allowed
   - multiple-records-found
   - must-be-admin
@@ -279,6 +287,7 @@ enum:
   - query-timeout
   - quoted-price-outdated
   - rate-limit-exceeded
+  - readme-required
   - recaptcha-invalid
   - recaptcha-required
   - record-not-found
@@ -297,6 +306,7 @@ enum:
   - requested-dataset-view-does-not-exist
   - resume-token-expired
   - run-failed
+  - run-input-body-not-valid-json
   - run-timeout-exceeded
   - russia-is-evil
   - same-user
@@ -306,10 +316,13 @@ enum:
   - schema-validation
   - schema-validation-error
   - schema-validation-failed
+  - schemas-required
+  - service-worker-registration-not-allowed
   - sign-up-method-not-allowed
   - slack-integration-not-custom
   - socket-closed
   - socket-destroyed
+  - standby-deployment-invalid
   - store-schema-invalid
   - store-terms-not-accepted
   - stripe-enabled
@@ -331,6 +344,8 @@ enum:
   - too-many-mcp-connectors
   - too-many-o-auth-apps
   - too-many-organizations
+  - too-many-public-actor-tasks-per-account
+  - too-many-public-actor-tasks-per-actor
   - too-many-requests
   - too-many-schedules
   - too-many-ui-access-keys

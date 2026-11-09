@@ -2,8 +2,10 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 
 const BUILD_DIR = path.resolve('build');
-const WARN_LIMIT = 90_000;
-const ERROR_LIMIT = 100_000;
+// The llmstxt.org spec asks for an llms.txt small enough to fit in context.
+// The ora agent-readiness audit sets that at 30,000 characters.
+const WARN_LIMIT = 27_000;
+const ERROR_LIMIT = 30_000;
 
 async function checkFile(filePath) {
     try {
@@ -25,6 +27,20 @@ const [llmsChars, llmsFullChars] = await Promise.all([checkFile(llmsPath), check
 
 if (llmsChars === null || llmsFullChars === null) {
     process.exit(1);
+}
+
+// Guards the substitution in joinLlmsFiles.mjs. The sub-sites generate links with their
+// section prefix repeated; if the substitution stops matching, the joined files silently
+// fill up with URLs that only resolve through the redirect in nginx.conf.
+const DOUBLED_SECTION_PREFIX =
+    /https:\/\/docs\.apify\.com\/(sdk\/js|sdk\/python|api\/client\/js|api\/client\/python|cli)\/\1\//g;
+
+for (const filePath of [llmsPath, llmsFullPath]) {
+    const matches = (await fs.readFile(filePath, 'utf8')).match(DOUBLED_SECTION_PREFIX);
+    if (matches) {
+        console.error(`\nERROR: ${filePath} has ${matches.length} links with a doubled section prefix`);
+        process.exitCode = 1;
+    }
 }
 
 console.log(`llms.txt:      ${llmsChars.toLocaleString()} characters`);

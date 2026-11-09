@@ -1,4 +1,4 @@
 get:
-  $ref: "../../components/objects/request-queues/request-queue-requests.yaml#/getById"
+  $ref: "../../components/objects/request-queues/request-queue-requests.yaml#/listById"
 post:
   $ref: "../../components/objects/request-queues/request-queue-requests.yaml#/postById"

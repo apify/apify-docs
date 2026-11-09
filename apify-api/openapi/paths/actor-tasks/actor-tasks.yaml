@@ -1,7 +1,7 @@
 get:
   tags:
     - Actor tasks
-  summary: Get list of tasks
+  summary: Get list of Actor tasks
   description: |
     Gets the complete list of tasks that a user has created or used.
 
@@ -23,7 +23,8 @@ get:
   responses:
     "200":
       description: ""
-      headers: {}
+      headers:
+        $ref: ../../components/headers/ApifyPaginationHeaders.yaml
       content:
         application/json:
           schema:
@@ -82,19 +83,18 @@ get:
 post:
   tags:
     - Actor tasks
-  summary: Create task
+  summary: Create Actor task
   description: |
     Create a new task with settings specified by the object passed as JSON in
     the POST payload.
 
     The response is the full task object as returned by the
-    [Get task](#/reference/tasks/task-object/get-task) endpoint.
+    [Get Actor task](/api/v2/actor-task-get) endpoint.
 
     The request needs to specify the `Content-Type: application/json` HTTP header!
 
     When providing your API authentication token, we recommend using the
-    request's `Authorization` header, rather than the URL. ([More
-    info](#/introduction/authentication)).
+    request's `Authorization` header, rather than the URL.
   operationId: actorTasks_post
   requestBody:
     description: ""
@@ -140,6 +140,8 @@ post:
       $ref: ../../components/responses/Unauthorized.yaml
     "403":
       $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      $ref: ../../components/responses/NotFound.yaml
     "405":
       $ref: ../../components/responses/MethodNotAllowed.yaml
     "409":

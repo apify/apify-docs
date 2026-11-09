@@ -1,16 +1,16 @@
 post:
   tags:
     - Actors/Actor builds
-  summary: Abort build
+  summary: Abort Actor build
   description: |
     **[DEPRECATED]** API endpoints related to build of the Actor were moved
-    under new namespace [`actor-builds`](#/reference/actor-builds). Aborts an
+    under new namespace `actor-builds` ([Manage Actor builds](/api/v2/actor-builds)). Aborts an
     Actor build and returns an object that contains all the details about the
     build.
 
     Only builds that are starting or running are aborted. For builds with status
     `FINISHED`, `FAILED`, `ABORTING` and `TIMED-OUT` this call does nothing.
-  operationId: act_build_abort_post
+  operationId: actors_build_abort_post
   parameters:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/buildId"

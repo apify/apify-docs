@@ -20,33 +20,85 @@ const themeConfig = {
         },
         items: [
             {
+                label: 'Get started',
+                href: `${absoluteUrl}/get-started`,
+                activeBasePath: 'get-started',
+                position: 'left',
+                target: '_self',
+                rel: 'dofollow',
+            },
+            {
+                label: 'Actors',
+                href: `${absoluteUrl}/actors`,
+                activeBasePath: 'actors',
+                position: 'left',
+                target: '_self',
+                rel: 'dofollow',
+            },
+            {
+                label: 'Storage',
+                href: `${absoluteUrl}/storage`,
+                activeBasePath: 'storage',
+                position: 'left',
+                target: '_self',
+                rel: 'dofollow',
+            },
+            {
+                label: 'Proxy',
+                href: `${absoluteUrl}/proxy`,
+                activeBasePath: 'proxy',
+                position: 'left',
+                target: '_self',
+                rel: 'dofollow',
+            },
+            {
+                label: 'Account',
+                href: `${absoluteUrl}/account`,
+                activeBasePath: 'account',
+                position: 'left',
+                target: '_self',
+                rel: 'dofollow',
+            },
+            {
+                label: 'Integrations',
+                href: `${absoluteUrl}/integrations`,
+                activeBasePath: 'integrations',
+                position: 'left',
+                target: '_self',
+                rel: 'dofollow',
+            },
+            {
+                label: 'Security',
+                href: `${absoluteUrl}/security`,
+                activeBasePath: 'security',
+                position: 'left',
+                target: '_self',
+                rel: 'dofollow',
+            },
+            {
                 label: 'Academy',
                 href: `${absoluteUrl}/academy`,
                 activeBasePath: 'academy',
-                position: 'left',
+                position: 'right',
                 target: '_self',
                 rel: 'dofollow',
             },
-            {
-                label: 'Platform',
-                href: `${absoluteUrl}/platform`,
-                className: 'navbar__active',
-                activeBasePath: 'platform',
-                position: 'left',
-                target: '_self',
-                rel: 'dofollow',
-            },
+            // The dropdown labels below carry both `href` and `to` on purpose. `href` keeps the
+            // target absolute, so the link resolves from the client, SDK, and CLI docs sites as
+            // well. `to` tells the Docusaurus dropdown that the label is a real link, so clicking
+            // it opens the landing page instead of only toggling the menu open.
             {
                 label: 'API',
                 type: 'dropdown',
+                href: `${absoluteUrl}/api`,
                 to: `${absoluteUrl}/api`,
+                activeBaseRegex: '^/api(/|$)',
+                position: 'right',
                 target: '_self',
                 rel: 'dofollow',
-                activeBasePath: 'api',
-                position: 'left',
                 items: [
                     {
-                        label: 'Reference',
+                        label: 'API reference',
                         href: `${absoluteUrl}/api/v2`,
                         target: '_self',
                         rel: 'dofollow',
@@ -60,6 +112,36 @@ const themeConfig = {
                     {
                         label: 'Client for Python',
                         href: `${absoluteUrl}/api/client/python/docs`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                    {
+                        label: 'Client for Go',
+                        href: `https://github.com/apify/apify-client-go`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                    {
+                        label: 'Client for PHP',
+                        href: `https://github.com/apify/apify-client-php`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                    {
+                        label: 'Client for Java',
+                        href: `https://github.com/apify/apify-client-java`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                    {
+                        label: 'Client for .NET',
+                        href: `https://github.com/apify/apify-client-dotnet`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                    {
+                        label: 'Client for Rust',
+                        href: `https://github.com/apify/apify-client-rust`,
                         target: '_self',
                         rel: 'dofollow',
                     },
@@ -68,140 +150,12 @@ const themeConfig = {
             {
                 label: 'SDK',
                 type: 'dropdown',
+                href: `${absoluteUrl}/sdk`,
                 to: `${absoluteUrl}/sdk`,
-                activeBasePath: 'sdk',
-                position: 'left',
-                target: '_self',
-                rel: 'dofollow',
-                items: [
-                    {
-                        label: 'SDK for JavaScript',
-                        href: `${absoluteUrl}/sdk/js/docs/overview`,
-                        target: '_self',
-                        rel: 'dofollow',
-                    },
-                    {
-                        html: 'SDK for Python',
-                        href: `${absoluteUrl}/sdk/python/docs/overview`,
-                        target: '_self',
-                        rel: 'dofollow',
-                    },
-                ],
-            },
-            {
-                label: 'CLI',
-                href: `${absoluteUrl}/cli/docs`,
-                position: 'left',
-                activeBasePath: 'cli',
-                target: '_self',
-                rel: 'dofollow',
-            },
-            {
-                label: 'Open source',
-                type: 'dropdown',
-                to: `${absoluteUrl}/open-source`,
-                activeBasePath: 'open-source',
-                target: '_self',
-                position: 'left',
-                className: 'navbar__item',
-                items: [
-                    {
-                        label: 'Crawlee',
-                        href: 'https://crawlee.dev',
-                        rel: 'dofollow',
-                    },
-                    {
-                        label: 'Fingerprint Suite',
-                        href: 'https://github.com/apify/fingerprint-suite',
-                    },
-                    {
-                        label: 'impit',
-                        href: 'https://github.com/apify/impit',
-                    },
-                    {
-                        label: 'MCP CLI',
-                        href: 'https://github.com/apify/mcp-cli',
-                    },
-                    {
-                        label: 'Actor whitepaper',
-                        href: 'https://whitepaper.actor',
-                    },
-                    {
-                        label: 'proxy-chain',
-                        href: 'https://github.com/apify/proxy-chain',
-                    },
-                    {
-                        label: 'Apify on GitHub',
-                        href: 'https://github.com/apify',
-                    },
-                ],
-            },
-            {
-                href: 'https://discord.com/invite/jyEM2PRvMU',
-                label: 'Discord',
-                title: 'Chat on Discord',
+                activeBaseRegex: '^/sdk(/|$)',
                 position: 'right',
-                className: 'icon',
-            },
-        ],
-    },
-    colorMode: {
-        defaultMode: 'light',
-        disableSwitch: false,
-        respectPrefersColorScheme: true,
-    },
-    prism: {
-        defaultLanguage: 'typescript',
-        theme: require('./theme/CodeThemes/light').lightTheme,
-        darkTheme: require('./theme/CodeThemes/dark').darkTheme,
-        additionalLanguages: ['docker', 'log', 'php', 'json5', 'bash'],
-    },
-    // this needs to be absolute link otherwise it gets resolved wrongly in project docs
-    image: 'https://apify.com/og-image/docs-article',
-    footer: {
-        links: [
-            {
-                title: 'Learn',
-                items: [
-                    {
-                        label: 'Academy',
-                        href: `${absoluteUrl}/academy`,
-                        target: '_self',
-                        rel: 'dofollow',
-                    },
-                    {
-                        label: 'Platform',
-                        href: `${absoluteUrl}/platform`,
-                        target: '_self',
-                        rel: 'dofollow',
-                    },
-                ],
-            },
-            {
-                title: 'API',
-                items: [
-                    {
-                        label: 'Reference',
-                        href: `${absoluteUrl}/api/v2`,
-                        target: '_self',
-                        rel: 'dofollow',
-                    },
-                    {
-                        label: 'Client for JavaScript',
-                        href: `${absoluteUrl}/api/client/js/docs`,
-                        target: '_self',
-                        rel: 'dofollow',
-                    },
-                    {
-                        label: 'Client for Python',
-                        href: `${absoluteUrl}/api/client/python/docs`,
-                        target: '_self',
-                        rel: 'dofollow',
-                    },
-                ],
-            },
-            {
-                title: 'SDK',
+                target: '_self',
+                rel: 'dofollow',
                 items: [
                     {
                         label: 'SDK for JavaScript',
@@ -218,43 +172,203 @@ const themeConfig = {
                 ],
             },
             {
-                title: 'Other',
+                label: 'CLI',
+                type: 'dropdown',
+                href: `${absoluteUrl}/cli`,
+                to: `${absoluteUrl}/cli`,
+                activeBaseRegex: '^/cli(/|$)',
+                position: 'right',
+                target: '_self',
+                rel: 'dofollow',
                 items: [
                     {
-                        label: 'CLI',
-                        href: `${absoluteUrl}/cli/docs`,
-                        position: 'left',
+                        label: 'Installation',
+                        href: `${absoluteUrl}/cli/docs/installation`,
                         target: '_self',
                         rel: 'dofollow',
                     },
                     {
-                        label: 'Open source',
-                        href: `${absoluteUrl}/open-source`,
-                        position: 'left',
+                        label: 'Quick start',
+                        href: `${absoluteUrl}/cli/docs/quick-start`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                    {
+                        label: 'Command reference',
+                        href: `${absoluteUrl}/cli/docs/reference`,
                         target: '_self',
                         rel: 'dofollow',
                     },
                 ],
             },
             {
-                title: 'More',
+                label: 'For AI agents',
+                href: `${absoluteUrl}/agents`,
+                activeBaseRegex: '^/(agents|mcp)(/|$)',
+                position: 'right',
+                target: '_self',
+                rel: 'dofollow',
+            },
+        ],
+    },
+    colorMode: {
+        defaultMode: 'light',
+        disableSwitch: false,
+        respectPrefersColorScheme: true,
+    },
+    prism: {
+        defaultLanguage: 'typescript',
+        theme: require('./theme/CodeThemes/light').lightTheme,
+        darkTheme: require('./theme/CodeThemes/dark').darkTheme,
+        additionalLanguages: ['docker', 'log', 'php', 'json5', 'bash'],
+    },
+    // Colours come from CSS variables in custom.css, so both modes start from the neutral base theme.
+    mermaid: {
+        theme: { light: 'base', dark: 'base' },
+        options: {
+            themeVariables: {
+                fontFamily:
+                    "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
+            },
+        },
+    },
+    // this needs to be absolute link otherwise it gets resolved wrongly in project docs
+    image: 'https://apify.com/og-image/docs-article',
+    footer: {
+        links: [
+            {
+                title: 'Reference',
+                items: [
+                    {
+                        label: 'API Reference',
+                        href: `${absoluteUrl}/api/v2`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                    {
+                        label: 'SDK for JavaScript',
+                        href: `${absoluteUrl}/sdk/js/docs/overview`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                    {
+                        label: 'SDK for Python',
+                        href: `${absoluteUrl}/sdk/python/docs/overview`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                    {
+                        label: 'Client for JavaScript',
+                        href: `${absoluteUrl}/api/client/js/docs`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                    {
+                        label: 'Client for Python',
+                        href: `${absoluteUrl}/api/client/python/docs`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                    {
+                        label: 'CLI',
+                        href: `${absoluteUrl}/cli/docs`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                    {
+                        label: 'Glossary',
+                        href: `${absoluteUrl}/glossary`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                ],
+            },
+            {
+                title: 'Open source',
                 items: [
                     {
                         label: 'Crawlee',
-                        to: 'https://crawlee.dev',
+                        href: 'https://crawlee.dev',
                         rel: 'dofollow',
+                    },
+                    {
+                        label: 'Fingerprint Suite',
+                        href: 'https://github.com/apify/fingerprint-suite',
+                    },
+                    {
+                        label: 'impit',
+                        href: 'https://github.com/apify/impit',
+                    },
+                    {
+                        label: 'MCP CLI',
+                        href: 'https://github.com/apify/mcpc',
+                    },
+                    {
+                        label: 'Actor whitepaper',
+                        href: 'https://whitepaper.actor',
+                    },
+                    {
+                        label: 'proxy-chain',
+                        href: 'https://github.com/apify/proxy-chain',
+                    },
+                ],
+            },
+            {
+                title: 'Security',
+                items: [
+                    {
+                        label: 'Trust Center',
+                        href: 'https://trust.apify.com',
+                    },
+                ],
+            },
+            {
+                title: 'Community',
+                items: [
+                    {
+                        label: 'Discord',
+                        href: 'https://discord.com/invite/jyEM2PRvMU',
+                    },
+                    {
+                        label: 'X',
+                        href: 'https://x.com/apify',
+                    },
+                    {
+                        label: 'YouTube',
+                        href: 'https://www.youtube.com/c/Apify',
                     },
                     {
                         label: 'GitHub',
                         href: 'https://github.com/apify',
                     },
+                ],
+            },
+            {
+                title: 'For AI',
+                items: [
                     {
-                        href: 'https://discord.com/invite/jyEM2PRvMU',
-                        label: 'Discord',
+                        label: 'llms.txt',
+                        href: `${absoluteUrl}/llms.txt`,
+                        target: '_self',
+                        rel: 'dofollow',
                     },
                     {
-                        label: 'Trust Center',
-                        href: 'https://trust.apify.com',
+                        label: 'llms-full.txt',
+                        href: `${absoluteUrl}/llms-full.txt`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                    {
+                        label: 'OpenAPI (JSON)',
+                        href: `${absoluteUrl}/api/openapi.json`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                    {
+                        label: 'OpenAPI (YAML)',
+                        href: `${absoluteUrl}/api/openapi.yaml`,
+                        target: '_self',
+                        rel: 'dofollow',
                     },
                 ],
             },
@@ -285,6 +399,34 @@ const themeConfig = {
         async: true,
         defer: true,
     },
+    announcementBar: process.env.APIFY_DOCS_ABSOLUTE_URL
+        ? (() => {
+              const parsedUrl = new URL(process.env.APIFY_DOCS_ABSOLUTE_URL);
+
+              const { hostname } = parsedUrl;
+
+              if (!hostname.includes('pr-') && !hostname.includes('preview')) {
+                  return undefined;
+              }
+
+              const prNumber = hostname.split('.')[0]?.split('-')[1];
+
+              if (!prNumber) {
+                  return undefined;
+              }
+
+              // TODO: once we support multiple preview deployments, we should pass in the repository name as an env variable
+              const githubUrl = `https://github.com/apify/apify-docs/pull/${prNumber}`;
+
+              return {
+                  id: 'apify-docs-preview-banner',
+                  content: `You are visiting <a href="${githubUrl}" target="_blank" rel="noopener noreferrer">a preview build for PR ${prNumber}</a> of the Apify Docs.`,
+                  backgroundColor: '#B80F0A',
+                  textColor: '#FFFFFF',
+                  isCloseable: false,
+              };
+          })()
+        : undefined,
 };
 
 const plugins = [
@@ -312,11 +454,16 @@ const plugins = [
 ];
 
 const scripts = [
+    // Stores first-touch and FirstPromoter cookies on .apify.com, which Console reads at signup.
+    {
+        src: 'https://apify.com/ext/bootstrap.js',
+        async: true,
+    },
     {
         src: 'https://widget.kapa.ai/kapa-widget.bundle.js',
         'data-website-id': 'a9937f98-9c9d-44d9-a433-fec4cb1c114d',
         'data-project-name': 'Apify',
-        'data-modal-title': 'Apify AI Assistant',
+        'data-modal-title': 'Apify Docs Assistant',
         'data-project-color': '#666666',
         'data-button-hide': 'true',
         'data-project-logo': 'https://apify.com/img/apify-logo/logomark-32x32.svg',

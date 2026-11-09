@@ -4,6 +4,7 @@ description: Learn about bypassing anti-scraping methods using proxies and proxy
 sidebar_position: 6.6
 sidebar_label: VI - Bypassing anti-scraping methods
 slug: /expert-scraping-with-apify/bypassing-anti-scraping
+pagination: true
 ---
 
 **Learn about bypassing anti-scraping methods using proxies and proxy/session rotation together with Crawlee and the Apify SDK.**
@@ -19,7 +20,7 @@ You might have already noticed that we've been using the **RESIDENTIAL** proxy g
 ## Learning 🧠 {#learning}
 
 - Skim [this page](https://apify.com/proxy) for a general idea of Apify Proxy.
-- Give the [proxy documentation](/platform/proxy) a solid readover (feel free to skip most of the examples).
+- Give the [proxy documentation](/proxy) a solid readover (feel free to skip most of the examples).
 - Check out the [anti-scraping guide](../../webscraping/anti_scraping/index.md).
 - Gain a solid understanding of the [SessionPool](https://crawlee.dev/api/core/class/SessionPool).
 - Look at a few Actors on the [Apify store](https://apify.com/store). How are they utilizing proxies?

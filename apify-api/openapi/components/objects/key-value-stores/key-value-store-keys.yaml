@@ -31,6 +31,8 @@ sharedTagTaskLastRun: &sharedTagTaskLastRun
 sharedGet: &sharedGet
   responses:
     <<: *commonErrors
+    "402":
+      $ref: ../../responses/PaymentRequired.yaml
     "200":
       description: ""
       headers: {}
@@ -40,12 +42,9 @@ sharedGet: &sharedGet
             $ref: ../../schemas/key-value-stores/ListOfKeysResponse.yaml
   deprecated: false
 
-getById:
+listById:
   <<: [*sharedGet, *sharedTagById]
-  tags:
-    - Storage/Key-value stores
-    - Actor Runtime API/Key-value stores
-  summary: Get list of keys
+  summary: Get list of key-value store keys
   description: |
     Returns a list of objects describing keys of a given key-value store, as
     well as some information about the values (e.g. size).
@@ -71,14 +70,14 @@ getById:
   x-py-name: list_keys
   x-py-doc-url: https://docs.apify.com/api/client/python/reference/class/KeyValueStoreClientAsync#list_keys
 
-getDefault:
+listDefault:
   <<: [*sharedGet, *sharedTagDefault]
-  summary: Get default store's list of keys
+  summary: Get list of keys in the default key-value store of an Actor run
   description: |
     Returns a list of keys for the default key-value store of the Actor run.
 
     This endpoint is a shortcut for getting the run's `defaultKeyValueStoreId` and then using the
-    [Get list of keys](/api/v2/key-value-store-keys-get) endpoint.
+    [Get list of key-value store keys](/api/v2/key-value-store-keys-get) endpoint.
   operationId: actorRun_keyValueStore_keys_get
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
@@ -88,36 +87,38 @@ getDefault:
     - $ref: "../../parameters/keyValueStoreParameters.yaml#/prefixKeys"
     - $ref: "../../parameters/storageParameters.yaml#/signature"
 
-getLastRun:
+listLastRun:
   <<: [*sharedGet, *sharedTagLastRun]
-  summary: Get last run's default store's list of keys
+  summary: Get list of keys in the default key-value store of an Actor's last run
   description: |
     Returns a list of keys for the default key-value store of the last Actor run.
 
     This endpoint is a shortcut for getting the last run's `defaultKeyValueStoreId` and then using the
-    [Get list of keys](/api/v2/key-value-store-keys-get) endpoint.
-  operationId: act_runs_last_keyValueStore_keys_get
+    [Get list of key-value store keys](/api/v2/key-value-store-keys-get) endpoint.
+  operationId: actor_runs_last_keyValueStore_keys_get
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
     - $ref: "../../parameters/keyValueStoreParameters.yaml#/exclusiveStartKey"
     - $ref: "../../parameters/keyValueStoreParameters.yaml#/limit"
     - $ref: "../../parameters/keyValueStoreParameters.yaml#/collectionKeys"
     - $ref: "../../parameters/keyValueStoreParameters.yaml#/prefixKeys"
     - $ref: "../../parameters/storageParameters.yaml#/signature"
 
-getTaskLastRun:
+listTaskLastRun:
   <<: [*sharedGet, *sharedTagTaskLastRun]
-  summary: Get last task run's default store's list of keys
+  summary: Get list of keys in the default key-value store of an Actor task's last run
   description: |
     Returns a list of keys for the default key-value store of the last Actor task run.
 
     This endpoint is a shortcut for getting the last task run's `defaultKeyValueStoreId` and then using the
-    [Get list of keys](/api/v2/key-value-store-keys-get) endpoint.
+    [Get list of key-value store keys](/api/v2/key-value-store-keys-get) endpoint.
   operationId: actorTask_runs_last_keyValueStore_keys_get
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
     - $ref: "../../parameters/keyValueStoreParameters.yaml#/exclusiveStartKey"
     - $ref: "../../parameters/keyValueStoreParameters.yaml#/limit"
     - $ref: "../../parameters/keyValueStoreParameters.yaml#/collectionKeys"

@@ -4,6 +4,7 @@ description: Learn all about how the professionals scrape various types of APIs 
 sidebar_position: 4
 category: web scraping & automation
 slug: /api-scraping
+pagination: true
 ---
 
 **Learn all about how the professionals scrape various types of APIs with various configurations, parameters, and requirements.**

@@ -1,15 +1,16 @@
 ---
 title: Downloading HTML with Python
 sidebar_label: Downloading HTML
-description: Lesson about building a Python application for watching prices. Using the HTTPX library to download HTML code of a product listing page.
+description: Lesson about building a Python application for watching prices. Using the HTTPX2 library to download HTML code of a product listing page.
 slug: /scraping-basics-python/downloading-html
+pagination: true
 ---
 
 import CodeBlock from '@theme/CodeBlock';
 import Exercises from '../scraping_basics/_exercises.mdx';
 import LegoExercise from '!!raw-loader!roa-loader!./exercises/lego.py';
 
-**In this lesson we'll start building a Python application for watching prices. As a first step, we'll use the HTTPX library to download HTML code of a product listing page.**
+**In this lesson we'll start building a Python application for watching prices. As a first step, we'll use the HTTPX2 library to download HTML code of a product listing page.**
 
 ---
 
@@ -17,12 +18,12 @@ Using browser tools for developers is crucial for understanding the structure of
 
 ## Starting a Python project
 
-Before we start coding, we need to set up a Python project. Let's create new directory with a virtual environment. Inside the directory and with the environment activated, we'll install the HTTPX library:
+Before we start coding, we need to set up a Python project. Let's create new directory with a virtual environment. Inside the directory and with the environment activated, we'll install the HTTPX2 library:
 
 ```text
-$ pip install httpx
+$ pip install httpx2
 ...
-Successfully installed ... httpx-0.0.0
+Successfully installed ... httpx2-0.0.0
 ```
 
 :::tip Installing packages
@@ -34,12 +35,12 @@ Being comfortable around Python project setup and installing packages is a prere
 Now let's test that all works. Inside the project directory we'll create a new file called `main.py` with the following code:
 
 ```py
-import httpx
+import httpx2
 
 print("OK")
 ```
 
-Running it as a Python program will verify that our setup is okay and we've installed HTTPX:
+Running it as a Python program will verify that our setup is okay and we've installed HTTPX2:
 
 ```text
 $ python main.py
@@ -54,13 +55,13 @@ If you see errors or for any other reason cannot run the code above, it means th
 
 ## Downloading product listing
 
-Now onto coding! Let's change our code so it downloads HTML of the product listing instead of printing `OK`. The [documentation of the HTTPX library](https://www.python-httpx.org/) provides us with examples how to use it. Inspired by those, our code will look like this:
+Now onto coding! Let's change our code so it downloads HTML of the product listing instead of printing `OK`. The [documentation of the HTTPX2 library](https://pydantic.dev/docs/httpx2/get-started/) provides us with examples how to use it. Inspired by those, our code will look like this:
 
 ```py
-import httpx
+import httpx2
 
 url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
-response = httpx.get(url)
+response = httpx2.get(url)
 print(response.text)
 ```
 
@@ -81,7 +82,7 @@ $ python main.py
 </html>
 ```
 
-Running `httpx.get(url)`, we made a HTTP request and received a response. It's not particularly useful yet, but it's a good start of our scraper.
+Running `httpx2.get(url)`, we made a HTTP request and received a response. It's not particularly useful yet, but it's a good start of our scraper.
 
 :::tip Client and server, request and response
 
@@ -111,13 +112,13 @@ First, let's ask for trouble. We'll change the URL in our code to a page that do
 https://warehouse-theme-metal.myshopify.com/does/not/exist
 ```
 
-We could check the value of `response.status_code` against a list of allowed numbers, but HTTPX already provides `response.raise_for_status()`, a method that analyzes the number and raises the `httpx.HTTPError` exception if our request wasn't successful:
+We could check the value of `response.status_code` against a list of allowed numbers, but HTTPX2 already provides `response.raise_for_status()`, a method that analyzes the number and raises the `httpx2.HTTPError` exception if our request wasn't successful:
 
 ```py
-import httpx
+import httpx2
 
 url = "https://warehouse-theme-metal.myshopify.com/does/not/exist"
-response = httpx.get(url)
+response = httpx2.get(url)
 response.raise_for_status()
 print(response.text)
 ```
@@ -129,9 +130,9 @@ $ python main.py
 Traceback (most recent call last):
   File "/Users/.../main.py", line 5, in <module>
     response.raise_for_status()
-  File "/Users/.../.venv/lib/python3/site-packages/httpx/_models.py", line 761, in raise_for_status
+  File "/Users/.../.venv/lib/python3/site-packages/httpx2/_models.py", line 828, in raise_for_status
     raise HTTPStatusError(message, request=request, response=self)
-httpx.HTTPStatusError: Client error '404 Not Found' for url 'https://warehouse-theme-metal.myshopify.com/does/not/exist'
+httpx2.HTTPStatusError: Client error '404 Not Found' for url 'https://warehouse-theme-metal.myshopify.com/does/not/exist'
 For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
 ```
 
@@ -174,11 +175,11 @@ https://warehouse-theme-metal.myshopify.com/collections/sales
   If you want to use Python instead, it offers several ways how to create files. The solution below uses [pathlib](https://docs.python.org/3/library/pathlib.html):
 
   ```py
-  import httpx
+  import httpx2
   from pathlib import Path
 
   url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
-  response = httpx.get(url)
+  response = httpx2.get(url)
   response.raise_for_status()
   Path("products.html").write_text(response.text)
   ```
@@ -187,7 +188,7 @@ https://warehouse-theme-metal.myshopify.com/collections/sales
 
 ### Download an image as a file
 
-Download a product image, then save it on your disk as a file. While HTML is _textual_ content, images are _binary_. You may want to scan through the [HTTPX QuickStart](https://www.python-httpx.org/quickstart/) for guidance. You can use this URL pointing to an image of a TV:
+Download a product image, then save it on your disk as a file. While HTML is _textual_ content, images are _binary_. You may want to scan through the [HTTPX2 QuickStart](https://pydantic.dev/docs/httpx2/get-started/quickstart/) for guidance. You can use this URL pointing to an image of a TV:
 
 ```text
 https://warehouse-theme-metal.myshopify.com/cdn/shop/products/sonyxbr55front_f72cc8ff-fcd6-4141-b9cc-e1320f867785.jpg
@@ -200,10 +201,10 @@ https://warehouse-theme-metal.myshopify.com/cdn/shop/products/sonyxbr55front_f72
 
   ```py
   from pathlib import Path
-  import httpx
+  import httpx2
 
   url = "https://warehouse-theme-metal.myshopify.com/cdn/shop/products/sonyxbr55front_f72cc8ff-fcd6-4141-b9cc-e1320f867785.jpg"
-  response = httpx.get(url)
+  response = httpx2.get(url)
   response.raise_for_status()
   Path("tv.jpg").write_bytes(response.content)
   ```

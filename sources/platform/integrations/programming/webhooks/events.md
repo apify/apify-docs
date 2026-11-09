@@ -1,7 +1,6 @@
 ---
 title: Events types for webhooks
 description: Configure which event types trigger a webhook in an Actor or task run. Trigger actions on run creation, success, failure, termination, or timeout.
-sidebar_position: 1
 slug: /integrations/webhooks/events
 ---
 
@@ -32,13 +31,13 @@ The following data is provided for Actor run events:
 }
 ```
 
-To fetch the results from the Actor run, you can use the `actorRunId` event property and call one of the [Run object and its storages](/api/v2/actor-runs) API endpoints. For example:
+To fetch the results from the Actor run, you can use the `actorRunId` event property and call one of the [Manage Actor runs](/api/v2/actor-runs) API endpoints. For example:
 
 ```text
 https://api.apify.com/v2/actor-runs/[ACTOR_RUN_ID]/dataset/items?token=[TOKEN]
 ```
 
-Apart from the event data, actions also have the `resource` object available, which can provide more details about the object that triggered the event. For more information about the `resource` objects, see the [Webhooks Actions page](/platform/integrations/webhooks/actions#resource)
+Apart from the event data, actions also have the `resource` object available, which can provide more details about the object that triggered the event. For more information about the `resource` objects, see the [Webhooks Actions page](/integrations/webhooks/actions#resource)
 
 ## Actor build events
 

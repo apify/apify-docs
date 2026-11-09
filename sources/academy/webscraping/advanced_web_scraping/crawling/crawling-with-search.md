@@ -3,6 +3,7 @@ title: Crawling with search
 description: Learn how to extract all of a website's listings even if they limit the number of results pages. See code examples for setting up your scraper.
 sidebar_position: 3
 slug: /advanced-web-scraping/crawling/crawling-with-search
+pagination: true
 ---
 
 In this lesson, we will start with a simpler example of scraping HTML based websites with limited pagination.
@@ -73,7 +74,7 @@ Some sites will allow you to construct non-overlapping ranges. For example, you 
 
 Non-overlapping ranges should remove the possibility of duplicate products (unless a [listing has multiple values](#can-a-listing-have-more-values)) and the lowest number of pages.
 
-If the website supports only overlapping ranges (e.g. **$0-$5**, **$5–10**), it is not a big problem. Only a small portion of the listings will be duplicates, and they can be removed using a [request queue](/platform/storage/request-queue).
+If the website supports only overlapping ranges (e.g. **$0-$5**, **$5–10**), it is not a big problem. Only a small portion of the listings will be duplicates, and they can be removed using a [request queue](/storage/request-queue).
 
 #### Can a listing have more values? {#can-a-listing-have-more-values}
 

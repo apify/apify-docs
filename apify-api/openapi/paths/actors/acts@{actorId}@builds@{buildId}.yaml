@@ -1,7 +1,7 @@
 get:
   tags:
     - Actors/Actor builds
-  summary: Get build
+  summary: Get Actor build
   description: |
     By passing the optional `waitForFinish` parameter the API endpoint will
     synchronously wait for the build to finish.
@@ -10,7 +10,7 @@ get:
 
     This endpoint does not require the authentication token. Instead, calls are authenticated using a hard-to-guess ID of the build. However,
     if you access the endpoint without the token, certain attributes, such as `usageUsd` and `usageTotalUsd`, will be hidden.
-  operationId: act_build_get
+  operationId: actors_build_get
   security: []
   parameters:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
@@ -30,10 +30,12 @@ get:
       $ref: ../../components/responses/NotFound.yaml
     "405":
       $ref: ../../components/responses/MethodNotAllowed.yaml
+    "408":
+      $ref: ../../components/responses/Timeout.yaml
     "429":
       $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: true
-  x-deprecated-description: "API endpoints related to build of the Actor were moved under new namespace [`actor-builds`](#/reference/actor-builds). Gets an object that contains all the details about a specific build of an Actor."
+  x-deprecated-description: "API endpoints related to build of the Actor were moved under new namespace `actor-builds` ([Manage Actor builds](/api/v2/actor-builds)). Gets an object that contains all the details about a specific build of an Actor."
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/actors/build-object/get-build
     - https://docs.apify.com/api/v2#/reference/actors/get-build

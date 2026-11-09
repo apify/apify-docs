@@ -1,7 +1,6 @@
 ---
 title: Webhook actions
 description: Configure webhook actions to send HTTP POST requests when Actor or task runs complete. Use payload templates to inject dynamic run data into the request.
-sidebar_position: 2
 slug: /integrations/webhooks/actions
 ---
 
@@ -48,11 +47,11 @@ For security reasons, include a secret token in the webhook URL to ensure that o
 
 :::tip Headers template
 
-You can also use [Headers template](/platform/integrations/webhooks/actions#headers-template) for this purpose.
+You can also use [Headers template](/integrations/webhooks/actions#headers-template) for this purpose.
 
 :::
 
-Note that webhook HTTP requests have a timeout of _30 seconds_.
+Note that webhook HTTP requests have a timeout of _2 minutes_.
 If your endpoint performs a time-consuming operation, respond to the request immediately to prevent timeouts before Apify receives the response. To ensure reliable completion of the time-consuming operation, consider using a message queue internally to retry the operation on internal failure.
 
 In rare cases, the webhook might be invoked more than once.
@@ -170,8 +169,8 @@ The description is an optional string that you can add to the webhook. It serves
 | ----------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `userId`    | string | ID of the Apify user who owns the webhook.                                                                                                                               |
 | `createdAt` | string | ISO string date of the webhook's trigger event.                                                                                                                          |
-| `eventType` | string | Type of the trigger event, see [Events](/platform/integrations/webhooks/events).                                                                                         |
-| `eventData` | Object | Data associated with the trigger event, see [Events](/platform/integrations/webhooks/events).                                                                            |
+| `eventType` | string | Type of the trigger event, see [Events](/integrations/webhooks/events).                                                                                                  |
+| `eventData` | Object | Data associated with the trigger event, see [Events](/integrations/webhooks/events).                                                                                     |
 | `resource`  | Object | The resource that caused the trigger event.                                                                                                                              |
 | `globals`   | Object | Data available in global context. Contains `dateISO` (date of webhook's trigger event in ISO 8601 format) and `dateUnix` (date of trigger event in Unix time in seconds) |
 

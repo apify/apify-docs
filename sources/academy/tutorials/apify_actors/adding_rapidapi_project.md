@@ -114,13 +114,13 @@ Actors can run in two modes: as batch processing jobs that execute a single task
 
 :::
 
-Once you’ve saved the settings, go to the **Standby** tab, and click the **Test endpoint** button. It will start the Actor, and you can test it. Once the Actor is running, you're done with the migration!
+Once you’ve saved the settings, go to the **Endpoints** tab, and click the **Test endpoint** button. It will start the Actor, and you can test it. Once the Actor is running, you're done with the migration!
 
 ## Next steps
 
 Ready to monetize your Actor and start earning? Check out these guides:
 
-- [Set up monetization for your Actor](https://docs.apify.com/platform/actors/publishing/monetize)
-- [Publish your Actor on Apify Store](https://docs.apify.com/platform/actors/publishing/publish)
+- [Set up monetization for your Actor](https://docs.apify.com/actors/monetize)
+- [Publish your Actor on Apify Store](https://docs.apify.com/actors/publishing/publish)
 
 You can also extend your Actor with custom logic and leverage additional Apify platform features, such as storage or web scraping capabilities.

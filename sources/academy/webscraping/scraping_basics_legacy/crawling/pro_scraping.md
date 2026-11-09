@@ -3,6 +3,7 @@ title: Professional scraping
 description: Learn how to build scrapers quicker and get better and more robust results by using Crawlee, an open-source library for scraping in Node.js.
 sidebar_position: 7
 slug: /scraping-basics-javascript/legacy/crawling/pro-scraping
+pagination: true
 noindex: true
 ---
 
@@ -26,7 +27,7 @@ We mentioned the benefits of developing using a dedicated scraping library in th
 4. **More robust scrapers**. Annoying details like retries, proxy management, error handling, and result storage are all handled out-of-the-box by Crawlee.
 5. **Helpful community**. You can [join our Discord](https://discord.gg/qkMS6pU4cF) or talk to us [on GitHub](https://github.com/apify/crawlee/discussions). We're almost always there to talk about scraping and programming in general.
 
-:::tip
+:::tip Crawlee in practice
 
 If you're still not convinced, [read this story](https://apify.com/success-stories/daltix-analytics-scrapy-python-to-apify) about how a data analytics company saved 90% of scraping costs by switching from Scrapy (a scraping library for Python) to Crawlee. We were pretty surprised ourselves, to be honest.
 

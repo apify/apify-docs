@@ -46,3 +46,9 @@ properties:
   dataRetentionDays:
     type: integer
     examples: [90]
+  maxScheduleCount:
+    type: integer
+    examples: [100]
+  maxMonthlyUnblockerUnits:
+    type: number
+    examples: [1000000]

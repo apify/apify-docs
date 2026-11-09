@@ -3,7 +3,7 @@ title: Handle Actor issues
 description: Learn how the Issues tab can help you improve your Actor, engage with users, and build a reliable, user-friendly solution.
 sidebar_position: 2
 category: build-and-publish
-slug: /actor-marketing-playbook/interact-with-users/issues-tab
+slug: /build-and-publish/interact-with-users/issues-tab
 ---
 
 **Once you publish your Actor in Apify Store, it opens the door to new users, feedback, and… issue reports. Users can create issues and add comments after trying your Actor. But why is this space so important?**
@@ -47,7 +47,7 @@ Now that the Issues tab is public and on the web, it also serves other goals:
 
 Check out how the team behind the **Apollo.io leads scraper** manages their [Issues tab](https://apify.com/curious_coder/apollo-io-scraper/issues/open) for a great example of professional responses and quick problem-solving.
 
-Note that this Actor is a rental, so users expect a high-quality service.
+Note that this is a paid Actor, so users expect a high-quality service.
 
 ![issues tab example](images/issues-tab-example.png)
 

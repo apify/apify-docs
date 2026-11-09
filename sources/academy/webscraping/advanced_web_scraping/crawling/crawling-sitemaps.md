@@ -3,6 +3,7 @@ title: Crawling sitemaps
 description: Learn how to extract all of a website's listings even if they limit the number of results pages. See code examples for setting up your scraper.
 sidebar_position: 2
 slug: /advanced-web-scraping/crawling/crawling-sitemaps
+pagination: true
 ---
 
 In the previous lesson, we learned what is the utility (and dangers) of crawling sitemaps. In this lesson, we will go in-depth to how to crawl sitemaps.
@@ -49,7 +50,7 @@ Some websites also provide an HTML version, to help indexing bots find new conte
 /sitemap.html
 /sitemap_index
 
-Apify provides the [Sitemap Sniffer](https://apify.com/vaclavrut/sitemap-sniffer), an open source Actor that scans the URL variations automatically for you so that you don't have to check them manually.
+To skip the manual checks, you can use [Sitemap Detector](https://apify.com/coder_zoro/sitemap-detector), a community Actor that looks for sitemaps in the website's `robots.txt` file and at common paths such as `/sitemap.xml`.
 
 ## How to set up HTTP requests to download sitemaps
 

@@ -3,12 +3,13 @@ title: Extracting data from HTML with Python
 sidebar_label: Extracting data from HTML
 description: Lesson about building a Python application for watching prices. Using string manipulation to extract and clean data scraped from the product listing page.
 slug: /scraping-basics-python/extracting-data
+pagination: true
 ---
 
 import CodeBlock from '@theme/CodeBlock';
 import Exercises from '../scraping_basics/_exercises.mdx';
-import WarehouseUnitsExercise from '!!raw-loader!roa-loader!./exercises/warehouse_units.py';
-import WarehouseUnitsRegexExercise from '!!raw-loader!roa-loader!./exercises/warehouse_units_regex.py';
+import IkeaDimensionsExercise from '!!raw-loader!roa-loader!./exercises/ikea_dimensions.py';
+import IkeaDimensionsRegexExercise from '!!raw-loader!roa-loader!./exercises/ikea_dimensions_regex.py';
 import GuardianPublishDatesExercise from '!!raw-loader!roa-loader!./exercises/guardian_publish_dates.py';
 
 **In this lesson we'll finish extracting product data from the downloaded HTML. With help of basic string manipulation we'll focus on cleaning and correctly representing the product price.**
@@ -64,11 +65,11 @@ If you're not proficient in Python's string methods, [.startswith()](https://doc
 The whole program would look like this:
 
 ```py
-import httpx
+import httpx2
 from bs4 import BeautifulSoup
 
 url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
-response = httpx.get(url)
+response = httpx2.get(url)
 response.raise_for_status()
 
 html_code = response.text
@@ -181,11 +182,11 @@ price_text = (
 In this case, removing the dot from the price text is the same as if we multiplied all the numbers with 100, effectively converting dollars to cents. For converting the text to a number we'll use `int()` instead of `float()`. This is how the whole program looks like now:
 
 ```py
-import httpx
+import httpx2
 from bs4 import BeautifulSoup
 
 url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
-response = httpx.get(url)
+response = httpx2.get(url)
 response.raise_for_status()
 
 html_code = response.text
@@ -228,32 +229,32 @@ Well, not to spoil the excitement, but in its current form, the data isn't very 
 
 <Exercises />
 
-### Scrape units on stock
+### Scrape dimensions and prices from IKEA
 
-Change our scraper so that it extracts how many units of each product are on stock. Your program should print the following. Note the unit amounts at the end of each line:
+Download the [IKEA JONAXEL system page](https://www.ikea.com/se/en/cat/jonaxel-system-45730/) and parse it with Beautiful Soup. Print each product's width, depth, height, and price.
+
+![IKEA product listing](../scraping_basics/images/exercise-ikea.webp)
+
+Skip products that don't list all three dimensions. For example, the top shelf in the image lists only its width and depth, so your program shouldn't print it. Your output should resemble the following (prices are in [SEK](https://www.google.com/search?q=1%20sek)):
 
 ```text
-JBL Flip 4 Waterproof Portable Bluetooth Speaker | 672
-Sony XBR-950G BRAVIA 4K HDR Ultra HD TV | 77
-Sony SACS9 10" Active Subwoofer | 7
-Sony PS-HX500 Hi-Res USB Turntable | 15
-Klipsch R-120SW Powerful Detailed Home Speaker - Unit | 0
-Denon AH-C720 In-Ear Headphones | 236
-...
+50 | 51 | 104 ... 599 SEK
+99 | 51 | 173 ... 1496 SEK
+50 | 51 | 104 ... 349 SEK
 ```
 
 <details>
   <summary>Solution</summary>
-  <CodeBlock language="py">{WarehouseUnitsExercise.code}</CodeBlock>
+  <CodeBlock language="py">{IkeaDimensionsExercise.code}</CodeBlock>
 </details>
 
 ### Use regular expressions
 
-Simplify the code from previous exercise. Use [regular expressions](https://docs.python.org/3/library/re.html) to parse the number of units. You can match digits using a range like `[0-9]` or by a special sequence `\d`. To match more characters of the same type you can use `+`.
+Simplify the code from the previous exercise. Use a [regular expression](https://docs.python.org/3/library/re.html) to parse the width, depth, and height. Match digits with `[0-9]` or `\d`, and use `+` to match one or more digits.
 
 <details>
   <summary>Solution</summary>
-  <CodeBlock language="py">{WarehouseUnitsRegexExercise.code}</CodeBlock>
+  <CodeBlock language="py">{IkeaDimensionsRegexExercise.code}</CodeBlock>
 </details>
 
 ### Scrape publish dates of F1 news

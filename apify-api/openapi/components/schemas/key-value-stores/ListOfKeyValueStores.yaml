@@ -5,7 +5,11 @@ allOf:
     required:
       - items
     properties:
+      unnamed:
+        type: boolean
+        description: Whether the listing was filtered to only unnamed key-value stores.
+        examples: [false]
       items:
         type: array
         items:
-          $ref: ./KeyValueStore.yaml
+          $ref: ./KeyValueStoreListItem.yaml

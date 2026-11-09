@@ -4,6 +4,7 @@ description: Understand how to save the configurations for Actors with Actor tas
 sidebar_position: 6.3
 sidebar_label: III - Tasks & storage
 slug: /expert-scraping-with-apify/tasks-and-storage
+pagination: true
 ---
 
 **Understand how to save the configurations for Actors with Actor tasks. Also, learn about storage and the different types Apify offers.**
@@ -22,9 +23,9 @@ Storage allows us to save persistent data for further processing. As you'll lear
 
 ## Learning 🧠 {#learning}
 
-- Check out [the docs about Actor tasks](/platform/actors/running/tasks).
-- Read about the [two main storage options](/platform/storage/dataset) on the Apify platform.
-- Understand the [crucial differences between named and unnamed storages](/platform/storage/usage#named-and-unnamed-storages).
+- Check out [the docs about Actor tasks](/actors/running/tasks).
+- Read about the [two main storage options](/storage/dataset) on the Apify platform.
+- Understand the [differences between named and unnamed storages](/storage#named-and-unnamed-storages).
 - Learn about the [`Dataset`](/sdk/js/reference/class/Dataset) and [`KeyValueStore`](/sdk/js/reference/class/KeyValueStore) objects in the Apify SDK.
 
 ## Knowledge check 📝 {#quiz}

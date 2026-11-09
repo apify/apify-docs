@@ -3,6 +3,7 @@ title: Parsing HTML with Python
 sidebar_label: Parsing HTML
 description: Lesson about building a Python application for watching prices. Using the Beautiful Soup library to parse HTML code of a product listing page.
 slug: /scraping-basics-python/parsing-html
+pagination: true
 ---
 
 import CodeBlock from '@theme/CodeBlock';
@@ -50,11 +51,11 @@ Now let's use it for parsing the HTML. The `BeautifulSoup` object allows us to w
 We'll update our code to the following:
 
 ```py
-import httpx
+import httpx2
 from bs4 import BeautifulSoup
 
 url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
-response = httpx.get(url)
+response = httpx2.get(url)
 response.raise_for_status()
 
 html_code = response.text
@@ -86,7 +87,7 @@ Sales
 
 :::note Dynamic websites
 
-The Warehouse returns full HTML in its initial response, but many other sites add some content after the page loads or after user interaction. In such cases, what we'd see in DevTools could differ from `response.text` in Python. Learn how to handle these scenarios in our [API Scraping](../api_scraping/index.md) and [Puppeteer & Playwright](../puppeteer_playwright/index.md) courses.
+The Warehouse returns full HTML in its initial response, but many other sites add some content after the page loads or after user interaction. In such cases, what we'd see in DevTools could differ from `response.text` in Python. Learn how to handle these scenarios in our [API Scraping](/academy/api-scraping) and [Puppeteer & Playwright](/academy/puppeteer-playwright) courses.
 
 :::
 
@@ -97,11 +98,11 @@ Beautiful Soup's `.select()` method runs a _CSS selector_ against a parsed HTML 
 Scanning through [usage examples](https://beautiful-soup-4.readthedocs.io/en/latest/#css-selectors) will help us to figure out code for counting the product cards:
 
 ```py
-import httpx
+import httpx2
 from bs4 import BeautifulSoup
 
 url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
-response = httpx.get(url)
+response = httpx2.get(url)
 response.raise_for_status()
 
 html_code = response.text

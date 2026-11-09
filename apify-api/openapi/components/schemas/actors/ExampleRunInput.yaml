@@ -4,6 +4,8 @@ properties:
   body:
     type: string
     example: '{ "helloWorld": 123 }'
+    description: Sample input, serialized as a string.
   contentType:
     type: string
     examples: [application/json; charset=utf-8]
+    description: MIME type of `body`.

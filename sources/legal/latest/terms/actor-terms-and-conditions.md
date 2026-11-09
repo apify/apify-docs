@@ -12,7 +12,7 @@ slug: /actor-terms-and-conditions
 <!-- vale off -->
 <!-- markdownlint-disable -->
 
-Effective date: January 12, 2026
+Effective date: July 9, 2026
 
 ---
 
@@ -28,7 +28,7 @@ Any capitalized terms not otherwise defined in these Actor Terms shall have the 
 
 1.2. "**Community Actor**" refers to a public Actor (other than an Apify Maintained Actor) developed by any User and made available by such User in Apify Store.
 
-1.3. "**Actor Developer**" refers to a User who creates an Actor through the Platform.
+1.3. "**Creator**" refers to a User who creates an Actor through the Platform.
 
 1.4. "**Actor Input**" is any data, input, or parameters provided by you when using an Actor.
 
@@ -36,23 +36,25 @@ Any capitalized terms not otherwise defined in these Actor Terms shall have the 
 
 ## 2. Your Rights and Obligations
 
-2.1. Your use of Actors consumes your prepaid usage and resources, as billed to you according to Apify's pricing as outlined in the Agreement.
+2.1. Your use of Actors consumes your prepaid usage and resources, as billed to you according to Apify's pricing outlined in the Agreement.
 
-2.2. You may use Actors solely for legitimate purposes consistent with their intended functionality and in accordance with these Actor Terms, General Terms (including Apify Acceptable Use Policy), and the respective terms published by the Actor Developer(s) and all applicable laws and regulations.
+2.2. You may use Actors solely for legitimate purposes consistent with their intended functionality and in accordance with these Actor Terms, General Terms (including Apify Acceptable Use Policy), and the respective terms published by the Creator(s) and all applicable laws and regulations.
 
 ## 3. Actor Intellectual Property Rights
 
-3.1. Actor Developer reserves all rights, title, and interest, including all Intellectual Property rights in and to their Actor(s).
+3.1. Creator reserves all rights, title, and interest, including all Intellectual Property rights in and to their Actor(s).
 
-3.2. You retain all intellectual property rights in your Actor Inputs and Actor Outputs. However, you grant Actor Developer a non-exclusive, worldwide, royalty-free license to process your Actor Inputs and Actor Outputs as necessary to provide the Actor’s functionality to you.
+3.2. As between you and Creator, and to the extent permitted by applicable law, you retain all intellectual property rights that subsist in your Actor Input and Actor Output. However, you grant Creator a non-exclusive, worldwide, royalty-free license to process your Actor Inputs and Actor Outputs as necessary to provide the Actor’s functionality to you.
 
 ## 4. Actor Privacy
 
-4.1. Subject to your permissions levels setting in your Account, you authorize us to share your Account information and Customer Data relating to the specific Actor with the Actor Developer. You acknowledge that Actor Developers shall not be considered our Subprocessors as defined in the [Apify Data Processing Addendum](../terms/data-processing-addendum.md).
+4.1. Subject to the permission level you grant to an Actor in your Account, you authorize us to share your Account information and Customer Data with the Creator, to the extent the Actor is able to access them at that permission level. You acknowledge that Creator shall not be considered our Subprocessors as defined in the [Apify Data Processing Addendum](../terms/data-processing-addendum.md).
 
-4.2. For Community Actors, you should also review any privacy policies or data handling practices provided by the respective Actor Developer, as they may have direct access to or control over the Actor Inputs and Actor Outputs processed by their Actors.
+4.2. For Community Actors, you should also review any privacy policies or data handling practices provided by the respective Creator, as they may have direct access to or control over the Actor Inputs and Actor Outputs processed by their Actors.
 
-4.3. Unless the parties agree otherwise, all Actors are intended for the processing of non-confidential, non-proprietary information. Any Actor Outputs retrieved by you and processed through the Platform are considered Customer Data.
+4.3. Any Actor Outputs retrieved by you and processed through the Platform are considered Customer Data.
+
+4.4. Each Actor runs under your Account at one of two permission levels: "limited permissions," under which the Actor can access only its own storage, the data it generates, and resources you explicitly make available to it; or "full permissions," under which the Actor can access all data and resources in your Account. The permission level required by an Actor is indicated on its Apify Store listing. Further technical details are set out in our documentation. By approving or running a full-permission Actor, you authorize that Actor, and the corresponding Creator, to access your Account information and Customer Data to the full extent as specified in our documentation. You are solely responsible for the permission level you grant and for assessing the trustworthiness of any Actor before granting it full permissions. We do not monitor or control how Creators use the access granted to them through Actor permissions. We are not liable for any access to, use, or disclosure of your Account information or Customer Data by an Actor or Creator that results from the permission level you have granted.
 
 ## 5. Disclaimer of Warranties
 
@@ -73,17 +75,18 @@ Any capitalized terms not otherwise defined in these Actor Terms shall have the 
 8.2. **Limited Warranty**. We warrant that Apify Maintained Actors will perform substantially in accordance with their official description. Your sole and exclusive remedy for any breach of this warranty is that we will use commercially reasonable efforts to correct the non-conforming Apify Maintained Actor.
 
 8.3. **Updates**. We may release updates, new versions, or discontinue Apify Maintained Actors at our sole discretion. We will endeavor to provide reasonable notice for any significant changes or deprecations.
-Use of AI Features. Some Apify Maintained Actors may provide AI features that utilize third-party AI companies’ technology ("**Third-Party AI Provider**"). You acknowledge that other users may submit information or materials to Apify Maintained Actors that generate results that are identical or similar to your Actor Outputs ("**Third-Party Results**"). You acknowledge that you have no right, title, or interest in or to any Third-Party Results. You permit Third Party AI Provider to use the Actor Input to deliver the Actor Output and comply with applicable laws. We contractually restrict Third Party AI Providers from using Actor Inputs for training or otherwise improving Third Party AI Providers’ services.
+
+8.4. **Use of AI Features**. Some Apify Maintained Actors may provide AI features that utilize third-party AI companies’ technology ("**Third-Party AI Provider**"). You acknowledge that other users may submit information or materials to Apify Maintained Actors that generate results that are identical or similar to your Actor Outputs ("**Third-Party Results**"). You acknowledge that you have no right, title, or interest in or to any Third-Party Results. You permit Third Party AI Provider to use the Actor Input to deliver the Actor Output and comply with applicable laws. We contractually restrict Third Party AI Providers from using Actor Inputs for training Third Party AI Providers’ services.
 
 ## 9. Community Actors
 
-9.1. Community Actors are developed by Users and are made available on Apify Store without any verification or guarantees from Apify. Specifically, we do not guarantee security, accuracy, or legal compliance of the Community Actors.
+9.1. Community Actors are developed by Creators and are made available on Apify Store without any verification or guarantees from Apify. Specifically, we do not review, vet, endorse, or monitor the Community Actors and do not guarantee quality, security, accuracy, or legal compliance of the Community Actors.
 
-9.2. Apify does not review, vet, endorse, or monitor the Community Actors for quality, security, or compliance. Actor Developers are solely responsible for their Community Actors. They have no obligation to maintain, update, or provide support for their Community Actors, unless explicitly stated by the Actor Developer themselves.
+9.2. Creators are solely responsible for their Community Actors. They have no obligation to maintain, update, or provide support for their Community Actors, unless explicitly stated by the Creator themselves. Badges such as “Verified” or “Partner” displayed in Apify Store are informational designations only and do not constitute Apify's endorsement of the Creators or their Community Actors.
 
 9.3. You are solely responsible for conducting your own due diligence on the Community Actor’s code (if available), reputation, and functionality before use. We do not assume any risks associated with using Community Actors, including, but not limited to, risks of data loss, privacy breaches, security vulnerabilities, inaccurate results, operational failures, and non-compliance with applicable laws.
 
-9.4. You acknowledge that the Actor Developer will have access to and control over any Actor Inputs you provide. Apify has no control over or responsibility for how Actor Developers of Community Actors handle or secure Actor Inputs or Actor Outputs.
+9.4. You acknowledge that the Creator will have access to and control over any Actor Inputs you provide. Apify has no control over or responsibility for how Creator of Community Actors handle or secure Actor Inputs or Actor Outputs.
 
 9.5. While Apify does not monitor Community Actors, you may report malicious or severely problematic Community Actors to Apify. Apify reserves the right to review such reports and may, at its sole discretion, remove the reported Community Actor or disable access to it without notice or explicit justification.
 

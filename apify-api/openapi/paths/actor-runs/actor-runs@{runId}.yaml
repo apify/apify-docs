@@ -1,25 +1,26 @@
 get:
   tags:
     - Actor runs
-    - Actor Runtime API/Actor runs
-  summary: Get run
+  summary: Get Actor run
   description: |
     This is not a single endpoint, but an entire group of endpoints that lets
     you retrieve the run or any of its default storages.
 
     ##### Convenience endpoints for Actor run default storages
 
-    * [Dataset](/api/v2/default-dataset)
+    * [Default dataset](/api/v2/default-dataset)
 
-    * [Key-value store](/api/v2/default-key-value-store)
+    * [Default key-value store](/api/v2/default-key-value-store)
 
-    * [Request queue](/api/v2/default-request-queue)
+    * [Default request queue](/api/v2/default-request-queue)
 
     Gets an object that contains all the details about a
     specific run of an Actor.
 
     By passing the optional `waitForFinish` parameter the API endpoint will synchronously wait
     for the run to finish. This is useful to avoid periodic polling when waiting for Actor run to complete.
+    Note that the first response after completion can still show preliminary `stats`, costs, and event counts.
+    For stable figures, wait about 10 seconds and call the endpoint again.
 
     This endpoint does not require the authentication token. Instead, calls are authenticated using a hard-to-guess ID of the run. However,
     if you access the endpoint without the token, certain attributes, such as `usageUsd` and `usageTotalUsd`, will be hidden.
@@ -46,6 +47,8 @@ get:
       $ref: ../../components/responses/NotFound.yaml
     "405":
       $ref: ../../components/responses/MethodNotAllowed.yaml
+    "408":
+      $ref: ../../components/responses/Timeout.yaml
     "429":
       $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
@@ -56,8 +59,7 @@ get:
 put:
   tags:
     - Actor runs
-    - Actor Runtime API/Actor runs
-  summary: Update run
+  summary: Update Actor run
   description: |
     This endpoint can be used to update both the run's status message and to configure its general resource access level.
 
@@ -134,7 +136,7 @@ put:
 delete:
   tags:
     - Actor runs
-  summary: Delete run
+  summary: Delete Actor run
   description: |
     Delete the run. Only finished runs can be deleted. Only the person or
     organization that initiated the run can delete it.

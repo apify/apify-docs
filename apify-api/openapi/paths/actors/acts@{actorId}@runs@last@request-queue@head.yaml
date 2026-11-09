@@ -1,2 +1,2 @@
 get:
-  $ref: "../../components/objects/request-queues/request-queue-head.yaml#/getLastRun"
+  $ref: "../../components/objects/request-queues/request-queue-head.yaml#/listLastRun"

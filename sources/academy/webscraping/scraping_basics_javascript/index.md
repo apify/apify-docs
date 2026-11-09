@@ -1,10 +1,11 @@
 ---
 title: Web scraping basics for JavaScript devs
 description: Learn how to use JavaScript to extract information from websites in this practical course, starting from the absolute basics.
-sidebar_position: 1
+sidebar_position: 2
 sidebar_label: Web scraping basics with JS
 category: web scraping
 slug: /scraping-basics-javascript
+pagination: true
 ---
 
 import DocCardList from '@theme/DocCardList';
@@ -29,7 +30,7 @@ In this course we'll use JavaScript to create an application for watching prices
 - Follow links programmatically (crawling).
 - Save time and effort with frameworks, such as Crawlee, and scraping platforms, such as Apify.
 
-## Who this course is for
+## Who is this course for
 
 Anyone with basic knowledge of developing programs in JavaScript who wants to start with web scraping can take this course. The course does not expect you to have any prior knowledge of other web technologies or scraping.
 
@@ -61,7 +62,7 @@ As a scraper developer, you are not limited by whether certain data is available
 - Improve your productivity by building personal tools, such as your own real estate or rare sneakers watchdog.
 - Companies can hire you to build custom scrapers mining data important for their business.
 - Become an invaluable asset to data journalism, data science, or nonprofit teams working to make the world a better place.
-- You can publish your scrapers on platforms like the [Apify Store](https://apify.com/store) and earn money by renting them out to others.
+- You can publish your scrapers on platforms like the [Apify Store](https://apify.com/store) and earn money by letting others use them.
 
 ### Why learn with Apify
 

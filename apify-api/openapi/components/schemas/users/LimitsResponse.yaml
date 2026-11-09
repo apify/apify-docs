@@ -1,7 +1,0 @@
-title: LimitsResponse
-required:
-  - data
-type: object
-properties:
-  data:
-    $ref: ./AccountLimits.yaml

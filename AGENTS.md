@@ -90,25 +90,29 @@ schema:
   const: "constantValue"
 ```
 
+### Links to API endpoints
+
+Applies to every link to an API reference page, in the OpenAPI spec and in `sources/`:
+
+- Use the endpoint's current `summary` as the link text, exactly as written in the spec: `[Get dataset items](/api/v2/dataset-items-get)`, not `[List items](…)`, `[API](…)` or `[documentation](…)`. Keep "endpoint" or "API reference" outside the link: `use the [Run Actor](/api/v2/actors-runs-post) endpoint`
+- Exception for lists: when a sentence lists several related endpoints, you can shorten each link to the word that tells them apart, as long as the surrounding text names the resource. For example, `CRUD ([add](…), [get](…), [update](…), [delete](…)) operations on requests` or `endpoints for [Actors](…) and [tasks](…)`. A link to a single endpoint still uses its full summary
+- Link to an endpoint group page with that group's current title, for example `[Manage Actor runs](/api/v2/actor-runs)`
+- Link to the page path (`/api/v2/<page-id>`), never to legacy anchors such as `#/reference/...` or `#tag/.../operation/...`. Those anchors only exist on the target page itself, so they lead nowhere from any other page
+- When you rename an endpoint's `summary`, update the link text of every link to it across the repo (`grep -rn "/api/v2/<page-id>"`)
+- When two endpoints share a summary, add the path after the link to tell them apart
+- Exception: link text that has to match a name in another product, such as Bubble plugin action names, stays as it is
+
 ### Python API client model generation
 
-OpenAPI spec changes in this repo automatically trigger Pydantic model regeneration in `apify-client-python`. The pipeline:
+`apify-client-python` generates its Pydantic models from the **published** spec, and it pulls them on its own schedule - this repo does not push anything to it:
 
-1. **This repo** (`.github/workflows/openapi-ci.yaml`):
-   - On PR with changes to `apify-api/openapi/**`: lint, build, and validate the bundled spec
-   - Upload `static/api/openapi.{json,yaml}` as artifacts
-   - `trigger-client-model-regeneration` job calls `gh workflow run regenerate_models.yaml` in `apify/apify-client-python`, passing `docs_pr_number` and `docs_workflow_run_id`
-   - On PR close: `cleanup-client-model-pr` job closes the corresponding PR in `apify-client-python` and deletes its branch
+1. **This repo** (`.github/workflows/openapi-ci.yaml`): on a PR touching `apify-api/openapi/**`, lints, builds, and validates the bundled spec. Once merged and deployed, the bundle is served at `https://docs.apify.com/api/openapi.json`.
 
-2. **apify-client-python** (`.github/workflows/manual_regenerate_models.yaml`):
-   - Triggered via `workflow_dispatch` (automatically from this repo's CI or manually from GitHub UI)
-   - Downloads the OpenAPI spec artifact from this repo's workflow run (or fetches from `https://docs.apify.com/api/openapi.json` for manual runs)
-   - Runs `datamodel-codegen` to generate Pydantic models into `src/apify_client/_models.py`
-   - Runs `scripts/postprocess_generated_models.py` to fix known codegen issues (e.g. camelCase discriminator fields)
-   - Commits to branch `update-models-docs-pr-{PR_NUMBER}`, creates/updates a PR
-   - Posts a cross-repo comment on the original docs PR linking to the generated client PR
+2. **apify-client-python** (`.github/workflows/on_schedule_regenerate_models.yaml`): nightly at 02:00 UTC, downloads the spec from that URL, regenerates the models, and opens a PR when they change. Only the spec's version is recorded on that side, not the spec itself.
 
-Branch naming convention `update-models-docs-pr-{N}` links the two PRs.
+A spec change therefore reaches the Python client within a day of being deployed, with no coordination needed on this side. Nothing here needs to be merged in lockstep with a client PR.
+
+This used to be a cross-repo dispatch that opened a companion client PR per docs PR. It was removed: the client can only generate from the published spec anyway, and having two mechanisms write the same generated files made them diverge.
 
 ### Theme system
 
@@ -140,6 +144,7 @@ Use `pnpm start:dev` + nginx to serve all repos together locally. See `CONTRIBUT
 - Auto-deploy on merge to `master`
 - Preview builds on pull requests
 - PR titles must use [Conventional Commits](https://www.conventionalcommits.org/) format (`docs:`, `fix:`, `feat:`, etc.) - enforced by CI
+- Keep PR descriptions to one or two sentences - what changed and why. No boilerplate headings, no bullet lists restating the diff. See the pull request process in `CONTRIBUTING.md`
 
 ## Common pitfalls
 
@@ -159,24 +164,15 @@ Use `pnpm start:dev` + nginx to serve all repos together locally. See `CONTRIBUT
 
 ## Standards
 
-Detailed writing and formatting standards are in `standards/`:
+Writing and formatting rules live in `standards/`, starting at [`standards/README.md`](standards/README.md). That directory is the source of truth - `CONTRIBUTING.md` and `.cursor/rules/` point there instead of restating rules, so a rule change lands in one place.
 
-- `standards/writing-style.md` - Prose voice, tone, headings, links, numbers
-- `standards/content-standards.md` - Front matter, admonitions, code blocks, images
-- `standards/terminology.md` - Product names, capitalization, article usage
-- `standards/grammar-rules.md` - Hyphenation, punctuation, numbers, brand spelling
-- `standards/file-organization.md` - File naming and directory structure
-- `standards/quality-standards.md` - Complete quality checklist before submitting
+Most of these rules run in CI through Vale, using the `apify/vale-rules` package pinned in `.vale.ini`. The check fails on errors. Run `vale "<file>"` on what you changed rather than working from a summary.
 
-Key rules at a glance:
+Rules CI won't catch, so check them yourself:
 
-- US English, active voice, imperative tone, no sales language
-- Sentence case headings, no gerunds
-- Bold for UI elements only; `code` for filenames, commands, variables
-- All admonitions require titles
-- 140-160 character descriptions in front matter
-- See `standards/terminology.md` for Apify product name capitalization
-- Don't use em dashes (—) - use hyphen with spaces ( - ) instead
+- Frontmatter descriptions run 140-160 characters, action-oriented, and avoid the word "documentation". Vale ignores frontmatter entirely
+- Screenshots use the light theme, with `#F86606` borders to highlight UI elements. No arrows or circles
+- Sentence case headings are only a Vale suggestion, so Title Case passes CI
 
 ## Skills
 
@@ -189,15 +185,6 @@ Documentation skills live in `.agents/skills/` ([AgentSkills spec](https://agent
 
 ## Review checklist
 
-When creating or reviewing documentation, verify:
+Use the checklist in [`standards/quality-standards.md`](standards/quality-standards.md). It lives there so it can't drift from the rules it checks.
 
-- [ ] Sentence case headings, no gerunds, proper hierarchy
-- [ ] Front matter complete (title, description 140-160 chars, sidebar_position, slug)
-- [ ] Bold used only for UI elements
-- [ ] All admonitions have titles
-- [ ] Code examples are complete with syntax highlighting
-- [ ] Links use descriptive text, internal links use relative paths
-- [ ] Images have alt text, use light theme
-- [ ] Terminology matches rules above
-- [ ] US English, active voice, no sales language
-- [ ] `pnpm lint` passes
+Before opening a pull request, run `pnpm lint` and `vale "<file>"` on the files you changed.

@@ -1,0 +1,7 @@
+title: ListOfActorOAuthConnectionsResponse
+required:
+  - data
+type: object
+properties:
+  data:
+    $ref: ./ListOfActorOAuthConnections.yaml

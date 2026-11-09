@@ -27,6 +27,10 @@ static/api
 apify-docs-theme/package-lock.json
 .github/styles/Microsoft
 .github/styles/write-good
+.github/styles/Apify
+.github/styles/ApifyDocs
+.github/styles/ApifyUI
+.github/styles/ApifyContent
 sources/academy/**/exercises/storage
 sources/academy/**/exercises/node_modules
 sources/academy/**/exercises/package*.json

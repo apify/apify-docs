@@ -3,6 +3,7 @@ title: Crawling websites with Node.js
 sidebar_label: Crawling websites
 description: Lesson about building a Node.js application for watching prices. Using the Fetch API to follow links to individual product pages.
 slug: /scraping-basics-javascript/crawling
+pagination: true
 ---
 
 import CodeBlock from '@theme/CodeBlock';

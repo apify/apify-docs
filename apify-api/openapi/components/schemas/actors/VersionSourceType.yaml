@@ -4,4 +4,5 @@ enum:
   - GIT_REPO
   - TARBALL
   - GITHUB_GIST
+  - SOURCE_CODE
 type: string

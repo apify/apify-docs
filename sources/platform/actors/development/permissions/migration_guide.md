@@ -1,5 +1,6 @@
 ---
-title: Migration guide
+title: Migrate to limited Actor permissions
+sidebar_label: Migration guide
 description: Migrate your Actor to limited permissions using the latest Apify SDK, with step-by-step migration paths, code examples, and fixes for common issues.
 sidebar_position: 9
 slug: /actors/development/permissions/migration-guide
@@ -39,7 +40,7 @@ await apifyClient.actor(actorId).call(input, {
 Or using the API:
 
 ```tsx
- POST https://api.apify.com/v2/acts/<actor_id>/runs?forcePermissionLevel=LIMITED_PERMISSIONS
+ POST https://api.apify.com/v2/actors/<actor_id>/runs?forcePermissionLevel=LIMITED_PERMISSIONS
 ```
 
 ## Common migration paths

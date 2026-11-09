@@ -3,6 +3,7 @@
     grid-template-columns: repeat(3, 3fr);
     grid-column-gap: 10px;
     grid-row-gap: 10px;
+    margin-bottom: 16px;
 }
 
 @media screen and (max-width: 768px) {

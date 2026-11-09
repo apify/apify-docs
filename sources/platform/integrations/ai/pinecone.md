@@ -2,7 +2,6 @@
 title: Pinecone integration
 description: Learn how to integrate Apify with Pinecone to export Actor results and dataset items into a Pinecone vector index for AI-powered similarity search.
 sidebar_label: Pinecone
-sidebar_position: 17
 slug: /integrations/pinecone
 toc_min_heading_level: 2
 toc_max_heading_level: 4
@@ -23,7 +22,7 @@ Before you begin, ensure that you have the following:
 - A [Pinecone database](https://www.pinecone.io/) and index set up.
 - A Pinecone index created & Pinecone API token obtained.
 - An [OpenAI API key](https://openai.com/index/openai-api/) to compute text embeddings.
-- An [Apify API token](https://docs.apify.com/platform/integrations/api#api-token) to access [Apify Actors](https://apify.com/store).
+- An [Apify API token](https://docs.apify.com/integrations/api#api-token) to access [Apify Actors](https://apify.com/store).
 
 ### How to setup Pinecone database and create an index
 

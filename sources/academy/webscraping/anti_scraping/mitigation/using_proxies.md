@@ -3,6 +3,7 @@ title: Using proxies
 description: Learn how to use and automagically rotate proxies in your scrapers by using Crawlee, and a bit about how to obtain pools of proxies.
 sidebar_position: 2
 slug: /anti-scraping/mitigation/using-proxies
+pagination: true
 ---
 
 **Learn how to use and automagically rotate proxies in your scrapers by using Crawlee, and a bit about how to obtain pools of proxies.**

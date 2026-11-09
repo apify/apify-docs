@@ -2,7 +2,6 @@
 title: viaSocket integration
 description: Learn how to connect Apify with viaSocket, configure triggers, authenticate with API tokens, and build automation workflows across your apps.
 sidebar_label: viaSocket
-sidebar_position: 8
 slug: /integrations/viasocket
 ---
 

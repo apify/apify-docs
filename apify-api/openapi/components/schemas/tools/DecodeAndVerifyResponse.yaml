@@ -4,4 +4,4 @@ required:
   - data
 properties:
   data:
-    $ref: ./DecodeAndVerifyData.yaml
+    $ref: ./DecodeAndVerifyResult.yaml

@@ -2,7 +2,6 @@
 title: IFTTT integration
 description: Connect Apify Actors with IFTTT to build Applets that trigger on Actor run events, retrieve data from datasets, and start runs from any IFTTT trigger.
 sidebar_label: IFTTT
-sidebar_position: 7
 slug: /integrations/ifttt
 ---
 
@@ -79,7 +78,7 @@ To use Apify as an action in your Applet:
 
 1. Select the Actor or task you want to use from the dropdown menu.
 
- :::note
+ :::note Actor or task not in the dropdown?
 
  IFTTT displays up to 50 recent items in a dropdown. If your Actor or task isn't visible, try using it at least once via API or in Apify Console to make it appear in the list.
 
@@ -93,8 +92,8 @@ To use Apify as an action in your Applet:
    | --- | --- | --- |
    | **Wait until run finishes** | Defines how the Actor should be executed. | `yes`, `no` |
    | **Input overrides** | JSON input that overrides the Actor's default input. | `{"key": "value"}` |
-   | **Build** | Specifies the Actor build to run. Can be a build tag or build number. See [Builds](/platform/actors/running/runs-and-builds#builds) for more information. | `0.2.10`, `version-0` |
-   | **Memory** | Memory limit for the run in megabytes. See [Memory](/platform/actors/running/usage-and-resources#memory) for more information. | `256` |
+   | **Build** | Specifies the Actor build to run. Can be a build tag or build number. See [Builds](/actors/running/runs-and-builds#builds) for more information. | `0.2.10`, `version-0` |
+   | **Memory** | Memory limit for the run in megabytes. See [Memory](/actors/running/usage-and-resources#memory) for more information. | `256` |
 
 1. Click **Create action** to finish setting up the action.
 
@@ -125,9 +124,9 @@ To check if your Applet is working properly:
 
 ### Queries
 
-- **Get Dataset Items**: Retrieves items from a [dataset](/platform/storage/dataset)
+- **Get Dataset Items**: Retrieves items from a [dataset](/storage/dataset)
 - **Scrape Single URL**: Runs a scraper for a specified website and returns its content
-- **Get Key-Value Store Record**: Retrieves a value from a [key-value store](/platform/storage/key-value-store)
+- **Get Key-Value Store Record**: Retrieves a value from a [key-value store](/storage/key-value-store)
 
 ## Troubleshooting
 

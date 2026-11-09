@@ -1,7 +1,7 @@
 import { Dataset, PuppeteerCrawler, RequestList } from 'crawlee';
 
 const requestList = await RequestList.open(null, [{
-    requestsFromUrl: 'https://www.brewbound.com/sitemap.xml',
+    requestsFromUrl: 'https://www.brewbound.com/sitemaps/breweries.xml',
     regex: /http(s)?:\/\/www\.brewbound\.com\/breweries\/[^/<]+\/[^/<]+/gm,
 }]);
 
