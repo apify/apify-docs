@@ -1,6 +1,7 @@
 get:
   tags:
     - Actors
+    - Actor Runtime API/Actors
   summary: Get list of Actors
   description: |
     Gets the list of all Actors that the user created or used. The response is a
@@ -92,6 +93,7 @@ get:
 post:
   tags:
     - Actors
+    - Actor Runtime API/Actors
   summary: Create Actor
   description: |
     Creates an Actor with the settings specified in an `Actor` object passed as

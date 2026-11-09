@@ -1,6 +1,7 @@
 get:
   tags:
     - Webhooks/Webhooks
+    - Actor Runtime API/Webhooks
   summary: Get list of webhooks
   description: |
     Gets the list of webhooks that the user created.
@@ -48,6 +49,7 @@ get:
 post:
   tags:
     - Webhooks/Webhooks
+    - Actor Runtime API/Webhooks
   summary: Create webhook
   description: |
     Creates a new webhook with settings provided by the webhook object passed as

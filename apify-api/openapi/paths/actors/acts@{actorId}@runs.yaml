@@ -1,6 +1,7 @@
 get:
   tags:
     - Actors/Actor runs
+    - Actor Runtime API/Actor runs
   summary: Get list of Actor's runs
   description: |
     Gets the list of runs of a specific Actor. The response is a list of
@@ -62,6 +63,7 @@ get:
 post:
   tags:
     - Actors/Actor runs
+    - Actor Runtime API/Actor runs
   summary: Run Actor
   description: |
     Runs an Actor and immediately returns without waiting for the run to finish.

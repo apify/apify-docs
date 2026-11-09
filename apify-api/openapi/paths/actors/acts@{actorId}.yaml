@@ -1,6 +1,7 @@
 get:
   tags:
     - Actors
+    - Actor Runtime API/Actors
   summary: Get Actor
   description: Gets an object that contains all the details about the Actor with the specified ID.
   operationId: actor_get
@@ -100,6 +101,7 @@ get:
 put:
   tags:
     - Actors
+    - Actor Runtime API/Actors
   summary: Update Actor
   description: |
     Updates an Actor's settings with the values specified in an `Actor` object
@@ -324,6 +326,7 @@ put:
 delete:
   tags:
     - Actors
+    - Actor Runtime API/Actors
   summary: Delete Actor
   description: Deletes an Actor with the specified ID.
   operationId: actor_delete

@@ -447,6 +447,67 @@
   x-displayName: Sign and verify objects
   description: |
     The API endpoints described in this section provide utility tools for encoding and decoding data.
+- name: Actor Runtime API
+  x-displayName: ""
+  description: |
+    The subset of the Apify API that the Actor runtime, a local Apify platform for developing Actors, implements.
+    Use it to compare the Actor runtime implementation with the Apify API specification.
+
+    Storage endpoints aren't part of this subset.
+- name: Actor Runtime API/Actors
+  x-displayName: Actors
+  x-parent-tag-name: Actor Runtime API
+  x-trait: "true"
+  description: |
+    List, create, get, update, and delete Actors.
+- name: Actor Runtime API/Actor versions
+  x-displayName: Actor versions
+  x-parent-tag-name: Actor Runtime API
+  x-trait: "true"
+  description: |
+    Manage Actor versions and their environment variables.
+- name: Actor Runtime API/Actor builds
+  x-displayName: Actor builds
+  x-parent-tag-name: Actor Runtime API
+  x-trait: "true"
+  description: |
+    Build Actors, and get, abort, and delete builds.
+- name: Actor Runtime API/Actor runs
+  x-displayName: Actor runs
+  x-parent-tag-name: Actor Runtime API
+  x-trait: "true"
+  description: |
+    Start Actor runs and get, update, abort, reboot, resurrect, charge, and delete them.
+- name: Actor Runtime API/Actor tasks
+  x-displayName: Actor tasks
+  x-parent-tag-name: Actor Runtime API
+  x-trait: "true"
+  description: |
+    Manage Actor tasks and start their runs.
+- name: Actor Runtime API/Webhooks
+  x-displayName: Webhooks
+  x-parent-tag-name: Actor Runtime API
+  x-trait: "true"
+  description: |
+    Manage webhooks and inspect their dispatches.
+- name: Actor Runtime API/Schedules
+  x-displayName: Schedules
+  x-parent-tag-name: Actor Runtime API
+  x-trait: "true"
+  description: |
+    Manage schedules.
+- name: Actor Runtime API/Logs
+  x-displayName: Logs
+  x-parent-tag-name: Actor Runtime API
+  x-trait: "true"
+  description: |
+    Get build and run logs.
+- name: Actor Runtime API/Users
+  x-displayName: Users
+  x-parent-tag-name: Actor Runtime API
+  x-trait: "true"
+  description: |
+    Get user account data.
 - name: Default dataset
   x-displayName: Default dataset
   description: |

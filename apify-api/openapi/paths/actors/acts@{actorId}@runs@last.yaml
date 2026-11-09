@@ -1,6 +1,7 @@
 get:
   tags:
     - Actors/Actor runs
+    - Actor Runtime API/Actor runs
   summary: Get Actor's last run
   description: |
     This is not a single endpoint, but an entire group of endpoints that lets you to

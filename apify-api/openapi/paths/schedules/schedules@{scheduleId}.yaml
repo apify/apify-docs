@@ -1,6 +1,7 @@
 get:
   tags:
     - Schedules
+    - Actor Runtime API/Schedules
   summary: Get schedule
   description: Gets the schedule object with all details.
   operationId: schedule_get
@@ -40,6 +41,7 @@ get:
 put:
   tags:
     - Schedules
+    - Actor Runtime API/Schedules
   summary: Update schedule
   description: |
     Updates a schedule using values specified by a schedule object passed as
@@ -105,6 +107,7 @@ put:
 delete:
   tags:
     - Schedules
+    - Actor Runtime API/Schedules
   summary: Delete schedule
   description: Deletes a schedule.
   operationId: schedule_delete

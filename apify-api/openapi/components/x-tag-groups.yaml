@@ -43,6 +43,18 @@
   tags:
     - Tools
     - Tools/Encoding
+- name: Actor Runtime API
+  tags:
+    - Actor Runtime API
+    - Actor Runtime API/Actors
+    - Actor Runtime API/Actor versions
+    - Actor Runtime API/Actor builds
+    - Actor Runtime API/Actor runs
+    - Actor Runtime API/Actor tasks
+    - Actor Runtime API/Webhooks
+    - Actor Runtime API/Schedules
+    - Actor Runtime API/Logs
+    - Actor Runtime API/Users
 - name: Convenience endpoints
   tags:
     - Default dataset
