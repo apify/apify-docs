@@ -8,7 +8,6 @@ sidebar_label: Monetize
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import AgenticPaymentsEligibility from '../../../_partials/_agentic-payments-eligibility.mdx';
 
 
 You can monetize your automation, AI agent, and web scraping projects by publishing them as paid Actors on [Apify Store](https://apify.com/store).
@@ -48,14 +47,7 @@ Apify keeps 20% of your Actor's revenue as a commission. Apify will never charge
 
 ## Make your Actor eligible for agentic payments
 
-Agentic payments let AI agents run and pay for your Actor without an Apify account. Which Actors an agent can run depends on how it pays:
-
-- Agents that buy a prepaid token from [Apify AGI](/agents/payments) over [x402](/integrations/x402) or [MPP](/integrations/mpp) can run any Actor that uses [limited permissions](/actors/development/permissions). The pricing model doesn't matter.
-- Agents that pay per request, such as with [Skyfire](/integrations/skyfire), can run only Actors that meet the requirements below.
-
-<AgenticPaymentsEligibility />
-
-Apify checks these requirements automatically, with no separate opt-in.
+Agentic payments let AI agents run and pay for your Actor without an Apify account. Agents buy a prepaid token from [Apify AGI](/agents/payments) over [x402](/integrations/x402), [MPP](/integrations/mpp), or [Skyfire](/integrations/skyfire), and can run any Actor that uses [limited permissions](/actors/development/permissions). The pricing model doesn't matter, and there's no separate opt-in.
 
 ## Handle free users
 

@@ -54,7 +54,7 @@
     "devDependencies": {
         "@apify/oxlint-config": "^0.3.0",
         "@apify/tsconfig": "^0.2.0",
-        "@stoplight/spectral-cli": "^6.17.0",
+        "@stoplight/spectral-cli": "^6.17.1",
         "@types/react": "^19.3.0",
         "babel-plugin-styled-components": "^2.4.0",
         "bats": "^1.13.0",
@@ -70,8 +70,8 @@
         "typescript": "7.0.2"
     },
     "dependencies": {
-        "@apify/ui-icons": "^1.61.0",
-        "@apify/ui-library": "^1.175.0",
+        "@apify/ui-icons": "^1.61.1",
+        "@apify/ui-library": "^1.176.0",
         "@docusaurus/core": "~3.10.2",
         "@docusaurus/faster": "~3.10.2",
         "@docusaurus/plugin-client-redirects": "~3.10.2",
@@ -80,7 +80,7 @@
         "@docusaurus/theme-common": "~3.10.2",
         "@docusaurus/theme-mermaid": "~3.10.2",
         "@docusaurus/utils": "~3.10.2",
-        "@redocly/cli": "^2.75.0",
+        "@redocly/cli": "^2.76.0",
         "@signalwire/docusaurus-plugin-llms-txt": "^1.2.2",
         "clsx": "^2.1.1",
         "docusaurus-plugin-image-zoom": "^3.0.1",
