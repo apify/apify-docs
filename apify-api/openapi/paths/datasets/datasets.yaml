@@ -1,6 +1,7 @@
 get:
   tags:
     - Storage/Datasets
+    - Actor Runtime API/Datasets
   summary: Get list of datasets
   description: |
     Lists all of a user's datasets.
@@ -63,6 +64,7 @@ get:
 post:
   tags:
     - Storage/Datasets
+    - Actor Runtime API/Datasets
   summary: Create dataset
   description: |
     Creates a dataset and returns its object.

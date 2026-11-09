@@ -44,6 +44,9 @@ sharedGet: &sharedGet
 
 getById:
   <<: [*sharedGet, *sharedTagById]
+  tags:
+    - Storage/Request queues/Requests
+    - Actor Runtime API/Request queues
   summary: Get request from request queue
   description: Returns request from queue.
   operationId: requestQueue_request_get
@@ -63,6 +66,9 @@ getById:
 
 getDefault:
   <<: [*sharedGet, *sharedTagDefault]
+  tags:
+    - Default request queue
+    - Actor Runtime API/Request queues
   summary: Get request from the default request queue of an Actor run
   description: |
     Returns a request from the default request queue of the Actor run.
@@ -76,6 +82,9 @@ getDefault:
 
 getLastRun:
   <<: [*sharedGet, *sharedTagLastRun]
+  tags:
+    - Last Actor run's default request queue
+    - Actor Runtime API/Request queues
   summary: Get request from the default request queue of an Actor's last run
   description: |
     Returns a request from the default request queue of the last Actor run.
@@ -91,6 +100,9 @@ getLastRun:
 
 getTaskLastRun:
   <<: [*sharedGet, *sharedTagTaskLastRun]
+  tags:
+    - Last Actor task run's default request queue
+    - Actor Runtime API/Request queues
   summary: Get request from the default request queue of an Actor task's last run
   description: |
     Returns a request from the default request queue of the last Actor task run.
@@ -129,6 +141,9 @@ sharedPut: &sharedPut
 
 putById:
   <<: [*sharedPut, *sharedTagById]
+  tags:
+    - Storage/Request queues/Requests
+    - Actor Runtime API/Request queues
   summary: Update request in request queue
   description: |
     Updates a request in a queue. Mark request as handled by setting
@@ -153,6 +168,9 @@ putById:
 
 putDefault:
   <<: [*sharedPut, *sharedTagDefault]
+  tags:
+    - Default request queue
+    - Actor Runtime API/Request queues
   summary: Update request in the default request queue of an Actor run
   description: |
     Updates a request in the default request queue of the Actor run.
@@ -168,6 +186,9 @@ putDefault:
 
 putLastRun:
   <<: [*sharedPut, *sharedTagLastRun]
+  tags:
+    - Last Actor run's default request queue
+    - Actor Runtime API/Request queues
   summary: Update request in the default request queue of an Actor's last run
   description: |
     Updates a request in the default request queue of the last Actor run.
@@ -185,6 +206,9 @@ putLastRun:
 
 putTaskLastRun:
   <<: [*sharedPut, *sharedTagTaskLastRun]
+  tags:
+    - Last Actor task run's default request queue
+    - Actor Runtime API/Request queues
   summary: Update request in the default request queue of an Actor task's last run
   description: |
     Updates a request in the default request queue of the last Actor task run.

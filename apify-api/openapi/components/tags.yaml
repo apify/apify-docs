@@ -452,8 +452,6 @@
   description: |
     The subset of the Apify API that the Actor runtime, a local Apify platform for developing Actors, implements.
     Use it to compare the Actor runtime implementation with the Apify API specification.
-
-    Storage endpoints aren't part of this subset.
 - name: Actor Runtime API/Actors
   x-displayName: Actors
   x-parent-tag-name: Actor Runtime API
@@ -508,6 +506,24 @@
   x-trait: "true"
   description: |
     Get user account data.
+- name: Actor Runtime API/Datasets
+  x-displayName: Datasets
+  x-parent-tag-name: Actor Runtime API
+  x-trait: "true"
+  description: |
+    Create, get, update, and delete datasets, and store and read their items.
+- name: Actor Runtime API/Key-value stores
+  x-displayName: Key-value stores
+  x-parent-tag-name: Actor Runtime API
+  x-trait: "true"
+  description: |
+    Create, get, update, and delete key-value stores, and manage their records.
+- name: Actor Runtime API/Request queues
+  x-displayName: Request queues
+  x-parent-tag-name: Actor Runtime API
+  x-trait: "true"
+  description: |
+    Create, get, update, and delete request queues, and add, read, update, and lock their requests. Request deletion isn't implemented.
 - name: Default dataset
   x-displayName: Default dataset
   description: |

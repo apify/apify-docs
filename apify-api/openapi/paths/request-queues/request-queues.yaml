@@ -1,6 +1,7 @@
 get:
   tags:
     - Storage/Request queues
+    - Actor Runtime API/Request queues
   summary: Get list of request queues
   description: |
     Lists all of a user's request queues. The response is a JSON array of
@@ -63,6 +64,7 @@ get:
 post:
   tags:
     - Storage/Request queues
+    - Actor Runtime API/Request queues
   summary: Create request queue
   description: |
     Creates a request queue and returns its object.

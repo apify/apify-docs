@@ -55,6 +55,9 @@
     - Actor Runtime API/Schedules
     - Actor Runtime API/Logs
     - Actor Runtime API/Users
+    - Actor Runtime API/Datasets
+    - Actor Runtime API/Key-value stores
+    - Actor Runtime API/Request queues
 - name: Convenience endpoints
   tags:
     - Default dataset
