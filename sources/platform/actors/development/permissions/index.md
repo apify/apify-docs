@@ -19,7 +19,7 @@ Most Actors should use limited permissions to request only the specific access t
 
 ## How Actor permissions work
 
-When a user runs an Actor, it receives an Apify API token. This token is injected to the Actor's runtime and has a scope of access as requested by the Actor's permission level.
+When a user runs an Actor, it receives an Apify API token in the `APIFY_TOKEN` environment variable. This token is created for that run only, has a scope of access as requested by the Actor's permission level, and expires shortly after the run finishes. The proxy password in `APIFY_PROXY_PASSWORD` is run-specific in the same way. For details, see [Run-specific credentials](../programming_interface/environment_variables.md#run-specific-credentials).
 
 Actors with **Full permissions** receive a token that grants complete access to the user's Apify account via the Apify API.
 
