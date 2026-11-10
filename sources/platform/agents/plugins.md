@@ -48,7 +48,7 @@ If your agent isn't listed, connect the [MCP server](/mcp) directly and install 
 
 ## Install
 
-Before you install, set up the [Apify CLI](/cli). The plugin doesn't replace it: the Actor development, actorization, and scraping skills call it. Install it and sign in:
+The Actor development, actorization, and scraping skills call the [Apify CLI](/cli), which the plugin doesn't include. Install it and sign in before you use them:
 
 ```bash
 npm install -g apify-cli
