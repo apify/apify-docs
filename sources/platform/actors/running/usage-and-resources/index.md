@@ -87,7 +87,7 @@ It's possible to [use multiple threads in Node.js-based Actor](https://dev.to/re
 
 When you run an Actor it generates platform usage that's charged to the user account. Platform usage comprises four main parts:
 
-- **[Compute units](/actors/running/usage-and-resources/compute-units)**: Memory allocated to the Actor run, multiplied by how long the run lasts.
+- **[Compute units](/actors/running/usage-and-resources/compute-units)**: Memory allocated to the Actor run or build, multiplied by how long the run lasts.
 - **Data transfer**: The amount of data transferred between the web, Apify platform, and other external systems.
 - **Proxy costs**: Residential or SERP proxy usage.
 - **Storage operations**: Read, write, and other operations performed on the Key-value store, Dataset, and Request queue.
