@@ -197,6 +197,8 @@ To select your tools visually, use the [MCP configurator](https://mcp.apify.com/
 | `get-schedule` | `schedules` | | Get a schedule's cron expression, time zone, state, and next run |
 | `update-schedule` | `schedules` | | Change a schedule's cron expression, time zone, state, or actions |
 | `delete-schedule` | `schedules` | | Delete a schedule permanently |
+| `apify-api-search` | `api` | | Search the Apify API reference for operations by keyword |
+| `apify-api-details` | `api` | | Get an API operation's parameters and request body schema |
 | `report-problem` | `dev` | ✅ | Report a problem with the MCP server to Apify |
 
 The server withholds `report-problem` when you [turn off telemetry](#opt-out-of-telemetry), and doesn't load it by default for some MCP clients. If your client doesn't get it by default, add `report-problem` or the `dev` category to the `tools` parameter. It stays unavailable while telemetry is off.
