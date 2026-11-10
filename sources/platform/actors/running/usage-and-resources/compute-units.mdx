@@ -1,7 +1,6 @@
 ---
 title: Compute units
-sidebar_label: Compute units
-description: Learn what a compute unit (CU) is, how Apify calculates CUs, who pays for them,and how to estimate and check your CU usage.
+description: Learn what a compute unit (CU) is, how Apify calculates CUs, who pays for them, and how to estimate and check your CU usage.
 sidebar_position: 1
 slug: /actors/running/usage-and-resources/compute-units
 ---
@@ -30,11 +29,9 @@ When developing your own Actor, you pay for the CUs used by every run and build 
 
 The following factors affect resource consumption, from most to least important:
 
-- Scraping with a browser and using libraries such as [Puppeteer](https://pptr.dev/) or [Playwright](https://playwright.dev/) uses more resources and is slower than parsing plain HTML with [Cheerio](https://cheerio.js.org/). Cheerio can be up to 20 times faster.
-
+- Scraping with a browser and using libraries such as [Puppeteer or Playwright](/academy/puppeteer-playwright) uses more resources and is slower than parsing plain HTML with Cheerio or Beautiful Soup. Cheerio and Beautiful Soup can be up to 20 times faster.
 - Running one large batch costs less than splitting the same work into many short runs. Each run spends CUs on starting the Actor, and a short run can end before the Actor scales up to use all its allocated memory and CPU.
-
-- Heavy pages, such as Amazon or Facebook, take more time to load, whether you use a browser or Cheerio. Large pages can take up to 3 times more resources to load and parse than average pages.
+- Heavy pages, such as Amazon or Facebook, take more time to load, whether you use a browser or plain HTML parser. Large pages can take up to 3 times more resources to load and parse than average pages.
 
 ## Check your usage
 
