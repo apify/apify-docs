@@ -3,6 +3,7 @@ title: V - Using proxies
 description: Understand how to use proxies in your Puppeteer and Playwright requests, as well as a couple of the most common use cases for proxies.
 sidebar_position: 2.5
 slug: /puppeteer-playwright/proxies
+pagination: true
 ---
 
 import Tabs from '@theme/Tabs';

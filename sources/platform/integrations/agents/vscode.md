@@ -9,6 +9,7 @@ import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integrati
 import AgentPluginLimitations from '@site/sources/_partials/_agent-plugin-limitations.mdx';
 import ApifyPluginSkills from '@site/sources/_partials/_apify-plugin-skills.mdx';
 import ApifyPluginSkillPrompts from '@site/sources/_partials/_apify-plugin-skill-prompts.mdx';
+import FindGoogleMapsActorPrompt from '@site/sources/_partials/_find-google-maps-actor-prompt.mdx';
 
 [Visual Studio Code (VS Code)](https://code.visualstudio.com/) is Microsoft's code editor. Its [agent plugins](https://code.visualstudio.com/docs/agent-customization/agent-plugins) are prepackaged bundles of agent customizations - skills, agents, and MCP servers - that you install from a plugin marketplace and use in chat.
 
@@ -60,7 +61,7 @@ The connection stays authenticated for future sessions. You can revoke access at
 
 Open Chat, select the **apify** agent from the mode picker, and describe what you want in natural language. The agent routes the request to the right tool or skill, so you don't need to name tools yourself.
 
-> Use Apify to find a good Actor for scraping Google Maps places. Show me the best option, its input requirements, pricing model, and what kind of dataset output it returns. Do not run the Actor yet.
+<FindGoogleMapsActorPrompt />
 
 The agent searches Apify Store, fetches the top Actor's details through the Apify MCP server, and summarizes its inputs, pricing, and output - all without running the Actor.
 

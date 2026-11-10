@@ -222,6 +222,16 @@ const themeConfig = {
         darkTheme: require('./theme/CodeThemes/dark').darkTheme,
         additionalLanguages: ['docker', 'log', 'php', 'json5', 'bash'],
     },
+    // Colours come from CSS variables in custom.css, so both modes start from the neutral base theme.
+    mermaid: {
+        theme: { light: 'base', dark: 'base' },
+        options: {
+            themeVariables: {
+                fontFamily:
+                    "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
+            },
+        },
+    },
     // this needs to be absolute link otherwise it gets resolved wrongly in project docs
     image: 'https://apify.com/og-image/docs-article',
     footer: {
@@ -262,6 +272,12 @@ const themeConfig = {
                     {
                         label: 'CLI',
                         href: `${absoluteUrl}/cli/docs`,
+                        target: '_self',
+                        rel: 'dofollow',
+                    },
+                    {
+                        label: 'Glossary',
+                        href: `${absoluteUrl}/glossary`,
                         target: '_self',
                         rel: 'dofollow',
                     },

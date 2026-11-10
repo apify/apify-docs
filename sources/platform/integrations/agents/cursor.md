@@ -8,6 +8,7 @@ slug: /integrations/cursor
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 import ApifyPluginSkills from '@site/sources/_partials/_apify-plugin-skills.mdx';
 import ApifyPluginSkillPrompts from '@site/sources/_partials/_apify-plugin-skill-prompts.mdx';
+import FindGoogleMapsActorPrompt from '@site/sources/_partials/_find-google-maps-actor-prompt.mdx';
 
 [Cursor](https://cursor.com) is an AI-powered code editor that understands your codebase, edits files, runs commands, and completes multi-step development tasks from natural-language prompts.
 
@@ -76,7 +77,7 @@ The connection stays authenticated for future sessions. You can revoke access at
 
 Describe what you want in natural language. The `apify` agent routes the request to the right tool or skill, so you don't need to name tools yourself.
 
-> Use Apify to find a good Actor for scraping Google Maps places. Show me the best option, its input requirements, pricing model, and what kind of dataset output it returns. Do not run the Actor yet.
+<FindGoogleMapsActorPrompt />
 
 The agent searches Apify Store, fetches the top Actor's details through the Apify MCP server, and summarizes its inputs, pricing, and output - all without running the Actor.
 

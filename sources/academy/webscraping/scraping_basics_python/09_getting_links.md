@@ -3,6 +3,7 @@ title: Getting links from HTML with Python
 sidebar_label: Getting links from HTML
 description: Lesson about building a Python application for watching prices. Using the Beautiful Soup library to locate links to individual product pages.
 slug: /scraping-basics-python/getting-links
+pagination: true
 ---
 
 import CodeBlock from '@theme/CodeBlock';
@@ -34,13 +35,13 @@ This will help us figure out the actual prices of products, as right now, for so
 Over the course of the previous lessons, the code of our program grew to almost 50 lines containing downloading, parsing, and exporting:
 
 ```py
-import httpx
+import httpx2
 from bs4 import BeautifulSoup
 import json
 import csv
 
 url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
-response = httpx.get(url)
+response = httpx2.get(url)
 response.raise_for_status()
 
 html_code = response.text
@@ -82,7 +83,7 @@ Let's introduce several functions to make the whole thing easier to digest. Firs
 
 ```py
 def download(url):
-    response = httpx.get(url)
+    response = httpx2.get(url)
     response.raise_for_status()
 
     html_code = response.text
@@ -143,13 +144,13 @@ The code above assumes the `data` variable contains at least one item, and that 
 Now let's put it all together:
 
 ```py
-import httpx
+import httpx2
 from bs4 import BeautifulSoup
 import json
 import csv
 
 def download(url):
-    response = httpx.get(url)
+    response = httpx2.get(url)
     response.raise_for_status()
 
     html_code = response.text
@@ -264,7 +265,7 @@ Hmm, but that isn't what we wanted! Where is the beginning of each URL? It turns
 Browsers reading the HTML know the base address and automatically resolve such links, but we'll have to do this manually. The function [`urljoin`](https://docs.python.org/3/library/urllib.parse.html#urllib.parse.urljoin) from Python's standard library will help us. Let's add it to our imports first:
 
 ```py
-import httpx
+import httpx2
 from bs4 import BeautifulSoup
 import json
 import csv

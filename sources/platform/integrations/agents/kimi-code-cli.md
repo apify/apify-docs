@@ -8,6 +8,7 @@ slug: /integrations/kimi-code-cli
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 import ApifyPluginSkills from '@site/sources/_partials/_apify-plugin-skills.mdx';
 import ApifyPluginSkillPrompts from '@site/sources/_partials/_apify-plugin-skill-prompts.mdx';
+import FindGoogleMapsActorPrompt from '@site/sources/_partials/_find-google-maps-actor-prompt.mdx';
 
 [Kimi Code CLI](https://www.kimi.com/code/docs/en/kimi-code-cli/guides/getting-started.html) is Moonshot AI's agentic coding tool that runs in your terminal. It reads and edits your codebase, runs commands, and completes multi-step development tasks.
 
@@ -82,7 +83,7 @@ The connection stays authenticated for future sessions. You can revoke access at
 
 Describe what you want in natural language. The `using-apify` skill is already in context and routes the request to the right tool or skill, so you don't need to name tools yourself.
 
-> Use Apify to find a good Actor for scraping Google Maps places. Show me the best option, its input requirements, pricing model, and what kind of dataset output it returns. Do not run the Actor yet.
+<FindGoogleMapsActorPrompt />
 
 The router searches Apify Store, fetches the top Actor's details through the Apify MCP server, and summarizes its inputs, pricing, and output - all without running the Actor.
 
@@ -96,7 +97,7 @@ Example prompts that route to specific skills:
 
 Each skill is also registered as a slash command, so you can start a workflow directly. The canonical form is `/skill:<name>`, and the shorthand works when the name isn't taken by a built-in command:
 
-```text
+```prompt title="Run the ultimate scraper skill"
 /apify-ultimate-scraper scrape reviews from a Google Maps listing
 ```
 

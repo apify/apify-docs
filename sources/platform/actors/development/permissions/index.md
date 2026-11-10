@@ -125,7 +125,7 @@ Behavior at run time:
 - The user’s selection is injected into the run input, and the run token is expanded to allow only the requested operations on the selected storages.
 - If your code attempts an operation not covered by `resourcePermissions` (for example, writing with only `READ`), the platform returns an insufficient-permissions error.
 
-See the full [input schema reference for details](../actor_definition/input_schema/specification.md).
+See the full [input schema reference for details](../actor_definition/input_schema/specification/index.md).
 
 ### Request full permissions
 

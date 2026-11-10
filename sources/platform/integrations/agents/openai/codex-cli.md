@@ -8,6 +8,7 @@ slug: /integrations/codex-cli
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 import ApifyPluginSkills from '@site/sources/_partials/_apify-plugin-skills.mdx';
 import ApifyPluginSkillPrompts from '@site/sources/_partials/_apify-plugin-skill-prompts.mdx';
+import FindGoogleMapsActorPrompt from '@site/sources/_partials/_find-google-maps-actor-prompt.mdx';
 
 [Codex](https://developers.openai.com/codex/) is OpenAI's agentic coding tool. The Codex CLI runs in your terminal, reads and edits your codebase, runs commands, and completes multi-step development tasks.
 
@@ -71,7 +72,7 @@ The connection stays authenticated for future sessions. You can revoke access at
 
 In any new Codex CLI chat, describe what you want in natural language. Because this bundle exposes the MCP tools and skills directly, be explicit about the workflow you want.
 
-> Use Apify to find a good Actor for scraping Google Maps places. Show me the best option, its input requirements, pricing model, and what kind of dataset output it returns. Do not run the Actor yet.
+<FindGoogleMapsActorPrompt />
 
 Codex searches Apify Store and fetches the top Actor's details through the `apify` MCP server.
 
