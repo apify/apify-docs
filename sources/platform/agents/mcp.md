@@ -205,7 +205,7 @@ The server withholds `report-problem` when you [turn off telemetry](#opt-out-of-
 
 `call-actor` returns the run's status and storage IDs, not its output. To read the results, use `get-dataset-items` with the `datasetId` from the run. It supports limit, offset, and field filtering.
 
-Whenever `call-actor` or a specific Actor tool such as `apify--web-search` is loaded, the server also adds `get-actor-run`, `get-dataset-items`, `get-key-value-store-record`, and `abort-actor-run`, even if you didn't select them. A default configuration therefore exposes them too.
+Whenever `call-actor` or an Actor tool that starts a run, such as `apify--instagram-scraper`, is loaded, the server also adds `get-actor-run`, `get-dataset-items`, `get-key-value-store-record`, and `abort-actor-run`, even if you didn't select them. A default configuration therefore exposes them too.
 
 :::
 
@@ -263,7 +263,7 @@ For the local stdio server, opt out of telemetry using a CLI flag or an environm
 
 - For production deployments, explicitly specify which tools to load rather than relying on defaults. This ensures consistent behavior across updates:
 
-    `https://mcp.apify.com?tools=actors,docs,apify/web-search`
+    `https://mcp.apify.com?tools=actors,docs,apify/web-search,apify/web-fetch`
 
 - For a local stdio server, always use the latest version of the server by appending `@latest` to your npm commands.
 - Monitor your API usage through Apify Console to stay within your plan limits.
