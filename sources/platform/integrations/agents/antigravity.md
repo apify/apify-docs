@@ -115,7 +115,7 @@ If you can't use OAuth at all, use the skills that don't need the MCP server and
 export APIFY_TOKEN=<YOUR_API_TOKEN>
 ```
 
-The SDK integration skill uses the `apify-client` package, which reads `APIFY_TOKEN` from your environment. The Actor development, actorization, and scraping skills use the Apify CLI. Older CLI versions ignore the variable, so log in with it once:
+The SDK integration skill uses the `apify-client` package, which reads `APIFY_TOKEN` from your environment. The Actor development, actorization, and scraping skills use the Apify CLI, which reads `APIFY_TOKEN` from version 1.11.0. On older versions, log in with the token once:
 
 ```bash
 apify login --token "$APIFY_TOKEN"
