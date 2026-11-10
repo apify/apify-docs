@@ -216,26 +216,26 @@ For each schedule, the app creates these resources in your Apify account:
 
 Scheduled imports run outside Snowflake and connect back to your account to write the data, so each schedule needs:
 
-- A Snowflake [programmatic access token (PAT)](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens) for a user whose role can write to the destination table. Snowflake only accepts a PAT that a [network policy](https://docs.snowflake.com/en/user-guide/network-policies) applies to, as described in [Allow the PAT from any IP address](#allow-the-pat-from-any-ip-address).
+- A Snowflake [programmatic access token (PAT)](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens) for a user whose role can write to the destination table. Snowflake only accepts a PAT from a user who is subject to a [network policy](https://docs.snowflake.com/en/user-guide/network-policies), as described in [Set up the network policy](#set-up-the-network-policy).
 - The `app_public` role granted to that user's role, for imports that create a new table, as described in [Manage table visibility](#manage-table-visibility). The app checks for this grant and won't create the schedule without it.
 
-#### Allow the PAT from any IP address
+#### Set up the network policy
 
-Apify Actor runs don't connect from a fixed range of IP addresses, so the network policy must allow all of them. To limit the policy to the PAT rather than the whole user, create the policy and attach it to the token in a Snowsight worksheet:
+Apify Actor runs don't connect from a fixed range of IP addresses, so the network policy must allow all of them. A network policy attaches to a user or to the whole account, not to a single PAT, so it covers every login of that user. Consider a dedicated Snowflake user for scheduled imports.
+
+A Snowflake admin can create the policy and attach it to the user in a Snowsight worksheet:
 
 ```sql
 CREATE NETWORK POLICY apify_pat_policy
   ALLOWED_IP_LIST = ('0.0.0.0/0');
 
-ALTER USER <user_name> MODIFY PROGRAMMATIC ACCESS TOKEN <token_name>
-  SET NETWORK_POLICY = 'apify_pat_policy';
+ALTER USER <user_name> SET NETWORK_POLICY = apify_pat_policy;
 ```
 
-Replace `<user_name>` with the user the PAT belongs to and `<token_name>` with the PAT's name. To remove the policy later, detach it from the PAT, then drop it:
+Replace `<user_name>` with the user the PAT belongs to. To remove the policy later, detach it from the user, then drop it:
 
 ```sql
-ALTER USER <user_name> MODIFY PROGRAMMATIC ACCESS TOKEN <token_name>
-  UNSET NETWORK_POLICY;
+ALTER USER <user_name> UNSET NETWORK_POLICY;
 
 DROP NETWORK POLICY apify_pat_policy;
 ```
@@ -250,7 +250,7 @@ On the **Schedules** page, select **Create new schedule** and follow the four st
 
 1. **Actor or task setup** - pick **Choose an Actor** and enter its input, or pick **Choose a task** to run one of your saved [Apify tasks](/actors/running/tasks) and optionally enter input overrides. Select **Continue** to start a preview run. The schedule repeats this run, so its dataset shows you the data each scheduled run produces.
 1. **Import dataset** - when the preview run finishes, select **Continue** and configure the import as described in [Import a dataset](#import-a-dataset). The app locks the dataset to the preview run's dataset, since every scheduled run imports the dataset it produces itself. For the same reason, **Unwind** and **Flatten** aren't available, and **Offset** and **Limit** apply to the preview only.
-1. **Review** - check the schedule and its destination table. Then fill in the Snowflake connection details: **Snowflake account identifier**, **Snowflake username**, **Snowflake programmatic access token (PAT)**, and optionally **Snowflake warehouse**. For the username, enter your Snowflake user name, which `SELECT CURRENT_USER();` returns. The step shows a query that looks up all these values. Select **Save and start**.
+1. **Review** - check the schedule and its destination table. Then fill in the Snowflake connection details: **Snowflake account identifier**, **Snowflake username**, **Snowflake programmatic access token (PAT)**, and optionally **Snowflake warehouse**. For the username, enter the login name of the user the PAT belongs to. If that's you, find it in Snowsight under your name > **Connect a tool to Snowflake** > **Login name**. The step shows a query that looks up the account identifier and warehouse. Select **Save and start**.
 
     The app saves the credentials in the schedule's import task in your Apify account. It stores the PAT encrypted as a [secret input](/actors/development/actor-definition/input-schema/secret-input), so nobody can read it back, including in Apify Console. Anyone with access to the task can still run it, so give the PAT's role only the access the import needs.
 
