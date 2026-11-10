@@ -241,7 +241,7 @@ If you need finer control - for example, generating links without using Apify cl
 
 [Check the reference implementation in Apify clients](https://github.com/apify/apify-client-js/blob/5efd68a3bc78c0173a62775f79425fad78f0e6d1/src/resource_clients/dataset.ts#L179)
 
-Manual signing uses standard _HMAC (SHA-256)_ with `urlSigningSecretKey` of the resource and can be easily integrated.
+To create a dataset or key-value store signature manually, use standard _HMAC (SHA-256)_ with the resource's `urlSigningSecretKey`.
 
 ### Sharing storages by name
 
