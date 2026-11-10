@@ -17,10 +17,6 @@ An [Actor](/actors) is a serverless cloud program that takes a structured JSON i
 
 An [Actor run](/actors/running/runs-and-builds) is a single execution of an Actor, with its own container, allocated resources, and storage. Each run gets a [dataset](/storage/dataset), a [key-value store](/storage/key-value-store), and a [request queue](/storage/request-queue), and moves from ready to running before it ends as succeeded, failed, timed out, or aborted.
 
-## Actor Standby
-
-[Actor Standby](/actors/running/standby) is a mode that keeps an Actor ready in the background as an HTTP server. It answers requests in real time instead of paying a cold start on every call, which suits Actors used as live endpoints rather than batch jobs.
-
 ## Actor task
 
 An [Actor task](/actors/running/tasks) is a saved, reusable input configuration for a specific Actor. It lets you rerun the same Actor with preset inputs from a [schedule](/actors/running/schedules), the [Apify API](/api/v2), or [Apify Console](/account/console).
@@ -148,6 +144,10 @@ A [residential proxy](/proxy/residential-proxy) routes requests through IP addre
 ## Schedule
 
 A [schedule](/actors/running/schedules) is a cron-based trigger that runs an Actor or [task](#actor-task) at set intervals. You manage it from [Apify Console](/account/console) or the [Apify API](/api/v2).
+
+## Server Actors
+
+[Server Actors](/actors/running/server-actors), formerly Actor Standby mode, run an HTTP server that stays ready in the background and responds to requests in real time, without a cold start on each call. Use them for Actors that serve as live endpoints rather than batch jobs.
 
 ## Webhook
 
