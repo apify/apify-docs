@@ -104,7 +104,7 @@ Actor detail https://console.apify.com/actors/aOc...
 Success: Actor was deployed to Apify cloud and built there.
 ```
 
-You can click the **Actor detail** link, or go to **Apify Console > My Actors**, and click on your Actor. Now, click on the Settings tab, and in the **Server** section, turn on **Enable server interface**:
+You can select the **Actor detail** link, or go to **Apify Console > My Actors**, and select your Actor. Now, select the **Settings** tab, and in the **Server** section, turn on **Enable server interface**:
 
 ![Server interface setting in the Actor settings](.//adding_rapidapi_project/standby.png)
 
@@ -114,7 +114,7 @@ You can use an Actor in two ways. Through its input interface, it runs a single 
 
 :::
 
-Once you’ve saved the settings, go to the **Server** tab, and click the **Test endpoint** button. It will start the Actor, and you can test it. Once the Actor is running, you're done with the migration!
+Once you’ve saved the settings, go to the **Server** tab, and select **Test endpoint**. It will start the Actor, and you can test it. Once the Actor is running, you're done with the migration!
 
 ## Next steps
 

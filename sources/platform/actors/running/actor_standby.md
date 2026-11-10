@@ -130,15 +130,9 @@ If the Actor exposes a [Model Context Protocol (MCP)](../../agents/mcp.md) serve
 
 ## Override the configuration with a task
 
-You can override the server configuration only for a single-tenant Server Actor. If you use an Actor built by someone else, the Actor-level hostname always uses the developer's default [server configuration](../development/programming_interface/server-interface/index.md#configure-the-server). To override it:
+You can override the server configuration only for a single-tenant Server Actor, and only if its developer didn't lock it. If you use an Actor built by someone else, the Actor-level hostname always uses the developer's default [server configuration](../development/programming_interface/server-interface/index.md#configure-the-server). To override it:
 
 1. In [Apify Console](https://console.apify.com), open the Actor and select **Save as a new task**.
 1. Open the task's **Settings** tab.
 1. Modify the configuration.
 1. In your application, use the task's hostname instead of the Actor's.
-
-:::note Developers can lock the configuration
-
-If the developer locked the server configuration, the task-level settings have no effect.
-
-:::

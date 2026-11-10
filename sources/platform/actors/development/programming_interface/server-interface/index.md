@@ -53,7 +53,7 @@ Keep the Actor single-tenant when:
 
 - Users put their own API keys, cookies, or account details in the input. They need their own run.
 - State belongs to one user, such as a per-organization web app or a login session.
-- It uses a pricing model other than pay per event or pay per usage. Migrate the pricing first.
+- The Actor uses a pricing model other than pay per event or pay per usage. Migrate the pricing first.
 
 Long batch jobs, such as a crawl that runs for 20 minutes and writes thousands of results, suit the input interface in either tenancy. Keep the input interface for them alongside the server interface.
 
@@ -79,7 +79,7 @@ The change takes effect within 2 minutes for everyone already calling your Actor
 
 ## Configure the server
 
-The server configuration decides how the platform sizes and scales your Actor's runs. Set its defaults in the **Server** section of the Actor's **Settings** tab. For a multi-tenant Server Actor, the configuration applies to the runs that serve all users. For a single-tenant Server Actor, users can override it with a task, unless you [prevent it](#single-tenant-server-actors).
+The server configuration decides how the platform sizes and scales your Actor's runs. Set its defaults in the **Server** section of the Actor's **Settings** tab. For a multi-tenant Server Actor, the configuration applies to the runs that serve all users. For a single-tenant Server Actor, users can override it with a task, unless you [prevent overrides](#single-tenant-server-actors).
 
 | Property | Description |
 | --- | --- |
