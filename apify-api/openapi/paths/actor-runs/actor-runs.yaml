@@ -22,6 +22,7 @@ get:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/status"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/startedAfter"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/startedBefore"
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/deployment"
   responses:
     # todo 404?
     "200":

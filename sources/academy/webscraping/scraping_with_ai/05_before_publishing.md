@@ -2,6 +2,7 @@
 title: Before publishing to Apify Store
 description: Use AI to prepare your scraper for other users by improving its first-run experience, Apify Store listing, documentation, and maintenance plan.
 slug: /scraping-with-ai/before-publishing-to-apify-store
+pagination: true
 ---
 
 **In this lesson, we'll prepare our app for tracking prices on an e-commerce website for other people to use. We'll use Cursor to inspect and improve its first-run experience and documentation, prepare its Apify Store listing, and make a plan for keeping it reliable.**
@@ -19,7 +20,7 @@ Before publishing our Actor to Apify Store, we'll rework the README and make sur
 
 :::info Publishing and monetization guides
 
-This lesson works as an intro, but it only scratches the surface. It's enough for a start, but if you really want your Actor to be successful on Apify Store, check out the [Publish your Actor](/actors/publishing/publish), [Set up Actor monetization](/actors/monetize/set-up-monetization), and [Apify Store basics](/academy/actor-marketing-playbook/store-basics/how-store-works) guides.
+This lesson works as an intro, but it only scratches the surface. It's enough for a start, but if you really want your Actor to be successful on Apify Store, check out the [Publish your Actor](/actors/publishing/publish), [Set up Actor monetization](/actors/monetize/set-up-monetization), and [Apify Store basics](/academy/build-and-publish/apify-store/how-store-works) guides.
 
 :::
 
@@ -31,7 +32,7 @@ Users want to know what data the Actor provides, what inputs it takes, and what 
 
 Let's move the current README to a different file. A `CONTRIBUTING.md` file may be a good choice, as it is a common convention for documenting setup, design decisions, and contribution guidelines for developers. We'll then create a new `README.md` that serves as the Actor's landing page. Ask the AI agent to draft it:
 
-```text
+```prompt title="Draft user README prompt"
 Move the current README content to CONTRIBUTING.md.
 Then read https://docs.apify.com/actors/publishing/actor-readme
 and draft a new README focused on users.
@@ -89,7 +90,7 @@ Let them take control of the computer with a single goal: run the Actor for the 
 
 If you can't find such a friend, ask an AI chat or agent other than the one that wrote the README. Use this prompt as a starting point:
 
-```text
+```prompt title="User testing session prompt"
 Imitate a user testing session. You are an Apify Store user
 who has just found this Actor and its README. Work out what
 the Actor does, what it's useful for, and how to run it for
@@ -109,24 +110,24 @@ Once you publish your Actor, Apify Store itself will join the feedback party. Ap
 
 ## Preparing the Store listing
 
-Our Actor needs a good name. But what makes a name good? The [Name your Actor](/academy/actor-marketing-playbook/actor-basics/name-your-actor) guide has plenty of advice. Let's give it to the AI agent and brainstorm together:
+Our Actor needs a good name. But what makes a name good? The [Name your Actor](/academy/build-and-publish/apify-store/name-your-actor) guide has plenty of advice. Let's give it to the AI agent and brainstorm together:
 
-```text
+```prompt title="Brainstorm Actor names prompt"
 Read the Actor naming guide:
-https://docs.apify.com/academy/actor-marketing-playbook/actor-basics/name-your-actor
+https://docs.apify.com/academy/build-and-publish/apify-store/name-your-actor
 Then inspect this repository and suggest 20 suitable names for this Actor.
 Put the strongest ideas first and briefly explain why they work.
 ```
 
 The AI agent can inspect what the Actor does and might even check for name collisions with existing Actors on Apify Store. Don't expect all 20 suggestions to be brilliant, but they should get your own ideas flowing: Shopify Collection Scraper, Shopify Variant Scraper, Shopify Product Price Scraper...
 
-We can use the same approach for other parts of the Store listing, such as the [technical name](/academy/actor-marketing-playbook/actor-basics/importance-of-actor-url) and [description](/academy/actor-marketing-playbook/actor-basics/actor-description).
+We can use the same approach for other parts of the Store listing, such as the [technical name](/academy/build-and-publish/apify-store/importance-of-actor-url) and [description](/academy/build-and-publish/apify-store/actor-description).
 
 If you plan to charge for the Actor, ask the AI agent to help you think through pricing as well:
 
-```text
+```prompt title="Recommend pricing prompt"
 Read the Actor monetization and pricing guide:
-https://docs.apify.com/actors/publishing/monetize
+https://docs.apify.com/actors/monetize
 Then inspect this repository and recommend the most suitable
 pricing model for this Actor. Explain your reasoning and flag
 anything we should fix before publishing.
@@ -144,7 +145,7 @@ Give the AI agent too much free rein, and the result might look like generic AI 
 
 Every scraper needs maintenance. One day, the target website changes. Another day, a random network hiccup knocks the scraper over. It's not a question of _if_ something will happen, but _when_. That's simply part of running a scraper.
 
-On Apify Store, users will also [ask questions or report issues](/academy/actor-marketing-playbook/interact-with-users/issues-tab), and you'll need time to help them.
+On Apify Store, users will also [ask questions or report issues](/academy/build-and-publish/interact-with-users/issues-tab), and you'll need time to help them.
 
 The best strategy is to plan ahead. Set aside a few hours each week for your scraper. Some weeks, you'll spend that time fixing unexpected failures. Others, you'll answer questions from users.
 
@@ -169,10 +170,10 @@ Apify calculates an [Actor quality score](/actors/publishing/quality-score) that
 A useful, reliable Actor can still sit quietly on Apify Store while nobody notices it. You don't need a grand launch campaign, but you do need to help the first few users find it.
 
 - Describe the problem your Actor solves in the words your users would use, not in technical terms. Use that language naturally in the Actor's name, Store listing, README headings, and FAQ. This helps people, search engines, and AI tools understand when the Actor is useful.
-- [Record a short demo](/academy/actor-marketing-playbook/promote-your-actor/video-tutorials) that follows one run from input to useful results. It doesn't have to be fancy or polished. Even a rough screencast with some free background music will do. It probably won't rack up huge numbers on YouTube, but you can add it to your README and share it wherever your users hang out.
+- [Record a short demo](/academy/build-and-publish/promote-your-actor/video-tutorials) that follows one run from input to useful results. It doesn't have to be fancy or polished. Even a rough screencast with some free background music will do. It probably won't rack up huge numbers on YouTube, but you can add it to your README and share it wherever your users hang out.
 - Pick one or two places where people already discuss the problem your Actor solves. Answer questions, show how the Actor helps, and listen to the feedback. That's more useful than dropping the same promotional post everywhere.
 
-Marketing can go much further than this, but that's a course of its own. When you're ready for more, continue with the [marketing checklist](/academy/actor-marketing-playbook/promote-your-actor/checklist) and the guide to [making your Actor easier to find through search](/academy/actor-marketing-playbook/promote-your-actor/seo).
+Marketing can go much further than this, but that's a course of its own. When you're ready for more, continue with the [marketing checklist](/academy/build-and-publish/promote-your-actor/checklist) and the guide to [making your Actor easier to find through search](/actors/promote/seo).
 
 ## Wrapping up
 

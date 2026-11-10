@@ -9,7 +9,9 @@ sidebar_position: 3
 ## Why we test
 
 We want to make sure that all Actors in Apify Store are top-notch, or at least as top-notch as they can be. Since there are many of them, we have an automated testing procedure in place that tests all Actors daily.
-This helps us to flag Actors that temporarily don't work as expected `under maintenance`, and to automatically `deprecate` Actors that have been broken for more than a month.
+Testing helps us flag Actors that temporarily don't work as expected as **Under maintenance**, and to automatically mark Actors that have been broken for more than a month as **Deprecated**.
+
+If you use an Actor that's under maintenance, see [Actors under maintenance](/actors/running/actors-in-store#actors-under-maintenance).
 
 ## How we test
 
@@ -18,19 +20,52 @@ and expects it to finish with a **Succeeded** status and non-empty default datas
 
 ![Actor page](./images/actor-test.webp)
 
-If the Actor fails to complete successful runs for three consecutive days, the developer will be notified,
-and the Actor will be labeled `under maintenance` until it is fixed. After another 14 days of failing runs, you will receive another notification. Finally, if the runs continue to fail after yet another 14 days, the Actor will be `deprecated`.
+If more than half of the daily test runs in the last three days fail, Apify notifies you and labels the Actor **Under maintenance** until you fix it. All test runs in those three days must use the same build, so a new build restarts the count. After another 14 days of failing runs, you get another notification. If the runs still fail 14 days after that, Apify marks the Actor as **Deprecated**.
 
-## How can I make my Actor healthy again
+## Find out why the test failed
+
+When Apify labels your Actor **Under maintenance**, you get a notification in Apify Console and by email. The notification tells you whether the test could start the Actor. The fix differs for each case.
+
+### The test couldn't start the Actor
+
+If the test couldn't start the Actor, the cause is usually a problem with the input schema. The test builds its input from the schema's `prefill` values. Every required field needs a `prefill` value, and every value must pass the schema's validation. For example, a `prefill` of `3` fails for a field with `"maximum": 2`.
+
+To see the input the test uses:
+
+1. In Apify Console, open your Actor.
+1. Go to **Source** > **Input**.
+1. Select **Restore example input**. The form loads the values from the input schema and shows an error next to any value that fails validation.
+
+Fix the input schema, then rebuild the Actor, because the test reads the schema from the build.
+
+### The test run failed
+
+When a test run fails, the notification links to it. Check its log for the cause.
+
+If the run timed out, make the test input smaller. Choose `prefill` values that return only a few results, so the run finishes within the 5-minute limit.
+
+## Restore a healthy status
 
 The best course of action is to fix the Actor and rebuild it. The automatic testing system will pick this up within 24 hours
 and mark it as healthy. In some cases, your Actor might break because of issues with the target website. In such a case, if your Actor
 passes the majority of test runs in the next 7 days, it will be marked as healthy automatically.
 
-## What if my Actor cannot comply with the test logic
+## Skip the automated tests
 
-Actors that require some sort of authentication will always fail the tests despite being fully functional. Also, some Actors inherently run for longer than 5 minutes.
-If that's the case with your Actor, [contact support](http://apify.com/contact) and explain your specific use case that justifies why the Actor should be excluded from the automated tests.
+The automated test skips these Actors:
+
+- Actors with [Actor Standby](../running/actor_standby.md) enabled
+- Actors in the MCP servers category
+- Actors with a required secret input
+- Actors with a required token or key input that has no `prefill` value
+
+If your Actor can't pass the test for another reason, such as needing more than 5 minutes to finish, request to skip the tests:
+
+1. In the under-maintenance notification, open the form link.
+1. In the **Request to skip Actor checks** dialog, explain why your Actor should skip the tests.
+1. Select **Send request**.
+
+Apify approves requests only in exceptional cases.
 
 ## Advanced Actor testing
 

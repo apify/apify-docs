@@ -6,6 +6,8 @@ sidebar_position: 2
 slug: /actors/running/runs-and-builds
 ---
 
+import ActorJobLifecycle from '@site/sources/_partials/_actor-job-lifecycle.mdx';
+
 An Actor is a combination of source code and various settings in a Docker container. To run, it must be built first.
 
 ## Builds
@@ -33,7 +35,7 @@ Each build might have different features, input, or output. By fixing the build 
 
 On top of the number, some builds are also tagged. For example, _latest_ or _beta_.
 
-Tags make it easier to specify which build to use when running an Actor. To reassign a tag to a different build, use the [Actor update](/api/v2/actor-put) API endpoint.
+Tags make it easier to specify which build to use when running an Actor. To reassign a tag to a different build, use the [Update Actor](/api/v2/actor-put) API endpoint.
 
 ## Runs
 
@@ -57,7 +59,7 @@ To view what's happening while the Actor is running:
 
 ### Origin
 
-Both **Actor runs** and **builds** have the **Origin** field indicating how the Actor run or build was invoked, respectively. The origin is displayed in Apify Console and available via [API](https://docs.apify.com/api/v2/actor-run-get) in the `meta.origin` field.
+Both **Actor runs** and **builds** have the **Origin** field indicating how the Actor run or build was invoked, respectively. The origin is displayed in Apify Console and available via the [Get Actor run](/api/v2/actor-run-get) endpoint in the `meta.origin` field.
 
 |Name|Origin|
 |:---|:---|
@@ -75,42 +77,7 @@ Both **Actor runs** and **builds** have the **Origin** field indicating how the 
 
 ## Lifecycle
 
-Each run and build starts with the initial status **READY** and goes through one or more transitional statuses to one of the terminal statuses.
-
-```mermaid
-flowchart LR
-    subgraph Transitional states
-        RUNNING
-        TIMING-OUT
-        ABORTING
-    end
-
-    subgraph Terminal states
-        SUCCEEDED
-        FAILED
-        TIMED-OUT
-        ABORTED
-    end
-
-    READY --> RUNNING
-              RUNNING --> SUCCEEDED
-              RUNNING --> FAILED
-              RUNNING --> TIMING-OUT --> TIMED-OUT
-              RUNNING --> ABORTING --> ABORTED
-```
-
----
-
-| Status | Type | Description |
-| --- | --- | --- |
-| READY | initial | Started but not allocated to any worker yet |
-| RUNNING | transitional | Executing on a worker machine |
-| SUCCEEDED | terminal | Finished successfully |
-| FAILED | terminal | Run failed |
-| TIMING-OUT | transitional | Timing out now |
-| TIMED-OUT | terminal | Timed out |
-| ABORTING | transitional | Run is being aborted |
-| ABORTED | terminal | Run aborted |
+<ActorJobLifecycle />
 
 ### Abort a run
 
@@ -123,7 +90,7 @@ To abort a run, use the **Abort** button in Apify Console or the [Abort Actor ru
 
 ### Resurrect a finished run
 
-Any Actor run in a terminal state, i.e., run with status **FINISHED**, **FAILED**, **ABORTED**, and **TIMED-OUT**, might be resurrected back to a **RUNNING** state. This is helpful in many cases, for example, when the timeout for an Actor run was too low or in case of an unexpected error.
+Any Actor run in a terminal state, i.e., run with status **SUCCEEDED**, **FAILED**, **ABORTED**, and **TIMED-OUT**, might be resurrected back to a **RUNNING** state. This is helpful in many cases, for example, when the timeout for an Actor run was too low or in case of an unexpected error.
 
 The whole process of resurrection looks as follows:
 
@@ -131,7 +98,7 @@ The whole process of resurrection looks as follows:
 - Updated duration will not include the time when the Actor was not running.
 - Timeout will be counted from the point when this Actor run was resurrected.
 
-Resurrection can be performed in Apify Console using the **resurrect** button or via API using the [Resurrect Actor run](/api/v2/actor-run-resurrect-post) API endpoint.
+Resurrection can be performed in Apify Console using **Actions** > **Resurrect** or via API using the [Resurrect Actor run](/api/v2/actor-run-resurrect-post) API endpoint.
 
 :::info Settings adjustments
 You can also adjust timeout and memory or change Actor build before the resurrection. This is especially helpful in case of an error in the Actor's source code as it enables you to:
@@ -140,6 +107,25 @@ You can also adjust timeout and memory or change Actor build before the resurrec
 2. Update the Actor's code and build the new version
 3. Resurrect the run using the new build
 :::
+
+#### Resurrect a run that reached its cost limit
+
+A run stops when its cost reaches **Maximum cost per run**. To continue the run, resurrect it with a higher limit.
+
+The limit applies to the whole run, including the cost before the resurrection. If you don't change the limit, the resurrected run keeps the original limit. The run then stops right after it starts.
+
+If the run has no limit set, the usage left on your account limits the run instead. The resurrected run continues from where it stopped only if the Actor saved its state to storage.
+
+To continue the run:
+
+1. If your account has no usage left, [increase your usage limit](/account/billing#limits) or upgrade your subscription.
+1. In Apify Console, open the run.
+1. Select **Actions** > **Resurrect**.
+1. In the **Restart run** dialog, on the **Resurrect** tab, expand **Options**.
+1. If the run has a limit, enter a higher value in **Maximum cost per run**, or turn on **No maximum limit**.
+1. Select **Resurrect**.
+
+To do the same with the API, pass `maxTotalChargeUsd` to the [Resurrect Actor run](/api/v2/actor-run-resurrect-post) endpoint.
 
 ### Data retention
 

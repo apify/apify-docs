@@ -33,12 +33,13 @@ Apify provides a complete platform for building and deploying AI agents with the
 
 ### Step 1: Define the use case
 
-This tutorial creates a social media analysis agent that analyzes Instagram posts based on user queries using the [Instagram Scraper Actor](https://apify.com/apify/instagram-scraper).
+This tutorial creates a social media analysis agent that analyzes Instagram posts based on user queries using the [Instagram Scraper Actor](https://apify.com/apify/instagram-scraper). For example, a user can ask:
 
-_Example:_
+```prompt title="Analyze AI trends on Instagram"
+Analyze the last 10 posts from @openai and summarize AI trends.
+```
 
-- _Input:_ "Analyze the last 10 posts from @openai and summarize AI trends."
-- _Output:_ Trend analysis based on post content.
+The agent responds with a trend analysis based on the post content.
 
 ### Step 2: Configure input and output
 
@@ -233,8 +234,8 @@ After deployment:
 
 Run the agent on the platform with a sample query and monitor the results in the output dataset.
 
-```text
-Analyze the posts of the @openai and @googledeepmind and summarize me current trends in the AI.
+```prompt title="Summarize AI trends"
+Analyze the posts of @openai and @googledeepmind and summarize the current trends in AI.
 ```
 
 :::info Troubleshooting
@@ -253,7 +254,7 @@ Apify's pay-per-event (PPE) pricing model allows charging users based on specifi
 
 :::info How pay-per-event pricing works
 
-If you want more details about PPE pricing, refer to our [PPE documentation](/actors/publishing/monetize/pay-per-event).
+If you want more details about PPE pricing, refer to our [PPE documentation](/actors/monetize/pay-per-event).
 
 :::
 

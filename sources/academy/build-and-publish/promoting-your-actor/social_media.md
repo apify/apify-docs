@@ -3,7 +3,7 @@ title: Social media
 description: Leverage social media to connect with users and grow your Actor’s audience. Learn how to showcase features, engage with users, and avoid common pitfalls.
 sidebar_position: 2
 category: build-and-publish
-slug: /actor-marketing-playbook/promote-your-actor/social-media
+slug: /build-and-publish/promote-your-actor/social-media
 ---
 
 **Social media is a powerful way to connect with your Actor users and potential users. Whether your tool focuses on web scraping or automation, social platforms can help you showcase its features, answer user questions, and grow your audience. This guide will show you how to use social media effectively, what to share, and how to avoid common mistakes along the way.**

@@ -1,0 +1,46 @@
+title: ActorOAuthConnection
+description: An OAuth connection configured on an Actor. Secret credentials are never returned.
+required:
+  - _id
+  - actorId
+  - oAuthProviderType
+  - createdAt
+  - modifiedAt
+type: object
+properties:
+  _id:
+    type: string
+    examples: [kD9fm2Xp4cJq7Lw8N]
+  actorId:
+    type: string
+    examples: [zdc3Pyhyz3m8vjDeM]
+  oAuthProviderType:
+    type: string
+    enum: [CUSTOM, GOOGLE]
+    examples: [GOOGLE]
+  createdAt:
+    type: string
+    format: date-time
+    examples: ["2026-01-28T10:00:00.000Z"]
+  modifiedAt:
+    type: string
+    format: date-time
+    examples: ["2026-01-28T10:00:00.000Z"]
+  credentials:
+    type: object
+    description: The public part of the connection's OAuth client configuration.
+    properties:
+      clientId:
+        type: string
+        examples: [1234567890-abc.apps.googleusercontent.com]
+      scope:
+        type: string
+        examples: [https://www.googleapis.com/auth/drive.file]
+      label:
+        type: string
+        description: Display name of a `CUSTOM` provider.
+        examples: [My OAuth app]
+      imageUrl:
+        type: string
+        description: Logo URL of a `CUSTOM` provider.
+        examples: [https://example.com/logo.png]

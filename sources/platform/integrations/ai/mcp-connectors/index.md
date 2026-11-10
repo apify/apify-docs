@@ -15,21 +15,23 @@ MCP connectors are distinct from the [Apify MCP server](/mcp). The MCP server ex
 
 ```mermaid
 flowchart LR
+    accTitle: MCP connector request flow
+    accDescr: The MCP client in your Actor calls the MCP Proxy on the Apify platform with its Apify run token. The proxy adds your credentials and forwards the request to the external MCP server.
+
     subgraph actor [Your Actor]
-        client["MCP client<br/><br/>Reads env vars:<br/>ACTOR_MCP_CONNECTOR_BASE_URL<br/>APIFY_TOKEN"]
+        client[MCP client]
     end
 
     subgraph platform [Apify platform]
-        proxy["MCP Proxy<br/>• Injects credentials<br/>• Enforces tool policies<br/>• Validates upstream URL"]
+        proxy[MCP Proxy]
     end
 
-    external["External service<br/>e.g. Slack MCP"]
+    external[External MCP server]
 
-    client -- "Bearer APIFY_TOKEN" --> proxy
-    proxy --> external
+    client -- Apify run token --> proxy
+    proxy -- your credentials --> external
 ```
 
-<br/>
 1. The Actor developer declares which connectors the Actor accepts in its input schema (either a specific server, or any MCP-compatible connector).
 1. When you run the Actor, you select an eligible connector in the input form. If you don't have one yet, you can create and authorize a new connector in advance under **Settings > API & Integrations** or inline within the Actor input.
 1. When the Actor sends an MCP request to `ACTOR_MCP_CONNECTOR_BASE_URL/<connectorId>`, the Apify MCP Proxy validates the request, injects your credentials, and forwards it to the upstream MCP server the connector is authorized against.

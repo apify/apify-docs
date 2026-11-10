@@ -1,9 +1,9 @@
-import httpx
+import httpx2
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 
 listing_url = "https://www.theguardian.com/sport/formulaone"
-response = httpx.get(listing_url)
+response = httpx2.get(listing_url)
 response.raise_for_status()
 
 soup = BeautifulSoup(response.text, "html.parser")

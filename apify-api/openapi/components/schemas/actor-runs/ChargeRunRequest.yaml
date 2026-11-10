@@ -10,3 +10,7 @@ properties:
   count:
     type: integer
     examples: [1]
+  requestId:
+    type: string
+    description: ID of the Server Actor request being charged, from the `X-Actor-Request-ID` header of the incoming request. Required for multi-tenant Server Actor runs, where it identifies the request the charge belongs to.
+    examples: [7Hs2kQw9LxP4mN1vB]

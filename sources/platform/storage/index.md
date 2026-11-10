@@ -196,4 +196,10 @@ Named storages are only removed upon your request. You can delete storages in th
   [dataset](/api/client/python#datasetclient),
   [key-value store](/api/client/python/reference/class/KeyValueStoreClient),
   or [request queue](/api/client/python/reference/class/RequestQueueClient) clients.
-* [API](/api/v2/key-value-store-delete) - using the `Delete [store]` endpoint, where `[store]` is the storage type you want to delete.
+* API - using the [Delete dataset](/api/v2/dataset-delete), [Delete key-value store](/api/v2/key-value-store-delete), or [Delete request queue](/api/v2/request-queue-delete) endpoint.
+
+## Next steps
+
+* [Input and output](/actors/running/input-and-output) - how a run reads its input and where it writes results.
+* [Data and storage integrations](/integrations/data-and-storage) - send datasets to warehouses, CRMs, and shared drives.
+* [Dataset schema](/storage/dataset-schema) - define and validate the shape of what an Actor stores.

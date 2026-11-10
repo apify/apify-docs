@@ -131,7 +131,7 @@ putById:
     passed in the PUT payload.
 
     The response is the updated request queue object, as returned by the
-    [Get request queue](#/reference/request-queues/queue-collection/get-request-queue) API endpoint.
+    [Get request queue](/api/v2/request-queue-get) API endpoint.
   operationId: requestQueue_put
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/request-queues/queue/update-request-queue

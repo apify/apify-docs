@@ -97,17 +97,11 @@ To use the Apify integration in Gumloop, you need an Apify account, a Gumloop ac
 
 ## Example workflow
 
-Here's a simple example of how to use Apify with Gumloop:
+This example workflow chains four Gumloop nodes to scrape product prices, analyze them with AI, and email a report:
 
-Web Scraping \+ AI Analysis \+ Email Report
-
-```mermaid
-
-graph LR
-    A[Apify Task Runner] --> B[Ask AI] --> C[Combine text] --> D[Gmail sender]
-
-```
-
-The Apify task runner scrapes product prices from an e-commerce site. Ask AI analyzes price trends and identifies opportunities. Combine text formats the analysis into a readable report. Gmail Sender emails the report to stakeholders.
+1. Apify Task Runner scrapes product prices from an e-commerce site.
+1. Ask AI analyzes price trends and identifies opportunities.
+1. Combine text formats the analysis into a readable report.
+1. Gmail Sender emails the report to stakeholders.
 
 This workflow runs automatically and delivers actionable insights directly to your inbox.

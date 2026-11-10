@@ -26,6 +26,16 @@ properties:
   isAdHoc:
     type: [boolean, "null"]
     examples: [false]
+  isEnabled:
+    type: boolean
+    examples: [true]
+  actionType:
+    type: string
+    description: "Type of action the webhook performs: `HTTP_REQUEST`, `SLACK_MESSAGE`, `GOOGLE_MAIL`, `GOOGLE_DRIVE` or `GITHUB_ISSUE`."
+    examples: [HTTP_REQUEST]
+  isApifyIntegration:
+    type: [boolean, "null"]
+    examples: [false]
   shouldInterpolateStrings:
     type: [boolean, "null"]
     examples: [false]
@@ -54,9 +64,20 @@ properties:
   headersTemplate:
     type: [string, "null"]
     examples: ['{\n "Authorization": "Bearer ..."}']
+  title:
+    type: [string, "null"]
+    examples: [Notify on failure]
   description:
     type: [string, "null"]
     examples: [this is webhook description]
+  slackMessage:
+    $ref: ./WebhookSlackMessage.yaml
+  googleMail:
+    $ref: ./WebhookGoogleMail.yaml
+  googleDrive:
+    $ref: ./WebhookGoogleDrive.yaml
+  githubIssue:
+    $ref: ./WebhookGithubIssue.yaml
   lastDispatch:
     anyOf:
       - $ref: ./WebhookLastDispatch.yaml

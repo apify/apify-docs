@@ -67,3 +67,34 @@ properties:
   readmeSummary:
     type: string
     description: A brief, LLM-generated readme summary
+  inputSchema:
+    type: object
+    description: Compact input schema of the Actor's default build, with only property types and required properties. Returned only when `includeInputSchema=true` and the default build succeeded and defines input properties.
+    required:
+      - type
+      - properties
+    properties:
+      type:
+        type: string
+        examples: [object]
+      properties:
+        type: object
+        additionalProperties:
+          type: object
+          properties:
+            type:
+              oneOf:
+                - type: string
+                - type: array
+                  items:
+                    type: string
+        examples:
+          - startUrls:
+              type: array
+            maxItems:
+              type: integer
+      required:
+        type: array
+        items:
+          type: string
+        examples: [[startUrls]]

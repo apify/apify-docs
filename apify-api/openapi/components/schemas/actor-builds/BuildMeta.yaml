@@ -11,5 +11,17 @@ properties:
     examples: [172.234.12.34]
   userAgent:
     type: [string]
-    description: User agent of the client that started the build.
+    description: User agent of the client that started the build. Returned only to the Actor owner.
     examples: [Mozilla/5.0 (iPad)]
+  githubActionsRunUrl:
+    type: string
+    description: URL of the GitHub Actions run that started the build. Present only for builds started from CI.
+    examples: [https://github.com/apify/my-actor/actions/runs/123456789]
+  actorRunId:
+    type: string
+    description: ID of the Actor run that started the build. Returned only to the Actor owner.
+    examples: [HG7ML7M8z78YcAPEB]
+  webhookDispatchId:
+    type: string
+    description: ID of the webhook dispatch that started the build. Returned only to the Actor owner.
+    examples: [Zib4xbZsmvZeK55ua]
