@@ -33,6 +33,8 @@ The following factors affect resource consumption, from most to least important:
 - Running one large batch costs less than splitting the same work into many short runs. Each run spends CUs on starting the Actor, and a short run can end before the Actor scales up to use all its allocated memory and CPU.
 - Heavy pages, such as Amazon or Facebook, take more time to load, whether you use a browser or plain HTML parser. Large pages can take up to 3 times more resources to load and parse than average pages.
 
+To estimate your monthly usage, run the Actor the way you plan to use it long term and check how many CUs a run uses. For example, you want to scrape data every hour for a month. With 4096 MB of memory, a run takes 15 minutes and uses 1 CU (4 GB × 0.25 hours). Over a month, that's 720 CUs (1 CU × 24 runs × 30 days).
+
 ## Check your usage
 
 Apify Console shows your total CU usage for the current billing period and the usage of each run.
