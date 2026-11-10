@@ -91,7 +91,7 @@ The Actor development, actorization, and scraping skills call the Apify CLI. Ins
 
 ## Troubleshooting
 
-Most problems are a plugin that did not load, the wrong skill, OAuth on a machine without a browser, or the terminal sandbox.
+Most problems are a plugin that did not load, the wrong skill, the terminal sandbox, or OAuth on a machine without a browser.
 
 ### The Apify MCP server doesn't appear
 
@@ -103,7 +103,7 @@ Start the CLI with `agy --agent apify`, or select **apify** from the app's **Age
 
 ### Commands that need the network hang or fail
 
-With the default permission preset, Antigravity runs agent commands in a [terminal sandbox](https://antigravity.google/docs/sandbox) without network access. Commands that need the network, such as `npm install` or Apify CLI commands, retry and then fail. The Apify CLI then reports that it couldn't verify your API token, even though your login is fine. Let the agent run the command outside the sandbox and approve the request, or allow the domains the command needs in your [agent permissions](https://antigravity.google/docs/agent-settings).
+With the default permission preset, Antigravity runs agent commands in a [terminal sandbox](https://antigravity.google/docs/sandbox) without network access. Commands that need the network, such as `npm install` or Apify CLI commands, retry and then fail. The Apify CLI then reports that it couldn't verify your API token, even though your login is fine. Let the agent run the command outside the sandbox and approve the request, or add the domains the command needs to your `read_url` permissions, which Antigravity adds to the sandbox's outbound allowlist.
 
 ### Browser doesn't open, or OAuth fails
 
