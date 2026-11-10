@@ -129,7 +129,7 @@ Even when a resource is restricted, you might still want to share it with someon
 
 #### How pre-signed URLs work
 
-A pre-signed URL is a regular HTTPS link that includes a cryptographic signature verifying that access has been explicitly granted by someone with valid permissions.
+A pre-signed URL is a regular HTTPS link to a dataset or key-value store resource that includes a cryptographic signature verifying that access has been explicitly granted by someone with valid permissions.
 When a pre-signed URL is used, Apify validates the signature and grants access without requiring an API token.
 
 The signature can be temporary (set to expire after a specified duration) or permanent, depending on the expiration date set when it's generated.
