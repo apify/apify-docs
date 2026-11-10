@@ -1,6 +1,6 @@
 ---
 title: Workato integration
-description: Connect Apify Actors to Workato recipes to run web scraping jobs, monitor run events, and process results in automated workflows.
+description: Learn how to connect Apify Actors to Workato recipes to run web scrapes, watch run events, and process the results in your automated workflows.
 sidebar_label: Workato
 slug: /integrations/workato
 ---
@@ -131,6 +131,19 @@ This action runs an Apify task with optional input overrides and execution param
 
 ![Screenshot of the run task action configuration in Workato](../images/workato/run-task.png)
 
+#### Send Server Actor request
+
+Send a request to a Server Actor and get its response.
+
+A [Server Actor](../../actors/running/actor_standby.md) answers HTTP requests directly instead of starting a run. This action sends one request to it and returns the response in the same recipe step. You can:
+
+- Select a Server Actor from Apify Store, or enter any Server Actor manually.
+- Pick an endpoint from the Actor's [web server schema](../../actors/development/actor_definition/web_server_schema/index.md), or choose **Custom path** to enter the method and path yourself.
+- Fill in the request body in fields built from the endpoint, or as JSON in **Body (JSON)**.
+- Use the response as **Body** (JSON object), **Body (list)** (JSON array), or **Body (text)**.
+
+The Actor has to answer within 180 seconds, Workato's limit for an action. The step fails on an error status, a redirect, or a binary response. A Retry block or **Repeat job** sends the request again, and the Actor may charge for it again.
+
 #### Get dataset items
 
 Retrieve items from a dataset with dynamic field mapping.
@@ -201,6 +214,8 @@ When building recipes, the Apify connector provides several ways to select resou
 Available pick lists:
 
 - **Actors** - Recently used Actors or Apify Store Actors, displaying the title and `owner/name`
+- **Server Actors** - In **Send Server Actor request**, Server Actors from Apify Store, most popular first
+- **Endpoints** - In **Send Server Actor request**, the endpoints from the selected Actor's web server schema, plus **Custom path**
 - **Tasks** - Your saved tasks, displaying the task title and Actor name
 - **Datasets** - Available datasets, sorted by most recent first
 - **Key-value stores** - Available stores, sorted by most recent first
@@ -268,7 +283,7 @@ If an Actor run takes more than a few minutes (for example, scraping thousands o
 ## Troubleshooting
 
 - If the connection fails, verify your API token has the necessary permissions and hasn't expired.
-- If an Actor doesn't appear in dropdowns, make sure it has been run at least once in your account.
+- If an Actor doesn't appear in dropdowns, make sure it has been run at least once in your account. **Send Server Actor request** lists only Server Actors from Apify Store, so enter other Server Actors manually.
 - If a recipe times out waiting for results, use asynchronous execution and a separate trigger instead of waiting for completion.
 - If JSON input is rejected, check that it's properly formatted and matches the expected Actor input schema.
 - If URL or item limit validation fails, ensure URLs include a protocol (`https://`) and item limits are positive integers or empty.
