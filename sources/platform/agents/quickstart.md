@@ -42,7 +42,7 @@ To connect a client that supports remote MCP servers, such as Claude Code, Curso
 
 1. Restart your client and sign in when prompted. OAuth handles authentication automatically.
 
-Claude Desktop doesn't accept a remote server URL in its configuration file. Add `https://mcp.apify.com` as a custom connector instead. For details, see [Claude Desktop integration guide](/integrations/claude-desktop).
+Claude Desktop doesn't accept a remote server URL in its configuration file. Add `https://mcp.apify.com` as a custom connector instead, as described in the [Claude.ai integration guide](/integrations/claude-ai#connect-without-the-plugin). The connector works in both claude.ai and Claude Desktop.
 
 For client-specific steps, use the [MCP Configurator](https://mcp.apify.com), which generates ready-to-paste configs.
 
