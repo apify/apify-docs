@@ -25,7 +25,7 @@ You can create 10 different **tasks** for 10 different websites, with very diffe
 
 Depending on how you arrived at this tutorial, you may already have your first task created for the scraper of your choice. If not, the easiest way is to go to [Apify Store](https://console.apify.com/actors#/store/) and select the Actor you want to base your task on. Then, click the **Create a new task** button in the top-right corner.
 
-> This tutorial covers the use of **Web**, **Cheerio**, and **Puppeteer** scrapers, but a lot of the information here can be used with all Actors. For this tutorial, we will select **Web Scraper**.
+This tutorial covers the use of **Web**, **Cheerio**, and **Puppeteer** scrapers, but a lot of the information here can be used with all Actors. For this tutorial, we will select **Web Scraper**.
 
 ![$1](https://raw.githubusercontent.com/apify/actor-scraper/master/docs/img/actor-selection.webp)
 
@@ -47,7 +47,7 @@ Now click **Save & Run**! *(in the bottom-left part of your screen)*
 
 After clicking **Save & Run**, the window will change to the run detail. Here, you will see the run's log. If it seems that nothing is happening, don't worry, it takes a few seconds for the run to fully boot up. In under a minute, you should have the 10 pages scraped. You will know that the run successfully completed when the `RUNNING` card in top-left corner changes to `SUCCEEDED`.
 
-> Feel free to browse through the various new tabs: **Log**, **Info**, **Input** and other, but for the sake of brevity, we will not explain all their features in this tutorial.
+Feel free to browse through the various new tabs: **Log**, **Info**, **Input** and other, but for the sake of brevity, we will not explain all their features in this tutorial.
 
 Now that the run has `SUCCEEDED`, click on the glowing **Results** card to see the scrape's results. This takes you to the **Dataset** tab, where you can display or download the results in various formats. For now, click the **Preview** button. Voila, the scraped data!
 
@@ -65,11 +65,11 @@ Before we jump into the scraping itself, let's have a quick look at the user int
 
 The **Input** tab is where we started and it's the place where you create your scraping configuration. The Actor's creator prepares the **Input** form so that you can tell the Actor what to do. Feel free to check the tooltips of the various options to get a better idea of what they do. To display the tooltip, click the question mark next to each input field's name.
 
-> We will not go through all the available input options in this tutorial. See the Actor's README for detailed information.
+We will not go through all the available input options in this tutorial. See the Actor's README for detailed information.
 
 Below the input fields are the Build, Timeout and Memory options. Let's keep them at default settings for now. Remember that if you see a yellow `TIMED-OUT` status after running your task, you might want to come back here and increase the timeout.
 
-> Timeouts are there to prevent tasks from running forever. Always set a reasonable timeout to prevent a rogue task from eating up all your compute units.
+Timeouts are there to prevent tasks from running forever. Always set a reasonable timeout to prevent a rogue task from eating up all your compute units.
 
 ### Settings
 
@@ -91,7 +91,11 @@ Since tasks are configurations for Actors, this tab shows you all the informatio
 
 The API tab gives you a quick overview of all the available API calls in case you would like to use your task programmatically. It also includes links to detailed API documentation. You can even try it out immediately using the **Test endpoint** button.
 
-> Never share a URL containing the authentication token (`?token=...` parameter in the URLs), as this will compromise your account's security.
+:::caution Keep your API token private
+
+Never share a URL containing the authentication token (`?token=...` parameter in the URLs), as this will compromise your account's security.
+
+:::
 
 ## Scraping theory
 
@@ -210,7 +214,7 @@ You'll see that the Element tab jumps to the first `<title>` element of the curr
 
 ![$1](https://raw.githubusercontent.com/apify/actor-scraper/master/docs/img/using-devtools.webp)
 
-> For the sake of brevity, we won't go into the details of using the DevTools in this tutorial. If you're just starting out with DevTools, this [Google tutorial](https://developer.chrome.com/docs/devtools/) is a good place to begin.
+For the sake of brevity, we won't go into the details of using the DevTools in this tutorial. If you're just starting out with DevTools, this [Google tutorial](https://developer.chrome.com/docs/devtools/) is a good place to begin.
 
 ### Understanding `context`
 
@@ -290,7 +294,7 @@ The scraper:
  5. Enqueues the matching URLs to the end of the crawling queue.
  6. Closes the page and selects a new URL to visit, either from the **Start URL**s if there are any left, or from the beginning of the crawling queue.
 
-> When you're not using the request queue, the scraper repeats steps 1 and 2. You would not use the request queue when you already know all the URLs you want to visit. For example, when you have a pre-existing list of a thousand URLs that you uploaded as a text file. Or when scraping a single URL.
+When you're not using the request queue, the scraper repeats steps 1 and 2. You would not use the request queue when you already know all the URLs you want to visit. For example, when you have a pre-existing list of a thousand URLs that you uploaded as a text file. Or when scraping a single URL.
 
 ## Scraping practice
 
