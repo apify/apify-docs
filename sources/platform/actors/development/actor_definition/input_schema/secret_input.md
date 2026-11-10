@@ -85,7 +85,7 @@ The RSA key is unique for each combination of user and Actor, ensuring that no A
 
 During Actor execution, the decryption keys are passed as environment variables, restricting the decryption of secret input fields to occur solely within the context of the Actor run. This approach prevents unauthorized access to sensitive input data outside the Actor's execution environment.
 
-## Decryption environment variables
+### Decryption environment variables
 
 The platform passes the decryption key to every Actor run in these [environment variables](../../programming_interface/environment_variables.md):
 
@@ -94,7 +94,7 @@ The platform passes the decryption key to every Actor run in these [environment 
 | `APIFY_INPUT_SECRETS_PRIVATE_KEY_FILE` | The private RSA key as base64-encoded PEM text. Despite the name, it holds the key itself, not a file path. |
 | `APIFY_INPUT_SECRETS_PRIVATE_KEY_PASSPHRASE` | The passphrase for the private key. |
 
-`Actor.getInput()` in the JavaScript SDK and `Actor.get_input()` in the Python SDK use these variables to decrypt secret fields. If the variables aren't set, for example in local runs, the fields stay encrypted. If you don't use an SDK, decrypt the fields yourself with this key.
+`Actor.getInput()` in the JavaScript SDK and `Actor.get_input()` in the Python SDK use these variables to decrypt secret fields. If either variable is missing, for example in local runs, the fields stay encrypted. If you don't use an SDK, decrypt the fields yourself with this key.
 
 ## Example Actor
 
