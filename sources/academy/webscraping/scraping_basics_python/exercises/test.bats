@@ -34,25 +34,25 @@ run_retry() {
 }
 
 @test "outputs the HTML with Star Wars products" {
-  run_retry uv run -q --with=httpx python lego.py
+  run_retry uv run -q --with=httpx2 python lego.py
 
   [[ "$output" == *"Millennium Falcon"* ]]
 }
 
 @test "counts the number of F1 Academy teams" {
-  run_retry uv run -q --with=httpx --with=beautifulsoup4 python f1academy_teams.py
+  run_retry uv run -q --with=httpx2 --with=beautifulsoup4 python f1academy_teams.py
 
   [[ "$output" == "6" ]]
 }
 
 @test "counts the number of F1 Academy drivers" {
-  run_retry uv run -q --with=httpx --with=beautifulsoup4 python f1academy_drivers.py
+  run_retry uv run -q --with=httpx2 --with=beautifulsoup4 python f1academy_drivers.py
 
   [[ "$output" == "18" ]]
 }
 
 @test "lists IMO countries" {
-  run_retry uv run -q --with=httpx --with=beautifulsoup4 python imo_countries.py
+  run_retry uv run -q --with=httpx2 --with=beautifulsoup4 python imo_countries.py
 
   [[ "$output" == *$'Albania\nLibya\n'* ]]
   [[ "$output" == *$'\nZimbabwe\nFaroes\n'* ]]
@@ -60,7 +60,7 @@ run_retry() {
 }
 
 @test "lists IMO countries with a single selector" {
-  run_retry uv run -q --with=httpx --with=beautifulsoup4 python imo_countries_single_selector.py
+  run_retry uv run -q --with=httpx2 --with=beautifulsoup4 python imo_countries_single_selector.py
 
   [[ "$output" == *$'Albania\nLibya\n'* ]]
   [[ "$output" == *$'\nZimbabwe\nFaroes\n'* ]]
@@ -68,28 +68,28 @@ run_retry() {
 }
 
 @test "lists Guardian F1 article titles" {
-  run_retry uv run -q --with=httpx --with=beautifulsoup4 python guardian_f1_titles.py
+  run_retry uv run -q --with=httpx2 --with=beautifulsoup4 python guardian_f1_titles.py
 
   [[ "$output" == *' F1 '* ]]
   [[ $(echo "$output" | wc -l) -gt 5 ]]
 }
 
 @test "prints IKEA product dimensions and prices" {
-  run_retry uv run -q --with=httpx --with=beautifulsoup4 python ikea_dimensions.py
+  run_retry uv run -q --with=httpx2 --with=beautifulsoup4 python ikea_dimensions.py
 
   [[ "$output" == *'50 | 51 | 70'* ]]  # bestseller
   [[ "$output" == *'9 SEK'* ]]  # IKEA prices way too often end with 9
 }
 
 @test "prints IKEA product dimensions and prices using regex" {
-  run_retry uv run -q --with=httpx --with=beautifulsoup4 python ikea_dimensions_regex.py
+  run_retry uv run -q --with=httpx2 --with=beautifulsoup4 python ikea_dimensions_regex.py
 
   [[ "$output" == *'50 | 51 | 70'* ]]  # bestseller
   [[ "$output" == *'9 SEK'* ]]  # IKEA prices way too often end with 9
 }
 
 @test "prints Guardian F1 titles with publish dates" {
-  run_retry uv run -q --with=httpx --with=beautifulsoup4 python guardian_publish_dates.py
+  run_retry uv run -q --with=httpx2 --with=beautifulsoup4 python guardian_publish_dates.py
 
   [[ "$output" == *' F1 '* ]]
   [[ "$output" == *' | Mon '* ]]  # has info about date, Mondays are very likely
@@ -105,21 +105,21 @@ run_retry() {
 }
 
 @test "lists WTA player links" {
-  run_retry uv run -q --with=httpx --with=beautifulsoup4 python wta_tennis_links.py
+  run_retry uv run -q --with=httpx2 --with=beautifulsoup4 python wta_tennis_links.py
 
   [[ "$output" == *'https://www.wtatennis.com/players/'* ]]
   [[ $(echo "$output" | wc -l) -gt 10 ]]
 }
 
 @test "lists Guardian F1 article links" {
-  run_retry uv run -q --with=httpx --with=beautifulsoup4 python guardian_f1_links.py
+  run_retry uv run -q --with=httpx2 --with=beautifulsoup4 python guardian_f1_links.py
 
   [[ "$output" == *'https://www.theguardian.com/sport/'* ]]
   [[ $(echo "$output" | wc -l) -gt 5 ]]
 }
 
 @test "lists WTA player birthplaces" {
-  run_retry uv run -q --with=httpx --with=beautifulsoup4 python wta_tennis_players.py
+  run_retry uv run -q --with=httpx2 --with=beautifulsoup4 python wta_tennis_players.py
 
   [[ "$output" == *'https://www.wtatennis.com/players/'* ]]
   [[ "$output" == *' | '* ]]
@@ -128,7 +128,7 @@ run_retry() {
 }
 
 @test "lists Guardian F1 authors" {
-  run_retry uv run -q --with=httpx --with=beautifulsoup4 python guardian_f1_authors.py
+  run_retry uv run -q --with=httpx2 --with=beautifulsoup4 python guardian_f1_authors.py
 
   [[ $(echo "$output" | wc -l) -gt 5 ]]
   [[ "$output" == *' F1 '* ]]
@@ -143,7 +143,7 @@ run_retry() {
 }
 
 @test "lists Python database jobs" {
-  run_retry uv run -q --with=httpx --with=beautifulsoup4 python python_jobs_database.py
+  run_retry uv run -q --with=httpx2 --with=beautifulsoup4 python python_jobs_database.py
 
   [[ "$output" == *"'title': '"* ]]
   [[ "$output" == *"'company': '"* ]]
@@ -152,7 +152,7 @@ run_retry() {
 }
 
 @test "counts total eurozone population" {
-  run_retry uv run -q --with=httpx --with=beautifulsoup4 python eurozone_population.py
+  run_retry uv run -q --with=httpx2 --with=beautifulsoup4 python eurozone_population.py
 
   [[ "$output" -gt 300000000 ]]
 }

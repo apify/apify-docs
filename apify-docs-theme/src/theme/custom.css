@@ -660,6 +660,8 @@ article .card h2 {
     width: 2rem;
     height: 2.4rem;
     float: right;
+    /* Centers the chevron on the same line as the .menu__caret button's chevron */
+    margin-right: -0.2rem;
 }
 
 aside button[class*='collapseSidebarButton'] svg {

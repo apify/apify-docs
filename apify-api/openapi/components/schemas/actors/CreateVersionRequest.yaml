@@ -39,3 +39,12 @@ properties:
   gitHubGistUrl:
     type: string
     description: URL of the GitHub Gist to clone the source code from. Applies when the `sourceType` is `GITHUB_GIST`.
+  actorPath:
+    type: [string, "null"]
+    minLength: 1
+    maxLength: 255
+    examples: [actors/typescript-actor]
+    description: The Actor's directory inside the uploaded source, as a path relative to the upload root with `/` separators,
+      for example `actors/typescript-actor`. Applies when the `sourceType` is `SOURCE_FILES` or `TARBALL`. The API rejects a
+      path when the `sourceType` is `GIT_REPO` or `GITHUB_GIST`. When omitted or `null`, the upload root is the Actor's
+      directory. It has 1 to 255 characters, with no leading, trailing, or repeated `/` and no `.` or `..` segments.
