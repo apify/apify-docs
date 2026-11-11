@@ -45,12 +45,6 @@ Install the Apify app from the HubSpot Marketplace:
 
 The app is now connected to both your HubSpot portal and your Apify account.
 
-:::note Reinstall if you used contact enrichment
-
-If you installed the app before it switched to company enrichment, reinstall it to grant the new permission to write company records. HubSpot only applies new permissions on reinstall. Until you do, runs fail with a message that the account is missing the `crm.objects.companies.write` permission.
-
-:::
-
 ## Add the CRM card
 
 After installation, add the Apify card to your company record pages:
@@ -239,7 +233,7 @@ A company skipped with a reason counts toward the run status the same way as a f
 
 ## Limitations
 
-- **Company records only.** The integration doesn't create or update contacts. Enrichments you created before the switch to company enrichment are hidden from the card.
+- **Company records only.** The integration doesn't create or update contacts.
 - **One value per field.** If a website lists several phone numbers or LinkedIn pages, only the first valid one is written.
 - **Role emails on the company domain only.** Companies whose only email is personal or on another domain, such as a parent brand, get no general email.
 - **No phone formatting.** Phone numbers are written as they appear on the website.
@@ -253,10 +247,6 @@ A company skipped with a reason counts toward the run status the same way as a f
 ### Does the integration modify my existing HubSpot data?
 
 Only the company properties you map. Use **Skip if set** on a mapping to keep existing values and only fill empty properties. Contacts are never created or changed.
-
-### Why doesn't the integration enrich contacts anymore?
-
-The integration now only writes public, company-level data from the company's own website, such as the general mailbox, main phone line, and social pages. It doesn't collect data about individual people.
 
 ### Can I enrich multiple companies at once?
 
@@ -272,7 +262,7 @@ Yes. Select the **Abort** button next to the status badge of a running or import
 
 ### Does this cost Apify credits?
 
-Yes. The Contact Details Scraper runs on your Apify account and consumes credits for each website it crawls. The scraper's paid employee data add-on is turned off, so you aren't charged for leads. Check Apify Console for usage and billing details.
+Yes. The Contact Details Scraper runs on your Apify account and consumes credits for each website it crawls. Check Apify Console for usage and billing details.
 
 ## Troubleshooting
 
@@ -288,12 +278,6 @@ Yes. The Contact Details Scraper runs on your Apify account and consumes credits
 - Or enter a temporary URL in the card for this run only.
 
 A company without a website can't be enriched - the scraper needs a URL to visit.
-
-### Missing permission error
-
-**Symptom:** A run fails with "The connected HubSpot account is missing the `crm.objects.companies.write` permission."
-
-**Solution:** Uninstall and reinstall the Apify app to grant the permission to write company records. This happens on installs made before the integration switched to company enrichment.
 
 ### Company skipped
 
