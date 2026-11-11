@@ -20,6 +20,10 @@ properties:
   name:
     type: string
     examples: [my-task]
+  nameLowerCase:
+    type: string
+    examples: [my-task]
+    description: Task name in lowercase.
   username:
     type: [string, "null"]
     examples: [janedoe]
@@ -45,8 +49,13 @@ properties:
   input:
     anyOf:
       - $ref: ./TaskInput.yaml
+      - type: array
+        items:
+          $ref: ./TaskInput.yaml
       - type: "null"
   title:
+    type: [string, "null"]
+  description:
     type: [string, "null"]
   actorStandby:
     anyOf:
@@ -55,3 +64,12 @@ properties:
   standbyUrl:
     type: [string, "null"]
     format: uri
+  isPublic:
+    type: boolean
+    description: |
+      Whether the task is published. Based on the `publicConfig.publishedAt` field.
+    examples: [false]
+  publicConfig:
+    anyOf:
+      - $ref: ./TaskPublicConfig.yaml
+      - type: "null"

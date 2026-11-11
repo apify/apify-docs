@@ -1,0 +1,55 @@
+post:
+  tags:
+    - Users
+  summary: Register deployment key
+  description: |
+    Registers the Actor's deployment key (a read-only SSH key generated for every Actor) on a repository through a
+    connected git account, so that Apify can clone the repository when building the Actor.
+
+    You need write access to the Actor. The repository's host must match the provider of the connected account.
+    If the key is already registered on the repository, nothing changes. On GitHub, registering the key on another
+    repository removes it from the previously linked one.
+  operationId: integrations_git_registerDeploymentKey_post
+  parameters:
+    - name: providerId
+      in: path
+      description: |
+        The connected git account to use: `github-app` for the GitHub App, or the ID of a connected GitLab or
+        Bitbucket integration, as returned by [Get git provider integrations](/api/v2/integrations-git-get).
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: github-app
+  requestBody:
+    description: ""
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/integrations/RegisterDeploymentKeyRequest.yaml
+    required: true
+  responses:
+    "201":
+      description: ""
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/integrations/RegisterDeploymentKeyResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      $ref: ../../components/responses/NotFound.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "413":
+      $ref: ../../components/responses/PayloadTooLarge.yaml
+    "415":
+      $ref: ../../components/responses/UnsupportedMediaType.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
+  deprecated: false

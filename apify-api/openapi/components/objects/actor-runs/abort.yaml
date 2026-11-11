@@ -27,7 +27,7 @@ byRunId:
   <<: *sharedAbort
   tags:
     - Actor runs
-  summary: Abort run
+  summary: Abort Actor run
   description: |
     Aborts an Actor run and returns an object that contains all the details
     about the run.
@@ -53,15 +53,16 @@ byActorRunId:
   <<: *sharedAbort
   tags:
     - Actors/Actor runs
-  summary: Abort run
+  summary: Abort Actor run
   description: |
     **[DEPRECATED]** API endpoints related to run of the Actor were moved under
-    new namespace [`actor-runs`](#/reference/actor-runs). Aborts an Actor run and
+    new namespace `actor-runs`
+    ([Manage Actor runs](/api/v2/actor-runs)). Aborts an Actor run and
     returns an object that contains all the details about the run.
 
     Only runs that are starting or running are aborted. For runs with status
     `FINISHED`, `FAILED`, `ABORTING` and `TIMED-OUT` this call does nothing.
-  operationId: act_run_abort_post
+  operationId: actors_run_abort_post
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
     - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
@@ -81,31 +82,33 @@ lastRunByActor:
     Aborts the last run of the specified Actor and returns an object that
     contains all the details about the run.
 
-    This endpoint is a shortcut for [Abort run](#/reference/actor-runs/abort-run/abort-run)
+    This endpoint is a shortcut for [Abort Actor run](/api/v2/actor-run-abort-post)
     on the Actor's last run. Only runs that are starting or running are aborted.
     For runs with status `FINISHED`, `FAILED`, `ABORTING` and `TIMED-OUT` this call
     does nothing.
-  operationId: act_runs_last_abort_post
+  operationId: actor_runs_last_abort_post
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
     - $ref: "../../parameters/runAndBuildParameters.yaml#/gracefully"
 
 lastRunByActorTask:
   <<: *sharedAbort
   tags:
     - Last Actor task run's abort
-  summary: Abort Actor task's last run
+  summary: Abort last run of an Actor task
   description: |
     Aborts the last run of the specified Actor task and returns an object that
     contains all the details about the run.
 
-    This endpoint is a shortcut for [Abort run](#/reference/actor-runs/abort-run/abort-run)
+    This endpoint is a shortcut for [Abort Actor run](/api/v2/actor-run-abort-post)
     on the Actor task's last run. Only runs that are starting or running are aborted.
     For runs with status `FINISHED`, `FAILED`, `ABORTING` and `TIMED-OUT` this call
     does nothing.
   operationId: actorTask_runs_last_abort_post
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
     - $ref: "../../parameters/runAndBuildParameters.yaml#/gracefully"

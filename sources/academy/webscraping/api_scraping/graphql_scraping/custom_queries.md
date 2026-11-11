@@ -3,6 +3,7 @@ title: Custom queries
 description: Learn how to write custom GraphQL queries, how to pass input values into GraphQL requests as variables, and how to retrieve and output the data from a scraper.
 sidebar_position: 3
 slug: /api-scraping/graphql-scraping/custom-queries
+pagination: true
 ---
 
 **Learn how to write custom GraphQL queries, how to pass input values into GraphQL requests as variables, and how to retrieve and output the data from a scraper.**

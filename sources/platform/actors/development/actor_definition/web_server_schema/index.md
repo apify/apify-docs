@@ -1,14 +1,14 @@
 ---
-title: Web server schema
+title: Actor web server schema
 sidebar_label: Web server schema
 sidebar_position: 7
-description: Attach an OpenAPI specification to your Actor to enable the interactive Standby tab in Apify Console and Apify Store, where you can browse and test endpoints.
+description: Attach an OpenAPI specification to your Actor to enable the interactive Server tab in Apify Console and Apify Store, where you can browse and test endpoints.
 slug: /actors/development/actor-definition/web-server-schema
 ---
 
-The `webServerSchema` field in `.actor/actor.json` attaches an [OpenAPI 3.x](https://spec.openapis.org/oas/v3.0.3) specification to your Actor. You can define the schema for any Actor that exposes an HTTP server. When you enable [standby mode](/platform/actors/development/programming-interface/standby), Apify Console and Apify Store render an interactive **Standby** tab on the Actor's detail page. From there you can browse endpoints, inspect request and response schemas, and send requests directly from the browser.
+The `webServerSchema` field in `.actor/actor.json` attaches an [OpenAPI 3.x](https://spec.openapis.org/oas/v3.0.3) specification to your Actor. You can define the schema for any Actor that exposes an HTTP server. When you enable the [server interface](/actors/development/programming-interface/server-actors), Apify Console and Apify Store render an interactive **Server** tab on the Actor's detail page. From there you can browse endpoints, inspect request and response schemas, and send requests directly from the browser.
 
-![Apify Console showing the Standby tab with the Endpoints section rendered from the Actor's OpenAPI spec](../images/console-standby-openapi-swagger.png)
+![Apify Console showing the Server tab rendered from the Actor's OpenAPI spec](../images/console-standby-openapi-swagger.png)
 
 ## Define the web server schema
 
@@ -90,13 +90,15 @@ Follow the standard [OpenAPI 3.x format](https://spec.openapis.org/oas/latest.ht
 
 ## Build and deploy
 
-The build process validates `webServerSchema`, similar to other Actor schemas like [input schema](/platform/actors/development/actor-definition/input-schema) and [dataset schema](/platform/actors/development/actor-definition/dataset-schema). If the spec is malformed, the build fails with a validation error.
+The build process validates `webServerSchema`, similar to other Actor schemas like [input schema](/actors/development/actor-definition/input-schema) and [dataset schema](/storage/dataset-schema). If the spec is malformed, the build fails with a validation error.
 
-Once deployed, the **Standby** tab appears automatically on the Actor's detail page when you enable [standby mode](/platform/actors/development/programming-interface/standby). It renders your spec with [Swagger UI](https://swagger.io/tools/swagger-ui/) and handles authentication automatically - Actor users can send requests without configuring API tokens.
+The platform doesn't enforce the schema at runtime. Unlike input schema, the web server schema only documents your Actor's interface. The platform forwards incoming requests to your server without validating them or your server's responses against the schema. Your server must validate requests itself.
+
+Once deployed, the **Server** tab appears automatically on the Actor's detail page when you enable the [server interface](/actors/development/programming-interface/server-actors). It renders your spec with [Swagger UI](https://swagger.io/tools/swagger-ui/) and handles authentication automatically - Actor users can send requests without configuring API tokens.
 
 :::note Servers field is overwritten
 
-Your `servers` array is replaced with the Actor's standby URL at display time. Custom server URLs are ignored.
+Your `servers` array is replaced with the Actor's server interface URL at display time. Custom server URLs are ignored.
 
 :::
 
@@ -104,5 +106,6 @@ Your `servers` array is replaced with the Actor's standby URL at display time. C
 
 | Field | Description |
 | --- | --- |
-| `usesStandbyMode` | Must be `true` for the **Standby** tab to appear. See [standby mode](/platform/actors/development/programming-interface/standby). |
-| `webServerSchema` | The OpenAPI spec that powers the **Standby** tab. Defined in [`.actor/actor.json`](/platform/actors/development/actor-definition/actor-json) as an inline object or a path to a JSON file. |
+| `usesStandbyMode` | Must be `true` for the **Server** tab to appear. See [Develop Server Actors](/actors/development/programming-interface/server-actors). |
+| `webServerSchema` | The OpenAPI spec that powers the **Server** tab. Defined in [`.actor/actor.json`](/actors/development/actor-definition/actor-json) as an inline object or a path to a JSON file. |
+| `webServerMcpPath` | The HTTP path where the Actor exposes its MCP server. The Actor's MCP endpoint is the server interface URL followed by this path. See [`.actor/actor.json`](/actors/development/actor-definition/actor-json). |

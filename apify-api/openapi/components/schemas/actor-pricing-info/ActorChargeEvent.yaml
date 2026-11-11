@@ -23,5 +23,5 @@ properties:
     type: boolean
     description: Whether this event is the Actor's primary chargeable event.
   isOneTimeEvent:
-    type: boolean
+    type: [boolean, "null"]
     description: Whether this event can only be charged once per Actor run.

@@ -2,7 +2,6 @@
 title: Milvus integration
 description: Learn how to integrate Apify with Milvus to export Actor results and dataset items into a Milvus vector database collection for semantic search.
 sidebar_label: Milvus
-sidebar_position: 16
 slug: /integrations/milvus
 toc_min_heading_level: 2
 toc_max_heading_level: 4
@@ -24,7 +23,7 @@ Before you begin, ensure that you have the following:
 
 - A Milvus/Zilliz database universal resource identifier (URI) and Token to setup the client. Optionally, you can use a username and password in the URI. You can run Milvus on Docker or Kubernetes, but in this example, we'll use the hosted Milvus service at [Zilliz Cloud](https://cloud.zilliz.com).
 - An [OpenAI API key](https://openai.com/index/openai-api/) to compute text embeddings.
-- An [Apify API token](https://docs.apify.com/platform/integrations/api#api-token) to access [Apify Actors](https://apify.com/store).
+- An [Apify API token](https://docs.apify.com/integrations/api#api-token) to access [Apify Actors](https://apify.com/store).
 
 ### How to set up Milvus/Zilliz database
 

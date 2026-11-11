@@ -31,6 +31,8 @@ sharedTagTaskLastRun: &sharedTagTaskLastRun
 sharedGet: &sharedGet
   responses:
     <<: *commonErrors
+    "402":
+      $ref: ../../responses/PaymentRequired.yaml
     "200":
       description: ""
       headers: {}
@@ -42,7 +44,7 @@ sharedGet: &sharedGet
 
 listById:
   <<: [*sharedGet, *sharedTagById]
-  summary: Get list of keys
+  summary: Get list of key-value store keys
   description: |
     Returns a list of objects describing keys of a given key-value store, as
     well as some information about the values (e.g. size).
@@ -70,12 +72,12 @@ listById:
 
 listDefault:
   <<: [*sharedGet, *sharedTagDefault]
-  summary: Get default store's list of keys
+  summary: Get list of keys in the default key-value store of an Actor run
   description: |
     Returns a list of keys for the default key-value store of the Actor run.
 
     This endpoint is a shortcut for getting the run's `defaultKeyValueStoreId` and then using the
-    [Get list of keys](/api/v2/key-value-store-keys-get) endpoint.
+    [Get list of key-value store keys](/api/v2/key-value-store-keys-get) endpoint.
   operationId: actorRun_keyValueStore_keys_get
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
@@ -87,16 +89,17 @@ listDefault:
 
 listLastRun:
   <<: [*sharedGet, *sharedTagLastRun]
-  summary: Get last run's default store's list of keys
+  summary: Get list of keys in the default key-value store of an Actor's last run
   description: |
     Returns a list of keys for the default key-value store of the last Actor run.
 
     This endpoint is a shortcut for getting the last run's `defaultKeyValueStoreId` and then using the
-    [Get list of keys](/api/v2/key-value-store-keys-get) endpoint.
-  operationId: act_runs_last_keyValueStore_keys_get
+    [Get list of key-value store keys](/api/v2/key-value-store-keys-get) endpoint.
+  operationId: actor_runs_last_keyValueStore_keys_get
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
     - $ref: "../../parameters/keyValueStoreParameters.yaml#/exclusiveStartKey"
     - $ref: "../../parameters/keyValueStoreParameters.yaml#/limit"
     - $ref: "../../parameters/keyValueStoreParameters.yaml#/collectionKeys"
@@ -105,16 +108,17 @@ listLastRun:
 
 listTaskLastRun:
   <<: [*sharedGet, *sharedTagTaskLastRun]
-  summary: Get last task run's default store's list of keys
+  summary: Get list of keys in the default key-value store of an Actor task's last run
   description: |
     Returns a list of keys for the default key-value store of the last Actor task run.
 
     This endpoint is a shortcut for getting the last task run's `defaultKeyValueStoreId` and then using the
-    [Get list of keys](/api/v2/key-value-store-keys-get) endpoint.
+    [Get list of key-value store keys](/api/v2/key-value-store-keys-get) endpoint.
   operationId: actorTask_runs_last_keyValueStore_keys_get
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
     - $ref: "../../parameters/keyValueStoreParameters.yaml#/exclusiveStartKey"
     - $ref: "../../parameters/keyValueStoreParameters.yaml#/limit"
     - $ref: "../../parameters/keyValueStoreParameters.yaml#/collectionKeys"

@@ -3,17 +3,44 @@ type: object
 properties:
   isEnabled:
     type: [boolean, "null"]
+    description: Whether standby mode is enabled for the Actor.
   desiredRequestsPerActorRun:
     type: [integer, "null"]
+    description: Target number of concurrent HTTP requests a single run is configured to handle.
   maxRequestsPerActorRun:
     type: [integer, "null"]
+    description: Maximum number of concurrent HTTP requests that can be routed to a single run.
   idleTimeoutSecs:
     type: [integer, "null"]
+    description: In seconds, how long a run can stay idle without incoming requests before it's terminated.
   build:
     type: [string, "null"]
+    description: Which build to run in standby mode. Either a build tag or a version number.
   memoryMbytes:
     type: [integer, "null"]
+    description: In MB, the amount of memory allocated to the run.
   disableStandbyFieldsOverride:
     type: [boolean, "null"]
+    description: If `true`, prevents the standby mode configuration from being overridden elsewhere.
   shouldPassActorInput:
     type: [boolean, "null"]
+    description: Whether to pass the Actor's input to the standby run. If `false`, the standby runs
+      start with no input.
+  tenancy:
+    type: [string, "null"]
+    enum:
+      - SINGLE_TENANT
+      - MULTI_TENANT
+      - null
+    examples: [SINGLE_TENANT]
+    description: Whether each user gets their own standby runs (`SINGLE_TENANT`) or runs are shared across users (`MULTI_TENANT`).
+  isConsoleAuthEnabled:
+    type: [boolean, "null"]
+    description: |
+      Whether standby requests can be authenticated with an Apify Console session.
+      When creating an Actor, omit this field or set it to `false`. When updating an Actor, only Apify administrators can change it; other users can only send the current value, or `false` if it's not set yet.
+  isTokenlessEnabled:
+    type: [boolean, "null"]
+    description: |
+      Whether standby requests can be made without an API token.
+      When creating an Actor, omit this field or set it to `false`. When updating an Actor, only Apify administrators can change it; other users can only send the current value, or `false` if it's not set yet.

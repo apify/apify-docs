@@ -1,12 +1,12 @@
 actorId:
   name: actorId
   in: path
-  description: Actor ID or a tilde-separated owner's username and Actor name.
+  description: Actor ID or the username of the Actor owner and the Actor name, separated by a tilde (`~`).
   required: true
   style: simple
   schema:
     type: string
-    example: janedoe~my-actor
+    example: compass~google-maps-extractor
 
 actorTaskId:
   name: actorTaskId
@@ -88,16 +88,6 @@ gracefully:
     type: boolean
     example: true
 
-statusLastRun:
-  name: status
-  in: query
-  description: Filter for the run status.
-  style: form
-  explode: true
-  schema:
-    type: string
-    example: SUCCEEDED
-
 timeout: &timeout
   name: timeout
   in: query
@@ -120,8 +110,9 @@ memory: &memory
   name: memory
   in: query
   description: |
-    Memory limit for the run, in megabytes. The amount of memory can be set to a power of 2 with a minimum of 128.
-    By default, the run uses the memory limit from its configuration.
+    Memory limit for the run, in megabytes. You can set the amount of memory to a power of 2 with a minimum of 128.
+    By default, the run uses the memory limit from its configuration. Don't change this value unless the Actor's
+    documentation recommends it or you're aware of the consequences.
   style: form
   explode: true
   schema:
@@ -246,9 +237,9 @@ maxTotalChargeUsd:
   in: query
   required: false
   description: |
-    Specifies the maximum cost of the run. This parameter is
-    useful for pay-per-event Actors, as it allows you to limit the amount
-    charged to your subscription. You can access the maximum cost in your Actor
+    Specifies the maximum total cost of the run.
+    Use it to cap the total amount charged for all pricing models.
+    You can access the maximum cost in your Actor
     by using the `ACTOR_MAX_TOTAL_CHARGE_USD` environment variable.
   style: form
   explode: true
@@ -256,6 +247,23 @@ maxTotalChargeUsd:
     type: number
     format: double
     example: 5
+
+forcePermissionLevel:
+  name: forcePermissionLevel
+  in: query
+  description: |
+    Overrides the Actor's permission level for this specific run. Use to test restricted permissions
+    before deploying changes to your Actor or to temporarily elevate or restrict access. If you don't specify this
+    parameter, the Actor uses its configured default permission level. For more information on permissions, see the
+    [documentation](https://docs.apify.com/platform/actors/development/permissions).
+  style: form
+  explode: true
+  schema:
+    type: string
+    enum:
+      - LIMITED_PERMISSIONS
+      - FULL_PERMISSIONS
+    example: LIMITED_PERMISSIONS
 
 status:
   name: status
@@ -299,6 +307,22 @@ startedBefore:
     format: date-time
     example: "2025-09-17T23:59:59.000Z"
 
+deployment:
+  name: deployment
+  in: query
+  description: |
+    Single Actor Standby deployment or comma-separated list of deployments (`SINGLE_TENANT`, `MULTI_TENANT_FREE_USERS`,
+    `MULTI_TENANT_PAYING_USERS` or `MULTI_TENANT_OWNER_PAID`). Used to filter Actor Standby runs by the pool that
+    serves them. Requires the `status` parameter with only non-terminal statuses (`READY`, `RUNNING`, `TIMING-OUT` or
+    `ABORTING`).
+  style: form
+  explode: false
+  schema:
+    type: array
+    items:
+      type: string
+    example: [SINGLE_TENANT]
+
 scheduleId:
   name: scheduleId
   in: path
@@ -309,14 +333,3 @@ scheduleId:
     type: string
     example: asdLZtadYvn4mBZmm
 
-outputRecordKey:
-  name: outputRecordKey
-  in: query
-  description: |
-    Key of the record from run's default key-value store to be returned
-    in the response. By default, it is `OUTPUT`.
-  style: form
-  explode: true
-  schema:
-    type: string
-    example: OUTPUT

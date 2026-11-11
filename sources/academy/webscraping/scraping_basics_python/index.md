@@ -1,10 +1,11 @@
 ---
 title: Web scraping basics for Python devs
 description: Learn how to use Python to extract information from websites in this practical course, starting from the absolute basics.
-sidebar_position: 2
+sidebar_position: 3
 sidebar_label: Web scraping basics with Python
 category: web scraping
 slug: /scraping-basics-python
+pagination: true
 ---
 
 import DocCardList from '@theme/DocCardList';
@@ -20,7 +21,7 @@ In this course we'll use Python to create an application for watching prices. It
 ## What we'll do
 
 - Inspect pages using browser DevTools.
-- Download web pages using the HTTPX library.
+- Download web pages using the HTTPX2 library.
 - Extract data from web pages using the Beautiful Soup library.
 - Save extracted data in various formats, e.g. CSV which MS Excel or Google Sheets can open.
 - Follow links programmatically (crawling).
@@ -58,7 +59,7 @@ As a scraper developer, you are not limited by whether certain data is available
 - Improve your productivity by building personal tools, such as your own real estate or rare sneakers watchdog.
 - Companies can hire you to build custom scrapers mining data important for their business.
 - Become an invaluable asset to data journalism, data science, or nonprofit teams working to make the world a better place.
-- You can publish your scrapers on platforms like the [Apify Store](https://apify.com/store) and earn money by renting them out to others.
+- You can publish your scrapers on platforms like the [Apify Store](https://apify.com/store) and earn money when others use them.
 
 ### Why learn with Apify
 

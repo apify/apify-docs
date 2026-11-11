@@ -12,7 +12,8 @@
         "moduleResolution": "Node16",
         "allowJs": true,
         "skipLibCheck": true,
-        "resolveJsonModule": false
+        "resolveJsonModule": false,
+        "types": ["@docusaurus/module-type-aliases"]
     },
     "include": [
         "./packages/*/src/**/*"

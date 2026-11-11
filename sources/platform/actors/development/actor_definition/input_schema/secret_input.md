@@ -1,11 +1,18 @@
 ---
-title: Secret input
+title: Actor secret input
+sidebar_label: Secret input
 description: Mark Actor input fields as secret so their values are encrypted at rest and only decrypted inside the Actor run, protecting passwords and API tokens.
 sidebar_position: 2
 slug: /actors/development/actor-definition/input-schema/secret-input
 ---
 
 The secret input feature lets you mark specific input fields of an Actor as sensitive. When you save the Actor's input configuration, the values of these marked fields get encrypted. The encrypted input data can only be decrypted within the Actor. This provides an extra layer of security for sensitive information like API keys, passwords, or other confidential data.
+
+:::tip MCP connectors for third-party credentials
+
+If the third-party service you need exposes a [Model Context Protocol](https://modelcontextprotocol.io/docs/getting-started/intro) (MCP) server, consider using [MCP connectors](/integrations/mcp-connectors) instead. The user authorizes the service once in their account settings, and the Actor receives a connector ID rather than a credential. The service token, API key, or PAT stays server-side and is injected by the MCP Proxy at runtime. For credentials without an MCP server (database passwords, generic API keys), continue to use `isSecret: true`.
+
+:::
 
 ## How to set a secret input field
 

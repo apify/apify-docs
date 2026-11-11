@@ -1,164 +1,243 @@
 ---
 title: Continuous integration for Actors
 sidebar_label: Continuous integration
-description: Set up automated builds, deploys, and tests for your Actors using GitHub Actions, Bitbucket Pipelines, webhooks, or direct calls to the Apify API.
+description: Learn how to automate your development process. Configure automated builds, CI pipelines, or webhooks to push code, build Actors, and run tests.
 slug: /actors/development/deployment/continuous-integration
 sidebar_position: 2
 ---
 
-**Learn how to set up automated builds, deploys, and testing for your Actors.**
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
----
 
-Automating your Actor development process can save time and reduce errors, especially for projects  with multiple Actors or frequent updates. Instead of manually pushing code, building Actors, and running tests, you can automate these steps to run whenever you push code to your repository.
+Automating your Actor development process can save time and reduce errors, especially for projects with multiple Actors or frequent updates. Instead of manually pushing code, building Actors, and running tests, you can automate these steps to run whenever you push code to your repository.
 
-You can automate Actor builds and tests using your Git repository's automated workflows like [GitHub Actions](https://github.com/features/actions) or [Bitbucket Pipelines](https://www.atlassian.com/software/bitbucket/features/pipelines).
+The following methods are available:
 
+- [Automated builds](#automatic-builds). Apify rebuilds the Actor on every push to a repository.
+- [Apify CLI in a pipeline](#ci-pipeline). A CI job runs tests and deploys the Actor.
+- [Build webhook](#api-webhook). On every push to a repository, a webhook triggers the [Build Actor](/api/v2/actors-builds-post) API endpoint.
 
-:::tip Using Bitbucket?
+## Automated builds {#automatic-builds}
 
-Follow the step-by-step guide to set up continuous integration for your Actors with Bitbucket Pipelines: [Read the Bitbucket CI guide](https://help.apify.com/en/articles/6988586-setting-up-continuous-integration-for-apify-actors-on-bitbucket).
+You can configure automated builds for Actors whose source code is hosted in a GitHub, GitLab, or Bitbucket repository.
 
-:::
+Apify registers a push webhook on the repository, so that every push triggers a build. You don't need to create a workflow file or configure a webhook yourself.
 
+### Before you start
 
-Set up continuous integration for your Actors using one of these methods:
+To enable automated builds, you need:
 
-- [Trigger builds with a Webhook](#option-1-trigger-builds-with-a-webhook)
-- [Set up automated builds and tests with GitHub Actions](#option-2-set-up-automated-builds-and-tests-with-github-actions)
+- Permission to administer the repository if you don't own it: Maintain on GitHub, Maintainer on GitLab, or Admin on Bitbucket. Apify registers the webhook through your account.
+- An Actor version whose source is hosted by a Git provider. Self-managed instances aren't supported.
+- For a private repository, a Git URL and Apify's [deployment key](/actors/development/deployment/source-types#private-repositories) added to the repository.
 
-Choose the method that best fits your workflow.
+### Enable automated builds
 
-## Option 1: Trigger builds with a webhook
+You configure the build settings for each Actor version separately:
 
-1. Push your Actor to a GitHub repository.
-1. Go to your Actor's detail page in Apify Console, click on the API tab in the top right, then select API Endpoints. Copy the **Build Actor** API endpoint URL. The format is as follows:
+1. Log in to [Apify Console](https://console.apify.com/actors).
+1. In the left-side panel, go to **Development** > **My Actors**.
+1. From the table, select the Actor to configure.
+1. Go to the **Source** tab.
+1. In **Version**, select the Actor version you want to build automatically.
+1. In the **Code** tab, expand the **Build settings** section.
+1. Select **Automatic builds**.
 
-      ```cURL
-      https://api.apify.com/v2/acts/YOUR-ACTOR-NAME/builds?token=YOUR-TOKEN-HERE&version=0.0&tag=beta&waitForFinish=60
-      ```
+With the automated builds on, you can still start builds manually using Apify Console, the Apify CLI, or the [Build Actor](/api/v2/actors-builds-post) API endpoint.
 
-   :::note API token
+### Define the branch
 
-   Make sure you select the correct API token from the dropdown.
+Each Actor version points at one branch. If version `0.1` uses `develop` and version `1.0` uses `main`, pushing to `develop` rebuilds `0.1`, and pushing to `main` rebuilds `1.0`.
 
-   :::
+To define the branch for the Actor version:
 
-1. In your GitHub repository, go to Settings > Webhooks > Add webhook.
-1. Paste the API URL into the Payload URL field and add the webhook.
+1. On your Actor's page, go to the **Source** tab.
+1. In **Version**, select the Actor version to configure.
+1. In the **Branch** field, enter the branch name. To use the default branch, leave the field empty.
 
-![GitHub integration](./images/ci-github-integration.png)
+### New Actors with Git source
 
-Now your Actor will automatically rebuild on every push to the GitHub repository.
+Automatic builds are on by default if during the Actor creation process you set the code source to a Git repository or link an existing Git repository.
 
-## Option 2: Set up automated builds and tests with GitHub Actions
+If your connected account can't administer the repository, the Actor is created with manual builds on.
 
-1. Push your Actor to a GitHub repository.
-1. Get your Apify API token from the [Apify Console](https://console.apify.com/settings/integrations)
+## Deploy with a CI pipeline {#ci-pipeline}
 
-    ![Apify token in app](./images/ci-token.png)
+You can configure a CI pipeline to deploy and rebuild your Actor on every push to a branch. Choose this method when your pipeline has to run tests before the build, or if you can't give Apify access to your repository.
 
-1. Add your Apify token to GitHub secrets
-   1. Go to your repository > Settings > Secrets and variables > Actions > New repository secret
-   1. Name the secret and paste in your token
+### Before you start
 
-     ![Add Apify token to secrets](./images/ci-add-token.png)
+To configure a CI pipeline, you need:
 
-1. Add the Build Actor API endpoint URL to GitHub secrets
-   1. Go to your repository > Settings > Secrets and variables > Actions > New repository secret
-   1. In Apify Console, go to your Actor's detail page, click the API tab in the top right, and then select API Endpoints. Copy the **Build Actor** API endpoint URL. The format is as follows:
+- Actor source code in a Git repository, with a valid [`.actor/actor.json`](/actors/development/actor-definition/actor-json) file.
+- Node.js 22 or later on the CI runner.
 
-       :::note API token
+### Add Apify token to your CI provider
 
-      Make sure you select the correct API token from the dropdown.
+Keep the token in your CI provider's protected storage and never commit it to a repository:
 
-      :::
+- In GitHub, add a [repository secret](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets).
+- In GitLab, add a masked CI/CD variable.
+- In Bitbucket, add a secured repository variable.
 
-      ```cURL
-      https://api.apify.com/v2/acts/YOUR-ACTOR-NAME/builds?token=YOUR-TOKEN-HERE&version=0.0&tag=latest&waitForFinish=60
-      ```
+<details>
+<summary>Get your Apify API token</summary>
 
-   1. Name the secret & paste in your API endpoint
+1. Log in to [Apify Console](https://console.apify.com/actors).
+1. In the left-side panel, go to **Settings**.
+1. Go to the **API & Integrations** tab.
 
-      ![Add build Actor URL to secrets](./images/ci-add-build-url.png)
+</details>
 
-1. Create GitHub Actions workflow files:
-   1. In your repository, create the `.github/workflows` directory
-   1. Add `latest.yml`. If you want, you can also add `beta.yml` to build Actors from the develop branch (or other branches).
+### Deploy with GitHub Actions {#github-actions}
 
-    <Tabs groupId="main">
-    <TabItem value="latest.yml" label="latest.yml">
+The official [`apify/push-actor-action`](https://github.com/apify/push-actor-action) GitHub Action works similarly to running `apify push` with the Apify CLI. It gives you full control over your CI pipeline: you can run tests, manage multiple branches, and customize the workflow.
 
-    :::note Use your secret names
+In your repository, create a `.github/workflows` directory and add a workflow file:
 
-    Make sure to use the exact secret names you set in the previous step.
+- To deploy the Actor code to the Apify platform and build the Actor on every push to `main` or `master`, use:
 
-    :::
-
-    ```yaml
-    name: Test and build latest version
+    ```yaml title="latest.yml"
+    name: Push and build latest version
     on:
       push:
         branches:
           - master
           - main
     jobs:
-      test-and-build:
+      push-actor:
         runs-on: ubuntu-latest
         steps:
-          # Install dependencies and run tests
-          - uses: actions/checkout@v2
-          - run: npm install && npm run test
-          # Build latest version
-          - uses: distributhor/workflow-webhook@v1
-            env:
-              webhook_url: ${{ secrets.BUILD_ACTOR_URL }}
-              webhook_secret: ${{ secrets.APIFY_TOKEN }}
+          - uses: actions/checkout@v4
 
+          - name: Push Actor to Apify
+            uses: apify/push-actor-action@v1
+            with:
+              token: ${{ secrets.APIFY_TOKEN }}
     ```
 
-    With this setup, pushing to the `main` or `master` branch tests the code and builds a new latest version.
+- To deploy the Actor code to the Apify platform, build the Actor, and add the `beta` tag to the build on every push to `develop`, use:
 
-    </TabItem>
-    <TabItem value="beta.yml" label="beta.yml">
-
-    :::note Use your secret names
-
-    Make sure to use the exact secret names you set in the previous step.
-
-    :::
-
-    ```yaml
-    name: Test and build beta version
+    ```yaml title="beta.yml"
+    name: Push and build beta version
     on:
       push:
         branches:
           - develop
     jobs:
-      test-and-build:
+      push-actor:
         runs-on: ubuntu-latest
         steps:
-          # Install dependencies and run tests
-          - uses: actions/checkout@v2
-          - run: npm install && npm run test
-          # Build beta version
-          - uses: distributhor/workflow-webhook@v1
-            env:
-              webhook_url: ${{ secrets.BUILD_ACTOR_URL }}
-              webhook_secret: ${{ secrets.APIFY_TOKEN }}
+          - uses: actions/checkout@v4
 
+          - name: Push Actor to Apify
+            uses: apify/push-actor-action@v1
+            with:
+              token: ${{ secrets.APIFY_TOKEN }}
+              build-tag: beta
     ```
 
-    With this setup, pushing to the `develop` branch tests the code and builds a new beta version.
+For the full list of inputs and outputs, see the [`apify/push-actor-action` README](https://github.com/apify/push-actor-action).
 
-    </TabItem>
-    </Tabs>
+### Deploy with GitLab CI, Bitbucket Pipelines, or another runner
 
-## Conclusion
+To deploy your Actor with GitLab CI, Bitbucket Pipelines, or another runner, use the following commands:
 
-Setting up continuous integration (CI) for your Apify Actors ensures that CI automatically tests and builds your code whenever you push changes to your repository. This helps catch issues early and streamlines your deployment process, whether you're releasing to production or maintaining a beta branch.
+```bash
+npm install -g apify-cli
+apify login --token "$APIFY_TOKEN"
+apify push
+```
 
-You can also integrate directly with GitHub, check out the [official Apify GitHub integration documentation](/platform/integrations/github).
+For example, with Bitbucket Pipelines, to deploy your Actor on every push to the `main` branch, use:
+
+```yaml title="bitbucket-pipelines.yml"
+image: node:22
+pipelines:
+  branches:
+    main:
+      - step:
+          name: Push Actor to Apify
+          script:
+            - npm install -g apify-cli
+            - apify login --token "$APIFY_TOKEN"
+            - apify push
+```
+
+### Run tests before the push
+
+Steps in a job run in order, and the job stops at the first step that fails. To prevent the deployment if the tests fail, run your test suite before the push step.
+
+For example, with GitHub Actions, you can use:
+
+```yaml title="latest.yml"
+name: Test and push latest version
+on:
+  push:
+    branches:
+      - master
+      - main
+jobs:
+  test-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies and run tests
+        run: npm install && npm run test
+
+      - name: Push Actor to Apify
+        id: push
+        uses: apify/push-actor-action@v1
+        with:
+          token: ${{ secrets.APIFY_TOKEN }}
+
+      - name: Print build details
+        run: |
+          echo "Build ${{ steps.push.outputs.build-id }} finished with status ${{ steps.push.outputs.build-status }}"
+```
+
+### Exit codes
+
+`apify push` waits for the build to finish and reports its outcome with the exit code, so a failed build fails the pipeline step on its own.
+
+The following exit codes are possible:
+
+| Exit code | Description |
+| --- | --- |
+| `0` | Build succeeded, or the command returned before the build finished. |
+| `1` | Build failed, or the CLI is not logged in. |
+| `2` | Build timed out. |
+| `3` | Build was aborted. |
+| `4` | No Actor files found in the directory. |
+| `5` | The `.actor/actor.json` file is missing or invalid. |
+
+## Trigger builds with a webhook {#api-webhook}
+
+If your Git provider has no Apify integration, you can trigger builds by calling the [Build Actor](/api/v2/actors-builds-post) API endpoint on every push.
+
+You can configure a webhook only for an Actor version that has its source set to a [Git repository](/actors/development/deployment/source-types#git-repository). The webhook only triggers a build, and the build uses the source that is already configured on the platform.
+
+### Configure the webhook
+
+To configure the webhook:
+
+1. Log in to [Apify Console](https://console.apify.com/actors).
+1. In the left-side panel, go to **Development** > **My Actors**.
+1. From the table, select the Actor to configure.
+1. Select **API** and from the drop-down, select **API endpoints**.
+1. Copy the **Build Actor** API endpoint URL:
+
+    ```text
+    https://api.apify.com/v2/actors/YOUR-ACTOR-NAME/builds?token=YOUR-TOKEN-HERE&version=0.0&tag=latest&waitForFinish=60
+    ```
+
+1. In your repository hosting provider, add a webhook that fires on push events and set the URL to the build API endpoint you copied.
+
+For example, in GitHub, go to **Settings** > **Webhooks** > **Add webhook** and paste the URL into the **Payload URL** field.

@@ -26,3 +26,19 @@ properties:
     type: [string, "null"]
     description: Optional template for the HTTP headers sent by the webhook.
     examples: ['{\n "Authorization": "Bearer ..."}']
+  shouldInterpolateStrings:
+    type: [boolean, "null"]
+    description: Flag to also interpolate `{{...}}` variables inside string values of the payload and headers templates.
+    examples: [false]
+  idempotencyKey:
+    type: [string, "null"]
+    description: Key that prevents creating duplicate webhooks, e.g. when the run-starting request is retried.
+    examples: [fdSJmdP3nfs7sfk3y]
+  ignoreSslErrors:
+    type: [boolean, "null"]
+    description: Flag to ignore SSL errors when the webhook sends the request.
+    examples: [false]
+  doNotRetry:
+    type: [boolean, "null"]
+    description: Flag to skip retrying the webhook request on failure.
+    examples: [false]

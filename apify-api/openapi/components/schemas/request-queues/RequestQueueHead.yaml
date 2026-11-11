@@ -16,5 +16,5 @@ properties:
   items:
     type: array
     items:
-      $ref: ./HeadRequest.yaml
+      $ref: ./RequestQueueHeadItem.yaml
     description: The array of requests from the request queue head.

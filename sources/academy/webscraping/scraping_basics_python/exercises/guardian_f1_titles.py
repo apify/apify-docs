@@ -1,8 +1,8 @@
-import httpx
+import httpx2
 from bs4 import BeautifulSoup
 
 url = "https://www.theguardian.com/sport/formulaone"
-response = httpx.get(url)
+response = httpx2.get(url)
 response.raise_for_status()
 
 soup = BeautifulSoup(response.text, "html.parser")

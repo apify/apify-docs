@@ -1,15 +1,22 @@
-ScheduleShort:
-  title: ScheduleShort
+ScheduleListItem:
+  title: ScheduleListItem
   allOf:
     - $ref: ./ScheduleBase.yaml
     - type: object
       required:
         - actions
       properties:
+        title:
+          type: [string, "null"]
+        notifications:
+          $ref: ./ScheduleNotifications.yaml
+        integrationTracking:
+          description: Present only when the schedule was created by a third-party integration.
+          $ref: ../common/IntegrationTracking.yaml
         actions:
           type: array
           items:
-            $ref: ./ScheduleActionShort.yaml
+            $ref: ./ScheduleListItemAction.yaml
           description: ""
 
 Schedule:
@@ -26,13 +33,12 @@ Schedule:
         title:
           type: [string, "null"]
         notifications:
-          title: ScheduleNotifications
-          type: object
-          description: Notification settings for this schedule.
-          properties:
-            email:
-              type: boolean
-              examples: [true]
+          $ref: ./ScheduleNotifications.yaml
+        uiState:
+          $ref: ./ScheduleUiState.yaml
+        integrationTracking:
+          description: Present only when the schedule was created by a third-party integration.
+          $ref: ../common/IntegrationTracking.yaml
         actions:
           type: array
           items:

@@ -10,15 +10,15 @@ argument-hint: topic
 ## Process
 
 1. **Determine doc type** - platform docs, guide, or reference (tutorials → use `/tutorial`)
-2. **Research** - read related existing pages, check `standards/terminology.md` for product names
-3. **Create front matter** - title (sentence case), description (140-160 chars), sidebar_position, slug
+2. **Research** - read related existing pages, check `standards/style-guide.md` for product names
+3. **Create frontmatter** - title (sentence case), description (140-160 chars), sidebar_position, slug
 4. **Write content** following the structure for the doc type:
    - **Platform docs**: intro → prerequisites → main content → code examples → next steps
    - **Guides**: intro with goal → step-by-step instructions → verification → troubleshooting
    - **Reference**: brief description → parameters/options → examples → related pages
 5. **Quality check** - run `pnpm lint:md` and `vale` before finishing
 
-Key rules: US English, active voice, imperative tone, sentence case headings, bold for UI elements only, all admonitions need titles, code blocks need language tags.
+Key rules: US English, active voice, imperative tone, sentence case headings, bold for UI elements only, all admonitions need titles, code blocks need language tags, prompt examples go in a `prompt` code block.
 
 For detailed structure templates, see `.agents/skills/doc-write/references/doc-structures.md`.
 For edge cases and process notes, see `.agents/skills/doc-write/references/process.md`.

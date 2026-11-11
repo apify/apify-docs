@@ -2,7 +2,6 @@
 title: Qdrant integration
 description: Learn how to integrate Apify with Qdrant to export Actor results and dataset items into a Qdrant vector database collection for AI-powered search.
 sidebar_label: Qdrant
-sidebar_position: 18
 slug: /integrations/qdrant
 toc_min_heading_level: 2
 toc_max_heading_level: 4
@@ -23,7 +22,7 @@ Before you begin, ensure that you have the following:
 - A [Qdrant cluster](https://qdrant.tech) set up.
 - A Qdrant URL to the database and Qdrant API token.
 - An [OpenAI API key](https://openai.com/index/openai-api/) to compute text embeddings.
-- An [Apify API token](https://docs.apify.com/platform/integrations/api#api-token) to access [Apify Actors](https://apify.com/store).
+- An [Apify API token](https://docs.apify.com/integrations/api#api-token) to access [Apify Actors](https://apify.com/store).
 
 ### How to setup Qdrant database and create a cluster
 

@@ -14,4 +14,4 @@ properties:
     type: array
     description: Requests that failed to be added and can be retried.
     items:
-      $ref: ./RequestDraft.yaml
+      $ref: ./UnprocessedRequest.yaml

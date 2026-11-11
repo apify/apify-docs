@@ -26,19 +26,20 @@
 .AskAI-Button {
     height: 4rem;
     padding: 0.8rem 1.6rem !important;
-    background-color: var(--ifm-color-primary);
+    background-color: rgba(255, 255, 255, 0);
     border-radius: 8px;
-    color: var(--color-neutral-text-on-primary);
     font-family: inherit;
     font-size: 1.6rem;
-    font-weight: 500;
+    font-weight: 400;
     line-height: 2.4rem;
-    border: none;
+    border: 1px solid var(--color-neutral-border);
     box-shadow: none;
     outline: none;
     box-sizing: border-box;
     cursor: pointer;
-    display: block;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
     position: relative;
     text-align: center;
     transition: all var(--ifm-transition-fast) var(--ifm-transition-timing-default);
@@ -51,6 +52,12 @@
 
 .navbar-sidebar .SearchButton-Container {
     display: none;
+}
+
+@media (min-width: 769px) {
+    .DocSearch-Button {
+        width: 30rem;
+    }
 }
 
 @media (max-width: 768px) {

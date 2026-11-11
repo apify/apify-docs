@@ -25,7 +25,7 @@ byRunId:
   <<: *sharedReboot
   tags:
     - Actor runs
-  summary: Reboot run
+  summary: Reboot Actor run
   description: |
     Reboots an Actor run and returns an object that contains all the details
     about the rebooted run.
@@ -57,29 +57,31 @@ lastRunByActor:
     Reboots the last run of the specified Actor and returns an object that
     contains all the details about the rebooted run.
 
-    This endpoint is a shortcut for [Reboot run](#/reference/actor-runs/reboot-run/reboot-run)
+    This endpoint is a shortcut for [Reboot Actor run](/api/v2/actor-run-reboot-post)
     on the Actor's last run. Only runs with status `RUNNING` can be rebooted. The run's
     container will be restarted, so any data not persisted in the key-value store, dataset,
     or request queue will be lost.
-  operationId: act_runs_last_reboot_post
+  operationId: actor_runs_last_reboot_post
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"
 
 lastRunByActorTask:
   <<: *sharedReboot
   tags:
     - Last Actor task run's reboot
-  summary: Reboot Actor task's last run
+  summary: Reboot last run of an Actor task
   description: |
     Reboots the last run of the specified Actor task and returns an object that
     contains all the details about the rebooted run.
 
-    This endpoint is a shortcut for [Reboot run](#/reference/actor-runs/reboot-run/reboot-run)
+    This endpoint is a shortcut for [Reboot Actor run](/api/v2/actor-run-reboot-post)
     on the Actor task's last run. Only runs with status `RUNNING` can be rebooted. The run's
     container will be restarted, so any data not persisted in the key-value store, dataset,
     or request queue will be lost.
   operationId: actorTask_runs_last_reboot_post
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorTaskId"
-    - $ref: "../../parameters/runAndBuildParameters.yaml#/statusLastRun"
+    - $ref: "../../parameters/lastRunParameters.yaml#/status"
+    - $ref: "../../parameters/lastRunParameters.yaml#/origin"

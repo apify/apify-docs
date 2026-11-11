@@ -1,0 +1,21 @@
+title: LockedRequestQueueHeadItem
+description: A request from the request queue head that has been locked for processing.
+type: object
+required:
+  - id
+  - uniqueKey
+  - url
+  - lockExpiresAt
+properties:
+  id:
+    $ref: ./SharedProperties.yaml#/RequestId
+  uniqueKey:
+    $ref: ./SharedProperties.yaml#/UniqueKey
+  url:
+    $ref: ./SharedProperties.yaml#/RequestUrl
+  method:
+    $ref: ./SharedProperties.yaml#/RequestMethod
+  retryCount:
+    $ref: ./SharedProperties.yaml#/RetryCount
+  lockExpiresAt:
+    $ref: ./SharedProperties.yaml#/LockExpiresAt

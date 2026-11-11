@@ -5,8 +5,6 @@ slug: /actors/development/programming-interface/metamorph
 sidebar_position: 8
 ---
 
-**The metamorph operation transforms an Actor run into the run of another Actor with a new input.**
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -37,7 +35,7 @@ To make your Actor compatible with metamorph, use `Actor.getInput()` instead of 
 
 :::note Runtime limits
 
-There's a limit to how many times you can metamorph a single run. Refer to the [Actor runtime limits](/platform/limits#actor-limits) for more details.
+There's a limit to how many times you can metamorph a single run. Refer to the [Actor runtime limits](/account/limits#actor-limits) for more details.
 
 :::
 

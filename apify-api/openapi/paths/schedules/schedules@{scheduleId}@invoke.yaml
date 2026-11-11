@@ -1,0 +1,34 @@
+post:
+  tags:
+    - Schedules
+  summary: Invoke schedule
+  description: |
+    Immediately runs all actions of the schedule, the same way as the **Run now** button in Apify Console.
+
+    The invocation is recorded in the [schedule log](/api/v2/schedule-log-get). It doesn't change the schedule's
+    `lastRunAt` or `nextRunAt`. The response doesn't contain the started runs.
+  operationId: schedule_invoke_post
+  parameters:
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/scheduleId"
+  responses:
+    "201":
+      description: ""
+      headers: {}
+      content:
+        application/json:
+          schema:
+            type: object
+          example: {}
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      $ref: ../../components/responses/NotFound.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
+  deprecated: false

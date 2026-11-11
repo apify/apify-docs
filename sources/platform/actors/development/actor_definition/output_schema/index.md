@@ -6,15 +6,15 @@ description: Define an output schema to specify where your Actor stores its resu
 slug: /actors/development/actor-definition/output-schema
 ---
 
-The Actor output schema builds upon the schemas for the [dataset](/platform/actors/development/actor-definition/dataset-schema) and [key-value store](/platform/actors/development/actor-definition/key-value-store-schema). It specifies where an Actor stores its output and defines templates for accessing that output. Apify Console uses these output definitions to display run results, and the Actor run's `GET` endpoint includes them in the output property.
+The Actor output schema builds upon the schemas for the [dataset](/storage/dataset-schema) and [key-value store](/storage/key-value-store-schema). It specifies where an Actor stores its output and defines templates for accessing that output. Apify Console uses these output definitions to display run results, and the Actor run's `GET` endpoint includes them in the output property.
 
 ## Why output schema matters
 
-Output schema is essential for:
+To [publish your Actor to Apify Store](/actors/publishing/publish), an output schema is required. It's also essential for:
 
-- AI agent integration: When agents use Actors through the MCP server or API, they need to know what results to expect. Without output schema, agents cannot effectively chain Actors or process results.
-- User experience: Clear output definitions help users understand what data they will receive before running an Actor.
-- API consumers: The output schema appears in the `GET Run` API response, enabling programmatic discovery of Actor outputs.
+- AI agent integration. When agents use Actors through the MCP server or API, they need to know what results to expect. Without output schema, agents cannot effectively chain Actors or process results.
+- User experience. Clear output definitions help users understand what data they will receive before running an Actor.
+- API consumers. The output schema appears in the `GET Run` API response, enabling programmatic discovery of Actor outputs.
 
 :::tip Define output schema
 
@@ -35,7 +35,7 @@ You can organize the files using one of these structures:
     "actorSpecification": 1,
     "name": "files-scraper",
     "title": "Files scraper",
-    "version": "1.0.0",
+    "version": "1.0",
     "output": {
         "actorOutputSchemaVersion": 1,
         "title": "Output schema of the files scraper",
@@ -51,7 +51,7 @@ You can organize the files using one of these structures:
     "actorSpecification": 1,
     "name": "files-scraper",
     "title": "Files scraper",
-    "version": "1.0.0",
+    "version": "1.0",
     "output": "./output_schema.json"
 }
 ```
@@ -149,7 +149,7 @@ To specify that the Actor is using output schema, update the `.actor/actor.json`
     "actorSpecification": 1,
     "name": "Actor Name",
     "title": "Actor Title",
-    "version": "1.0.0",
+    "version": "1.0",
     "output": "./output_schema.json"
 }
 ```
@@ -216,7 +216,7 @@ To specify that the Actor is using output schema, update the `.actor/actor.json`
     "actorSpecification": 1,
     "name": "Actor Name",
     "title": "Actor Title",
-    "version": "1.0.0",
+    "version": "1.0",
     "output": "./output_schema.json"
 }
 ```
@@ -263,7 +263,7 @@ After you define `views` and `collections` in `dataset_schema.json` and `key_val
 
 :::note Output schema complements dataset schema
 
-The output schema defines *where* data is stored and how to access it. The [dataset schema](/platform/actors/development/actor-definition/dataset-schema) defines *what* fields each item contains, including descriptions and examples. Use both schemas together:
+The output schema defines *where* data is stored and how to access it. The [dataset schema](/storage/dataset-schema) defines *what* fields each item contains, including descriptions and examples. Use both schemas together:
 
 - Output schema: Declares that results are in the default dataset
 - Dataset schema: Describes each field with `title`, `description`, and `example`

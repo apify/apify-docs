@@ -12,6 +12,8 @@ sharedResurrect: &sharedResurrect
       $ref: ../../responses/BadRequest.yaml
     "401":
       $ref: ../../responses/Unauthorized.yaml
+    "402":
+      $ref: ../../responses/PaymentRequired.yaml
     "403":
       $ref: ../../responses/Forbidden.yaml
     "404":
@@ -26,14 +28,14 @@ byRunId:
   <<: *sharedResurrect
   tags:
     - Actor runs
-  summary: Resurrect run
+  summary: Resurrect Actor run
   description: |
     Resurrects a finished Actor run and returns an object that contains all the details about the resurrected run.
-    Only finished runs, i.e. runs with status `FINISHED`, `FAILED`, `ABORTED` and `TIMED-OUT` can be resurrected.
+    Only finished runs, that is, runs with status `SUCCEEDED`, `FAILED`, `ABORTED` and `TIMED-OUT` can be resurrected.
     Run status will be updated to RUNNING and its container will be restarted with the same storages
     (the same behaviour as when the run gets migrated to the new server).
 
-    For more information, see the [Actor docs](https://docs.apify.com/platform/actors/running/runs-and-builds#resurrection-of-finished-run).
+    For more information, see the [Actor docs](https://docs.apify.com/platform/actors/running/runs-and-builds#resurrect-a-finished-run).
   operationId: PostResurrectRun
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"
@@ -58,22 +60,23 @@ byActorRunId:
   <<: *sharedResurrect
   tags:
     - Actors/Actor runs
-  summary: Resurrect run
+  summary: Resurrect Actor run
   description: |
     **[DEPRECATED]** API endpoints related to run of the Actor were moved under
-    new namespace [`actor-runs`](#/reference/actor-runs).Resurrects a finished
+    new namespace `actor-runs`
+    ([Manage Actor runs](/api/v2/actor-runs)). Resurrects a finished
     Actor run and returns an object that contains all the details about the
     resurrected run.
 
-    Only finished runs, i.e. runs with status `FINISHED`, `FAILED`, `ABORTED`
+    Only finished runs, i.e. runs with status `SUCCEEDED`, `FAILED`, `ABORTED`
     and `TIMED-OUT` can be resurrected.
     Run status will be updated to RUNNING and its container will be restarted
     with the same storages
     (the same behaviour as when the run gets migrated to the new server).
 
     For more information, see the [Actor
-    docs](https://docs.apify.com/platform/actors/running/runs-and-builds#resurrection-of-finished-run).
-  operationId: act_run_resurrect_post
+    docs](https://docs.apify.com/platform/actors/running/runs-and-builds#resurrect-a-finished-run).
+  operationId: actor_run_resurrect_post
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
     - $ref: "../../parameters/runAndBuildParameters.yaml#/runId"

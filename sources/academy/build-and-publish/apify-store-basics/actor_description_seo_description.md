@@ -3,7 +3,7 @@ title: Actor description & SEO description
 description: Learn about Actor description and meta description. Where to set them and best practices for both content and length.
 sidebar_position: 3
 category: build-and-publish
-slug: /actor-marketing-playbook/actor-basics/actor-description
+slug: /build-and-publish/apify-store/actor-description
 ---
 
 Learn about Actor description and meta description. Where to set them and best practices for both content and length.
@@ -14,19 +14,15 @@ Learn about Actor description and meta description. Where to set them and best p
 
 First impressions are important, especially when it comes to tools. Actor descriptions are the first connection potential users have with your Actor. You can set two kinds of descriptions: _regular description_ (in Apify Store) and _SEO description_ (on Google search), along with their respective names: regular name and SEO name.
 
-:::tip
-
 You can change descriptions and names as many times as you want.
-
-:::
 
 ## Regular description vs. SEO description
 
-|  | Actor description & name | SEO description & name |
-|---|---|---|
+| | Actor description & name | SEO description & name |
+| --- | --- | --- |
 | Name length | 40-50 characters | 40-50 characters |
 | Description length | 300 characters | 145-155 characters |
-| Visibility  | Visible on Store | Visible on Google |
+| Visibility | Visible on Store | Visible on Google |
 
 ### Description & Actor name
 
@@ -54,17 +50,13 @@ _SEO description (and SEO name)_ is targeting a “cold” potential user who kn
 
 _Description (and name)_ is targeting a “warm” potential user who is already curious about your tool. They have clicked on the tool's page and have a few seconds to understand how complex the tool is and what it can do for them. Here you can forget SEO optimization and speak directly to the user. The regular description also has a longer character limit, which means you can expand on your Actor’s features.
 
-Learn more about search intent here: [SEO](/academy/actor-marketing-playbook/promote-your-actor/seo)
+Learn more about search intent here: [SEO](/actors/promote/seo)
 
 ## Where can Actor descriptions be set?
 
-Both descriptions can be found and edited on the very right **Publication tab →  Display information.** It has to be done separately for each Actor.
-
-:::note
+Both descriptions can be found and edited on the very right **Publishing** tab →  **Display information**. It has to be done separately for each Actor.
 
 Setting the SEO description and SEO name is optional. If not set, the description will just be duplicated.
-
-:::
 
 ![changing seo name](images/changing__SEO_name.png)
 

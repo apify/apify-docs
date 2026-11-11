@@ -11,3 +11,4 @@ enum:
   - CLI
   - CI
   - STANDBY
+  - MCP

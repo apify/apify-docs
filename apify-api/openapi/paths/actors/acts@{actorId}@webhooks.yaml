@@ -1,7 +1,7 @@
 get:
   tags:
     - Actors/Webhook collection
-  summary: Get list of webhooks
+  summary: Get list of Actor's webhooks
   description: |
     Gets the list of webhooks of a specific Actor. The response is a JSON with
     the list of objects, where each object contains basic information about a single webhook.
@@ -11,7 +11,7 @@ get:
 
     By default, the records are sorted by the `createdAt` field in ascending
     order, to sort the records in descending order, use the `desc=1` parameter.
-  operationId: act_webhooks_get
+  operationId: actor_webhooks_get
   parameters:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
     - $ref: "../../components/parameters/paginationParameters.yaml#/offset"
@@ -20,11 +20,12 @@ get:
   responses:
     "200":
       description: ""
-      headers: {}
+      headers:
+        $ref: ../../components/headers/ApifyPaginationHeaders.yaml
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/webhooks/ListOfWebhooksResponse.yaml
+            $ref: ../../components/schemas/webhooks/ListOfWebhookResourcesResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
     "401":

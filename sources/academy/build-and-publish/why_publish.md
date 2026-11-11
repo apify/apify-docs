@@ -22,19 +22,6 @@ Your Actor gets its own dedicated landing page with built-in documentation hosti
 
 Publishing on Apify Store means you don't need to purchase and manage domains or websites, build payment processing systems, set up hosting infrastructure, or handle customer billing manually. You also won't need to invest heavily in marketing since the marketplace presence drives discovery.
 
-## Choose your pricing options
-
-Apify Store offers flexible pricing models that let you match your Actor's value proposition:
-
-- Pay-per-event (PPE): Charge for any custom events your Actor triggers (maximum flexibility, AI/MCP compatible, priority store placement)
-- Pay-per-result (PPR): Set pricing based on dataset items generated
-(predictable costs for users, unlimited revenue potential)
-- Rental: Charge a flat monthly fee for continuous access (users cover their own platform usage costs)
-
-All models give you 80% of revenue, with platform usage costs deducted for PPR and PPE models.
-
-Learn more in [How Actor monetization works](/academy/actor-marketing-playbook/store-basics/how-actor-monetization-works).
-
 ## Why developers publish Actors
 
 ### Generate passive income
@@ -58,11 +45,11 @@ Apify Store is a growing library of thousands of Actors, most created by communi
 
 ### Maintain quality
 
-Public Actors require higher standards than private ones. Since users depend on your Actor, you'll need to commit to regular maintenance - reserve approximately 2 hours per week for bug fixes, updates, and user support. Thorough documentation is essential; write clear README files using simple language since users may not be developers. Set up automated testing or use manual testing to prevent user issues, and respond promptly to issues through the Issues tab, where your response time is publicly visible. Learn more about metrics determining quality in [Actor quality score documentation](/platform/actors/publishing/quality-score).
+Public Actors require higher standards than private ones. Since users depend on your Actor, you'll need to commit to regular maintenance - reserve approximately 2 hours per week for bug fixes, updates, and user support. Thorough documentation is essential; write clear README files using simple language since users may not be developers. Set up automated testing or use manual testing to prevent user issues, and respond promptly to issues through the Issues tab, where your response time is publicly visible. Learn more about metrics determining quality in [Actor quality score documentation](/actors/publishing/quality-score).
 
 ### When you need to change things
 
-If you need to make breaking changes to your Actor, contact [community@apify.com](mailto:community@apify.com) beforehand. Major pricing changes require 14-day notice and are limited to once per month. The platform helps communicate changes to your users.
+If you need to make breaking changes to your Actor, contact [community@apify.com](mailto:community@apify.com) beforehand. Significant pricing changes require a 14-day notice period and are limited to once per month. The platform helps communicate changes to your users.
 
 ## Getting started
 
@@ -76,6 +63,6 @@ monetization
 
 Learn more:
 
-- [How to build Actors](/academy/actor-marketing-playbook/store-basics/how-to-build-actors)
-- [How Apify Store works](/academy/actor-marketing-playbook/store-basics/how-store-works)
-- [Publish your Actor](/platform/actors/publishing/publish)
+- [How to build Actors](/academy/build-and-publish/how-to)
+- [How Apify Store works](/academy/build-and-publish/apify-store/how-store-works)
+- [Publish your Actor](/actors/publishing/publish)

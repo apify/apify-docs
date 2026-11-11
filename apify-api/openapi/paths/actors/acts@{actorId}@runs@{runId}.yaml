@@ -1,10 +1,11 @@
 get:
   tags:
     - Actors/Actor runs
-  summary: Get run
+  summary: Get Actor run
   description: |
     **[DEPRECATED]** API endpoints related to run of the Actor were moved under
-    new namespace [`actor-runs`](#/reference/actor-runs).
+    new namespace `actor-runs`
+    ([Manage Actor runs](/api/v2/actor-runs)).
 
     Gets an object that contains all the details about a specific run of an Actor.
 
@@ -15,7 +16,7 @@ get:
 
     This endpoint does not require the authentication token. Instead, calls are authenticated using a hard-to-guess ID of the run. However,
     if you access the endpoint without the token, certain attributes, such as `usageUsd` and `usageTotalUsd`, will be hidden.
-  operationId: act_run_get
+  operationId: actors_run_get
   parameters:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/runId"

@@ -1,5 +1,6 @@
 ---
-title: Permissions
+title: Actor permissions
+sidebar_label: Permissions
 description: Learn how to declare and manage permissions for your Actor, what access levels mean, and how to build secure, trusted Actors for Apify users.
 sidebar_position: 7.5
 slug: /actors/development/permissions
@@ -22,7 +23,7 @@ When a user runs an Actor, it receives an Apify API token. This token is injecte
 
 Actors with **Full permissions** receive a token that grants complete access to the user's Apify account via the Apify API.
 
-Actors with **Limited permissions** receive [a restricted scoped token](../../../integrations/programming/api.md#api-tokens-with-limited-permissions). This token only allows the Actor to perform a specific set of actions, which covers the vast majority of common use cases.
+Actors with **Limited permissions** receive [a restricted scoped token](../../../integrations/programming/api.md#limited-permissions). This token only allows the Actor to perform a specific set of actions, which covers the vast majority of common use cases.
 
 A limited-permission Actor can:
 
@@ -124,7 +125,7 @@ Behavior at run time:
 - The user’s selection is injected into the run input, and the run token is expanded to allow only the requested operations on the selected storages.
 - If your code attempts an operation not covered by `resourcePermissions` (for example, writing with only `READ`), the platform returns an insufficient-permissions error.
 
-See the full [input schema reference for details](../actor_definition/input_schema/specification.md).
+See the full [input schema reference for details](../actor_definition/input_schema/specification/index.md).
 
 ### Request full permissions
 

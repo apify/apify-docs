@@ -29,5 +29,5 @@ properties:
   items:
     type: array
     items:
-      $ref: ./LockedHeadRequest.yaml
+      $ref: ./LockedRequestQueueHeadItem.yaml
     description: The array of locked requests from the request queue head.

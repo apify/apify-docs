@@ -13,15 +13,15 @@
     }
     @media (prefers-color-scheme: dark) {
       :root {
-      --color-01: #242528;
-      --color-02: #1F2123;
-      --color-03: #3D3F43;
-      --color-04: #F4F4F5;
-      --color-05: #F4F4F5;
-      --color-06: #1F2123;
-      --color-07: #333538;
-      --color-08: #161718;
-      --color-09: #9EA2A8;
+      --color-01: #0F0F0F;
+      --color-02: #0F0F0F;
+      --color-03: #2A2A2A;
+      --color-04: #DFDFDF;
+      --color-05: #DFDFDF;
+      --color-06: #0F0F0F;
+      --color-07: #161616;
+      --color-08: #020202;
+      --color-09: #888888;
       }
     }
   </style>

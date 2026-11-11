@@ -3,6 +3,7 @@ title: Filtering links
 description: When you extract links from a web page, you often end up with a lot of irrelevant URLs. Learn how to filter the links to only keep the ones you need.
 sidebar_position: 3
 slug: /scraping-basics-javascript/legacy/crawling/filtering-links
+pagination: true
 noindex: true
 ---
 
@@ -94,7 +95,7 @@ for (const a of document.querySelectorAll('a.product-item__title')) {
 }
 ```
 
-:::info
+:::info Relative links
 
 If you try this in Node.js instead of DevTools, you will not get the full URLs, but only so-called **relative links**. We will explain what those are and how to work with them in the next lesson.
 

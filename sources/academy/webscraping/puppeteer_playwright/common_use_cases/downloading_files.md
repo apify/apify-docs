@@ -3,6 +3,7 @@ title: Downloading files
 description: Learn how to automatically download and save files to the disk using two of the most popular web automation libraries, Puppeteer and Playwright.
 sidebar_position: 3
 slug: /puppeteer-playwright/common-use-cases/downloading-files
+pagination: true
 ---
 
 **Learn how to automatically download and save files to the disk using two of the most popular web automation libraries, Puppeteer and Playwright.**

@@ -1,78 +1,40 @@
 ---
-title: Builds and runs
+title: Actor builds and runs
+sidebar_label: Builds and runs
 sidebar_position: 7
 description: Learn about Actor builds and runs, including how Docker images are created, how runs are executed, and their lifecycle on the Apify platform.
 slug: /actors/development/builds-and-runs
 ---
 
-Actor **builds** and **runs** are fundamental concepts within the Apify platform. Understanding them is crucial for effective use of the platform.
+import ActorJobLifecycle from '@site/sources/_partials/_actor-job-lifecycle.mdx';
+
+Actor builds and runs are fundamental concepts within the Apify platform. Understanding them is crucial for effective use of the platform.
+
+```mermaid
+flowchart LR
+    accTitle: From your Actor to a run
+    accDescr: The build process turns the Actor definition, made of source code, actor.json, and the Dockerfile, into a build. Starting the build with input creates a run.
+
+    subgraph actor [Actor definition]
+        %% LR stacks unlinked nodes vertically; TB would put them in a row
+        direction LR
+        code[Source code]
+        json[actor.json]
+        docker[Dockerfile]
+    end
+
+    actor -- build --> build[Build]
+    build -- start with input --> run[Run]
+```
 
 ## Build an Actor
 
-When you start the build process for your Actor, you create a _build_. A build is a Docker image containing your source code and the required dependencies needed to run the Actor:
-
-```mermaid
-flowchart LR
-    subgraph AD [Actor Definition files]
-        direction LR
-        Dockerfile
-        .actor/actor.json
-        src/main.js
-    end
-
-    AD -- "build process" --> Build
-```
+When you start the build process for your Actor, you create a _build_. A build is a Docker image containing your source code and the required dependencies needed to run the Actor. The build uses the files in your [Actor definition](/actors/development/actor-definition), such as your [source code](/actors/development/actor-definition/source-code), [`actor.json`](/actors/development/actor-definition/actor-json), and [`Dockerfile`](/actors/development/actor-definition/dockerfile).
 
 ## Run an Actor
 
-To create a _run_, you take your _build_ and start it with some input:
-
-```mermaid
-flowchart LR
-    subgraph AD [Run Definition]
-        direction LR
-        Build
-        Input
-    end
-
-    AD -- "start Actor" --> Run
-```
+To create a _run_, you take your _build_ and start it with some input.
 
 ## Lifecycle
 
-Actor builds and runs share a common lifecycle. Each build and run begins with the initial status **READY** and progress through one or more transitional statuses to reach a terminal status.
-
-```mermaid
-flowchart LR
-    subgraph Transitional states
-        RUNNING
-        TIMING-OUT
-        ABORTING
-    end
-
-    subgraph Terminal states
-        SUCCEEDED
-        FAILED
-        TIMED-OUT
-        ABORTED
-    end
-
-    READY --> RUNNING
-              RUNNING --> SUCCEEDED
-              RUNNING --> FAILED
-              RUNNING --> TIMING-OUT --> TIMED-OUT
-              RUNNING --> ABORTING --> ABORTED
-```
-
----
-
-| Status     | Type         | Description                                 |
-|------------|--------------|---------------------------------------------|
-| READY      | initial      | Started but not allocated to any worker yet |
-| RUNNING    | transitional | Executing on a worker machine               |
-| SUCCEEDED  | terminal     | Finished successfully                       |
-| FAILED     | terminal     | Run failed                                  |
-| TIMING-OUT | transitional | Timing out now                              |
-| TIMED-OUT  | terminal     | Timed out                                   |
-| ABORTING   | transitional | Being aborted by user                       |
-| ABORTED    | terminal     | Aborted by user                             |
+<ActorJobLifecycle />

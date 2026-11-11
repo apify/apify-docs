@@ -1,0 +1,9 @@
+title: UpdatedBuildProperty
+type: [object, "null"]
+description: The name of the build tag.
+required:
+  - buildId
+properties:
+  buildId:
+    type: string
+    description: The ID of the build to assign to the tag.

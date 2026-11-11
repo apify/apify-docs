@@ -2,7 +2,6 @@
 title: n8n integration
 description: Connect Apify with n8n to automate workflows by running Actors, extracting structured data, and reacting to Actor or task run events in real time.
 sidebar_label: n8n
-sidebar_position: 7
 slug: /integrations/n8n
 ---
 
@@ -92,7 +91,7 @@ Start by building a basic workflow in n8n, then add the Apify node to handle tas
 1. In the node's **Credentials** dropdown, choose the Apify credential you configured earlier. If you haven't configured any credentials, you can do so in this step. The process will be the same.
 1. You can now use Apify node as a trigger or action in your workflow.
 
-![Apify Node](../../images/n8n-list-of-operations.png)
+![Apify Node](../../images/n8n-list-of-operations.webp)
 
 ## Use Apify node as trigger
 
@@ -117,14 +116,14 @@ Actions allow you to perform operations like running an Actor within a workflow.
 1. Click **Add Node**, search for **Apify**, and select it.
 1. Select any operation. In this example we will use **Run Actor**.
 1. Configure it:
-    - **Custom input**: JSON input for the Actor run, which you can find on the Actor input page in Apify Console. See [Inputs](/platform/actors/running/input-and-output#input) for more information. If empty, the run uses the input specified in the default run configuration
+    - **Custom input**: JSON input for the Actor run, which you can find on the Actor input page in Apify Console. See [Inputs](/actors/running/input-and-output#input) for more information. If empty, the run uses the input specified in the default run configuration
     - **Timeout**: Timeout for the Actor run in seconds. Zero value means there is no timeout
     - **Memory**: Amount of memory allocated for the Actor run, in megabytes
     - **Build Tag**: Specifies the Actor build tag to run. By default, the run uses the build specified in the default run configuration for the Actor (typically `latest`)
     - **Wait for finish**: Whether to wait for the run to finish before continuing. If true, the node will wait for the run to complete (successfully or not) before moving to the next node
     ![Apify Node](../../images/n8n-run-actor-example.png)
 1. Add another Apify operation called **Get Dataset Items**.
-    - Set **Dataset ID** parameter as **defaultDatasetId** value received from the previous **Run Actor** node. This will give you the output of the Actor run
+    - Set **Dataset ID** parameter as **defaultDatasetId** value received from the previous **Run Actor** node. This will give you the items from the Actor run's default dataset
     ![Apify Node](../../images/n8n-get-dataset-items-example.png)
 1. Add any subsequent nodes (e.g. Google Sheets) to process or store the output
 1. Save and execute the workflow
@@ -145,7 +144,7 @@ You can run Apify operations, retrieve the results, and use AI to process, analy
     - **Tools**: Search for **Apify**, select **Apify Tool**, and click  **Add to Workflow**. Choose any available operation and configure it.
 1. **Run the workflow**: Save it, then provide a prompt instructing the Agent to use the Apify tool with the operations you configured earlier.
 
-:::note
+:::note Let AI fill in parameters
 
   Let the AI model define the parameters in your node when possible. Click the _sparkle_ icon next to a parameter to have the AI fill it in for you.
 
@@ -161,23 +160,26 @@ The Apify node provides a range of operations for managing Actors, tasks, runs, 
 
 Run and manage Actors directly.
 
-- **Run Actor**: Starts a specified Actor with customizable parameters
-- **Scrape Single URL**: Runs a scraper for a specified website and returns its content
-- **Get Last Run**: Retrieve metadata for the most recent run of an Actor
+- **Run an Actor**: Starts a specified Actor with customizable parameters
+- **Run an Actor and get dataset**: Starts an Actor and returns its dataset items once the run finishes
+- **Web Fetch**: Runs the [Web Fetch](https://apify.com/apify/web-fetch) Actor to fetch a single URL and return its content as Markdown, HTML, text, links, or raw. Requires `@apify/n8n-nodes-apify` v0.8.0 or later
+- **Get last run**: Retrieve metadata for the most recent run of an Actor
 
 ### Actor Tasks
 
 Execute predefined tasks efficiently.
 
-- **Run Task**: Executes a specified Actor task
+- **Run task**: Executes a specified Actor task
+- **Run task and get dataset**: Executes a task and returns its dataset items once the run finishes
 
 ### Actor Runs
 
-Retrieve run details.
+Retrieve and control runs.
 
-- **Get User Runs List**: Retrieve a list of all runs for a user
-- **Get Run**: Retrieve detailed information for a specific run ID
-- **Get Runs**: Retrieve all runs for a specific Actor
+- **Get user runs list**: Retrieve a list of all runs for a user
+- **Get run**: Retrieve detailed information for a specific run ID
+- **Get runs**: Retrieve all runs for a specific Actor
+- **Abort an Actor run**: Stops a running Actor run before it finishes
 
 ### Storage
 
@@ -185,18 +187,18 @@ Pull data from Apify storage.
 
 #### Datasets
 
-- **Get Items**: Retrieves items from a [dataset](/platform/storage/dataset)
+- **Get dataset items**: Retrieves items from a [dataset](/storage/dataset)
 
 #### Key-Value Stores
 
-- **Get Record**:  Retrieves a value from a [key-value store](/platform/storage/key-value-store)
+- **Get key-value store record**: Retrieves a value from a [key-value store](/storage/key-value-store)
 
 ### Triggers
 
-Automatically start an n8n workflow when an Actor or task run finishes:
+The node provides a single trigger, **On new Apify event**, which starts an n8n workflow when a selected Actor or task run reaches a terminal status. Configure it with:
 
-- **Actor Run Finished**: Activates when a selected Actor run completes
-- **Task Run Finished**: Activates when a selected Actor task run completes
+- **Resource to Watch**: whether to watch an Actor or a task
+- **Event Type**: **Succeeded**, **Failed**, **Aborted**, **Timed Out**, or **Any**
 
 ## Resources
 

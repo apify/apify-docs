@@ -1,7 +1,7 @@
 get:
   tags:
     - Actor builds
-  summary: Get build
+  summary: Get Actor build
   description: |
     Gets an object that contains all the details about a specific build of an
     Actor.
@@ -36,6 +36,8 @@ get:
       $ref: ../../components/responses/NotFound.yaml
     "405":
       $ref: ../../components/responses/MethodNotAllowed.yaml
+    "408":
+      $ref: ../../components/responses/Timeout.yaml
     "429":
       $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
@@ -53,7 +55,7 @@ delete:
   tags:
     # - Actor builds/Delete build
     - Actor builds
-  summary: Delete build
+  summary: Delete Actor build
   description: |
     Delete the build. The build that is the current default build for the Actor
     cannot be deleted.
