@@ -215,7 +215,7 @@ Whichever one you choose is totally up to your preference. We don't need to add 
 
 Next, within the Amazon scraping Actor, we will click the **Integrations** tab and choose **Webhook**, then fill out the details to look like this:
 
-![Configuring a webhook](./images/adding-webhook.jpg)
+![HTTP webhook form in Apify Console with the URL and payload template filled in](./images/adding-webhook.svg)
 
 We have chosen to run the webhook once the Actor has succeeded, which means that its default dataset will surely be populated. Since the filtering Actor is expecting the default dataset ID of the Amazon Actor, we use the `resource` variable to grab hold of the `defaultDatasetId`. Set the payload template to the following:
 
