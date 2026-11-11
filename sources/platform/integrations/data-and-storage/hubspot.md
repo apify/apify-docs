@@ -103,9 +103,9 @@ When you create a new enrichment, these mappings are pre-filled if the target pr
 
 Each mapping row has three settings:
 
-- **APIFY FIELD (SOURCE)** - one of the eight source fields.
-- **HUBSPOT COMPANY FIELD (TARGET)** - a HubSpot company property.
-- **WHEN ALREADY SET** - **Overwrite** (replace the existing value) or **Skip if set** (only write when the property is empty).
+- **Apify field (source)** - one of the eight source fields.
+- **HubSpot company field (target)** - a HubSpot company property.
+- **When already set** - **Overwrite** (replace the existing value) or **Skip if set** (only write when the property is empty).
 
 ![Field mappings step showing the four pre-filled mappings: LinkedIn company page, Facebook page, X (Twitter), and Main phone mapped to HubSpot company fields, all set to Overwrite](../images/HubSpot/HubSpot_config_wizard_step_2.webp)
 
