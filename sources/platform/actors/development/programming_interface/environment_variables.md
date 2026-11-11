@@ -69,16 +69,16 @@ All date-related variables use the UTC timezone and are in [ISO 8601](https://en
 
 ### Apify platform variables
 
-Variables prefixed with `APIFY_` are Apify-platform-specific extensions that go beyond the Actor specification. They expose features unique to the Apify platform, such as your API token, Apify Proxy, and details about the user who started the run.
+Variables prefixed with `APIFY_` are Apify-platform-specific extensions that go beyond the Actor specification. They expose features unique to the Apify platform, such as a run-specific API token, Apify Proxy, and details about the user who started the run.
 
 | Environment variable | Description |
 | -------------------- | ----------- |
-| `APIFY_TOKEN` | API token of the user who started the Actor. |
+| `APIFY_TOKEN` | [Run-specific API token](/integrations/api#actor-execution) for the user who started the Actor, with access limited by the Actor's [permission level](/actors/development/permissions#permission-levels). It differs from the API token in Apify Console and expires shortly after the run finishes. |
 | `APIFY_USER_ID` | ID of the user who started the Actor. May differ from the Actor owner. |
 | `APIFY_USER_IS_PAYING` | If it is `1`, it means that the user who started the Actor is a paying user. |
 | `APIFY_IS_AT_HOME` | Contains **1** if the Actor is running on Apify servers. |
 | `APIFY_DEDICATED_CPUS` | Number of CPU cores reserved for the Actor, based on allocated memory. |
-| `APIFY_PROXY_PASSWORD` | Password for accessing Apify Proxy services. This password enables the Actor to utilize proxy servers on behalf of the user who initiated the Actor run. |
+| `APIFY_PROXY_PASSWORD` | Run-specific password for Apify Proxy on behalf of the user who started the Actor. It differs from the proxy password in Apify Console and expires shortly after the run finishes. |
 | `APIFY_PROXY_PORT` | TCP port number to be used for connecting to Apify Proxy. |
 | `APIFY_PROXY_STATUS_URL` | URL for retrieving proxy status information. Appending `?format=json` to this URL returns the data in JSON format for programmatic processing. |
 | `APIFY_API_PUBLIC_BASE_URL` | Public URL of the Apify API. May be used to interact with the platform programmatically. Typically set to `api.apify.com`. |
