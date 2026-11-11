@@ -231,7 +231,7 @@ Click **Save**, then run the **academy-amazon-scraper** Actor again.
 
 If everything worked, then at the end of the **academy-amazon-scraper** run, we should see this within the **Integrations** tab:
 
-![Webhook succeeded](./images/webhook-succeeded.png)
+![Integrations tab in Apify Console showing the HTTP request integration with its last dispatch succeeded](./images/webhook-succeeded.svg)
 
 Additionally, we should be able to see that our **filter-actor** was run, and have access to its dataset:
 
