@@ -1,6 +1,6 @@
 ---
 title: Camunda integration
-description: Integrate Apify Actors with Camunda 8 to run Actors and tasks, fetch datasets, and trigger or resume BPMN processes from Apify webhook events.
+description: Integrate Apify Actors with Camunda 8 to run Actors and tasks, fetch web pages and datasets, and trigger or resume BPMN processes from Apify webhook events.
 sidebar_label: Camunda
 sidebar_position: 9
 slug: /integrations/camunda
@@ -8,7 +8,7 @@ slug: /integrations/camunda
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
-[Camunda](https://camunda.com/) is a process orchestration platform for designing, automating, and optimizing business workflows using BPMN (Business Process Model and Notation, the visual language Camunda uses to define workflows). With the Apify Connectors, run Apify Actors and tasks, fetch datasets, and trigger or resume BPMN processes from Apify webhook events.
+[Camunda](https://camunda.com/) is a process orchestration platform for designing, automating, and optimizing business workflows using BPMN (Business Process Model and Notation, the visual language Camunda uses to define workflows). With the Apify Connectors, run Apify Actors and tasks, fetch web pages and datasets, and trigger or resume BPMN processes from Apify webhook events.
 
 <ThirdPartyDisclaimer />
 
@@ -16,15 +16,15 @@ import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integrati
 
 To use the Apify integration with Camunda, you need:
 
-- An [Apify account](https://console.apify.com/)
+- An [Apify account](https://console.apify.com/?utm_source=camunda&utm_medium=integrations)
 - A [Camunda 8](https://camunda.com/) environment (version 8.8, 8.9, or 8.10), with a self-hosted connectors runtime to host the Apify connector code. Self-Managed and Hybrid setups are supported; pure Camunda SaaS is not (see [Installation](#installation) for why and how).
 
 ## Authentication
 
 All Apify Connector operations require an Apify API token.
 
-1. Log in to [Apify Console](https://console.apify.com/).
-1. Navigate to [Settings → Integrations](https://console.apify.com/settings/integrations).
+1. Log in to [Apify Console](https://console.apify.com/?utm_source=camunda&utm_medium=integrations).
+1. Navigate to [**Settings > API & Integrations**](https://console.apify.com/settings/integrations?utm_source=camunda&utm_medium=integrations).
 1. Copy your Apify API token.
 
 :::tip Security best practice
@@ -111,8 +111,8 @@ Each connector release publishes two artifacts on the [GitHub Releases page](htt
 
 | Artifact | What it is | Where it goes |
 | --- | --- | --- |
-| `apify-camunda-connector-<version>-c8.8.jar` / `-c8.9.jar` | The shaded connector runtime JAR (includes all dependencies), one per Camunda minor | Download the suffix matching your Camunda minor (`-c8.8` or `-c8.9`) and drop it on the connectors runtime classpath - see [Run the connectors runtime](#run-the-connectors-runtime) |
-| `apify-camunda-connector-element-templates-<version>.zip` | All five element template JSONs | Upload to your Camunda **Web Modeler** project, or place into the `resources/element-templates/` directory of **Desktop Modeler** |
+| `apify-camunda-connector-<version>-c8.8.jar` / `-c8.9.jar` / `-c8.10.jar` | The shaded connector runtime JAR (includes all dependencies), one per Camunda minor | Download the suffix matching your Camunda minor (`-c8.8`, `-c8.9`, or `-c8.10`) and drop it on the connectors runtime classpath - see [Run the connectors runtime](#run-the-connectors-runtime) |
+| `apify-camunda-connector-element-templates-<version>.zip` | All five element template JSONs | Upload to your Camunda **Web Modeler** project (**Camunda Hub** on 8.10), or place into the `resources/element-templates/` directory of **Desktop Modeler** |
 
 Pick the release whose version matches your Camunda 8 minor.
 
@@ -134,7 +134,7 @@ The element templates add the connector to your Modeler palette, but the JAR is 
 
 The connector runs on the official `camunda/connectors-bundle` Docker image with the Apify JAR mounted in (from [Host custom connectors](https://docs.camunda.io/docs/guides/host-custom-connectors/)). Three things apply to both setups below:
 
-- **JAR and image must match your Camunda minor.** Use the `-c8.8` JAR with an `8.8.x` bundle, the `-c8.9` JAR with an `8.9.x` bundle. Substitute `<version>` with the JAR's release tag (e.g. `1.0.0`) and use a recent patch of your minor for the image tag (e.g. `8.9.4`, `8.8.12`); any patch of the matching minor works.
+- **JAR and image must match your Camunda minor.** Use the `-c8.8` JAR with an `8.8.x` bundle, the `-c8.9` JAR with an `8.9.x` bundle, and the `-c8.10` JAR with an `8.10.x` bundle. Substitute `<version>` with the JAR's release tag (e.g. `1.0.0`) and use a recent patch of your minor for the image tag (e.g. `8.10.5`, `8.9.4`, `8.8.12`); any patch of the matching minor works.
 - **Mount into `/opt/custom/`, not `/opt/app/`.** The bundle launches with `-Dloader.path=/opt/custom/`, the directory whose JARs are added to the runtime classloader that can see the Connector SDK. A JAR in `/opt/app/` lands on the plain system classpath and fails at startup with `NoClassDefFoundError: io/camunda/connector/api/outbound/OutboundConnectorFunction`.
 - **The runtime listens on container port `8080`.** Publish it with `-p` (the examples below map it to host `8086`) for health checks (`http://localhost:8086/actuator/health/readiness`) and for the inbound webhook tunnel.
 
@@ -168,7 +168,7 @@ Placeholder examples for common self-hosted setups:
 - `<zeebe-host>`: Zeebe gRPC host, e.g. `orchestration`.
 - `<orchestration-host>`: Orchestration REST host, e.g. `orchestration`.
 - `<keycloak-host>`: OIDC token host, e.g. `host.docker.internal`.
-- `<camunda-network>`: Docker network name, e.g. `camunda-89_camunda-platform`.
+- `<camunda-network>`: Docker network name, e.g. `camunda-89_camunda-platform` (the 8.10 compose files name it `camunda-platform`).
 - `<client-id>`: OIDC client ID, e.g. `connectors`.
 - `<client-secret>`: OIDC client secret, e.g. `demo-connectors-secret`.
 - `<apify-token>`: Apify API token, e.g. `apify_api_xxxx`.
@@ -179,7 +179,7 @@ Reuse the values already configured for the bundled `connectors` service. Then e
 
 See Camunda's [connectors configuration](https://docs.camunda.io/docs/self-managed/connectors-deployment/connectors-configuration/) reference.
 
-Inside the cluster network, the orchestration REST API uses port `8080` on both versions. Only the host-published port differs (`8088` on 8.8, `8080` on 8.9).
+Inside the cluster network, the orchestration REST API uses port `8080` on all supported versions. Only the host-published port differs (`8088` on 8.8, `8080` on 8.9 and 8.10).
 
 #### Hybrid
 
@@ -200,7 +200,7 @@ docker run --rm \
 
 The client credentials need the **Orchestration Cluster REST API** scope at minimum. See [Use connectors in hybrid mode](https://docs.camunda.io/docs/components/connectors/use-connectors-in-hybrid-mode/) for scopes and alternate auth modes.
 
-The `SECRET_APIFY_TOKEN` variable name above is for Camunda 8.9. On 8.8 the runtime expects `APIFY_TOKEN` instead - see [Provide the Apify token to the runtime](#provide-the-apify-token-to-the-runtime) for the version matrix.
+The `SECRET_APIFY_TOKEN` variable name above is for Camunda 8.9 and 8.10. On 8.8 the runtime expects `APIFY_TOKEN` instead - see [Provide the Apify token to the runtime](#provide-the-apify-token-to-the-runtime) for the version matrix.
 
 #### Provide the Apify token to the runtime
 
@@ -210,11 +210,14 @@ If your templates reference `{{secrets.APIFY_TOKEN}}` (recommended over hardcodi
 | --- | --- |
 | 8.8.x | `APIFY_TOKEN=<your token>` |
 | 8.9.x | `SECRET_APIFY_TOKEN=<your token>` |
+| 8.10.x | `SECRET_APIFY_TOKEN=<your token>` |
 
 The template always references the secret as `{{secrets.APIFY_TOKEN}}` - the prefix never appears there. The runtime adds it when resolving the value:
 
-- **8.9** applies a default `SECRET_` prefix, so `{{secrets.APIFY_TOKEN}}` resolves against `SECRET_APIFY_TOKEN`.
+- **8.9 and 8.10** apply a default `SECRET_` prefix, so `{{secrets.APIFY_TOKEN}}` resolves against `SECRET_APIFY_TOKEN`.
 - **8.8** has no prefix, so it resolves against `APIFY_TOKEN`.
+
+From 8.10, a secret only resolves in a field that references it directly in the deployed BPMN. Type `{{secrets.APIFY_TOKEN}}` into the **Apify API token** field itself; a placeholder passed in through a process variable no longer resolves. See the [Camunda 8.10 announcements](https://docs.camunda.io/docs/reference/announcements-release-notes/8100/8100-announcements/).
 
 Add the matching `-e` flag to your `docker run` (or the equivalent secret in Compose/Helm). For the full version matrix and how to customize the prefix, see [COMPATIBILITY.md](https://github.com/apify/apify-camunda-integration/blob/main/COMPATIBILITY.md).
 
@@ -242,13 +245,14 @@ Whichever address you choose, paste it into the **Camunda webhook URL** field on
 
 ## Outbound connector
 
-The Apify Outbound Connector lets your BPMN process invoke operations on Apify. It supports the following five operations:
+The Apify Outbound Connector lets your BPMN process invoke operations on Apify. It supports the following operations:
 
 - [Run Actor](#run-actor)
 - [Run task](#run-task)
-- [Scrape single URL](#scrape-single-url)
+- [Web Fetch](#web-fetch)
 - [Get dataset items](#get-dataset-items)
 - [Get key-value store record](#get-key-value-store-record)
+- [Scrape single URL](#scrape-single-url) (deprecated)
 
 To learn where to find the Actor, task, or dataset IDs in Apify Console, see [Find resource IDs](#find-resource-ids).
 
@@ -293,15 +297,20 @@ Execute a saved Actor task.
 | **Memory (MB)** | _(Optional)_ Memory allocation; one of 128, 256, 512, 1024, 2048, 4096, 8192, 16384, or 32768 MB |
 | **Build** | _(Optional)_ Build tag to use (defaults to `latest`) |
 
-#### Scrape single URL
+#### Web Fetch
 
-Scrape a webpage using one of Apify's standard crawlers.
+Fetch a single web page, PDF, or file in one request and get its content in the formats you choose. The operation calls the [Web Fetch](https://apify.com/apify/web-fetch) Actor, which gets past bot protection and answers directly, without a run to wait for. To crawl a list of pages or a whole website, use [Run Actor](#run-actor) with [Website Content Crawler](https://apify.com/apify/website-content-crawler).
 
 | Setting | Description |
 | --------- | ------------- |
-| **Operation** | Select `Scrape single URL` |
-| **URL** | The full URL to scrape (e.g. `https://example.com`) |
-| **Crawler Type** | `Cheerio (Raw HTTP)` (lightweight), `Adaptive`, or `Firefox (Headless Browser)` |
+| **Operation** | Select `Web Fetch` |
+| **URL** | The full URL to fetch, including `http://` or `https://` (e.g. `https://example.com`) |
+| **Formats** | _(Optional)_ Comma-separated list of output formats: `markdown`, `html`, `text`, `links`, `raw` (default: `markdown`). Use `raw` for images and other files, which come back base64-encoded. Clear the field to let Web Fetch pick a format from the content type |
+| **Custom headers** | _(Optional)_ HTTP headers that Web Fetch sends to the target site, as a JSON object (e.g. `={"Accept-Language": "fr-FR"}`). They are not used to sign in to Apify |
+
+The response holds the requested `url`, a `fetch` object with the target page's `httpStatusCode` and content type, page `metadata`, and one field per requested format. With the Result Variable `fetchResult`, read the content with `=fetchResult.data.markdown`.
+
+A page that answers with an error status such as 404 still comes back as content, so check `fetch.httpStatusCode`. The task fails only when Web Fetch can't fetch the page. Apify bills each fetch, so the connector sends exactly one request per attempt. The **Retries** setting still applies on top of that: set it to `0` if Camunda shouldn't repeat a failed fetch.
 
 #### Get dataset items
 
@@ -324,6 +333,18 @@ Fetch a specific record from a key-value store.
 | **Key-Value Store** | The store ID (e.g. `=runResult.data.defaultKeyValueStoreId`) |
 | **Key** | The record key to retrieve (e.g. `OUTPUT`) |
 
+#### Scrape single URL
+
+Scrape single URL is deprecated. Use [Web Fetch](#web-fetch) instead. Existing processes keep working until a future release removes the operation.
+
+The operation scrapes a webpage using one of Apify's standard crawlers.
+
+| Setting | Description |
+| --------- | ------------- |
+| **Operation** | Select `Scrape single URL (deprecated)` |
+| **URL** | The full URL to scrape (e.g. `https://example.com`) |
+| **Crawler Type** | `Cheerio (Raw HTTP)` (lightweight), `Adaptive`, or `Firefox (Headless Browser)` |
+
 ### Output mapping
 
 Each outbound operation returns a JSON object within a `data` envelope.
@@ -338,6 +359,10 @@ Example: To map the run ID and dataset ID from the response to distinct process 
 ```text
 = { runId: response.data.id, datasetId: response.data.defaultDatasetId }
 ```
+
+Each key of the expression becomes its own process variable. If you set both fields, Camunda stores both: the full response in the Result Variable and the mapped keys next to it.
+
+Keep large responses out of the process. Camunda limits a process instance's payload to 4 MB and recommends 1 MB or less of variables (see [Variable size limitation](https://docs.camunda.io/docs/components/concepts/variables/)). For Web Fetch and Get dataset items, which can return large content, leave Result Variable empty and map only the fields you need, for example `={ content: response.data.markdown, status: response.data.fetch.httpStatusCode }`.
 
 ### Errors and retries
 
@@ -1064,7 +1089,7 @@ The event type uses an underscore (`TIMED_OUT`) while the run status uses a hyph
 | Webhook not triggering | Ensure you have deployed the process. For start events, deploying automatically creates the webhook in Apify. Check the **Integrations** tab of your Actor in Apify Console to verify the webhook exists. |
 | Process not visible in Camunda Operate | Operate hides completed processes by default. Switch to the **Finished** filter to see them. |
 | Process stuck at intermediate event | Check your **Correlation Keys**. The value in the process variable must exactly match the value in the webhook payload. Use Camunda Operate to inspect variable values and compare with the `connectorData.runId` in the connector runtime logs. |
-| `401 Unauthorized` | Check your Apify API token. Regenerate it in [Apify Console](https://console.apify.com/settings/integrations) (**Settings → Integrations**) if necessary. |
+| `401 Unauthorized` | Check your Apify API token. Regenerate it in [Apify Console](https://console.apify.com/settings/integrations?utm_source=camunda&utm_medium=integrations) under **Settings > API & Integrations** if necessary. On Camunda 8.10, also check that the token field contains `{{secrets.APIFY_TOKEN}}` itself: a placeholder passed through a process variable does not resolve. |
 
 ## Next steps
 
