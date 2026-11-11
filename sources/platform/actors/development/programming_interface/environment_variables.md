@@ -84,8 +84,8 @@ Variables prefixed with `APIFY_` are Apify-platform-specific extensions that go 
 | `APIFY_API_PUBLIC_BASE_URL` | Public URL of the Apify API. May be used to interact with the platform programmatically. Typically set to `api.apify.com`. |
 | `APIFY_WORKFLOW_KEY` | Identifier used for grouping related runs and API calls together. |
 | `APIFY_META_ORIGIN` | Specifies how an Actor run was started. Possible values are in [Runs and builds](/actors/running/runs-and-builds#origin) documentation. |
-| `APIFY_INPUT_SECRETS_PRIVATE_KEY_FILE` | Path to the secret key used to decrypt [Secret inputs](/actors/development/actor-definition/input-schema/secret-input). |
-| `APIFY_INPUT_SECRETS_PRIVATE_KEY_PASSPHRASE` | Passphrase for the input secret key specified in `APIFY_INPUT_SECRETS_PRIVATE_KEY_FILE`. |
+| `APIFY_INPUT_SECRETS_PRIVATE_KEY_FILE` | Private key used to decrypt [Secret inputs](/actors/development/actor-definition/input-schema/secret-input), as base64-encoded PEM text. Despite the name, it holds the key itself, not a file path. |
+| `APIFY_INPUT_SECRETS_PRIVATE_KEY_PASSPHRASE` | Passphrase for the private key provided in `APIFY_INPUT_SECRETS_PRIVATE_KEY_FILE`. |
 | ~~`APIFY_HEADLESS`~~ | _Deprecated_ - on the Apify platform this is always set to **1**, so web browsers inside the Actor always run in headless mode (no windowing system available). |
 
 ## Custom environment variables
