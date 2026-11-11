@@ -303,7 +303,7 @@ For Claude Desktop-specific troubleshooting (tools not loading, connection error
 
 ##### Local environment setup
 
-- _The MCP server requires Node.js v18 or higher_. Check your installed version by running `node -v` in your terminal.
+- _Node.js version_: The MCP server needs the Node.js version listed in the `engines` field of its [`package.json`](https://github.com/apify/apify-mcp-server/blob/master/package.json). Run `node -v` to check your installed version.
 - _Using the latest server version_: To ensure you have the latest features and bug fixes, use the latest version of the `@apify/actors-mcp-server` package. You can do this by appending `@latest` to the package name in your `npx` command or configuration file.
 
 ##### Actor execution issues
