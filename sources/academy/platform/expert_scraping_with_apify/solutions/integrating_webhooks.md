@@ -235,7 +235,7 @@ If everything worked, then at the end of the **academy-amazon-scraper** run, we 
 
 Additionally, we should be able to see that our **filter-actor** was run, and have access to its dataset:
 
-![Dataset preview](./images/dataset-preview.png)
+![Output tab of a filter-actor run in Apify Console with the filtered dataset in a table](./images/dataset-preview.svg)
 
 ## Quiz answers 📝 {#quiz-answers}
 
