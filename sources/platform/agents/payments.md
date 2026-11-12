@@ -1,7 +1,7 @@
 ---
 title: Let your AI agent pay for Actor runs
 sidebar_label: Agentic payments
-description: Let an AI agent pay for Apify Actor runs without signing up, by buying a prepaid, spend-capped API token from Apify AGI with x402, MPP, or a card.
+description: Let an AI agent pay for Apify Actor runs without signing up, by buying a prepaid, spend-capped API token from Apify AGI with x402, MPP, a card, or Skyfire.
 sidebar_position: 4
 slug: /agents/payments
 ---
@@ -40,11 +40,11 @@ On top of the spending cap, a prepaid account can use at most:
 
 AGI accepts these payment methods:
 
-| Protocol | How the agent pays | Guide |
+| Payment method | How the agent pays | Guide |
 | :--- | :--- | :--- |
 | [x402](https://www.x402.org) | A one-time payment in stablecoins on Base or Solana, exchanged for a prepaid token | [Agentic payments with x402](/integrations/x402) |
 | [MPP](https://mpp.dev) | A one-time payment in stablecoins on Tempo or Solana, exchanged for a prepaid token | [Agentic payments with MPP](/integrations/mpp) |
-| Card | A one-time card charge through a Stripe Shared Payment Token sent over MPP, exchanged for a prepaid token. Tax is added on top. | [AGI instructions](https://agi.apify.com/AGENTS.md) |
+| Card | A one-time card charge through a Stripe Shared Payment Token sent over MPP, exchanged for a prepaid token, with tax added on top | [AGI instructions](https://agi.apify.com/AGENTS.md) |
 | [Skyfire](https://skyfire.xyz) | A one-time charge to a Skyfire PAY token funded from a Skyfire wallet, exchanged for a prepaid token | [Agentic payments with Skyfire](/integrations/skyfire) |
 
 ## Agent-ready instructions
