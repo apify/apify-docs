@@ -125,11 +125,11 @@ await datasetClient.update({
 
 ### Sharing restricted resources with pre-signed URLs {#pre-signed-urls}
 
-Even when a resource is restricted, you might still want to share it with someone outside your team - for example, to send a PDF report to a client, or include a screenshot in an automated email or Slack message. In these cases, _storage resources_ (like key-value stores, datasets, and request queues) support generating _pre-signed URLs_. These are secure, time-limited links that let others access individual files without needing an Apify account or authentication.
+Even when a resource is restricted, you might still want to share it with someone outside your team - for example, to send a PDF report to a client, or include a screenshot in an automated email or Slack message. In these cases, _storage resources_ (datasets and key-value stores) support generating _pre-signed URLs_. These are secure, time-limited links that let others access individual files without needing an Apify account or authentication.
 
 #### How pre-signed URLs work
 
-A pre-signed URL is a regular HTTPS link to a dataset or key-value store resource. It includes a cryptographic signature verifying that access has been explicitly granted by someone with valid permissions.
+A pre-signed URL is a regular HTTPS link to a dataset or key-value store. It includes a cryptographic signature verifying that access has been explicitly granted by someone with valid permissions.
 When a pre-signed URL is used, Apify validates the signature and grants access without requiring an API token.
 
 The signature can be temporary (set to expire after a specified duration) or permanent, depending on the expiration date set when it's generated.
@@ -239,9 +239,9 @@ If the `expiresInSecs` option is not specified, the generated link will be _perm
 
 If you need finer control - for example, generating links without using Apify client - you can sign URLs manually using the reference implementation.
 
-[Check the reference implementation in Apify clients](https://github.com/apify/apify-client-js/blob/5efd68a3bc78c0173a62775f79425fad78f0e6d1/src/resource_clients/dataset.ts#L179)
+Check the reference implementation in Apify clients for [datasets](https://github.com/apify/apify-client-js/blob/5efd68a3bc78c0173a62775f79425fad78f0e6d1/src/resource_clients/dataset.ts#L179) and [key-value stores](https://github.com/apify/apify-client-js/blob/5efd68a3bc78c0173a62775f79425fad78f0e6d1/src/resource_clients/key_value_store.ts#L94).
 
-To create a dataset or key-value store signature manually, use standard _HMAC (SHA-256)_ with the resource's `urlSigningSecretKey`.
+Dataset and key-value store signatures use _HMAC (SHA-256)_ with the resource's `urlSigningSecretKey`, but they aren't a plain HMAC, and key-value store records use a different format. Follow the reference implementation.
 
 ### Sharing storages by name
 
