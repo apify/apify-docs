@@ -48,9 +48,9 @@ import CardGrid from "@site/src/components/CardGrid";
         desc="Learn about Actor builds and runs, their lifecycle, versioning, and other properties."
     />
     <Card
-        title="Debugging"
-        to="/actors/development/debugging"
-        desc="Attach a debugger to an Actor run on the platform, from your browser or from your local IDE."
+        title="Test and debug"
+        to="/actors/development/test-and-debug"
+        desc="Learn how to test your Actors locally and on the platform, and how to debug runs that fail."
     />
     <Card
         title="Performance"
