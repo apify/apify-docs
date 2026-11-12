@@ -159,7 +159,7 @@ This connects you directly through Apify infrastructure, bypassing the public In
 | Hostname | `APIFY_PROXY_HOSTNAME` environment variable |
 | Port | `APIFY_PROXY_PORT` environment variable |
 | Username | Specifies the proxy parameters such as groups, [session](#sessions) and location. See [username parameters](#username-parameters) below for details. <br/>**Note**: this is not your Apify username. |
-| Password | `APIFY_PROXY_PASSWORD` environment variable |
+| Password | `APIFY_PROXY_PASSWORD` environment variable. Valid only for the current run. |
 
 Example connection string creation:
 
@@ -252,6 +252,10 @@ If you need to allow communication to `proxy.apify.com`, add the following IP ad
 
 * `18.208.102.16`
 * `35.171.134.41`
+* `54.86.46.232`
+* `34.199.3.62`
+* `100.56.36.137`
+* `184.196.50.194`
 
 ## Troubleshooting
 
@@ -288,3 +292,9 @@ The typical issues behind these codes are:
 
   Note that Apify Proxy is based on the [proxy-chain](https://github.com/apify/proxy-chain) open-source `npm` package developed and maintained by Apify.
   You can find the details of the above errors and their implementation there.
+
+## Next steps
+
+* [Usage and resources](/actors/running/usage-and-resources) - how proxy traffic counts toward what a run costs.
+* [Anti-scraping protections](/academy/anti-scraping) - why websites block and how proxies help you avoid it.
+* [Limits](/account/limits) - the limits that apply to your account.

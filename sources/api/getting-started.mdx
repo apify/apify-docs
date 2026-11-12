@@ -7,7 +7,10 @@ slug: /getting-started
 The Apify API provides programmatic access to the [Apify platform](https://docs.apify.com). The API is organized around [RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer) HTTP endpoints.
 
 ```mermaid
-graph LR
+flowchart LR
+    accTitle: Apify API workflow
+    accDescr: An HTTP client exchanges requests and responses with the Apify API. The API starts an Actor run, which stores results in a dataset and a key-value store.
+
     A[HTTP client] <--> B[Apify API]
     B --> C[Actor run]
     C --> D1[Dataset]

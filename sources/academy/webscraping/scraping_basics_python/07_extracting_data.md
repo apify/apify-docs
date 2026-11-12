@@ -3,6 +3,7 @@ title: Extracting data from HTML with Python
 sidebar_label: Extracting data from HTML
 description: Lesson about building a Python application for watching prices. Using string manipulation to extract and clean data scraped from the product listing page.
 slug: /scraping-basics-python/extracting-data
+pagination: true
 ---
 
 import CodeBlock from '@theme/CodeBlock';
@@ -64,11 +65,11 @@ If you're not proficient in Python's string methods, [.startswith()](https://doc
 The whole program would look like this:
 
 ```py
-import httpx
+import httpx2
 from bs4 import BeautifulSoup
 
 url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
-response = httpx.get(url)
+response = httpx2.get(url)
 response.raise_for_status()
 
 html_code = response.text
@@ -181,11 +182,11 @@ price_text = (
 In this case, removing the dot from the price text is the same as if we multiplied all the numbers with 100, effectively converting dollars to cents. For converting the text to a number we'll use `int()` instead of `float()`. This is how the whole program looks like now:
 
 ```py
-import httpx
+import httpx2
 from bs4 import BeautifulSoup
 
 url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
-response = httpx.get(url)
+response = httpx2.get(url)
 response.raise_for_status()
 
 html_code = response.text

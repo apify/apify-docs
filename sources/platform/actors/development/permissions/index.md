@@ -19,7 +19,7 @@ Most Actors should use limited permissions to request only the specific access t
 
 ## How Actor permissions work
 
-When a user runs an Actor, it receives an Apify API token. This token is injected to the Actor's runtime and has a scope of access as requested by the Actor's permission level.
+When a user runs an Actor, it receives an Apify API token. This token is injected to the Actor's runtime, is valid only for that run, and has a scope of access as requested by the Actor's permission level.
 
 Actors with **Full permissions** receive a token that grants complete access to the user's Apify account via the Apify API.
 
@@ -125,7 +125,7 @@ Behavior at run time:
 - The user’s selection is injected into the run input, and the run token is expanded to allow only the requested operations on the selected storages.
 - If your code attempts an operation not covered by `resourcePermissions` (for example, writing with only `READ`), the platform returns an insufficient-permissions error.
 
-See the full [input schema reference for details](../actor_definition/input_schema/specification.md).
+See the full [input schema reference for details](../actor_definition/input_schema/specification/index.md).
 
 ### Request full permissions
 

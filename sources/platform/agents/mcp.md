@@ -45,7 +45,7 @@ Due to security reasons, the MCP server intentionally excludes full-permission A
 Before connecting your AI to Apify, you need:
 
 - _An Apify account_ - You need one unless your agent uses only the [tools that work without an account](#use-without-an-account) or pays through [agentic payments](#agentic-payments). Sign up for an Apify account, if you don't have one.
-- _MCP client_ - An AI agent or client that supports Model Context Protocol (MCP). This could be Anthropic's Claude for Desktop, a VS Code extension with MCP support, or any application that implements the MCP specification. The [official MCP documentation](https://modelcontextprotocol.io/clients) maintains a list of compatible clients.
+- _MCP client_ - An AI agent or client that supports Model Context Protocol (MCP). This could be [claude.ai](/integrations/claude-ai), [Claude Desktop](/integrations/claude-desktop), [VS Code](/integrations/vscode) with MCP support, or any application that implements the MCP specification. The [official MCP documentation](https://modelcontextprotocol.io/clients) maintains a list of compatible clients.
 - _Apify API token_ (optional) - Only needed for the [local stdio server](#local-stdio) or the [Bearer token option](#streamable-http-with-oauth-recommended). The recommended remote connection signs you in with OAuth instead. Get your token from the **API & Integrations** section in [Apify Console](https://console.apify.com/settings/integrations) and keep it secure.
 
 ## Connect and authorize
@@ -126,7 +126,24 @@ The server will download automatically on first use and connect using your API t
 
 ## Agentic payments
 
-Agents can pay for Actor runs without an Apify account. Payments made per request through the MCP server, such as with [Skyfire](/integrations/skyfire), work only with pay-per-event Actors. To run any Actor that uses limited permissions, buy a prepaid token through [agentic payments](/agents/payments) and use it as a Bearer token with the MCP server.
+Agents can pay for Actor runs without an Apify account. They buy a prepaid, spend-capped API token from [Apify AGI](https://agi.apify.com) and use it like a regular API token, so it runs any Actor that uses [limited permissions](/actors/development/permissions).
+
+Pass the token to the MCP server in the `Authorization` header:
+
+```json
+{
+  "mcpServers": {
+    "apify": {
+      "url": "https://mcp.apify.com",
+      "headers": {
+        "Authorization": "Bearer <PREPAID_TOKEN>"
+      }
+    }
+  }
+}
+```
+
+For supported payment protocols and spending limits, read [Agentic payments](/agents/payments).
 
 ## Tool selection
 
@@ -286,7 +303,7 @@ For Claude Desktop-specific troubleshooting (tools not loading, connection error
 
 ##### Local environment setup
 
-- _The MCP server requires Node.js v18 or higher_. Check your installed version by running `node -v` in your terminal.
+- _Node.js version_: The MCP server needs the Node.js version listed in the `engines` field of its [`package.json`](https://github.com/apify/apify-mcp-server/blob/master/package.json). Run `node -v` to check your installed version.
 - _Using the latest server version_: To ensure you have the latest features and bug fixes, use the latest version of the `@apify/actors-mcp-server` package. You can do this by appending `@latest` to the package name in your `npx` command or configuration file.
 
 ##### Actor execution issues

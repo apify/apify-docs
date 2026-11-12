@@ -93,7 +93,7 @@ properties:
     anyOf:
       - $ref: ./RunStandby.yaml
       - type: "null"
-    description: Standby configuration of the run. `null` for runs that are not Actor Standby runs.
+    description: Server Actor deployment of this run, `null` for runs not started by a Server Actor request.
   integrationTracking:
     description: Present only when the run was started by a third-party integration.
     $ref: ../common/IntegrationTracking.yaml
@@ -212,7 +212,7 @@ properties:
   usageUsd:
     description: >-
       Platform usage costs breakdown in USD. Only present if you own the run and are paying for platform usage
-      (pay-per-usage or pay-per-event with usage costs like Standby Actors).
+      (pay per usage, or pay per event with usage costs, such as runs of single-tenant Server Actors).
       Not available for standard pay-per-event Actors.
       Requires authentication token to access.
     anyOf:

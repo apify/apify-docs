@@ -3,7 +3,7 @@ title: How Apify Store works
 description: Learn how to create and publish your own Actor, and join a growing community of innovators in scraping and web automation.
 sidebar_position: 1
 category: build-and-publish
-slug: /actor-marketing-playbook/store-basics/how-store-works
+slug: /build-and-publish/apify-store/how-store-works
 ---
 
 **Out of thousands of Actors on [Apify Store](https://apify.com/store) marketplace, most of them were created by developers just like you. Let's get acquainted with the concept of Apify Store and what it takes to publish an Actor there.**
@@ -26,7 +26,7 @@ The term "Actor" is used because, like human actors, these programs follow a scr
 - _Automation Actors_: for example, [Content Checker](https://apify.com/jakubbalada/content-checker) monitors website content for changes and emails you once a change occurs.
 - _Bundles_: chains of multiple Actors united by a common data point or target website. For example, [Restaurant Review Aggregator](https://apify.com/tri_angle/restaurant-review-aggregator) can scrape reviews from six platforms at once.
 
-Learn more about bundles here: [Actor bundles](/academy/actor-marketing-playbook/product-optimization/actor-bundles)
+Learn more about bundles here: [Actor bundles](/academy/build-and-publish/how-to/actor-bundles)
 
 ## Public and private Actors
 
@@ -70,7 +70,7 @@ Each Actor has an **Issues** tab in Apify Console and on the web. Here, users ca
 
 Since the **Issues** tab is public, the level of activity - or lack thereof - can be observed by potential users and may serve as an indicator of the Actor's reliability. A well-maintained Issues tab with prompt responses suggests an active and dependable Actor.
 
-Learn more about how to handle the [Issues tab](/academy/actor-marketing-playbook/interact-with-users/issues-tab)
+Learn more about how to handle the [Issues tab](/academy/build-and-publish/interact-with-users/issues-tab)
 
 ## How Apify Store search works
 

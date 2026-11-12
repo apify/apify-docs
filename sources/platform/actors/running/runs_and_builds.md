@@ -6,6 +6,8 @@ sidebar_position: 2
 slug: /actors/running/runs-and-builds
 ---
 
+import ActorJobLifecycle from '@site/sources/_partials/_actor-job-lifecycle.mdx';
+
 An Actor is a combination of source code and various settings in a Docker container. To run, it must be built first.
 
 ## Builds
@@ -69,48 +71,13 @@ Both **Actor runs** and **builds** have the **Origin** field indicating how the 
 |`TEST`|From the Actor's test page in Apify Console|
 |`WEBHOOK`|Using a webhook|
 |`ACTOR`|From another Actor run|
-|`STANDBY`|From [Actor Standby](./standby)|
+|`STANDBY`|From a request to a [Server Actor](./actor_standby.md)|
 |`CI`|From a CI/CD pipeline (for example, GitHub Actions)|
 |`MCP`|From the [Apify MCP Server](/mcp)|
 
 ## Lifecycle
 
-Each run and build starts with the initial status **READY** and goes through one or more transitional statuses to one of the terminal statuses.
-
-```mermaid
-flowchart LR
-    subgraph Transitional states
-        RUNNING
-        TIMING-OUT
-        ABORTING
-    end
-
-    subgraph Terminal states
-        SUCCEEDED
-        FAILED
-        TIMED-OUT
-        ABORTED
-    end
-
-    READY --> RUNNING
-              RUNNING --> SUCCEEDED
-              RUNNING --> FAILED
-              RUNNING --> TIMING-OUT --> TIMED-OUT
-              RUNNING --> ABORTING --> ABORTED
-```
-
----
-
-| Status | Type | Description |
-| --- | --- | --- |
-| READY | initial | Started but not allocated to any worker yet |
-| RUNNING | transitional | Executing on a worker machine |
-| SUCCEEDED | terminal | Finished successfully |
-| FAILED | terminal | Run failed |
-| TIMING-OUT | transitional | Timing out now |
-| TIMED-OUT | terminal | Timed out |
-| ABORTING | transitional | Run is being aborted |
-| ABORTED | terminal | Run aborted |
+<ActorJobLifecycle />
 
 ### Abort a run
 

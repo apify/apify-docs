@@ -56,7 +56,7 @@ properties:
     anyOf:
       - $ref: ./ActorStandby.yaml
       - type: "null"
-    description: The configuration of the Actor's standby mode. For details, see [Standby mode](https://docs.apify.com/platform/actors/development/programming-interface/standby).
+    description: The configuration of the Actor's standby mode. For details, see [Develop Server Actors](https://docs.apify.com/platform/actors/development/programming-interface/server-actors).
   exampleRunInput:
     anyOf:
       - $ref: ./ExampleRunInput.yaml

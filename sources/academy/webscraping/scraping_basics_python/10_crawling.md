@@ -1,8 +1,9 @@
 ---
 title: Crawling websites with Python
 sidebar_label: Crawling websites
-description: Lesson about building a Python application for watching prices. Using the HTTPX library to follow links to individual product pages.
+description: Lesson about building a Python application for watching prices. Using the HTTPX2 library to follow links to individual product pages.
 slug: /scraping-basics-python/crawling
+pagination: true
 ---
 
 import CodeBlock from '@theme/CodeBlock';
@@ -10,7 +11,7 @@ import Exercises from '../scraping_basics/_exercises.mdx';
 import WtaTennisPlayersExercise from '!!raw-loader!roa-loader!./exercises/wta_tennis_players.py';
 import GuardianF1AuthorsExercise from '!!raw-loader!roa-loader!./exercises/guardian_f1_authors.py';
 
-**In this lesson, we'll follow links to individual product pages. We'll use HTTPX to download them and BeautifulSoup to process them.**
+**In this lesson, we'll follow links to individual product pages. We'll use HTTPX2 to download them and BeautifulSoup to process them.**
 
 ---
 
@@ -19,14 +20,14 @@ In previous lessons we've managed to download the HTML code of a single page, pa
 Thanks to the refactoring, we have functions ready for each of the tasks, so we won't need to repeat ourselves in our code. This is what you should see in your editor now:
 
 ```py
-import httpx
+import httpx2
 from bs4 import BeautifulSoup
 import json
 import csv
 from urllib.parse import urljoin
 
 def download(url):
-    response = httpx.get(url)
+    response = httpx2.get(url)
     response.raise_for_status()
 
     html_code = response.text

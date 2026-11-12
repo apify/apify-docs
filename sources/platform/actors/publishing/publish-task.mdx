@@ -1,6 +1,6 @@
 ---
 title: Publish your Actor task
-description: Publish a saved Actor task as a landing page on Apify Store. Each published task is discoverable by search engines and AI agents.
+description: Publish a saved Actor task as a landing page on Apify Store. Choose the input values and output view it shows, and let search engines and AI agents find it.
 slug: /actors/publishing/publish-task
 sidebar_position: 2
 ---
@@ -15,7 +15,7 @@ Before you publish a task, make sure you have:
 
 - A [published Actor](./publish/index.mdx) that you own or maintain.
 - A [saved task](/actors/running/tasks) with a complete input configuration.
-- An [input schema](/actors/development/actor-definition/input-schema) and at least one [dataset schema view](/storage/dataset-schema) defined on the Actor.
+- A successful build of the Actor that defines an [input schema](/actors/development/actor-definition/input-schema) and at least one [dataset schema view](/storage/dataset-schema). The task uses the build set in its run options, or the Actor's default build.
 
 If your Actor is missing an input schema or dataset schema, the **Publishing** tab shows what needs to be set up before you can publish.
 
@@ -60,10 +60,10 @@ If your Actor supports multiple use cases, publish a task for each one. A web sc
 Once your task runs reliably and produces the output you want users to see, publish it from Apify Console. The **Publishing** tab guides you through each requirement.
 
 1. From your task's page in Apify Console, open the **Publishing** tab.
-1. Complete the three sections: [Page details](#page-details), [Input](#input), and [Dataset schema](#dataset-schema).
+1. Complete the three required sections: [Page details](#page-details), [Input](#input), and [Dataset schema](#dataset-schema). Optionally, add an [FAQ](#faq).
 1. Select **Publish task**.
 
-![The Publishing tab showing the Publish task button and three sections to complete.](./images/public-tasks/task-publishing-tab.webp)
+![The Publishing tab showing the Publish task button, three required sections, and the optional FAQ.](./images/public-tasks/task-publishing-tab.webp)
 
 ### Page details
 
@@ -71,7 +71,7 @@ This section controls how your task appears on the landing page and in search re
 
 - **Title:** the heading shown on the landing page. Required to publish.
 - **Description:** the summary shown under the heading on the landing page. Required to publish.
-- **Slug:** the URL path for your task's landing page (lowercase, hyphens, no spaces).
+- **Slug:** the URL path for your task's landing page, generated from the task name. See [URL structure](#url-structure).
 - **SEO title:** the page title in search results. Falls back to the task title when empty.
 - **SEO description:** the meta description in search results. Falls back to the task description when empty.
 
@@ -114,11 +114,34 @@ All input fields with `"isSecret": true` in the Actor's [input schema](/actors/d
 
 ### Dataset schema
 
-The **Dataset schema** section selects which view of the Actor's dataset is rendered on the landing page. Each view organizes the output fields differently. Pick the one that best matches the task's use case.
+The **Dataset schema** section selects which view of the Actor's dataset is rendered on the landing page. Each view organizes the output fields differently. Pick the one that best matches the task's use case. The view you pick must contain at least one field to display.
 
 ![Dataset schema section with a dropdown to select which output view to display.](./images/public-tasks/task-dataset-schema.webp)
 
 For more on configuring views, see [Dataset schema](/storage/dataset-schema).
+
+### FAQ
+
+The optional **FAQ** section adds questions and answers to the landing page. The answers help people decide to run your task. They also give search engines and AI agents facts to quote in their answers.
+
+- **Generate FAQ:** writes questions and answers with AI, based on the task's title, description, and input, and on the Actor's README and dataset schema. If the task already has an FAQ, the AI uses it as a draft and replaces it after you confirm.
+- **Add question:** adds a question and answer that you write yourself.
+
+Review and edit the generated questions and answers, then select **Save**. An FAQ can include up to 10 questions. Each question can be up to 120 characters, and each answer up to 250 characters.
+
+![FAQ section with the Generate FAQ button, two question-and-answer pairs with character counters, and the Add question button.](./images/public-tasks/task-publishing-faq.webp)
+
+:::tip Write answers that stand alone
+
+AI agents and search engines often quote a single answer without the question it answers. Name the task in each answer instead of starting with "It" or "Yes." Write "The Amazon price tracker task returns the product title, price, and image URL," not "Yes, it returns prices."
+
+Aim for 3 to 8 questions, such as:
+
+- What does the output contain?
+- What input does the task need?
+- How do I run the task through the API or on a schedule?
+
+:::
 
 ### Publish confirmation
 
@@ -151,15 +174,22 @@ Creating a task never publishes it. There are three steps:
 A task can only be published when all of the following hold:
 
 - The task's Actor is public.
+- The build the task runs, set in its run options or the Actor's default build, succeeded and has an input schema and a dataset schema.
 - The task has a `title` (3 to 63 characters) and a `description` (up to 400 characters). The landing page renders these.
 - `publicConfig.inputSchemaFields` names at least one field that exists in the task's input. These are the input values shown on the page.
-- `publicConfig.datasetView` is one of the view keys declared in the Actor's [dataset schema](/storage/dataset-schema). Set `publicConfig.datasetName` too if the Actor declares more than one dataset.
+- `publicConfig.datasetView` is one of the view keys declared in the Actor's [dataset schema](/storage/dataset-schema), and the view has at least one field. Set `publicConfig.datasetName` too if the Actor declares more than one dataset.
 - You have write access to both the task and its Actor.
-- The Actor has fewer than 10 published tasks.
+- The Actor has fewer than 10 published tasks, and your account has fewer than 100.
+
+Publishing past either limit returns an error. To raise the limits for your account, [contact support](https://apify.com/contact).
 
 `publicConfig.seoTitle` (up to 60 characters) and `publicConfig.seoDescription` (up to 160 characters) are optional. They appear in search results only and fall back to the task's title and description when empty. Search engines display only that much text, so they cut a longer title or 400-character description if you leave these fields empty.
 
-If any requirement is unmet, the request fails and none of the update is applied, so the task never ends up half-configured.
+`publicConfig.faq` is optional too. It holds up to 10 `{ "question": "...", "answer": "..." }` objects, with questions up to 120 characters and answers up to 250 characters. Neither can be blank.
+
+If any requirement is unmet, the request fails with an error that lists every problem, and none of the update is applied. A task is never left half-configured or silently unpublished.
+
+Editing an already published task works differently. If an edit leaves the task invalid, for example because the Actor's dataset schema no longer has the view you picked, the landing page is hidden until you fix it. The task stays published and still shows as **Public**, so check the **Publishing** tab, which marks the section that needs fixing.
 
 ### Publish with an AI agent
 
@@ -265,20 +295,28 @@ https://apify.com/john/google-maps-scraper/examples/analyze-local-business-compe
 
 Keep the task name short, descriptive, and focused on the use case keyword.
 
+There's no separate slug field in Apify Console or the API. To change the URL, rename the task, or update its `name` through the API. Renaming a published task changes its URL, and the old URL stops working.
+
 ### Landing page content
 
-![A published task landing page showing the SEO title, input configuration, and dataset preview.](./images/public-tasks/task-landing-page.webp)
+![A published task landing page showing the task title, description, input values, and output fields.](./images/public-tasks/task-landing-page.webp)
 
-The landing page displays the information you configured in the [Page details](#page-details), [Input](#input), and [Dataset schema](#dataset-schema) sections:
+The landing page shows what you configured on the **Publishing** tab, in this order:
 
-- The **SEO title** and **SEO description** at the top of the page.
-- The selected **input fields** with their exact configured values.
-- A preview of the **Dataset schema fields** based on the dataset view you selected.
-- A call-to-action button that lets users try the task right away.
+- The task **title** and **description**, with a preview of the output fields
+- A **Try for free** button that lets users try the task right away
+- An **example dataset** table, if you generated example data in the [Dataset schema](#dataset-schema) section
+- The selected **input fields** with their configured values, and the output fields from the dataset view you selected
+- **How it works:** the steps to run the task, with a **Sign up** button
+- **Integrations:** tools such as Zapier, Make, and n8n, and code examples that run the task with its input
+- The [FAQ](#faq), if you added one
+- Related tasks
+
+The markdown version of the page includes the FAQ too. Search results show the **SEO title** and **SEO description** instead of the title and description.
 
 ### After a user tries your task
 
-When a user clicks the call-to-action button, Apify creates a new task under their account with the same input configuration. The user can change, run, and manage it without affecting your original task. Your runs, data, and configuration stay private.
+When a user selects **Try for free** or **Sign up**, Apify creates a new task under their account with the same input configuration. The user can change, run, and manage it without affecting your original task. Your runs, data, and configuration stay private.
 
 ## Next steps
 

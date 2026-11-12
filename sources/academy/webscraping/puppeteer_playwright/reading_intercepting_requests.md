@@ -3,6 +3,7 @@ title: IV - Reading & intercepting requests
 description: You can use DevTools, but did you know that you can do all the same stuff (plus more) programmatically? Read and intercept requests in Puppeteer/Playwright.
 sidebar_position: 2.4
 slug: /puppeteer-playwright/reading-intercepting-requests
+pagination: true
 ---
 
 import Tabs from '@theme/Tabs';

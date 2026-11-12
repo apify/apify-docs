@@ -3,6 +3,7 @@ title: Parsing HTML with Python
 sidebar_label: Parsing HTML
 description: Lesson about building a Python application for watching prices. Using the Beautiful Soup library to parse HTML code of a product listing page.
 slug: /scraping-basics-python/parsing-html
+pagination: true
 ---
 
 import CodeBlock from '@theme/CodeBlock';
@@ -50,11 +51,11 @@ Now let's use it for parsing the HTML. The `BeautifulSoup` object allows us to w
 We'll update our code to the following:
 
 ```py
-import httpx
+import httpx2
 from bs4 import BeautifulSoup
 
 url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
-response = httpx.get(url)
+response = httpx2.get(url)
 response.raise_for_status()
 
 html_code = response.text
@@ -97,11 +98,11 @@ Beautiful Soup's `.select()` method runs a _CSS selector_ against a parsed HTML 
 Scanning through [usage examples](https://beautiful-soup-4.readthedocs.io/en/latest/#css-selectors) will help us to figure out code for counting the product cards:
 
 ```py
-import httpx
+import httpx2
 from bs4 import BeautifulSoup
 
 url = "https://warehouse-theme-metal.myshopify.com/collections/sales"
-response = httpx.get(url)
+response = httpx2.get(url)
 response.raise_for_status()
 
 html_code = response.text

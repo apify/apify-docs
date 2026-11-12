@@ -3,6 +3,7 @@ title: I - Launching a browser
 description: Understand what the Browser object is in Puppeteer/Playwright, how to create one, and a bit about how to interact with one.
 sidebar_position: 2.1
 slug: /puppeteer-playwright/browser
+pagination: true
 ---
 
 import Tabs from '@theme/Tabs';

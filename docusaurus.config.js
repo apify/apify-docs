@@ -357,6 +357,10 @@ module.exports = {
                             route: '/platform/**',
                             categoryName: 'Platform documentation',
                         },
+                        {
+                            route: '/glossary',
+                            categoryName: 'Glossary',
+                        },
                     ],
                     // Expand <Tabs> and fix Prism code language tags before HTML→markdown conversion
                     beforeDefaultRehypePlugins: [rehypeExpandTabs, rehypeFixCodeLanguage],
@@ -388,7 +392,10 @@ module.exports = {
         parseFrontMatter: async (params) => {
             const result = await params.defaultParseFrontMatter(params);
 
-            if (result.frontMatter.api || result.content.startsWith('<span class="openapi-clients-box">')) {
+            const isPartial = params.filePath.split('/').pop()[0] === '_';
+
+            // Prev/next buttons are off by default, pages opt in with `pagination: true`
+            if (!isPartial && !result.frontMatter.pagination) {
                 result.frontMatter.pagination_next = null;
                 result.frontMatter.pagination_prev = null;
             }
@@ -396,8 +403,6 @@ module.exports = {
             if (result.frontMatter.id === 'apify-api') {
                 result.frontMatter.slug = '/';
             }
-
-            const isPartial = params.filePath.split('/').pop()[0] === '_';
 
             if (!isPartial) {
                 const ogImageURL = new URL('https://apify.com/og-image/docs-article');

@@ -115,7 +115,7 @@ Recommended features:
 
 ##### Web Fetch
 
-Fetches a single web page and returns its content - ideal for on-demand URL scraping inside agents or automation flows. Build this on Apify's [Web Fetch](https://apify.com/apify/web-fetch) Actor in [Standby](/actors/running/standby) mode at `https://web-fetch.apify.actor`, which returns the content directly in the HTTP response instead of starting a run.
+Fetches a single web page and returns its content - ideal for on-demand URL scraping inside agents or automation flows. Build this on the [server interface](/actors/running/server-actors) of Apify's [Web Fetch](https://apify.com/apify/web-fetch) Actor at `https://web-fetch.apify.actor`, which returns the content directly in the HTTP response instead of starting a run.
 
 Recommended features:
 
@@ -183,7 +183,7 @@ The `apify-integration-development` skill (see [Apify Agent Skills](/agents/skil
 - AI framework packages - LangChain, LlamaIndex, Haystack, Vercel AI SDK.
 - Application integrations - a backend service or product feature calling Actors via `apify-client` or REST.
 
-The skill enforces the cross-cutting rules every Apify integration needs: asynchronous runs through the [Run Actor](/api/v2/actors-runs-post) endpoint with bounded polling, [cost controls](/get-started/agent-onboarding#run-your-first-actor) (`maxTotalChargeUsd`, `maxItems`), [attribution headers](#monitor-and-track), [OAuth2 and API-token authentication](#authentication-methods), and [webhooks](/integrations/webhooks) over polling. Once you publish your integration, contact [integrations@apify.com](mailto:integrations@apify.com) so the Apify team can review and validate it before it reaches users.
+The skill enforces the cross-cutting rules every Apify integration needs: asynchronous runs through the [Run Actor](/api/v2/actors-runs-post) endpoint with bounded polling and cost controls (`maxTotalChargeUsd`, `maxItems`), [attribution headers](#monitor-and-track), [OAuth2 and API-token authentication](#authentication-methods), and [webhooks](/integrations/webhooks) over polling. Once you publish your integration, contact [integrations@apify.com](mailto:integrations@apify.com) so the Apify team can review and validate it before it reaches users.
 
 ## Technical resources
 

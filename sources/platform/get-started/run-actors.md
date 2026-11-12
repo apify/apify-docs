@@ -4,8 +4,6 @@ sidebar_label: Run Actors
 sidebar_position: 1
 slug: /get-started/run-actors
 description: Run existing Actors from Apify Store to get data or automate tasks with no code - pick an Actor, configure input, collect results, then automate.
-pagination_next: null
-pagination_prev: null
 ---
 
 You don't need to write any code to get data or automation out of Apify. [Apify Store](https://apify.com/store) offers thousands of ready-made Actors, and running one always follows the same loop: pick an Actor, give it input, start the run, and collect the results. This page walks you through that loop and points you to the right tutorial or concept page at each step.
@@ -40,7 +38,7 @@ Once a manual run produces the data you want, you rarely keep starting it by han
 - [Save your input as a task](/actors/running/tasks) so you can re-run it without re-typing the configuration.
 - [Schedule an Actor](/actors/running/schedules) to run automatically.
 - [Send results to your tools](/integrations) - Make, Zapier, n8n, Slack, webhooks, and more.
-- [Use an Actor as a live API](/actors/running/standby) with Actor Standby.
+- [Use an Actor as a live API](/actors/running/server-actors) through its server interface.
 - [Monitor your runs](/actors/running/monitoring) to catch failures and track performance.
 - Run Actors programmatically via the [API](/api/v2) or the [CLI](/cli/docs).
 

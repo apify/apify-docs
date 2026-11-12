@@ -8,6 +8,7 @@ slug: /integrations/qoder
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 import ApifyPluginSkills from '@site/sources/_partials/_apify-plugin-skills.mdx';
 import ApifyPluginSkillPrompts from '@site/sources/_partials/_apify-plugin-skill-prompts.mdx';
+import FindGoogleMapsActorPrompt from '@site/sources/_partials/_find-google-maps-actor-prompt.mdx';
 
 [Qoder](https://qoder.com) is an agentic coding platform from Alibaba. The same [Apify plugin for Qoder](https://github.com/apify/apify-qoder-plugin) installs across its surfaces and connects them to Apify's library of [Actors](https://apify.com/store). The plugin bundles:
 
@@ -125,11 +126,13 @@ Review the permissions and allow access to finish signing in. The connection sta
 
 Describe what you want in natural language. The `apify` agent routes the request to the right tool or skill, so you don't need to name tools yourself.
 
-> List what Apify tools you have available.
+```prompt title="List available Apify tools"
+List what Apify tools you have available.
+```
 
 To go further, ask it to find an Actor for a task:
 
-> Use Apify to find a good Actor for scraping Google Maps places. Show me the best option, its input requirements, pricing model, and what kind of dataset output it returns. Do not run the Actor yet.
+<FindGoogleMapsActorPrompt />
 
 ## Bundled skills
 

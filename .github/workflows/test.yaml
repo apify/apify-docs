@@ -17,6 +17,7 @@ jobs:
                 uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
                 with:
                     node-version: 24
+                    check-latest: true
 
             -   uses: apify/actions/pnpm-install@v1.3.1
 
@@ -242,6 +243,11 @@ jobs:
                     assert_header "http://localhost:8080/api/client/python/api/client/python/docs/changelog" "Location" "^Location: http://[^/]*/api/client/python/docs/changelog$"
                     assert_header "http://localhost:8080/cli/cli/docs/changelog" "Location" "^Location: http://[^/]*/cli/docs/changelog$"
 
+                    echo "🧪 Checking Server Actors redirects..."
+                    assert_header "http://localhost:8080/actors/running/standby" "Location" "^Location: http://[^/]*/actors/running/server-actors$"
+                    assert_header "http://localhost:8080/platform/actors/running/standby.md" "Location" "^Location: http://[^/]*/actors/running/server-actors[.]md$"
+                    assert_header "http://localhost:8080/actors/development/programming-interface/standby" "Location" "^Location: http://[^/]*/actors/development/programming-interface/server-actors$"
+
                     echo "✅ All Nginx header checks passed."
 
             -   name: Verify per-page .md navigation headers
@@ -272,6 +278,7 @@ jobs:
                 uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
                 with:
                     node-version: 24
+                    check-latest: true
 
             -   uses: apify/actions/pnpm-install@v1.3.1
 
@@ -296,6 +303,7 @@ jobs:
                 uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
                 with:
                     node-version: 24
+                    check-latest: true
 
             -   uses: apify/actions/pnpm-install@v1.3.1
 

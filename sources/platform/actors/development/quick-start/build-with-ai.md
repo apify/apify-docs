@@ -5,8 +5,6 @@ sidebar_label: Build with AI
 description: Build new Actors or improve existing ones using AI coding tools by providing the right context, prompts, Agent Skills, and the Apify MCP server.
 slug: /actors/development/quick-start/build-with-ai
 toc_max_heading_level: 4
-pagination_next: null
-pagination_prev: null
 ---
 
 import { AGENTS_PROMPT } from "@site/src/utils/agents-prompt";
@@ -20,7 +18,7 @@ This guide provides best practices for building new Actors or improving existing
 :::tip Different goal?
 
 - _Building and deploying AI agents as Actors on Apify?_ See [Develop AI agents on Apify](/actors/development/quick-start/develop-ai-agents) for the full stack - templates, sandboxes, LLM access, and monetization.
-- _Connecting an external AI agent to Apify?_ See the [agent quickstart](/get-started/agent-onboarding) for MCP, Agent Skills, client libraries, and the REST API.
+- _Connecting an external AI agent to Apify?_ See [For AI agents](/agents) for the ways to connect and the [agent quickstart](/agents/quickstart) to run a first Actor.
 
 :::
 

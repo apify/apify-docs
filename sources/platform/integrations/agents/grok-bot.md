@@ -6,6 +6,7 @@ slug: /integrations/grok-bot
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+import ApifyPluginSkillPrompts from '@site/sources/_partials/_apify-plugin-skill-prompts.mdx';
 
 [Grok Bot](https://docs.x.ai/grok-bot) is an AI teammate that works from a persistent cloud computer. It reads and edits files, runs commands, uses a browser, and completes multi-step development tasks.
 
@@ -60,7 +61,9 @@ In chat, type `@apify` to attach the Apify connector to the task. The routing ag
 
 Prefer the Apify connector over browsing Apify's website in the Grok Bot browser. A connector is often more reliable than clicking through a site.
 
-> @apify Use Apify to find a good Actor for scraping Google Maps places. Show me the best option, its input requirements, pricing model, and what kind of dataset output it returns. Do not run the Actor yet.
+```prompt title="Find a Google Maps Actor"
+@apify Use Apify to find a good Actor for scraping Google Maps places. Show me the best option, its input requirements, pricing model, and what kind of dataset output it returns. Do not run the Actor yet.
+```
 
 The `apify` agent searches Apify Store, fetches the top Actor's details through the Apify MCP server, and summarizes its inputs, pricing, and output - all without running the Actor.
 
@@ -82,17 +85,7 @@ All Bots on your account share the same cloud computer. Skills that edit files (
 
 Example prompts that route to specific skills:
 
-_Ultimate scraper:_
-
-> Find 10 highly rated coffee shops in Seattle with name, address, rating, phone, and website.
-
-_Actor development:_
-
-> Create an Apify Actor that accepts a `startUrl` and `maxPages` input, crawls the site, and stores each page title and URL.
-
-_SDK integration:_
-
-> Add Apify to this project. The Node.js API route should run an Actor and return dataset items as JSON.
+<ApifyPluginSkillPrompts />
 
 ## Troubleshooting
 

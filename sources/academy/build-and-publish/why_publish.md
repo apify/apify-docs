@@ -63,6 +63,6 @@ monetization
 
 Learn more:
 
-- [How to build Actors](/academy/actor-marketing-playbook/store-basics/how-to-build-actors)
-- [How Apify Store works](/academy/actor-marketing-playbook/store-basics/how-store-works)
+- [How to build Actors](/academy/build-and-publish/how-to)
+- [How Apify Store works](/academy/build-and-publish/apify-store/how-store-works)
 - [Publish your Actor](/actors/publishing/publish)

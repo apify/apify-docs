@@ -221,6 +221,7 @@ putById:
 
     * Brotli compression: `Content-Encoding: br`
     * Gzip compression: `Content-Encoding: gzip`
+    * Zstandard compression: `Content-Encoding: zstd`
     * Deflate compression: `Content-Encoding: deflate`
   operationId: keyValueStore_record_put
   parameters:

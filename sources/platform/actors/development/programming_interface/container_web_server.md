@@ -15,7 +15,7 @@ Each Actor run is assigned a unique URL (e.g. `kmdo7wpzlshygi.runs.apify.net`) t
 
 :::tip Using Actors as an API
 
-The container web server provides a way how to connect to one specific Actor run. To enable using your Actor as an API, with a pre-defined hostname, load balancing and autoscaling, check out [Actor Standby](./actor_standby.md).
+The container web server provides a way how to connect to one specific Actor run. To enable using your Actor as an API, with a pre-defined hostname, load balancing and autoscaling, check out [Server Actors](./server-interface/index.md).
 
 :::
 
