@@ -37,20 +37,20 @@ Before using the Apify connector in recipes, create a connection inside a Workat
 1. Click **Create project**.
 1. Name the project, select **Start from scratch**, and click **Create project**.
 
-![Screenshot showing how to create a new project in Workato](../images/workato/create-project.png)
+![Screenshot showing how to create a new project in Workato](../images/workato/create-project.webp)
 
 ### Create a connection in your project
 
 1. Open your project.
 1. Click the **Create** button.
 1. Select **Connection**.
-   ![Screenshot showing how to create connection](../images/workato/create-connection.png)
+   ![Screenshot showing how to create connection](../images/workato/create-connection.webp)
 1. Search for **Apify** and choose the Apify connector.
-   ![Screenshot showing how to search for the Apify connector in Workato](../images/workato/create-connection-find-connector.png)
+   ![Screenshot showing how to search for the Apify connector in Workato](../images/workato/create-connection-find-connector.webp)
 1. In the connection dialog, enter your **API Token**. In [Apify Console](https://console.apify.com), go to [Settings > API & Integrations](https://console.apify.com/settings/integrations?utm_source=workato&utm_medium=integrations) and copy your API token.
-   ![Screenshot of the Workato API Key authentication form](../images/workato/create-connection-api-key.png)
+   ![Screenshot of the Workato API Key authentication form](../images/workato/create-connection-api-key.webp)
 1. Click **Connect**. Workato tests the connection by making an authenticated call to verify your credentials.
-   ![Screenshot showing successful API Key authentication in Workato](../images/workato/create-connection-api-success.png)
+   ![Screenshot showing successful API Key authentication in Workato](../images/workato/create-connection-api-success.webp)
 
 Once you create and authenticate the connection, you can use it in any recipe.
 
@@ -78,7 +78,7 @@ This trigger monitors a specific Apify Actor and starts the recipe when any run 
 - Choose to trigger on specific statuses (`ACTOR.RUN.SUCCEEDED`, `ACTOR.RUN.FAILED`, `ACTOR.RUN.TIMED_OUT`, `ACTOR.RUN.ABORTED`).
 - Access run details, status, and metadata in subsequent recipe steps.
 
-![Screenshot of the Actor run finished trigger configuration in Workato](../images/workato/trigger-actor.png)
+![Screenshot of the Actor run finished trigger configuration in Workato](../images/workato/trigger-actor.webp)
 
 ### Task run finished
 
@@ -90,7 +90,7 @@ This trigger creates a webhook in your Apify account that notifies Workato when 
 - Build workflows dependent on specific data collection tasks.
 - Process results from tasks with predefined configurations.
 
-![Screenshot of the task run finished trigger configuration in Workato](../images/workato/trigger-task.png)
+![Screenshot of the task run finished trigger configuration in Workato](../images/workato/trigger-task.webp)
 
 ## Actions
 
@@ -117,7 +117,7 @@ Default values for input fields will be displayed as placeholders, giving you a 
 
 :::
 
-![Screenshot of the run Actor action configuration in Workato](../images/workato/run-actor.png)
+![Screenshot of the run Actor action configuration in Workato](../images/workato/run-actor.webp)
 
 ### Run task
 
@@ -129,7 +129,7 @@ This action runs an Apify task with optional input overrides and execution param
 - Override the task's pre-configured input with new JSON if needed.
 - Configure task options: memory (128 MB to 32 GB), timeout, and build tag (defaults to the Actor's default build tag).
 
-![Screenshot of the run task action configuration in Workato](../images/workato/run-task.png)
+![Screenshot of the run task action configuration in Workato](../images/workato/run-task.webp)
 
 ### Send Server Actor request
 
@@ -143,6 +143,8 @@ A [Server Actor](../../actors/running/actor_standby.md) answers HTTP requests in
 - Use the response as **Body** (JSON object), **Body (list)** (JSON array), or **Body (text)**.
 
 The Actor has to answer within 180 seconds, Workato's limit for an action. The step fails on an error status, a redirect, or a binary response. A Retry block or **Repeat job** sends the request again, and the Actor may charge for it again.
+
+![Screenshot of the Send Server Actor request action in Workato with the Web Fetch Actor and its GET / endpoint selected](../images/workato/send-server-actor-request.webp)
 
 ### Get dataset items
 
@@ -168,7 +170,7 @@ Use datasets where all items follow a consistent structure. Test with a small sa
 
 :::
 
-![Screenshot of the get dataset items action configuration in Workato](../images/workato/get-dataset.png)
+![Screenshot of the get dataset items action configuration in Workato](../images/workato/get-dataset.webp)
 
 ### Get key-value store record
 
@@ -181,7 +183,7 @@ Select a key-value store and a key to retrieve the corresponding record as a tex
 - Supports both text and binary content types.
 - Enables flexible data retrieval for various use cases.
 
-![Screenshot of the get key-value store record action configuration in Workato](../images/workato/get-key-val.png)
+![Screenshot of the get key-value store record action configuration in Workato](../images/workato/get-key-val.webp)
 
 ### Web Fetch
 
@@ -236,7 +238,7 @@ When you use the pick list, the connector fetches input fields automatically - n
 
 :::
 
-![Screenshot showing different input modes available in the Workato connector](../images/workato/input-modes.png)
+![Screenshot showing different input modes available in the Workato connector](../images/workato/input-modes.webp)
 
 ### Where to find resource identifiers
 
@@ -256,18 +258,18 @@ If an Actor run takes more than a few minutes (for example, scraping thousands o
    - In a recipe, add the **Run Actor** action and configure inputs as needed.
    - Run asynchronously (do not block downstream steps on completion).
 
-   ![Screenshot showing the run Actor action configuration with async option in Workato](../images/workato/run-actor.png)
+   ![Screenshot showing the run Actor action configuration with async option in Workato](../images/workato/run-actor.webp)
 
 1. Continue when the run finishes
    - Build a separate recipe with the **Actor run finished** trigger.
    - Filter for the specific Actor or task you started in step 1.
 
-   ![Screenshot showing how to filter for a specific Actor in the run finished trigger](../images/workato/trigger-actor.png)
+   ![Screenshot showing how to filter for a specific Actor in the run finished trigger](../images/workato/trigger-actor.webp)
 
 1. Fetch results and process
    - In the triggered recipe, add **Get Dataset Items** (use the dataset ID from the trigger payload) and continue processing.
 
-   ![Screenshot showing how to use dataset ID from trigger payload in get dataset items action](../images/workato/get-dataset.png)
+   ![Screenshot showing how to use dataset ID from trigger payload in get dataset items action](../images/workato/get-dataset.webp)
 
 ## Tips and best practices
 
