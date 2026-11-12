@@ -58,7 +58,7 @@ Once you create and authenticate the connection, you can use it in any recipe.
 
 A recipe begins with a trigger (an event that starts the workflow) and includes one or more actions (operations to perform). The sections below describe the triggers and actions available in the Apify connector.
 
-### Triggers
+## Triggers
 
 :::tip Inline documentation
 
@@ -68,7 +68,7 @@ Each connector trigger and action field in Workato includes inline help text des
 
 The Apify connector provides the following triggers that monitor your Apify account for task completions:
 
-#### Actor run finished
+### Actor run finished
 
 Triggers when an Apify Actor run finishes (succeeds, fails, times out, or gets aborted).
 
@@ -80,7 +80,7 @@ This trigger monitors a specific Apify Actor and starts the recipe when any run 
 
 ![Screenshot of the Actor run finished trigger configuration in Workato](../images/workato/trigger-actor.png)
 
-#### Task run finished
+### Task run finished
 
 Triggers when an Apify task run finishes (succeeds, fails, times out, or gets aborted).
 
@@ -92,11 +92,11 @@ This trigger creates a webhook in your Apify account that notifies Workato when 
 
 ![Screenshot of the task run finished trigger configuration in Workato](../images/workato/trigger-task.png)
 
-### Actions
+## Actions
 
 The Apify connector offers actions to interact with the Apify platform.
 
-#### Run Actor
+### Run Actor
 
 Run an Apify Actor with customizable execution parameters.
 
@@ -119,7 +119,7 @@ Default values for input fields will be displayed as placeholders, giving you a 
 
 ![Screenshot of the run Actor action configuration in Workato](../images/workato/run-actor.png)
 
-#### Run task
+### Run task
 
 Run an Apify Actor task with optional input overrides.
 
@@ -131,11 +131,11 @@ This action runs an Apify task with optional input overrides and execution param
 
 ![Screenshot of the run task action configuration in Workato](../images/workato/run-task.png)
 
-#### Send Server Actor request
+### Send Server Actor request
 
 Send a request to a Server Actor and get its response.
 
-A [Server Actor](../../actors/running/actor_standby.md) answers HTTP requests directly instead of starting a run. This action sends one request to it and returns the response in the same recipe step. You can:
+A [Server Actor](../../actors/running/actor_standby.md) answers HTTP requests in real time, like a web API. This action sends one request to it and returns the response in the same recipe step. You can:
 
 - Select a Server Actor from Apify Store, or enter any Server Actor manually.
 - Pick an endpoint from the Actor's [web server schema](../../actors/development/actor_definition/web_server_schema/index.md), or choose **Custom path** to enter the method and path yourself.
@@ -144,7 +144,7 @@ A [Server Actor](../../actors/running/actor_standby.md) answers HTTP requests di
 
 The Actor has to answer within 180 seconds, Workato's limit for an action. The step fails on an error status, a redirect, or a binary response. A Retry block or **Repeat job** sends the request again, and the Actor may charge for it again.
 
-#### Get dataset items
+### Get dataset items
 
 Retrieve items from a dataset with dynamic field mapping.
 
@@ -154,7 +154,7 @@ Select a dataset to dynamically generate output fields and retrieve its items. T
 - Retrieves data records from specified datasets with pagination support.
 - Returns structured data ready for downstream recipe steps.
 
-##### Dynamic schema detection
+#### Dynamic schema detection
 
 The connector samples your dataset to create appropriate output fields:
 
@@ -170,7 +170,7 @@ Use datasets where all items follow a consistent structure. Test with a small sa
 
 ![Screenshot of the get dataset items action configuration in Workato](../images/workato/get-dataset.png)
 
-#### Get key-value store record
+### Get key-value store record
 
 Retrieve a single record from a key-value store.
 
@@ -183,7 +183,7 @@ Select a key-value store and a key to retrieve the corresponding record as a tex
 
 ![Screenshot of the get key-value store record action configuration in Workato](../images/workato/get-key-val.png)
 
-#### Web Fetch
+### Web Fetch
 
 Fetch one page and return it in the formats you choose.
 
@@ -209,13 +209,13 @@ When building recipes, the Apify connector provides several ways to select resou
 
 ### Pick lists
 
-[Pick lists](https://docs.workato.com/developing-connectors/sdk/sdk-reference/picklists.html) are dynamic dropdown lists in Workato that let you select resources without typing IDs manually. The Apify connector includes pick lists for selecting Apify resources. You can choose items from these lists or switch to manual input and paste an ID directly. If an item doesn't appear, make sure it exists in your account and has been run at least once, or paste its ID manually.
+[Pick lists](https://docs.workato.com/developing-connectors/sdk/sdk-reference/picklists.html) are dynamic dropdown lists in Workato that let you select resources without typing IDs manually. The Apify connector includes pick lists for selecting Apify resources. You can choose items from these lists or switch to manual input and paste an ID directly. If an item doesn't appear, make sure it exists in your account and has been run at least once, or paste its ID manually. The **Server Actors** list is the exception: it shows only Apify Store Actors, so enter any other Server Actor manually.
 
 Available pick lists:
 
 - **Actors** - Recently used Actors or Apify Store Actors, displaying the title and `owner/name`
-- **Server Actors** - In **Send Server Actor request**, Server Actors from Apify Store, most popular first
-- **Endpoints** - In **Send Server Actor request**, the endpoints from the selected Actor's web server schema, plus **Custom path**
+- **Server Actors** - Server Actors from Apify Store, most popular first (in **Send Server Actor request**)
+- **Endpoints** - Endpoints from the selected Actor's web server schema, plus **Custom path** (in **Send Server Actor request**)
 - **Tasks** - Your saved tasks, displaying the task title and Actor name
 - **Datasets** - Available datasets, sorted by most recent first
 - **Key-value stores** - Available stores, sorted by most recent first
@@ -283,7 +283,8 @@ If an Actor run takes more than a few minutes (for example, scraping thousands o
 ## Troubleshooting
 
 - If the connection fails, verify your API token has the necessary permissions and hasn't expired.
-- If an Actor doesn't appear in dropdowns, make sure it has been run at least once in your account. **Send Server Actor request** lists only Server Actors from Apify Store, so enter other Server Actors manually.
+- If an Actor doesn't appear in dropdowns, make sure it has been run at least once in your account.
+- If a Server Actor doesn't appear in **Send Server Actor request**, enter it manually. The list shows only Server Actors from Apify Store.
 - If a recipe times out waiting for results, use asynchronous execution and a separate trigger instead of waiting for completion.
 - If JSON input is rejected, check that it's properly formatted and matches the expected Actor input schema.
 - If URL or item limit validation fails, ensure URLs include a protocol (`https://`) and item limits are positive integers or empty.
