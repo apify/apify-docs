@@ -19,7 +19,7 @@ Agentic payments are experimental and may change as payment protocols evolve.
 The [Apify Agent General Interface (AGI)](https://agi.apify.com) is the entry point for agents that pay their own way. An agent pays once through a supported protocol, and AGI returns a temporary Apify API token with a fixed spend cap. To buy and use a token:
 
 1. List the supported protocols with `GET https://agi.apify.com/protocols`.
-1. Request a token for an amount in USD through one of the [supported protocols](#supported-protocols), for example `GET https://agi.apify.com/protocols/x402/prepaid-tokens?amount=5&currency=usd`. AGI responds with a one-time payment challenge.
+1. Request a token for an amount in USD through one of the [supported payment methods](#supported-payment-methods), for example `GET https://agi.apify.com/protocols/x402/prepaid-tokens?amount=5&currency=usd`. AGI responds with a one-time payment challenge.
 1. Pay the challenge and repeat the request with the signed payment credential. After the payment settles, AGI returns the prepaid token.
 1. Call the Apify API or the [MCP server](/mcp) with the `Authorization: Bearer <token>` header. Check the remaining balance with `GET https://agi.apify.com/prepaid-tokens/balance`.
 
@@ -36,7 +36,7 @@ On top of the spending cap, a prepaid account can use at most:
 - 50,000 Google SERP proxy requests
 - 1,000 GB of external data transfer
 
-## Supported protocols
+## Supported payment methods
 
 AGI accepts these payment methods:
 
