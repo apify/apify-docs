@@ -19,7 +19,9 @@ To access the Apify API in your integrations, you need to authenticate using you
 
 ![Integrations page in Apify Console](../images/api-token.png)
 
-Apify Console shows the value of an API token only once, right after you create or [rotate](#rotation) it. The token list shows each token's description, but you can't view or copy the value of an existing token.
+Apify Console shows the value of an API token only once, right after you create or [rotate](#rotation) it. The token list shows each token's description, when it was last used, and when it expires, but you can't view or copy the value of an existing token.
+
+New Apify accounts don't come with an API token, so [create one](#create-api-token) when you first need it. Older accounts have a token described as "Default API token created on sign up". You can't view its value, so if you need it, rotate it to get a new one.
 
 The Apify CLI doesn't need a copied token. When you sign in with [`apify login`](/cli/docs/reference#apify-auth-login--apify-login) in the browser, it creates a token for your device and stores it for you.
 
