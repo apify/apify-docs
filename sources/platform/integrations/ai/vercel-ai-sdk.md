@@ -17,7 +17,7 @@ Apify is a marketplace of ready-to-use web scraping and automation tools, AI age
 
 ### Prerequisites
 
-- _Apify API token_: You need an Apify API token set as the `APIFY_TOKEN` environment variable. To obtain your token check [Apify documentation](https://docs.apify.com/integrations/api).
+- _Apify API token_: Set it as the `APIFY_TOKEN` environment variable. [Create an API token](/integrations/api#create-api-token) in Apify Console.
 - _Node.js packages_: Install the following Node.js packages:
 
     ```bash

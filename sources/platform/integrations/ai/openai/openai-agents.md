@@ -19,7 +19,7 @@ For more details about the OpenAI Agents SDK, refer to the [official documentati
 Before integrating Apify with OpenAI Agents SDK, you'll need:
 
 - _An Apify account_ - If you don't have an Apify account already, you can [sign up](https://console.apify.com/sign-up)
-- _Apify API token_ - [Create an API token](/integrations/api#create-api-token) in the **API & Integrations** section of [Apify Console](https://console.apify.com/settings/integrations) and copy it. This token authorizes the Apify MCP server to run Actors on your behalf. Make sure to keep it secure.
+- _Apify API token_ - [Create an API token](/integrations/api#create-api-token) in Apify Console. This token authorizes the Apify MCP server to run Actors on your behalf.
 - _OpenAI API key_ - Get your API key from the [OpenAI platform](https://platform.openai.com/account/api-keys). You need this to use OpenAI Agents SDK.
 - _Python packages_ - Install the required packages:
 

@@ -28,7 +28,7 @@ This guide shows how to integrate Apify Actors with Upsonic using the built-in `
 
 ### Prerequisites
 
-- Apify API token: [Create an API token](/integrations/api#create-api-token) in [Apify Console](https://console.apify.com/settings/integrations) and copy it.
+- Apify API token: [Create an API token](/integrations/api#create-api-token) in Apify Console.
 - Anthropic API key (or another LLM provider): Get one from the [Anthropic Console](https://console.anthropic.com).
 - Python environment: Python 3.9 or later.
 - Required packages: Install the following dependencies:

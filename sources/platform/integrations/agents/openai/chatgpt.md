@@ -24,7 +24,7 @@ In this tutorial, you'll learn how to connect _ChatGPT_ to the _Apify MCP server
 Before connecting ChatGPT to Apify, you'll need:
 
 - _An Apify account_ - If you don't have an Apify account already, you can [sign up](https://console.apify.com/sign-up)
-- _Apify API token_ - Create a token in the **API & Integrations** section of [Apify Console](https://console.apify.com/settings/integrations). Apify Console shows it only once, so store it somewhere safe. This token authorizes the MCP server to run Actors on your behalf.
+- _Apify API token_ - [Create an API token](/integrations/api#create-api-token) in Apify Console. This token authorizes the MCP server to run Actors on your behalf.
 - _An OpenAI account with access to ChatGPT_ - You need an OpenAI account to use ChatGPT.
 - _ChatGPT with Developer mode enabled_ - You must enable [Developer Mode](https://platform.openai.com/docs/guides/developer-mode) to add custom connectors (when the Developer mode is active, the message input box is outlined in orange).
 

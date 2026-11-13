@@ -20,7 +20,7 @@ For more details about Hermes Agent, refer to the [official documentation](https
 Before integrating Apify with Hermes Agent, you'll need:
 
 - _An Apify account_ - If you don't have one, [sign up here](https://console.apify.com/sign-up).
-- _Apify API token_ - Create a token in the **API & Integrations** section of [Apify Console](https://console.apify.com/settings/integrations?utm_source=hermes-agent&utm_medium=integrations). Apify Console shows it only once, so store it somewhere safe.
+- _Apify API token_ - [Create an API token](/integrations/api#create-api-token) in Apify Console.
 - _Hermes Agent_ - Version 0.18.1 or later. Install the CLI from the [official documentation](https://hermes-agent.nousresearch.com/docs).
 - _Python 3.11 to 3.13_ - Required to install the plugin.
 
