@@ -7,7 +7,6 @@ toc_min_heading_level: 2
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
-import CreateApiToken from '@site/sources/_partials/_create-api-token.mdx';
 
 [OpenClaw](https://openclaw.io) is an open-source AI agent orchestration platform that enables you to build, deploy, and manage autonomous AI agents. The Apify plugin for OpenClaw gives your agents access to thousands of pre-built Actors for web scraping, data extraction, and automation through a single `apify` tool.
 
@@ -65,8 +64,6 @@ openclaw apify setup
 ```
 
 The wizard prompts you for your Apify API token, verifies the connection, and writes the configuration to your OpenClaw config file.
-
-<CreateApiToken />
 
 After setup, restart the gateway to load the plugin:
 

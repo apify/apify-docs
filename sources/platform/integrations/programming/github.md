@@ -79,12 +79,7 @@ In such situation, to build your Actor automatically on every push, manually add
     https://api.apify.com/v2/actors/YOUR-ACTOR-NAME/builds?token=YOUR_API_TOKEN&version=0.0&tag=latest&waitForFinish=60
     ```
 
-    :::note API token
-
-    Replace the `YOUR_API_TOKEN` placeholder in the URL with an API token. Apify Console doesn't fill in your token. To get one, [create an API token](/integrations/api#create-api-token).
-
-    :::
-
+1. Replace the `YOUR_API_TOKEN` placeholder in the URL with an API token. To get one, [create an API token](/integrations/api#create-api-token).
 1. In your GitHub repository, go to **Settings > Webhooks > Add webhook**.
 1. Paste the endpoint URL into **Payload URL** and set **Content type** to `application/json`.
 1. Save your changes.

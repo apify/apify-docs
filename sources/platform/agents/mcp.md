@@ -11,7 +11,6 @@ toc_max_heading_level: 4
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import CreateApiToken from '@site/sources/_partials/_create-api-token.mdx';
 
 The Apify's MCP server ([mcp.apify.com](https://mcp.apify.com)) allows AI applications and agents to interact with the Apify platform
 using [Model Context Protocol](https://modelcontextprotocol.io/docs/getting-started/intro) (MCP). The MCP server enables AI agents to
@@ -96,9 +95,7 @@ You can also use your Apify token directly, instead of OAuth, by setting the `Au
 }
 ```
 
-Replace `<APIFY_TOKEN>` with your Apify API token.
-
-<CreateApiToken />
+Replace `<APIFY_TOKEN>` with your [Apify API token](/integrations/api#create-api-token).
 
 </TabItem>
 </Tabs>

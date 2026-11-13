@@ -257,7 +257,7 @@ For a comprehensive example with error handling and reporting, refer to the [Ope
 
 ### Authentication errors
 
-- _Check your API token_: Verify that your Apify API token is correct. Apify Console doesn't show the value of an existing token, so if you're not sure, [rotate the token or create a new one](/integrations/api#create-api-token). Without a valid token, the server cannot start Actor runs.
+- _Check your API token_: Verify that your Apify API token is correct. Apify Console doesn't show the value of an existing token, so if you're not sure, [rotate the token](/integrations/api#rotation) or [create a new one](/integrations/api#create-api-token). Without a valid token, the server cannot start Actor runs.
 - _Set environment variables_: When running your agent, ensure you have set the `APIFY_TOKEN` and `OPENAI_API_KEY` environment variables.
 
 ### Agent execution issues

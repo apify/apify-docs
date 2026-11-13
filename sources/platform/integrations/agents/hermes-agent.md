@@ -7,7 +7,6 @@ toc_min_heading_level: 2
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
-import CreateApiToken from '@site/sources/_partials/_create-api-token.mdx';
 
 [Hermes Agent](https://hermes-agent.nousresearch.com) is an open-source autonomous AI agent from [Nous Research](https://nousresearch.com/). The Apify plugin for Hermes Agent gives your agent access to thousands of pre-built AI tools, called Actors. The plugin comes with three tools: `apify_discover`, `apify_start`, and `apify_collect`, which your agent can use autonomously.
 
@@ -44,8 +43,6 @@ hermes apify-setup
 ```
 
 This prompts for your `APIFY_API_TOKEN`, saves it to `~/.hermes/.env`, and enables the `apify` toolset for the CLI.
-
-<CreateApiToken />
 
 To skip the interactive prompt, pass the token directly:
 
