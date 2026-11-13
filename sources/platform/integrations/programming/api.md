@@ -59,9 +59,7 @@ If you suspect that a token has been compromised or accidentally exposed, you ca
 
 After you confirm the rotation, Apify Console shows the new token. This is the only time you can copy it, so store it somewhere safe.
 
-For better security awareness, the UI marks tokens identified as compromised, making it easy to identify and take action on them.
-
-![Leaked token in Apify Console](../images/api-token-leaked.png)
+For better security awareness, the UI marks tokens identified as compromised with a **Leaked** label, making it easy to identify and take action on them.
 
 ## Organization accounts
 
