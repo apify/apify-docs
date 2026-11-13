@@ -60,7 +60,7 @@ Your agent calls [`search-actors`](/mcp#available-tools), [`call-actor`](/mcp#av
 
 When an agent calls Actors automatically, set run limits to prevent surprise bills. Pass them in the `callOptions` argument of [`call-actor`](/mcp#available-tools). Fields with these names in the Actor `input` don't cap the run, because the Actor's input schema decides how it handles them.
 
-- `maxTotalChargeUsd` - cap the total amount charged for the run. Applies only to Actors priced per event.
+- `maxTotalChargeUsd` - cap the total amount charged for the run. Doesn't apply to Actors priced per result, use `maxItems` for those.
 - `maxItems` - cap how many results you pay for on an Actor priced per result.
 - `timeout` (seconds) - cap how long a single run can last.
 - `memory` (MB) - set memory as a power of 2, minimum 128. Lower memory means lower cost per second.
