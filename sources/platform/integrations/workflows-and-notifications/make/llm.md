@@ -29,7 +29,7 @@ To use these modules, you need an [Apify account](https://console.apify.com) and
     ![Apify Console sign-up page with email, Gmail, and GitHub sign-up options](images/apify-console-token-for-make.png)
 
 1. In the **Personal API tokens** section, select **Create a new token**. Enter a description, optionally limit the token's permissions, and select **Create**.
-1. Copy the token from the **API token created** dialog. Apify Console shows the token only once, so store it somewhere safe. Then, return to your Make scenario.
+1. Copy the token. Apify Console shows the token only once, so store it somewhere safe. Then, return to your Make scenario.
 
     ![Apify Console Settings page showing Personal API tokens section with token management options](images/Apify_token_on_Make.png)
 

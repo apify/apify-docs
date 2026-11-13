@@ -33,7 +33,7 @@ Go to **Settings > API & Integrations**.
 
 ![Apify Console Settings page open](../images/albato-api-settings.webp)
 
-In the **Personal API tokens** section, select **Create a new token**, then copy the token from the confirmation dialog. Apify Console shows the token only once, so store it somewhere safe.
+In the **Personal API tokens** section, select **Create a new token**, then copy the token. Apify Console shows the token only once, so store it somewhere safe.
 
 ![Apify Console API & Integrations page showing the Personal API token field](../images/albato-api-token.webp)
 

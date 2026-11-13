@@ -89,7 +89,7 @@ If you're running a self-hosted n8n instance, you can install the Apify communit
     ![Apify Console token for n8n](../make/images/apify-console-token-for-make.png)
 
 1. In the **Personal API tokens** section, select **Create a new token**. Enter a description, optionally limit the token's permissions, and select **Create**.
-1. Copy the token from the **API token created** dialog. Apify Console shows the token only once, so store it somewhere safe. Then, return to your n8n workflow interface.
+1. Copy the token. Apify Console shows the token only once, so store it somewhere safe. Then, return to your n8n workflow interface.
 
     ![Apify token on n8n](../make/images/Apify_token_on_Make.png)
 
