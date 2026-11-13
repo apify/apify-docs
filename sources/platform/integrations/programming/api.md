@@ -27,7 +27,7 @@ Apify Console shows the value of an API token only once, right after you create 
 1. In the **Personal API tokens** section, select **Create a new token**.
 1. Enter a description. Optionally, [limit the token's permissions](#limited-permissions) or [set an expiration date](#expiration).
 1. Select **Create**.
-1. In the **API token created** dialog, copy the token and store it somewhere safe, such as a password manager.
+1. Copy the token and store it somewhere safe, such as a password manager.
 1. Select **Done**.
 
 If you lose a token, [rotate it](#rotation) to get a new value, or create a new token and delete the old one.
@@ -58,7 +58,7 @@ API tokens include security features to protect your account and data. You can s
 
 If you suspect that a token has been compromised or accidentally exposed, you can rotate it through Apify Console. When rotating a token, you have the option to keep the old token active for 24 hours, allowing you to update your applications with the new token before the old one becomes invalid. After the rotation period, the token will be regenerated, and any applications connected to the old token will need to be updated with the new token to continue functioning.
 
-After you confirm the rotation, Apify Console shows the new token in the **API token rotated** dialog. This is the only time you can copy it, so store it somewhere safe before you select **Done**.
+After you confirm the rotation, Apify Console shows the new token. This is the only time you can copy it, so store it somewhere safe.
 
 ![Rotate token in Apify Console](../images/api-token-rotate.png)
 
