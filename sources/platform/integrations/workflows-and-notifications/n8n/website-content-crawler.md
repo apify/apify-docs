@@ -7,11 +7,11 @@ toc_max_heading_level: 4
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
-import { CreateTokenStep, CopyTokenStep } from '@site/src/components/ApiToken';
+import { GetApiTokenHint, CreateTokenStep, CopyTokenStep } from '@site/src/components/ApiToken';
 
 Website Content Crawler from [Apify](https://apify.com/apify/website-content-crawler) lets you extract text content from websites to feed AI models, LLM applications, vector databases, or Retrieval Augmented Generation (RAG) pipelines. It supports rich formatting using Markdown, cleans the HTML of irrelevant elements, downloads linked files, and integrates with AI ecosystems like Langchain, LlamaIndex, and other LLM frameworks.
 
-To use these modules, you need an [API token](https://docs.apify.com/integrations/api#api-token). You can [create one](https://docs.apify.com/integrations/api#create-api-token) in Apify Console under **Settings > API & Integrations**. After connecting, you can automate content extraction at scale and incorporate the results into your AI workflows.
+To use these modules, you need an [API token](https://docs.apify.com/integrations/api#api-token). <GetApiTokenHint /> After connecting, you can automate content extraction at scale and incorporate the results into your AI workflows.
 
 <ThirdPartyDisclaimer />
 

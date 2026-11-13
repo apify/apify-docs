@@ -34,7 +34,7 @@ tool = ApifyScrapeUrlTool()
 print(tool.invoke({"url": "https://docs.apify.com"}))
 ```
 
-If you don't have a token yet, [create one](/integrations/api#create-api-token) in [Apify Console](https://console.apify.com/settings/integrations?utm_source=langchain&utm_medium=integrations). The tool returns a JSON string holding the run's metadata and the scraped markdown, in the single item's `content` field.
+Set `APIFY_TOKEN` to your Apify API token. <GetApiTokenHint /> The tool returns a JSON string holding the run's metadata and the scraped markdown, in the single item's `content` field.
 
 ## Load web data into a vector index
 
@@ -295,6 +295,7 @@ For retrieval-augmented generation, `ApifySearchRetriever` returns LangChain `Do
 
 ```python
 import os
+import { GetApiTokenHint } from '@site/src/components/ApiToken';
 
 from langchain_apify import ApifySearchRetriever
 
