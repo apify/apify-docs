@@ -47,6 +47,12 @@ AGI accepts these payment methods:
 | Card | A one-time card charge through a Stripe Shared Payment Token sent over MPP, exchanged for a prepaid token, with tax added on top | [AGI instructions](https://agi.apify.com/AGENTS.md) |
 | [Skyfire](https://skyfire.xyz) | A one-time charge to a Skyfire PAY token funded from a Skyfire wallet, exchanged for a prepaid token | [Agentic payments with Skyfire](/integrations/skyfire) |
 
+:::note Supported cards
+
+Card payments currently work only with cards issued in the US.
+
+:::
+
 ## Agent-ready instructions
 
 AGI serves its own instructions at [agi.apify.com](https://agi.apify.com), written for agents to read before they pay. They cover each protocol, the supported networks and currencies, and the current terms.
