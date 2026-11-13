@@ -5,6 +5,8 @@ description: Learn how to connect Manus to the Apify MCP server to give your age
 slug: /integrations/manus
 ---
 
+import { CreateApiTokenLink, CopyTokenStep } from '@site/src/components/ApiToken';
+
 [Manus](https://manus.im) is a general-purpose AI agent that can autonomously browse the web, write code, and complete multi-step tasks on your behalf.
 
 The Manus integration connects Manus to Apify's library of [Actors](https://apify.com/store) through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro).
@@ -171,7 +173,7 @@ Manus will load the skill instructions and use the appropriate Apify Actors to c
 
 If the OAuth prompt fails or you can't complete the login flow, you can connect using your Apify API token directly.
 
-1. Go to [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations?utm_source=manus&utm_medium=integrations) and copy your API token.
+1. <CreateApiTokenLink /> <CopyTokenStep />
 1. In Manus, open the Apify connector settings and add a custom header:
     - **Header name** - `Authorization`
     - **Header value** - `Bearer <APIFY_API_TOKEN>` (replace `<APIFY_API_TOKEN>` with your actual token)

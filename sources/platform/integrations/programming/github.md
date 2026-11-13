@@ -5,6 +5,8 @@ sidebar_label: GitHub
 slug: /integrations/github
 ---
 
+import { GetApiTokenHint } from '@site/src/components/ApiToken';
+
 With the Apify integration for [GitHub](https://github.com/), you can create an Actor from a public or private repository, rebuild it automatically on every push, and trigger workflows in your repo when an Actor run fails, succeeds, or times out.
 
 To run automated tests and multi-branch builds with GitHub Actions, see [Continuous integration for Actors](/actors/development/deployment/continuous-integration).
@@ -76,15 +78,10 @@ In such situation, to build your Actor automatically on every push, manually add
 1. Copy the **Build Actor** endpoint URL in the following format:
 
     ```text
-    https://api.apify.com/v2/actors/YOUR-ACTOR-NAME/builds?token=YOUR-TOKEN&version=0.0&tag=latest&waitForFinish=60
+    https://api.apify.com/v2/actors/YOUR-ACTOR-NAME/builds?token=YOUR_API_TOKEN&version=0.0&tag=latest&waitForFinish=60
     ```
 
-    :::note API token
-
-    Select the correct API token in the dropdown before copying the URL.
-
-    :::
-
+1. Replace the `YOUR_API_TOKEN` placeholder in the URL with an API token. <GetApiTokenHint />
 1. In your GitHub repository, go to **Settings > Webhooks > Add webhook**.
 1. Paste the endpoint URL into **Payload URL** and set **Content type** to `application/json`.
 1. Save your changes.

@@ -42,8 +42,7 @@ After installing the plugin, you'll need to provide your API token when setting 
 
 ### Get your Apify API token
 
-In Apify Console, go to **Settings → API & Integrations** and copy your API token.
-![Apify API token](../images/bubble/apify_api_token.png)
+[Create an API token](/integrations/api#create-api-token) in Apify Console and copy it. It's shown only once, so keep it at hand for the next step.
 
 ### Store the token securely in Bubble
 

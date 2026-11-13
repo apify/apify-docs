@@ -41,7 +41,7 @@ The final step is to click on **API** in the top right corner of our Actor's pag
 
 ![API button](../expert_scraping_with_apify/images/api-button.jpg)
 
-And scroll through all of the links until we find the **Build Actor** API endpoint. Now we'll copy this endpoint's URL, head back over to our GitHub repository and navigate to **Settings > Webhooks > Add webhook**. The final thing to do is to paste the URL and save the webhook.
+And scroll through all of the links until we find the **Build Actor** API endpoint. Now we'll copy this endpoint's URL and replace the `YOUR_API_TOKEN` placeholder in it with an [API token](/integrations/api#create-api-token). Then we'll head back over to our GitHub repository and navigate to **Settings > Webhooks > Add webhook**. The final thing to do is to paste the URL and save the webhook.
 
 ![Adding a webhook to your GitHub repository](../../../platform/actors/development/deployment/images/ci-github-integration.png)
 

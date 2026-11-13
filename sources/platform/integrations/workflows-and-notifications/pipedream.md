@@ -6,6 +6,7 @@ slug: /integrations/pipedream
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+import { CreateApiTokenLink } from '@site/src/components/ApiToken';
 
 [Pipedream](https://pipedream.com/) is a workflow automation platform for developers. With the [Apify integration for Pipedream](https://pipedream.com/apps/apify), you can run Actors, manage datasets and key-value stores, and trigger workflows when Actor or task runs finish.
 
@@ -25,7 +26,7 @@ Before you begin, make sure you have:
 
     ![Selecting the Apify app in Pipedream](../images/pipedream-select-app.png)
 
-    - **Apify** - Authenticate with your Apify API token. Find it in [Apify Console](https://console.apify.com/settings/integrations?utm_source=pipedream&utm_medium=integrations) under **Settings > Integrations**.
+    - **Apify** - Authenticate with a token. <CreateApiTokenLink />
     - **Apify (OAuth)** - Authorize access to your Apify account via OAuth.
 1. Follow the prompts to authenticate your account.
 

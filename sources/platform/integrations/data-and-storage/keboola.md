@@ -6,6 +6,7 @@ slug: /integrations/keboola
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+import CreateApiToken from '@site/sources/_partials/_create-api-token.mdx';
 
 With Apify integration for [Keboola](https://www.keboola.com/), you can extract data from various sources using your Apify Actors and load it into Keboola for further processing, transformation, and integration with other platforms.
 
@@ -54,7 +55,9 @@ In the next step, you can choose the action you want to perform:
 
 #### Authentication
 
-After selecting the action, you will need to provide your Apify API credentials. You can find these credentials on your Apify account page by navigating to **Settings > API & Integrations** and copying them into the provided form.
+After selecting the action, you will need to provide your Apify API token in the provided form.
+
+<CreateApiToken />
 
 ![Keboola API authentication](../images/keboola/keboola-setup-api-token.png)
 

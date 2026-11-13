@@ -7,6 +7,7 @@ toc_min_heading_level: 2
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+import { CreateApiTokenLink } from '@site/src/components/ApiToken';
 
 [OpenClaw](https://openclaw.io) is an open-source AI agent orchestration platform that enables you to build, deploy, and manage autonomous AI agents. The Apify plugin for OpenClaw gives your agents access to thousands of pre-built Actors for web scraping, data extraction, and automation through a single `apify` tool.
 
@@ -33,7 +34,7 @@ Watch a quick demo of the Apify plugin for OpenClaw:
 Before integrating Apify with OpenClaw, you'll need:
 
 - _An Apify account_ - If you don't have one, [sign up here](https://console.apify.com/sign-up).
-- _Apify API token_ - Get your token from the **API & Integrations** section in [Apify Console](https://console.apify.com/settings/integrations?utm_source=openclaw&utm_medium=integrations).
+- _Apify API token_ - <CreateApiTokenLink />
 - _OpenClaw_ - Version 2026.1.0 or later. Install from the [OpenClaw website](https://openclaw.io/).
 - _Node.js 22+_ - Required to run the plugin. Install from [nodejs.org](https://nodejs.org/en/download/).
 
@@ -63,7 +64,7 @@ Run the setup wizard to configure your API key:
 openclaw apify setup
 ```
 
-The wizard prompts you for your Apify API token, verifies the connection, and writes the configuration to your OpenClaw config file. You can find your token in the **API & Integrations** section of [Apify Console](https://console.apify.com/settings/integrations?utm_source=openclaw&utm_medium=integrations).
+The wizard prompts you for your Apify API token, verifies the connection, and writes the configuration to your OpenClaw config file.
 
 After setup, restart the gateway to load the plugin:
 
@@ -164,7 +165,7 @@ Actor execution time varies depending on the task complexity. Check Actor run st
 
 ### Authentication errors
 
-- _Check your API token_ - Verify your Apify API token is correct by running `openclaw apify status`. You can find your token in the **API & Integrations** section of [Apify Console](https://console.apify.com/settings/integrations?utm_source=openclaw&utm_medium=integrations).
+- _Check your API token_ - Verify your Apify API token is correct by running `openclaw apify status`. Apify Console doesn't show the value of an existing token, so if you've lost it, rotate it or create a new one in the **API & Integrations** section of [Apify Console](https://console.apify.com/settings/integrations?utm_source=openclaw&utm_medium=integrations).
 - _Environment variable_ - If you prefer not to store the key in config, set the `APIFY_API_KEY` environment variable instead.
 
 ### Tool not available to agents

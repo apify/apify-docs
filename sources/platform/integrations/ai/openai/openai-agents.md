@@ -6,6 +6,7 @@ slug: /integrations/openai-agents
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+import { CreateApiTokenLink } from '@site/src/components/ApiToken';
 
 The _OpenAI Agents Python SDK_ enables you to build AI agents powered by OpenAI's language models that can use tools, manage context, and interact with external systems through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro).
 By connecting to the Apify MCP server, your agents can access Apify's extensive library of Actors to perform web scraping, data extraction, and automation tasks in real time.
@@ -19,7 +20,7 @@ For more details about the OpenAI Agents SDK, refer to the [official documentati
 Before integrating Apify with OpenAI Agents SDK, you'll need:
 
 - _An Apify account_ - If you don't have an Apify account already, you can [sign up](https://console.apify.com/sign-up)
-- _Apify API token_ - Get your API token from the **API & Integrations** section in [Apify Console](https://console.apify.com/settings/integrations). This token authorizes the Apify MCP server to run Actors on your behalf. Make sure to keep it secure.
+- _Apify API token_ - <CreateApiTokenLink /> This token authorizes the Apify MCP server to run Actors on your behalf.
 - _OpenAI API key_ - Get your API key from the [OpenAI platform](https://platform.openai.com/account/api-keys). You need this to use OpenAI Agents SDK.
 - _Python packages_ - Install the required packages:
 
@@ -257,7 +258,7 @@ For a comprehensive example with error handling and reporting, refer to the [Ope
 
 ### Authentication errors
 
-- _Check your API token_: Verify that your Apify API token is correct. You can find it in the **API & Integrations** section of the [Apify Console](https://console.apify.com/settings/integrations). Without a valid token, the server cannot start Actor runs.
+- _Check your API token_: Verify that your Apify API token is correct. Apify Console doesn't show the value of an existing token, so if you're not sure, [rotate the token](/integrations/api#rotation) or [create a new one](/integrations/api#create-api-token). Without a valid token, the server cannot start Actor runs.
 - _Set environment variables_: When running your agent, ensure you have set the `APIFY_TOKEN` and `OPENAI_API_KEY` environment variables.
 
 ### Agent execution issues

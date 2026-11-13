@@ -6,6 +6,7 @@ slug: /integrations/make
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+import { GetApiTokenHint } from '@site/src/components/ApiToken';
 
 [Make](https://www.make.com/) _(formerly Integromat)_ allows you to create scenarios where you can integrate various services (modules) to automate and centralize jobs. Apify has its own module you can use to run Apify Actors, get notified about run statuses, and receive Actor results directly in your Make scenario.
 
@@ -31,15 +32,11 @@ Next, select one of the available options under Triggers, Actions and Searches, 
 In the Connection configuration window, you'll authorize the connection between Make and Apify. The recommended method is to use an OAuth connection.
 Alternatively, you can choose to connect using Apify API token:
 
-1. You will need to provide your Apify API token in the designated field.
+1. You will need to provide your Apify API token in the designated field. <GetApiTokenHint />
 
     ![API token](../../images/apify-token.png)
 
-1. You can find this token in Apify Console by navigating to **[Settings > API & Integrations](https://console.apify.com/settings/integrations)**
-
-    ![Integrations token](../../images/apify-integrations-token.png)
-
-1. Finally, copy your API token from Apify, paste it into the Make module, and save to create the connection.
+1. Finally, paste your API token into the Make module and save to create the connection.
 
 Congratulations! You have successfully connected the Apify app and can now use it in your scenarios.
 

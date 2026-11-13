@@ -7,10 +7,11 @@ toc_max_heading_level: 4
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+import { CreateTokenStep, CopyTokenStep } from '@site/src/components/ApiToken';
 
 Website Content Crawler from [Apify](https://apify.com/apify/website-content-crawler) lets you extract text content from websites to feed AI models, LLM applications, vector databases, or Retrieval Augmented Generation (RAG) pipelines. It supports rich formatting using Markdown, cleans the HTML of irrelevant elements, downloads linked files, and integrates with AI ecosystems like Langchain, LlamaIndex, and other LLM frameworks.
 
-To use these modules, you need an [API token](https://docs.apify.com/integrations/api#api-token). You can find your token in the [Apify Console](https://console.apify.com/) under **Settings > API & Integrations**. After connecting, you can automate content extraction at scale and incorporate the results into your AI workflows.
+To use these modules, you need an Apify account and, if you don't use OAuth, an API token, which you can [create in Apify Console](/integrations/api#create-api-token). After connecting, you can automate content extraction at scale and incorporate the results into your AI workflows.
 
 <ThirdPartyDisclaimer />
 
@@ -84,14 +85,10 @@ If you're running a self-hosted n8n instance, you can install the Apify communit
 
     ![Sign up page](../make/images/ai-crawling/wcc-signup.png)
 
-1. To connect your Apify account to n8n, you can use an OAuth connection (recommended) or an Apify API token. To get the Apify API token, navigate to **[Settings > API & Integrations](https://console.apify.com/settings/integrations)** in Apify Console.
+1. To connect your Apify account to n8n, you can use an OAuth connection (recommended) or an Apify API token. To get the token, go to **[Settings > API & Integrations](https://console.apify.com/settings/integrations)** in Apify Console.
 
-    ![Apify Console token for n8n](../make/images/apify-console-token-for-make.png)
-
-1. Find your token under **Personal API tokens** section. You can also create a new API token with multiple customizable permissions by clicking on **+ Create a new token**.
-1. Click the **Copy** icon next to your API token to copy it to your clipboard. Then, return to your n8n workflow interface.
-
-    ![Apify token on n8n](../make/images/Apify_token_on_Make.png)
+1. <CreateTokenStep />
+1. <CopyTokenStep /> Then, return to your n8n workflow interface.
 
 1. In n8n, click **Create new credential** of the chosen Apify Scraper module.
 1. In the **API key** field, paste the API token you copied from Apify and click **Save**.

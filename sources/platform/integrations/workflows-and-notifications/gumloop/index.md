@@ -6,6 +6,7 @@ slug: /integrations/gumloop
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+import CreateApiToken from '@site/sources/_partials/_create-api-token.mdx';
 
 With the Gumloop Apify integration you can retrieve key data for your AI-powered workflows in a flash.
 
@@ -51,11 +52,9 @@ Build workflows that automatically collect data from websites and deliver insigh
 
 To use the Apify integration in Gumloop, you need an Apify account, a Gumloop account, and at least one Apify task that has been run previously.
 
-1. _Get your Apify API Key_
+1. _Get your Apify API token_
 
-    To get started, navigate to [**Settings > API & Integrations**](https://console.apify.com/settings/integrations) in Apify Console and copy your API token.
-
-    ![Apify Settings > API & Integrations with API token](images/generate_apify_token.png)
+    <CreateApiToken />
 
 1. _Add Apify credentials to Gumloop_
 

@@ -85,9 +85,9 @@ Since tasks are configurations for Actors, this tab shows you all the informatio
 
 ### API
 
-The API tab gives you a quick overview of all the available API calls in case you would like to use your task programmatically. It also includes links to detailed API documentation. You can even try it out immediately using the **Test endpoint** button.
+The API tab gives you a quick overview of all the available API calls in case you would like to use your task programmatically. It also includes links to detailed API documentation. The URLs contain a `YOUR_API_TOKEN` placeholder, which you replace with your own [API token](/integrations/api#create-api-token) when you call the endpoint.
 
-> Never share a URL containing the authentication token (`?token=...` parameter in the URLs), as this will compromise your account's security.
+> Never share a URL containing your authentication token (`?token=...` parameter in the URLs), as this will compromise your account's security.
 
 ## Scraping theory
 

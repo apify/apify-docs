@@ -7,6 +7,7 @@ toc_max_heading_level: 4
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+import { CreateTokenStep, CopyTokenStep } from '@site/src/components/ApiToken';
 
 Use the Apify E-commerce Scraping Tool module in [Make](https://www.make.com/) to extract product, review, seller, and influencer-storefront data from hundreds of retail sites and marketplaces.
 
@@ -55,11 +56,8 @@ To connect your Apify account to Make, use an OAuth connection (recommended) or 
 
 1. In Apify Console, open the **Settings > API & Integrations** tab at [console.apify.com/settings/integrations](https://console.apify.com/settings/integrations).
 
-    ![Apify Console token for Make](images/apify-console-token-for-make.png)
-
-1. Find your token under **Personal API tokens**, or create a new token with customizable permissions by clicking **+ Create a new token**. Copy the token and go back to Make.
-
-    ![Apify token on Make](images/Apify_token_on_Make.png)
+1. <CreateTokenStep />
+1. <CopyTokenStep /> Then, return to Make.
 
 1. In Make, click **Add** to open the **Create a connection** dialog, select the **Apify API Token** connection type, paste the token into the **API token** field, name your connection, and click **Save**.
 

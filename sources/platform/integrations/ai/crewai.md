@@ -6,6 +6,7 @@ slug: /integrations/crewai
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+import { CreateApiTokenLink } from '@site/src/components/ApiToken';
 
 [CrewAI](https://www.crewai.com/) is an open-source Python framework designed to orchestrate autonomous, role-playing AI agents that collaborate as a "crew" to tackle complex tasks. It enables developers to define agents with specific roles, assign tasks, and integrate tools - like Apify Actors - for real-world data retrieval and automation. For more details, check out the [CrewAI documentation](https://docs.crewai.com/).
 
@@ -17,7 +18,7 @@ This guide demonstrates how to integrate Apify Actors with CrewAI by building a 
 
 ### Prerequisites
 
-- **Apify API token**: To use Apify Actors in CrewAI, you need an Apify API token. Learn how to obtain it in the [Apify documentation](https://docs.apify.com/integrations/api).
+- **Apify API token**: <CreateApiTokenLink />
 - **OpenAI API key**: To power the agents in CrewAI, you need an OpenAI API key. Get one from the [OpenAI platform](https://platform.openai.com/account/api-keys).
 - **Python packages**: Install the following Python packages:
 

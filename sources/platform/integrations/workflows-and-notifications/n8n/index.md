@@ -6,6 +6,7 @@ slug: /integrations/n8n
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+import { GetApiTokenHint } from '@site/src/components/ApiToken';
 
 [n8n](https://n8n.io/) is an open source, fair-code licensed tool for workflow automation. With the [Apify integration for n8n](https://github.com/apify/n8n-nodes-apify), you can connect Apify Actors and storage to hundreds of services You can run scrapers, extract data, and trigger workflows based on Actor or task events.
 
@@ -59,7 +60,7 @@ The Apify node offers two authentication methods to securely connect to your Api
 
 1. In the n8n Editor UI, click on **Create Credential**.
 1. Search for Apify API and click **Continue**.
-1. Enter your Apify API token. (find it in the [Apify Console](https://console.apify.com/settings/integrations)).
+1. Enter your Apify API token. <GetApiTokenHint />
 1. Click **Save**.
 
   ![Apify Auth](../../images/n8n-api-auth.png)

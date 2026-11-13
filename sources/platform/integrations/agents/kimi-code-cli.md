@@ -9,6 +9,7 @@ import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integrati
 import ApifyPluginSkills from '@site/sources/_partials/_apify-plugin-skills.mdx';
 import ApifyPluginSkillPrompts from '@site/sources/_partials/_apify-plugin-skill-prompts.mdx';
 import FindGoogleMapsActorPrompt from '@site/sources/_partials/_find-google-maps-actor-prompt.mdx';
+import { CreateApiTokenLink } from '@site/src/components/ApiToken';
 
 [Kimi Code CLI](https://www.kimi.com/code/docs/en/kimi-code-cli/guides/getting-started.html) is Moonshot AI's agentic coding tool that runs in your terminal. It reads and edits your codebase, runs commands, and completes multi-step development tasks.
 
@@ -148,7 +149,7 @@ Run `/mcp-config login apify` explicitly rather than waiting for an automatic pr
 
 If you're running Kimi Code in a headless environment (SSH, remote container) or in non-interactive prompt mode (`kimi -p`), the OAuth handshake can't complete. Authenticate on a machine with a browser first, then point the headless machine at the same `KIMI_CODE_HOME` so it picks up `credentials/mcp/`. Alternatively, override the `apify` entry in `~/.kimi-code/mcp.json` or `.kimi-code/mcp.json` with a static token - a project-level entry with the same name overrides the plugin's declaration.
 
-For the CLI and SDK skills, copy your token from [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations?utm_source=kimi-code&utm_medium=integrations) and export it before starting Kimi Code:
+For the CLI and SDK skills, use token authentication. <CreateApiTokenLink /> Export it before starting Kimi Code:
 
 ```bash
 export APIFY_TOKEN=<YOUR_API_TOKEN>
