@@ -1,7 +1,7 @@
 ---
 title: Let your AI agent pay for Actor runs
 sidebar_label: Agentic payments
-description: Let an AI agent pay for Apify Actor runs without signing up, by buying a prepaid, spend-capped API token from Apify AGI over x402, MPP, or Skyfire.
+description: Let an AI agent pay for Apify Actor runs without signing up, by buying a prepaid, spend-capped API token from Apify AGI with x402, MPP, a card, or Skyfire.
 sidebar_position: 4
 slug: /agents/payments
 ---
@@ -19,7 +19,7 @@ Agentic payments are experimental and may change as payment protocols evolve.
 The [Apify Agent General Interface (AGI)](https://agi.apify.com) is the entry point for agents that pay their own way. An agent pays once through a supported protocol, and AGI returns a temporary Apify API token with a fixed spend cap. To buy and use a token:
 
 1. List the supported protocols with `GET https://agi.apify.com/protocols`.
-1. Request a token for an amount in USD through x402, MPP, or Skyfire (see [supported protocols](#supported-protocols)), for example `GET https://agi.apify.com/protocols/x402/prepaid-tokens?amount=5&currency=usd`. AGI responds with a one-time payment challenge.
+1. Request a token for an amount in USD through one of the [supported payment methods](#supported-payment-methods), for example `GET https://agi.apify.com/protocols/x402/prepaid-tokens?amount=5&currency=usd`. AGI responds with a one-time payment challenge.
 1. Pay the challenge and repeat the request with the signed payment credential. After the payment settles, AGI returns the prepaid token.
 1. Call the Apify API or the [MCP server](/mcp) with the `Authorization: Bearer <token>` header. Check the remaining balance with `GET https://agi.apify.com/prepaid-tokens/balance`.
 
@@ -36,15 +36,22 @@ On top of the spending cap, a prepaid account can use at most:
 - 50,000 Google SERP proxy requests
 - 1,000 GB of external data transfer
 
-## Supported protocols
+## Supported payment methods
 
-AGI accepts three protocols:
+AGI accepts these payment methods:
 
-| Protocol | How the agent pays | Guide |
+| Payment method | How the agent pays | Guide |
 | :--- | :--- | :--- |
 | [x402](https://www.x402.org) | A one-time payment in stablecoins on Base or Solana, exchanged for a prepaid token | [Agentic payments with x402](/integrations/x402) |
 | [MPP](https://mpp.dev) | A one-time payment in stablecoins on Tempo or Solana, exchanged for a prepaid token | [Agentic payments with MPP](/integrations/mpp) |
+| Card | A one-time card charge through a Stripe Shared Payment Token sent over MPP, exchanged for a prepaid token, with tax added on top | [AGI instructions](https://agi.apify.com/AGENTS.md) |
 | [Skyfire](https://skyfire.xyz) | A one-time charge to a Skyfire PAY token funded from a Skyfire wallet, exchanged for a prepaid token | [Agentic payments with Skyfire](/integrations/skyfire) |
+
+:::note Supported cards
+
+Card payments currently work only with cards issued in the US.
+
+:::
 
 ## Agent-ready instructions
 
