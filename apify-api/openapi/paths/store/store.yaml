@@ -17,29 +17,8 @@ get:
     the results, use `category`, `username` or `pricingModel`.
   operationId: store_get
   parameters:
-    - name: limit
-      in: query
-      description: |
-        Maximum number of items to return. The default value as well as the
-        maximum is `1000`. When `search` is used, the maximum is `100` and
-        larger values are reduced to `100`.
-      style: form
-      explode: true
-      schema:
-        type: number
-        format: double
-        example: 100
-    - name: offset
-      in: query
-      description: |
-        Number of items that should be skipped at the start. The default value
-        is `0`. Ignored when `search` is used.
-      style: form
-      explode: true
-      schema:
-        type: number
-        format: double
-        example: 0
+    - $ref: "../../components/parameters/paginationParameters.yaml#/storeLimit"
+    - $ref: "../../components/parameters/paginationParameters.yaml#/storeOffset"
     - name: search
       in: query
       description: |
@@ -68,8 +47,10 @@ get:
       description: |
         Filters the results by category. Accepts one or more category IDs,
         separated by commas and case-insensitive. An Actor must match all of
-        the listed categories. Legacy keys such as `social_media` are still
-        accepted. An unknown category returns a `400` error.
+        the listed categories. See the
+        [list of category IDs](https://github.com/apify/apify-shared-js/blob/master/packages/actor-categories/src/actor_categories.ts).
+        Legacy keys such as `social_media` are still accepted. An unknown
+        category returns a `400` error.
       style: form
       explode: true
       schema:

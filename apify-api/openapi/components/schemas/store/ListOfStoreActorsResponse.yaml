@@ -18,21 +18,24 @@ example:
         name: my-public-actor
         username: jane35
         userFullName: Jane Doe
+        categories:
+          - AI_AND_ML
+          - GENERATE_LEADS
         description: My public Actor!
         pictureUrl: https://...
         userPictureUrl: https://...
         url: https://...
         stats:
-          totalBuilds: 9
           totalRuns: 16
           totalUsers: 6
           totalUsers7Days: 2
           totalUsers30Days: 6
           totalUsers90Days: 6
-          totalMetamorphs: 2
-          lastRunStartedAt: "2019-07-08T14:01:05.546Z"
+          actorReviewRating: 4.7
+          actorReviewCount: 69
         currentPricingInfo:
           pricingModel: FREE
+        isVerified: true
         isWhiteListedForAgenticPayments: true
       - id: zdc3Pyhyz3m8vjDeM
         title: My Public Actor
@@ -40,21 +43,20 @@ example:
         username: jane35
         userFullName: Jane H. Doe
         categories:
-          - MARKETING
-          - LEAD_GENERATION
+          - ECOMMERCE
         description: My public Actor!
         pictureUrl: https://...
         userPictureUrl: https://...
         url: https://...
         stats:
-          totalBuilds: 9
           totalRuns: 16
           totalUsers: 6
           totalUsers7Days: 2
           totalUsers30Days: 6
           totalUsers90Days: 6
-          totalMetamorphs: 2
-          lastRunStartedAt: "2019-07-08T14:01:05.546Z"
+          actorReviewRating: 4.7
+          actorReviewCount: 69
         currentPricingInfo:
           pricingModel: FREE
+        isVerified: false
         isWhiteListedForAgenticPayments: false
