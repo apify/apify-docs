@@ -1,6 +1,7 @@
 get:
   tags:
     - Actors/Actor versions
+    - Actor Runtime API/Actor versions
   summary: Get list of environment variables of Actor version
   description: |
     Gets the list of environment variables for a specific version of an Actor.
@@ -40,6 +41,7 @@ get:
 post:
   tags:
     - Actors/Actor versions
+    - Actor Runtime API/Actor versions
   summary: Create environment variable in Actor version
   description: |
     Creates an environment variable of an Actor using values specified in an

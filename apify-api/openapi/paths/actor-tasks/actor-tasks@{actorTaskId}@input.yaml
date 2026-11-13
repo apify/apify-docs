@@ -1,6 +1,7 @@
 get:
   tags:
     - Actor tasks
+    - Actor Runtime API/Actor tasks
   summary: Get Actor task input
   description: Returns the input of a given task.
   operationId: actorTask_input_get
@@ -44,6 +45,7 @@ get:
 put:
   tags:
     - Actor tasks
+    - Actor Runtime API/Actor tasks
   summary: Update Actor task input
   description: |
     Updates the input of a task using values specified by an object passed as

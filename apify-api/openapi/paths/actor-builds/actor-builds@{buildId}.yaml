@@ -1,6 +1,7 @@
 get:
   tags:
     - Actor builds
+    - Actor Runtime API/Actor builds
   summary: Get Actor build
   description: |
     Gets an object that contains all the details about a specific build of an
@@ -55,6 +56,7 @@ delete:
   tags:
     # - Actor builds/Delete build
     - Actor builds
+    - Actor Runtime API/Actor builds
   summary: Delete Actor build
   description: |
     Delete the build. The build that is the current default build for the Actor

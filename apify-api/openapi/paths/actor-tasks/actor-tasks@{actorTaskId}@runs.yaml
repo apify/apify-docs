@@ -1,6 +1,7 @@
 get:
   tags:
     - Actor tasks
+    - Actor Runtime API/Actor tasks
   summary: Get list of Actor task's runs
   description: |
     Get a list of runs of a specific task. The response is a list of objects,
@@ -64,6 +65,7 @@ get:
 post:
   tags:
     - Actor tasks
+    - Actor Runtime API/Actor tasks
   summary: Run Actor task
   description: |
     Runs an Actor task and immediately returns without waiting for the run to

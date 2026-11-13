@@ -1,6 +1,7 @@
 get:
   tags:
     - Storage/Key-value stores
+    - Actor Runtime API/Key-value stores
   summary: Get list of key-value stores
   description: |
     Gets the list of key-value stores owned by the user.
@@ -65,6 +66,7 @@ get:
 post:
   tags:
     - Storage/Key-value stores
+    - Actor Runtime API/Key-value stores
   summary: Create key-value store
   description: |
     Creates a key-value store and returns its object. The response is the same

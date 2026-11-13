@@ -1,6 +1,7 @@
 get:
   tags:
     - Actor tasks
+    - Actor Runtime API/Actor tasks
   summary: Run Actor task synchronously and get dataset items (GET)
   description: |
     Run a specific task and return its dataset items.
@@ -85,6 +86,7 @@ get:
 post:
   tags:
     - Actor tasks
+    - Actor Runtime API/Actor tasks
   summary: Run Actor task synchronously and get dataset items
   description: |
     Runs an Actor task and synchronously returns its dataset items.

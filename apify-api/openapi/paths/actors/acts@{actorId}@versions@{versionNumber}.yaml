@@ -1,6 +1,7 @@
 get:
   tags:
     - Actors/Actor versions
+    - Actor Runtime API/Actor versions
   summary: Get Actor version
   description: |
     Gets a `Version` object that contains all the details about a specific version of an Actor.
@@ -43,6 +44,7 @@ post:
 delete:
   tags:
     - Actors/Actor versions
+    - Actor Runtime API/Actor versions
   summary: Delete Actor version
   description: |
     Deletes a specific version of Actor's source code.
