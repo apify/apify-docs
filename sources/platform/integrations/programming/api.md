@@ -21,6 +21,13 @@ To access the Apify API in your integrations, you need to authenticate using you
 
 Apify Console shows the value of an API token only once, right after you create or [rotate](#rotation) it. The token list shows each token's description, but you can't view or copy the value of an existing token.
 
+The Apify CLI doesn't need a copied token. When you sign in with [`apify login`](/cli/docs/reference#apify-auth-login--apify-login) in the browser, it creates a token for your device and stores it for you.
+
+:::caution Protect your API token
+Do not share the API token with untrusted parties, or use it directly from client-side code,
+unless you fully understand the consequences! You can also consider  [limiting the permission scope](#limited-permissions) of the token, so that it can only access what it really needs.
+:::
+
 ### Create an API token {#create-api-token}
 
 1. Go to [**Settings > API & Integrations**](https://console.apify.com/settings/integrations) in Apify Console.
@@ -31,13 +38,6 @@ Apify Console shows the value of an API token only once, right after you create 
 1. Select **Done**.
 
 If you lose a token, [rotate it](#rotation) to get a new value, or create a new token and delete the old one.
-
-The Apify CLI doesn't need a copied token. When you sign in with [`apify login`](/cli/docs/reference#apify-auth-login--apify-login) in the browser, it creates a token for your device and stores it for you.
-
-:::caution Protect your API token
-Do not share the API token with untrusted parties, or use it directly from client-side code,
-unless you fully understand the consequences! You can also consider  [limiting the permission scope](#limited-permissions) of the token, so that it can only access what it really needs.
-:::
 
 ## Authentication
 
@@ -56,9 +56,9 @@ API tokens include security features to protect your account and data. You can s
 
 If you suspect that a token has been compromised or accidentally exposed, you can rotate it through Apify Console. When rotating a token, you have the option to keep the old token active for 24 hours, allowing you to update your applications with the new token before the old one becomes invalid. After the rotation period, the token will be regenerated, and any applications connected to the old token will need to be updated with the new token to continue functioning.
 
-After you confirm the rotation, Apify Console shows the new token. This is the only time you can copy it, so store it somewhere safe.
-
 ![Rotate token in Apify Console](../images/api-token-rotate.png)
+
+After you confirm the rotation, Apify Console shows the new token. This is the only time you can copy it, so store it somewhere safe.
 
 For better security awareness, the UI marks tokens identified as compromised, making it easy to identify and take action on them.
 
