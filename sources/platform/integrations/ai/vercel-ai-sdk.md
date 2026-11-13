@@ -18,7 +18,7 @@ Apify is a marketplace of ready-to-use web scraping and automation tools, AI age
 
 ### Prerequisites
 
-- _Apify API token_: Set it as the `APIFY_TOKEN` environment variable. <CreateApiTokenLink />
+- _Apify API token_: <CreateApiTokenLink /> Set it as the `APIFY_TOKEN` environment variable.
 - _Node.js packages_: Install the following Node.js packages:
 
     ```bash
