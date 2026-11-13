@@ -32,9 +32,7 @@ Apify Console shows the value of an API token only once, right after you create 
 
 If you lose a token, [rotate it](#rotation) to get a new value, or create a new token and delete the old one.
 
-:::tip Apify CLI creates its own token
-When you sign in with [`apify login`](/cli/docs/reference#apify-auth-login--apify-login) in the browser, the Apify CLI creates a token for your device and stores it for you, so you don't need to copy one.
-:::
+The Apify CLI doesn't need a copied token. When you sign in with [`apify login`](/cli/docs/reference#apify-auth-login--apify-login) in the browser, it creates a token for your device and stores it for you.
 
 :::caution Protect your API token
 Do not share the API token with untrusted parties, or use it directly from client-side code,
