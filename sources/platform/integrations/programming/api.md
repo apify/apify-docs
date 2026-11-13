@@ -15,14 +15,29 @@ You are not required to those packages - the REST API works with any HTTP client
 
 ## API token
 
-To access the Apify API in your integrations, you need to authenticate using your secret API token. You can find it on the [API & Integrations](https://console.apify.com/settings/integrations) page in Apify Console. Give your token a reasonable description, and never use one token for several services, much like you shouldn't use the same password for different accounts.
+To access the Apify API in your integrations, you need to authenticate using your secret API token. You manage your tokens on the [API & Integrations](https://console.apify.com/settings/integrations) page in Apify Console. Give each token a reasonable description, and never use one token for several services, much like you shouldn't use the same password for different accounts.
 
 ![Integrations page in Apify Console](../images/api-token.png)
+
+Apify Console shows the value of an API token only once, right after you create or [rotate](#rotation) it. The token list shows each token's description, but you can't view or copy the value of an existing token.
+
+The Apify CLI doesn't need a copied token. When you sign in with [`apify login`](/cli/docs/reference#apify-auth-login--apify-login) in the browser, it creates a token for your device and stores it for you.
 
 :::caution Protect your API token
 Do not share the API token with untrusted parties, or use it directly from client-side code,
 unless you fully understand the consequences! You can also consider  [limiting the permission scope](#limited-permissions) of the token, so that it can only access what it really needs.
 :::
+
+### Create an API token {#create-api-token}
+
+1. Go to [**Settings > API & Integrations**](https://console.apify.com/settings/integrations) in Apify Console.
+1. In the **Personal API tokens** section, select **Create a new token**.
+1. Enter a description. Optionally, [limit the token's permissions](#limited-permissions) or [set an expiration date](#expiration).
+1. Select **Create**.
+1. Copy the token and store it somewhere safe, such as a password manager.
+1. Select **Done**.
+
+If you lose a token, [rotate it](#rotation) to get a new value, or create a new token and delete the old one.
 
 ## Authentication
 
@@ -42,6 +57,8 @@ API tokens include security features to protect your account and data. You can s
 If you suspect that a token has been compromised or accidentally exposed, you can rotate it through Apify Console. When rotating a token, you have the option to keep the old token active for 24 hours, allowing you to update your applications with the new token before the old one becomes invalid. After the rotation period, the token will be regenerated, and any applications connected to the old token will need to be updated with the new token to continue functioning.
 
 ![Rotate token in Apify Console](../images/api-token-rotate.png)
+
+After you confirm the rotation, Apify Console shows the new token. This is the only time you can copy it, so store it somewhere safe.
 
 For better security awareness, the UI marks tokens identified as compromised, making it easy to identify and take action on them.
 
