@@ -38,7 +38,7 @@ In the [Apify Console](https://console.apify.com), you can view your request que
 
 To view a request queue, click on its **Queue ID**.
 Under the **Actions** menu, you can rename your queue (which affects its [retention period](/storage#named-and-unnamed-storages)) and grant [access rights](/account/collaboration) using the **Share** button.
-To view and test a queue's [API endpoints](/api/v2/storage-request-queues), select **API**.
+To view a queue's [API endpoints](/api/v2/storage-request-queues), select **API**.
 
 ### Apify API
 

@@ -61,7 +61,7 @@ If you add a field to both dropdowns, the Console shows an error, and the export
 
 These options set the `fields` and `omit` parameters described in [Apify API](#apify-api).
 
-To rename the dataset (which affects its [retention period](/storage#data-retention)) or adjust its [access rights](/account/collaboration), use the **Actions** menu. To view and test the dataset's [API endpoints](/api/v2/storage-datasets), select **API**.
+To rename the dataset (which affects its [retention period](/storage#data-retention)) or adjust its [access rights](/account/collaboration), use the **Actions** menu. To view the dataset's [API endpoints](/api/v2/storage-datasets), select **API**.
 
 ### Apify API
 

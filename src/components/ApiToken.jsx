@@ -30,5 +30,5 @@ export const CreateTokenStep = () => (
 
 // Step after CreateTokenStep: "1. <CopyTokenStep /> Then, return to your Make scenario."
 export const CopyTokenStep = () => (
-    <>Copy the token. Apify Console shows the token only once, so store it somewhere safe.</>
+    <>Copy the token. You can view it only once, so store it somewhere safe.</>
 );

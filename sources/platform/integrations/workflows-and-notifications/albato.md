@@ -115,7 +115,7 @@ Apify Actors often run for several minutes, which doesn't fit well into a single
 
 ### Connection fails with "invalid token"
 
-Confirm that you pasted the complete token you copied when you created it in Apify Console, and that it isn't a [scoped token](/integrations/api#limited-permissions). Make sure no spaces or line breaks were added when pasting the token into Albato. If the connection still fails, create a new token in Apify Console and recreate the connection.
+Confirm that you pasted the complete token you copied when you created it in Apify Console. Make sure no spaces or line breaks were added when pasting the token into Albato. If the connection still fails, create a new token in Apify Console and recreate the connection.
 
 ### Actor or task doesn't appear in the dropdown
 

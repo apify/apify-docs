@@ -9,6 +9,7 @@ sidebar_position: 2
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import CreateApiToken from '@site/sources/_partials/_create-api-token.mdx';
+import { GetApiTokenHint } from '@site/src/components/ApiToken';
 
 
 Automating your Actor development process can save time and reduce errors, especially for projects with multiple Actors or frequent updates. Instead of manually pushing code, building Actors, and running tests, you can automate these steps to run whenever you push code to your repository.
@@ -234,9 +235,10 @@ To configure the webhook:
 1. Copy the **Build Actor** API endpoint URL:
 
     ```text
-    https://api.apify.com/v2/actors/YOUR-ACTOR-NAME/builds?token=YOUR-TOKEN-HERE&version=0.0&tag=latest&waitForFinish=60
+    https://api.apify.com/v2/actors/YOUR-ACTOR-NAME/builds?token=YOUR_API_TOKEN&version=0.0&tag=latest&waitForFinish=60
     ```
 
+1. Replace the `YOUR_API_TOKEN` placeholder in the URL with an API token. <GetApiTokenHint />
 1. In your repository hosting provider, add a webhook that fires on push events and set the URL to the build API endpoint you copied.
 
 For example, in GitHub, go to **Settings** > **Webhooks** > **Add webhook** and paste the URL into the **Payload URL** field.

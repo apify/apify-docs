@@ -46,14 +46,14 @@ Our **adding-actor** takes in two input values (`num1` and `num2`). When using t
 Let's say we want to run our **adding-actor** via API and view its results in CSV format at the end. We'll achieve this by passing the **format** parameter with a value of **csv** to change the output format:
 
 ```text
-https://api.apify.com/v2/actors/YOUR_USERNAME~adding-actor/run-sync-get-dataset-items?token=YOUR_TOKEN_HERE&format=csv
+https://api.apify.com/v2/actors/YOUR_USERNAME~adding-actor/run-sync-get-dataset-items?token=YOUR_API_TOKEN&format=csv
 ```
 
 Additional parameters can be passed to this endpoint. You can learn about them in the [Run Actor synchronously and get dataset items](/api/v2/actor-run-sync-get-dataset-items-post) API reference
 
 :::caution Token security
 
-Network components can record visited URLs, so it's more secure to send the token as a HTTP header, not as a parameter. The header should look like `Authorization: Bearer YOUR_TOKEN`. Popular HTTP clients, such as Postman or Insomnia, provide a convenient way to configure the Authorization header for all your API requests.
+Network components can record visited URLs, so it's more secure to send the token as a HTTP header, not as a parameter. The header should look like `Authorization: Bearer YOUR_API_TOKEN`. Popular HTTP clients, such as Postman or Insomnia, provide a convenient way to configure the Authorization header for all your API requests.
 
 :::
 
@@ -62,7 +62,7 @@ Network components can record visited URLs, so it's more secure to send the toke
 If you're not using an HTTP client, you can send the request through your terminal with this command:
 
 ```curl
-curl -d '{"num1":1, "num2":8}' -H "Content-Type: application/json" -X POST "https://api.apify.com/v2/actors/YOUR_USERNAME~adding-actor/run-sync-get-dataset-items?token=YOUR_TOKEN_HERE&format=csv"
+curl -d '{"num1":1, "num2":8}' -H "Content-Type: application/json" -X POST "https://api.apify.com/v2/actors/YOUR_USERNAME~adding-actor/run-sync-get-dataset-items?token=YOUR_API_TOKEN&format=csv"
 ```
 
 Here's the response we got:
