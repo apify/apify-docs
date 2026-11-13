@@ -10,6 +10,7 @@ import AgentPluginLimitations from '@site/sources/_partials/_agent-plugin-limita
 import ApifyPluginSkills from '@site/sources/_partials/_apify-plugin-skills.mdx';
 import ApifyPluginSkillPrompts from '@site/sources/_partials/_apify-plugin-skill-prompts.mdx';
 import FindGoogleMapsActorPrompt from '@site/sources/_partials/_find-google-maps-actor-prompt.mdx';
+import { CreateApiTokenLink } from '@site/src/components/ApiToken';
 
 [Visual Studio Code (VS Code)](https://code.visualstudio.com/) is Microsoft's code editor. Its [agent plugins](https://code.visualstudio.com/docs/agent-customization/agent-plugins) are prepackaged bundles of agent customizations - skills, agents, and MCP servers - that you install from a plugin marketplace and use in chat.
 
@@ -80,7 +81,7 @@ Example prompts that route to specific skills:
 The `apify` agent picks the right transport for each task. Each transport authenticates differently:
 
 - For MCP tools (search, run, retrieve data), authenticate with OAuth through the browser, as described in [Authenticate to Apify](#authenticate-to-apify). You don't need to set up a token.
-- For the Apify CLI (building Actors, actorization, CLI fallback), run `apify login` once, or set `APIFY_TOKEN` in headless environments. [Create an API token](/integrations/api#create-api-token) in Apify Console.
+- For the Apify CLI (building Actors, actorization, CLI fallback), run `apify login` once, or set `APIFY_TOKEN` in headless environments. <CreateApiTokenLink />
 - For SDK integration with `apify-client`, set the `APIFY_TOKEN` environment variable in your application's environment.
 
 ## Manage the plugin

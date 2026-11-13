@@ -7,6 +7,7 @@ toc_max_heading_level: 4
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+import { CreateTokenStep, CopyTokenStep } from '@site/src/components/ApiToken';
 
 Use the Apify Scraper for AI Crawling module in [Make](https://www.make.com/) to extract clean Markdown from websites and feed AI models, RAG pipelines, or LLM frameworks at scale.
 
@@ -24,10 +25,10 @@ To use these modules, you need an [Apify account](https://console.apify.com) and
 
     ![Sign up page](images/ai-crawling/wcc-signup.png)
 
-1. To connect your Apify account to Make, you can use an OAuth connection (recommended) or an Apify API token. To get the Apify API token, navigate to **[Settings > API & Integrations](https://console.apify.com/settings/integrations)** in Apify Console.
+1. To connect your Apify account to Make, you can use an OAuth connection (recommended) or an Apify API token. To get the token, go to **[Settings > API & Integrations](https://console.apify.com/settings/integrations)** in Apify Console.
 
-1. In the **Personal API tokens** section, select **Create a new token**. Enter a description, optionally limit the token's permissions, and select **Create**.
-1. Copy the token. Apify Console shows the token only once, so store it somewhere safe. Then, return to your Make scenario.
+1. <CreateTokenStep />
+1. <CopyTokenStep /> Then, return to your Make scenario.
 
 1. In Make, click **Add** to open the **Create a connection** dialog of the chosen Apify Scraper module.
 1. In the **API token** field, paste the API token you copied from Apify. Provide a clear **Connection name**, and click **Save**.

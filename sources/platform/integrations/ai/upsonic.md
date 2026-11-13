@@ -6,6 +6,7 @@ slug: /integrations/upsonic
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+import { CreateApiTokenLink } from '@site/src/components/ApiToken';
 
 ## What is Upsonic
 
@@ -28,7 +29,7 @@ This guide shows how to integrate Apify Actors with Upsonic using the built-in `
 
 ### Prerequisites
 
-- Apify API token: [Create an API token](/integrations/api#create-api-token) in Apify Console.
+- Apify API token: <CreateApiTokenLink />
 - Anthropic API key (or another LLM provider): Get one from the [Anthropic Console](https://console.anthropic.com).
 - Python environment: Python 3.9 or later.
 - Required packages: Install the following dependencies:

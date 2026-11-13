@@ -11,6 +11,7 @@ toc_max_heading_level: 4
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import { CreateApiTokenLink } from '@site/src/components/ApiToken';
 
 The Apify's MCP server ([mcp.apify.com](https://mcp.apify.com)) allows AI applications and agents to interact with the Apify platform
 using [Model Context Protocol](https://modelcontextprotocol.io/docs/getting-started/intro) (MCP). The MCP server enables AI agents to
@@ -46,7 +47,7 @@ Before connecting your AI to Apify, you need:
 
 - _An Apify account_ - You need one unless your agent uses only the [tools that work without an account](#use-without-an-account) or pays through [agentic payments](#agentic-payments). Sign up for an Apify account, if you don't have one.
 - _MCP client_ - An AI agent or client that supports Model Context Protocol (MCP). This could be [claude.ai](/integrations/claude-ai), [Claude Desktop](/integrations/claude-desktop), [VS Code](/integrations/vscode) with MCP support, or any application that implements the MCP specification. The [official MCP documentation](https://modelcontextprotocol.io/clients) maintains a list of compatible clients.
-- _Apify API token_ (optional) - Only needed for the [local stdio server](#local-stdio) or the [Bearer token option](#streamable-http-with-oauth-recommended). The recommended remote connection signs you in with OAuth instead. [Create an API token](/integrations/api#create-api-token) in Apify Console.
+- _Apify API token_ (optional) - Only needed for the [local stdio server](#local-stdio) or the [Bearer token option](#streamable-http-with-oauth-recommended). The recommended remote connection signs you in with OAuth instead. <CreateApiTokenLink />
 
 ## Connect and authorize
 

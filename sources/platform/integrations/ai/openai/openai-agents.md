@@ -6,6 +6,7 @@ slug: /integrations/openai-agents
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+import { CreateApiTokenLink } from '@site/src/components/ApiToken';
 
 The _OpenAI Agents Python SDK_ enables you to build AI agents powered by OpenAI's language models that can use tools, manage context, and interact with external systems through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro).
 By connecting to the Apify MCP server, your agents can access Apify's extensive library of Actors to perform web scraping, data extraction, and automation tasks in real time.
@@ -19,7 +20,7 @@ For more details about the OpenAI Agents SDK, refer to the [official documentati
 Before integrating Apify with OpenAI Agents SDK, you'll need:
 
 - _An Apify account_ - If you don't have an Apify account already, you can [sign up](https://console.apify.com/sign-up)
-- _Apify API token_ - [Create an API token](/integrations/api#create-api-token) in Apify Console. This token authorizes the Apify MCP server to run Actors on your behalf.
+- _Apify API token_ - <CreateApiTokenLink /> This token authorizes the Apify MCP server to run Actors on your behalf.
 - _OpenAI API key_ - Get your API key from the [OpenAI platform](https://platform.openai.com/account/api-keys). You need this to use OpenAI Agents SDK.
 - _Python packages_ - Install the required packages:
 

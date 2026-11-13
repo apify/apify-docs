@@ -6,6 +6,7 @@ slug: /integrations/activepieces
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+import { GetApiTokenHint } from '@site/src/components/ApiToken';
 
 [Activepieces](https://www.activepieces.com) is an open-source automation platform that lets you build workflows to connect apps and automate tasks without writing code. With the Apify piece, you can connect your Apify Actors and tasks to other services, build data pipelines, and react to scraping results in real time.
 
@@ -40,7 +41,7 @@ To connect your Apify account to Activepieces:
 1. In Activepieces, open the **Connections** section.
 1. Click **+ New Connection**.
 1. Search for and select the Apify piece.
-1. Enter your Apify API token in the **API Key** field. To get one, [create an API token](/integrations/api#create-api-token) in Apify Console and copy it.
+1. Enter your Apify API token in the **API Key** field. <GetApiTokenHint />
 1. Save the connection.
 
 ![Apify API key setup](../images/activepieces/api-token.png)

@@ -6,6 +6,7 @@ slug: /integrations/google-adk
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+import { CreateApiTokenLink } from '@site/src/components/ApiToken';
 
 [Google Agent Development Kit](https://github.com/google/adk-python) (ADK) is a framework for developing and deploying AI agents. For more details, check out the [Google ADK documentation](https://google.github.io/adk-docs/).
 
@@ -17,7 +18,7 @@ Apify is a marketplace of web scraping and automation tools, AI agents, and MCP 
 
 ### Prerequisites
 
-- _Apify API token_: [Create an API token](/integrations/api#create-api-token) in Apify Console.
+- _Apify API token_: <CreateApiTokenLink />
 - _Python packages_: Install the following Python packages:
 
     ```bash

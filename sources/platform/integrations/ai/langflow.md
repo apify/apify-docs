@@ -6,6 +6,7 @@ slug: /integrations/langflow
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+import { CreateApiTokenLink } from '@site/src/components/ApiToken';
 
 [Langflow](https://www.langflow.org/) is a low-code, visual tool that enables developers to build powerful AI agents and workflows that can use any API, models, or databases. For more information, visit the [Langflow documentation](https://docs.langflow.org/).
 
@@ -20,7 +21,7 @@ This guide will demonstrate two different ways to use Apify Actors with Langflow
 
 ### Prerequisites
 
-- **Apify API token**: [Create an API token](/integrations/api#create-api-token) in Apify Console.
+- **Apify API token**: <CreateApiTokenLink />
 
 - **OpenAI API key**: To work with agents in Langflow, you need an OpenAI API key. If you don't have one, you can get it from the [OpenAI platform](https://platform.openai.com/account/api-keys).
 

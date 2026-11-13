@@ -6,6 +6,7 @@ slug: /integrations/dify
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+import { GetApiTokenHint } from '@site/src/components/ApiToken';
 
 [Dify](https://dify.ai/) is an intuitive LLM application development platform for creating and operating AI-native apps. With the Apify integration for Dify, you can connect Apify Actors and storage to your Dify Workflows and Chatflows. You can run scrapers, extract data, and trigger workflows based on Apify events.
 
@@ -32,7 +33,7 @@ To connect your Apify account, configure the plugin using your Apify API token o
 ### API key
 
 1. Open the plugin window and select **Add API Key**.
-1. In the pop-up menu, paste your Apify API token. To get one, [create an API token](/integrations/api#create-api-token) in Apify Console and copy it.
+1. In the pop-up menu, paste your Apify API token. <GetApiTokenHint />
 1. Select **Save**.
 
 ![Apify Auth in Dify](../images/dify-connection-popup.png)

@@ -7,6 +7,7 @@ toc_max_heading_level: 4
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+import { CreateTokenStep, CopyTokenStep } from '@site/src/components/ApiToken';
 
 Website Content Crawler from [Apify](https://apify.com/apify/website-content-crawler) lets you extract text content from websites to feed AI models, LLM applications, vector databases, or Retrieval Augmented Generation (RAG) pipelines. It supports rich formatting using Markdown, cleans the HTML of irrelevant elements, downloads linked files, and integrates with AI ecosystems like Langchain, LlamaIndex, and other LLM frameworks.
 
@@ -84,10 +85,10 @@ If you're running a self-hosted n8n instance, you can install the Apify communit
 
     ![Sign up page](../make/images/ai-crawling/wcc-signup.png)
 
-1. To connect your Apify account to n8n, you can use an OAuth connection (recommended) or an Apify API token. To get the Apify API token, navigate to **[Settings > API & Integrations](https://console.apify.com/settings/integrations)** in Apify Console.
+1. To connect your Apify account to n8n, you can use an OAuth connection (recommended) or an Apify API token. To get the token, go to **[Settings > API & Integrations](https://console.apify.com/settings/integrations)** in Apify Console.
 
-1. In the **Personal API tokens** section, select **Create a new token**. Enter a description, optionally limit the token's permissions, and select **Create**.
-1. Copy the token. Apify Console shows the token only once, so store it somewhere safe. Then, return to your n8n workflow interface.
+1. <CreateTokenStep />
+1. <CopyTokenStep /> Then, return to your n8n workflow interface.
 
 1. In n8n, click **Create new credential** of the chosen Apify Scraper module.
 1. In the **API key** field, paste the API token you copied from Apify and click **Save**.

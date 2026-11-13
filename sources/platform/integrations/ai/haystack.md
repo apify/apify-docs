@@ -6,6 +6,7 @@ slug: /integrations/haystack
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+import { CreateApiTokenLink } from '@site/src/components/ApiToken';
 
 [Haystack](https://haystack.deepset.ai/) is an open-source framework by deepset for building LLM applications, retrieval-augmented generation (RAG) pipelines, and AI agents. To learn more, see the [Haystack documentation](https://docs.haystack.deepset.ai/docs/intro).
 
@@ -22,7 +23,7 @@ The [`apify-haystack`](https://pypi.org/project/apify-haystack/) package connect
 ## Prerequisites
 
 - Python 3.11 or newer
-- An [Apify account](https://console.apify.com/sign-up) and an API token. [Create an API token](/integrations/api#create-api-token) in Apify Console.
+- An [Apify account](https://console.apify.com/sign-up) and an API token. <CreateApiTokenLink />
 - An [OpenAI API key](https://platform.openai.com/account/api-keys) for the examples on this page. Haystack also supports other model providers.
 
 ## Installation

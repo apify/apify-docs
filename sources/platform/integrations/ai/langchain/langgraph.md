@@ -6,6 +6,7 @@ slug: /integrations/langgraph
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+import { CreateApiTokenLink } from '@site/src/components/ApiToken';
 
 [LangGraph](https://www.langchain.com/langgraph) is a framework for constructing stateful, multi-agent applications with large language models (LLMs). Developers use it to build multi-step agent workflows that call tools, APIs, and databases. For more details, check out the [LangGraph documentation](https://docs.langchain.com/oss/python/langgraph/overview).
 
@@ -48,7 +49,7 @@ This guide shows how to use Apify Actors with LangGraph by building a ReAct agen
 
 ### Prerequisites
 
-- **Apify API token**: [Create an API token](/integrations/api#create-api-token) in Apify Console.
+- **Apify API token**: <CreateApiTokenLink />
 
 - **OpenAI API key**: To work with agents in LangGraph, you need an OpenAI API key. If you don't have one, you can get it from the [OpenAI platform](https://platform.openai.com/account/api-keys).
 

@@ -6,6 +6,7 @@ slug: /integrations/lovable
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+import { CreateApiTokenLink } from '@site/src/components/ApiToken';
 
 [Lovable](https://lovable.dev) is an AI app builder that turns a prompt into a working web app. The [Apify connector](https://docs.lovable.dev/integrations/apify), built and maintained by Lovable, lets those apps call the Apify API through a shared connection, so an app can run [Actors](https://apify.com/store) and display the results.
 
@@ -23,7 +24,7 @@ Apify is available as an app and chat connector: one connection works both in th
 Before you connect the two platforms, you need:
 
 - _An Apify account_ - If you don't have one, [sign up here](https://console.apify.com/sign-up).
-- _Apify API token_ - [Create an API token](/integrations/api#create-api-token) in Apify Console. See [API token](/integrations/api#api-token) for scope and expiration options.
+- _Apify API token_ - <CreateApiTokenLink /> See [API token](/integrations/api#api-token) for scope and expiration options.
 - _A Lovable account_ - App and chat connectors are available on the Free, Pro, and Business plans.
 - _Permission to create connections_ - Enterprise plans restrict connection creation to **No one** by default, until an admin changes it in **Connectors > Admin settings > App + chat connectors**.
 

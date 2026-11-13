@@ -6,6 +6,7 @@ slug: /integrations/mastra
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+import { CreateApiTokenLink } from '@site/src/components/ApiToken';
 
 [Mastra](https://mastra.ai) is an open-source TypeScript framework for building AI applications efficiently. It provides essential tools like agents, workflows, retrieval-augmented generation (RAG), integrations, and evaluations. It supports any LLM (e.g. GPT-4, Claude, Gemini), and you can run it locally or deploy it to a serverless cloud like [Apify](https://apify.com). For more information, check out the [Mastra documentation](https://mastra.ai/docs).
 
@@ -21,7 +22,7 @@ This guide demonstrates how to integrate Apify Actors with Mastra by building an
 
 ### Prerequisites
 
-- _Apify API token_: [Create an API token](/integrations/api#create-api-token) in Apify Console.
+- _Apify API token_: <CreateApiTokenLink />
 - _LLM provider API key_: To power the agents, you need an LLM provider API key. For example, get one from the [OpenAI](https://platform.openai.com/account/api-keys) or [Anthropic](https://platform.claude.com/settings/keys).
 - _Node.js_: Ensure you have Node.js installed.
 - _Packages_: Install the following packages:
