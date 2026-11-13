@@ -1,0 +1,23 @@
+{
+  "source_file": "sources/platform/storage/share.md",
+  "assertions": [
+    {
+      "id": "storage-share-actions-menu",
+      "kind": "element_button",
+      "target": "Actions",
+      "page_context": "Storage detail page (dataset, key-value store, or request queue), menu holding the Share option",
+      "source_quote": "Under the **Actions** menu, select **Share**.",
+      "source_line": 24,
+      "needs_auth": true
+    },
+    {
+      "id": "storage-share-button",
+      "kind": "element_button",
+      "target": "Share",
+      "page_context": "Storage detail page, Actions menu option to grant access rights",
+      "source_quote": "Under the **Actions** menu, select **Share**.",
+      "source_line": 24,
+      "needs_auth": true
+    }
+  ]
+}
