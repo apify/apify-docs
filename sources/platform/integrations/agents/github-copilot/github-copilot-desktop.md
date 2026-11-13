@@ -10,7 +10,6 @@ import AgentPluginLimitations from '@site/sources/_partials/_agent-plugin-limita
 import ApifyPluginSkills from '@site/sources/_partials/_apify-plugin-skills.mdx';
 import ApifyPluginSkillPrompts from '@site/sources/_partials/_apify-plugin-skill-prompts.mdx';
 import FindGoogleMapsActorPrompt from '@site/sources/_partials/_find-google-maps-actor-prompt.mdx';
-import { CreateApiTokenLink } from '@site/src/components/ApiToken';
 
 The [GitHub Copilot desktop app](https://github.com/features/ai/github-app) is GitHub's standalone Copilot client. It runs agentic coding sessions in a chat interface, connects to your repositories, and supports plugins, skills, and Model Context Protocol (MCP) servers.
 
@@ -88,7 +87,7 @@ Example prompts that route to specific skills:
 The `apify` agent picks the right transport for each task. Each transport authenticates differently:
 
 - For MCP tools (search, run, retrieve data), authenticate with OAuth through the browser, as described in [Connect the Apify MCP server](#connect-the-apify-mcp-server). You don't need to set up a token.
-- For the Apify CLI (building Actors, actorization, CLI fallback), run `apify login` once, or set `APIFY_TOKEN` in headless environments. <CreateApiTokenLink />
+- For the Apify CLI (building Actors, actorization, CLI fallback), run `apify login` once, or, in headless environments, set `APIFY_TOKEN` to an API token you [create in Apify Console](/integrations/api#create-api-token).
 - For SDK integration with `apify-client`, set the `APIFY_TOKEN` environment variable in your application's environment.
 
 ## Troubleshooting

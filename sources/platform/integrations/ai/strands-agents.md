@@ -8,7 +8,6 @@ slug: /integrations/strands-agents
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
-import { CreateApiTokenLink } from '@site/src/components/ApiToken';
 
 The [Strands Agents SDK](https://github.com/strands-agents/harness-sdk) is an open-source Python SDK by AWS for building AI agents.
 
@@ -21,7 +20,7 @@ The [strands-apify](https://pypi.org/project/strands-apify/) package provides 18
 ## Prerequisites
 
 - Python 3.11 or newer
-- [An Apify account](https://console.apify.com). <CreateApiTokenLink />
+- [An Apify account](https://console.apify.com) and an [API token](/integrations/api#create-api-token)
 - At least one configured model provider, such as Amazon Bedrock, OpenAI, Anthropic, Google Gemini, Ollama, LiteLLM, or LMStudio
 
 ## Installation
