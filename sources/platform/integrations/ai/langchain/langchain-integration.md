@@ -6,6 +6,7 @@ slug: /integrations/langchain
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+import { GetApiTokenHint } from '@site/src/components/ApiToken';
 
 [LangChain](https://docs.langchain.com/oss/python/langchain/overview) is a framework for building applications on top of large language models. The `langchain-apify` package connects Apify Actors to it. Use it to pull live web data into a vector index for retrieval, or to give an agent a set of scraping tools it can call on its own. The package lives in the [langchain-apify](https://github.com/apify/langchain-apify) repository and is currently available for Python only.
 
@@ -295,7 +296,6 @@ For retrieval-augmented generation, `ApifySearchRetriever` returns LangChain `Do
 
 ```python
 import os
-import { GetApiTokenHint } from '@site/src/components/ApiToken';
 
 from langchain_apify import ApifySearchRetriever
 
