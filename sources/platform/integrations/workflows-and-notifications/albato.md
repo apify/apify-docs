@@ -25,17 +25,7 @@ You can use the Albato integration to trigger a workflow whenever an Actor or a 
 
 ### Step 1: Get your Apify API token
 
-Log in to [Apify Console](https://console.apify.com/).
-
-![Apify Console dashboard for signing in](../images/albato-apify-console.webp)
-
-Go to **Settings > API & Integrations**.
-
-![Apify Console Settings page open](../images/albato-api-settings.webp)
-
-In the **Personal API tokens** section, select **Create a new token**, then copy the token. Apify Console shows the token only once, so store it somewhere safe.
-
-![API & Integrations tab in Apify Console with the Create a new token button highlighted](../images/api-token-create.webp)
+Log in to [Apify Console](https://console.apify.com/) and go to **Settings > API & Integrations**. In the **Personal API tokens** section, select **Create a new token**, then copy the token. Apify Console shows the token only once, so store it somewhere safe.
 
 ### Step 2: Create the Apify connection in Albato
 

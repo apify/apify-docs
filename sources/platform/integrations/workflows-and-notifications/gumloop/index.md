@@ -55,8 +55,6 @@ To use the Apify integration in Gumloop, you need an Apify account, a Gumloop ac
 
     To get started, go to [**Settings > API & Integrations**](https://console.apify.com/settings/integrations) in Apify Console, select **Create a new token**, and copy the token. Apify Console shows the token only once, so store it somewhere safe.
 
-    ![API & Integrations tab in Apify Console with the Create a new token button highlighted](../../images/api-token-create.webp)
-
 1. _Add Apify credentials to Gumloop_
 
     Next, go to [**Gumloop Credentials**](https://www.gumloop.com/settings/profile/credentials) and click **Add New Credentials**. Search for Apify in the credentials list, add your Apify API key, and save the credential.
