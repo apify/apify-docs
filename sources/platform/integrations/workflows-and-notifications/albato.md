@@ -7,6 +7,7 @@ slug: /integrations/albato
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+import { CreateTokenStep, CopyTokenStep } from '@site/src/components/ApiToken';
 
 [Albato](https://albato.com/automate) is a no-code integration platform that connects over 1,000 apps through a visual automation builder. With [Apify integration for Albato](https://albato.com/apps/apify), you can use Apify Actors as triggers or actions inside your Albato workflows to scrape data, run automation jobs, and pass results to any connected app.
 
@@ -25,7 +26,7 @@ You can use the Albato integration to trigger a workflow whenever an Actor or a 
 
 ### Step 1: Get your Apify API token
 
-Log in to [Apify Console](https://console.apify.com/) and go to **Settings > API & Integrations**. In the **Personal API tokens** section, select **Create a new token**, then copy the token. Apify Console shows the token only once, so store it somewhere safe.
+Log in to [Apify Console](https://console.apify.com/) and go to **Settings > API & Integrations**. <CreateTokenStep /> <CopyTokenStep />
 
 ### Step 2: Create the Apify connection in Albato
 

@@ -7,6 +7,7 @@ slug: /integrations/grok-bot
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 import ApifyPluginSkillPrompts from '@site/sources/_partials/_apify-plugin-skill-prompts.mdx';
+import { CreateApiTokenLink } from '@site/src/components/ApiToken';
 
 [Grok Bot](https://docs.x.ai/grok-bot) is an AI teammate that works from a persistent cloud computer. It reads and edits files, runs commands, uses a browser, and completes multi-step development tasks.
 
@@ -105,7 +106,7 @@ Open **Settings** > **Plugins**, find the **Apify** connector, and complete auth
 
 If the browser doesn't open automatically, copy the OAuth URL shown by Grok Bot and paste it into your browser manually.
 
-If the OAuth flow still fails, authenticate with an API token instead. Create a token in [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations?utm_source=grok-bot&utm_medium=integrations) and set it on the Grok Bot computer:
+If the OAuth flow still fails, authenticate with an API token instead. <CreateApiTokenLink /> Set it on the Grok Bot computer:
 
 ```bash
 export APIFY_TOKEN=<YOUR_API_TOKEN>

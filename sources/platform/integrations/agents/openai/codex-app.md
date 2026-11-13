@@ -9,6 +9,7 @@ import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integrati
 import ApifyPluginSkills from '@site/sources/_partials/_apify-plugin-skills.mdx';
 import ApifyPluginSkillPrompts from '@site/sources/_partials/_apify-plugin-skill-prompts.mdx';
 import FindGoogleMapsActorPrompt from '@site/sources/_partials/_find-google-maps-actor-prompt.mdx';
+import { CreateApiTokenLink } from '@site/src/components/ApiToken';
 
 [Codex](https://developers.openai.com/codex/) is OpenAI's agentic coding tool. It reads and edits your codebase, runs commands, and completes multi-step development tasks.
 
@@ -106,7 +107,7 @@ Plugins require a local installation of Codex with plugin support enabled. Insta
 
 If the browser doesn't open automatically, copy the OAuth URL shown by Codex and paste it into your browser manually.
 
-If you're running Codex in a headless environment (SSH, remote container) or the OAuth flow still fails, authenticate with an API token instead. Create a token in [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations) and set it before starting Codex:
+If you're running Codex in a headless environment (SSH, remote container) or the OAuth flow still fails, authenticate with an API token instead. <CreateApiTokenLink /> Set it before starting Codex:
 
 ```bash
 export APIFY_TOKEN=<YOUR_API_TOKEN>
