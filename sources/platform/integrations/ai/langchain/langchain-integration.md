@@ -6,7 +6,6 @@ slug: /integrations/langchain
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
-import { GetApiTokenHint } from '@site/src/components/ApiToken';
 
 [LangChain](https://docs.langchain.com/oss/python/langchain/overview) is a framework for building applications on top of large language models. The `langchain-apify` package connects Apify Actors to it. Use it to pull live web data into a vector index for retrieval, or to give an agent a set of scraping tools it can call on its own. The package lives in the [langchain-apify](https://github.com/apify/langchain-apify) repository and is currently available for Python only.
 
@@ -35,7 +34,7 @@ tool = ApifyScrapeUrlTool()
 print(tool.invoke({"url": "https://docs.apify.com"}))
 ```
 
-Set `APIFY_TOKEN` to your Apify API token. <GetApiTokenHint /> The tool returns a JSON string holding the run's metadata and the scraped markdown, in the single item's `content` field.
+Set `APIFY_TOKEN` to your Apify API token, which you can [create in Apify Console](/integrations/api#create-api-token). The tool returns a JSON string holding the run's metadata and the scraped markdown, in the single item's `content` field.
 
 ## Load web data into a vector index
 
