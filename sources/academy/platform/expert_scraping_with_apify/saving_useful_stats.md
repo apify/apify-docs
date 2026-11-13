@@ -42,7 +42,7 @@ In our Amazon Actor, each dataset result must now have the following extra keys:
 }
 ```
 
-Also, an object including these values should be persisted during the run in th Key-Value store and logged to the console every 10 seconds:
+Also, an object including these values should be persisted during the run in the key-value store and logged to the console every 10 seconds:
 
 ```json
 {

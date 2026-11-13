@@ -9,40 +9,40 @@ pagination: true
 
 **Learn how to integrate webhooks into your Actors. Webhooks are a super powerful tool, and can be used to do almost anything!**
 
-:::caution Updates coming
-
-This lesson is subject to change because it currently relies on code from our archived **Web scraping basics for JavaScript devs** course. For now you can still access the archived course, but we plan to completely retire it in a few months. This lesson will be updated to remove the dependency.
-
-:::
-
 ---
 
-In this lesson we'll be writing a new Actor and integrating it with our beloved Amazon scraping Actor. First, we'll navigate to the same directory where our **demo-actor** folder lives, and run `apify create filter-actor` _(once again, you can name the Actor whatever you want, but for this lesson, we'll be calling the new Actor **filter-actor**)_. When prompted about the programming language, select **JavaScript**:
+In this lesson we'll be writing a new Actor and integrating it with our beloved Amazon scraping Actor. First, we'll navigate to the same directory where our **academy-amazon-scraper** folder lives, and run `apify create filter-actor` _(once again, you can name the Actor whatever you want, but for this lesson, we'll be calling the new Actor **filter-actor**)_. When asked what you want to build, select **Any use case**:
 
 ```text
 $ apify create filter-actor
-? Choose the programming language of your new Actor:
-❯ JavaScript
-  TypeScript
-  Python
+? What do you want to build?
+  Web scraper
+  AI agent
+  API & data pipeline
+  Browser automation
+ ──────────────
+❯ Any use case
 ```
 
-Then use the arrow down key to select **Empty JavaScript Project**:
+Then select **JavaScript** as the programming language and use the arrow down key to select **Empty JavaScript Actor**:
 
 ```text
 $ apify create filter-actor
+✔ What do you want to build? Any use case
 ✔ Choose the programming language of your new Actor: JavaScript
-? Choose a template for your new Actor. Detailed information about the template will be shown in the next step.
-  Crawlee + Playwright + Chrome
-  Crawlee + Playwright + Camoufox
-  Bootstrap CheerioCrawler
-  Cypress
-❯ Empty JavaScript Project
-  Standby JavaScript Project
+? Choose a template for your new Actor. More info at https://apify.com/templates
+  JavaScript site crawler (Crawlee + Cheerio)
+  JavaScript one-page scraper (Cheerio)
+  JavaScript browser crawler (Crawlee + Puppeteer + Chrome)
+  JavaScript browser crawler (Crawlee + Playwright + Chrome)
+  JavaScript stealth crawler (Crawlee + Playwright + Camoufox)
+  JavaScript minimal site crawler (Crawlee + Cheerio)
+  JavaScript test runner (Cypress)
+❯ Empty JavaScript Actor
   ...
 ```
 
-As a last step, confirm the choices by **Install template** and wait until our new Actor is ready.
+As a last step, when asked how to set up the source code, select **Local only**, and wait until our new Actor is ready.
 
 ## Building the new Actor {#building-the-new-actor}
 
@@ -79,17 +79,25 @@ Next, we'll grab hold of the dataset's items with the `dataset.getData()` functi
 const { items } = await dataset.getData();
 ```
 
-While several methods can achieve the goal output of this Actor, using the [`Array.reduce()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce) is the most concise approach
+While several methods can achieve the goal output of this Actor, using the [`Array.reduce()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce) is the most concise approach.
+
+Prices are strings like `$1,080.59`, so before comparing them, we need to turn them into numbers. Let's write a small helper function which drops everything except digits and the decimal point:
+
+```js
+const parsePrice = (offer) => Number(offer.replace(/[^\d.]/g, ''));
+```
+
+Now we can find the cheapest offer for each ASIN:
 
 ```js
 const filtered = items.reduce((acc, curr) => {
     // Grab the price of the item matching our current
     // item's ASIN in the map. If it doesn't exist, set
     // "prevPrice" to null
-    const prevPrice = acc?.[curr.asin] ? +acc[curr.asin].offer.slice(1) : null;
+    const prevPrice = acc?.[curr.asin] ? parsePrice(acc[curr.asin].offer) : null;
 
     // Grab the price of our current offer
-    const price = +curr.offer.slice(1);
+    const price = parsePrice(curr.offer);
 
     // If the item doesn't yet exist in the map, add it.
     // Or, if the current offer's price is less than the
@@ -119,9 +127,11 @@ const dataset = await Actor.openDataset(datasetId);
 
 const { items } = await dataset.getData();
 
+const parsePrice = (offer) => Number(offer.replace(/[^\d.]/g, ''));
+
 const filtered = items.reduce((acc, curr) => {
-    const prevPrice = acc?.[curr.asin] ? +acc[curr.asin].offer.slice(1) : null;
-    const price = +curr.offer.slice(1);
+    const prevPrice = acc?.[curr.asin] ? parsePrice(acc[curr.asin].offer) : null;
+    const price = parsePrice(curr.offer);
 
     if (!acc[curr.asin] || prevPrice > price) acc[curr.asin] = curr;
 
@@ -133,7 +143,7 @@ await Actor.pushData(Object.values(filtered));
 await Actor.exit();
 ```
 
-Cool! But **wait**, don't forget to configure the **INPUT_SCHEMA.json** file as well! It's not necessary to do this step, as we'll be calling the Actor through Apify's API within a webhook, but it's still good to get into the habit of writing quality input schemas that describe the input values your Actors are expecting.
+Cool! But **wait**, don't forget to configure the **.actor/input_schema.json** file as well! New Actors run with [limited permissions](/actors/development/permissions) by default, so they can't read storages they didn't create, such as the dataset of our Amazon scraper. By declaring the `datasetId` input as a dataset with `resourceType` and `resourcePermissions`, we grant the filter Actor read access to the dataset it receives. Both properties are needed, `resourceType` alone isn't enough:
 
 ```json
 {
@@ -145,7 +155,9 @@ Cool! But **wait**, don't forget to configure the **INPUT_SCHEMA.json** file as 
             "title": "Dataset ID",
             "type": "string",
             "description": "Enter the ID of the dataset.",
-            "editor": "textfield"
+            "editor": "textfield",
+            "resourceType": "dataset",
+            "resourcePermissions": ["READ"]
         }
     },
     "required": ["datasetId"]
@@ -161,63 +173,76 @@ Info: Deploying Actor 'filter-actor' to Apify.
 Run: Updated version 0.0 for Actor filter-actor.
 Run: Building Actor filter-actor
 (timestamp) ACTOR: Extracting Actor documentation from README.md
-(timestamp) ACTOR: Building Docker image.
+(timestamp) ACTOR: Building container image (cache enabled).
 ...
-(timestamp) ACTOR: Pushing Docker image to repository.
 (timestamp) ACTOR: Build finished.
-Actor build detail https://console.apify.com/actors/Yk1bieximsduYDydP#/builds/0.0.1
-Actor detail https://console.apify.com/actors/Yk1bieximsduYDydP
-Success: Actor was deployed to Apify cloud and built there.
+Run: Applying build tag "latest"...
+Apify push result: SUCCEEDED
+Upload: SUCCEEDED
+Build: SUCCEEDED
+Actor ID: Yk1bieximsduYDydP
+Build ID: kPd2Wq8sXb7RnT4vE
+Build number: 0.0.1
+Actor URL: https://console.apify.com/actors/Yk1bieximsduYDydP
+Build URL: https://console.apify.com/actors/Yk1bieximsduYDydP/builds/0.0.1
 ```
 
 ## Setting up the webhook {#setting-up-the-webhook}
 
-We'll use the [Apify API](/academy/api/run-actor-and-retrieve-data-via-api) to set up the webhook. To compose the HTTP request, we'll need either the ID of our Actor or its technical name. Let's take a second look at the end of the output of the `apify push` command:
+We'll set up the webhook in Apify Console, and the webhook will start the filter Actor by calling the [Apify API](/academy/api/run-actor-and-retrieve-data-via-api). To compose the URL of that HTTP request, we'll need either the ID of our Actor or its technical name. Let's take a second look at the end of the output of the `apify push` command:
 
 ```text
 ...
-Actor build detail https://console.apify.com/actors/Yk1bieximsduYDydP#/builds/0.0.1
-Actor detail https://console.apify.com/actors/Yk1bieximsduYDydP
-Success: Actor was deployed to Apify cloud and built there.
+Actor ID: Yk1bieximsduYDydP
+Build ID: kPd2Wq8sXb7RnT4vE
+Build number: 0.0.1
+Actor URL: https://console.apify.com/actors/Yk1bieximsduYDydP
+Build URL: https://console.apify.com/actors/Yk1bieximsduYDydP/builds/0.0.1
 ```
 
-The URLs tell us that our Actor's ID is `Yk1bieximsduYDydP`. With this `actorId`, and our `token`, which is retrievable through **Settings > API & Integrations** in Apify Console, we can construct a link which will call the Actor:
+The output tells us that our Actor's ID is `Yk1bieximsduYDydP`. With this `actorId`, we can construct a link which will call the Actor:
 
 ```text
-https://api.apify.com/v2/actors/Yk1bieximsduYDydP/runs?token=YOUR_TOKEN_HERE
+https://api.apify.com/v2/actors/Yk1bieximsduYDydP/runs
 ```
 
 We can also use our username and the name of the Actor like this:
 
 ```text
-https://api.apify.com/v2/actors/USERNAME~filter-actor/runs?token=YOUR_TOKEN_HERE
+https://api.apify.com/v2/actors/USERNAME~filter-actor/runs
 ```
 
-Whichever one you choose is totally up to your preference.
+Whichever one you choose is totally up to your preference. We don't need to add our API token to the URL, because when a webhook calls the Apify API, Apify [adds the token automatically](/integrations/webhooks/actions#security-considerations). Keeping the token out of the URL also means it isn't stored in the webhook's settings.
 
 Next, within the Amazon scraping Actor, we will click the **Integrations** tab and choose **Webhook**, then fill out the details to look like this:
 
-![Configuring a webhook](./images/adding-webhook.jpg)
+![HTTP webhook form in Apify Console with the URL and payload template filled in](./images/adding-webhook.svg)
 
-We have chosen to run the webhook once the Actor has succeeded, which means that its default dataset will surely be populated. Since the filtering Actor is expecting the default dataset ID of the Amazon Actor, we use the `resource` variable to grab hold of the `defaultDatasetId`.
+We have chosen to run the webhook once the Actor has succeeded, which means that its default dataset will surely be populated. Since the filtering Actor is expecting the default dataset ID of the Amazon Actor, we use the `resource` variable to grab hold of the `defaultDatasetId`. Set the payload template to the following:
 
-Click **Save**, then run the Amazon **demo-actor** again.
+```text
+{"datasetId": {{resource.defaultDatasetId}}}
+```
+
+Don't put quotes around the variable. Apify fills in the value already as a JSON string, so with quotes, the filter Actor would receive the literal text `{{resource.defaultDatasetId}}` instead of the dataset ID.
+
+Click **Save**, then run the **academy-amazon-scraper** Actor again.
 
 ## Making sure it worked {#checking-the-webhook}
 
-If everything worked, then at the end of the **demo-actor**'s run, we should see this within the **Integrations** tab:
+If everything worked, then at the end of the **academy-amazon-scraper** run, we should see this within the **Integrations** tab:
 
-![Webhook succeeded](./images/webhook-succeeded.png)
+![Integrations tab in Apify Console showing the HTTP request integration with its last dispatch succeeded](./images/webhook-succeeded.svg)
 
 Additionally, we should be able to see that our **filter-actor** was run, and have access to its dataset:
 
-![Dataset preview](./images/dataset-preview.png)
+![Output tab of a filter-actor run in Apify Console with the filtered dataset in a table](./images/dataset-preview.svg)
 
 ## Quiz answers 📝 {#quiz-answers}
 
 **Q: How do you allocate more CPU for an Actor's run?**
 
-**A:** On the platform, more memory can be allocated in the Actor's input configuration, and the default allocated CPU can be changed in the Actor's **Settings** tab. When running locally, you can use the **APIFY_MEMORY_MBYTES** environment variable to set the allocated CPU. 4GB is equal to 1 CPU core on the Apify platform.
+**A:** On the Apify platform, CPU is allocated in proportion to memory, and every 4096 MB of memory gives the Actor one CPU core. To get more CPU, allocate more memory, either in the run options of a single run, or as the default memory in the Actor's **Settings** tab. When running locally, the Actor uses the CPU of your computer. The **ACTOR_MEMORY_MBYTES** environment variable only tells the SDK how much memory it can use.
 
 **Q: Within itself, can you get the exact time that an Actor was started?**
 
@@ -225,7 +250,7 @@ Additionally, we should be able to see that our **filter-actor** was run, and ha
 
 **Q: What are the types of default storages connected to an Actor's run?**
 
-Every Actor's run is given a default key-value store and a default dataset. The default key-value store by default has the `INPUT` and `OUTPUT` keys. The Actor's request queue is also stored.
+**A:** Every Actor's run is given a default key-value store, a default dataset, and a default request queue. The run's input is stored in the default key-value store under the `INPUT` key.
 
 **Q: Can you change the allocated memory of an Actor while it's running?**
 
