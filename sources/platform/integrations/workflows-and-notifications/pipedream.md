@@ -26,7 +26,7 @@ Before you begin, make sure you have:
 
     ![Selecting the Apify app in Pipedream](../images/pipedream-select-app.png)
 
-    - **Apify** - Authenticate with your Apify API token. <CreateApiTokenLink />
+    - **Apify** - Authenticate with a token. <CreateApiTokenLink />
     - **Apify (OAuth)** - Authorize access to your Apify account via OAuth.
 1. Follow the prompts to authenticate your account.
 

@@ -67,7 +67,7 @@ In connection configuration, you need to provide your Apify API token.
 
 <CreateApiToken />
 
-Paste the token into the configuration form and continue with the "Yes, Continue to Apify" button.
+Paste the token into the configuration form and continue with the **Yes, Continue to Apify** button.
 
 The connection is now created and the configuration form closed.
 

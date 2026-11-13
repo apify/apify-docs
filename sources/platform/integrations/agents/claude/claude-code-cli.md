@@ -145,7 +145,7 @@ Plugins require a local installation of the Claude Code CLI. They aren't availab
 
 If the browser doesn't open automatically, copy the OAuth URL shown in the terminal and paste it into your browser manually.
 
-If you're running Claude Code in a headless environment (SSH, remote container) or the OAuth flow still fails, authenticate with an API token instead. <CreateApiTokenLink /> Set it before starting Claude Code:
+If you're running Claude Code in a headless environment (SSH, remote container) or the OAuth flow still fails, use token authentication instead. <CreateApiTokenLink /> Set it before starting Claude Code:
 
 ```bash
 export APIFY_TOKEN=<YOUR_API_TOKEN>

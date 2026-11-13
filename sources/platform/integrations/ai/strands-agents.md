@@ -21,7 +21,7 @@ The [strands-apify](https://pypi.org/project/strands-apify/) package provides 18
 ## Prerequisites
 
 - Python 3.11 or newer
-- [An Apify account](https://console.apify.com) and an Apify API token. <CreateApiTokenLink />
+- [An Apify account](https://console.apify.com). <CreateApiTokenLink />
 - At least one configured model provider, such as Amazon Bedrock, OpenAI, Anthropic, Google Gemini, Ollama, LiteLLM, or LMStudio
 
 ## Installation

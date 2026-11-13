@@ -52,7 +52,7 @@ Build workflows that automatically collect data from websites and deliver insigh
 
 To use the Apify integration in Gumloop, you need an Apify account, a Gumloop account, and at least one Apify task that has been run previously.
 
-1. _Get your Apify API Key_
+1. _Get your Apify API token_
 
     <CreateApiToken />
 

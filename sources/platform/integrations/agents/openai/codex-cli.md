@@ -105,7 +105,7 @@ Reopen `/plugins`, move to the **Apify Plugin** tab, and confirm the marketplace
 
 If the browser doesn't open automatically, copy the OAuth URL shown in the terminal and paste it into your browser manually.
 
-If you're running the Codex CLI in a headless environment (SSH, remote container) or the OAuth flow still fails, authenticate with an API token instead. <CreateApiTokenLink /> Set it before starting Codex:
+If you're running the Codex CLI in a headless environment (SSH, remote container) or the OAuth flow still fails, use token authentication instead. <CreateApiTokenLink /> Set it before starting Codex:
 
 ```bash
 export APIFY_TOKEN=<YOUR_API_TOKEN>
