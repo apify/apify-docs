@@ -450,8 +450,8 @@
 - name: Actor Runtime API
   x-displayName: ""
   description: |
-    The subset of the Apify API that the Actor runtime, a local Apify platform for developing Actors, implements.
-    Use it to compare the Actor runtime implementation with the Apify API specification.
+    The subset of the Apify API that the Actor runtime implements. The Actor runtime is a local Apify platform for developing Actors.
+    Compare these endpoints with the Apify API specification to see what the Actor runtime supports.
 - name: Actor Runtime API/Actors
   x-displayName: Actors
   x-parent-tag-name: Actor Runtime API
@@ -523,7 +523,7 @@
   x-parent-tag-name: Actor Runtime API
   x-trait: "true"
   description: |
-    Create, get, update, and delete request queues, and add, read, update, and lock their requests. Request deletion isn't implemented.
+    Create, get, update, and delete request queues, and add, read, update, and lock their requests. Deleting requests isn't available.
 - name: Default dataset
   x-displayName: Default dataset
   description: |
