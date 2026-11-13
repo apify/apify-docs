@@ -47,9 +47,11 @@ info:
     ## Authentication
     <span id="/introduction/authentication"></span>
 
-    **You can find your API token on the
+    **You can create an API token on the
     [Integrations](https://console.apify.com/settings/integrations) page in the
-    Apify Console.**
+    Apify Console.** The Console shows the token only once, right after you create
+    or rotate it, so copy it and store it somewhere safe. For details, see
+    [API token](https://docs.apify.com/integrations/api#api-token).
 
     To use your token in a request, either:
 
