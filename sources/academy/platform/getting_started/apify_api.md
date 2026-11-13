@@ -19,10 +19,10 @@ Within one of your Actors on the [Apify Console](https://console.apify.com?asrc=
 
 ![The "API" button on an Actor's page in Apify Console](./images/api-tab.jpg)
 
-You should see a long list of API endpoints that you can copy and paste elsewhere, or even test right within the **API** modal. Go ahead and copy the endpoint labeled **Run Actor synchronously and get dataset items**. It should look something like this:
+You should see a long list of API endpoints that you can copy and paste elsewhere. The URLs contain a `YOUR_API_TOKEN` placeholder, which you'll replace with your own [API token](/integrations/api#create-api-token). Apify Console shows a token only once, when you create it, so keep it somewhere safe. Go ahead and copy the endpoint labeled **Run Actor synchronously and get dataset items**. It should look something like this:
 
 ```text
-https://api.apify.com/v2/actors/YOUR_USERNAME~adding-actor/run-sync?token=YOUR_TOKEN
+https://api.apify.com/v2/actors/YOUR_USERNAME~adding-actor/run-sync?token=YOUR_API_TOKEN
 ```
 
 :::note Single endpoint

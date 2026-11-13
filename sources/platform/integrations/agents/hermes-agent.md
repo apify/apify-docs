@@ -7,6 +7,7 @@ toc_min_heading_level: 2
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+import CreateApiToken from '@site/sources/_partials/_create-api-token.mdx';
 
 [Hermes Agent](https://hermes-agent.nousresearch.com) is an open-source autonomous AI agent from [Nous Research](https://nousresearch.com/). The Apify plugin for Hermes Agent gives your agent access to thousands of pre-built AI tools, called Actors. The plugin comes with three tools: `apify_discover`, `apify_start`, and `apify_collect`, which your agent can use autonomously.
 
@@ -19,7 +20,7 @@ For more details about Hermes Agent, refer to the [official documentation](https
 Before integrating Apify with Hermes Agent, you'll need:
 
 - _An Apify account_ - If you don't have one, [sign up here](https://console.apify.com/sign-up).
-- _Apify API token_ - Get your token from the **API & Integrations** section in [Apify Console](https://console.apify.com/settings/integrations?utm_source=hermes-agent&utm_medium=integrations).
+- _Apify API token_ - Create a token in the **API & Integrations** section of [Apify Console](https://console.apify.com/settings/integrations?utm_source=hermes-agent&utm_medium=integrations). Apify Console shows it only once, so store it somewhere safe.
 - _Hermes Agent_ - Version 0.18.1 or later. Install the CLI from the [official documentation](https://hermes-agent.nousresearch.com/docs).
 - _Python 3.11 to 3.13_ - Required to install the plugin.
 
@@ -42,7 +43,9 @@ Run the setup command to save your Apify API token:
 hermes apify-setup
 ```
 
-This prompts for your `APIFY_API_TOKEN`, saves it to `~/.hermes/.env`, and enables the `apify` toolset for the CLI. You can find your token in the **API & Integrations** section of [Apify Console](https://console.apify.com/settings/integrations?utm_source=hermes-agent&utm_medium=integrations).
+This prompts for your `APIFY_API_TOKEN`, saves it to `~/.hermes/.env`, and enables the `apify` toolset for the CLI.
+
+<CreateApiToken />
 
 To skip the interactive prompt, pass the token directly:
 
@@ -106,7 +109,7 @@ Actor execution time varies depending on the task complexity. `apify_collect` re
 ### Authentication errors
 
 - _Check your API token_ - Verify `APIFY_API_TOKEN` is set in `~/.hermes/.env`. Re-run `hermes apify-setup` to update it.
-- _Get a new token_ - Find or generate one in the **API & Integrations** section of [Apify Console](https://console.apify.com/settings/integrations?utm_source=hermes-agent&utm_medium=integrations).
+- _Get a new token_ - Apify Console shows a token only once, so create a new one or rotate an existing one in the **API & Integrations** section of [Apify Console](https://console.apify.com/settings/integrations?utm_source=hermes-agent&utm_medium=integrations).
 
 ### Plugin or tool not available
 

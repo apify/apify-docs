@@ -8,6 +8,7 @@ sidebar_position: 2
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import CreateApiToken from '@site/sources/_partials/_create-api-token.mdx';
 
 
 Automating your Actor development process can save time and reduce errors, especially for projects with multiple Actors or frequent updates. Instead of manually pushing code, building Actors, and running tests, you can automate these steps to run whenever you push code to your repository.
@@ -84,9 +85,7 @@ Keep the token in your CI provider's protected storage and never commit it to a 
 <details>
 <summary>Get your Apify API token</summary>
 
-1. Log in to [Apify Console](https://console.apify.com/actors).
-1. In the left-side panel, go to **Settings**.
-1. Go to the **API & Integrations** tab.
+<CreateApiToken />
 
 </details>
 

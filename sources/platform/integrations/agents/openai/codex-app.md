@@ -106,7 +106,7 @@ Plugins require a local installation of Codex with plugin support enabled. Insta
 
 If the browser doesn't open automatically, copy the OAuth URL shown by Codex and paste it into your browser manually.
 
-If you're running Codex in a headless environment (SSH, remote container) or the OAuth flow still fails, authenticate with an API token instead. Copy your token from [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations) and set it before starting Codex:
+If you're running Codex in a headless environment (SSH, remote container) or the OAuth flow still fails, authenticate with an API token instead. Create a token in [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations) and set it before starting Codex:
 
 ```bash
 export APIFY_TOKEN=<YOUR_API_TOKEN>

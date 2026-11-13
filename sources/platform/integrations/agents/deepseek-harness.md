@@ -69,7 +69,7 @@ The plugin enables the Apify MCP server on install. Searching Apify Store, inspe
 
 `dsh` sends static MCP headers and has no OAuth flow, so authenticate with an API token:
 
-1. Copy your token from [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations?utm_source=deepseek-harness&utm_medium=integrations).
+1. Create a token in [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations?utm_source=deepseek-harness&utm_medium=integrations) and copy it. Apify Console shows it only once.
 
 1. Create a `.env` file in the directory you launch `dsh` from:
 
@@ -166,7 +166,7 @@ No `APIFY_TOKEN` was set when `dsh` started, so only the anonymous MCP tools loa
 
 ### The Apify MCP server fails to start with `invalid_token`
 
-The token is present but rejected. Check for stray quotes or trailing whitespace in the `.env` file, regenerate the token in [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations?utm_source=deepseek-harness&utm_medium=integrations) if needed, and restart the profile.
+The token is present but rejected. Check for stray quotes or trailing whitespace in the `.env` file, rotate the token in [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations?utm_source=deepseek-harness&utm_medium=integrations) if needed, and restart the profile.
 
 ### The `apify` command fails with `EPERM` or `EACCES`
 

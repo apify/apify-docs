@@ -35,11 +35,11 @@ Alternatively, you can choose to connect using Apify API token:
 
     ![API token](../../images/apify-token.png)
 
-1. You can find this token in Apify Console by navigating to **[Settings > API & Integrations](https://console.apify.com/settings/integrations)**
+1. To get a token, [create an API token](/integrations/api#create-api-token) in Apify Console under **[Settings > API & Integrations](https://console.apify.com/settings/integrations)**. Apify Console shows the token only once, so copy it right away.
 
     ![Integrations token](../../images/apify-integrations-token.png)
 
-1. Finally, copy your API token from Apify, paste it into the Make module, and save to create the connection.
+1. Finally, paste your API token into the Make module and save to create the connection.
 
 Congratulations! You have successfully connected the Apify app and can now use it in your scenarios.
 

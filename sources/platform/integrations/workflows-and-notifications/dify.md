@@ -32,7 +32,7 @@ To connect your Apify account, configure the plugin using your Apify API token o
 ### API key
 
 1. Open the plugin window and select **Add API Key**.
-1. In the pop-up menu, paste your Apify API token. You can find it in the [Apify Console](https://console.apify.com/settings/integrations).  
+1. In the pop-up menu, paste your Apify API token. To get one, [create an API token](/integrations/api#create-api-token) in Apify Console and copy it.
 1. Select **Save**.
 
 ![Apify Auth in Dify](../images/dify-connection-popup.png)

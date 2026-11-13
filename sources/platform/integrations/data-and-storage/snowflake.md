@@ -6,6 +6,7 @@ slug: /integrations/snowflake
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/\_partials/\_third-party-integration.mdx';
+import CreateApiToken from '@site/sources/\_partials/\_create-api-token.mdx';
 
 With the Apify integration for [Snowflake](https://www.snowflake.com/), you can run Apify Actors and import their results directly into your Snowflake data warehouse without leaving the Snowflake UI. The integration is distributed as a [Snowflake Native App](https://docs.snowflake.com/en/developer-guide/native-apps/native-apps-about) and provides a built-in Streamlit interface for managing Actor runs and dataset imports.
 
@@ -43,7 +44,9 @@ In Snowsight, open the **Data Products** menu and navigate to the **Marketplace*
 
 During installation, the app prompts you to create a `Network Rule` and an `External Access Integration` so the app can reach the Apify API.
 
-Follow the instructions shown in the setup screen to create the External Access Integration. On the same screen, click **Configure** next to **Apify API Token** and bind a Snowflake secret of type Generic String containing your [Apify API token](https://console.apify.com/settings/integrations).
+Follow the instructions shown in the setup screen to create the External Access Integration. On the same screen, click **Configure** next to **Apify API Token** and bind a Snowflake secret of type Generic String containing your Apify API token.
+
+<CreateApiToken />
 
 ![External connections setup during app installation](../images/snowflake/snowflake-setup-eai.png)
 

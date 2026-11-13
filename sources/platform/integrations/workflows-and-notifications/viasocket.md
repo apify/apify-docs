@@ -6,6 +6,7 @@ slug: /integrations/viasocket
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/\_partials/\_third-party-integration.mdx';
+import CreateApiToken from '@site/sources/\_partials/\_create-api-token.mdx';
 
 [viaSocket](https://viasocket.com/) is a workflow automation platform that lets you connect apps and automate tasks without writing code. With the Apify integration, you can trigger Actor runs, retrieve results, and build automation pipelines that respond to events across your connected apps.
 
@@ -13,9 +14,7 @@ import ThirdPartyDisclaimer from '@site/sources/\_partials/\_third-party-integra
 
 ## Step 1: Generate an Apify API token
 
-1. Log in to your [Apify account](https://console.apify.com/).
-1. Go to **Settings > API & Integrations > API Tokens**.
-1. Copy your personal API token.
+<CreateApiToken />
 
 ![Apify API token settings](../images/viasocket/viasocket-apify-token.png)
 

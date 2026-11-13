@@ -76,12 +76,12 @@ In such situation, to build your Actor automatically on every push, manually add
 1. Copy the **Build Actor** endpoint URL in the following format:
 
     ```text
-    https://api.apify.com/v2/actors/YOUR-ACTOR-NAME/builds?token=YOUR-TOKEN&version=0.0&tag=latest&waitForFinish=60
+    https://api.apify.com/v2/actors/YOUR-ACTOR-NAME/builds?token=YOUR_API_TOKEN&version=0.0&tag=latest&waitForFinish=60
     ```
 
     :::note API token
 
-    Select the correct API token in the dropdown before copying the URL.
+    Replace the `YOUR_API_TOKEN` placeholder in the URL with an API token. Apify Console doesn't fill in your token. To get one, [create an API token](/integrations/api#create-api-token).
 
     :::
 

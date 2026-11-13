@@ -6,6 +6,7 @@ slug: /integrations/bubble
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+import CreateApiToken from '@site/sources/_partials/_create-api-token.mdx';
 
 [Bubble](https://bubble.io/) is a no-code platform that allows you to build web applications without writing code. With the [Apify integration for Bubble](https://bubble.io/plugin/apify-1749639212621x698168698147962900), you can easily connect your Apify Actors to your Bubble applications to automate workflows and display scraped data.
 
@@ -42,7 +43,8 @@ After installing the plugin, you'll need to provide your API token when setting 
 
 ### Get your Apify API token
 
-In Apify Console, go to **Settings → API & Integrations** and copy your API token.
+<CreateApiToken />
+
 ![Apify API token](../images/bubble/apify_api_token.png)
 
 ### Store the token securely in Bubble

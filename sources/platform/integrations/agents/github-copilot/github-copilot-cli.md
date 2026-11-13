@@ -91,7 +91,7 @@ Example prompts that route to specific skills:
 The `apify` agent picks the right transport for each task. Each transport authenticates differently:
 
 - For MCP tools (search, run, retrieve data), authenticate with OAuth through the browser, as described in [Install the plugin and sign in](#install-the-plugin-and-sign-in). You don't need to set up a token.
-- For the Apify CLI (building Actors, actorization, CLI fallback), run `apify login` once, or set `APIFY_TOKEN` in headless environments. Get your token from [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations).
+- For the Apify CLI (building Actors, actorization, CLI fallback), run `apify login` once, or set `APIFY_TOKEN` in headless environments. Create a token in [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations).
 - For SDK integration with `apify-client`, set the `APIFY_TOKEN` environment variable in your application's environment.
 
 ## Troubleshooting
@@ -112,7 +112,7 @@ On the first start, Copilot may report that `apify-mcp-server` is taking longer 
 
 If the browser doesn't open automatically, copy the OAuth URL shown in the terminal and paste it into your browser manually.
 
-If you're running the CLI in a headless environment (SSH, remote container) or the OAuth flow still fails, authenticate with an API token instead. Copy your token from [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations) and set it before starting the CLI:
+If you're running the CLI in a headless environment (SSH, remote container) or the OAuth flow still fails, authenticate with an API token instead. Create a token in [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations) and set it before starting the CLI:
 
 ```bash
 export APIFY_TOKEN=<YOUR_API_TOKEN>

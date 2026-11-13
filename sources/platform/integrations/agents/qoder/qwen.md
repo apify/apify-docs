@@ -184,7 +184,7 @@ If the sign-in page doesn't open or the server stays disconnected:
 - **Qwen Code:** copy the authorization URL from the terminal and open it manually. If sign-in still fails, add an `Authorization: Bearer <APIFY_TOKEN>` header to the `apify` server in `~/.qwen/settings.json` under `mcpServers` - see the [Streamable HTTP configuration](/mcp#streamable-http-with-oauth-recommended) for the shape.
 - **QwenWork:** remove the connector and add it again. If OAuth still won't complete, re-add it with an `Authorization` header set to `Bearer <APIFY_TOKEN>`.
 
-Get the token from [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations?utm_source=qwen&utm_medium=integrations). Setting `APIFY_TOKEN` in your shell doesn't authenticate the MCP server; it only covers the Apify CLI and `apify-client` used by the Actor development, actorization, and SDK integration skills, so run `apify login` once for those.
+Create the token in [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations?utm_source=qwen&utm_medium=integrations). Setting `APIFY_TOKEN` in your shell doesn't authenticate the MCP server; it only covers the Apify CLI and `apify-client` used by the Actor development, actorization, and SDK integration skills, so run `apify login` once for those.
 
 ## Limitations
 

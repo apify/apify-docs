@@ -109,7 +109,7 @@ With the default permission preset, Antigravity runs agent commands in a [termin
 
 The MCP sign-in doesn't need a browser on the machine that runs Antigravity. Over SSH or in a container, open the sign-in link that Antigravity shows in a browser on any machine, then paste the authorization code back at the `agy` prompt.
 
-If you can't use OAuth at all, use the skills that don't need the MCP server and authenticate them with your API token. Copy it from [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations?utm_source=antigravity&utm_medium=integrations) and set it before starting Antigravity:
+If you can't use OAuth at all, use the skills that don't need the MCP server and authenticate them with your API token. Create one in [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations?utm_source=antigravity&utm_medium=integrations) and set it before starting Antigravity:
 
 ```bash
 export APIFY_TOKEN=<YOUR_API_TOKEN>

@@ -16,7 +16,7 @@ Use the Apify Scraper for AI Crawling module in [Make](https://www.make.com/) to
 
 Apify Scraper for AI Crawling from [Apify](https://apify.com/) lets you extract text content from websites to feed AI models, LLM applications, vector databases, or Retrieval Augmented Generation (RAG) pipelines. It supports rich formatting using Markdown, cleans the HTML of irrelevant elements, downloads linked files, and integrates with AI ecosystems like LangChain, LlamaIndex, and other LLM frameworks.
 
-To use these modules, you need an [Apify account](https://console.apify.com) and an [API token](https://docs.apify.com/integrations/api#api-token). You can find your token in the [Apify Console](https://console.apify.com/) under **Settings > API & Integrations**. After connecting, you can automate content extraction at scale and incorporate the results into your AI workflows.
+To use these modules, you need an [Apify account](https://console.apify.com) and an [API token](https://docs.apify.com/integrations/api#api-token). You can [create one](https://docs.apify.com/integrations/api#create-api-token) in Apify Console under **Settings > API & Integrations**. After connecting, you can automate content extraction at scale and incorporate the results into your AI workflows.
 
 ## Connect Apify Scraper for AI Crawling
 
@@ -28,8 +28,8 @@ To use these modules, you need an [Apify account](https://console.apify.com) and
 
     ![Apify Console token for Make.png](images/apify-console-token-for-make.png)
 
-1. Find your token under **Personal API tokens** section. You can also create a new API token with multiple customizable permissions by clicking on **+ Create a new token**.
-1. Click the **Copy** icon next to your API token to copy it to your clipboard. Then, return to your Make scenario interface.
+1. In the **Personal API tokens** section, select **Create a new token**. Enter a description, optionally limit the token's permissions, and select **Create**.
+1. Copy the token from the **API token created** dialog. Apify Console shows the token only once, so store it somewhere safe. Then, return to your Make scenario.
 
     ![Apify token on Make.png](images/Apify_token_on_Make.png)
 

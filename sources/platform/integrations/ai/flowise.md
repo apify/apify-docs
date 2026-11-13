@@ -6,6 +6,7 @@ slug: /integrations/flowise
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+import CreateApiToken from '@site/sources/_partials/_create-api-token.mdx';
 
 :::danger Flowise development ended
 
@@ -53,7 +54,9 @@ Now you need to configure the crawler. You can find more information about at [W
 
 ![Flowise and Apify](../images/flowise.png)
 
-In the configuration, provide your Apify API token, which you can find in your [Apify account](https://console.apify.com/settings/integrations).
+In the configuration, provide your Apify API token.
+
+<CreateApiToken />
 
 ![Apify API token screen](../images/flowise-apify-api.png)
 

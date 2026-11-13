@@ -50,7 +50,7 @@ At the bottom of the page, you can work with records in your key-value store:
 
 The [Apify API](/api/v2/storage-key-value-stores) gives you programmatic access to your key-value stores using [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
 
-If you are accessing your key-value stores using the `username~store-name` [store ID format](../index.md), you will need to use your secret API token. You can find the token (and your user ID) on the [API & Integrations](https://console.apify.com/settings/integrations) tab of **Settings** page of your Apify account.
+If you are accessing your key-value stores using the `username~store-name` [store ID format](../index.md), you will need to use your secret API token. You can find your user ID and [create an API token](/integrations/api#create-api-token) on the [API & Integrations](https://console.apify.com/settings/integrations) tab of the **Settings** page of your Apify account.
 
 :::tip Authentication
 

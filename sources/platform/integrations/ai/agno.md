@@ -17,7 +17,7 @@ This guide shows how to integrate Apify Actors with Agno to empower your AI agen
 
 ### Prerequisites
 
-- _Apify API token_: Obtain your API token from the [Apify Console](https://console.apify.com/settings/integrations).
+- _Apify API token_: [Create an API token](/integrations/api#create-api-token) in [Apify Console](https://console.apify.com/settings/integrations) and copy it.
 - _OpenAI API key_: Get your API key from the [OpenAI platform](https://platform.openai.com/account/api-keys).
 
 :::tip Alternative LLM providers
