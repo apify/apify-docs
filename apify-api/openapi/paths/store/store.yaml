@@ -41,7 +41,7 @@ get:
       explode: true
       schema:
         type: string
-        example: "'popularity'"
+        example: popularity
     - name: category
       in: query
       description: |
@@ -63,7 +63,7 @@ get:
       explode: true
       schema:
         type: string
-        example: "'apify'"
+        example: apify
     - name: pricingModel
       in: query
       description: |
