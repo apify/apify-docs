@@ -16,7 +16,7 @@ import CreateApiToken from '@site/sources/\_partials/\_create-api-token.mdx';
 
 <CreateApiToken />
 
-![Apify API token settings](../images/viasocket/viasocket-apify-token.png)
+![API & Integrations tab in Apify Console with the Create a new token button highlighted](../images/api-token-create.webp)
 
 :::caution Token security
 Never share your API token publicly or commit it to version control.

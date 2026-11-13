@@ -35,7 +35,7 @@ Go to **Settings > API & Integrations**.
 
 In the **Personal API tokens** section, select **Create a new token**, then copy the token. Apify Console shows the token only once, so store it somewhere safe.
 
-![Apify Console API & Integrations page showing the Personal API token field](../images/albato-api-token.webp)
+![API & Integrations tab in Apify Console with the Create a new token button highlighted](../images/api-token-create.webp)
 
 ### Step 2: Create the Apify connection in Albato
 

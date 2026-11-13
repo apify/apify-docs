@@ -55,11 +55,9 @@ To connect your Apify account to Make, use an OAuth connection (recommended) or 
 
 1. In Apify Console, open the **Settings > API & Integrations** tab at [console.apify.com/settings/integrations](https://console.apify.com/settings/integrations).
 
-    ![Apify Console token for Make](images/apify-console-token-for-make.png)
+    ![API & Integrations tab in Apify Console with the Create a new token button highlighted](../../images/api-token-create.webp)
 
 1. In the **Personal API tokens** section, select **Create a new token**. Enter a description, optionally limit the token's permissions, and select **Create**. Copy the token. Apify Console shows the token only once, so store it somewhere safe. Then, return to Make.
-
-    ![Apify token on Make](images/Apify_token_on_Make.png)
 
 1. In Make, click **Add** to open the **Create a connection** dialog, select the **Apify API Token** connection type, paste the token into the **API token** field, name your connection, and click **Save**.
 

@@ -67,7 +67,7 @@ In connection configuration, you need to provide your Apify API token.
 
 <CreateApiToken />
 
-![Integrations token](../images/apify-integrations-token.png)
+![API & Integrations tab in Apify Console with the Create a new token button highlighted](../images/api-token-create.webp)
 
 Paste the token into the configuration form and continue with the "Yes, Continue to Apify" button.
 

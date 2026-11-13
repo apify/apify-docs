@@ -45,7 +45,7 @@ After installing the plugin, you'll need to provide your API token when setting 
 
 <CreateApiToken />
 
-![Apify API token](../images/bubble/apify_api_token.png)
+![API & Integrations tab in Apify Console with the Create a new token button highlighted](../images/api-token-create.webp)
 
 ### Store the token securely in Bubble
 

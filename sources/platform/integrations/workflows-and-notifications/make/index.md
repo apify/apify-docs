@@ -37,7 +37,7 @@ Alternatively, you can choose to connect using Apify API token:
 
 1. To get a token, [create an API token](/integrations/api#create-api-token) in Apify Console under **[Settings > API & Integrations](https://console.apify.com/settings/integrations)**. Apify Console shows the token only once, so copy it right away.
 
-    ![Integrations token](../../images/apify-integrations-token.png)
+    ![API & Integrations tab in Apify Console with the Create a new token button highlighted](../../images/api-token-create.webp)
 
 1. Finally, paste your API token into the Make module and save to create the connection.
 

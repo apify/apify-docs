@@ -17,7 +17,7 @@ You are not required to those packages - the REST API works with any HTTP client
 
 To access the Apify API in your integrations, you need to authenticate using your secret API token. You manage your tokens on the [API & Integrations](https://console.apify.com/settings/integrations) page in Apify Console. Give each token a reasonable description, and never use one token for several services, much like you shouldn't use the same password for different accounts.
 
-![Integrations page in Apify Console](../images/api-token.png)
+![Personal API tokens list in Apify Console](../images/api-token-list.webp)
 
 Apify Console shows the value of an API token only once, right after you create or [rotate](#rotation) it. The token list shows each token's description, when it was last used, and when it expires, but you can't view or copy the value of an existing token.
 The Apify CLI doesn't need a copied token. When you sign in with [`apify login`](/cli/docs/reference#apify-auth-login--apify-login) in the browser, it creates a token for your device and stores it for you.
