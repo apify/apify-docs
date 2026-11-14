@@ -134,7 +134,7 @@ This works out of the box. It's typically used on older websites such as [Turkis
 
 ## Form submit navigations with side-effects
 
-Those are similar to the ones above with an important caveat. Once you click the first thing, it usually modifies the page in a way that causes more clicking to become impossible. We deal with those by scraping the pages one by one, using the pagination "next" button. See [Maxwell Materials](http://www.maxwellrender.com/materials/) and use the following selector:
+Those are similar to the ones above with an important caveat. Once you click the first thing, it usually modifies the page in a way that causes more clicking to become impossible. We deal with those by scraping the pages one by one, using the pagination "next" button. For example, on a site that uses Bootstrap-style pagination, the selector could look like this:
 
 ```js
 'li.page-item.next a';
