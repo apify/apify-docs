@@ -1,6 +1,7 @@
 get:
   tags:
     - Users
+    - Actor Runtime API/Users
   summary: Get private user data
   description: |
     Returns information about the current user account, including both public

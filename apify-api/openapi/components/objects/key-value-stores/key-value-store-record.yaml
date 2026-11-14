@@ -15,18 +15,22 @@ commonErrors: &commonErrors
 sharedTagById: &sharedTagById
   tags:
     - Storage/Key-value stores
+    - Actor Runtime API/Key-value stores
 
 sharedTagDefault: &sharedTagDefault
   tags:
     - Default key-value store
+    - Actor Runtime API/Key-value stores
 
 sharedTagLastRun: &sharedTagLastRun
   tags:
     - Last Actor run's default key-value store
+    - Actor Runtime API/Key-value stores
 
 sharedTagTaskLastRun: &sharedTagTaskLastRun
   tags:
     - Last Actor task run's default key-value store
+    - Actor Runtime API/Key-value stores
 
 sharedGet: &sharedGet
   responses:

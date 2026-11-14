@@ -24,6 +24,7 @@ common200: &common200
 sharedById: &sharedById
   tags:
     - Storage/Request queues
+    - Actor Runtime API/Request queues
   parameters:
     - $ref: "../../parameters/requestQueueParameters.yaml#/queueId"
 
@@ -74,6 +75,9 @@ getById:
 
 getDefault:
   <<: [*sharedGet, *sharedDefault]
+  tags:
+    - Default request queue
+    - Actor Runtime API/Request queues
   summary: Get the default request queue of an Actor run
   description: |
     Returns the default request queue associated with an Actor run.
@@ -84,6 +88,9 @@ getDefault:
 
 getLastRun:
   <<: [*sharedGet, *sharedLastRun]
+  tags:
+    - Last Actor run's default request queue
+    - Actor Runtime API/Request queues
   summary: Get the default request queue of an Actor's last run
   description: |
     Returns the default request queue associated with the last Actor run.
@@ -94,6 +101,9 @@ getLastRun:
 
 getTaskLastRun:
   <<: [*sharedGet, *sharedTaskLastRun]
+  tags:
+    - Last Actor task run's default request queue
+    - Actor Runtime API/Request queues
   summary: Get the default request queue of an Actor task's last run
   description: |
     Returns the default request queue associated with the last Actor task run.

@@ -1,6 +1,7 @@
 get:
   tags:
     - Webhooks/Webhook dispatches
+    - Actor Runtime API/Webhooks
   summary: Get list of webhook dispatches
   description: |
     Gets the list of webhook dispatches that the user have.

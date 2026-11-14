@@ -1,6 +1,7 @@
 get:
   tags:
     - Schedules
+    - Actor Runtime API/Schedules
   summary: Get list of schedules
   description: |
     Gets the list of schedules that the user created.
@@ -48,6 +49,7 @@ get:
 post:
   tags:
     - Schedules
+    - Actor Runtime API/Schedules
   summary: Create schedule
   description: |
     Creates a new schedule with settings provided by the schedule object passed

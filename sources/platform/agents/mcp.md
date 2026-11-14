@@ -147,7 +147,7 @@ For supported payment protocols and spending limits, read [Agentic payments](/ag
 
 ## Tool selection
 
-By default, the MCP server loads the `actors` and `docs` tool categories, the `apify/rag-web-browser` and `apify/web-fetch` Actors, and `report-problem`. You can customize which tools
+By default, the MCP server loads the `actors` and `docs` tool categories, the `apify/web-search` and `apify/web-fetch` Actors, and `report-problem`. You can customize which tools
 are available by adding parameters to the server URL:
 
 `https://mcp.apify.com?tools=actors,docs,apify/rag-web-browser`
@@ -168,12 +168,14 @@ Use the UI configurator `https://mcp.apify.com/` to select your tools visually, 
 
 ### Use without an account
 
-The Apify MCP server accepts requests without an API token when the `tools` query parameter contains only tools enabled for unauthenticated use. These tools cover Actor discovery and documentation lookup:
+The Apify MCP server accepts requests without an API token when the `tools` query parameter contains only tools enabled for unauthenticated use. These tools cover Actor discovery, documentation lookup, and the Apify API reference:
 
 - `search-actors`
 - `fetch-actor-details`
 - `search-apify-docs`
 - `fetch-apify-docs`
+- `apify-api-search`
+- `apify-api-details`
 
 For example, the following URL connects without authentication:
 
@@ -188,8 +190,12 @@ If the `tools` parameter includes any other tool, or you connect to the default 
 | `search-actors` | `actors` | ✅ | Search for Actors in Apify Store |
 | `fetch-actor-details` | `actors` | ✅ | Retrieve detailed information about a specific Actor, including its input and output schema, README (summary when available, full otherwise), and pricing |
 | `call-actor` | `actors` | ✅ | Run an Actor and wait up to `waitSecs` (0-45, default 30) for it to finish. Pass run limits (`memory`, `timeout`, `maxItems`, `maxTotalChargeUsd`) in `callOptions`, not in the Actor input. Returns the run status and storage IDs, not the results themselves |
-| [`apify/rag-web-browser`](https://apify.com/apify/rag-web-browser) | Actor | ✅ | Browse and extract web data |
+| `fetch-actor-mcp-tool-list` | `actors` | ✅ | List the tools of an Actor that runs an MCP server, with their schemas, annotations, and metadata |
+| `call-actor-mcp-tool` | `actors` | ✅ | Call one tool on an Actor's MCP server and return its result |
+| `send-server-actor-request` | `actors` | ✅ | Send one HTTP request to a Server Actor's API, as documented by its API schema, and return the response |
+| [`apify/web-search`](https://apify.com/apify/web-search) | Actor | ✅ | Search the web and return one page of results: titles, URLs, and snippets |
 | [`apify/web-fetch`](https://apify.com/apify/web-fetch) | Actor | ✅ | Fetch one http(s) URL and return its full content, rendering JavaScript and bypassing anti-bot protection |
+| [`apify/rag-web-browser`](https://apify.com/apify/rag-web-browser) | Actor | | Search the web and return the content of the top results |
 | `search-apify-docs` | `docs` | ✅ | Search the Apify documentation for relevant pages |
 | `fetch-apify-docs` | `docs` | ✅ | Fetch the full content of an Apify documentation page by its URL |
 | `get-actor-run` | `runs` | | Get detailed information about a specific Actor run |
@@ -213,13 +219,28 @@ If the `tools` parameter includes any other tool, or you connect to the default 
 | `get-schedule` | `schedules` | | Get a schedule's cron expression, time zone, state, and next run |
 | `update-schedule` | `schedules` | | Change a schedule's cron expression, time zone, state, or actions |
 | `delete-schedule` | `schedules` | | Delete a schedule permanently |
+| `get-actor-build` | `builds` | | Get the status of an Actor build |
+| `get-actor-build-log` | `builds` | | Read the log of an Actor build |
+| `get-actor-build-list` | `builds` | | List the account's builds, or one Actor's, in every status, newest first |
+| `build-actor` | `builds` | | Build an Actor version and wait a bounded time for the build to finish |
+| `get-actor-version` | `versions` | | Get an Actor version's file listing with hashes, plus the content of the files you ask for |
+| `create-actor` | `versions` | | Create a private Actor in your account from files, optionally starting a build |
+| `update-actor-version` | `versions` | | Write, edit, or delete files of an Actor version in one all-or-nothing write |
+| `create-actor-version` | `versions` | | Add a version to an Actor, from files or as a copy of another version, optionally starting a build |
+| `delete-actor-version` | `versions` | | Delete an Actor version. Its builds and their tags stay |
+| `apify-api-search` | `api` | | Search the Apify API reference by keywords |
+| `apify-api-details` | `api` | | Get the parameters and request body schema of the Apify API operations on a path |
+| `apify-api-read` | `api` | | Send a `GET` request to an Apify API path. Refuses the synchronous run endpoints, which start a paid run |
+| `apify-api-write` | `api` | | Send a `POST`, `PUT`, `PATCH`, or `DELETE` request with a JSON body to any Apify API path |
+| `get-actor-list` | none | | List the Actors you own and those shared with you, including private ones. Load it by name: `tools=get-actor-list` |
+| `delete-actor` | none | | Delete an Actor from your account permanently. Load it by name: `tools=delete-actor` |
 | `report-problem` | `dev` | ✅ | Report a problem with the MCP server to Apify |
 
 :::note Retrieving Actor results
 
 `call-actor` returns the run's status and storage IDs, not its output. To read the results, use `get-dataset-items` with the `datasetId` from the run. It supports limit, offset, and field filtering.
 
-Whenever `call-actor` or a specific Actor tool such as `apify--rag-web-browser` is loaded, the server also adds `get-actor-run`, `get-dataset-items`, `get-key-value-store-record`, and `abort-actor-run`, even if you didn't select them. A default configuration therefore exposes them too.
+Whenever `call-actor` or a specific Actor tool such as `apify--web-search` is loaded, the server also adds `get-actor-run`, `get-dataset-items`, `get-key-value-store-record`, and `abort-actor-run`, even if you didn't select them. A default configuration therefore exposes them too.
 
 :::
 
@@ -284,7 +305,7 @@ For the local stdio server, opt out of telemetry using a CLI flag or an environm
 
 ## Rate limits and performance
 
-The Apify MCP server allows up to _30_ requests per second per user. This limit applies to all operations including Actor runs, storage access, and
+The Apify MCP server allows up to _20_ requests per second per user. This limit applies to all operations including Actor runs, storage access, and
 documentation queries. If you exceed this limit, you'll receive a `429` response and should implement appropriate retry logic.
 
 <!-- markdownlint-disable MD001 -->

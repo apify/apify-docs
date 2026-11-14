@@ -28,6 +28,7 @@ byRunId:
   <<: *sharedResurrect
   tags:
     - Actor runs
+    - Actor Runtime API/Actor runs
   summary: Resurrect Actor run
   description: |
     Resurrects a finished Actor run and returns an object that contains all the details about the resurrected run.
