@@ -203,6 +203,12 @@ jobs:
           echo "Build ${{ steps.push.outputs.build-id }} finished with status ${{ steps.push.outputs.build-status }}"
 ```
 
+:::tip Run platform tests with apify-test-tools
+
+To run tests against real Actor runs before you release, use [apify-test-tools](https://github.com/apify/apify-test-tools). For each pull request, it builds a test version of every Actor you changed and runs your tests on the platform. For details, see [Test on the Apify platform](/actors/development/test-and-debug#apify-test-tools).
+
+:::
+
 ### Exit codes
 
 `apify push` waits for the build to finish and reports its outcome with the exit code, so a failed build fails the pipeline step on its own.

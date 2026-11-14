@@ -1,0 +1,41 @@
+---
+title: Test and debug Actors
+sidebar_label: Test and debug
+description: Test Actors locally, on the Apify platform, and in CI with apify-test-tools. Find out what Apify checks for Store Actors and how to debug a failing run.
+slug: /actors/development/test-and-debug
+sidebar_position: 8
+---
+
+An Actor that works on your machine can still fail on the Apify platform. Run your Actor locally while you develop, test it on the platform before you release it, and debug the runs that fail.
+
+## Test locally
+
+Before you deploy your Actor, run it locally with the [Apify CLI](/cli/docs):
+
+```bash
+apify run
+```
+
+The run reads its input from `storage/key_value_stores/default/INPUT.json` and writes its output to the `storage` folder of your project. You can edit `INPUT.json` to try different inputs, and check the results without using platform resources.
+
+## Test on the Apify platform {#apify-test-tools}
+
+To catch problems that only appear in a real run, such as proxy errors or memory limits, use [apify-test-tools](https://github.com/apify/apify-test-tools). It's an open-source package that builds, tests, and releases Actors from a Git repository.
+
+apify-test-tools has three parts:
+
+- A Vitest library for writing tests that run your Actor on the Apify platform and check its status, log, dataset, and key-value store. It also supports [Server Actors](/actors/development/programming-interface/server-actors).
+- GitHub Actions workflows that build and test the Actors changed in each pull request, release them on every merge, and run tests on a schedule to catch problems caused by changes on target websites.
+- A CLI for building your own pipeline on a CI platform other than GitHub, or for building and testing locally.
+
+The tool builds and tests only the Actors that a change affects, which saves time and platform costs in repositories with many Actors. To set up apify-test-tools in your repository, follow the [README](https://github.com/apify/apify-test-tools/blob/master/README.md).
+
+## Automated testing of Store Actors
+
+Apify tests Actors published in Apify Store and flags those that fail the checks. For details on these tests and how to restore your Actor's healthy status, see [Actor testing in Apify Store](/actors/publishing/test).
+
+## Debug Actor runs
+
+You can reproduce most bugs locally with your IDE's debugger. When a bug only happens on the platform, attach a debugger to the run itself. You can set breakpoints and inspect variables from your browser or from your local IDE.
+
+For details, see [Debug Actors on the Apify platform](./debugging.md).
