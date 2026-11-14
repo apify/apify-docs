@@ -1,13 +1,26 @@
 ---
 title: HubSpot integration
-description: Enrich your HubSpot CRM with business contacts scraped from company websites using Apify's Contact Details Scraper, installed as a CRM card.
+description: Enrich HubSpot company records with emails, phone numbers, and social profiles found on company websites, using the Apify app as a CRM card.
 sidebar_label: HubSpot
 slug: /integrations/hubspot
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
-With the Apify integration for [HubSpot](https://www.hubspot.com/), you can enrich your CRM with business contacts scraped from company websites. The integration runs as a CRM card inside your HubSpot portal, uses Apify's [Contact Details Scraper](https://apify.com/vdrmota/contact-info-scraper) to extract contacts, and writes results back as HubSpot contacts automatically.
+With the Apify integration for [HubSpot](https://www.hubspot.com/), you can enrich your company records with public contact data found on each company's own website. The integration runs as a CRM card inside your HubSpot portal, uses Apify's [Contact Details Scraper](https://apify.com/vdrmota/contact-info-scraper) to crawl the website, and writes the results to the company properties you choose.
+
+The integration fills these fields:
+
+- General email
+- Main phone
+- LinkedIn company page
+- X (Twitter)
+- Facebook page
+- Instagram
+- YouTube
+- TikTok
+
+The integration only updates company records. It doesn't create or update contacts, and it doesn't collect data about individual people.
 
 <ThirdPartyDisclaimer />
 
@@ -15,7 +28,7 @@ With the Apify integration for [HubSpot](https://www.hubspot.com/), you can enri
 
 To use the Apify integration for HubSpot, you need:
 
-- A [HubSpot account](https://www.hubspot.com/) with CRM access (Contacts, Companies).
+- A [HubSpot account](https://www.hubspot.com/) with CRM access to companies.
 - An [Apify account](https://console.apify.com/).
 - Admin permissions in HubSpot to install apps.
 - Company records with a website URL in HubSpot (or you can provide a temporary URL).
@@ -26,8 +39,8 @@ Install the Apify app from the HubSpot Marketplace:
 
 1. Find the **Apify** app in the HubSpot Marketplace (or use the install link provided by your Apify contact).
 1. Select **Install**. This starts a two-step OAuth authorization:
-   - **Step 1:** Authorize HubSpot to share your CRM data with Apify (contacts, companies, properties).
-   - **Step 2:** You are redirected to Apify Console to authorize your Apify account.
+   - **Step 1:** Authorize the app to read and write company records in your HubSpot portal.
+   - **Step 2:** You're redirected to Apify Console to authorize your Apify account.
 1. On success, you see an installation confirmation page.
 
 The app is now connected to both your HubSpot portal and your Apify account.
@@ -43,86 +56,89 @@ After installation, add the Apify card to your company record pages:
 1. Select **Add card**, then go to the **Card Library**.
 1. Search for **Apify** and select **Add card**.
 
-The Apify card now appears on the right sidebar of your company record pages.
+The Apify card now appears in the **Apify Data Enrich** tab of your company record pages.
 
-## Create a lead enrichment
+## Create a company enrichment
 
-Select the **+ Add Lead Enrichment** button in the Apify card to open the configuration wizard.
+Select **+ Add Company Enrichment** in the Apify card to open the configuration wizard.
 
-### Step 1: Configure enrichment details
+### Step 1: Name the enrichment
 
-| Field | Description | Default |
-| ----- | ----------- | ------- |
-| **Enrichment config name** | A label for this configuration. | Auto: "Lead Enrichment - [date]" |
-| **Number of Business leads per company** | Maximum contacts to scrape per company website (minimum 1). | 100 |
-| **Department of the Company** | Filter contacts by department (IT, Marketing, Finance, HR, and more). | None (all departments) |
-| **Deduplication** | How to identify duplicate contacts: **Email** or **Phone**. | Email |
-| **Apply Rules To** | Which companies to target. | Only this company |
+Enter an **Enrichment config name**. The default is `Company Enrichment - <date>`.
 
-For **Apply Rules To**, you have three options:
-
-- **Only this company** - enrich only the current company.
-- **Specific companies** - pick multiple companies from a list.
-- **All companies** - target every company in your portal with a website URL.
-
-![Configuration wizard - Step 1 showing the enrichment details form with name, leads count, department, deduplication dropdown, and apply rules radio buttons](../images/HubSpot/HubSpot_config_wizard_step_1.webp)
-
-If the current company has no website URL in its HubSpot record, a warning dialog appears with two options:
+The wizard also checks that the current company has a website. If its HubSpot record has no `website` or `domain` property, a warning appears with two options:
 
 - **Update the HubSpot record** - edit the company in HubSpot, then select **Check again**.
-- **Use a temporary URL** - enter a URL manually just for this enrichment (does not change the HubSpot record).
+- **Use a temporary URL** - enter a URL just for this run. The URL isn't saved to the HubSpot record or to the enrichment.
 
 ### Step 2: Map fields
 
-Field mappings define which data from the scraper goes into which HubSpot contact property. Default mappings are pre-filled for common fields:
+Field mappings define which value from the company's website goes into which HubSpot company property. You can map each source field to any company property in your portal, standard or custom.
 
-| Apify source field | HubSpot contact property |
-| ------------------ | ----------------------- |
-| `email` | `email` |
-| `firstName` | `firstname` |
-| `lastName` | `lastname` |
-| `jobTitle` | `jobtitle` |
-| `linkedinProfile` | `hs_linkedin_url` |
-| `mobileNumber` | `phone` |
-| `city` | `city` |
-| `state` | `state` |
-| `country` | `country` |
-| `companyName` | `company` |
+| Source field | Description |
+| ------------ | ----------- |
+| **General email** | A role mailbox on the company's own domain, such as `info@` or `sales@`. |
+| **Main phone** | The first phone number found on the website. |
+| **LinkedIn company page** | The company's LinkedIn page. |
+| **X (Twitter)** | The company's X profile. |
+| **Facebook page** | The company's Facebook page. |
+| **Instagram** | The company's Instagram profile. |
+| **YouTube** | The company's YouTube channel. |
+| **TikTok** | The company's TikTok profile. |
+
+When you create a new enrichment, these mappings are pre-filled if the target property exists in your portal:
+
+| Source field | HubSpot company property |
+| ------------ | ------------------------ |
+| **LinkedIn company page** | `linkedin_company_page` |
+| **Facebook page** | `facebook_company_page` |
+| **X (Twitter)** | `twitterhandle` |
+| **Main phone** | `phone` |
 
 Each mapping row has three settings:
 
-- **Apify FIELD (SOURCE)** - dropdown of available output fields from the scraper.
-- **HubSpot CONTACT FIELD (TARGET)** - dropdown of your HubSpot contact properties (both standard and custom).
-- **WHEN ALREADY SET** - **Overwrite** (replace existing value) or **Skip if set** (keep existing non-empty values).
+- **Apify field (source)** - one of the eight source fields.
+- **HubSpot company field (target)** - a HubSpot company property.
+- **When already set** - **Overwrite** (replace the existing value) or **Skip if set** (only write when the property is empty).
 
-![Configuration wizard - Step 2 showing the field mappings table with source field dropdowns, target field dropdowns, and overwrite/skip selectors](../images/HubSpot/HubSpot_config_wizard_step_2.webp)
+![Field mappings step showing the four pre-filled mappings: LinkedIn company page, Facebook page, X (Twitter), and Main phone mapped to HubSpot company fields, all set to Overwrite](../images/HubSpot/HubSpot_config_wizard_step_2.webp)
 
 - Each HubSpot property can only be used once as a target.
 - Select **Add a mapping** to add more rows.
-- You can save a config with zero mappings - a confirmation dialog will ask you to confirm.
 
-Select **Save & Run** to save the configuration and immediately start an enrichment run.
+Select **Save** to save the configuration.
+
+### Step 3: Choose which companies to enrich
+
+After you save a new enrichment, the **Run Configuration** dialog opens. Choose which companies to enrich:
+
+- **Only this company** - enrich only the current company.
+- **Specific companies** - search for and pick several companies.
+- **All companies** - enrich every company in your portal.
+
+The same dialog opens whenever you run the enrichment again from its run history, so you can target different companies on each run.
 
 ## Manage your enrichments
 
 ### Active enrichments list
 
-The main card view shows all your enrichment configurations for the current HubSpot portal, with 10 configs per page.
+The **Active enrichments** section of the card shows all company enrichment configurations for the current HubSpot portal.
 
 | Column | Description |
 | ------ | ----------- |
-| **CONTACTS ENRICHMENT** | Config name. Click to open run history. |
+| **COMPANY ENRICHMENT** | Config name. |
+| **TOTAL RUNS** | Number of runs of this config. |
 | **LAST RUN** | Date of the most recent run (newest first). |
-| **STATUS** | Real-time status badge. |
-| **ACTIONS** | Refresh (re-run), Edit, Delete. |
+| **STATUS** | Status badge of the latest run. |
+| **ACTIONS** | Open run history, Edit, Delete. |
 
-![Active enrichments list view showing multiple enrichment configs with status badges and action buttons](../images/HubSpot/HubSpot_active_enrichments_list.webp)
+![Apify Data Enrich tab showing the Add Company Enrichment button and the Active enrichments list with two company enrichment configs](../images/HubSpot/HubSpot_active_enrichments_list.webp)
 
-The list updates automatically every second while any config is actively running.
+The list updates automatically while a run is in progress.
 
 ### Run history
 
-Select any config name in the active enrichments list to open its run history.
+Select the arrow next to a config in the active enrichments list to open its run history.
 
 The header shows:
 
@@ -136,147 +152,153 @@ Each run in the history table shows:
 | Column | Description |
 | ------ | ----------- |
 | **Started** | When the run began. |
-| **Status** | Badge showing current state. |
+| **Status** | Badge showing the current state. |
+| **Companies** | Number of companies in the run. |
 | **Duration** | How long the run took (or "In progress" for active runs). |
-| **Created** | Number of new contacts created. |
-| **Updated** | Number of existing contacts updated. |
-| **Skipped** | Number of contacts intentionally skipped. |
-| **Results** | External link to view dataset in Apify Console. |
+| **Updated** | Number of companies whose properties were written. |
+| **Skipped** | Number of companies with nothing to write. |
+| **Failed** | Number of companies HubSpot rejected the update for. |
+| **Results** | View the results, or open the dataset in Apify Console. |
 
-![Run history view with expanded row showing per-company breakdown, field mappings used, and companies in run](../images/HubSpot/HubSpot_per_company_result.webp)
+Expand a row to see:
 
-Expand a row (select the arrow) to see:
+- **Per company** - the result for each company, with a **Company**, **Result**, and **Reason** column.
+- **Companies in run** - the website domains included.
+- **Field mappings** - the mappings applied in that run.
 
-- Error message (if the run failed).
-- Per-company breakdown - Created, Updated, Skipped, and Error counts per company (up to 5 companies displayed).
-- Companies in run - list of company domains included.
-- Field mappings used - the exact mappings that were applied.
+A skipped company shows, for example, `Acme Corp | Skipped | Website could not be scraped (0 pages)`. For all possible results, see [Company results](#company-results).
 
-The history shows 20 runs per page and auto-refreshes every 10 seconds while the newest run is active.
+![Run history with an expanded run showing the per-company results, companies in run, and field mappings used](../images/HubSpot/HubSpot_per_company_result.webp)
+
+Select the info icon on a completed run to see the number of companies updated, skipped, and failed, the per-company results, and links to the scraper run and its dataset in Apify Console.
 
 ### Abort a run
 
-While a run is in progress, an **Abort** button appears next to the status badge. Selecting it stops both the scraper and data-import processes and marks the run as errored with "Aborted by user."
+While a run is in progress, an **Abort** button appears next to the status badge. Selecting it stops the run and marks it as errored with "Aborted by user."
 
-## Run statuses
+## How enrichment works
 
-Each run goes through these stages:
+Each run goes through two stages:
 
-| Status | What it means |
-| ------ | ------------- |
-| **Running** | The Contact Details Scraper is visiting company websites and extracting contacts. |
-| **Importing** | The data-import process is writing contacts to your HubSpot CRM. |
-| **Success** | All companies were processed without errors. |
-| **Partial Success** | Some companies processed successfully, some had errors. |
-| **Error** | The run failed (either scraping or import phase). |
+1. **Scraping** - the Contact Details Scraper visits each company's website. It crawls the homepage and the pages it links to directly, such as contact and about pages, up to 10 pages per website.
+1. **Importing** - Apify picks one clean value for each source field and writes the mapped values to the company record in HubSpot.
 
-Only one run can be active per config. Starting a new run while one is in progress will show an error.
+### How values are picked
 
-Select the info icon on any completed run to see detailed statistics, including rows total, created/updated/skipped counts, per-company breakdown, and links to the scraper and import runs on Apify Console.
+The scraper often finds several candidates for a field. The integration keeps only one value per field, using these rules:
 
-## How data is written
-
-### Deduplication
-
-The system checks whether a scraped contact already exists in your HubSpot:
-
-- **Email mode (default):** Searches contacts by `email` property.
-- **Phone mode:** Searches contacts by `phone` property.
-
-If a matching contact is found, it is updated. If no match is found, a new contact is created. Contacts without a deduplication identifier (no email in email mode, no phone in phone mode) are skipped.
+- **General email** - only role mailboxes on the company's own domain or its subdomains, such as `info@`, `contact@`, `hello@`, `sales@`, or `support@`. Personal addresses like `jane@` and addresses on other domains are ignored.
+- **Main phone** - the first phone number found on the website, written as it appears there.
+- **Social profiles** - the first link that points to a profile or page, not to a post, video, or share button. LinkedIn only accepts company or school pages, not personal profiles. Links are normalized, so `twitter.com` links become `x.com`.
+- **X handle** - when the target property is `twitterhandle`, the bare handle is written (for example, `apify`) instead of the full URL.
 
 ### Overwrite behavior
 
-For each field mapping, you choose what happens when the target HubSpot property already has a value:
+For each field mapping, you choose what happens when the company property already has a value:
 
 - **Overwrite** - the existing value is always replaced with the scraped value.
-- **Skip if set** - if the HubSpot property already has a non-empty value, it is preserved. The scraped value is only written if the property is currently empty.
+- **Skip if set** - the existing value is kept. The scraped value is only written if the property is empty.
 
-If all mapped fields are already populated and all are set to **Skip if set**, the contact is skipped entirely.
+If every mapped property is already filled and set to **Skip if set**, the company is skipped.
 
-### Country normalization
+## Run statuses
 
-Country values from the scraper are normalized to ISO 3166-1 alpha-2 codes when writing to the `country` property. For example, "United States" becomes "US," "United Kingdom" becomes "GB," and "Germany" becomes "DE." Over 40 country name variants are recognized.
+| Status | What it means |
+| ------ | ------------- |
+| **Running** | The Contact Details Scraper is visiting company websites. |
+| **Importing** | The scraped values are being written to your HubSpot company records. |
+| **Success** | All companies were processed without errors. |
+| **Partial Success** | Some companies were updated, others were skipped with a reason or failed. |
+| **Error** | The run failed, or no company could be updated. |
 
-### Association
+Only one run can be active per config. Starting a new run while one is in progress shows an error.
 
-Each created or updated contact is automatically associated with the correct company record in HubSpot using the standard contact-to-company association. If the association fails but the contact was written successfully, the contact data is preserved and the association error is logged separately.
+:::note Skipped companies affect the run status
+
+A company skipped with a reason counts toward the run status the same way as a failure. A run where some companies were skipped shows **Partial Success**, and a run where every company was skipped shows **Error**. Check the per-company **Result** and **Reason** to see what happened.
+
+:::
+
+### Company results
+
+| Result | Reason | What it means |
+| ------ | ------ | ------------- |
+| **Updated** | - | At least one property was written to the company. |
+| **Skipped** | No company URL provided | The company has no website or domain. |
+| **Skipped** | No matching dataset item found | The scraper returned no data for the company's URL. |
+| **Skipped** | Website could not be scraped (0 pages) | The website was unreachable or blocked the scraper. |
+| **Skipped** | No mappable data found on the website | The website had none of the fields you mapped. |
+| **Skipped** | - | Every mapped property already had a value and was set to **Skip if set**. |
+| **Failed** | HubSpot's error message | HubSpot rejected the update, for example because a value didn't pass property validation. |
 
 ## Limitations
 
-- **Lead enrichment only.** The integration currently supports only the Contact Details Scraper. A General Enrichment option that would let you use any Apify Actor is planned but not yet available.
-- **Contacts, not companies.** The integration writes data to HubSpot Contacts (and associates them to companies). It does not modify company records.
-- **Company website required.** Each target company must have a website URL in its HubSpot record (or a temporary URL must be provided).
-- **One run at a time per config.** You cannot start a new run while one is already in progress.
-- **No automated scheduling.** Enrichment runs must be triggered manually.
-- **Per-company UI limit.** The run history view shows up to 5 companies in the per-company breakdown. For full results, use the **View import results** link to Apify Console.
-- **HubSpot API rate limits apply.** If your portal has a high volume of contacts being imported, HubSpot may throttle API calls.
+- **Company records only.** The integration doesn't create or update contacts.
+- **One value per field.** If a website lists several phone numbers or LinkedIn pages, only the first valid one is written.
+- **Role emails on the company domain only.** Companies whose only email is personal or on another domain, such as a parent brand, get no general email.
+- **No phone formatting.** Phone numbers are written as they appear on the website.
+- **Shallow crawl.** The scraper visits up to 10 pages per website, one link deep from the homepage. Data on deeper pages can be missed.
+- **Company website required.** Each company needs a website or domain in HubSpot, or a temporary URL.
+- **One run at a time per config.** You can't start a new run while one is in progress.
+- **No automated scheduling.** Runs must be triggered manually.
 
 ## FAQ
 
 ### Does the integration modify my existing HubSpot data?
 
-It only modifies contacts. It can create new contacts or update existing ones based on your deduplication and overwrite settings. Company records are never modified. You control exactly which fields are written via field mappings.
-
-### What happens if a scraped contact already exists in HubSpot?
-
-The system searches for existing contacts by email (or phone, depending on your deduplication setting). If a match is found, the contact is updated with the mapped fields (respecting your overwrite/skip preferences). If no match is found, a new contact is created.
+Only the company properties you map. Use **Skip if set** on a mapping to keep existing values and only fill empty properties. Contacts are never created or changed.
 
 ### Can I enrich multiple companies at once?
 
-Yes. Use the **Specific companies** option to pick multiple companies, or **All companies** to target every company in your portal with a website URL.
+Yes. When you run an enrichment, select **Specific companies** to pick several companies, or **All companies** to target every company in your portal.
 
 ### How do I see what data was scraped?
 
-Each run in the Run History view has a **Results** link that opens the full dataset in Apify Console, where you can browse every scraped data point.
+Each run in the run history has a **Results** link that opens the dataset in Apify Console. The dataset includes every value extracted for each company, including fields you didn't map.
 
 ### Can I cancel a run that is in progress?
 
-Yes. Select the **Abort** button that appears next to the status badge on any running or importing run.
+Yes. Select the **Abort** button next to the status badge of a running or importing run.
 
 ### Does this cost Apify credits?
 
-Yes. Running the Contact Details Scraper consumes your Apify account credits based on the number of websites scraped and contacts extracted. Check your Apify Console for usage and billing details.
+Yes. The Contact Details Scraper runs on your Apify account and consumes credits for each website it crawls. Check Apify Console for usage and billing details.
 
 ## Troubleshooting
 
 ### Missing website URL
 
-**Symptom:** When creating a lead enrichment, you see a warning that the company has no website URL.
+**Symptom:** When creating a company enrichment, you see a warning that the website URL is required to enrich this company.
 
 ![Website URL field highlighted in a HubSpot company record](../images/HubSpot/HubSpot_website_url.webp)
 
 **Solution:**
 
 - Edit the company record in HubSpot and add the website URL, then select **Check again**.
-- Or enter a temporary URL in the card for this enrichment only.
+- Or enter a temporary URL in the card for this run only.
 
-A company without a website cannot be enriched - the scraper needs a URL to visit.
+A company without a website can't be enriched - the scraper needs a URL to visit.
+
+### Company skipped
+
+**Symptom:** A company shows **Skipped** with a reason in the run results.
+
+**Solution:** Check the reason in [Company results](#company-results). The most common causes are:
+
+- The company's website URL in HubSpot is wrong or points to a redirect. Fix the URL and run again.
+- The website blocks crawlers. The integration can't enrich these companies.
+- The website doesn't list the data you mapped. Try mapping more source fields.
 
 ### Run errors
 
-**Symptom:** A run shows Error status.
-
-**Possible causes:**
+**Symptom:** A run shows **Error** status.
 
 | Error stage | Cause |
 | ----------- | ----- |
-| **Scraping** | Company website is unreachable, blocks crawlers, or has no contacts to extract. |
-| **Importing** | HubSpot API rate limits, property validation errors, or authentication expired. |
+| **Scraping** | The scraper run failed. |
+| **Importing** | The HubSpot connection is missing permissions or has expired, or every company was skipped or failed. |
 
-Select the info icon on the errored run to see the specific error message. You can also select **View scraper run** or **View import Actor run** to see details in Apify Console.
-
-### No matching dataset items
-
-**Symptom:** A run finishes successfully but a specific company shows no imported contacts.
-
-**Possible causes:**
-
-- The company website URL in HubSpot does not match the URL the scraper used.
-- The scraper could not access the website.
-- No contacts matching your filters (department, deduplication mode) were found.
-
-Try re-running with different filters or verify the company website is accessible.
+Select the info icon on the run to see the error message, and select **View scraper run** to see the details in Apify Console.
 
 ## Uninstall the integration
 
@@ -284,10 +306,10 @@ To remove the Apify integration from HubSpot, select the settings icon in the to
 
 ![Uninstall option in the Apify card settings menu](../images/HubSpot/HubSpot_uninstall_guide.webp)
 
-Your enriched contact data remains in HubSpot - only the app connection is removed.
+Company data already written to HubSpot remains - only the app connection is removed.
 
 ## Next steps
 
 - After setting up your first enrichment, browse the [Apify Store](https://apify.com/store) for more scraping Actors.
-- If you are building custom workflows, see how to [integrate Actors via API](/integrations/actors/integrating-actors-via-api).
+- If you're building custom workflows, see how to [integrate Actors via API](/integrations/actors/integrating-actors-via-api).
 - For questions or help, contact the Apify team at [integrations@apify.com](mailto:integrations@apify.com) or in the [developer community on Discord](https://discord.com/invite/jyEM2PRvMU).
