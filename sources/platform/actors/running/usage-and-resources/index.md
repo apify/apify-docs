@@ -1,0 +1,108 @@
+---
+title: Actor usage and resources
+sidebar_label: Usage and resources
+description: Learn about memory and processing power requirements for Apify Actors, their relationship with Docker resources, and how resource allocation affects cost.
+sidebar_position: 2
+slug: /actors/running/usage-and-resources
+---
+
+## Resources
+
+[Actors](../../index.mdx) run in [Docker containers](https://www.docker.com/resources/what-container/), which have a [limited amount of resources](https://phoenixnap.com/kb/docker-memory-and-cpu-limit) (memory, CPU, disk size, etc). When starting, the Actor needs to be allocated a certain share of those resources, such as CPU capacity that is necessary for the Actor to run.
+
+![Setting an Actor's memory](../images/usage_and_resources/memory-settings.png)
+
+Assigning an Actor a specific **Memory** capacity, also determines the allocated CPU power and its disk size.
+
+Check out the [Limits](/account/limits) page for detailed information on Actor memory, CPU limits, disk size and other limits.
+
+### Memory
+
+When invoking an Actor, the caller can specify the memory allocation for the Actor run. If not specified, the Actor's default memory is used (which can be [dynamic](../../development/actor_definition/dynamic_actor_memory/index.md)). The memory allocation must follow these requirements:
+
+- It must be a power of 2.
+- The minimum allowed value is `128MB`
+- The maximum allowed value is `32768MB`
+- Acceptable values include: `128MB`, `256MB`, `512MB`, `1024MB`, `2048MB`, `4096MB`, `8192MB`, `16384MB`, and `32768MB`
+
+Additionally, each user has a certain total limit of memory for running Actors. The sum of memory allocated for all running Actors and builds needs to be within this limit, otherwise the user cannot start a new Actor. For more details, see [limits](/account/limits).
+
+### CPU
+
+The CPU allocation for an Actor is automatically computed based on the assigned memory, following these rules:
+
+- For every `4096MB` of memory, the Actor receives one full CPU core
+- If the memory allocation is not a multiple of `4096MB`, the CPU core allocation is calculated proportionally
+- Examples:
+  - `512MB` = 1/8 of a CPU core
+  - `1024MB` = 1/4 of a CPU core
+  - `8192MB` = 2 CPU cores
+
+#### CPU usage spikes
+
+![A usage spike on an Actor's start-up](../images/usage_and_resources/memory-cpu-usage-spike.png)
+
+[//]: # (Is it still relevant though? Does it still get CPU boost?)
+Sometimes, you see the Actor's CPU use go over 100%. This is not unusual. To help an Actor start up faster, it is allocated a free CPU boost. For example, if an Actor is assigned 1GB (25% of a core), it will temporarily be allowed to use 100% of the core, so it gets started quicker.
+
+### Disk
+
+The Actor has hard disk space limited by twice the amount of memory. For example, an Actor with `1024MB` of memory will have `2048MB` of disk available.
+
+## Choose memory for your Actor
+
+Actors built with [Crawlee](https://crawlee.dev/) use autoscaling, which adjusts how many requests Actors process in parallel to the memory and CPU they get. If you double the memory, the run finishes in about half the time and uses the same number of [compute units](/actors/running/usage-and-resources/compute-units): 1 GB × 1 hour = 2 GB × 0.5 hours = 1 CU.
+
+Start with 4096 MB. To get results faster, [increase the memory](#maximum-memory). To reduce the load on the target website, decrease the memory.
+
+Autoscaling only helps runs that process many URLs for at least 30 seconds. For Actors that scrape one URL or do a single isolated job, use less memory.
+
+To estimate how many compute units your project needs, see [Estimate resource consumption](/actors/running/usage-and-resources/compute-units#estimate-resource-consumption).
+
+### Minimum memory
+
+Each use case has its own memory requirements. The larger and more complex your project, the more memory/CPU power it will require. Some examples which have minimum requirements are:
+
+- Actors using [Puppeteer](https://pptr.dev/) or [Playwright](https://playwright.dev/) for real web browser rendering require at least `1024MB` of memory.
+- Large and complex sites like [Google Maps](https://apify.com/compass/crawler-google-places) require at least `4096MB` for optimal speed and [concurrency](https://crawlee.dev/api/core/class/AutoscaledPool#minConcurrency).
+- Projects involving large amount of data in memory.
+
+### Maximum memory
+
+Apify Actors are most commonly written in [Node.js](https://nodejs.org/en/), which uses a [single thread process](https://dev.to/arealesramirez/is-node-js-single-threaded-or-multi-threaded-and-why-ab1). Unless you use external binaries such as the Chrome browser, Puppeteer, Playwright, or other multi-threaded libraries you will not gain more CPU power from assigning your Actor more than `4096MB` of memory because Node.js cannot use more than 1 core.
+
+In other words, giving a [Cheerio-based crawler](https://apify.com/apify/cheerio-scraper) `16384MB` of memory (4 CPU cores) will not improve its performance, because these crawlers cannot use more than 1 CPU core.
+
+:::note Multi-threaded Node.js configuration
+
+It's possible to [use multiple threads in Node.js-based Actor](https://dev.to/reevranj/multiple-threads-in-nodejs-how-and-what-s-new-b23) with some configuration. This can be useful if you need to offload a part of your workload.
+
+:::
+
+## Usage
+
+When you run an Actor it generates platform usage that's charged to the user account. Platform usage comprises four main parts:
+
+- **[Compute units](/actors/running/usage-and-resources/compute-units)**: Memory allocated to the Actor run or build, multiplied by how long the run lasts.
+- **Data transfer**: The amount of data transferred between the web, Apify platform, and other external systems.
+- **Proxy costs**: Residential or SERP proxy usage.
+- **Storage operations**: Read, write, and other operations performed on the Key-value store, Dataset, and Request queue.
+
+The platform usage can be represented either in raw units (e.g. gigabytes for data transfer, or number of writes for dataset operations), or in the dollar equivalents.
+
+To view the usage of an Actor run, navigate to the **Runs** section and check out the **Usage** column.
+
+![Runs usage](../images/usage_and_resources/usage-and-resources-runs-usage.png)
+
+ For a more detailed breakdown, click on the specific run you want to examine and then on the **?** icon next to the **Usage** label.
+
+![Actors run usage details](../images/usage_and_resources/usage-and-resources-runs-usage-details.png)
+
+:::note Usage billing elements
+
+For technical reasons, when viewing the usage in dollars for a specific historical Actor run or build in the API or Apify Console, your current service pricing is used to compute the dollar amount.
+This should be used for informational purposes only.
+
+:::
+
+For detailed information, FAQ, and, pricing check out the [platform pricing page](https://apify.com/pricing).

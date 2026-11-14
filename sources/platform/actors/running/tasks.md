@@ -24,7 +24,7 @@ You can set up your task's input under the **Input** tab. A task's input configu
 
 An Actors' input fields may vary depending on their purpose, but they all follow the same principle: _you provide an Actor with the information it needs so it can do what you want it to do._
 
-You can set run options such as timeout and [memory](./usage_and_resources.md) in the **Run options** tab of the task's input configuration.
+You can set run options such as timeout and [memory](./usage-and-resources/index.md) in the **Run options** tab of the task's input configuration.
 
 ### Naming
 
