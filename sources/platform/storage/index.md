@@ -121,15 +121,13 @@ The SDKs and clients each have their own naming conventions. See:
 
 ## Data retention
 
-How long Apify keeps your data depends on your plan. Unnamed storages and runs beyond the 10 most recent are deleted automatically; [named storages](#named-and-unnamed-storages) are retained indefinitely.
+How long Apify keeps your data depends on your plan. Unnamed storages and Actor runs are deleted automatically when your plan's retention period ends; [named storages](#named-and-unnamed-storages) are retained indefinitely.
 
 :::info How retention periods are enforced
 
 * Free plan: Your 10 most recent runs are retained for 4 months.
 * Paid plans: All data (including your 10 most recent runs) follows your plan's retention period, which you can configure in your billing settings.
 * Named storages: Always exempt from deletion regardless of retention periods.
-
-Unnamed storages beyond the 10 most recent runs are deleted when the retention period expires.
 
 :::
 

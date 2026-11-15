@@ -129,7 +129,7 @@ To do the same with the API, pass `maxTotalChargeUsd` to the [Resurrect Actor ru
 
 ### Data retention
 
-Apify securely stores your ten most recent runs indefinitely, ensuring your records are always accessible. All **Actor runs** beyond the latest ten are deleted along with their default storages (Key-value store, Dataset, Request queue) after the data retention period based on your [subscription plan](https://apify.com/pricing).
+**Actor runs** are deleted along with their default storages (key-value store, dataset, request queue) when your plan's retention period ends. For the retention period on each plan and how to change it, see [Data retention](/storage#data-retention).
 
 **Actor builds** are deleted only when they are _not tagged_ and have not been used for over 90 days.
 

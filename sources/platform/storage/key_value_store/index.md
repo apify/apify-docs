@@ -14,7 +14,7 @@ Key-value stores are mutable - you can both add entries and delete them.
 
 :::info Retention period
 
-Named key-value stores are retained indefinitely. Unnamed key-value stores expire after 7 days unless otherwise specified. [Learn more](/storage#data-retention)
+Named key-value stores are retained indefinitely. Unnamed key-value stores are deleted when your plan's retention period ends. [Learn more](/storage#data-retention)
 
 :::
 
