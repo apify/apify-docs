@@ -35,7 +35,7 @@ Alternatively, you can choose to connect using Apify API token:
 
     ![API token](../../images/apify-token.png)
 
-1. You can find this token in Apify Console by navigating to **[Settings > API & Integrations](https://console.apify.com/settings/integrations)**
+1. Create an API token for Make in [Apify Console](https://console.apify.com/settings/integrations?createApiToken=true&for=Make.com) and copy it right after creating it - it is shown only once.
 
     ![Integrations token](../../images/apify-integrations-token.png)
 

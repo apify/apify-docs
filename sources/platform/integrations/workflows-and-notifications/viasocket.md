@@ -11,11 +11,10 @@ import ThirdPartyDisclaimer from '@site/sources/\_partials/\_third-party-integra
 
 <ThirdPartyDisclaimer />
 
-## Step 1: Generate an Apify API token
+## Step 1: Create an Apify API token
 
 1. Log in to your [Apify account](https://console.apify.com/).
-1. Go to **Settings > API & Integrations > API Tokens**.
-1. Copy your personal API token.
+1. [Create an API token](https://console.apify.com/settings/integrations?createApiToken=true&for=viaSocket) and copy it right after creating it - it is shown only once.
 
 ![Apify API token settings](../images/viasocket/viasocket-apify-token.png)
 

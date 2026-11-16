@@ -24,7 +24,7 @@ To do so, you will need to navigate to **Sources** tab in Airbyte and select **A
 
 ![Airbyte sources tab](../images/airbyte-sources.png)
 
-You will need to provide a **dataset ID** and your Apify API Token. You can find both of these in [Apify Console](https://console.apify.com).
+You will need to provide a **dataset ID** and your Apify API Token. You can get both of these in [Apify Console](https://console.apify.com).
 
 ![Airbyte source setup](../images/airbyte-source-setup.png)
 
@@ -32,7 +32,7 @@ To find your **dataset ID**, you need to navigate to the **Storage** tab in Apif
 
 ![Datasets in app](../images/datasets-app.png)
 
-To find your Apify API token, you need to navigate to the **Settings** tab and select **API & Integrations**. Copy it and paste it in the relevant field in Airbyte.
+To get an Apify API token, [create one in Apify Console](https://console.apify.com/settings/integrations?createApiToken=true&for=Airbyte). Copy it right after creating it, because it is shown only once, and paste it in the relevant field in Airbyte.
 
 ![Integrations token](../images/apify-integrations-token.png)
 

@@ -47,9 +47,8 @@ info:
     ## Authentication
     <span id="/introduction/authentication"></span>
 
-    **You can create an API token on the
-    [Integrations](https://console.apify.com/settings/integrations) page in the
-    Apify Console.** The Console shows the token only once, right after you create
+    **You can [create an API token in the
+    Apify Console](https://console.apify.com/settings/integrations?createApiToken=true).** The Console shows the token only once, right after you create
     or rotate it, so copy it and store it somewhere safe. For details, see
     [API token](https://docs.apify.com/integrations/api#api-token).
 
@@ -99,7 +98,7 @@ info:
     If the Actor is not runnable anonymously, you will receive a 401 or 403
     [response code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status).
     This means you need to add your [secret API
-    token](https://console.apify.com/account#/integrations) to the request's
+    token](https://docs.apify.com/integrations/api#api-token) to the request's
     `Authorization` header ([recommended](#/introduction/authentication)) or as a
     URL query parameter `?token=[your_token]` (less secure).
 
@@ -110,7 +109,7 @@ info:
     `Apify.call()` method from the [Apify
     SDK](https://sdk.apify.com/docs/api/apify#apifycallactid-input-options). It
     runs the Actor using the account you are currently logged into (determined
-    by the [secret API token](https://console.apify.com/account#/integrations)).
+    by the [secret API token](https://docs.apify.com/integrations/api#api-token)).
     The result is an [Actor run
     object](https://sdk.apify.com/docs/typedefs/actor-run) and its output (if
     any).

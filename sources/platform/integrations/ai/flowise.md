@@ -53,7 +53,7 @@ Now you need to configure the crawler. You can find more information about at [W
 
 ![Flowise and Apify](../images/flowise.png)
 
-In the configuration, provide your Apify API token, which you can find in your [Apify account](https://console.apify.com/settings/integrations).
+In the configuration, provide your Apify API token. Create one in [Apify Console](https://console.apify.com/settings/integrations?createApiToken=true&for=Flowise) and copy it right after creating it - it is shown only once.
 
 ![Apify API token screen](../images/flowise-apify-api.png)
 

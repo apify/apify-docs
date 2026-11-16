@@ -46,7 +46,7 @@ Before connecting your AI to Apify, you need:
 
 - _An Apify account_ - You need one unless your agent uses only the [tools that work without an account](#use-without-an-account) or pays through [agentic payments](#agentic-payments). Sign up for an Apify account, if you don't have one.
 - _MCP client_ - An AI agent or client that supports Model Context Protocol (MCP). This could be [claude.ai](/integrations/claude-ai), [Claude Desktop](/integrations/claude-desktop), [VS Code](/integrations/vscode) with MCP support, or any application that implements the MCP specification. The [official MCP documentation](https://modelcontextprotocol.io/clients) maintains a list of compatible clients.
-- _Apify API token_ (optional) - Only needed for the [local stdio server](#local-stdio) or the [Bearer token option](#streamable-http-with-oauth-recommended). The recommended remote connection signs you in with OAuth instead. Get your token from the **API & Integrations** section in [Apify Console](https://console.apify.com/settings/integrations) and keep it secure.
+- _Apify API token_ (optional) - Only needed for the [local stdio server](#local-stdio) or the [Bearer token option](#streamable-http-with-oauth-recommended). The recommended remote connection signs you in with OAuth instead. [Create an API token](https://console.apify.com/settings/integrations?createApiToken=true) in Apify Console, copy it right after creating it (it is shown only once), and keep it secure.
 
 ## Connect and authorize
 
@@ -60,7 +60,7 @@ The hosted Apify MCP server at `https://mcp.apify.com` supports _output schema i
 
 ### Streamable HTTP with OAuth (recommended)
 
-Add `https://mcp.apify.com` to your MCP client. On first connection, your browser opens so you can sign in to Apify and approve access. To authorize without signing in, use your Apify API token instead.
+Add `https://mcp.apify.com` to your MCP client. On first connection, your browser opens so you can sign in to Apify and approve access. To authorize without signing in, use an Apify API token instead ([create one in Apify Console](https://console.apify.com/settings/integrations?createApiToken=true); it is shown only once).
 
 <Tabs>
 <TabItem value="OAuth" label="OAuth" >
@@ -95,7 +95,7 @@ You can also use your Apify token directly, instead of OAuth, by setting the `Au
 }
 ```
 
-Replace `<APIFY_TOKEN>` with your actual Apify API token from the [API & Integrations section](https://console.apify.com/settings/integrations).
+Replace `<APIFY_TOKEN>` with an Apify API token. [Create one in Apify Console](https://console.apify.com/settings/integrations?createApiToken=true) and copy it right after creating it - it is shown only once.
 
 </TabItem>
 </Tabs>
@@ -319,7 +319,7 @@ For Claude Desktop-specific troubleshooting (tools not loading, connection error
 
 ##### Authentication errors
 
-- _Check your API token_: Verify that your Apify API token is correct. You can find it in the **API & Integrations** section of the [Apify Console](https://console.apify.com/settings/integrations). Without a valid token, the server cannot start Actor runs.
+- _Check your API token_: Verify that your Apify API token is correct. Tokens are shown only once, so if you lost it, [create a new one in Apify Console](https://console.apify.com/settings/integrations?createApiToken=true). Without a valid token, the server cannot start Actor runs.
 - _Set environment variable for local development_: When running the MCP server locally, ensure you have set the `APIFY_TOKEN` environment variable.
 
 ##### Local environment setup

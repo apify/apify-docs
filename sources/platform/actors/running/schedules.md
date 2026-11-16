@@ -72,13 +72,13 @@ For integrations, you can also add a [webhook](/integrations/webhooks) to your t
 
 To create a new [schedule](/api/v2/schedules) using the Apify API, send a `POST` request to the [Create schedule](/api/v2/schedules-post) endpoint.
 
-You can find your [secret API token](/integrations) under the [API & Integrations](https://console.apify.com/settings/integrations) tab of your Apify account settings.
+Use your [secret API token](/integrations/api#api-token). [Create one in Apify Console](https://console.apify.com/settings/integrations?createApiToken=true) and copy it right after creating it - it is shown only once.
 
 :::caution API authentication recommendations
 When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. For details, see [Authentication](/api/v2#authentication).
 :::
 
-In the `POST` request's payload should be a JSON object specifying the schedule's name, your [user ID](https://console.apify.com/settings/integrations), and the schedule's _actions_.
+In the `POST` request's payload should be a JSON object specifying the schedule's name, your user ID (on the [API & Integrations](https://console.apify.com/settings/integrations) page of your account settings), and the schedule's _actions_.
 
 The following JSON object creates a schedule which runs an SEO audit of the Apify domain once a month.
 

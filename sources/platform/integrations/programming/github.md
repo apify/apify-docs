@@ -81,7 +81,7 @@ In such situation, to build your Actor automatically on every push, manually add
 
     :::note API token
 
-    Select the correct API token in the dropdown before copying the URL.
+    Select the correct API token in the dropdown before copying the URL. If you have no token yet, [create one in Apify Console](https://console.apify.com/settings/integrations?createApiToken=true&for=GitHub).
 
     :::
 

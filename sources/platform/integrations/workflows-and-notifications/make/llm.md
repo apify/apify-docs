@@ -16,7 +16,7 @@ Use the Apify Scraper for LLMs module in [Make](https://www.make.com/) to query 
 
 Apify Scraper for LLMs from [Apify](https://apify.com) is a web browsing module for OpenAI Assistants, RAG pipelines, and AI agents. It can query Google Search, scrape the top results, and return page content as Markdown for downstream AI processing.
 
-To use these modules, you need an [Apify account](https://console.apify.com) and an [API token](https://docs.apify.com/integrations/api#api-token). You can find your token in Apify Console under **Settings > API & Integrations**. After connecting, you can automate content extraction and integrate results into your AI workflows.
+To use these modules, you need an [Apify account](https://console.apify.com) and an [API token](https://docs.apify.com/integrations/api#api-token). You can create a token in [Apify Console](https://console.apify.com/settings/integrations?createApiToken=true&for=Make.com). After connecting, you can automate content extraction and integrate results into your AI workflows.
 
 ## Connect Apify Scraper for LLMs
 
@@ -24,12 +24,11 @@ To use these modules, you need an [Apify account](https://console.apify.com) and
 
     ![Make interface showing API token field and connection name field for Apify integration setup](images/llm/rag-signup.png)
 
-1. To connect your Apify account to Make, you can use an OAuth connection (recommended) or an Apify API token. To get the token, go to **[Settings > API & Integrations](https://console.apify.com/settings/integrations)** in Apify Console.
+1. To connect your Apify account to Make, you can use an OAuth connection (recommended) or an Apify API token. To get an Apify API token, create one in [Apify Console](https://console.apify.com/settings/integrations?createApiToken=true&for=Make.com) and copy it right after creating it - it is shown only once.
 
     ![Apify Console sign-up page with email, Gmail, and GitHub sign-up options](images/apify-console-token-for-make.png)
 
-1. Find your token under **Personal API tokens**. You can also create a new token with custom permissions by clicking **+ Create a new token**.
-1. Click the **Copy** icon to copy your API token, then return to your Make scenario.
+1. Copy the token right after creating it, because it is shown only once. Then return to your Make scenario.
 
     ![Apify Console Settings page showing Personal API tokens section with token management options](images/Apify_token_on_Make.png)
 

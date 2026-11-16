@@ -15,7 +15,7 @@ Apify also serves a quickstart for agents to read directly at [`apify.com/agents
 
 ## Prerequisites
 
-Sign up for an [Apify account](https://console.apify.com/sign-up). The free plan includes monthly platform usage credits with no credit card required. Get your API token from **[Console > Settings > Integrations](https://console.apify.com/settings/integrations)**.
+Sign up for an [Apify account](https://console.apify.com/sign-up). The free plan includes monthly platform usage credits with no credit card required. [Create an API token](https://console.apify.com/settings/integrations?createApiToken=true) in Apify Console and copy it right after creating it - it is shown only once.
 
 <ClaudeCodeWebEgress />
 

@@ -40,9 +40,9 @@ To integrate Apify with your Bubble application, you first need to install the A
 
 After installing the plugin, you'll need to provide your API token when setting up Apify actions.
 
-### Get your Apify API token
+### Create your Apify API token
 
-In Apify Console, go to **Settings → API & Integrations** and copy your API token.
+[Create an API token](https://console.apify.com/settings/integrations?createApiToken=true&for=Bubble) in Apify Console and copy it right after creating it - it is shown only once.
 ![Apify API token](../images/bubble/apify_api_token.png)
 
 ### Store the token securely in Bubble
