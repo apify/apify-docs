@@ -32,7 +32,7 @@ To find your **dataset ID**, you need to navigate to the **Storage** tab in Apif
 
 ![Datasets in app](../images/datasets-app.png)
 
-To get an Apify API token, [create one in Apify Console](https://console.apify.com/settings/integrations?createApiToken=true&for=Airbyte). Copy it right after creating it, because it is shown only once, and paste it in the relevant field in Airbyte.
+To get an Apify API token, [create one in Apify Console](https://console.apify.com/settings/integrations?createApiToken=true&for=Airbyte). Copy it right after creating it, because Apify Console shows it only once, and paste it in the relevant field in Airbyte.
 
 ![Integrations token](../images/apify-integrations-token.png)
 

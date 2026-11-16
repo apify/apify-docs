@@ -24,11 +24,11 @@ To use these modules, you need an [Apify account](https://console.apify.com) and
 
     ![Sign up page](images/ai-crawling/wcc-signup.png)
 
-1. To connect your Apify account to Make, you can use an OAuth connection (recommended) or an Apify API token. To get an Apify API token, create one in [Apify Console](https://console.apify.com/settings/integrations?createApiToken=true&for=Make.com) and copy it right after creating it - it is shown only once.
+1. To connect your Apify account to Make, you can use an OAuth connection (recommended) or an Apify API token. To get an Apify API token, create one in [Apify Console](https://console.apify.com/settings/integrations?createApiToken=true&for=Make.com).
 
     ![Apify Console token for Make.png](images/apify-console-token-for-make.png)
 
-1. Copy the token right after creating it, because it is shown only once. Then return to your Make scenario interface.
+1. Copy the token right after creating it, because Apify Console shows it only once. Then return to your Make scenario interface.
 
     ![Apify token on Make.png](images/Apify_token_on_Make.png)
 

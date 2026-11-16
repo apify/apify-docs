@@ -22,7 +22,7 @@ The [`apify-haystack`](https://pypi.org/project/apify-haystack/) package connect
 ## Prerequisites
 
 - Python 3.11 or newer
-- An [Apify account](https://console.apify.com/sign-up) and an API token, which you can create in [Apify Console](https://console.apify.com/settings/integrations?createApiToken=true&for=Haystack) (it is shown only once)
+- An [Apify account](https://console.apify.com/sign-up) and an API token, which you can create in [Apify Console](https://console.apify.com/settings/integrations?createApiToken=true&for=Haystack) (Apify Console shows it only once)
 - An [OpenAI API key](https://platform.openai.com/account/api-keys) for the examples on this page. Haystack also supports other model providers.
 
 ## Installation

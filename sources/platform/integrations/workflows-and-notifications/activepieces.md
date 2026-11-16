@@ -41,7 +41,7 @@ To connect your Apify account to Activepieces:
 1. Click **+ New Connection**.
 1. Search for and select the Apify piece.
 1. Enter your **API Key** from Apify:
-   - You can find it in Apify Console under **Settings → API & Integrations**.
+   - [Create an API token](https://console.apify.com/settings/integrations?createApiToken=true&for=Activepieces) in Apify Console and copy it right after creating it.
 1. Save the connection.
 
 ![Apify API key setup](../images/activepieces/api-token.png)

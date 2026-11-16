@@ -15,11 +15,11 @@ You are not required to those packages - the REST API works with any HTTP client
 
 ## API token
 
-To access the Apify API in your integrations, you need to authenticate using your secret API token. Apify Console shows the value of an API token only once, when you create it, so new accounts have no default token to copy. [Create an API token in Apify Console](https://console.apify.com/settings/integrations?createApiToken=true) and copy it right after creating it. You manage your tokens on the **API & Integrations** page in Apify Console. Give each token a reasonable description, and never use one token for several services, much like you shouldn't use the same password for different accounts.
+To access the Apify API in your integrations, you need to authenticate using your secret API token. New accounts don't have a default token, so [create an API token in Apify Console](https://console.apify.com/settings/integrations?createApiToken=true) first. Apify Console shows a token's value only once, right after you create or [rotate](#rotation) it, so copy it and store it somewhere safe. You manage your tokens on the [**API & Integrations**](https://console.apify.com/settings/integrations) page in Apify Console. Give each token a reasonable description, and never use one token for several services, much like you shouldn't use the same password for different accounts.
 
 ![Integrations page in Apify Console](../images/api-token.png)
 
-The token list shows each token's description, but you can't view or copy the value of an existing token. If you lose a token, [rotate it](#rotation) or create a new one.
+The token list shows each token's description, but you can't view or copy the value of an existing token.
 
 The Apify CLI doesn't need a copied token. When you sign in with [`apify login`](/cli/docs/reference#apify-auth-login--apify-login) in the browser, it creates a token for your device and stores it for you.
 
@@ -30,7 +30,7 @@ unless you fully understand the consequences! You can also consider  [limiting t
 
 ### Create an API token {#create-api-token}
 
-1. Open the [Create API token form](https://console.apify.com/settings/integrations?createApiToken=true) in Apify Console. You can also go to **Settings > API & Integrations** and select **Create a new token** in the **Personal API tokens** section.
+1. Open the [create token form](https://console.apify.com/settings/integrations?createApiToken=true) in Apify Console. Alternatively, go to **Settings > API & Integrations** and select **Create a new token** in the **Personal API tokens** section.
 1. Enter a description. Optionally, [limit the token's permissions](#limited-permissions) or [set an expiration date](#expiration).
 1. Select **Create**.
 1. Copy the token and store it somewhere safe, such as a password manager.
@@ -85,7 +85,7 @@ We do not allow scoped tokens to create or modify Actors. If you do need to crea
 
 ### How to create a scoped token
 
-Scoped tokens behave like standard API tokens and are managed on the **API & Integrations** page in Apify Console. When creating a token (or updating an existing one), simply toggle "Limit token permissions" to make the token scoped.
+Scoped tokens behave like standard API tokens and are managed through the [**API & Integrations**](https://console.apify.com/settings/integrations) page in Apify Console. When creating a token (or updating an existing one), simply toggle "Limit token permissions" to make the token scoped.
 
 Once the token is scoped, you can specify the token's permissions.
 

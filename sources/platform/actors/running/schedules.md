@@ -72,7 +72,7 @@ For integrations, you can also add a [webhook](/integrations/webhooks) to your t
 
 To create a new [schedule](/api/v2/schedules) using the Apify API, send a `POST` request to the [Create schedule](/api/v2/schedules-post) endpoint.
 
-Use your [secret API token](/integrations/api#api-token). [Create one in Apify Console](https://console.apify.com/settings/integrations?createApiToken=true) and copy it right after creating it - it is shown only once.
+Use your [secret API token](/integrations/api#api-token). [Create one in Apify Console](https://console.apify.com/settings/integrations?createApiToken=true) and copy it right after creating it. Apify Console shows it only once.
 
 :::caution API authentication recommendations
 When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. For details, see [Authentication](/api/v2#authentication).

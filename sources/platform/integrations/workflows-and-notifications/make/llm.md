@@ -24,11 +24,11 @@ To use these modules, you need an [Apify account](https://console.apify.com) and
 
     ![Make interface showing API token field and connection name field for Apify integration setup](images/llm/rag-signup.png)
 
-1. To connect your Apify account to Make, you can use an OAuth connection (recommended) or an Apify API token. To get an Apify API token, create one in [Apify Console](https://console.apify.com/settings/integrations?createApiToken=true&for=Make.com) and copy it right after creating it - it is shown only once.
+1. To connect your Apify account to Make, you can use an OAuth connection (recommended) or an Apify API token. To get an Apify API token, create one in [Apify Console](https://console.apify.com/settings/integrations?createApiToken=true&for=Make.com).
 
     ![Apify Console sign-up page with email, Gmail, and GitHub sign-up options](images/apify-console-token-for-make.png)
 
-1. Copy the token right after creating it, because it is shown only once. Then return to your Make scenario.
+1. Copy the token right after creating it, because Apify Console shows it only once. Then return to your Make scenario.
 
     ![Apify Console Settings page showing Personal API tokens section with token management options](images/Apify_token_on_Make.png)
 

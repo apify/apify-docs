@@ -33,7 +33,7 @@ Open the [Create API token form](https://console.apify.com/settings/integrations
 
 ![Apify Console Settings page open](../images/albato-api-settings.webp)
 
-Create the token and copy it right after creating it, because it is shown only once.
+Create the token and copy it right after creating it, because Apify Console shows it only once.
 
 ![Apify Console API & Integrations page showing the Personal API token field](../images/albato-api-token.webp)
 
@@ -124,7 +124,7 @@ Apify Actors often run for several minutes, which doesn't fit well into a single
 
 ### Connection fails with "invalid token"
 
-Confirm that you copied the full token when you created it, because Apify Console shows it only once. Make sure no spaces or line breaks were added when pasting the token into Albato. If the connection still fails, generate a new token in Apify Console and recreate the connection.
+Make sure you pasted the full token into Albato, without added spaces or line breaks. Apify Console shows a token only once, so if you no longer have it, [create a new token](https://console.apify.com/settings/integrations?createApiToken=true&for=Albato) and recreate the connection.
 
 ### Actor or task doesn't appear in the dropdown
 

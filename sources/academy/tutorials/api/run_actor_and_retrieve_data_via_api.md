@@ -33,7 +33,7 @@ To run, or **call**, an Actor/task, you will need a few things:
 
 - The name or ID of the Actor/task. The name looks like `username~actorName` or `username~taskName`. The ID can be retrieved on the **Settings** page of the Actor/task.
 
-- Your [API token](/integrations), which you can [create in Apify Console](https://console.apify.com/settings/integrations?createApiToken=true) (copy it right after creating it, because it is shown only once, and do not share it with anyone!).
+- Your [API token](/integrations), which you can [create in Apify Console](https://console.apify.com/settings/integrations?createApiToken=true) (copy it right after creating it, because Apify Console shows it only once, and do not share it with anyone!).
 
 - Possibly an input, which is passed in JSON format as the request's **body**.
 

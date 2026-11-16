@@ -66,7 +66,7 @@ In connection configuration, you need to provide your Apify API Token. [Create a
 
 ![Integrations token](../images/apify-integrations-token.png)
 
-Copy the token right after creating it, because it is shown only once. Paste it into the configuration form and continue with the "Yes, Continue to Apify" button.
+Copy the token right after creating it, because Apify Console shows it only once. Paste it into the configuration form and continue with the "Yes, Continue to Apify" button.
 
 The connection is now created and the configuration form closed.
 
