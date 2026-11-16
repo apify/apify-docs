@@ -42,7 +42,7 @@ If charges seem incorrect, [open an issue](#report-issues-with-actors) on the Ac
 
 ### Pay per usage
 
-When you use a pay per usage Actor, you are only charged for the platform usage that the runs of this Actor generate. [Platform usage](../usage-and-resources/index.md) includes components such as compute units, operations on [storages](/storage), and usage of [residential proxies](/proxy/residential-proxy) or [SERPs](/proxy/google-serp-proxy).
+When you use a pay-per-usage Actor, you are only charged for the platform usage that the runs of this Actor generate. [Platform usage](../usage-and-resources/index.md) includes components such as compute units, operations on [storages](/storage), and usage of [residential proxies](/proxy/residential-proxy) or [SERPs](/proxy/google-serp-proxy).
 
 ![Pay for usage Actor example](../images/store/pay_per_usage_actor_example.png)
 
