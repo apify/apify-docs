@@ -43,7 +43,7 @@ Now click **Save & Run**! *(in the bottom-left part of your screen)*
 
 After clicking **Save & Run**, the window will change to the run detail. Here, you will see the run's log. If it seems that nothing is happening, don't worry, it takes a few seconds for the run to fully boot up. In under a minute, you should have the 10 pages scraped. You will know that the run successfully completed when the `RUNNING` card in top-left corner changes to `SUCCEEDED`.
 
-Feel free to browse through the various new tabs: **Log**, **Info**, **Input** and other, but for the sake of brevity, we will not explain all their features in this tutorial.
+Feel free to browse through the new tabs: **Log**, **Input**, or **Storage**. For the sake of brevity, we won't explain all their features in this tutorial.
 
 Now that the run has `SUCCEEDED`, click on the glowing **Results** card to see the scrape's results. This takes you to the **Dataset** tab, where you can display or download the results in various formats. For now, click the **Preview** button. Voila, the scraped data!
 
