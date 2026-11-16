@@ -34,6 +34,12 @@ Storage allows us to save persistent data for further processing. As you'll lear
 2. What are the differences between default (unnamed) and named storage? Which one would you use for everyday usage?
 3. What is data retention, and how does it work for all types of storages (default and named)?
 
+## Our task {#our-task}
+
+In the next lesson, we'll run our Amazon scraper programmatically through a task, so let's create one now. In Apify Console, open the **academy-amazon-scraper** Actor and select **Save as a new task** in the top-right section of the page. Set the keyword to `headphones` and save the task.
+
+Then select the task's caption on its detail page and rename it to **academy-amazon-scraper-task**. The next lesson refers to the task by this name, so make sure it matches. Finally, run the task to check that it works.
+
 [**Solution**](./solutions/using_storage_creating_tasks.md)
 
 ## Next up {#next}
