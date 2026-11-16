@@ -11,7 +11,7 @@ pagination: true
 
 ---
 
-You can use one of the two main ways to programmatically interact with the Apify platform: by directly using [Apify's RESTful API](/api/v2), or by using the [JavaScript](/api/client/js) and [Python](/api/client/python) API clients. In the next two lessons, we'll be focusing on the first two.
+You can use one of the two main ways to programmatically interact with the Apify platform: by directly using [Apify's RESTful API](/api/v2), or by using the [JavaScript](/api/client/js) and [Python](/api/client/python) API clients. In this lesson, we'll be focusing on the API and the JavaScript client.
 
 > Apify's API and JavaScript API client allow us to do anything a regular user can do when interacting with the platform's web interface, only programmatically.
 
@@ -30,14 +30,14 @@ You can use one of the two main ways to programmatically interact with the Apify
 
 ## Our task
 
-We'll be creating another new Actor, which will have two jobs:
+In the previous lesson, we created the **academy-amazon-scraper-task** task for our Amazon Actor. Now, we'll be creating another new Actor, which will have two jobs:
 
 1. Programmatically call the task for the Amazon Actor.
-2. Export its results into CSV format under a new key called **OUTPUT.csv** in the default key-value store.
+2. Export its results into CSV format under a new key called **OUTPUT** in the default key-value store.
 
 Though it's a bit unintuitive, this is a perfect activity for learning how to use both the Apify API and the Apify JavaScript client.
 
-The new Actor should take the following input values, which be mapped to parameters in the API calls:
+The new Actor should take the following input values, which will be mapped to parameters in the API calls:
 
 ```json
 {
@@ -62,4 +62,4 @@ The new Actor should take the following input values, which be mapped to paramet
 
 ## Next up {#next}
 
-[Lesson VI](./migrations_maintaining_state.md) will teach us everything we need to know about migrations and how to handle them properly to avoid losing any state; therefore, increasing the reliability of our `demo-actor` Amazon scraper.
+[Lesson V](./migrations_maintaining_state.md) will teach us everything we need to know about migrations and how to handle them properly to avoid losing any state; therefore, increasing the reliability of our **academy-amazon-scraper**.
