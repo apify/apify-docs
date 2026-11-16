@@ -30,7 +30,7 @@ To view the Actor's events and their prices, go to the Actor's page in Apify Sto
 
 :::caution Some Actors charge platform usage separately
 
-Most pay-per-event Actors include [platform usage](../usage_and_resources.md) in the event price. However, some Actors might charge for platform usage separately. Always check the pricing before you run the Actor.
+Most pay-per-event Actors include [platform usage](../usage-and-resources/index.md) in the event price. However, some Actors might charge for platform usage separately. Always check the pricing before you run the Actor.
 
 :::
 
@@ -42,7 +42,7 @@ If charges seem incorrect, [open an issue](#report-issues-with-actors) on the Ac
 
 ### Pay per usage
 
-When you use a pay per usage Actor, you are only charged for the platform usage that the runs of this Actor generate. [Platform usage](../usage_and_resources.md) includes components such as compute units, operations on [storages](/storage), and usage of [residential proxies](/proxy/residential-proxy) or [SERPs](/proxy/google-serp-proxy).
+When you use a pay per usage Actor, you are only charged for the platform usage that the runs of this Actor generate. [Platform usage](../usage-and-resources/index.md) includes components such as compute units, operations on [storages](/storage), and usage of [residential proxies](/proxy/residential-proxy) or [SERPs](/proxy/google-serp-proxy).
 
 ![Pay for usage Actor example](../images/store/pay_per_usage_actor_example.png)
 
@@ -50,7 +50,7 @@ When you use a pay per usage Actor, you are only charged for the platform usage 
 
 With this model, it's very easy to see how many platform resources each Actor run consumed, but it is quite difficult to estimate their usage beforehand. The best way to find the costs of free Actors upfront is to try out the Actor on a limited scope (for example, on a small number of pages) and evaluate the consumption. You can easily do that using our [free plan](https://apify.com/pricing).
 
-_For more information on platform usage cost see the [usage and resources](../usage_and_resources.md) page._
+_For more information on platform usage cost see the [usage and resources](../usage-and-resources/index.md) page._
 
 :::
 
