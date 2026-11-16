@@ -105,7 +105,7 @@ Open **Settings** > **Plugins**, find the **Apify** connector, and complete auth
 
 If the browser doesn't open automatically, copy the OAuth URL shown by Grok Bot and paste it into your browser manually.
 
-If the OAuth flow still fails, authenticate with an API token instead. Create an API token for Grok Bot in [Apify Console](https://console.apify.com/settings/integrations?createApiToken=true&for=Grok%20Bot&utm_source=grok-bot&utm_medium=integrations), copy it right after creating it (Apify Console shows it only once), and set it on the Grok Bot computer:
+If the OAuth flow still fails, authenticate with an API token instead. Create an API token for Grok Bot in [Apify Console](https://console.apify.com/settings/integrations?createApiToken=true&for=Grok%20Bot&utm_source=grok-bot&utm_medium=integrations), copy it right after creating it (you can see it only once), and set it on the Grok Bot computer:
 
 ```bash
 export APIFY_TOKEN=<YOUR_API_TOKEN>

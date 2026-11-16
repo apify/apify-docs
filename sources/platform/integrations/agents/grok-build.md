@@ -98,7 +98,7 @@ If the OAuth flow still can't complete, for example because no browser is availa
 apify login
 ```
 
-In a non-interactive environment, create an API token in [Apify Console](https://console.apify.com/settings/integrations?createApiToken=true&for=Grok%20Build), copy it right after creating it (Apify Console shows it only once), and pass it instead:
+In a non-interactive environment, create an API token in [Apify Console](https://console.apify.com/settings/integrations?createApiToken=true&for=Grok%20Build), copy it right after creating it (you can see it only once), and pass it instead:
 
 ```bash
 apify login -t <YOUR_API_TOKEN>

@@ -96,7 +96,7 @@ Check that `opencode-apify` is listed under `plugin`. If it's missing, add it to
 
 If the browser doesn't open automatically, copy the OAuth URL shown in the terminal and paste it into your browser manually.
 
-If you're running OpenCode in a headless environment (SSH, remote container) or the OAuth flow still fails, authenticate with an API token instead. Create an API token for OpenCode in [Apify Console](https://console.apify.com/settings/integrations?createApiToken=true&for=OpenCode&utm_source=opencode&utm_medium=integrations), copy it right after creating it (Apify Console shows it only once), and set it before starting OpenCode:
+If you're running OpenCode in a headless environment (SSH, remote container) or the OAuth flow still fails, authenticate with an API token instead. Create an API token for OpenCode in [Apify Console](https://console.apify.com/settings/integrations?createApiToken=true&for=OpenCode&utm_source=opencode&utm_medium=integrations), copy it right after creating it (you can see it only once), and set it before starting OpenCode:
 
 ```bash
 export APIFY_TOKEN=<YOUR_API_TOKEN>
