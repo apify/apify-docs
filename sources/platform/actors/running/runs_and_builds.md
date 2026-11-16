@@ -129,7 +129,7 @@ To do the same with the API, pass `maxTotalChargeUsd` to the [Resurrect Actor ru
 
 ### Data retention
 
-**Actor runs** are deleted along with their default storages (key-value store, dataset, request queue) when your plan's retention period ends. For the retention period on each plan and how to change it, see [Data retention](/storage#data-retention).
+**Actor runs** are deleted along with their default storages (key-value store, dataset, request queue) when your plan's retention period ends. On the Free plan, your 10 most recent runs are kept for up to 4 months. For the retention period on each plan and how to change it, see [Data retention](/storage#data-retention).
 
 **Actor builds** are deleted only when they are _not tagged_ and have not been used for over 90 days.
 
