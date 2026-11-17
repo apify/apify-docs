@@ -59,7 +59,7 @@ The Apify node offers two authentication methods to securely connect to your Api
 
 1. In the n8n Editor UI, click on **Create Credential**.
 1. Search for Apify API and click **Continue**.
-1. Enter your Apify API token. (find it in the [Apify Console](https://console.apify.com/settings/integrations)).
+1. Enter your Apify API token. Create one in [Apify Console](https://console.apify.com/settings/integrations?createApiToken=true&for=n8n) and copy it right after creating it. Apify Console shows it only once.
 1. Click **Save**.
 
   ![Apify Auth](../../images/n8n-api-auth.png)

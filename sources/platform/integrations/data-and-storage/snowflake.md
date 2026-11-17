@@ -43,7 +43,7 @@ In Snowsight, open the **Data Products** menu and navigate to the **Marketplace*
 
 During installation, the app prompts you to create a `Network Rule` and an `External Access Integration` so the app can reach the Apify API.
 
-Follow the instructions shown in the setup screen to create the External Access Integration. On the same screen, click **Configure** next to **Apify API Token** and bind a Snowflake secret of type Generic String containing your [Apify API token](https://console.apify.com/settings/integrations).
+Follow the instructions shown in the setup screen to create the External Access Integration. On the same screen, click **Configure** next to **Apify API Token** and bind a Snowflake secret of type Generic String containing an [Apify API token](https://console.apify.com/settings/integrations?createApiToken=true&for=Snowflake). Apify Console shows a new token only once, so copy it right after you create it.
 
 ![External connections setup during app installation](../images/snowflake/snowflake-setup-eai.png)
 

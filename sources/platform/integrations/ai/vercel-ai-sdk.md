@@ -17,7 +17,7 @@ Apify is a marketplace of ready-to-use web scraping and automation tools, AI age
 
 ### Prerequisites
 
-- _Apify API token_: You need an Apify API token set as the `APIFY_TOKEN` environment variable. To obtain your token check [Apify documentation](https://docs.apify.com/integrations/api).
+- _Apify API token_: You need an Apify API token set as the `APIFY_TOKEN` environment variable. [Create a token in Apify Console](https://console.apify.com/settings/integrations?createApiToken=true&for=Vercel%20AI%20SDK) and copy it right after creating it. Apify Console shows it only once. For details, see [API token](https://docs.apify.com/integrations/api#api-token).
 - _Node.js packages_: Install the following Node.js packages:
 
     ```bash

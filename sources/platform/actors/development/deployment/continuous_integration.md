@@ -84,9 +84,8 @@ Keep the token in your CI provider's protected storage and never commit it to a 
 <details>
 <summary>Get your Apify API token</summary>
 
-1. Log in to [Apify Console](https://console.apify.com/actors).
-1. In the left-side panel, go to **Settings**.
-1. Go to the **API & Integrations** tab.
+1. [Create an API token](https://console.apify.com/settings/integrations?createApiToken=true) in Apify Console.
+1. Copy it right after creating it. Apify Console shows it only once.
 
 </details>
 

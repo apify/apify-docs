@@ -62,11 +62,11 @@ The connection configuration options open in a new tab in your browser or in a m
 
 ![Apify Zapier connection](../images/zapier-new-connection.png)
 
-In connection configuration, you need to provide your Apify API Token. You can find the token in Apify Console by navigating to **Settings > API & Integrations**.
+In connection configuration, you need to provide your Apify API Token. [Create an API token](https://console.apify.com/settings/integrations?createApiToken=true&for=Zapier) in Apify Console.
 
 ![Integrations token](../images/apify-integrations-token.png)
 
-Copy the token and paste it into the configuration form and continue with the "Yes, Continue to Apify" button.
+Copy the token right after creating it, because Apify Console shows it only once. Paste it into the configuration form and continue with the "Yes, Continue to Apify" button.
 
 The connection is now created and the configuration form closed.
 
