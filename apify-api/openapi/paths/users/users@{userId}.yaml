@@ -32,6 +32,7 @@ get:
             anyOf:
               - $ref: ../../components/schemas/users/UserPublicInfoResponse.yaml
               - $ref: ../../components/schemas/users/UserPrivateInfoResponse.yaml
+              - $ref: ../../components/schemas/users/UserProxyInfoResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
     "401":
