@@ -34,8 +34,8 @@ properties:
     type: string
     examples: [nFJndFXA5zjCTuudP]
   runId:
-    type: string
-    description: ID of the Actor run attached to the issue.
+    type: [string, "null"]
+    description: ID of the Actor run attached to the issue. `null` or missing when no run is attached.
     examples: [HG7ML7M8z78YcAPEB]
   gitHubIssueUrl:
     type: string
