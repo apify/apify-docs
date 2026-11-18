@@ -248,7 +248,7 @@ if (useClient) {
 await Actor.exit();
 ```
 
-## Granting permissions {#granting-permissions}
+## Granting permissions
 
 New Actors run with [limited permissions](/actors/development/permissions) by default, which don't allow them to start a task you own. After you push **actor-caller** to the platform, open its **Settings** tab and in the **Actor permissions** section, select **Full permissions**. Otherwise, the run fails with a `403 insufficient-permissions` error when it tries to start the task.
 
