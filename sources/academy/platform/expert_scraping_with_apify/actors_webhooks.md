@@ -26,7 +26,7 @@ npm install
 apify login
 ```
 
-Amazon blocks scrapers quickly, so the scraper uses [Apify Proxy](/proxy) with residential IP addresses. Connecting to Apify Proxy from your own computer requires a paid plan, so throughout the course, we'll run the scraper on the Apify platform. Deploy it there:
+Amazon blocks scrapers quickly, so the scraper uses [Apify Proxy](/proxy) with residential IP addresses. Connecting to Apify Proxy from your own computer requires a paid plan, so throughout the course, we'll run the scraper on the Apify platform, where the free plan is enough. Deploy it there:
 
 ```bash
 apify push
