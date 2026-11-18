@@ -122,6 +122,10 @@ If your account goes over its monthly usage hard limit, the platform rejects you
 
 What you pay for depends on the tenancy, as described in [Multi-tenant and single-tenant Server Actors](#multi-tenant-and-single-tenant-server-actors).
 
+Each Server Actor sets its own prices, which you can find in the **Pricing** tab on the Actor's detail page.
+
+A multi-tenant Server Actor runs in the developer's account, so its runs don't count toward your memory or concurrent run limits.
+
 For a single-tenant Server Actor, the platform bills your runs like any other runs in your account. A run also consumes resources while it waits for requests, until the idle timeout stops it, so expect usage even when no requests arrive.
 
 ## Use Server Actors as MCP servers
