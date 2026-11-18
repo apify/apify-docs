@@ -10,6 +10,9 @@ get:
     The user account is identified by the provided authentication token.
 
     The fields `plan`, `email` and `profile` are omitted when this endpoint is accessed from Actor run.
+
+    When the request is authenticated with a proxy password, the response contains only
+    `plan.availableProxyGroups`, `effectivePlatformFeatures` and `isPaying`.
   operationId: users_me_get
   responses:
     "200":
@@ -18,7 +21,9 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/users/UserPrivateInfoResponse.yaml
+            anyOf:
+              - $ref: ../../components/schemas/users/UserPrivateInfoResponse.yaml
+              - $ref: ../../components/schemas/users/UserProxyInfoResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
     "401":

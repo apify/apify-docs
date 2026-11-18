@@ -12,6 +12,9 @@ get:
     When the request is authenticated with an API token of the requested user account, or with a token
     that impersonates it, the response also contains the private information, the same as in
     [Get private user data](/api/v2/users-me-get). Tokens with limited permissions never receive it.
+
+    When the request is authenticated with a proxy password, the response contains only
+    `plan.availableProxyGroups`, `effectivePlatformFeatures` and `isPaying`.
   operationId: user_get
   parameters:
     - name: userId
@@ -32,6 +35,7 @@ get:
             anyOf:
               - $ref: ../../components/schemas/users/UserPublicInfoResponse.yaml
               - $ref: ../../components/schemas/users/UserPrivateInfoResponse.yaml
+              - $ref: ../../components/schemas/users/UserProxyInfoResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
     "401":
