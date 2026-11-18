@@ -230,7 +230,11 @@ We have chosen to run the webhook once the Actor has succeeded, which means that
 {"datasetId": {{resource.defaultDatasetId}}}
 ```
 
+:::caution No quotes around the variable
+
 Don't put quotes around the variable. Apify fills in the value already as a JSON string, so with quotes, the filter Actor would receive the literal text `{{resource.defaultDatasetId}}` instead of the dataset ID.
+
+:::
 
 Click **Save**, then run the **academy-amazon-scraper** Actor.
 
@@ -248,7 +252,7 @@ Additionally, we should be able to see that our **filter-actor** was run, and ha
 
 **Q: How do you allocate more CPU for an Actor's run?**
 
-**A:** On the Apify platform, CPU is allocated in proportion to memory, and every 4096 MB of memory gives the Actor one CPU core. To get more CPU, allocate more memory, either in the run options of a single run, or as the default memory in the Actor's **Settings** tab. When running locally, the Actor uses the CPU of your computer. The **ACTOR_MEMORY_MBYTES** environment variable only tells the SDK how much memory it can use.
+**A:** On the Apify platform, CPU is allocated in proportion to memory, and every 4 GB of memory gives the Actor one CPU core. To get more CPU, allocate more memory, either in the run options of a single run, or as the default memory in the Actor's **Settings** tab. When running locally, the Actor uses the CPU of your computer. The **ACTOR_MEMORY_MBYTES** environment variable only tells the SDK how much memory it can use.
 
 **Q: Within itself, can you get the exact time that an Actor was started?**
 
