@@ -11,7 +11,7 @@ pagination: true
 
 ---
 
-In this brief lesson, we'll discuss how to better manage an Actor's source code. Up 'til now, you've been developing your scripts locally, and then pushing the code directly to the Actor on the Apify platform; however, there is a much more optimal (and standard) way.
+In this brief lesson, we'll discuss how to better manage an Actor's source code. Up 'til now, you've been working on your Actors' code locally, and then pushing it directly to the Apify platform; however, there is a much more optimal (and standard) way.
 
 ## Learning 🧠 {#learning}
 
@@ -19,7 +19,7 @@ Thus far, every time we've updated our code on the Apify platform, we've used th
 
 If you're not yet familiar with Git, please get familiar with it through the [Git documentation](https://git-scm.com/docs), then take a quick moment to read about [GitHub integration](/integrations/github) in the Apify docs.
 
-Also, try to explore the **Multifile editor** in one of the Actors you developed in the previous lessons before moving forward.
+Also, try to explore the **Multifile editor** in **filter-actor**, which you created in the previous lesson, before moving forward.
 
 ## Knowledge check 📝 {#quiz}
 
