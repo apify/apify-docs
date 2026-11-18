@@ -10,7 +10,7 @@ slug: /expert-scraping-with-apify/solutions/integrating-webhooks
 
 ---
 
-In this lesson we'll be writing a new Actor and integrating it with our beloved Amazon scraping Actor. First, we'll navigate to the same directory where our **academy-amazon-scraper** folder lives, and run `apify create filter-actor` _(once again, you can name the Actor whatever you want, but for this lesson, we'll be calling the new Actor **filter-actor**)_. When asked what you want to build, select **Any use case**:
+In this lesson we'll be writing a new Actor and integrating it with the Amazon scraper from [academy-amazon-scraper](https://github.com/apify-projects/academy-amazon-scraper). First, we'll navigate to the directory where we cloned the **academy-amazon-scraper** folder, and run `apify create filter-actor` _(you can name the Actor whatever you want, but for this lesson, we'll be calling the new Actor **filter-actor**)_. When asked what you want to build, select **Any use case**:
 
 ```text
 $ apify create filter-actor
