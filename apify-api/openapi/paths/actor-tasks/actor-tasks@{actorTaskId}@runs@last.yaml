@@ -1,6 +1,7 @@
 get:
   tags:
     - Actor tasks
+    - Actor Runtime API/Actor tasks
   summary: Get last run of an Actor task
   description: |
     This is not a single endpoint, but an entire group of endpoints that lets you to

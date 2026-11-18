@@ -4,7 +4,7 @@ in: query
 description: |-
   API token provided as a query parameter (e.g., `?token=your_token`—less secure).
 
-  Use your API token to authenticate requests. You can find it on the [Integrations page](https://console.apify.com/account#/integrations) in Apify Console.
+  Use your API token to authenticate requests. You can create one on the [Integrations page](https://console.apify.com/settings/integrations) in Apify Console. The Console shows the token only once, right after you create or rotate it, so copy it and store it somewhere safe.
 
   :::danger Security
 

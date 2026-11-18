@@ -9,6 +9,7 @@ import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integrati
 import AgentPluginLimitations from '@site/sources/_partials/_agent-plugin-limitations.mdx';
 import ApifyPluginSkills from '@site/sources/_partials/_apify-plugin-skills.mdx';
 import ApifyPluginSkillPrompts from '@site/sources/_partials/_apify-plugin-skill-prompts.mdx';
+import FindGoogleMapsActorPrompt from '@site/sources/_partials/_find-google-maps-actor-prompt.mdx';
 
 The [GitHub Copilot CLI](https://docs.github.com/en/copilot/concepts/agents/copilot-cli) is GitHub's agentic coding tool that runs in your terminal. It reads and edits your codebase, runs commands, and completes multi-step development tasks.
 
@@ -69,7 +70,7 @@ If no browser tab opened during installation, or `apify-mcp-server` shows as dis
 
 Describe what you want in plain language.
 
-> Use Apify to find a good Actor for scraping Google Maps places. Show me the best option, its input requirements, pricing model, and what kind of dataset output it returns. Do not run the Actor yet.
+<FindGoogleMapsActorPrompt />
 
 The agent searches Apify Store, fetches the top Actor's details, and summarizes its inputs, pricing, and output - without running the Actor.
 

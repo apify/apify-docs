@@ -1,7 +1,7 @@
 ---
 title: Claude Desktop integration
 sidebar_label: Claude Desktop
-description: Learn how to set up the Apify MCP server in Claude Desktop using the remote server or one-click connector install, and troubleshoot common issues.
+description: Learn how to set up the Apify MCP server in Claude Desktop with the Apify plugin, a custom connector, or the Desktop extension, and fix common issues.
 slug: /integrations/claude-desktop
 ---
 
@@ -22,47 +22,35 @@ Connect [Claude Desktop](https://claude.ai/download) to the [Apify MCP server](/
 
 Choose one of the following methods:
 
-- [Remote server](#remote-server-recommended) - recommended, automatic updates, OAuth support, no local dependencies
-- [One-click installation](#one-click-installation) - install from the connector directory
+- [Apify plugin or custom connector](#apify-plugin-or-custom-connector) - recommended, automatic updates, OAuth support, no local dependencies
+- [Desktop extension](#desktop-extension) - local install from the connector directory or an `.mcpb` file
 
-### Remote server (recommended)
+### Apify plugin or custom connector (recommended) {#apify-plugin-or-custom-connector}
 
-The remote server at `https://mcp.apify.com` is the recommended way to connect. Key advantages:
+The Apify plugin bundles the Apify MCP server, skills, and a routing agent. The plugin and a custom connector both connect to the hosted Apify MCP server at `https://mcp.apify.com`. Key advantages:
 
 - Automatic updates - always runs the latest version of the Apify MCP server
 - OAuth authentication - secure sign-in through your browser, no API token needed
 - No local dependencies - nothing to install or maintain on your machine
 
-Add the remote server as a custom connector. Remote connectors run on Anthropic's servers, so the same connector works in Claude Desktop and in claude.ai. On Team and Enterprise plans, an Owner or Primary Owner has to [add the connector for the whole organization](https://support.claude.com/en/articles/11175166) instead.
+To set either one up, follow the [Claude.ai integration guide](/integrations/claude-ai). The connector works in both claude.ai and Claude Desktop.
 
-1. In Claude, open **Settings**, then select **Connectors**.
-1. Select **Add**, then select **Add custom connector**. In claude.ai, you can also [open the **Add custom connector** dialog](https://claude.ai/new?modal=add-custom-connector#settings/customize-connectors) directly.
-1. Fill in the dialog:
-    - **Name** - A name for the connector, for example `Apify`
-    - **Remote MCP server URL** - The Apify MCP server address, `https://mcp.apify.com`
-1. Select **Continue**. Claude checks the server and pre-fills the next screen with the authentication and OAuth settings it detects.
-1. Keep the detected settings and select **Add**.
+### Desktop extension
 
-On first connection, your browser opens to sign in to Apify and authorize the connection.
+Search for "Apify" in the [Claude Desktop connector directory](https://support.claude.com/en/articles/11176164) and install the **Apify** Desktop extension.
 
-:::tip Connect only the tools you need
-
-`https://mcp.apify.com` exposes the default tool set. To expose specific Actors or MCP tools, build your setup in the [Apify MCP server configurator](https://mcp.apify.com) and use the URL it generates as the server URL. For the full list of options, read about [tool selection](/mcp#tool-selection).
-
-:::
-
-### One-click installation
-
-Search for "Apify" in the [Claude Desktop connector directory](https://support.claude.com/en/articles/11176164) and install the connector.
-
-Alternatively, download and open the [Apify MCP server `.mcpb` file](https://github.com/apify/actors-mcp-server/releases/latest/download/apify-mcp-server.mcpb) to register the connector automatically.
+Alternatively, download and open the [Apify MCP server `.mcpb` file](https://github.com/apify/actors-mcp-server/releases/latest/download/apify-mcp-server.mcpb) to register the extension automatically.
 
 ## Verify the connection
 
 1. Restart Claude Desktop after saving configuration changes.
 1. Open a new conversation.
 1. Check that Apify tools are available in the tools list.
-1. Test with a prompt like: "Search for web scraping Actors on Apify."
+1. Test with a prompt like:
+
+    ```prompt title="Search for web scraping Actors"
+    Search for web scraping Actors on Apify.
+    ```
 
 ## Troubleshooting
 
@@ -84,9 +72,9 @@ Before diving into specific issues, check these two things first:
 The MCP server shows as connected but Apify tools don't appear in the tools list, or Claude doesn't recognize any Apify tools in conversation.
 
 - _Check tool permissions._ Individual connector tools can be blocked in your [connector settings](https://support.claude.com/en/articles/11176164). Verify that Apify tools are set to **Always allow** or **Ask first**, not blocked.
-- _Check the connector version._ Claude Desktop may silently downgrade the connector to an older version. If tools aren't appearing despite the connector showing as enabled, remove and re-add the connector to trigger an update.
+- _Check the extension version._ If you use the [Desktop extension](#desktop-extension), Claude Desktop may silently downgrade it to an older version. If tools aren't appearing despite the extension showing as enabled, remove and re-add the extension to trigger an update.
 - _Restart Claude Desktop._ Configuration changes only take effect after a restart.
-- _Reinstall the connector._ Remove the Apify connector and add it again.
+- _Reinstall the extension or connector._ Remove the Apify extension or connector and add it again.
 
 #### Authentication errors
 
@@ -104,15 +92,15 @@ Check the Claude Desktop logs for MCP-related errors:
 
 Look for files with `mcp` in the name for server-specific error messages.
 
-### One-click installation issues
+### Desktop extension issues
 
-The following troubleshooting steps apply specifically to the [one-click installation](#one-click-installation) method. The remote server runs entirely on Apify's infrastructure, so there are no local logs or configuration to debug. If you experience issues with the [remote server](#remote-server-recommended), contact [Apify support](https://apify.com/contact).
+The following troubleshooting steps apply only to the [Desktop extension](#desktop-extension). The Apify plugin and custom connector run entirely on Apify's infrastructure, so there are no local logs or configuration to debug. For issues with them, see [Claude.ai troubleshooting](/integrations/claude-ai#troubleshooting) or contact [Apify support](https://apify.com/contact).
 
 #### "Unable to connect to extension server" error
 
 This is the most common issue. It typically appears when installing from the Claude Desktop connector directory. In some cases, the MCP server starts and communicates correctly, but Claude Desktop still shows the error.
 
-1. _Consider switching to the [remote server](#remote-server-recommended) setup._ The remote server is the most reliable option.
+1. _Consider switching to the [Apify plugin or a custom connector](#apify-plugin-or-custom-connector)._ They're the most reliable option.
 1. _Uninstall and reinstall the extension._ In Claude Desktop, disable the Apify extension, remove it, then add it again.
 1. _Clear the npx cache._ A stale cache can cause connection failures. Follow the steps in [Corrupted npx cache](#corrupted-npx-cache).
 1. _Check the [Claude Desktop logs](#claude-desktop-logs)_ for specific error messages.
@@ -144,11 +132,11 @@ After clearing the cache:
 
 1. Restart Claude Desktop to re-download the server package.
 1. Check the [Claude Desktop logs](#claude-desktop-logs) for errors.
-1. If the issue persists, switch to the [remote server](#remote-server-recommended) setup, which doesn't rely on local packages.
+1. If the issue persists, switch to the [Apify plugin or a custom connector](#apify-plugin-or-custom-connector), which doesn't rely on local packages.
 
-#### Connector does not work in Claude Cowork
+#### Extension does not work in Claude Cowork
 
-The Apify connector shows as connected in Cowork, but Claude doesn't recognize the tools or can't call them. The same connector works fine in regular Claude Chat.
+The Apify extension shows as connected in Cowork, but Claude doesn't recognize the tools or can't call them. The same extension works fine in regular Claude Chat.
 
 Cowork launches local MCP servers with a different mechanism than Claude Chat and requires a system-wide `node` binary. If Node.js is only installed through a version manager (such as nvm, fnm, nodenv, or Volta), Cowork cannot find it and the server fails to start. The [Claude Desktop logs](#claude-desktop-logs) show `spawn node ENOENT` in this case.
 
@@ -182,13 +170,13 @@ sudo dnf install nodejs
 </TabItem>
 </Tabs>
 
-A system-wide installation can coexist with an existing version-manager installation. If installing Node.js system-wide is not an option, switch to the [remote server](#remote-server-recommended) setup, which doesn't require a local Node.js runtime.
+A system-wide installation can coexist with an existing version-manager installation. If installing Node.js system-wide is not an option, switch to the [Apify plugin or a custom connector](#apify-plugin-or-custom-connector), which doesn't require a local Node.js runtime.
 
 ## Known limitations
 
-- Claude Desktop may silently downgrade an installed connector to an older version (for example, from 0.9.14 back to 0.9.6). This can cause tools to stop loading even though the connector still shows as enabled. Removing and re-adding the connector may prompt an update, but doesn't always resolve the issue.
+- Claude Desktop may silently downgrade an installed Desktop extension to an older version (for example, from 0.9.14 back to 0.9.6). This can cause tools to stop loading even though the extension still shows as enabled. Removing and re-adding the extension may prompt an update, but doesn't always resolve the issue.
 - Some Claude Desktop versions have inconsistent behavior with remote MCP server connections. Update to the latest version if you experience issues.
-- If the connector directory installation fails, use the [remote server](#remote-server-recommended) at `https://mcp.apify.com` instead.
+- If the Desktop extension installation fails, use the [Apify plugin or a custom connector](#apify-plugin-or-custom-connector) instead.
 
 ## Next steps
 

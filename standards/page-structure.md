@@ -186,6 +186,23 @@ result = client.actor('apify/web-scraper').call()
 </Tabs>
 ````
 
+### Prompt examples
+
+Put a prompt the reader sends to an AI agent or assistant in a `prompt` code block. It renders as a prompt card with a **Copy prompt** button, and needs no import. The card's default title is "Ready-to-use prompt for your AI assistant". Use it where it fits, but usually set your own with `title`:
+
+````markdown
+```prompt title="Find a Google Maps Actor"
+Use Apify to find a good Actor for scraping Google Maps places.
+```
+````
+
+- Don't wrap the prompt in quotation marks. They're copied along with the text.
+- If the prompt contains placeholder values, like an ID or a username, tell the reader to replace them before sending. Otherwise the copied prompt fails.
+- Don't use blockquotes, italics, or `text` code blocks for prompts.
+- A slash command followed by a natural-language request is a prompt. A bare command, like `/plugin install apify`, isn't, and stays in a `text` code block.
+- A short example request mentioned within a sentence can stay inline, in quotation marks. Use a `prompt` block when the reader is meant to copy and send it.
+- For a long prompt that should start hidden, import the `PromptBlock` component and the prompt text from `src/utils/`, then set `collapsed`: `<PromptBlock prompt={MY_PROMPT} collapsed />`.
+
 ### Version matching
 
 When showing Dockerfile tags and package versions, make sure they match:

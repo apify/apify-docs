@@ -15,7 +15,7 @@ Apify maintains a separate plugin for each agent, because each agent has its own
 
 ## Why use the plugin
 
-Without a plugin, you set up the [MCP server](/mcp) and [Agent Skills](/agents/skills) separately. The MCP server needs a configuration in your agent, and standalone skills need the skills CLI and an Apify CLI login. The plugin replaces the MCP configuration and the skills CLI with one install. It doesn't replace the Apify CLI. The Actor development, actorization, and scraping skills call it, so install it with `npm install -g apify-cli` and run `apify login` before you use them. Depending on the agent, you install the plugin for all your projects or for a single project.
+Without a plugin, you set up the [MCP server](/mcp) and [Agent Skills](/agents/skills) separately. The MCP server needs a configuration in your agent, and standalone skills need the skills CLI. The plugin replaces both with one install. Depending on the agent, it applies to all your projects or to a single project.
 
 ## What's included
 
@@ -34,6 +34,7 @@ The OpenClaw, Hermes Agent, and Kilo Code plugins work differently. Instead of c
 | Claude Code | Yes | Yes | Yes | [`apify/apify-claude-code-plugin`](https://github.com/apify/apify-claude-code-plugin) |
 | Codex (app and CLI) | Yes | Yes | No | [`apify/apify-codex-plugin`](https://github.com/apify/apify-codex-plugin) |
 | Cursor | Yes | Yes | Yes | [`apify/apify-cursor-plugin`](https://github.com/apify/apify-cursor-plugin) |
+| Antigravity (app and CLI) | Yes | Yes | Yes | [`apify/apify-antigravity-plugin`](https://github.com/apify/apify-antigravity-plugin) |
 | GitHub Copilot and VS Code | Yes | Yes | Yes | [`apify/apify-github-copilot-plugin`](https://github.com/apify/apify-github-copilot-plugin) |
 | OpenCode | Yes | Yes | Yes | [`opencode-apify`](https://github.com/apify/apify-opencode-plugin) |
 | Grok Build | Yes | Yes | Yes | [`apify/apify-grok-build-plugin`](https://github.com/apify/apify-grok-build-plugin) |
@@ -48,7 +49,14 @@ If your agent isn't listed, connect the [MCP server](/mcp) directly and install 
 
 ## Install
 
-Pick your agent. Each tab shows the install commands, where to run them, and how to sign in. The full guide for each agent covers manual setup and troubleshooting.
+The Actor development, actorization, and scraping skills call the [Apify CLI](/cli), which the plugin doesn't include. Install it and sign in before you use them:
+
+```bash
+npm install -g apify-cli
+apify login
+```
+
+Then pick your agent. Each tab shows the install commands, where to run them, and how to sign in. The full guide for each agent covers manual setup and troubleshooting.
 
 <Tabs groupId="agent-client" queryString>
 <TabItem value="claude-code" label="Claude Code">
@@ -107,6 +115,25 @@ The CLI opens the Apify sign-in the first time it calls a tool that needs authen
 1. In Cursor Settings, open **Tools & MCPs**, select **Connect** on the **Apify MCP** server, and complete the Apify sign-in in your browser.
 
 Read the full [Cursor guide](/integrations/cursor).
+
+</TabItem>
+<TabItem value="antigravity" label="Antigravity">
+
+1. In your terminal, install the plugin with the Antigravity CLI:
+
+    ```bash
+    agy plugin install https://github.com/apify/apify-antigravity-plugin
+    ```
+
+1. In the CLI, run `/mcp`, select the Apify server, and select **Authenticate**. Antigravity shows an authorization code. Copy that code, paste it at the CLI prompt, and press Enter.
+
+In the Antigravity app:
+
+1. Extract [`apify-antigravity-plugin.zip`](https://github.com/apify/apify-antigravity-plugin/releases/latest/download/apify-antigravity-plugin.zip) from the latest release into `~/.gemini/config/plugins`, the default folder. If it has moved, check the [Antigravity plugins guide](https://antigravity.google/docs/plugins).
+
+1. Open **Customizations** > **Installed** > **Apify**, and select **Sign in** on the **Accounts** tab.
+
+Read the full [Antigravity guide](/integrations/antigravity).
 
 </TabItem>
 <TabItem value="github-copilot" label="GitHub Copilot">

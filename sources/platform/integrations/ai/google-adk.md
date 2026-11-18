@@ -78,7 +78,7 @@ adk run pub_search_agent
 
 Prompt the agent to find a pub in San Francisco:
 
-```text
+```prompt title="Find a pub in San Francisco"
 Find a pub near the Ferry Building in San Francisco.
 ```
 

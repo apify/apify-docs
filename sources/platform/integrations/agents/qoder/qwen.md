@@ -8,6 +8,7 @@ slug: /integrations/qwen
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 import ApifyPluginSkills from '@site/sources/_partials/_apify-plugin-skills.mdx';
 import ApifyPluginSkillPrompts from '@site/sources/_partials/_apify-plugin-skill-prompts.mdx';
+import FindGoogleMapsActorPrompt from '@site/sources/_partials/_find-google-maps-actor-prompt.mdx';
 
 Alibaba ships two agent tools under the Qwen name, and both can call Apify [Actors](https://apify.com/store). They connect to Apify in different ways:
 
@@ -79,11 +80,13 @@ The connection stays authenticated for future sessions. You can revoke access at
 
 Describe what you want in natural language. The `apify` agent routes the request to the right tool or skill, so you don't need to name tools yourself.
 
-> List what Apify tools you have available.
+```prompt title="List available Apify tools"
+List what Apify tools you have available.
+```
 
 To go further, ask it to find an Actor for a task:
 
-> Use Apify to find a good Actor for scraping Google Maps places. Show me the best option, its input requirements, pricing model, and what kind of dataset output it returns. Do not run the Actor yet.
+<FindGoogleMapsActorPrompt />
 
 ### Manage the extension
 
@@ -144,11 +147,15 @@ QwenWork uses an installed skill automatically when a task matches the trigger c
 
 With the connector added, describe a task in natural language and QwenWork calls the Apify tools:
 
-> Use Apify to find 10 highly rated coffee shops in Seattle with name, address, rating, phone, and website.
+```prompt title="Scrape local business data"
+Use Apify to find 10 highly rated coffee shops in Seattle with name, address, rating, phone, and website.
+```
 
 To scope a source directly, name the Actor's target:
 
-> Use Apify to scrape the latest 50 posts from a public Instagram profile and return them as a table.
+```prompt title="Scrape Instagram posts"
+Use Apify to scrape the latest 50 posts from a public Instagram profile and return them as a table.
+```
 
 ## Bundled skills
 

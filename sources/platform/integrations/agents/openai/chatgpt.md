@@ -9,9 +9,11 @@ import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integrati
 
 The _ChatGPT_ integration enables you to connect ChatGPT to Apify's extensive library of [Actors](https://apify.com/store) through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro).
 This allows ChatGPT to access real-time web data and automation capabilities by using Apify tools directly in conversations.
-By default, the Apify MCP server exposes a set of tools that let you search and run any Actor you have access to, including all public Actors.
+By default, the Apify MCP server exposes a set of tools that let you search and run any Actor you have access to, including all public Actors. For example, you can ask ChatGPT:
 
-_Example query_: "Find and run an Actor that scrapes Instagram profiles and gets the profile of @natgeo"
+```prompt title="Get an Instagram profile"
+Find and run an Actor that scrapes Instagram profiles and gets the profile of @natgeo.
+```
 
 In this tutorial, you'll learn how to connect _ChatGPT_ to the _Apify MCP server_ using a custom connector.
 
@@ -61,7 +63,9 @@ Once your connector is ready:
 1. Choose your **Apify MCP connector** to add it to the conversation.
 1. Ask ChatGPT to use Apify tools, for example:
 
-   > “Search the web and summarize recent trends in AI agents”
+   ```prompt title="Summarize AI agent trends"
+   Search the web and summarize recent trends in AI agents.
+   ```
 
 You'll need to grant permission for each Apify tool when it's used for the first time.
 You should see ChatGPT calling Apify tools - such as the [RAG Web Browser](https://apify.com/apify/rag-web-browser) - to gather information.

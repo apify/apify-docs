@@ -17,17 +17,13 @@ An [Actor](/actors) is a serverless cloud program that takes a structured JSON i
 
 An [Actor run](/actors/running/runs-and-builds) is a single execution of an Actor, with its own container, allocated resources, and storage. Each run gets a [dataset](/storage/dataset), a [key-value store](/storage/key-value-store), and a [request queue](/storage/request-queue), and moves from ready to running before it ends as succeeded, failed, timed out, or aborted.
 
-## Actor Standby
-
-[Actor Standby](/actors/running/standby) is a mode that keeps an Actor ready in the background as an HTTP server. It answers requests in real time instead of paying a cold start on every call, which suits Actors used as live endpoints rather than batch jobs.
-
 ## Actor task
 
 An [Actor task](/actors/running/tasks) is a saved, reusable input configuration for a specific Actor. It lets you rerun the same Actor with preset inputs from a [schedule](/actors/running/schedules), the [Apify API](/api/v2), or [Apify Console](/account/console).
 
 ## Agentic payments
 
-[Agentic payments](/agents/payments) let AI agents pay for and run Actors without an Apify account or ongoing billing. With [x402](/integrations/x402) (stablecoins on Base or Solana) or the [Machine Payments Protocol (MPP)](/integrations/mpp) (stablecoins on Tempo or Solana), the agent pays once for a prepaid [API token](#api-token) through [Apify AGI](#apify-agi), Apify's entry point for agents, and runs Actors until its balance runs out. AGI also sells the same token for a [Skyfire](/integrations/skyfire) payment. A prepaid token runs only Actors that use [limited permissions](/actors/development/permissions).
+[Agentic payments](/agents/payments) let AI agents pay for and run Actors without an Apify account or ongoing billing. With [x402](/integrations/x402) (stablecoins on Base or Solana), the [Machine Payments Protocol (MPP)](/integrations/mpp) (stablecoins on Tempo or Solana), or a card, the agent pays once for a prepaid [API token](#api-token) through [Apify AGI](#apify-agi), Apify's entry point for agents, and runs Actors until its balance runs out. AGI also sells the same token for a [Skyfire](/integrations/skyfire) payment. A prepaid token runs only Actors that use [limited permissions](/actors/development/permissions).
 
 ## API token
 
@@ -83,7 +79,7 @@ A [build](/actors/development/builds-and-runs/builds) is a versioned Docker imag
 
 ## Compute unit
 
-A [compute unit](/actors/running/usage-and-resources) (CU) is the Apify platform's usage and billing unit, equal to 1 GB of memory running for one hour. Allocating more memory to an [Actor run](#actor-run) consumes CUs faster.
+A [compute unit](/actors/running/usage-and-resources/compute-units) (CU) is the Apify platform's usage and billing unit, equal to 1 GB of memory running for one hour. Allocating more memory to an [Actor run](#actor-run) consumes CUs faster.
 
 ## Crawlee
 
@@ -148,6 +144,10 @@ A [residential proxy](/proxy/residential-proxy) routes requests through IP addre
 ## Schedule
 
 A [schedule](/actors/running/schedules) is a cron-based trigger that runs an Actor or [task](#actor-task) at set intervals. You manage it from [Apify Console](/account/console) or the [Apify API](/api/v2).
+
+## Server Actors
+
+[Server Actors](/actors/running/server-actors), formerly Actor Standby mode, run an HTTP server that stays ready in the background and responds to requests in real time, without a cold start on each call. Use them for Actors that serve as live endpoints rather than batch jobs.
 
 ## Webhook
 
