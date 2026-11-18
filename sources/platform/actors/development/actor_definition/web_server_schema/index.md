@@ -2,13 +2,11 @@
 title: Actor web server schema
 sidebar_label: Web server schema
 sidebar_position: 7
-description: Attach an OpenAPI specification to your Actor to enable the interactive Server tab in Apify Console and Apify Store, where you can browse and test endpoints.
+description: Attach an OpenAPI specification to your Actor, so Apify Console and Apify Store show a Server tab that lists its endpoints, parameters, and responses.
 slug: /actors/development/actor-definition/web-server-schema
 ---
 
-The `webServerSchema` field in `.actor/actor.json` attaches an [OpenAPI 3.x](https://spec.openapis.org/oas/v3.0.3) specification to your Actor. You can define the schema for any Actor that exposes an HTTP server. When you enable the [server interface](/actors/development/programming-interface/server-actors), Apify Console and Apify Store render an interactive **Server** tab on the Actor's detail page. From there you can browse endpoints, inspect request and response schemas, and send requests directly from the browser.
-
-![Apify Console showing the Server tab rendered from the Actor's OpenAPI spec](../images/console-standby-openapi-swagger.png)
+The `webServerSchema` field in `.actor/actor.json` attaches an [OpenAPI 3.x](https://spec.openapis.org/oas/v3.0.3) specification to your Actor. You can define the schema for any Actor that exposes an HTTP server. When you enable the [server interface](/actors/development/programming-interface/server-actors), Apify Console and Apify Store render a **Server** tab on the Actor's detail page. From there you can browse endpoints and inspect request and response schemas.
 
 ## Define the web server schema
 
@@ -94,7 +92,7 @@ The build process validates `webServerSchema`, similar to other Actor schemas li
 
 The platform doesn't enforce the schema at runtime. Unlike input schema, the web server schema only documents your Actor's interface. The platform forwards incoming requests to your server without validating them or your server's responses against the schema. Your server must validate requests itself.
 
-Once deployed, the **Server** tab appears automatically on the Actor's detail page when you enable the [server interface](/actors/development/programming-interface/server-actors). It renders your spec with [Swagger UI](https://swagger.io/tools/swagger-ui/) and handles authentication automatically - Actor users can send requests without configuring API tokens.
+Once deployed, the **Server** tab appears automatically on the Actor's detail page when you enable the [server interface](/actors/development/programming-interface/server-actors). It renders your spec with [Swagger UI](https://swagger.io/tools/swagger-ui/).
 
 :::note Servers field is overwritten
 
