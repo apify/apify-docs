@@ -2,7 +2,7 @@
 title: Debug Actors on the Apify platform
 sidebar_label: Debugging
 description: Learn how to attach a debugger to an Actor run on the Apify platform, so you can set breakpoints and inspect variables in a run as it executes.
-sidebar_position: 8
+sidebar_position: 1
 slug: /actors/development/debugging
 ---
 
@@ -15,7 +15,7 @@ You can reproduce most bugs by running your Actor locally and using your IDE's d
 
 An Actor run is a Docker container on a shared worker machine. You can't open a TCP connection to the container, so there's no SSH and no port forwarding.
 
-The one inbound channel is the [container web server](./programming_interface/container_web_server.md). Whatever listens on `ACTOR_WEB_SERVER_PORT` (default `4321`) inside the container is reachable at the run's container URL, `https://<run>.runs.apify.net`. The platform forwards HTTP and WebSocket traffic to that port. It doesn't forward raw TCP.
+The one inbound channel is the [container web server](../programming_interface/container_web_server.md). Whatever listens on `ACTOR_WEB_SERVER_PORT` (default `4321`) inside the container is reachable at the run's container URL, `https://<run>.runs.apify.net`. The platform forwards HTTP and WebSocket traffic to that port. It doesn't forward raw TCP.
 
 Debuggers speak raw TCP. The Node.js inspector listens on port `9229`, debugpy on `5678`. Bridging that mismatch takes a small server inside the container, which carries the debug port over WebSocket on the web server port.
 
@@ -23,7 +23,7 @@ These constraints shape what debugging on the platform looks like:
 
 - Without an access check, anyone who can reach the container URL can reach the debugger. A debugger is a code-execution channel into the run, with access to its environment, including `APIFY_TOKEN`.
 - A run paused on a breakpoint keeps consuming compute and counts toward the run timeout. Set a generous timeout and abort the run when you finish.
-- A [migration](./builds_and_runs/state_persistence.md) restarts the container and drops the debug session.
+- A [migration](../builds_and_runs/state_persistence.md) restarts the container and drops the debug session.
 - Breakpoints bind to the deployed code. Keep your local checkout at the same commit as the build you debug.
 
 ## Attach a debugger
@@ -131,7 +131,7 @@ The `--brk` flag pauses the Actor on its first line and holds the run there unti
     </TabItem>
     </Tabs>
 
-1. Define a `DEBUG_SECRET` [environment variable](./programming_interface/environment_variables.md) in the Actor version and mark it as secret. wstunnel accepts only WebSocket upgrades whose path starts with this value, which keeps random visitors of the container URL out.
+1. Define a `DEBUG_SECRET` [environment variable](../programming_interface/environment_variables.md) in the Actor version and mark it as secret. wstunnel accepts only WebSocket upgrades whose path starts with this value, which keeps random visitors of the container URL out.
 
 1. Replace the `CMD` in your Dockerfile, so the container starts the tunnel server and the Actor under its debugger:
 
@@ -224,5 +224,5 @@ A build with a debug entrypoint gives its users access to your Actor's environme
 Limit the exposure while you debug:
 
 - Keep the debug `CMD` in a dedicated Actor version with its own build tag. Production builds keep their normal entrypoint.
-- Run debug builds with [limited permissions](./permissions/index.md) where the Actor allows it.
+- Run debug builds with [limited permissions](../permissions/index.md) where the Actor allows it.
 - Abort the run when you finish.

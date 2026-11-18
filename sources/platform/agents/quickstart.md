@@ -42,7 +42,7 @@ To connect a client that supports remote MCP servers, such as Claude Code, Curso
 
 1. Restart your client and sign in when prompted. OAuth handles authentication automatically.
 
-Claude Desktop doesn't accept a remote server URL in its configuration file. Add `https://mcp.apify.com` as a custom connector instead. For details, see [Claude Desktop integration guide](/integrations/claude-desktop).
+Claude Desktop doesn't accept a remote server URL in its configuration file. Add `https://mcp.apify.com` as a custom connector instead, as described in the [Claude.ai integration guide](/integrations/claude-ai#connect-without-the-plugin). The connector works in both claude.ai and Claude Desktop.
 
 For client-specific steps, use the [MCP Configurator](https://mcp.apify.com), which generates ready-to-paste configs.
 
@@ -60,7 +60,7 @@ Your agent calls [`search-actors`](/mcp#available-tools), [`call-actor`](/mcp#av
 
 When an agent calls Actors automatically, set run limits to prevent surprise bills. Pass them in the `callOptions` argument of [`call-actor`](/mcp#available-tools). Fields with these names in the Actor `input` don't cap the run, because the Actor's input schema decides how it handles them.
 
-- `maxTotalChargeUsd` - cap the total amount charged for the run. Works for all pricing models.
+- `maxTotalChargeUsd` - cap the total amount charged for the run. Doesn't apply to Actors priced per result. Use `maxItems` for those.
 - `maxItems` - cap how many results you pay for on an Actor priced per result.
 - `timeout` (seconds) - cap how long a single run can last.
 - `memory` (MB) - set memory as a power of 2, minimum 128. Lower memory means lower cost per second.

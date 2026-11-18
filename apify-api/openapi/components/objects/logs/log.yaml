@@ -29,6 +29,7 @@ getById:
   <<: *sharedGet
   tags:
     - Logs
+    - Actor Runtime API/Logs
   summary: Get Actor build or run log
   x-legacy-doc-urls:
     - https://docs.apify.com/api/v2#/reference/logs/log/get-log
@@ -57,6 +58,7 @@ getByRunId:
   <<: *sharedGet
   tags:
     - Actor runs
+    - Actor Runtime API/Actor runs
   summary: Get log of an Actor run
   description: |
     Retrieves Actor run's logs.
@@ -73,6 +75,7 @@ getByBuildId:
   <<: *sharedGet
   tags:
     - Actor builds
+    - Actor Runtime API/Actor builds
   summary: Get Actor build's log
   description: |
     Retrieves Actor build's logs.
@@ -92,6 +95,7 @@ getLastRun:
   <<: *sharedGet
   tags:
     - Last Actor run's log
+    - Actor Runtime API/Actor runs
   summary: Get log of an Actor's last run
   description: |
     Retrieves last Actor run's logs.
@@ -110,6 +114,7 @@ getTaskLastRun:
   <<: *sharedGet
   tags:
     - Last Actor task run's log
+    - Actor Runtime API/Actor tasks
   summary: Get log of an Actor task's last run
   description: |
     Retrieves last Actor task run's logs.

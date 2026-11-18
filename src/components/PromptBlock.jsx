@@ -54,7 +54,7 @@ export default function PromptBlock({
                         <span>{title}</span>
                     </div>
                 </div>
-                <div className={styles['button-container']}>
+                <div className={styles['button-container']} data-mdast="ignore">
                     {collapsed && (
                         <button className={styles['toggle-button']} onClick={togglePrompt}>
                             {showPrompt ? 'Hide prompt' : 'Show prompt'}

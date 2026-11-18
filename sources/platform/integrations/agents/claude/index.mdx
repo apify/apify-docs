@@ -1,6 +1,6 @@
 ---
 title: Claude
-description: Use Apify Actors with Anthropic Claude - connect the Apify MCP server to Claude Desktop, or install the Apify plugin for the Claude Code CLI.
+description: Use Apify Actors with Anthropic Claude - install the Apify plugin in claude.ai or the Claude Code CLI, or connect the Apify MCP server to Claude Desktop.
 sidebar_label: Claude
 slug: /integrations/claude
 ---
@@ -8,11 +8,19 @@ slug: /integrations/claude
 import Card from '@site/src/components/Card';
 import CardGrid from '@site/src/components/CardGrid';
 
-Apify integrates with [Anthropic Claude](https://www.anthropic.com/claude) in two places: the Claude Desktop app (via the Apify MCP server) and the Claude Code CLI (via the Apify plugin). Both give Claude a way to call Apify Actors as tools and read their results.
+Apify integrates with [Anthropic Claude](https://www.anthropic.com/claude) in claude.ai and the Claude Code CLI (via the Apify plugin), and in the Claude Desktop app (via the Apify MCP server). Each gives Claude a way to call Apify Actors as tools and read their results.
 
 ## What you can build
 
 <CardGrid>
+    <Card
+        title="Claude.ai"
+        desc="Install the Apify plugin in claude.ai and run Actors from your chats in the browser."
+        to="/integrations/claude-ai"
+        imageUrl="/img/platform/integrations/anthropic.svg"
+        imageUrlDarkTheme="/img/platform/integrations/anthropic-white.svg"
+        smallImage
+    />
     <Card
         title="Claude Desktop"
         desc="Connect the Apify MCP server to Claude Desktop and run Actors from your chat."

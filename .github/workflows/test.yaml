@@ -243,6 +243,11 @@ jobs:
                     assert_header "http://localhost:8080/api/client/python/api/client/python/docs/changelog" "Location" "^Location: http://[^/]*/api/client/python/docs/changelog$"
                     assert_header "http://localhost:8080/cli/cli/docs/changelog" "Location" "^Location: http://[^/]*/cli/docs/changelog$"
 
+                    echo "🧪 Checking Server Actors redirects..."
+                    assert_header "http://localhost:8080/actors/running/standby" "Location" "^Location: http://[^/]*/actors/running/server-actors$"
+                    assert_header "http://localhost:8080/platform/actors/running/standby.md" "Location" "^Location: http://[^/]*/actors/running/server-actors[.]md$"
+                    assert_header "http://localhost:8080/actors/development/programming-interface/standby" "Location" "^Location: http://[^/]*/actors/development/programming-interface/server-actors$"
+
                     echo "✅ All Nginx header checks passed."
 
             -   name: Verify per-page .md navigation headers
