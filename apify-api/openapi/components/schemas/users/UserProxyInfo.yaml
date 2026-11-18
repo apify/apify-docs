@@ -1,8 +1,5 @@
 title: UserProxyInfo
-description: |
-  User data returned when the request is authenticated with a proxy password,
-  including the per-run proxy password of an Actor run (`APIFY_PROXY_PASSWORD`).
-  Contains only the fields Apify Proxy reads.
+description: Reduced user data with only the fields Apify Proxy reads.
 required:
   - plan
   - effectivePlatformFeatures
