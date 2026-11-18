@@ -92,7 +92,7 @@ The build process validates `webServerSchema`, similar to other Actor schemas li
 
 The platform doesn't enforce the schema at runtime. Unlike input schema, the web server schema only documents your Actor's interface. The platform forwards incoming requests to your server without validating them or your server's responses against the schema. Your server must validate requests itself.
 
-Once deployed, the **Server** tab appears automatically on the Actor's detail page when you enable the [server interface](/actors/development/programming-interface/server-actors). It renders your spec with [Swagger UI](https://swagger.io/tools/swagger-ui/).
+When you enable the [server interface](/actors/development/programming-interface/server-actors), the **Server** tab appears on the Actor's detail page. After you build the Actor, the tab renders your spec with [Swagger UI](https://swagger.io/tools/swagger-ui/).
 
 :::note Servers field is overwritten
 
