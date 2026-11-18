@@ -77,7 +77,7 @@ Once you have filled in all the necessary options, click the **Save** button to 
 
 After your data source has been configured, you can run it by clicking the **Run** button in the upper-right corner of your configuration.
 
-![Keboola run configured component](../images/keboola/keboola-run-component.png)
+![Keboola run configured component](../images/keboola/keboola-run-component.webp)
 
 You can monitor the progress of your run in the job detail section on the right-hand side of the page.
 

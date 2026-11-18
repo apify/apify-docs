@@ -45,7 +45,7 @@ To integrate your service with Apify, you have two options:
 - Build an external integration using the [Apify API](https://docs.apify.com/api/v2)
 - Build an [Apify Actor](https://docs.apify.com/actors) that will be used as integration within [Apify Console](https://console.apify.com)
 
-![Integration-ready Actors](./images/integration-ready-actors.png)
+![Integration-ready Actors](./images/integration-ready-actors.webp)
 
 ### Build an integration Actor
 
