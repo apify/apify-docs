@@ -176,7 +176,7 @@ router.addHandler(labels.OFFERS, async ({ $, crawler, request, pushData }) => {
 });
 ```
 
-## Updating the dataset schema {#updating-the-dataset-schema}
+## Updating the dataset schema
 
 The starter describes every field of the dataset items in **.actor/dataset_schema.json**. Let's add the three new fields to its `properties`:
 
