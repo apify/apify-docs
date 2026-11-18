@@ -92,6 +92,11 @@
   description: |
     The API endpoint in this section allows you to get a list of webhooks of a specific Actor.
   x-trait: "true"
+- name: Actors/Actor reviews
+  x-displayName: Actor reviews
+  x-parent-tag-name: Actors
+  description: |
+    The API endpoint in this section allows you to get the reviews of an Actor.
 - name: Actor builds
   x-displayName: Manage Actor builds
   x-legacy-doc-urls:
@@ -375,6 +380,12 @@
 
     For details, see the documentation of the [Get schedule](/api/v2/schedule-get) endpoint.
   x-trait: "true"
+- name: Actor issues
+  x-displayName: Manage Actor issues
+  description: |
+    The API endpoints in this section allow you to report problems with Actors and discuss them
+    with Actor developers. You can create Actor issues, comment on them, open and close them,
+    and link them to GitHub issues.
 - name: Store
   x-displayName: Get data from Apify Store
   x-legacy-doc-urls:

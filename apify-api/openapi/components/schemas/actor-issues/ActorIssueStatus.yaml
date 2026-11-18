@@ -1,0 +1,4 @@
+title: ActorIssueStatus
+type: string
+enum: [OPEN, CLOSED]
+examples: [OPEN]

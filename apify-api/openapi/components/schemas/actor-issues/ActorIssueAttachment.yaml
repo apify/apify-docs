@@ -1,0 +1,26 @@
+title: ActorIssueAttachment
+description: A file attached to an Actor issue comment.
+required:
+  - key
+  - url
+  - name
+  - type
+  - sizeBytes
+type: object
+properties:
+  key:
+    type: string
+    examples: [3e5biaKGS8wWzJvLY/screenshot.png]
+  url:
+    type: string
+    examples: ["https://apify-uploads-prod.s3.amazonaws.com/3e5biaKGS8wWzJvLY/screenshot.png"]
+  name:
+    type: string
+    examples: [screenshot.png]
+  type:
+    type: string
+    description: MIME type of the file.
+    examples: [image/png]
+  sizeBytes:
+    type: integer
+    examples: [52134]

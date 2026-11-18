@@ -1,0 +1,11 @@
+title: ActorIssueCommentRequest
+required:
+  - text
+type: object
+additionalProperties: false
+properties:
+  text:
+    type: string
+    minLength: 1
+    maxLength: 10000
+    examples: ["Thanks for the report, we are looking into it."]

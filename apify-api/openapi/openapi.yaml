@@ -559,6 +559,12 @@ paths:
     $ref: "paths/actors/acts@{actorId}@run-sync.yaml"
   "/v2/actors/{actorId}/run-sync-get-dataset-items":
     $ref: "paths/actors/acts@{actorId}@run-sync-get-dataset-items.yaml"
+  "/v2/actors/{actorId}/issues":
+    $ref: "paths/actors/acts@{actorId}@issues.yaml"
+  "/v2/actors/{actorId}/reviews":
+    $ref: "paths/actors/acts@{actorId}@reviews.yaml"
+  "/v2/actors/{actorId}/publication-requirements":
+    $ref: "paths/actors/acts@{actorId}@publication-requirements.yaml"
   "/v2/actors/{actorId}/validate-input":
     $ref: "paths/actors/acts@{actorId}@validate-input.yaml"
   "/v2/actors/{actorId}/runs/{runId}/resurrect":
@@ -771,6 +777,18 @@ paths:
     $ref: paths/webhook-dispatches/webhook-dispatches.yaml
   "/v2/webhook-dispatches/{dispatchId}":
     $ref: "paths/webhook-dispatches/webhook-dispatches@{dispatchId}.yaml"
+  /v2/actor-issues:
+    $ref: paths/actor-issues/actor-issues.yaml
+  "/v2/actor-issues/{issueId}":
+    $ref: "paths/actor-issues/actor-issues@{issueId}.yaml"
+  "/v2/actor-issues/{issueId}/status":
+    $ref: "paths/actor-issues/actor-issues@{issueId}@status.yaml"
+  "/v2/actor-issues/{issueId}/github-issue":
+    $ref: "paths/actor-issues/actor-issues@{issueId}@github-issue.yaml"
+  "/v2/actor-issues/{issueId}/comments":
+    $ref: "paths/actor-issues/actor-issues@{issueId}@comments.yaml"
+  "/v2/actor-issue-comments/{commentId}":
+    $ref: "paths/actor-issues/actor-issue-comments@{commentId}.yaml"
   /v2/schedules:
     $ref: paths/schedules/schedules.yaml
   "/v2/schedules/{scheduleId}":

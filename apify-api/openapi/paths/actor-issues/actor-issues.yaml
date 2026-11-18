@@ -1,0 +1,45 @@
+get:
+  tags:
+    - Actor issues
+  summary: Get list of Actor issues
+  description: |
+    Gets the issues of the user account the API token belongs to. Use the `filter`
+    parameter to choose between issues of the Actors the user owns or follows, issues the
+    user is subscribed to, and issues the user created.
+
+    The endpoint supports pagination using the `limit` and `offset` parameters.
+    It will not return more than 200 records.
+
+    By default, the records are sorted by the `createdAt` field in ascending order.
+    Use the `sortBy` parameter to sort by another field, and `desc=1` to sort in
+    descending order.
+
+    The API token needs read access to Actors of the account.
+  operationId: actorIssues_get
+  parameters:
+    - $ref: "../../components/parameters/paginationParameters.yaml#/offset"
+    - $ref: "../../components/parameters/actorIssueParameters.yaml#/limit"
+    - $ref: "../../components/parameters/paginationParameters.yaml#/desc"
+    - $ref: "../../components/parameters/actorIssueParameters.yaml#/sortBy"
+    - $ref: "../../components/parameters/actorIssueParameters.yaml#/status"
+    - $ref: "../../components/parameters/actorIssueParameters.yaml#/userListingFilter"
+  responses:
+    "200":
+      description: ""
+      headers:
+        $ref: ../../components/headers/ApifyPaginationHeaders.yaml
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/actor-issues/ListOfActorIssuesResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
+  deprecated: false

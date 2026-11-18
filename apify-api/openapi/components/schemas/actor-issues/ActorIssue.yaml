@@ -1,0 +1,53 @@
+title: ActorIssue
+description: An Actor issue with its description.
+required:
+  - id
+  - title
+  - status
+  - createdAt
+  - actorId
+  - isUserSubscribed
+type: object
+properties:
+  id:
+    type: string
+    examples: [3e5biaKGS8wWzJvLY]
+  title:
+    type: string
+    examples: [The scraper returns empty results for search URLs]
+  status:
+    $ref: ./ActorIssueStatus.yaml
+  createdAt:
+    type: string
+    format: date-time
+    examples: ["2026-10-20T09:14:51.000Z"]
+  closedAt:
+    type: string
+    format: date-time
+    description: |
+      When the issue was last closed. It is kept when the issue is reopened.
+    examples: ["2026-10-22T12:00:00.000Z"]
+  userId:
+    type: string
+    description: ID of the user who created the issue. Missing for issues created by the system.
+    examples: [wRsJZtadYvn4mBZmm]
+  actorId:
+    type: string
+    examples: [nFJndFXA5zjCTuudP]
+  runId:
+    type: string
+    description: ID of the Actor run attached to the issue.
+    examples: [HG7ML7M8z78YcAPEB]
+  isUserSubscribed:
+    type: boolean
+    description: Whether the user making the request is subscribed to the issue. Always `false` without an API token.
+    examples: [true]
+  description:
+    type: [string, "null"]
+    description: Description of the issue. It is stored as the first comment of the issue.
+    examples: ["When I use a search URL as the input, the dataset is empty."]
+  attachments:
+    type: array
+    description: Files attached to the issue description.
+    items:
+      $ref: ./ActorIssueAttachment.yaml

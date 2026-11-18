@@ -1,0 +1,118 @@
+issueId:
+  name: issueId
+  in: path
+  description: Actor issue ID.
+  required: true
+  style: simple
+  schema:
+    type: string
+    example: 3e5biaKGS8wWzJvLY
+
+commentId:
+  name: commentId
+  in: path
+  description: Actor issue comment ID.
+  required: true
+  style: simple
+  schema:
+    type: string
+    example: Doja01D5VeQc37n5h
+
+limit:
+  name: limit
+  in: query
+  description: |
+    Maximum number of items to return. The default value as well as the maximum is `200`.
+  style: form
+  explode: true
+  schema:
+    type: number
+    format: double
+    example: 100
+
+status:
+  name: status
+  in: query
+  description: |
+    Filters the issues by status. By default, issues with any status are returned.
+  style: form
+  explode: true
+  schema:
+    type: string
+    enum: [ALL, OPEN, CLOSED]
+    default: ALL
+    example: OPEN
+
+sortBy:
+  name: sortBy
+  in: query
+  description: |
+    Field to sort the issues by. Use the `desc` parameter to set the direction.
+    The default value is `createdAt`.
+  style: form
+  explode: true
+  schema:
+    type: string
+    enum: [createdAt, lastCommentedAt]
+    default: createdAt
+    example: lastCommentedAt
+
+userListingFilter:
+  name: filter
+  in: query
+  description: |
+    Selects which of the user's issues to return:
+
+    - `OWNED`: issues of the Actors the user owns or follows.
+    - `SUBSCRIBED`: issues the user is subscribed to.
+    - `CREATED`: issues the user created.
+
+    The default value is `OWNED`.
+  style: form
+  explode: true
+  schema:
+    type: string
+    enum: [OWNED, SUBSCRIBED, CREATED]
+    default: OWNED
+    example: CREATED
+
+actorListingFilter:
+  name: filter
+  in: query
+  description: |
+    Narrows the Actor's issues to the ones the user is subscribed to (`SUBSCRIBED`)
+    or created (`CREATED`). Requires an API token. Without this parameter, all of the
+    Actor's issues are returned.
+  style: form
+  explode: true
+  schema:
+    type: string
+    enum: [SUBSCRIBED, CREATED]
+    example: SUBSCRIBED
+
+includeDescriptionComment:
+  name: includeDescriptionComment
+  in: query
+  description: |
+    If `true` or `1`, the response also includes the comment that holds the issue
+    description. By default, it is left out because the
+    [Get Actor issue](/api/v2/actor-issue-get) endpoint returns it as `description`.
+  style: form
+  explode: true
+  schema:
+    type: boolean
+    example: false
+
+reviewSortBy:
+  name: sortBy
+  in: query
+  description: |
+    Field to sort the reviews by. Use the `desc` parameter to set the direction.
+    The default value is `createdAt`.
+  style: form
+  explode: true
+  schema:
+    type: string
+    enum: [createdAt, rating]
+    default: createdAt
+    example: rating

@@ -1,0 +1,41 @@
+title: PublicAuthor
+description: |
+  Public profile information about the author of an Actor issue comment or review.
+  The name fields are present only when the author's profile is public.
+required:
+  - userId
+type: object
+properties:
+  userId:
+    type: string
+    description: ID of the author's user account.
+    examples: [wRsJZtadYvn4mBZmm]
+  username:
+    type: string
+    examples: [janedoe]
+  dnsFriendlyUsername:
+    type: string
+    examples: [janedoe]
+  displayName:
+    type: string
+    description: Name to show for the author.
+    examples: [Jane Doe]
+  organizationOwnerUserId:
+    type: string
+    description: ID of the user who owns the organization. Present only for organization accounts.
+    examples: [YiKoxjkaS9gjGTqhF]
+  isProfilePublic:
+    type: [boolean, "null"]
+    examples: [true]
+  firstName:
+    type: [string, "null"]
+    examples: [Jane]
+  lastName:
+    type: [string, "null"]
+    examples: [Doe]
+  organizationName:
+    type: [string, "null"]
+    examples: [null]
+  pictureUrl:
+    type: [string, "null"]
+    examples: ["https://apify-image-uploads-prod.s3.amazonaws.com/janedoe/picture.png"]

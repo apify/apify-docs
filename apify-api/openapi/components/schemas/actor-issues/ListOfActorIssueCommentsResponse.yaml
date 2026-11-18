@@ -1,0 +1,7 @@
+title: ListOfActorIssueCommentsResponse
+required:
+  - data
+type: object
+properties:
+  data:
+    $ref: ./ListOfActorIssueComments.yaml
