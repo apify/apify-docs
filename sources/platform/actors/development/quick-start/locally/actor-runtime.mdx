@@ -12,7 +12,7 @@ import PromptBlock from "@site/src/components/PromptBlock";
 
 The _Actor runtime_ is a local Apify platform that runs as a single container on your machine. You point the [Apify CLI](/cli/docs) at it, and `apify push`, `apify call`, and the other commands work the way they do against the Apify platform. The difference is that builds and runs happen on your computer, use no platform compute, and after the first build the runtime itself needs no network connection.
 
-The runtime is a development tool, not a place to host Actors. Use it to test an Actor the way the platform will run it, before you deploy.
+The runtime is a development tool, not a place to host Actors. Use it to test an Actor the way the platform will run it, before you deploy. The `apify runtime` commands are experimental and might change in future CLI releases.
 
 ## Runtime compared with `apify run`
 
@@ -128,13 +128,27 @@ apify runtime disconnect
 
 ## Set up a coding agent
 
-The runtime ships with its own [Agent Skill](https://agentskills.io), the complete instructions for using it. The skill comes from the installed runtime image, so it always matches the version you have. Install it once:
+Two [Agent Skills](https://agentskills.io) teach a coding agent to work with the runtime. One sets the runtime up, the other covers everything after that.
+
+### Install the setup skill
+
+The `apify-actor-runtime-setup` skill from [Apify Agent Skills](https://github.com/apify/agent-skills) gets an agent from nothing to a running runtime. Use it when the runtime isn't installed yet:
+
+```bash
+npx skills add apify/agent-skills --skill apify-actor-runtime-setup
+```
+
+With the skill, the agent checks for Docker or Podman and the Apify CLI, installs and starts the runtime, and loads the runtime's own skill.
+
+### Install the runtime's skill
+
+The runtime ships with its own skill, the complete instructions for using it. The skill comes from the installed runtime image, so it always matches the version you have. Install it once the runtime is installed:
 
 ```bash
 apify runtime skill --install
 ```
 
-The command writes the skill into every agent skills directory it finds:
+The command writes the skill, named `apify-actor-runtime`, into every agent skills directory it finds:
 
 | Directory | Picked up by |
 | --- | --- |
@@ -193,5 +207,6 @@ When the runtime knows an Apify Proxy password, from your real account or its ow
 ## Next steps
 
 - Read the full runtime reference with `apify runtime skill`. A running runtime also serves it at `http://localhost:3333/actor-runtime/skill`.
+- Read the [Actor runtime guide](/cli/docs/actor-runtime) in the Apify CLI docs.
 - See every `apify runtime` command in the [Apify CLI command reference](/cli/docs/reference).
 - Deploy the Actor to the platform with `apify runtime disconnect` followed by `apify push`. See [Deployment](/actors/development/deployment).
