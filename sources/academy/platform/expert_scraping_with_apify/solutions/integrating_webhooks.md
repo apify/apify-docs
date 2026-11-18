@@ -222,7 +222,7 @@ We don't need to add our API token to the URL, because when a webhook calls the 
 
 Next, within the **academy-amazon-scraper** Actor, we will click the **Integrations** tab and choose **Webhook**, then fill out the details to look like this:
 
-![Configuring a webhook](./images/adding-webhook.jpg)
+![HTTP webhook form in Apify Console with the URL and payload template filled in](./images/adding-webhook.svg)
 
 We have chosen to run the webhook once the Actor has succeeded, which means that its default dataset will surely be populated. Since the filtering Actor is expecting the default dataset ID of the Amazon Actor, we use the `resource` variable to grab hold of the `defaultDatasetId`. Set the payload template to the following:
 
@@ -242,11 +242,11 @@ Click **Save**, then run the **academy-amazon-scraper** Actor.
 
 If everything worked, then at the end of the **academy-amazon-scraper** run, we should see this within the **Integrations** tab:
 
-![Webhook succeeded](./images/webhook-succeeded.png)
+![Integrations tab in Apify Console showing the HTTP request integration with its last dispatch succeeded](./images/webhook-succeeded.svg)
 
 Additionally, we should be able to see that our **filter-actor** was run, and have access to its dataset:
 
-![Dataset preview](./images/dataset-preview.png)
+![Output tab of a filter-actor run in Apify Console with the filtered dataset in a table](./images/dataset-preview.svg)
 
 ## Quiz answers 📝 {#quiz-answers}
 
