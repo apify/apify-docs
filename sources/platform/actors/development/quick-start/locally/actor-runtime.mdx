@@ -128,27 +128,27 @@ apify runtime disconnect
 
 ## Set up a coding agent
 
-Two [Agent Skills](https://agentskills.io) teach a coding agent to work with the runtime. One sets the runtime up, the other covers everything after that.
+The `apify-actor-runtime` [Agent Skill](https://agentskills.io) teaches a coding agent to work with the runtime. It comes in two versions with the same name: a setup version you install before the runtime, and the full version that ships with the runtime itself.
 
 ### Install the setup skill
 
-The `apify-actor-runtime-setup` skill from [Apify Agent Skills](https://github.com/apify/agent-skills) gets an agent from nothing to a running runtime. Use it when the runtime isn't installed yet:
+The setup version from [Apify Agent Skills](https://github.com/apify/agent-skills) gets an agent from nothing to a running runtime. Use it when the runtime isn't installed yet:
 
 ```bash
-npx skills add apify/agent-skills --skill apify-actor-runtime-setup
+npx skills add apify/agent-skills --skill apify-actor-runtime
 ```
 
 With the skill, the agent checks for Docker or Podman and the Apify CLI, installs and starts the runtime, and loads the runtime's own skill.
 
 ### Install the runtime's skill
 
-The runtime ships with its own skill, the complete instructions for using it. The skill comes from the installed runtime image, so it always matches the version you have. Install it once the runtime is installed:
+The runtime ships with the full version of the skill, the complete instructions for using it. It comes from the installed runtime image, so it always matches the version you have. Install it once the runtime is installed:
 
 ```bash
 apify runtime skill --install
 ```
 
-The command writes the skill, named `apify-actor-runtime`, into every agent skills directory it finds:
+The command writes the skill into every agent skills directory it finds, replacing the setup version where both share a directory:
 
 | Directory | Picked up by |
 | --- | --- |
