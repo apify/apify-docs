@@ -220,7 +220,7 @@ We don't need to add our API token to the URL, because when a webhook calls the 
 
 :::
 
-Next, within the **academy-amazon-scraper** Actor, we will click the **Integrations** tab and choose **Webhook**, then fill out the details to look like this:
+Next, within the **academy-amazon-scraper** Actor, we will click the **Integrations** tab and choose **HTTP webhook**, then fill out the details to look like this:
 
 ![HTTP webhook form in Apify Console with the URL and payload template filled in](./images/adding-webhook.svg)
 
