@@ -24,7 +24,7 @@ To do so, you will need to navigate to **Sources** tab in Airbyte and select **A
 
 ![Airbyte sources tab](../images/airbyte-sources.png)
 
-You will need to provide a **dataset ID** and your Apify API Token. You can find both of these in [Apify Console](https://console.apify.com).
+You will need to provide a **dataset ID** or dataset name and your Apify API Token. You can find both of these in [Apify Console](https://console.apify.com).
 
 ![Airbyte source setup](../images/airbyte-source-setup.png)
 
