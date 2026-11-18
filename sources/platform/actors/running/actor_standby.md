@@ -17,7 +17,7 @@ To build your own Server Actor, see [Develop Server Actors](../development/progr
 ## Check if an Actor is a Server Actor
 
 If an Actor has the server interface enabled, its detail page shows the **Server** tab. The tab contains the hostname of the Actor's server, and the Actor README describes the endpoints, the parameters they accept, and what they return.
-If the Actor defines a [web server schema](../development/actor_definition/web_server_schema/index.md), the tab also shows an interactive list of its endpoints, where you can send requests directly from the browser.
+If the Actor defines a [web server schema](../development/actor_definition/web_server_schema/index.md), the tab also lists its endpoints, with the parameters they accept and the responses they return.
 
 You don't need to start the Actor. Send a request to that hostname and endpoint, and you get the results.
 
