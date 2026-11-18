@@ -11,11 +11,30 @@ pagination: true
 
 ---
 
-From the previous courses, you already know the basics of **Actors**: how to run them on the platform and how to create one. Within this lesson, we'll take a more in-depth look at Actors and what they can do.
+In this course, you'll take an existing Amazon scraper and extend it lesson by lesson with features you'll need when running scrapers on the Apify platform. This first lesson takes a more in-depth look at Actors and shows how to connect them with webhooks.
+
+## The Amazon scraper {#amazon-scraper}
+
+Each lesson of this course builds on top of [academy-amazon-scraper](https://github.com/apify-projects/academy-amazon-scraper), a starter project with a ready-made Amazon scraper, so you don't need to write one from scratch. The scraper takes a keyword, searches Amazon for it, and saves every offer for each product it finds. One product can have several offers from different sellers, and each offer is saved as a separate item in the dataset.
+
+To follow the course, you need [Node.js](https://nodejs.org/) 24 or newer, the [Apify CLI](/cli/docs/installation), and an [Apify account](https://console.apify.com). Clone the repository, install its dependencies, and log in to Apify:
+
+```bash
+git clone https://github.com/apify-projects/academy-amazon-scraper.git
+cd academy-amazon-scraper
+npm install
+apify login
+```
+
+Amazon blocks scrapers quickly, so the scraper uses [Apify Proxy](/proxy) with residential IP addresses. Connecting to Apify Proxy from your own computer requires a paid plan, so throughout the course, we'll run the scraper on the Apify platform. Deploy it there:
+
+```bash
+apify push
+```
+
+Then open the **academy-amazon-scraper** Actor in [Apify Console](https://console.apify.com/actors) and start it to check that it works. A run with the default input costs a few cents. The project's README explains how the scraper works, so read it before moving on.
 
 ## Advanced Actor overview {#advanced-actors}
-
-In this course, we'll be working with [academy-amazon-scraper](https://github.com/apify-projects/academy-amazon-scraper), a starter project with a ready-made Amazon scraper. It takes a keyword, searches Amazon for it, and saves every offer for each product it finds, so one product can have several offers from different sellers. Each lesson builds on top of this scraper, so you don't need to write one from scratch. Clone the repository and read its README, which explains how the scraper works and how to run it.
 
 Take a look at the files within the project. You'll notice that there is a **Dockerfile** in the project's root folder. Every single Actor has a Dockerfile (the Actor's **Image**) which tells Docker how to spin up a container on the Apify platform which can successfully run the Actor's code. "Apify Actors" is a serverless platform that runs multiple Docker containers. For a deeper understanding of Actor Dockerfiles, refer to the [Apify Actor Dockerfile docs](/sdk/js/docs/guides/docker-images#example-dockerfile).
 
@@ -41,7 +60,7 @@ Prior to moving forward, please read over these resources:
 
 ## Our task {#our-task}
 
-In this task, we'll be building on top of the [academy-amazon-scraper](https://github.com/apify-projects/academy-amazon-scraper). If you haven't done so yet, push it to the Apify platform with `apify push`.
+In this task, we'll be building on top of the **academy-amazon-scraper** Actor you deployed at the beginning of this lesson.
 
 Once our Amazon Actor has completed its run, we might want to send an email to ourselves, but let's call another Actor through a webhook instead. The Actor called will be a new Actor that you will create. It will take the dataset ID as input, then filter through all of the results and return only the cheapest result for each unique ASIN. All of the results of the Actor will be pushed to its default dataset.
 
