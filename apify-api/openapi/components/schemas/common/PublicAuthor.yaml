@@ -1,7 +1,8 @@
 title: PublicAuthor
 description: |
   Public profile information about the author of an Actor issue comment or review.
-  The name fields are present only when the author's profile is public.
+  `firstName`, `lastName`, `organizationName` and `pictureUrl` are `null` when the
+  author's profile is not public.
 required:
   - userId
 type: object
