@@ -20,7 +20,7 @@ const proxyConfiguration = await Actor.createProxyConfiguration({
 });
 ```
 
-We didn't provide much explanation for this initially, as it was not directly relevant to the lesson at hand. When you [create a **ProxyConfiguration**](../../../webscraping/anti_scraping/mitigation/using_proxies.md) and pass it to a crawler, Crawlee will make the crawler automatically rotate through the proxies. This entire time, we've been using the **RESIDENTIAL** proxy group to avoid being blocked by Amazon.
+The starter comes with this configuration ready, so we haven't had to think about it so far. When you [create a **ProxyConfiguration**](../../../webscraping/anti_scraping/mitigation/using_proxies.md) and pass it to a crawler, Crawlee will make the crawler automatically rotate through the proxies. This entire time, we've been using the **RESIDENTIAL** proxy group to avoid being blocked by Amazon.
 
 > Go ahead and try commenting out the proxy configuration code then running the scraper. What happens?
 
