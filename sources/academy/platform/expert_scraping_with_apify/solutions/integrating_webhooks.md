@@ -212,7 +212,13 @@ We can also use our username and the name of the Actor like this:
 https://api.apify.com/v2/actors/USERNAME~filter-actor/runs
 ```
 
-Whichever one you choose is totally up to your preference. We don't need to add our API token to the URL, because when a webhook calls the Apify API, Apify [adds the token automatically](/integrations/webhooks/actions#security-considerations). Keeping the token out of the URL also means it isn't stored in the webhook's settings.
+Whichever one you choose is totally up to your preference.
+
+:::note No API token in the URL
+
+We don't need to add our API token to the URL, because when a webhook calls the Apify API, Apify [adds the token automatically](/integrations/webhooks/actions#security-considerations). Keeping the token out of the URL also means it isn't stored in the webhook's settings.
+
+:::
 
 Next, within the **academy-amazon-scraper** Actor, we will click the **Integrations** tab and choose **Webhook**, then fill out the details to look like this:
 
