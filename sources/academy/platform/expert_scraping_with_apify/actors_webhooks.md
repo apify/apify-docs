@@ -12,7 +12,7 @@ slug: /expert-scraping-with-apify/actors-webhooks
 
 In this course, you'll take an existing Amazon scraper and extend it lesson by lesson with features you'll need when running scrapers on the Apify platform. This first lesson takes a more in-depth look at Actors and shows how to connect them with webhooks.
 
-## The Amazon scraper {#amazon-scraper}
+## The Amazon scraper
 
 Each lesson of this course builds on top of [academy-amazon-scraper](https://github.com/apify-projects/academy-amazon-scraper), a starter project with a ready-made Amazon scraper, so you don't need to write one from scratch. The scraper takes a keyword, searches Amazon for it, and saves every offer for each product it finds. One product can have several offers from different sellers, and each offer is saved as a separate item in the dataset.
 
