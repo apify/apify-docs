@@ -213,7 +213,7 @@ https://api.apify.com/v2/actors/USERNAME~filter-actor/runs
 
 Whichever one you choose is totally up to your preference. We don't need to add our API token to the URL, because when a webhook calls the Apify API, Apify [adds the token automatically](/integrations/webhooks/actions#security-considerations). Keeping the token out of the URL also means it isn't stored in the webhook's settings.
 
-Next, within the Amazon scraping Actor, we will click the **Integrations** tab and choose **Webhook**, then fill out the details to look like this:
+Next, within the **academy-amazon-scraper** Actor, we will click the **Integrations** tab and choose **Webhook**, then fill out the details to look like this:
 
 ![HTTP webhook form in Apify Console with the URL and payload template filled in](./images/adding-webhook.svg)
 
@@ -225,7 +225,7 @@ We have chosen to run the webhook once the Actor has succeeded, which means that
 
 Don't put quotes around the variable. Apify fills in the value already as a JSON string, so with quotes, the filter Actor would receive the literal text `{{resource.defaultDatasetId}}` instead of the dataset ID.
 
-Click **Save**, then run the **academy-amazon-scraper** Actor again.
+Click **Save**, then run the **academy-amazon-scraper** Actor.
 
 ## Making sure it worked {#checking-the-webhook}
 

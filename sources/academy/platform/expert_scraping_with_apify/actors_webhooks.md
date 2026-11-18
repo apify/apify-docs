@@ -10,7 +10,7 @@ slug: /expert-scraping-with-apify/actors-webhooks
 
 ---
 
-Thus far, you've run Actors on the platform and written an Actor of your own, which you published to the platform yourself using the Apify CLI; therefore, it's fair to say that you are becoming more familiar and comfortable with the concept of **Actors**. Within this lesson, we'll take a more in-depth look at Actors and what they can do.
+From the previous courses, you already know the basics of **Actors**: how to run them on the platform and how to create one. Within this lesson, we'll take a more in-depth look at Actors and what they can do.
 
 ## Advanced Actor overview {#advanced-actors}
 
