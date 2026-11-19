@@ -1,0 +1,7 @@
+title: UserProxyInfoResponse
+required:
+  - data
+type: object
+properties:
+  data:
+    $ref: ./UserProxyInfo.yaml

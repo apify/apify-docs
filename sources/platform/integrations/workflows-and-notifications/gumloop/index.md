@@ -86,7 +86,7 @@ To use the Apify integration in Gumloop, you need an Apify account, a Gumloop ac
 
     This step is required because Gumloop needs to understand the output structure of your task to properly configure data fields.
 
-    ![Saved tasks with Start](images/start_apify_task.png)
+    ![Saved tasks with Start](images/start_apify_task.webp)
 
 1. _Configure your Gumloop workflow_
 

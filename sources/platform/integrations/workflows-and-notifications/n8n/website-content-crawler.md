@@ -34,7 +34,7 @@ For n8n Cloud users, installation is even simpler and doesn't require manual pac
 1. Search for **Website Content Crawler by Apify** in the community node registry
 1. Click **Install node** to add the Apify node to your instance
 
-![Website Content Crawler by Apify on n8n](images/operations.png)
+![Website Content Crawler by Apify on n8n](images/operations.webp)
 
 :::note Verified community nodes visibility
 
@@ -159,7 +159,7 @@ You can select the _Crawler type_ by choosing the rendering engine (browser or H
 
 You can setup Apify's Scraper for AI Crawling node as a tool for your AI Agents.
 
-![Setup AI Agent](./images/setup.png)
+![Setup AI Agent](./images/setup.webp)
 
 ### Dynamic URL crawling
 

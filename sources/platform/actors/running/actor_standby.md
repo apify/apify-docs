@@ -17,7 +17,7 @@ To build your own Server Actor, see [Develop Server Actors](../development/progr
 ## Check if an Actor is a Server Actor
 
 If an Actor has the server interface enabled, its detail page shows the **Server** tab. The tab contains the hostname of the Actor's server, and the Actor README describes the endpoints, the parameters they accept, and what they return.
-If the Actor defines a [web server schema](../development/actor_definition/web_server_schema/index.md), the tab also shows an interactive list of its endpoints, where you can send requests directly from the browser.
+If the Actor defines a [web server schema](../development/actor_definition/web_server_schema/index.md), the tab also lists its endpoints, with the parameters they accept and the responses they return.
 
 You don't need to start the Actor. Send a request to that hostname and endpoint, and you get the results.
 
@@ -121,6 +121,10 @@ If your account goes over its monthly usage hard limit, the platform rejects you
 ## Billing
 
 What you pay for depends on the tenancy, as described in [Multi-tenant and single-tenant Server Actors](#multi-tenant-and-single-tenant-server-actors).
+
+Each Server Actor sets its own prices, which you can find in the **Pricing** tab on the Actor's detail page.
+
+A multi-tenant Server Actor runs in the developer's account, so its runs don't count toward your memory or concurrent run limits.
 
 For a single-tenant Server Actor, the platform bills your runs like any other runs in your account. A run also consumes resources while it waits for requests, until the idle timeout stops it, so expect usage even when no requests arrive.
 

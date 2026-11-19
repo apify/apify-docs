@@ -1,8 +1,8 @@
 title: ScheduleUiState
-type: object
+type: [object, "null"]
 description: >-
   State of the schedule editor in Apify Console. It's removed when an API update changes
-  `cronExpression` or `timezone`.
+  `cronExpression` or `timezone`, after which it is `null`.
 properties:
   version:
     type: integer

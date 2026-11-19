@@ -1,6 +1,7 @@
 byRunId:
   tags:
     - Actor runs
+    - Actor Runtime API/Actor runs
   summary: Charge events in Actor run
   description: |
     Charge for events in the run of your [pay-per-event Actor](/actors/monetize/pay-per-event).

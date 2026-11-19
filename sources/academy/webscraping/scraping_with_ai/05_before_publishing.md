@@ -149,7 +149,7 @@ On Apify Store, users will also [ask questions or report issues](/academy/build-
 
 The best strategy is to plan ahead. Set aside a few hours each week for your scraper. Some weeks, you'll spend that time fixing unexpected failures. Others, you'll answer questions from users.
 
-Set up [scheduled automated tests](/actors/development/automated-tests) to catch problems before users notice them, or at least early enough for you to fix them quickly.
+Set up [scheduled automated tests](/actors/development/test-and-debug) to catch problems before users notice them, or at least early enough for you to fix them quickly.
 
 When something breaks, the AI agent can come to the rescue again. Give it as much context as possible:
 

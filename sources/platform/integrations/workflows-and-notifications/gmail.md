@@ -31,7 +31,7 @@ To use the Apify integration for Gmail, you will need:
 1. Set up the integration details. **Subject** and **Body** fields can make use of available variables. Dataset can be attached in several formats.
  By default, the integration is triggered by successful runs only.
 
-    ![Google Drive integration](../images/google/google-integrations-details-gmail.png)
+    ![Google Drive integration](../images/google/google-integrations-details-gmail.webp)
 
 1. Click on **Save** & enable the integration.
 
@@ -39,5 +39,5 @@ Once this is done, run your Actor to test whether the integration is working.
 
 You can manage your connected accounts at **[Settings > API & Integrations](https://console.apify.com/settings/integrations)**.
 
-![Google Drive integration](../images/google/google-integrations-accounts.png)
+![Google Drive integration](../images/google/google-integrations-accounts.webp)
 

@@ -1,6 +1,7 @@
 shared: &shared
   tags:
     - Actors/Actor versions
+    - Actor Runtime API/Actor versions
   parameters:
     - $ref: "../../parameters/runAndBuildParameters.yaml#/actorId"
     - $ref: "../../parameters/runAndBuildParameters.yaml#/versionNumber"
