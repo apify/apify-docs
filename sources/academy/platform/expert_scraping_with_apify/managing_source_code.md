@@ -11,7 +11,7 @@ pagination: true
 
 ---
 
-In this brief lesson, we'll discuss how to better manage an Actor's source code. Up 'til now, you've been developing your scripts locally, and then pushing the code directly to the Actor on the Apify platform; however, there is a much more optimal (and standard) way.
+In this brief lesson, we'll discuss how to better manage an Actor's source code. Up 'til now, you've been working on your Actors' code locally, and then pushing it directly to the Apify platform; however, there is a much more optimal (and standard) way.
 
 ## Learning 🧠 {#learning}
 
@@ -19,7 +19,7 @@ Thus far, every time we've updated our code on the Apify platform, we've used th
 
 If you're not yet familiar with Git, please get familiar with it through the [Git documentation](https://git-scm.com/docs), then take a quick moment to read about [GitHub integration](/integrations/github) in the Apify docs.
 
-Also, try to explore the **Multifile editor** in one of the Actors you developed in the previous lessons before moving forward.
+Also, try to explore the **Multifile editor** in **filter-actor**, which you created in the previous lesson, before moving forward.
 
 ## Knowledge check 📝 {#quiz}
 
@@ -39,9 +39,14 @@ First, let's create a repository. This can be done [in a number of ways](https:/
 
 ![Create a new GitHub repo](./images/github-new-repo.png)
 
-Then, we'll run the commands it tells us in our terminal (while within the **demo-actor** directory) to initialize the repository locally, and then push all of the files to the remote one.
+GitHub then suggests commands for pushing an existing repository, but we can't use them as they are. We cloned **academy-amazon-scraper** from the starter repository, so its `origin` remote already points to `apify-projects/academy-amazon-scraper`, and `git remote add origin …` would fail with `remote origin already exists`. Instead, we'll point `origin` to our new repository and push all of the files to it. Run the following in the **academy-amazon-scraper** directory, with your own repository URL:
 
-After you've created your repo, in the Apify platform navigate to your Amazon scraping Actor that we called **demo-actor**. In the **Source** tab, click the dropdown menu under **Source code** and select **Git repository**. By default, this is set to **Web IDE**, which is what we've been using so far.
+```bash
+git remote set-url origin https://github.com/YOUR_USERNAME/academy-amazon-scraper.git
+git push -u origin main
+```
+
+After you've created your repo, in the Apify platform navigate to your **academy-amazon-scraper** Actor. In the **Source** tab, click the dropdown menu under **Source code** and select **Git repository**. By default, this is set to **Web IDE**, which is what we've been using so far.
 
 ![Select source code location](./images/select-source-location.png)
 
@@ -59,7 +64,7 @@ This was a bit of overhead, but the good news is that you don't ever have to con
 
 Think of it as combining two steps into one. Normally, you'd have to do a `git push` from your terminal to get the newest code onto GitHub, then run `apify push` to push it to the platform.
 
-It's also important to know that GitHub/Gitlab repository integration is standard practice. As projects grow and the number of contributors and maintainers increases, it only makes sense to have a GitHub repository integrated with the project's Actor. For the remainder of this course, all Actors created will be integrated with a GitHub repository.
+It's also important to know that GitHub/Gitlab repository integration is standard practice. As projects grow and the number of contributors and maintainers increases, it only makes sense to have a GitHub repository integrated with the project's Actor. For small helper Actors, `apify push` is still handy, so later in this course we'll use it to deploy the new Actors we create. Feel free to integrate them with a GitHub repository instead.
 
 ## Next up {#next}
 

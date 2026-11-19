@@ -11,19 +11,21 @@ pagination: true
 
 ---
 
-Let's first head into our **demo-actor** and create a new file named **asinTracker.js** in the **src** folder. Within this file, we are going to build a utility class which will allow us to store, modify, persist, and log our tracked ASIN data.
+Let's first head into our **academy-amazon-scraper** and create a new file named **asinTracker.js** in the **src** folder. Within this file, we are going to build a utility class which will allow us to store, modify, persist, and log our tracked ASIN data.
 
 Here's the skeleton of our class:
 
 ```js
 // asinTracker.js
+import { log } from 'apify';
+
 class ASINTracker {
     constructor() {
         this.state = {};
 
         // Log the state to the console every ten
         // seconds
-        setInterval(() => console.log(this.state), 10000);
+        setInterval(() => log.info('ASIN tracker', this.state), 10000);
     }
 
     // Add an offer to the ASIN's offer count
@@ -41,7 +43,7 @@ class ASINTracker {
 // It is only a utility class, so we will immediately
 // create an instance of it and export that. We only
 // need one instance for our use case.
-module.exports = new ASINTracker();
+export const tracker = new ASINTracker();
 ```
 
 Multiple techniques exist for storing data in memory; however, this is the most modular way, as all state-persistence and modification logic will be held in this file.
@@ -51,75 +53,72 @@ Here is our updated **routes.js** file which is now utilizing this utility class
 ```js
 // routes.js
 import { createCheerioRouter } from '@crawlee/cheerio';
-import { BASE_URL, OFFERS_URL, labels } from './constants';
-import tracker from './asinTracker';
-import { dataset } from './main.js';
+
+import { tracker } from './asinTracker.js';
+import { BASE_URL, labels, OFFERS_URL } from './constants.js';
 
 export const router = createCheerioRouter();
 
-router.addHandler(labels.START, async ({ $, crawler, request }) => {
+router.addHandler(labels.START, async ({ $, addRequests, request }) => {
     const { keyword } = request.userData;
 
-    const products = $('div > div[data-asin]:not([data-asin=""])');
+    const products = $('div[data-component-type="s-search-result"]:not(.AdHolder)');
 
+    if (!products.length) {
+        throw new Error('No products found, retrying');
+    }
+
+    const requests = [];
     for (const product of products) {
         const element = $(product);
-        const titleElement = $(element.find('.a-text-normal[href]'));
-
-        const url = `${BASE_URL}${titleElement.attr('href')}`;
+        const asin = element.attr('data-asin');
+        if (!asin) continue;
 
         // For each product, add it to the ASIN tracker
         // and initialize its collected offers count to 0
-        tracker.incrementASIN(element.attr('data-asin'));
+        tracker.incrementASIN(asin);
 
-        await crawler.addRequest([{
+        const url = `${BASE_URL}/dp/${asin}`;
+
+        requests.push({
             url,
             label: labels.PRODUCT,
             userData: {
                 data: {
-                    title: titleElement.first().text().trim(),
-                    asin: element.attr('data-asin'),
+                    title: element.find('h2[aria-label]').text().trim(),
+                    asin,
                     itemUrl: url,
                     keyword,
                 },
             },
-        }]);
+        });
     }
+    await addRequests(requests);
 });
 
-router.addHandler(labels.PRODUCT, async ({ $, crawler, request }) => {
+// The PRODUCT handler stays the same
+
+router.addHandler(labels.OFFERS, async ({ $, request, pushData }) => {
     const { data } = request.userData;
 
-    const element = $('div#productDescription');
+    if (!$('#aod-container').length) {
+        throw new Error('Offers did not load, retrying');
+    }
 
-    await crawler.addRequests([{
-        url: OFFERS_URL(data.asin),
-        label: labels.OFFERS,
-        userData: {
-            data: {
-                ...data,
-                description: element.text().trim(),
-            },
-        },
-    }]);
-});
+    for (const offer of $('#aod-pinned-offer, #aod-offer')) {
+        const element = $(offer);
+        const price = element.find('.apex-pricetopay-value').first().text().trim();
 
-router.addHandler(labels.OFFERS, async ({ $, request }) => {
-    const { data } = request.userData;
+        if (!price) continue;
 
-    const { asin } = data;
-
-    for (const offer of $('#aod-offer')) {
         // For each offer, add 1 to the ASIN's
         // offer count
-        tracker.incrementASIN(asin);
+        tracker.incrementASIN(data.asin);
 
-        const element = $(offer);
-
-        await dataset.pushData({
+        await pushData({
             ...data,
-            sellerName: element.find('div[id*="soldBy"] a[aria-label]').text().trim(),
-            offer: element.find('.a-price .a-offscreen').text().trim(),
+            sellerName: element.find('#aod-offer-soldBy [aria-label]').text().trim(),
+            offer: price,
         });
     }
 });
@@ -129,24 +128,34 @@ router.addHandler(labels.OFFERS, async ({ $, request }) => {
 
 The **persistState** event is automatically fired (by default) every 60 seconds by the Apify SDK while the Actor is running and is also fired when the **migrating** event occurs.
 
-In order to persist our ASIN tracker object, let's use the `Actor.on` function to listen for the **persistState** event and store it in the key-value store each time it is emitted.
+In order to persist our ASIN tracker object, let's use the `Actor.on` function to listen for the **persistState** event and store it in the key-value store each time it is emitted. First, we'll add the name of the key-value store key to **constants.js**:
+
+```js
+// constants.js
+
+// ...
+export const ASIN_TRACKER = 'ASIN-TRACKER';
+```
+
+Then we can use it in the tracker:
 
 ```js
 // asinTracker.js
-import { Actor } from 'apify';
-// We've updated our constants.js file to include the name
-// of this new key in the key-value store
-const { ASIN_TRACKER } = require('./constants');
+import { Actor, log } from 'apify';
+
+import { ASIN_TRACKER } from './constants.js';
 
 class ASINTracker {
     constructor() {
         this.state = {};
+    }
 
+    initialize() {
         Actor.on('persistState', async () => {
             await Actor.setValue(ASIN_TRACKER, this.state);
         });
 
-        setInterval(() => console.log(this.state), 10000);
+        setInterval(() => log.info('ASIN tracker', this.state), 10000);
     }
 
     incrementASIN(asin) {
@@ -159,29 +168,26 @@ class ASINTracker {
     }
 }
 
-module.exports = new ASINTracker();
+export const tracker = new ASINTracker();
 ```
+
+The listener is registered in the `initialize()` method and not in the constructor, because the `tracker` object is created as soon as **asinTracker.js** is imported, which is before `Actor.init()` runs. On the Apify platform, `Actor.init()` replaces the event manager, so a listener registered before it never receives the **persistState** event. Locally the event manager isn't replaced, so the mistake would go unnoticed with `apify run`. We'll call `initialize()` from **main.js** right after `Actor.init()`.
 
 ## Handling resurrections {#handling-resurrections}
 
-Great! Now our state will be persisted every 60 seconds in the key-value store. However, we're not done. Let's say that the Actor migrates and is resurrected. We never actually update the `state` variable of our `ASINTracker` class with the state stored in the key-value store, so as our code currently stands, we still don't support state-persistence on migrations.
+Great! Once `initialize()` is called, our state will be persisted every 60 seconds in the key-value store. However, we're not done. Let's say that the Actor migrates and is resurrected. We never actually update the `state` variable of our `ASINTracker` class with the state stored in the key-value store, so as our code currently stands, we still don't support state-persistence on migrations.
 
-In order to fix this, let's create a method called `initialize` which will be called at the very beginning of the Actor's run, and will check the key-value store for a previous state under the key **ASIN-TRACKER**. If a previous state does live there, then it will update the class' `state` variable with the value read from the key-value store:
+In order to fix this, let's extend the `initialize` method, so that before it starts persisting the state, it checks the key-value store for a previous state under the key **ASIN-TRACKER**. If a previous state does live there, then it will update the class' `state` variable with the value read from the key-value store:
 
 ```js
 // asinTracker.js
-import { Actor } from 'apify';
-import { ASIN_TRACKER } from './constants';
+import { Actor, log } from 'apify';
+
+import { ASIN_TRACKER } from './constants.js';
 
 class ASINTracker {
     constructor() {
         this.state = {};
-
-        Actor.on('persistState', async () => {
-            await Actor.setValue(ASIN_TRACKER, this.state);
-        });
-
-        setInterval(() => console.log(this.state), 10000);
     }
 
     async initialize() {
@@ -192,6 +198,12 @@ class ASINTracker {
         // If the data does exist, replace the current state
         // (initialized as an empty object) with the data
         if (data) this.state = data;
+
+        Actor.on('persistState', async () => {
+            await Actor.setValue(ASIN_TRACKER, this.state);
+        });
+
+        setInterval(() => log.info('ASIN tracker', this.state), 10000);
     }
 
     incrementASIN(asin) {
@@ -204,16 +216,16 @@ class ASINTracker {
     }
 }
 
-module.exports = new ASINTracker();
+export const tracker = new ASINTracker();
 ```
 
-We'll now call this function at the top level of the **main.js** file to ensure it is the first thing that gets called when the Actor starts up:
+We'll now call this method at the top level of the **main.js** file to ensure it is the first thing that gets called when the Actor starts up:
 
 ```js
 // main.js
 
 // ...
-import tracker from './asinTracker';
+import { tracker } from './asinTracker.js';
 
 // The Actor.init() function should be executed before
 // the tracker's initialization
@@ -231,13 +243,13 @@ That's everything! Now, even if the Actor migrates (or is gracefully aborted and
 
 **A:** It's not best to use this option by default. If it fails, there must be a reason, which would need to be thought through first - meaning that the edge case of failing should be handled when resurrecting the Actor. The state should be persisted beforehand.
 
-**Q: Migrations happen randomly, but by [aborting gracefully](/actors/running/runs-and-builds#aborting-runs), you can simulate a similar situation. Try this out on the platform and observe what happens. What changes occur, and what remains the same for the restarted Actor's run?**
+**Q: Migrations happen randomly, but by [aborting gracefully](/actors/running/runs-and-builds#abort-a-run), you can simulate a similar situation. Try this out on the platform and observe what happens. What changes occur, and what remains the same for the restarted Actor's run?**
 
 **A:** After aborting or throwing an error mid-process, it manages to start back from where it was upon resurrection.
 
 **Q: Why don't you (usually) need to add any special migration handling code for a standard crawling/scraping Actor? Are there any features in Crawlee or Apify SDK that handle this under the hood?**
 
-**A:** Because Apify SDK handles all of the migration handling code for us. If you want to add custom migration-handling code, you can use `Actor.events` to listen for the `migrating` or `persistState` events to save the current state in key-value store (or elsewhere).
+**A:** Because Apify SDK handles all of the migration handling code for us. If you want to add custom migration-handling code, you can use the `Actor.on()` function to listen for the `migrating` or `persistState` events to save the current state in key-value store (or elsewhere).
 
 **Q: How can you intercept the migration event? How much time do you have after this event happens and before the Actor migrates?**
 
