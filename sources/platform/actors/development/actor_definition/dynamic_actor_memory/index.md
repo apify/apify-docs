@@ -94,7 +94,7 @@ _You can mix both styles._
 ### Supported operations
 
 - Arithmetic: `+`, `-`, `*`, `/`
-- Math functions: `min()`, `max()`, `ceil()`, `floor()`, `round()`, `log()`, `exp()`, `log10()`
+- Math functions: `min()`, `max()`, `ceil()`, `floor()`, `round()`
 - Conditional logic:
 
     ```js
