@@ -1,6 +1,6 @@
 ---
 title: Workato integration
-description: Connect Apify Actors to Workato recipes to run web scraping jobs, monitor run events, and process results in automated workflows.
+description: Learn how to connect Apify Actors to Workato recipes to run web scrapes, watch run events, and process the results in your automated workflows.
 sidebar_label: Workato
 slug: /integrations/workato
 ---
@@ -37,20 +37,20 @@ Before using the Apify connector in recipes, create a connection inside a Workat
 1. Click **Create project**.
 1. Name the project, select **Start from scratch**, and click **Create project**.
 
-![Screenshot showing how to create a new project in Workato](../images/workato/create-project.png)
+![Screenshot showing how to create a new project in Workato](../images/workato/create-project.webp)
 
 ### Create a connection in your project
 
 1. Open your project.
 1. Click the **Create** button.
 1. Select **Connection**.
-   ![Screenshot showing how to create connection](../images/workato/create-connection.png)
+   ![Screenshot showing how to create connection](../images/workato/create-connection.webp)
 1. Search for **Apify** and choose the Apify connector.
-   ![Screenshot showing how to search for the Apify connector in Workato](../images/workato/create-connection-find-connector.png)
+   ![Screenshot showing how to search for the Apify connector in Workato](../images/workato/create-connection-find-connector.webp)
 1. In the connection dialog, enter your **API Token**. In [Apify Console](https://console.apify.com), go to [Settings > API & Integrations](https://console.apify.com/settings/integrations?utm_source=workato&utm_medium=integrations) and copy your API token.
-   ![Screenshot of the Workato API Key authentication form](../images/workato/create-connection-api-key.png)
+   ![Screenshot of the Workato API Key authentication form](../images/workato/create-connection-api-key.webp)
 1. Click **Connect**. Workato tests the connection by making an authenticated call to verify your credentials.
-   ![Screenshot showing successful API Key authentication in Workato](../images/workato/create-connection-api-success.png)
+   ![Screenshot showing successful API Key authentication in Workato](../images/workato/create-connection-api-success.webp)
 
 Once you create and authenticate the connection, you can use it in any recipe.
 
@@ -58,7 +58,7 @@ Once you create and authenticate the connection, you can use it in any recipe.
 
 A recipe begins with a trigger (an event that starts the workflow) and includes one or more actions (operations to perform). The sections below describe the triggers and actions available in the Apify connector.
 
-### Triggers
+## Triggers
 
 :::tip Inline documentation
 
@@ -68,7 +68,7 @@ Each connector trigger and action field in Workato includes inline help text des
 
 The Apify connector provides the following triggers that monitor your Apify account for task completions:
 
-#### Actor run finished
+### Actor run finished
 
 Triggers when an Apify Actor run finishes (succeeds, fails, times out, or gets aborted).
 
@@ -78,9 +78,9 @@ This trigger monitors a specific Apify Actor and starts the recipe when any run 
 - Choose to trigger on specific statuses (`ACTOR.RUN.SUCCEEDED`, `ACTOR.RUN.FAILED`, `ACTOR.RUN.TIMED_OUT`, `ACTOR.RUN.ABORTED`).
 - Access run details, status, and metadata in subsequent recipe steps.
 
-![Screenshot of the Actor run finished trigger configuration in Workato](../images/workato/trigger-actor.png)
+![Screenshot of the Actor run finished trigger configuration in Workato](../images/workato/trigger-actor.webp)
 
-#### Task run finished
+### Task run finished
 
 Triggers when an Apify task run finishes (succeeds, fails, times out, or gets aborted).
 
@@ -90,13 +90,13 @@ This trigger creates a webhook in your Apify account that notifies Workato when 
 - Build workflows dependent on specific data collection tasks.
 - Process results from tasks with predefined configurations.
 
-![Screenshot of the task run finished trigger configuration in Workato](../images/workato/trigger-task.png)
+![Screenshot of the task run finished trigger configuration in Workato](../images/workato/trigger-task.webp)
 
-### Actions
+## Actions
 
 The Apify connector offers actions to interact with the Apify platform.
 
-#### Run Actor
+### Run Actor
 
 Run an Apify Actor with customizable execution parameters.
 
@@ -117,9 +117,9 @@ Default values for input fields will be displayed as placeholders, giving you a 
 
 :::
 
-![Screenshot of the run Actor action configuration in Workato](../images/workato/run-actor.png)
+![Screenshot of the run Actor action configuration in Workato](../images/workato/run-actor.webp)
 
-#### Run task
+### Run task
 
 Run an Apify Actor task with optional input overrides.
 
@@ -129,9 +129,24 @@ This action runs an Apify task with optional input overrides and execution param
 - Override the task's pre-configured input with new JSON if needed.
 - Configure task options: memory (128 MB to 32 GB), timeout, and build tag (defaults to the Actor's default build tag).
 
-![Screenshot of the run task action configuration in Workato](../images/workato/run-task.png)
+![Screenshot of the run task action configuration in Workato](../images/workato/run-task.webp)
 
-#### Get dataset items
+### Send Server Actor request
+
+Send a request to a Server Actor and get its response.
+
+A [Server Actor](../../actors/running/actor_standby.md) answers HTTP requests in real time, like a web API. This action sends one request to it and returns the response in the same recipe step. You can:
+
+- Select a Server Actor from Apify Store, or enter any Server Actor manually.
+- Pick an endpoint from the Actor's [web server schema](../../actors/development/actor_definition/web_server_schema/index.md), or choose **Custom path** to enter the method and path yourself.
+- Fill in the request body in fields built from the endpoint, or as JSON in **Body (JSON)**.
+- Use the response as **Body** (JSON object), **Body (list)** (JSON array), or **Body (text)**.
+
+The Actor has to answer within 180 seconds, Workato's limit for an action. The step fails on an error status, a redirect, or a binary response. A Retry block or **Repeat job** sends the request again, and the Actor may charge for it again.
+
+![Screenshot of the Send Server Actor request action in Workato with the Web Fetch Actor and its GET / endpoint selected](../images/workato/send-server-actor-request.webp)
+
+### Get dataset items
 
 Retrieve items from a dataset with dynamic field mapping.
 
@@ -141,7 +156,7 @@ Select a dataset to dynamically generate output fields and retrieve its items. T
 - Retrieves data records from specified datasets with pagination support.
 - Returns structured data ready for downstream recipe steps.
 
-##### Dynamic schema detection
+#### Dynamic schema detection
 
 The connector samples your dataset to create appropriate output fields:
 
@@ -155,9 +170,9 @@ Use datasets where all items follow a consistent structure. Test with a small sa
 
 :::
 
-![Screenshot of the get dataset items action configuration in Workato](../images/workato/get-dataset.png)
+![Screenshot of the get dataset items action configuration in Workato](../images/workato/get-dataset.webp)
 
-#### Get key-value store record
+### Get key-value store record
 
 Retrieve a single record from a key-value store.
 
@@ -168,9 +183,9 @@ Select a key-value store and a key to retrieve the corresponding record as a tex
 - Supports both text and binary content types.
 - Enables flexible data retrieval for various use cases.
 
-![Screenshot of the get key-value store record action configuration in Workato](../images/workato/get-key-val.png)
+![Screenshot of the get key-value store record action configuration in Workato](../images/workato/get-key-val.webp)
 
-#### Web Fetch
+### Web Fetch
 
 Fetch one page and return it in the formats you choose.
 
@@ -196,11 +211,13 @@ When building recipes, the Apify connector provides several ways to select resou
 
 ### Pick lists
 
-[Pick lists](https://docs.workato.com/developing-connectors/sdk/sdk-reference/picklists.html) are dynamic dropdown lists in Workato that let you select resources without typing IDs manually. The Apify connector includes pick lists for selecting Apify resources. You can choose items from these lists or switch to manual input and paste an ID directly. If an item doesn't appear, make sure it exists in your account and has been run at least once, or paste its ID manually.
+[Pick lists](https://docs.workato.com/developing-connectors/sdk/sdk-reference/picklists.html) are dynamic dropdown lists in Workato that let you select resources without typing IDs manually. The Apify connector includes pick lists for selecting Apify resources. You can choose items from these lists or switch to manual input and paste an ID directly. If an item doesn't appear, make sure it exists in your account and has been run at least once, or paste its ID manually. The **Server Actors** list is the exception: it shows only Apify Store Actors, so enter any other Server Actor manually.
 
 Available pick lists:
 
 - **Actors** - Recently used Actors or Apify Store Actors, displaying the title and `owner/name`
+- **Server Actors** - Server Actors from Apify Store, most popular first (in **Send Server Actor request**)
+- **Endpoints** - Endpoints from the selected Actor's web server schema, plus **Custom path** (in **Send Server Actor request**)
 - **Tasks** - Your saved tasks, displaying the task title and Actor name
 - **Datasets** - Available datasets, sorted by most recent first
 - **Key-value stores** - Available stores, sorted by most recent first
@@ -221,7 +238,7 @@ When you use the pick list, the connector fetches input fields automatically - n
 
 :::
 
-![Screenshot showing different input modes available in the Workato connector](../images/workato/input-modes.png)
+![Screenshot showing different input modes available in the Workato connector](../images/workato/input-modes.webp)
 
 ### Where to find resource identifiers
 
@@ -241,18 +258,18 @@ If an Actor run takes more than a few minutes (for example, scraping thousands o
    - In a recipe, add the **Run Actor** action and configure inputs as needed.
    - Run asynchronously (do not block downstream steps on completion).
 
-   ![Screenshot showing the run Actor action configuration with async option in Workato](../images/workato/run-actor.png)
+   ![Screenshot showing the run Actor action configuration with async option in Workato](../images/workato/run-actor.webp)
 
 1. Continue when the run finishes
    - Build a separate recipe with the **Actor run finished** trigger.
    - Filter for the specific Actor or task you started in step 1.
 
-   ![Screenshot showing how to filter for a specific Actor in the run finished trigger](../images/workato/trigger-actor.png)
+   ![Screenshot showing how to filter for a specific Actor in the run finished trigger](../images/workato/trigger-actor.webp)
 
 1. Fetch results and process
    - In the triggered recipe, add **Get Dataset Items** (use the dataset ID from the trigger payload) and continue processing.
 
-   ![Screenshot showing how to use dataset ID from trigger payload in get dataset items action](../images/workato/get-dataset.png)
+   ![Screenshot showing how to use dataset ID from trigger payload in get dataset items action](../images/workato/get-dataset.webp)
 
 ## Tips and best practices
 
@@ -269,6 +286,7 @@ If an Actor run takes more than a few minutes (for example, scraping thousands o
 
 - If the connection fails, verify your API token has the necessary permissions and hasn't expired.
 - If an Actor doesn't appear in dropdowns, make sure it has been run at least once in your account.
+- If a Server Actor doesn't appear in **Send Server Actor request**, enter it manually. The list shows only Server Actors from Apify Store.
 - If a recipe times out waiting for results, use asynchronous execution and a separate trigger instead of waiting for completion.
 - If JSON input is rejected, check that it's properly formatted and matches the expected Actor input schema.
 - If URL or item limit validation fails, ensure URLs include a protocol (`https://`) and item limits are positive integers or empty.

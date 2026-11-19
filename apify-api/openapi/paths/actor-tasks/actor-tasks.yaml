@@ -1,6 +1,7 @@
 get:
   tags:
     - Actor tasks
+    - Actor Runtime API/Actor tasks
   summary: Get list of Actor tasks
   description: |
     Gets the complete list of tasks that a user has created or used.
@@ -83,6 +84,7 @@ get:
 post:
   tags:
     - Actor tasks
+    - Actor Runtime API/Actor tasks
   summary: Create Actor task
   description: |
     Create a new task with settings specified by the object passed as JSON in

@@ -1,6 +1,7 @@
 get:
   tags:
     - Actor runs
+    - Actor Runtime API/Actor runs
   summary: Get list of user's Actor runs
   description: |
     Gets a list of all runs for a user. The response is a list of objects, where

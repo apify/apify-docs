@@ -1,6 +1,7 @@
 post:
   tags:
     - Actors/Actor runs
+    - Actor Runtime API/Actor runs
   summary: Run Actor synchronously and get dataset items
   description: |
     Runs a specific Actor and returns its dataset items.
@@ -106,6 +107,7 @@ post:
 get:
   tags:
     - Actors/Actor runs
+    - Actor Runtime API/Actor runs
   summary: Run Actor synchronously and get dataset items (GET)
   description: |
     Runs a specific Actor and returns its dataset items.

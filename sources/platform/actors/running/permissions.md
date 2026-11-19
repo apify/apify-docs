@@ -29,7 +29,7 @@ Actors that need full permissions clearly indicate this in their detail page and
 
 ## How Actor permissions work
 
-When a user runs an Actor, it receives an Apify API token. Traditionally, this token grants access to the user's entire Apify account via the Apify API. Actors with **full permissions** will continue to operate this way.
+When a user runs an Actor, it receives an Apify API token that is valid only for that run. Traditionally, this token grants access to the user's entire Apify account via the Apify API. Actors with **full permissions** will continue to operate this way.
 
 Actors with **limited permissions** receive a restricted token. This token only allows the Actor to perform a specific set of actions, which covers the vast majority of common use cases.
 

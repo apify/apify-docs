@@ -15,18 +15,22 @@ commonErrors: &commonErrors
 sharedTagById: &sharedTagById
   tags:
     - Storage/Request queues/Requests
+    - Actor Runtime API/Request queues
 
 sharedTagDefault: &sharedTagDefault
   tags:
     - Default request queue
+    - Actor Runtime API/Request queues
 
 sharedTagLastRun: &sharedTagLastRun
   tags:
     - Last Actor run's default request queue
+    - Actor Runtime API/Request queues
 
 sharedTagTaskLastRun: &sharedTagTaskLastRun
   tags:
     - Last Actor task run's default request queue
+    - Actor Runtime API/Request queues
 
 sharedGet: &sharedGet
   responses:

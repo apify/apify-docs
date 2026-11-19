@@ -45,7 +45,7 @@ To integrate your service with Apify, you have two options:
 - Build an external integration using the [Apify API](https://docs.apify.com/api/v2)
 - Build an [Apify Actor](https://docs.apify.com/actors) that will be used as integration within [Apify Console](https://console.apify.com)
 
-![Integration-ready Actors](./images/integration-ready-actors.png)
+![Integration-ready Actors](./images/integration-ready-actors.webp)
 
 ### Build an integration Actor
 
@@ -115,7 +115,7 @@ Recommended features:
 
 ##### Web Fetch
 
-Fetches a single web page and returns its content - ideal for on-demand URL scraping inside agents or automation flows. Build this on Apify's [Web Fetch](https://apify.com/apify/web-fetch) Actor in [Standby](/actors/running/standby) mode at `https://web-fetch.apify.actor`, which returns the content directly in the HTTP response instead of starting a run.
+Fetches a single web page and returns its content - ideal for on-demand URL scraping inside agents or automation flows. Build this on the [server interface](/actors/running/server-actors) of Apify's [Web Fetch](https://apify.com/apify/web-fetch) Actor at `https://web-fetch.apify.actor`, which returns the content directly in the HTTP response instead of starting a run.
 
 Recommended features:
 
