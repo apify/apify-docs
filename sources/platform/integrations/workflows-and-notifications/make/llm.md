@@ -7,7 +7,7 @@ toc_max_heading_level: 4
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
-import { CreateApiTokenLink, CopyTokenStep } from '@site/src/components/ApiToken';
+import { CreateTokenStep, CopyTokenStep } from '@site/src/components/ApiToken';
 
 Use the Apify Scraper for LLMs module in [Make](https://www.make.com/) to query Google Search, scrape the top results, and return clean Markdown for AI assistants and RAG pipelines.
 
@@ -25,9 +25,9 @@ To use these modules, you need an [Apify account](https://console.apify.com) and
 
     ![Make interface showing API token field and connection name field for Apify integration setup](images/llm/rag-signup.png)
 
-1. To connect your Apify account to Make, you can use an OAuth connection (recommended) or an Apify API token.
+1. To connect your Apify account to Make, you can use an OAuth connection (recommended) or an Apify API token. To get the token, go to **[Settings > API & Integrations](https://console.apify.com/settings/integrations)** in Apify Console.
 
-1. <CreateApiTokenLink description="Make.com" />
+1. <CreateTokenStep />
 1. <CopyTokenStep /> Then, return to your Make scenario.
 
 1. In Make, click **Add** to open the **Create a connection** dialog of the chosen Apify Scraper module.

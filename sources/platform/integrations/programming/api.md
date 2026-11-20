@@ -28,7 +28,8 @@ unless you fully understand the consequences! You can also consider  [limiting t
 
 ### Create an API token {#create-api-token}
 
-1. Open the [create token form](https://console.apify.com/settings/integrations?createApiToken=true) in Apify Console. Alternatively, go to **Settings > API & Integrations** and select **Create a new token** in the **Personal API tokens** section.
+1. Go to [**Settings > API & Integrations**](https://console.apify.com/settings/integrations) in Apify Console.
+1. In the **Personal API tokens** section, select **Create a new token**.
 1. Enter a description. Optionally, [limit the token's permissions](#limited-permissions) or [set an expiration date](#expiration).
 1. Select **Create**.
 1. Copy the token and store it somewhere safe, such as a password manager.

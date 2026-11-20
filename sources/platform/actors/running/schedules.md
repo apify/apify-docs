@@ -80,7 +80,7 @@ To authenticate, use a secret API token. <GetApiTokenHint />
 When providing your API authentication token, we recommend using the request's `Authorization` header, rather than the URL. For details, see [Authentication](/api/v2#authentication).
 :::
 
-In the `POST` request's payload should be a JSON object specifying the schedule's name, your user ID (on the [**API & Integrations**](https://console.apify.com/settings/integrations) page of your account settings), and the schedule's _actions_.
+In the `POST` request's payload should be a JSON object specifying the schedule's name, your [user ID](https://console.apify.com/settings/integrations), and the schedule's _actions_.
 
 The following JSON object creates a schedule which runs an SEO audit of the Apify domain once a month.
 

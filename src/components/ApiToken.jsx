@@ -29,5 +29,13 @@ export const GetApiTokenHint = ({ description }) => (
     </>
 );
 
-// Step after CreateApiTokenLink: "1. <CreateApiTokenLink /> <CopyTokenStep />"
+// Step after navigating to Settings > API & Integrations: "1. <CreateTokenStep />"
+export const CreateTokenStep = () => (
+    <>
+        In the <strong>Personal API tokens</strong> section, select <strong>Create a new token</strong>. Enter a
+        description, optionally limit the token's permissions, and select <strong>Create</strong>.
+    </>
+);
+
+// Step after CreateTokenStep: "1. <CopyTokenStep /> Then, return to your Make scenario."
 export const CopyTokenStep = () => <>Copy the token. You can view it only once, so store it somewhere safe.</>;
