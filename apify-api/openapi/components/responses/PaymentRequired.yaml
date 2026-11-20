@@ -1,4 +1,4 @@
-description: Payment required - the request exceeds a plan limit (Actor memory, concurrent runs, or remaining monthly usage), or the dataset owner has unpaid invoices or has exceeded their usage limit.
+description: Payment required - the request exceeds a plan limit (Actor memory or concurrent runs), the user does not have enough remaining usage to run a paid Actor, or the dataset is locked because its owner has overdue invoices or has reached their monthly usage limit.
 content:
   application/json:
     schema:

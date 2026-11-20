@@ -73,9 +73,9 @@ info:
     ### Agentic payments
 
     AI agents can pay for Actor runs without an Apify account. An agent pays
-    once with the [x402 protocol](https://docs.apify.com/platform/integrations/x402),
+    once with the [x402 protocol](https://docs.apify.com/integrations/x402),
     the [Machine Payments Protocol (MPP)](https://docs.apify.com/integrations/mpp),
-    a card, or [Skyfire](https://docs.apify.com/platform/integrations/skyfire),
+    a card, or [Skyfire](https://docs.apify.com/integrations/skyfire),
     and receives a temporary API token with a fixed spend cap from the Apify
     Agent General Interface (AGI) at
     [https://agi.apify.com](https://agi.apify.com). Use that token as a regular
