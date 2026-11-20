@@ -62,14 +62,14 @@ from apify_client import ApifyClient
 
 In the last lesson, we ran the **adding-actor** and retrieved its dataset items. That's exactly what we're going to do now; however, by using the Apify client instead.
 
-Before we can use the client though, we must create a new instance of the `ApifyClient` class and pass it our API token from the [**API & Integrations** page](https://console.apify.com/settings/integrations?asrc=developers_portal) on Apify Console:
+Before we can use the client, we must create a new instance of the `ApifyClient` class and pass it our API token. If you don't have a token stored, [create one](/integrations/api#create-api-token) on the [**API & Integrations** page](https://console.apify.com/settings/integrations?asrc=developers_portal) in Apify Console and copy it.
 
 <Tabs groupId="main">
 <TabItem value="Node.js" label="Node.js">
 
 ```js
 const client = new ApifyClient({
-    token: 'YOUR_TOKEN',
+    token: 'YOUR_API_TOKEN',
 });
 ```
 
@@ -77,7 +77,7 @@ const client = new ApifyClient({
 <TabItem value="Python" label="Python">
 
 ```py
-client = ApifyClient(token='YOUR_TOKEN')
+client = ApifyClient(token='YOUR_API_TOKEN')
 
 ```
 
@@ -182,7 +182,7 @@ The final code for running the Actor and fetching its dataset items looks like t
 import { ApifyClient } from 'apify-client';
 
 const client = new ApifyClient({
-    token: 'YOUR_TOKEN',
+    token: 'YOUR_API_TOKEN',
 });
 
 const run = await client.actor('YOUR_USERNAME/adding-actor').call({
@@ -204,7 +204,7 @@ console.log(items);
 # client.py
 from apify_client import ApifyClient
 
-client = ApifyClient(token='YOUR_TOKEN')
+client = ApifyClient(token='YOUR_API_TOKEN')
 
 actor = client.actor('YOUR_USERNAME/adding-actor').call(run_input={
     'num1': 4,

@@ -61,13 +61,13 @@ If you add a field to both dropdowns, the Console shows an error, and the export
 
 These options set the `fields` and `omit` parameters described in [Apify API](#apify-api).
 
-To rename the dataset (which affects its [retention period](/storage#data-retention)) or adjust its [access rights](/account/collaboration), use the **Actions** menu. To view and test the dataset's [API endpoints](/api/v2/storage-datasets), select **API**.
+To rename the dataset (which affects its [retention period](/storage#data-retention)) or adjust its [access rights](/account/collaboration), use the **Actions** menu. To view the dataset's [API endpoints](/api/v2/storage-datasets), select **API**.
 
 ### Apify API
 
 The [Apify API](/api/v2/storage-datasets) gives you programmatic access to your datasets using [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
 
-If you are accessing your datasets using the `username~store-name` [store ID format](../index.md), you will need to use your secret API token. You can find the token (and your user ID) on the [API & Integrations](https://console.apify.com/settings/integrations) tab of **Settings** page of your Apify account.
+If you are accessing your datasets using the `username~store-name` [store ID format](../index.md), you will need to use your secret API token. You can find your user ID and [create an API token](/integrations/api#create-api-token) on the [API & Integrations](https://console.apify.com/settings/integrations) tab of the **Settings** page of your Apify account.
 
 :::tip Pass tokens in the Authorization header
 

@@ -8,6 +8,7 @@ toc_max_heading_level: 3
 ---
 
 import ClaudeCodeWebEgress from '@site/sources/_partials/_claude-code-web-egress.mdx';
+import CreateApiToken from '@site/sources/_partials/_create-api-token.mdx';
 
 Connect your AI agent to the Apify MCP server and run your first Actor. For how the MCP server, plugins, and Agent Skills compare, and for the setup guide for your agent, see [For AI agents](/agents).
 
@@ -15,7 +16,9 @@ Apify also serves a quickstart for agents to read directly at [`apify.com/agents
 
 ## Prerequisites
 
-Sign up for an [Apify account](https://console.apify.com/sign-up). The free plan includes monthly platform usage credits with no credit card required. Get your API token from **[Console > Settings > Integrations](https://console.apify.com/settings/integrations)**.
+Sign up for an [Apify account](https://console.apify.com/sign-up). The free plan includes monthly platform usage credits with no credit card required.
+
+<CreateApiToken />
 
 <ClaudeCodeWebEgress />
 

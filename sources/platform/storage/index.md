@@ -10,6 +10,7 @@ slug: /storage
 import Card from "@site/src/components/Card";
 import CardGrid from "@site/src/components/CardGrid";
 import StoragePricingCalculator from "@site/src/components/StoragePricingCalculator";
+import { GetApiTokenHint } from '@site/src/components/ApiToken';
 
 The Apify platform provides three types of storage, accessible from [Apify Console](https://console.apify.com/storage) and externally through the [REST API](/api/v2), [API clients](/api), and [SDKs](/sdk).
 
@@ -71,7 +72,7 @@ When accessing storages via API, provide a `store ID` in one of these formats:
 
 For read (GET) requests, the alphanumerical ID alone is enough, since it's hard to guess and acts as an authentication key.
 
-For other request types, and when using `username~store-name`, provide your secret API token in the request's [`Authorization`](/api/v2#authentication) header or as a query parameter. Find your token on the [API & Integrations](https://console.apify.com/settings/integrations) page of your Apify account.
+For other request types, and when using `username~store-name`, provide your secret API token in the request's [`Authorization`](/api/v2#authentication) header or as a query parameter. <GetApiTokenHint />
 
 :::caution Token security
 

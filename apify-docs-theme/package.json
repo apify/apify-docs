@@ -1,6 +1,6 @@
 {
     "name": "@apify/docs-theme",
-    "version": "1.0.287",
+    "version": "1.0.288",
     "description": "",
     "main": "./src/index.js",
     "files": [
@@ -28,11 +28,11 @@
         "@apify/ui-library": "^1.176.6",
         "@docusaurus/theme-common": "^3.10.2",
         "@stackql/docusaurus-plugin-hubspot": "^1.1.0",
-        "algoliasearch": "^5.64.0",
-        "algoliasearch-helper": "^3.30.2",
+        "algoliasearch": "^5.65.0",
+        "algoliasearch-helper": "^3.30.3",
         "babel-loader": "^10.1.1",
         "docusaurus-gtm-plugin": "^0.0.2",
-        "postcss-preset-env": "^11.6.2",
+        "postcss-preset-env": "^11.6.3",
         "prism-react-renderer": "^2.4.1",
         "react-hotkeys-hook": "^5.4.0",
         "remark-parse": "^11.0.0",
