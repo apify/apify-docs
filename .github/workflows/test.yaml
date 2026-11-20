@@ -19,7 +19,7 @@ jobs:
                     node-version: 24
                     check-latest: true
 
-            -   uses: apify/actions/pnpm-install@v1.6.2
+            -   uses: apify/actions/pnpm-install@v1.7.0
 
             -   run: pnpm build
                 env:
@@ -280,7 +280,7 @@ jobs:
                     node-version: 24
                     check-latest: true
 
-            -   uses: apify/actions/pnpm-install@v1.6.2
+            -   uses: apify/actions/pnpm-install@v1.7.0
 
             -   name: List and Lint Changed Markdown Files
                 env:
@@ -305,7 +305,7 @@ jobs:
                     node-version: 24
                     check-latest: true
 
-            -   uses: apify/actions/pnpm-install@v1.6.2
+            -   uses: apify/actions/pnpm-install@v1.7.0
 
             -   run: pnpm lint:code
 
