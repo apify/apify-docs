@@ -12,7 +12,7 @@ Typically, datasets hold results from web scraping, crawling, and data processin
 
 :::info Retention period
 
-Named datasets are retained indefinitely. Unnamed datasets expire after 7 days unless otherwise specified. [Learn more](/storage#data-retention)
+Named datasets are retained indefinitely. Unnamed datasets are deleted when your plan's retention period ends. [Learn more](/storage#data-retention)
 
 :::
 

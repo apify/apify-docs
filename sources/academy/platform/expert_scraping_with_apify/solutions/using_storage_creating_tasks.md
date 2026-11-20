@@ -15,13 +15,13 @@ pagination: true
 
 **Q: What are the differences between default (unnamed) and named storage? Which one would you use for everyday usage?**
 
-**A:** Unnamed storage is persisted for only 7 days, while named storage is persisted indefinitely. For everyday usage, it is best to use default unnamed storages unless the data should explicitly be persisted for more than 7 days.
+**A:** Unnamed storage is deleted when your plan's data retention period ends, while named storage is persisted indefinitely. For everyday usage, it is best to use default unnamed storages unless the data should explicitly be persisted for longer.
 
 > With named storages, it's easier to verify that you're using the correct store, as they can be referred to by name rather than by an ID.
 
 **Q: What is data retention, and how does it work for all types of storages (default and named)?**
 
-**A:** Default/unnamed storages expire after 7 days unless otherwise specified. Named storages are retained indefinitely.
+**A:** Default/unnamed storages are deleted when your plan's data retention period ends. Named storages are retained indefinitely.
 
 ## Wrap up {#wrap-up}
 

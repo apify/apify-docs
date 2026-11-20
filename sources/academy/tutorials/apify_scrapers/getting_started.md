@@ -73,7 +73,7 @@ In the settings tab, you can set options that are common to all tasks and not di
 
 ### Runs
 
-You can find all the task runs and their detail pages here. Every time you start a task, it will appear here in the list. Apify securely stores your ten most recent runs indefinitely, ensuring your records are always accessible. All of your task's runs and their outcomes, beyond the latest ten, will be stored here for the data retention period, [which you can find under your plan](https://apify.com/pricing).
+You can find all the task runs and their detail pages here. Every time you start a task, it will appear here in the list. Runs and their outcomes are stored here for your plan's [data retention period](/storage#data-retention). On the Free plan, your 10 most recent runs are kept for up to 4 months.
 
 ### Webhooks
 
