@@ -8,7 +8,7 @@ slug: /account/api-tokens
 
 To access the Apify API in your integrations, you need to authenticate using your secret API token. You manage your tokens on the [API & Integrations](https://console.apify.com/settings/integrations) page in Apify Console. A new account has no API token, so [create one](#create-api-token) before your first API call.
 
-Apify Console shows the value of an API token only once, right after you create or [rotate](#rotation) it. The token list shows each token's description, a masked preview of its value, when it was last used, and when it expires, but you can't view or copy the full value of an existing token. Use the preview to tell your tokens apart.
+Apify Console shows the value of an API token only once, right after you create or [rotate](#rotation) it. The token list shows each token's description, a masked preview of its value, when it was last used, and when it expires. You can't view or copy the full value of an existing token. Use the preview to tell your tokens apart.
 
 The Apify CLI doesn't need a copied token. When you sign in with [`apify login`](/cli/docs/reference#apify-auth-login--apify-login) in the browser, it creates a token for your device and stores it for you.
 
@@ -34,9 +34,9 @@ If you lose a token, [rotate it](#rotation) to get a new value, or create a new 
 
 A token you create in Apify Console expires after 90 days unless you choose otherwise. An expired token stops working, which limits the damage if the token leaks. In the **Expiration** field of the token form, choose one of these options:
 
-- **7 days**, **30 days**, **90 days**, or **365 days**. The token expires at the first midnight UTC after that many full days, so a 90-day token lasts between 90 and 91 days.
-- **Custom date**. The token expires at 00:00 UTC at the start of the day you pick.
-- **No expiration**. The token works until you delete or rotate it.
+- If you choose **7 days**, **30 days**, **90 days**, or **365 days**, the token expires at the first midnight UTC after that many full days. A 90-day token therefore lasts between 90 and 91 days.
+- If you choose **Custom date**, the token expires at 00:00 UTC at the start of the day you pick.
+- If you choose **No expiration**, the token works until you delete or rotate it.
 
 The token list shows the exact time each token expires, for example `Expires on February 15, 2027, 00:00 UTC`. To change the expiration of an existing token, edit the token and pick a new date, or clear the date to remove the expiration.
 
