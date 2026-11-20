@@ -173,7 +173,7 @@ Manus will load the skill instructions and use the appropriate Apify Actors to c
 
 If the OAuth prompt fails or you can't complete the login flow, you can connect using your Apify API token directly.
 
-1. <CreateApiTokenLink description="Manus" /> <CopyTokenStep />
+1. <CreateApiTokenLink integration="Manus" /> <CopyTokenStep />
 1. In Manus, open the Apify connector settings and add a custom header:
     - **Header name** - `Authorization`
     - **Header value** - `Bearer <APIFY_API_TOKEN>` (replace `<APIFY_API_TOKEN>` with your actual token)

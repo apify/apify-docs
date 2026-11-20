@@ -21,7 +21,7 @@ This guide will demonstrate two different ways to use Apify Actors with Langflow
 
 ### Prerequisites
 
-- **Apify API token**: <CreateApiTokenLink description="Langflow" />
+- **Apify API token**: <CreateApiTokenLink integration="Langflow" />
 
 - **OpenAI API key**: To work with agents in Langflow, you need an OpenAI API key. If you don't have one, you can get it from the [OpenAI platform](https://platform.openai.com/account/api-keys).
 

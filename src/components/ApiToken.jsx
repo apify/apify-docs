@@ -7,24 +7,24 @@ import Link from '@docusaurus/Link';
 // Opens the create token form in Apify Console.
 const CREATE_TOKEN_URL = 'https://console.apify.com/settings/integrations?createApiToken=true';
 
-// `description` prefills the token description in the form, e.g. "Make.com".
-const createTokenUrl = (description) =>
-    description ? `${CREATE_TOKEN_URL}&for=${encodeURIComponent(description)}` : CREATE_TOKEN_URL;
+// `integration` names what the token is for, e.g. "Make.com". Console prefills the form with it.
+const createTokenUrl = (integration) =>
+    integration ? `${CREATE_TOKEN_URL}&for=${encodeURIComponent(integration)}` : CREATE_TOKEN_URL;
 
 // Link to the create token form with custom text: "<CreateTokenLink>create one in Apify Console</CreateTokenLink>"
-export const CreateTokenLink = ({ description, children }) => <Link to={createTokenUrl(description)}>{children}</Link>;
+export const CreateTokenLink = ({ integration, children }) => <Link to={createTokenUrl(integration)}>{children}</Link>;
 
-// Prerequisite bullets: "- _Apify API token_ - <CreateApiTokenLink description="Make.com" />"
-export const CreateApiTokenLink = ({ description }) => (
+// Prerequisite bullets: "- _Apify API token_ - <CreateApiTokenLink integration="Make.com" />"
+export const CreateApiTokenLink = ({ integration }) => (
     <>
-        <CreateTokenLink description={description}>Create an API token</CreateTokenLink> in Apify Console.
+        <CreateTokenLink integration={integration}>Create an API token</CreateTokenLink> in Apify Console.
     </>
 );
 
 // Tail of a step that asks for the token: "1. Enter your token in the field. <GetApiTokenHint />"
-export const GetApiTokenHint = ({ description }) => (
+export const GetApiTokenHint = ({ integration }) => (
     <>
-        To get one, <CreateTokenLink description={description}>create an API token</CreateTokenLink> in Apify Console and
+        To get one, <CreateTokenLink integration={integration}>create an API token</CreateTokenLink> in Apify Console and
         copy it.
     </>
 );

@@ -60,7 +60,7 @@ The Apify node offers two authentication methods to securely connect to your Api
 
 1. In the n8n Editor UI, click on **Create Credential**.
 1. Search for Apify API and click **Continue**.
-1. Enter your Apify API token. <GetApiTokenHint description="n8n" />
+1. Enter your Apify API token. <GetApiTokenHint integration="n8n" />
 1. Click **Save**.
 
   ![Apify Auth](../../images/n8n-api-auth.webp)

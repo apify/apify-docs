@@ -70,7 +70,7 @@ The plugin enables the Apify MCP server on install. Searching Apify Store, inspe
 
 `dsh` sends static MCP headers and has no OAuth flow, so authenticate with an API token:
 
-1. <CreateApiTokenLink description="DeepSeek Harness" /> <CopyTokenStep />
+1. <CreateApiTokenLink integration="DeepSeek Harness" /> <CopyTokenStep />
 
 1. Create a `.env` file in the directory you launch `dsh` from:
 

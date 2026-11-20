@@ -14,7 +14,7 @@ import CreateApiToken from '@site/sources/\_partials/\_create-api-token.mdx';
 
 ## Step 1: Generate an Apify API token
 
-<CreateApiToken description="viaSocket" />
+<CreateApiToken integration="viaSocket" />
 
 :::caution Token security
 Never share your API token publicly or commit it to version control.

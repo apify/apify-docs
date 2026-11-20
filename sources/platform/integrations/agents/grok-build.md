@@ -99,7 +99,7 @@ If the OAuth flow still can't complete, for example because no browser is availa
 apify login
 ```
 
-In a non-interactive environment, use token authentication instead. <CreateApiTokenLink description="Grok Build" /> Then pass it to `apify login`:
+In a non-interactive environment, use token authentication instead. <CreateApiTokenLink integration="Grok Build" /> Then pass it to `apify login`:
 
 ```bash
 apify login -t <YOUR_API_TOKEN>

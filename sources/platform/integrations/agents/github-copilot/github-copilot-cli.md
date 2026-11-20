@@ -113,7 +113,7 @@ On the first start, Copilot may report that `apify-mcp-server` is taking longer 
 
 If the browser doesn't open automatically, copy the OAuth URL shown in the terminal and paste it into your browser manually.
 
-If you're running the CLI in a headless environment (SSH, remote container) or the OAuth flow still fails, use token authentication instead. <CreateApiTokenLink description="GitHub Copilot" /> Set it before starting the CLI:
+If you're running the CLI in a headless environment (SSH, remote container) or the OAuth flow still fails, use token authentication instead. <CreateApiTokenLink integration="GitHub Copilot" /> Set it before starting the CLI:
 
 ```bash
 export APIFY_TOKEN=<YOUR_API_TOKEN>
