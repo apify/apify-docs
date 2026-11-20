@@ -45,7 +45,7 @@ Server Actors behave as standard HTTP servers. Use any [HTTP request method](htt
 
 ## Authenticate requests
 
-Authenticate requests to Server Actors the same way as [requests to the Apify API](../../integrations/programming/api.md). Provide your [API token](../../integrations/programming/api.md#api-token) in one of two ways:
+Authenticate requests to Server Actors the same way as [requests to the Apify API](../../integrations/programming/api.md). Provide your [API token](../../account/settings/api-tokens.md) in one of two ways:
 
 - _(Recommended)_ Include the token in the `Authorization` header as `Bearer <token>`. This keeps the token out of server logs.
 
