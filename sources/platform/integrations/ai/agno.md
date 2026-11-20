@@ -6,6 +6,7 @@ slug: /integrations/agno
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+import { CreateApiTokenLink } from '@site/src/components/ApiToken';
 
 [Agno](https://docs.agno.com/) is an open-source framework for building intelligent AI agents. It provides a flexible architecture to create agents with custom tools, enabling seamless integration with external services like Apify for tasks such as web scraping, data extraction, and automation. Check out the [Agno documentation](https://docs.agno.com/introduction) for more details on building AI agents.
 
@@ -17,7 +18,7 @@ This guide shows how to integrate Apify Actors with Agno to empower your AI agen
 
 ### Prerequisites
 
-- _Apify API token_: Obtain your API token from the [Apify Console](https://console.apify.com/settings/integrations).
+- _Apify API token_: <CreateApiTokenLink />
 - _OpenAI API key_: Get your API key from the [OpenAI platform](https://platform.openai.com/account/api-keys).
 
 :::tip Alternative LLM providers

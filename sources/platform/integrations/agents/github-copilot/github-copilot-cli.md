@@ -10,6 +10,7 @@ import AgentPluginLimitations from '@site/sources/_partials/_agent-plugin-limita
 import ApifyPluginSkills from '@site/sources/_partials/_apify-plugin-skills.mdx';
 import ApifyPluginSkillPrompts from '@site/sources/_partials/_apify-plugin-skill-prompts.mdx';
 import FindGoogleMapsActorPrompt from '@site/sources/_partials/_find-google-maps-actor-prompt.mdx';
+import { CreateApiTokenLink } from '@site/src/components/ApiToken';
 
 The [GitHub Copilot CLI](https://docs.github.com/en/copilot/concepts/agents/copilot-cli) is GitHub's agentic coding tool that runs in your terminal. It reads and edits your codebase, runs commands, and completes multi-step development tasks.
 
@@ -91,7 +92,7 @@ Example prompts that route to specific skills:
 The `apify` agent picks the right transport for each task. Each transport authenticates differently:
 
 - For MCP tools (search, run, retrieve data), authenticate with OAuth through the browser, as described in [Install the plugin and sign in](#install-the-plugin-and-sign-in). You don't need to set up a token.
-- For the Apify CLI (building Actors, actorization, CLI fallback), run `apify login` once, or set `APIFY_TOKEN` in headless environments. Get your token from [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations).
+- For the Apify CLI (building Actors, actorization, CLI fallback), run `apify login` once, or, in headless environments, set `APIFY_TOKEN` to an API token you [create in Apify Console](/integrations/api#create-api-token).
 - For SDK integration with `apify-client`, set the `APIFY_TOKEN` environment variable in your application's environment.
 
 ## Troubleshooting
@@ -112,7 +113,7 @@ On the first start, Copilot may report that `apify-mcp-server` is taking longer 
 
 If the browser doesn't open automatically, copy the OAuth URL shown in the terminal and paste it into your browser manually.
 
-If you're running the CLI in a headless environment (SSH, remote container) or the OAuth flow still fails, authenticate with an API token instead. Copy your token from [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations) and set it before starting the CLI:
+If you're running the CLI in a headless environment (SSH, remote container) or the OAuth flow still fails, use token authentication instead. <CreateApiTokenLink /> Set it before starting the CLI:
 
 ```bash
 export APIFY_TOKEN=<YOUR_API_TOKEN>

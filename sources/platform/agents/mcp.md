@@ -11,6 +11,7 @@ toc_max_heading_level: 4
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import { CreateApiTokenLink } from '@site/src/components/ApiToken';
 
 The Apify's MCP server ([mcp.apify.com](https://mcp.apify.com)) allows AI applications and agents to interact with the Apify platform
 using [Model Context Protocol](https://modelcontextprotocol.io/docs/getting-started/intro) (MCP). The MCP server enables AI agents to
@@ -46,17 +47,34 @@ Before connecting your AI to Apify, you need:
 
 - _An Apify account_ - You need one unless your agent uses only the [tools that work without an account](#use-without-an-account) or pays through [agentic payments](#agentic-payments). Sign up for an Apify account, if you don't have one.
 - _MCP client_ - An AI agent or client that supports Model Context Protocol (MCP). This could be [claude.ai](/integrations/claude-ai), [Claude Desktop](/integrations/claude-desktop), [VS Code](/integrations/vscode) with MCP support, or any application that implements the MCP specification. The [official MCP documentation](https://modelcontextprotocol.io/clients) maintains a list of compatible clients.
-- _Apify API token_ (optional) - Only needed for the [local stdio server](#local-stdio) or the [Bearer token option](#streamable-http-with-oauth-recommended). The recommended remote connection signs you in with OAuth instead. Get your token from the **API & Integrations** section in [Apify Console](https://console.apify.com/settings/integrations) and keep it secure.
+- _Apify API token_ (optional) - Only needed for the [local stdio server](#local-stdio) or the [Bearer token option](#streamable-http-with-oauth-recommended). The recommended remote connection signs you in with OAuth instead. <CreateApiTokenLink />
 
 ## Connect and authorize
 
-You can connect to the Apify MCP server in two ways: use our hosted service using [Streamable HTTP with OAuth](#streamable-http-with-oauth-recommended), or run the server locally for development and testing using [local stdio](#local-stdio).
+To discover Actors and search the documentation, you can connect [without an account](#use-without-an-account). To run Actors, connect in one of two ways: use the hosted Apify service with [Streamable HTTP with OAuth](#streamable-http-with-oauth-recommended), or run the server locally for development and testing with [local stdio](#local-stdio).
 
 :::tip Structured output schemas
 
 The hosted Apify MCP server at `https://mcp.apify.com` supports _output schema inference_ for structured Actor results. Actor tools automatically include inferred output schemas with field-level type information. This helps AI agents understand the expected result structure before calling an Actor. The local stdio server does not support this feature.
 
 :::
+
+### Use without an account
+
+The Apify MCP server accepts requests without an API token when the `tools` query parameter (see [Tool selection](#tool-selection)) contains only tools enabled for unauthenticated use. These tools cover Actor discovery, documentation lookup, and the Apify API reference:
+
+- `search-actors`
+- `fetch-actor-details`
+- `search-apify-docs`
+- `fetch-apify-docs`
+- `apify-api-search`
+- `apify-api-details`
+
+For example, the following URL connects without authentication:
+
+`https://mcp.apify.com?tools=search-actors,fetch-actor-details,search-apify-docs,fetch-apify-docs`
+
+If the `tools` parameter includes any other tool, or you connect to the default endpoint, the server requires an API token. Running Actors and accessing storage or run data always requires authentication, so use one of the methods below when you're ready to run Actors.
 
 ### Streamable HTTP with OAuth (recommended)
 
@@ -95,7 +113,7 @@ You can also use your Apify token directly, instead of OAuth, by setting the `Au
 }
 ```
 
-Replace `<APIFY_TOKEN>` with your actual Apify API token from the [API & Integrations section](https://console.apify.com/settings/integrations).
+Replace `<APIFY_TOKEN>` with your [Apify API token](/integrations/api#create-api-token).
 
 </TabItem>
 </Tabs>
@@ -147,41 +165,23 @@ For supported payment protocols and spending limits, read [Agentic payments](/ag
 
 ## Tool selection
 
-By default, the MCP server loads the `actors` and `docs` tool categories, the `apify/web-search` and `apify/web-fetch` Actors, and `report-problem`. You can customize which tools
-are available by adding parameters to the server URL:
+By default, the MCP server loads the `actors` and `docs` tool categories, the `apify/web-search` and `apify/web-fetch` Actors, and `report-problem`. To choose different tools, set the `tools` parameter in the server URL. The parameter replaces the default selection instead of adding to it, so list everything you want to load:
 
-`https://mcp.apify.com?tools=actors,docs,apify/rag-web-browser`
+`https://mcp.apify.com?tools=actors,docs,apify/web-search,apify/web-fetch`
+
+For instance, `https://mcp.apify.com?tools=storage` loads only the storage tools, without `search-actors` or `call-actor`. The default Actors don't belong to any category, so `?tools=actors,docs` also drops them.
 
 For minimal setups where you only need specific Actors:
 
 `https://mcp.apify.com?tools=apify/instagram-scraper,apify/google-search-scraper`
 
+Each Actor you select with the `tools` parameter becomes a tool of its own, named `{username}--{actor-name}`. For example, the server exposes `apify/web-search` as `apify--web-search`. The server replaces dots in the username with `-dot-` and shortens names longer than 64 characters by adding a hash suffix to keep them unique.
+
 This configuration approach works for both hosted and local setups. For the CLI version:
 
 `npx @apify/actors-mcp-server --tools actors,docs,apify/web-scraper`
 
-:::tip Easy configuration
-
-Use the UI configurator `https://mcp.apify.com/` to select your tools visually, then copy the configuration to your client.
-
-:::
-
-### Use without an account
-
-The Apify MCP server accepts requests without an API token when the `tools` query parameter contains only tools enabled for unauthenticated use. These tools cover Actor discovery, documentation lookup, and the Apify API reference:
-
-- `search-actors`
-- `fetch-actor-details`
-- `search-apify-docs`
-- `fetch-apify-docs`
-- `apify-api-search`
-- `apify-api-details`
-
-For example, the following URL connects without authentication:
-
-`https://mcp.apify.com?tools=search-actors,fetch-actor-details,search-apify-docs,fetch-apify-docs`
-
-If the `tools` parameter includes any other tool, or you connect to the default endpoint, the server requires an API token. Running Actors and accessing storage or run data always requires authentication.
+To select your tools visually, use the [MCP configurator](https://mcp.apify.com/), then copy the generated configuration to your client.
 
 ### Available tools
 
@@ -193,7 +193,7 @@ If the `tools` parameter includes any other tool, or you connect to the default 
 | `fetch-actor-mcp-tool-list` | `actors` | ✅ | List the tools of an Actor that runs an MCP server, with their schemas, annotations, and metadata |
 | `call-actor-mcp-tool` | `actors` | ✅ | Call one tool on an Actor's MCP server and return its result |
 | `send-server-actor-request` | `actors` | ✅ | Send one HTTP request to a Server Actor's API, as documented by its API schema, and return the response |
-| [`apify/web-search`](https://apify.com/apify/web-search) | Actor | ✅ | Search the web and return one page of results: titles, URLs, and snippets |
+| [`apify/web-search`](https://apify.com/apify/web-search) | Actor | ✅ | Search the web and return the results in the response, without starting an Actor run |
 | [`apify/web-fetch`](https://apify.com/apify/web-fetch) | Actor | ✅ | Fetch one http(s) URL and return its full content, rendering JavaScript and bypassing anti-bot protection |
 | [`apify/rag-web-browser`](https://apify.com/apify/rag-web-browser) | Actor | | Search the web and return the content of the top results |
 | `search-apify-docs` | `docs` | ✅ | Search the Apify documentation for relevant pages |
@@ -236,11 +236,13 @@ If the `tools` parameter includes any other tool, or you connect to the default 
 | `delete-actor` | none | | Delete an Actor from your account permanently. Load it by name: `tools=delete-actor` |
 | `report-problem` | `dev` | ✅ | Report a problem with the MCP server to Apify |
 
+The server withholds `report-problem` when you [turn off telemetry](#opt-out-of-telemetry), and doesn't load it by default for some MCP clients. If your client doesn't get it by default, add `report-problem` or the `dev` category to the `tools` parameter. It stays unavailable while telemetry is off.
+
 :::note Retrieving Actor results
 
 `call-actor` returns the run's status and storage IDs, not its output. To read the results, use `get-dataset-items` with the `datasetId` from the run. It supports limit, offset, and field filtering.
 
-Whenever `call-actor` or a specific Actor tool such as `apify--web-search` is loaded, the server also adds `get-actor-run`, `get-dataset-items`, `get-key-value-store-record`, and `abort-actor-run`, even if you didn't select them. A default configuration therefore exposes them too.
+Whenever `call-actor` or an Actor tool that starts a run, such as `apify--instagram-scraper`, is loaded, the server also adds `get-actor-run`, `get-dataset-items`, `get-key-value-store-record`, and `abort-actor-run`, even if you didn't select them. A default configuration therefore exposes them too.
 
 :::
 
@@ -298,7 +300,7 @@ For the local stdio server, opt out of telemetry using a CLI flag or an environm
 
 - For production deployments, explicitly specify which tools to load rather than relying on defaults. This ensures consistent behavior across updates:
 
-    `https://mcp.apify.com?tools=actors,docs,apify/rag-web-browser`
+    `https://mcp.apify.com?tools=actors,docs,apify/web-search,apify/web-fetch`
 
 - For a local stdio server, always use the latest version of the server by appending `@latest` to your npm commands.
 - Monitor your API usage through Apify Console to stay within your plan limits.
@@ -319,7 +321,7 @@ For Claude Desktop-specific troubleshooting (tools not loading, connection error
 
 ##### Authentication errors
 
-- _Check your API token_: Verify that your Apify API token is correct. You can find it in the **API & Integrations** section of the [Apify Console](https://console.apify.com/settings/integrations). Without a valid token, the server cannot start Actor runs.
+- _Check your API token_: Verify that your Apify API token is correct. Apify Console doesn't show the value of an existing token, so if you're unsure, [rotate it](/integrations/api#rotation) or [create a new one](/integrations/api#create-api-token). Without a valid token, the server cannot start Actor runs.
 - _Set environment variable for local development_: When running the MCP server locally, ensure you have set the `APIFY_TOKEN` environment variable.
 
 ##### Local environment setup

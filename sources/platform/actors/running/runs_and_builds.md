@@ -39,7 +39,7 @@ Tags make it easier to specify which build to use when running an Actor. To reas
 
 ## Runs
 
-When you start an Actor, an Actor run is created. An Actor run is a Docker container created from the build's Docker image with dedicated resources, such as CPU, memory, and disk space. For details, see [Usage and resources](./usage_and_resources.md).
+When you start an Actor, an Actor run is created. An Actor run is a Docker container created from the build's Docker image with dedicated resources, such as CPU, memory, and disk space. For details, see [Usage and resources](./usage-and-resources/index.md).
 
 Each run has its own default [storages](../../storage) assigned, which it might use:
 

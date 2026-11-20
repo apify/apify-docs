@@ -15,7 +15,7 @@ Apify maintains a separate plugin for each agent, because each agent has its own
 
 ## Why use the plugin
 
-Without a plugin, you set up the [MCP server](/mcp) and [Agent Skills](/agents/skills) separately. The MCP server needs a configuration in your agent, and standalone skills need the skills CLI and an Apify CLI login. The plugin replaces the MCP configuration and the skills CLI with one install. It doesn't replace the Apify CLI. The Actor development, actorization, and scraping skills call it, so install it with `npm install -g apify-cli` and run `apify login` before you use them. Depending on the agent, you install the plugin for all your projects or for a single project.
+Without a plugin, you set up the [MCP server](/mcp) and [Agent Skills](/agents/skills) separately. The MCP server needs a configuration in your agent, and standalone skills need the skills CLI. The plugin replaces both with one install. Depending on the agent, it applies to all your projects or to a single project.
 
 ## What's included
 
@@ -49,7 +49,14 @@ If your agent isn't listed, connect the [MCP server](/mcp) directly and install 
 
 ## Install
 
-Pick your agent. Each tab shows the install commands, where to run them, and how to sign in. The full guide for each agent covers manual setup and troubleshooting.
+The Actor development, actorization, and scraping skills call the [Apify CLI](/cli), which the plugin doesn't include. Install it and sign in before you use them:
+
+```bash
+npm install -g apify-cli
+apify login
+```
+
+Then pick your agent. Each tab shows the install commands, where to run them, and how to sign in. The full guide for each agent covers manual setup and troubleshooting.
 
 <Tabs groupId="agent-client" queryString>
 <TabItem value="claude-code" label="Claude Code">
@@ -224,7 +231,7 @@ The Qoder IDE installs from the [Qoder Marketplace](https://qoder.com/marketplac
 
     To use the terminal too, repeat the command with `--profile headless`.
 
-1. DeepSeek Harness has no OAuth flow, so add your [Apify API token](https://console.apify.com/settings/integrations) to a `.env` file in the directory you launch `dsh` from, then restart the profile:
+1. DeepSeek Harness has no OAuth flow, so add your [Apify API token](/integrations/api#create-api-token) to a `.env` file in the directory you launch `dsh` from, then restart the profile:
 
     ```bash
     APIFY_TOKEN=<YOUR_API_TOKEN>
@@ -241,7 +248,7 @@ Read the full [DeepSeek Harness guide](/integrations/deepseek-harness).
     openclaw plugins install @apify/apify-openclaw-plugin
     ```
 
-1. Run the setup wizard, which asks for your [Apify API token](https://console.apify.com/settings/integrations), then restart the gateway:
+1. Run the setup wizard, which asks for your [Apify API token](/integrations/api#create-api-token), then restart the gateway:
 
     ```bash
     openclaw apify setup
@@ -260,7 +267,7 @@ Read the full [OpenClaw guide](/integrations/openclaw).
     hermes plugins enable apify
     ```
 
-1. Save your [Apify API token](https://console.apify.com/settings/integrations) and enable the `apify` toolset:
+1. Save your [Apify API token](/integrations/api#create-api-token) and enable the `apify` toolset:
 
     ```bash
     hermes apify-setup
@@ -277,7 +284,7 @@ Read the full [Hermes Agent guide](/integrations/hermes-agent).
     kilo plugin @apify/kilocode-plugin
     ```
 
-1. Store your [Apify API token](https://console.apify.com/settings/integrations) through Kilo's auth flow, then restart Kilo Code so the plugin picks it up:
+1. Store your [Apify API token](/integrations/api#create-api-token) through Kilo's auth flow, then restart Kilo Code so the plugin picks it up:
 
     ```bash
     kilo auth login --provider apify
