@@ -8,18 +8,138 @@ name: Docs UI drift tests
 # Credentials come from repo Actions secrets (CONSOLE_STAGING_*). The seeded
 # staging user is low-privilege and has no 2FA; login is scripted fresh each run
 # and the session is held in memory (no auth file).
+#
+# doc-integrity: PR-time, advisory, no browser or secrets.
+# ui-drift: weekly + manual, files a drift issue on failure.
 
 on:
     schedule:
         -   cron: '0 6 * * 1'   # Every Monday 06:00 UTC
     workflow_dispatch:           # Manual on-demand run
+    pull_request:
+        paths:
+            -   'sources/platform/**'    # a doc move/rewrite can stale the baseline
+            -   'docs-tests/**'          # harness or baseline changes
+            -   '.github/workflows/docs-ui-tests.yaml'
+
+concurrency:
+    group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+    cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 defaults:
     run:
         working-directory: docs-tests
 
 jobs:
+    # Advisory: `continue-on-error` keeps findings from blocking the merge.
+    doc-integrity:
+        if: github.event_name == 'pull_request'
+        runs-on: ubuntu-latest
+        permissions:
+            contents: read
+        steps:
+            -   uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+                with:
+                    fetch-depth: 2   # the merge ref's first parent is the base tip
+
+            -   name: Use Node.js 24
+                uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+                with:
+                    node-version: 24
+
+            -   name: Install pnpm and docs-tests dependencies
+                uses: apify/actions/pnpm-install@v1.4.0
+                with:
+                    working-directory: docs-tests
+
+            # No `playwright install`: the integrity project never requests a
+            # browser fixture. `--retries=0` because CI=true enables a retry,
+            # which can't change a static result and would list findings twice.
+            -   name: Check doc back-references resolve
+                id: integrity
+                continue-on-error: true
+                run: pnpm test:integrity --retries=0
+
+            # On failure, run the same check on the base tip the PR merges into,
+            # so the summary can separate new findings from ones already there.
+            # Not `pull_request.base.sha`: it can lag behind the merge ref.
+            -   name: Check out the base commit
+                if: steps.integrity.outcome == 'failure'
+                working-directory: .
+                run: git worktree add --detach base HEAD^1
+
+            -   name: Install docs-tests dependencies on the base commit
+                if: steps.integrity.outcome == 'failure'
+                uses: apify/actions/pnpm-install@v1.4.0
+                with:
+                    working-directory: base/docs-tests
+
+            -   name: Check doc back-references on the base commit
+                if: steps.integrity.outcome == 'failure'
+                continue-on-error: true
+                working-directory: base/docs-tests
+                run: pnpm test:integrity --retries=0
+
+            -   name: Summarize
+                if: steps.integrity.outcome == 'failure'
+                env:
+                    BASE_REF: ${{ github.event.pull_request.base.ref }}
+                run: |
+                    set -euo pipefail
+                    REPORT=output/issues.json
+                    BASE_REPORT=../base/docs-tests/output/issues.json
+
+                    {
+                      echo "### Docs-tests: unresolved doc back-references"
+                      echo ""
+                      echo "This is **informative only** and does not block the merge."
+                      echo ""
+                    } >> "$GITHUB_STEP_SUMMARY"
+
+                    if [[ ! -f "$REPORT" ]]; then
+                      echo "The check failed before producing a report — see the job logs." >> "$GITHUB_STEP_SUMMARY"
+                      exit 0
+                    fi
+
+                    table() {
+                      echo "| Assertion | Doc source |"
+                      echo "| --- | --- |"
+                      jq -r '.[] | "| `\(.id)` | `\(.source_file):\(.source_line)` |"' <<< "$1"
+                      echo ""
+                    }
+
+                    if [[ -f "$BASE_REPORT" ]]; then
+                      BASE_IDS=$(jq -c '[.issues[].id]' "$BASE_REPORT")
+                      NEW=$(jq -c --argjson base "$BASE_IDS" '[.issues[] | select(.id | IN($base[]) | not)]' "$REPORT")
+                      OLD=$(jq -c --argjson base "$BASE_IDS" '[.issues[] | select(.id | IN($base[]))]' "$REPORT")
+                      NEW_HEADING="Resolve on \`${BASE_REF}\` but not on this branch:"
+                    else
+                      NEW=$(jq -c '.issues' "$REPORT")
+                      OLD='[]'
+                      NEW_HEADING="Don't resolve on this branch (comparison with \`${BASE_REF}\` unavailable):"
+                    fi
+
+                    # Annotations show in the checks view and inline in the diff.
+                    # GitHub caps them at 10 per step, so the table stays the full list.
+                    jq -r '.[] | "::warning file=\(.source_file),line=\(.source_line),title=Unresolved doc back-reference::docs-tests assertion \(.id) no longer resolves in \(.source_file)."' <<< "$NEW"
+
+                    {
+                      if [[ "$(jq length <<< "$NEW")" -gt 0 ]]; then
+                        echo "$NEW_HEADING"
+                        echo ""
+                        table "$NEW"
+                        echo "Fix by repointing \`docs-tests/pages.json\` and the affected \`assertions/*.json\` at the new path, or re-extracting the page. Left unfixed, the weekly drift check goes red and files an issue."
+                        echo ""
+                      fi
+                      if [[ "$(jq length <<< "$OLD")" -gt 0 ]]; then
+                        echo "Already unresolved on \`${BASE_REF}\`, not caused by this PR:"
+                        echo ""
+                        table "$OLD"
+                      fi
+                    } >> "$GITHUB_STEP_SUMMARY"
+
     ui-drift:
+        if: github.event_name != 'pull_request'
         runs-on: ubuntu-latest
         permissions:
             contents: read
