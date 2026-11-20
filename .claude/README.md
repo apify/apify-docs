@@ -9,13 +9,15 @@ This directory contains Claude Code configuration for the Apify documentation re
 ├── doc-write/             # Documentation writing skill
 ├── api-doc/               # API documentation skill
 ├── tutorial/              # Tutorial creation skill
-└── review-docs/           # Documentation review skill
+├── review-docs/           # Documentation review skill
+└── adaptive-svg/          # Light/dark SVG merging skill
 
 .claude/skills/            # Symlinks to .agents/skills/ (Claude Code discovery)
 ├── doc-write -> ../../.agents/skills/doc-write
 ├── api-doc -> ../../.agents/skills/api-doc
 ├── tutorial -> ../../.agents/skills/tutorial
-└── review-docs -> ../../.agents/skills/review-docs
+├── review-docs -> ../../.agents/skills/review-docs
+└── adaptive-svg -> ../../.agents/skills/adaptive-svg
 ```
 
 Skills live in `.agents/skills/` (the AgentSkills open standard path), discoverable by Codex, Gemini CLI, OpenCode, Cursor, and others. Claude Code discovers them via symlinks in `.claude/skills/`.
@@ -33,7 +35,7 @@ Each skill contains its own `references/` and `scripts/` (formerly in `workflows
 ### For Claude Code users
 
 1. **Start a new session**: Claude Code reads `AGENTS.md`
-2. **Use skills**: Type `/doc-write`, `/api-doc`, `/tutorial`, or `/review-docs`
+2. **Use skills**: Type `/doc-write`, `/api-doc`, `/tutorial`, `/review-docs`, or `/adaptive-svg`
 3. **Reference standards**: See `standards/` for detailed rules, `AGENTS.md` for summary
 
 ### Available skills
@@ -49,6 +51,9 @@ Tutorial creation - Build structured, educational tutorials
 
 #### /review-docs
 Documentation review - Check quality and compliance before submission
+
+#### /adaptive-svg
+Adaptive images - Merge light and dark variants copied from Figma into one image that follows the site theme, and check that each mode renders as before
 
 ## Quick start
 
