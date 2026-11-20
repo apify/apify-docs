@@ -64,6 +64,10 @@ function lastReview(file) {
     return frontmatter.match(LAST_REVIEW)?.[1];
 }
 
+const ignoredRevs = readIgnoredRevs();
+const bulkCommits = findBulkCommits();
+const isSkipped = (sha) => bulkCommits.has(sha) || ignoredRevs.some((rev) => sha.startsWith(rev));
+
 function lastContentEdit(file) {
     // git prints each commit as "\0<sha> <date>", followed by the page's path in that commit.
     // The path differs from `file` if the page was renamed later. Any other git error stops the script.
@@ -84,10 +88,6 @@ function lastContentEdit(file) {
     };
     return commits.find((commit, i) => !isSkipped(commit.sha) && editsContent(commit, i)) ?? commits[0];
 }
-
-const ignoredRevs = readIgnoredRevs();
-const bulkCommits = findBulkCommits();
-const isSkipped = (sha) => bulkCommits.has(sha) || ignoredRevs.some((rev) => sha.startsWith(rev));
 
 const cutoff = new Date();
 cutoff.setMonth(cutoff.getMonth() - STALE_AFTER_MONTHS);
