@@ -6,6 +6,7 @@ slug: /integrations/airbyte
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+import { CreateApiTokenLink, CopyTokenStep } from '@site/src/components/ApiToken';
 
 [Airbyte](https://airbyte.com) is an open-source data integration platform that moves data between sources and destinations using pre-built connectors, maintained by Airbyte or its community. The Apify Dataset connector lets you move data from your Apify datasets to any Airbyte-supported destination.
 
@@ -23,7 +24,7 @@ This guide shows you how to set up an Apify dataset as a source in Airbyte and c
 The Apify Dataset source reads items from a single dataset, identified by its ID. Each Actor run writes to a new default dataset. To keep syncing the results of repeated runs, have your Actor write to a [named dataset](/storage#named-and-unnamed-storages) and use its ID.
 
 1. In [Apify Console](https://console.apify.com), open **Storage > Datasets**, select your dataset, and copy its ID.
-1. Open [**Settings > API & Integrations**](https://console.apify.com/settings/integrations) and copy your API token.
+1. <CreateApiTokenLink /> <CopyTokenStep />
 1. In Airbyte, open the **Sources** tab and select **Apify Dataset**.
 1. Enter the **Dataset ID** and **API token** you copied, and save the source.
 

@@ -87,7 +87,7 @@ Example prompts that route to specific skills:
 The `apify` agent picks the right transport for each task. Each transport authenticates differently:
 
 - For MCP tools (search, run, retrieve data), authenticate with OAuth through the browser, as described in [Connect the Apify MCP server](#connect-the-apify-mcp-server). You don't need to set up a token.
-- For the Apify CLI (building Actors, actorization, CLI fallback), run `apify login` once, or set `APIFY_TOKEN` in headless environments. Get your token from [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations).
+- For the Apify CLI (building Actors, actorization, CLI fallback), run `apify login` once, or, in headless environments, set `APIFY_TOKEN` to an API token you [create in Apify Console](/integrations/api#create-api-token).
 - For SDK integration with `apify-client`, set the `APIFY_TOKEN` environment variable in your application's environment.
 
 ## Troubleshooting

@@ -44,7 +44,7 @@ from openai import OpenAI, Stream
 from openai.types.beta.threads.run_submit_tool_outputs_params import ToolOutput
 ```
 
-Find your [Apify API token](https://console.apify.com/settings/integrations) and [OpenAI API key](https://platform.openai.com/account/api-keys) and initialize OpenAI and Apify clients:
+Get your [Apify API token](/integrations/api#create-api-token) and [OpenAI API key](https://platform.openai.com/account/api-keys) and initialize OpenAI and Apify clients:
 
 ```python
 client = OpenAI(api_key="YOUR OPENAI API KEY")
@@ -260,7 +260,7 @@ Before we start, we need to install all dependencies:
 pip install apify-client openai
 ```
 
-Find your [Apify API token](https://console.apify.com/settings/integrations) and [OpenAI API key](https://platform.openai.com/account/api-keys) and initialize OpenAI and Apify clients:
+Get your [Apify API token](/integrations/api#create-api-token) and [OpenAI API key](https://platform.openai.com/account/api-keys) and initialize OpenAI and Apify clients:
 
 ```python
 from apify_client import ApifyClient

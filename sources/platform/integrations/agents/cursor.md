@@ -9,6 +9,7 @@ import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integrati
 import ApifyPluginSkills from '@site/sources/_partials/_apify-plugin-skills.mdx';
 import ApifyPluginSkillPrompts from '@site/sources/_partials/_apify-plugin-skill-prompts.mdx';
 import FindGoogleMapsActorPrompt from '@site/sources/_partials/_find-google-maps-actor-prompt.mdx';
+import { CreateApiTokenLink } from '@site/src/components/ApiToken';
 
 [Cursor](https://cursor.com) is an AI-powered code editor that understands your codebase, edits files, runs commands, and completes multi-step development tasks from natural-language prompts.
 
@@ -105,7 +106,7 @@ Start your request with `@apify` so the routing agent handles it. The agent owns
 
 If the browser doesn't open automatically, copy the OAuth URL shown by Cursor and paste it into your browser manually.
 
-If you're running Cursor in a remote session, devcontainer, or over SSH where no browser is available, authenticate with an API token instead. Copy your token from [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations?utm_source=cursor&utm_medium=integrations) and set it in your environment before starting Cursor:
+If you're running Cursor in a remote session, devcontainer, or over SSH where no browser is available, use token authentication instead. <CreateApiTokenLink /> Set it in your environment before starting Cursor:
 
 ```bash
 export APIFY_TOKEN=<YOUR_API_TOKEN>
