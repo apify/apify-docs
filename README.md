@@ -32,7 +32,7 @@ Documentation ecosystem consists of:
 ### Prerequisites
 
 - **Node.js 24** (see [.nvmrc](.nvmrc))
-- **pnpm 11** (pinned via `packageManager` in `package.json`; `corepack enable` picks it up automatically)
+- **pnpm 12** (pinned via `packageManager` in `package.json`; `corepack enable` picks it up automatically)
 - **Git**
 
 ### Quick setup
