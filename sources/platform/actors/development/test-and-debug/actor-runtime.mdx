@@ -1,0 +1,279 @@
+---
+title: Test Actors with the local Actor runtime
+sidebar_label: Local Actor runtime
+sidebar_position: 1
+description: Build, run, and debug Actors on your own machine with the local Actor runtime, using the same Apify CLI commands you use against the Apify platform.
+slug: /actors/development/test-and-debug/actor-runtime
+---
+
+import PromptBlock from "@site/src/components/PromptBlock";
+
+
+The Actor runtime is a local Apify platform that runs as a single container on your machine. When you connect the [Apify CLI](/cli/docs) to it:
+
+- CLI commands work as they do on the platform
+- builds and runs happen on your machine and don't use platform resources
+
+Use the runtime to test an Actor the way the platform runs it, before you deploy. It's not meant for hosting Actors.
+
+:::info Actor runtime is experimental
+
+The `apify runtime` commands are experimental and might change in future CLI releases.
+
+:::
+
+## Runtime compared with `apify run`
+
+Both `apify run` and the runtime run your Actor locally.
+
+`apify run` starts the Actor as a local process and uses the `storage/` directory in place of platform storages. It validates input against the input schema and sets the Actor's environment variables, but it doesn't build a Docker image or enforce memory limits and timeouts.
+
+When you run `apify call` against the runtime, the runtime builds a Docker image and runs it in a container, as the platform does. The runtime also provides:
+
+- Build and run logs. The runtime's messages are prefixed with `[actor-runtime]`.
+- Input validated against the input schema, with defaults filled in.
+- Runs, datasets, key-value stores, and request queues you can query with the CLI or the API.
+- A local version of Apify Console at `http://localhost:3000`, with an Actor page and a run page for every run.
+- Environment variables, secrets, memory limits, and timeouts applied as on the platform.
+
+Use `apify run` for quick checks of your code. Use the runtime to test that the Actor builds and runs within its limits before you deploy it.
+
+## Runtime compared with the platform
+
+The runtime provides the parts of the platform you need to build, run, and test Actors.
+The runtime differs from the platform in the following ways:
+
+- You can run only one runtime at a time. It can serve any number of Actors.
+- The runtime stores all its data in its data directory. If you delete the directory, you delete all Actors, runs, and storages.
+- The runtime accepts any token, so it has one user and no access rights, organizations, or usage limits.
+- Apify Store, publishing, integrations, notifications, most pages of Apify Console, and monetization other than pay-per-event aren't available.
+- Builds run for your machine's architecture. On Apple Silicon, Actors based on images published only for `linux/amd64`, such as the Playwright images, run in emulation and are slower.
+
+## Set up the runtime
+
+To use the runtime, install and start it, and then connect the CLI to it.
+
+### Before you start
+
+{/* TODO: replace X.Y.Z below with the first Apify CLI release that ships the `apify runtime` commands. */}
+
+To set up the runtime, you need:
+
+- [Docker](https://docs.docker.com/get-docker/) or [Podman](https://podman.io/docs/installation), installed and running.
+- [Apify CLI](/cli/docs/installation) version X.Y.Z or later.
+- An Actor project.
+
+If you have both Docker and Podman, the CLI uses the first engine it finds on your PATH. To pick Podman, set `APIFY_CONTAINER_ENGINE=podman`.
+
+You don't need an Apify account. The runtime accepts any token, so if you aren't logged in, run `apify login --token local-dev-token`.
+
+### 1. Install and start the runtime
+
+To install the runtime and start it in the background, run:
+
+```bash
+apify runtime install
+apify runtime start --detach
+```
+
+By default, the runtime uses the following ports and data directory:
+
+| Option | Default | Sets |
+| --- | --- | --- |
+| `--api-port` | `3333` | The port of the runtime API |
+| `--console-port` | `3000` | The port of the local Console |
+| `--data-dir` | `~/.apify/actor-runtime/data` | Where the runtime stores Actors, runs, and storages |
+
+To change defaults, pass the options to `apify runtime start`. The CLI remembers the ports you set and uses them the next time you start the runtime.
+
+### 2. Connect the CLI to the runtime
+
+To send Apify CLI commands to the runtime instead of the Apify platform, run:
+
+```bash
+apify runtime connect
+```
+
+The connection applies to all terminals and stays active until you run `apify runtime disconnect`. Your login doesn't change. `apify run` isn't affected and still starts the Actor as a local process.
+
+To check that the runtime is running and that the CLI is connected to it, run:
+
+```bash
+apify runtime status
+```
+
+The command prints the image, data directory, ports, and the API base URL the CLI uses. If the runtime isn't running, the exit code is `1`.
+
+## Build and run the Actor
+
+With the CLI connected, you build and run the Actor with the same commands you use on the Apify platform.
+
+### 1. Build the Actor
+
+To upload the Actor's source to the runtime and build its Docker image, run:
+
+```bash
+cd my-actor
+apify push
+```
+
+The first build downloads the Actor's base image, so it takes longer than later builds, which reuse cached image layers.
+
+If no file has changed since the last push, `apify push` stops with an error. To rebuild anyway, run:
+
+```bash
+apify push --force
+```
+
+### 2. Run the Actor
+
+To start a run with your input, run:
+
+```bash
+apify call --input '{"maxPages": 3}'
+```
+
+`apify call` starts a run and streams its log. When the run finishes, it prints the IDs of the run and its storages.
+
+To read input from a file, use `--input-file input.json`. If you don't pass any input, `apify call` uses the project's local [`INPUT.json`](/actors/development/quick-start/locally#actors-input) file, or the input schema defaults if the file doesn't exist.
+
+:::caution Apify Proxy usage is billed to your account
+
+If the runtime has an Apify Proxy password, from the account you're logged in with or from its own configuration, your Actor uses the real Apify Proxy. Usage is billed to the account the password belongs to, and the run log shows a warning. To run without the proxy, clear **Use Apify Proxy** on the **Settings** page in the local Console.
+
+:::
+
+### 3. View the results
+
+To view the run, its log, and its storages in a browser, open the local Console at [http://localhost:3000](http://localhost:3000).
+
+To view the results in the terminal, use the IDs that `apify call` printed:
+
+| Command | Shows |
+| --- | --- |
+| `apify runs ls` | The Actor's runs |
+| `apify runs log <runId>` | The run log |
+| `apify datasets get-items <datasetId> --format json` | The dataset items |
+| `apify key-value-stores get-value <storeId> OUTPUT` | A key-value store record |
+
+To get the list of runs in JSON, use `apify runs ls --json`.
+
+### 4. Stop the runtime
+
+To stop the runtime, run:
+
+```bash
+apify runtime stop
+```
+
+The runtime keeps its data. When you start it again with the same data directory, your Actors, runs, and storages are still there. The CLI stays connected to the runtime.
+
+To send CLI commands to the Apify platform again, for example to deploy the Actor, run:
+
+```bash
+apify runtime disconnect
+```
+
+## Edit the code without rebuilding
+
+When you push an Actor, the runtime saves the project directory as the Actor's live dev folder. If you enable the live dev folder, each run mounts the directory over the built image, so runs use your latest code without a new build.
+
+To enable the live dev folder, select **Use live dev folder** on the Actor's page in the local Console, or run:
+
+```bash
+apify api POST /actor-runtime/live-dev-folder/<actorId> --body '{"enabled": true}'
+```
+
+After each code change, compile the code and then start a new run:
+
+```bash
+npm run build
+apify call
+```
+
+The live dev folder has two limitations:
+
+- Changes apply to the next run, not to a run in progress.
+- Dependencies come from the built image. After you change `package.json` or `requirements.txt`, run `apify push`.
+
+To run once from the built image without the live dev folder, use `apify call --no-dev-folder`.
+
+The live dev folder works best for Python and JavaScript Actors without a compile step, because the image runs their source as it is. For Actors with a compile step, the compiled output in the directory must match what the image expects. For these Actors, running `apify push` after each change is often simpler.
+
+## Set up a coding agent
+
+The `apify-actor-runtime` [Agent Skill](https://agentskills.io) contains instructions for coding agents that use the runtime. The skill has two versions:
+
+- **Setup version:** Installs and starts the runtime. Use it if the runtime isn't installed yet.
+- **Full version:** Ships with the runtime and matches your installed runtime version. Use it after you install the runtime.
+
+### Install the setup version
+
+To install the setup version from [Apify Agent Skills](https://github.com/apify/agent-skills), run:
+
+```bash
+npx skills add apify/agent-skills --skill apify-actor-runtime
+```
+
+With this version, the agent checks that Docker or Podman and the Apify CLI are installed, installs and starts the runtime, and then loads the full version.
+
+### Install the full version
+
+To install the full version, run:
+
+```bash
+apify runtime skill --install
+```
+
+The command writes the skill into every agent skills directory it finds:
+
+| Directory | Used by |
+| --- | --- |
+| `~/.claude/skills/` | Claude Code, in every project |
+| `~/.agents/skills/` | Codex and other agents, in every project |
+| `.claude/skills/` in the current project | Claude Code, in this project |
+| `.agents/skills/` in the current project | Agents that read the project's skills directory |
+
+To print the skill instead, for example to paste it into a chat, run `apify runtime skill`.
+
+### Prompt the agent
+
+After you install the skill, give the agent a prompt like this one:
+
+<PromptBlock
+  title="Prompt for your coding agent"
+  prompt={`Use the local Apify Actor runtime to develop this Actor. The runtime is a local Apify platform; the Apify CLI talks to it with the same commands as to the platform. Its instructions are in the apify-actor-runtime skill, or run \`apify runtime skill\` to print them.
+
+1. Run \`apify runtime status\`. If the runtime isn't running, run \`apify runtime install\` and \`apify runtime start --detach\`.
+2. Run \`apify runtime connect\` so every CLI command goes to the runtime. If no token is set, run \`apify login --token local-dev-token\`.
+3. Run \`apify push\` to build the Actor, then \`apify call\` with a small test input.
+4. Read the run log and the dataset items. Fix any problem in the code, push or call again, and repeat until the run succeeds and the output is correct.
+5. When done, summarize what the run produced and how long it took.`}
+/>
+
+### Use the runtime from a sandbox or script
+
+In a sandbox or script, use the following settings:
+
+- If the environment has no OS keyring, set `APIFY_DISABLE_KEYRING=1` before you run `apify login`.
+- To connect only the current shell to the runtime, set `APIFY_CLIENT_BASE_URL=http://localhost:3333` and `APIFY_CONSOLE_URL=http://localhost:3000`. These variables take precedence over `apify runtime connect`.
+- To get output that a script or agent can parse, add `--json` to `apify runtime status`, `apify runs ls`, and other listing commands.
+
+## Other runtime features
+
+The runtime also has features for debugging and testing Actors:
+
+- Attach VS Code or PyCharm to a run. With debug mode on, each run starts paused and waits for the debugger, with no changes to the Actor's code or `Dockerfile`.
+- Watch the browser that your Actor controls in the local Console, and optionally control the mouse and keyboard.
+- Test how the Actor handles a platform migration. The runtime stops the run's container and starts a new one for the same run.
+- Test pay-per-event pricing. Each run reports the charged events and an estimated cost, without charging you.
+- Run a [Server Actor](/actors/development/programming-interface/server-actors). The runtime serves it over HTTP, at a local URL in the same format as on the platform.
+- Forward calls that the runtime can't handle to the Apify API, using your token. This feature is off by default, because it can change data in your Apify account.
+
+To configure these options, use the local Console or the API. For details, run `apify runtime skill`.
+
+## Next steps
+
+- To read the runtime's full instructions, run `apify runtime skill`. A running runtime also serves them at `http://localhost:3333/actor-runtime/skill`.
+- For all `apify runtime` commands and options, see the [Apify CLI command reference](/cli/docs/reference#apify-runtime).
+- To deploy the Actor to the platform, run `apify runtime disconnect` and then `apify push`. For details, see [Deployment](/actors/development/deployment).
