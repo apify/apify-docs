@@ -9,6 +9,7 @@ import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integrati
 import ApifyPluginSkills from '@site/sources/_partials/_apify-plugin-skills.mdx';
 import ApifyPluginSkillPrompts from '@site/sources/_partials/_apify-plugin-skill-prompts.mdx';
 import FindGoogleMapsActorPrompt from '@site/sources/_partials/_find-google-maps-actor-prompt.mdx';
+import { CreateApiTokenLink } from '@site/src/components/ApiToken';
 
 [Grok Build](https://docs.x.ai/build/overview) is xAI's agentic coding tool that runs in your terminal. It reads and edits your codebase, runs commands, and completes multi-step development tasks.
 
@@ -98,7 +99,7 @@ If the OAuth flow still can't complete, for example because no browser is availa
 apify login
 ```
 
-In a non-interactive environment, pass an API token from [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations) instead:
+In a non-interactive environment, use token authentication instead. <CreateApiTokenLink /> Then pass it to `apify login`:
 
 ```bash
 apify login -t <YOUR_API_TOKEN>
