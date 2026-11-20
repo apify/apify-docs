@@ -12,12 +12,12 @@ jobs:
             -   uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
             -   name: Use Node.js 24
-                uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+                uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
                 with:
                     node-version: 24
                     check-latest: true
 
-            -   uses: apify/actions/pnpm-install@v1.3.1
+            -   uses: apify/actions/pnpm-install@v1.6.2
 
             -   name: Build docs
                 run: |
@@ -29,7 +29,7 @@ jobs:
 
             -   name: Run Lychee Link Checker
                 id: lychee
-                uses: lycheeverse/lychee-action@8646ba30535128ac92d33dfc9133794bfdd9b411 # v2.8.0
+                uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
                 env:
                     GITHUB_TOKEN: ${{ secrets.APIFY_SERVICE_ACCOUNT_GITHUB_TOKEN }}
                 with:
