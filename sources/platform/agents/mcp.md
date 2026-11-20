@@ -52,12 +52,6 @@ Before connecting your AI to Apify, you need:
 
 To discover Actors and search the documentation, you can connect [without an account](#use-without-an-account). To run Actors, connect in one of two ways: use the hosted Apify service with [Streamable HTTP with OAuth](#streamable-http-with-oauth-recommended), or run the server locally for development and testing with [local stdio](#local-stdio).
 
-:::tip Structured output schemas
-
-The hosted Apify MCP server at `https://mcp.apify.com` supports _output schema inference_ for structured Actor results. Actor tools automatically include inferred output schemas with field-level type information. This helps AI agents understand the expected result structure before calling an Actor. The local stdio server does not support this feature.
-
-:::
-
 ### Use without an account
 
 The Apify MCP server accepts requests without an API token when the `tools` query parameter (see [Tool selection](#tool-selection)) contains only tools enabled for unauthenticated use. These tools cover Actor discovery, documentation lookup, and the Apify API reference:
@@ -187,7 +181,7 @@ To select your tools visually, use the [MCP configurator](https://mcp.apify.com/
 | Tool name | Category | Enabled by default | Description |
 | :--- | :--- | :--- | :--- |
 | `search-actors` | `actors` | ✅ | Search for Actors in Apify Store |
-| `fetch-actor-details` | `actors` | ✅ | Retrieve detailed information about a specific Actor, including its input and output schema, README (summary when available, full otherwise), and pricing |
+| `fetch-actor-details` | `actors` | ✅ | Retrieve detailed information about a specific Actor, including its input schema, README (summary when available, full otherwise), and pricing. Returns the [output schema](#actor-output-schemas) on request |
 | `call-actor` | `actors` | ✅ | Run an Actor and wait up to `waitSecs` (0-45, default 30) for it to finish. Pass run limits (`memory`, `timeout`, `maxItems`, `maxTotalChargeUsd`) in `callOptions`, not in the Actor input. Returns the run status and storage IDs, not the results themselves |
 | `fetch-actor-mcp-tool-list` | `actors` | ✅ | List the tools of an Actor that runs an MCP server, with their schemas, annotations, and metadata |
 | `call-actor-mcp-tool` | `actors` | ✅ | Call one tool on an Actor's MCP server and return its result |
@@ -248,6 +242,25 @@ Whenever `call-actor` or an Actor tool that starts a run, such as `apify--instag
 #### Find and call any Actor on demand
 
 Your AI can search Apify Store for relevant Actors using the `search-actors` tool, inspect Actor details to understand required inputs, and call any Actor by name using `call-actor` - without needing to pre-configure it. This means your AI can adapt to new tasks without manual configuration.
+
+## Actor output schemas
+
+The MCP server tells your AI what an Actor returns before the Actor runs. The output schema is the `fields` definition from the [dataset schema](/storage/dataset-schema) that the Actor declares for its default dataset. The server never derives a schema from the results of past runs, so an Actor that declares no `fields` has no output schema.
+
+The output schema is available in two places, on both the hosted server and the local stdio server:
+
+- `fetch-actor-details` returns the declared schema as JSON Schema, with field descriptions and examples, when you set `outputSchema` to `true` in the `output` parameter. The tool leaves it out by default.
+- Each Actor tool, such as `apify--instagram-scraper`, lists the declared field names and types in its `outputSchema`, under `storages.datasets.default.itemsSchema`. Descriptions and examples are left out to keep the tool list small.
+
+The result of an Actor tool call doesn't repeat the schema. It returns the dataset ID and `fields`, the list of fields the run produced, which you can pass to `get-dataset-items`.
+
+:::note Size limit
+
+`fetch-actor-details` returns a declared schema of up to 64 KB in full. For a larger schema, it returns field names and types only and says so in the response. If the field names and types are larger than 64 KB as well, it returns no schema.
+
+:::
+
+For an Actor with [multiple datasets](/storage/dataset-schema/multiple-datasets), the output schema describes the `default` dataset only.
 
 ## Telemetry
 
