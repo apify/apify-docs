@@ -6,31 +6,39 @@ category: platform
 slug: /account/api-tokens
 ---
 
-To access the Apify API in your integrations, you need to authenticate using your secret API token. You manage your tokens on the [API & Integrations](https://console.apify.com/settings/integrations) page in Apify Console. Give each token a reasonable description, and never use one token for several services, much like you shouldn't use the same password for different accounts.
+To access the Apify API in your integrations, you need to authenticate using your secret API token. You manage your tokens on the [API & Integrations](https://console.apify.com/settings/integrations) page in Apify Console. A new account has no API token, so [create one](#create-api-token) before your first API call.
 
-Apify Console shows the value of an API token only once, right after you create or [rotate](#rotation) it. The token list shows each token's description, a masked preview of its value, when it was last used, and when it expires, but you can't view or copy the full value of an existing token.
+Apify Console shows the value of an API token only once, right after you create or [rotate](#rotation) it. The token list shows each token's description, a masked preview of its value, when it was last used, and when it expires, but you can't view or copy the full value of an existing token. Use the preview to tell your tokens apart.
 
 The Apify CLI doesn't need a copied token. When you sign in with [`apify login`](/cli/docs/reference#apify-auth-login--apify-login) in the browser, it creates a token for your device and stores it for you.
 
 :::caution Protect your API token
 Do not share the API token with untrusted parties, or use it directly from client-side code,
-unless you fully understand the consequences! You can also consider  [limiting the permission scope](#limited-permissions) of the token, so that it can only access what it really needs.
+unless you fully understand the consequences! You can also consider [limiting the permission scope](#limited-permissions) of the token, so that it can only access what it really needs.
 :::
 
 ## Create an API token {#create-api-token}
 
 1. Go to [**Settings > API & Integrations**](https://console.apify.com/settings/integrations) in Apify Console.
 1. In the **Personal API tokens** section, select **Create a new token**.
-1. Enter a description. Optionally, [limit the token's permissions](#limited-permissions) or [set an expiration date](#expiration).
+1. Enter a description that says where you will use the token.
+1. In **Expiration**, keep the default of **90 days** or [choose another option](#expiration).
+1. Optionally, [limit the token's permissions](#limited-permissions).
 1. Select **Create**.
 1. Copy the token and store it somewhere safe, such as a password manager.
 1. Select **Done**.
 
-If you lose a token, [rotate it](#rotation) to get a new value, or create a new token and delete the old one.
+If you lose a token, [rotate it](#rotation) to get a new value, or create a new token and delete the old one. You can delete any token, including your last one.
 
 ## Expiration
 
-API tokens include security features to protect your account and data. You can set an expiration date for your API tokens, ensuring they become invalid after a specified period. This is particularly useful for temporary access or when working with third-party services.
+A token you create in Apify Console expires after 90 days unless you choose otherwise. An expired token stops working, which limits the damage if the token leaks. In the **Expiration** field of the token form, choose one of these options:
+
+- **7 days**, **30 days**, **90 days**, or **365 days**. The token expires at the first midnight UTC after that many full days, so a 90-day token lasts between 90 and 91 days.
+- **Custom date**. The token expires at 00:00 UTC at the start of the day you pick.
+- **No expiration**. The token works until you delete or rotate it.
+
+The token list shows the exact time each token expires, for example `Expires on February 15, 2027, 00:00 UTC`. To change the expiration of an existing token, edit the token and pick a new date, or clear the date to remove the expiration.
 
 ## Rotation
 
@@ -41,6 +49,16 @@ If you suspect that a token has been compromised or accidentally exposed, you ca
 After you confirm the rotation, Apify Console shows the new token. This is the only time you can copy it, so store it somewhere safe.
 
 For better security awareness, the UI marks tokens identified as compromised with a **Leaked** label, making it easy to identify and take action on them.
+
+## Good practices
+
+Treat an API token like a password:
+
+- Use a separate token for each service, much like you shouldn't use the same password for different accounts.
+- Give each token a description that says where you use it.
+- [Limit the token's permissions](#limited-permissions) to what the service needs.
+- Keep an [expiration](#expiration) on tokens you share with third-party services or use for temporary access.
+- [Rotate](#rotation) a token as soon as you suspect it's exposed.
 
 ## Organization accounts
 

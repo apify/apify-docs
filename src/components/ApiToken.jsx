@@ -24,7 +24,8 @@ export const GetApiTokenHint = () => (
 export const CreateTokenStep = () => (
     <>
         In the <strong>Personal API tokens</strong> section, select <strong>Create a new token</strong>. Enter a
-        description, optionally limit the token's permissions, and select <strong>Create</strong>.
+        description and select <strong>Create</strong>. The token expires after 90 days unless you change the{' '}
+        <strong>Expiration</strong> field.
     </>
 );
 
