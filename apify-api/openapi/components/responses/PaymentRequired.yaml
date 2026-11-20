@@ -1,4 +1,4 @@
-description: Payment required - the user has exceeded their usage limit or does not have enough credits.
+description: Payment required - the request exceeds a plan limit (Actor memory, concurrent runs, or remaining monthly usage), or the dataset owner has unpaid invoices or has exceeded their usage limit.
 content:
   application/json:
     schema:
@@ -6,4 +6,4 @@ content:
     example:
       error:
         type: actor-memory-limit-exceeded
-        message: You have exceeded your usage limit. Please consider upgrading your plan.
+        message: "By launching this job you will exceed the memory limit of 8192MB for all your Actor runs and builds (currently used: 8192MB, requested: 1024MB). Please consider an upgrade to a paid plan at https://console.apify.com/billing/subscription to increase your Actor memory limit."
