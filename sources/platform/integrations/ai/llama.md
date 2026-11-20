@@ -6,6 +6,7 @@ slug: /integrations/llama-index
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+import { GetApiTokenHint } from '@site/src/components/ApiToken';
 
 > For more information on LlamaIndex, visit its [documentation](https://developers.llamaindex.ai/python/framework/).
 
@@ -27,7 +28,7 @@ After successfully installing all dependencies, we can start writing Python code
 
 ### Apify Actor
 
-To use the Apify Actor, import `ApifyActor` and `Document`, and set your [Apify API token](https://docs.apify.com/integrations/api#api-token) in the code.
+To use the Apify Actor, import `ApifyActor` and `Document`, and set your [Apify API token](https://docs.apify.com/integrations/api#api-token) in the code. <GetApiTokenHint description="LlamaIndex" />
 The following example uses the [Website Content Crawler](https://apify.com/apify/website-content-crawler) Actor to crawl an entire website, which will extract text content from the web pages.
 The extracted text is formatted as a llama_index `Document` and can be fed to a vector store or language model like GPT.
 

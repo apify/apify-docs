@@ -18,7 +18,7 @@ Apify is a marketplace of web scraping and automation tools, AI agents, and MCP 
 
 ### Prerequisites
 
-- _Apify API token_: <CreateApiTokenLink />
+- _Apify API token_: <CreateApiTokenLink description="Google ADK" />
 - _Python packages_: Install the following Python packages:
 
     ```bash

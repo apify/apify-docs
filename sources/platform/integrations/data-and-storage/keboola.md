@@ -57,7 +57,7 @@ In the next step, you can choose the action you want to perform:
 
 After selecting the action, you will need to provide your Apify API token in the provided form.
 
-<CreateApiToken />
+<CreateApiToken description="Keboola" />
 
 ![Keboola API authentication](../images/keboola/keboola-setup-api-token.png)
 

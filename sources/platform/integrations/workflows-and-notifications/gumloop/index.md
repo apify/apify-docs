@@ -54,7 +54,7 @@ To use the Apify integration in Gumloop, you need an Apify account, a Gumloop ac
 
 1. _Get your Apify API token_
 
-    <CreateApiToken />
+    <CreateApiToken description="Gumloop" />
 
 1. _Add Apify credentials to Gumloop_
 

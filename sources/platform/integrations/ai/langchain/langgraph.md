@@ -49,7 +49,7 @@ This guide shows how to use Apify Actors with LangGraph by building a ReAct agen
 
 ### Prerequisites
 
-- **Apify API token**: <CreateApiTokenLink />
+- **Apify API token**: <CreateApiTokenLink description="LangGraph" />
 
 - **OpenAI API key**: To work with agents in LangGraph, you need an OpenAI API key. If you don't have one, you can get it from the [OpenAI platform](https://platform.openai.com/account/api-keys).
 

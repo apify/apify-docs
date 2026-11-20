@@ -32,7 +32,7 @@ Next, select one of the available options under Triggers, Actions and Searches, 
 In the Connection configuration window, you'll authorize the connection between Make and Apify. The recommended method is to use an OAuth connection.
 Alternatively, you can choose to connect using Apify API token:
 
-1. You will need to provide your Apify API token in the designated field. <GetApiTokenHint />
+1. You will need to provide your Apify API token in the designated field. <GetApiTokenHint description="Make.com" />
 
     ![API token](../../images/apify-token.png)
 
