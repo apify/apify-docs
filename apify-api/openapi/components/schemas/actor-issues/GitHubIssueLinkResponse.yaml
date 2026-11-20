@@ -1,0 +1,14 @@
+title: GitHubIssueLinkResponse
+required:
+  - data
+type: object
+properties:
+  data:
+    type: object
+    required:
+      - gitHubIssueUrl
+    properties:
+      gitHubIssueUrl:
+        type: string
+        description: URL of the GitHub issue linked to the Actor issue.
+        examples: ["https://github.com/janedoe/my-actor/issues/12"]

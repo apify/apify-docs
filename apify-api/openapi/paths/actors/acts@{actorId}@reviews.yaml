@@ -1,0 +1,44 @@
+get:
+  tags:
+    - Actors/Actor reviews
+  summary: Get list of Actor reviews
+  description: |
+    Gets the reviews of an Actor.
+
+    The endpoint supports pagination using the `limit` and `offset` parameters.
+    It will not return more than 200 records.
+
+    By default, the records are sorted by the `createdAt` field in ascending order.
+    Use the `sortBy` parameter to sort by rating, and `desc=1` to sort in descending
+    order.
+
+    Reviews of public Actors can be read without an API token.
+  operationId: actor_reviews_get
+  parameters:
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
+    - $ref: "../../components/parameters/paginationParameters.yaml#/offset"
+    - $ref: "../../components/parameters/actorIssueParameters.yaml#/limit"
+    - $ref: "../../components/parameters/paginationParameters.yaml#/desc"
+    - $ref: "../../components/parameters/actorIssueParameters.yaml#/reviewSortBy"
+  responses:
+    "200":
+      description: ""
+      headers:
+        $ref: ../../components/headers/ApifyPaginationHeaders.yaml
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/actor-reviews/ListOfActorReviewsResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      $ref: ../../components/responses/NotFound.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
+  deprecated: false

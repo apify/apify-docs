@@ -1,0 +1,21 @@
+title: CreateActorIssueRequest
+required:
+  - title
+  - description
+type: object
+additionalProperties: false
+properties:
+  title:
+    type: string
+    minLength: 10
+    maxLength: 256
+    examples: [The scraper returns empty results for search URLs]
+  description:
+    type: string
+    minLength: 10
+    maxLength: 10000
+    examples: ["When I use a search URL as the input, the dataset is empty."]
+  runId:
+    type: string
+    description: ID of an Actor run to attach to the issue, for example a run that shows the problem.
+    examples: [HG7ML7M8z78YcAPEB]

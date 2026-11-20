@@ -1,0 +1,14 @@
+title: UpdateActorIssueRequest
+type: object
+additionalProperties: false
+properties:
+  title:
+    type: string
+    minLength: 10
+    maxLength: 256
+    examples: [The scraper returns empty results for search URLs]
+  description:
+    type: string
+    minLength: 10
+    maxLength: 10000
+    examples: ["When I use a search URL as the input, the dataset is empty."]

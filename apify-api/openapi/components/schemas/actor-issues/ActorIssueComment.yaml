@@ -1,0 +1,35 @@
+title: ActorIssueComment
+required:
+  - id
+  - issueId
+  - createdAt
+type: object
+properties:
+  id:
+    type: string
+    examples: [Doja01D5VeQc37n5h]
+  issueId:
+    type: string
+    examples: [3e5biaKGS8wWzJvLY]
+  userId:
+    type: [string, "null"]
+    description: ID of the user who wrote the comment. Missing or `null` for comments added by the system.
+    examples: [wRsJZtadYvn4mBZmm]
+  text:
+    type: [string, "null"]
+    examples: ["Thanks for the report, we are looking into it."]
+  attachments:
+    type: array
+    items:
+      $ref: ./ActorIssueAttachment.yaml
+  createdAt:
+    type: string
+    format: date-time
+    examples: ["2026-10-21T08:30:00.000Z"]
+  modifiedAt:
+    type: string
+    format: date-time
+    description: When the comment was last edited.
+    examples: ["2026-10-21T09:00:00.000Z"]
+  author:
+    $ref: ../common/PublicAuthor.yaml

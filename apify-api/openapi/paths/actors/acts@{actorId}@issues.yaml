@@ -1,0 +1,91 @@
+get:
+  tags:
+    - Actor issues
+  summary: Get list of Actor issues for Actor
+  description: |
+    Gets the issues of an Actor. Use the `filter` parameter to get only the issues you
+    are subscribed to or created.
+
+    The endpoint supports pagination using the `limit` and `offset` parameters.
+    It will not return more than 200 records.
+
+    By default, the records are sorted by the `createdAt` field in ascending order.
+    Use the `sortBy` parameter to sort by another field, and `desc=1` to sort in
+    descending order.
+
+    Issues of public Actors can be read without an API token.
+  operationId: actors_issues_get
+  parameters:
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
+    - $ref: "../../components/parameters/paginationParameters.yaml#/offset"
+    - $ref: "../../components/parameters/actorIssueParameters.yaml#/limit"
+    - $ref: "../../components/parameters/paginationParameters.yaml#/desc"
+    - $ref: "../../components/parameters/actorIssueParameters.yaml#/sortBy"
+    - $ref: "../../components/parameters/actorIssueParameters.yaml#/status"
+    - $ref: "../../components/parameters/actorIssueParameters.yaml#/actorListingFilter"
+  responses:
+    "200":
+      description: ""
+      headers:
+        $ref: ../../components/headers/ApifyPaginationHeaders.yaml
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/actor-issues/ListOfActorIssuesResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      $ref: ../../components/responses/NotFound.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
+  deprecated: false
+post:
+  tags:
+    - Actor issues
+  summary: Create Actor issue
+  description: |
+    Creates an issue for an Actor. The `description` becomes the first comment of the
+    issue. The response is the created issue.
+
+    Anyone who can read the Actor can create an issue for it.
+  operationId: actors_issues_post
+  parameters:
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
+  requestBody:
+    description: ""
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/actor-issues/CreateActorIssueRequest.yaml
+    required: true
+  responses:
+    "201":
+      description: ""
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/actor-issues/ActorIssueResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      $ref: ../../components/responses/NotFound.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "413":
+      $ref: ../../components/responses/PayloadTooLarge.yaml
+    "415":
+      $ref: ../../components/responses/UnsupportedMediaType.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
+  deprecated: false

@@ -1,0 +1,44 @@
+put:
+  tags:
+    - Actor issues
+  summary: Update Actor issue status
+  description: |
+    Opens or closes an Actor issue. The response is the updated issue.
+
+    Only the issue author or the Actor owner can close an issue. The issue author or
+    anyone who can read the Actor can reopen it.
+  operationId: actorIssue_status_put
+  parameters:
+    - $ref: "../../components/parameters/actorIssueParameters.yaml#/issueId"
+  requestBody:
+    description: ""
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/actor-issues/UpdateActorIssueStatusRequest.yaml
+    required: true
+  responses:
+    "200":
+      description: ""
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/actor-issues/ActorIssueResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      $ref: ../../components/responses/NotFound.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "413":
+      $ref: ../../components/responses/PayloadTooLarge.yaml
+    "415":
+      $ref: ../../components/responses/UnsupportedMediaType.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
+  deprecated: false
