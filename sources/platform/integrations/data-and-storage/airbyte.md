@@ -32,7 +32,7 @@ Your Apify dataset is now available as a source in Airbyte.
 
 ### Use a dataset name
 
-Enter a dataset name with a `~` prefix, for example `~my-dataset`. Airbyte looks up the name in the account that owns your API token. For a dataset owned by another user or organization, enter `username~my-dataset`. The owner must [share the dataset](/storage#share) with you first, or the connection check fails.
+Enter a dataset name with a `~` prefix, for example `~my-dataset`. Airbyte looks up the name in the account that owns your API token. For a dataset owned by another user or organization, enter `username~my-dataset`. The owner must [share the dataset](/storage/share#grant-access-rights) with you first, or the connection check fails.
 
 A named dataset keeps the items of every run that writes to it, and Airbyte reads the whole dataset on every sync. To sync only the items of the latest run, make your Actor delete the named dataset at the start of each run and create it again.
 
