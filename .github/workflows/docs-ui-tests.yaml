@@ -39,7 +39,7 @@ jobs:
                 # store, and installs with --frozen-lockfile. working-directory
                 # is docs-tests because it's a standalone project with its own
                 # lockfile, not part of the repo-root pnpm workspace.
-                uses: apify/actions/pnpm-install@v1.6.2
+                uses: apify/actions/pnpm-install@v1.7.0
                 with:
                     working-directory: docs-tests
 
