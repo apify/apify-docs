@@ -44,7 +44,7 @@ In Snowsight, open the **Data Products** menu and navigate to the **Marketplace*
 
 During installation, the app prompts you to create a `Network Rule` and an `External Access Integration` so the app can reach the Apify API. The suggested network rule allows `api.apify.com` for the Apify API. It also allows `images.apifyusercontent.com`, `apify-image-uploads-prod.s3.amazonaws.com`, and `apify-image-uploads-prod.s3.us-east-1.amazonaws.com` for Actor pictures.
 
-Follow the instructions shown in the setup screen to create the External Access Integration. On the same screen, select **Configure** next to **Apify API Token** and bind a Snowflake secret of type Generic String containing your Apify API token. If you don't have a token yet, [create one in Apify Console](/integrations/api#create-api-token) first. To choose between a personal and an organization token, see [Choose an API token](#choose-an-api-token).
+Follow the instructions shown in the setup screen to create the External Access Integration. On the same screen, select **Configure** next to **Apify API Token** and bind a Snowflake secret of type Generic String containing your Apify API token. If you don't have a token yet, [create one in Apify Console](/account/api-tokens#create-api-token) first. To choose between a personal and an organization token, see [Choose an API token](#choose-an-api-token).
 
 ![External connections setup during app installation](../images/snowflake/snowflake-setup-eai.png)
 

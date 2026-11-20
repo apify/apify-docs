@@ -11,7 +11,7 @@ import { CreateTokenStep, CopyTokenStep } from '@site/src/components/ApiToken';
 
 Website Content Crawler from [Apify](https://apify.com/apify/website-content-crawler) lets you extract text content from websites to feed AI models, LLM applications, vector databases, or Retrieval Augmented Generation (RAG) pipelines. It supports rich formatting using Markdown, cleans the HTML of irrelevant elements, downloads linked files, and integrates with AI ecosystems like Langchain, LlamaIndex, and other LLM frameworks.
 
-To use these modules, you need an Apify account and, if you don't use OAuth, an API token, which you can [create in Apify Console](/integrations/api#create-api-token). After connecting, you can automate content extraction at scale and incorporate the results into your AI workflows.
+To use these modules, you need an Apify account and, if you don't use OAuth, an API token, which you can [create in Apify Console](/account/api-tokens#create-api-token). After connecting, you can automate content extraction at scale and incorporate the results into your AI workflows.
 
 <ThirdPartyDisclaimer />
 

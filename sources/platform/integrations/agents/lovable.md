@@ -24,7 +24,7 @@ Apify is available as an app and chat connector: one connection works both in th
 Before you connect the two platforms, you need:
 
 - _An Apify account_ - If you don't have one, [sign up here](https://console.apify.com/sign-up).
-- _Apify API token_ - <CreateApiTokenLink /> See [API token](/integrations/api#api-token) for scope and expiration options.
+- _Apify API token_ - <CreateApiTokenLink /> See [API token](/account/api-tokens) for scope and expiration options.
 - _A Lovable account_ - App and chat connectors are available on the Free, Pro, and Business plans.
 - _Permission to create connections_ - Enterprise plans restrict connection creation to **No one** by default, until an admin changes it in **Connectors > Admin settings > App + chat connectors**.
 
@@ -79,7 +79,7 @@ For a long run, ask Lovable to start the run, poll the run status at a slow inte
 
 Two constraints are worth knowing before you design around the connector:
 
-- Tokens aren't rotated automatically. When you [rotate a token](/integrations/api#rotation) in Apify Console, update the Lovable connection with the new one. Requests fail until you do.
+- Tokens aren't rotated automatically. When you [rotate a token](/account/api-tokens#rotation) in Apify Console, update the Lovable connection with the new one. Requests fail until you do.
 - Per-end-user Apify login isn't supported. Each connection represents a single Apify account, shared across every project linked to it, so all usage lands on that one account.
 
 ## Manage the connection
@@ -98,7 +98,7 @@ Most problems come down to the token, the connection, or Apify's rate limits.
 ### Authentication errors
 
 - _Check the token is still valid_ - If you revoked or rotated the token in Apify Console, the connection keeps sending the old one. Create a new token and update the connection in Lovable.
-- _Check the token's permissions_ - A token with [limited permissions](/integrations/api#limited-permissions) can't reach an Actor or storage outside its scope. Use a token that covers what the app runs and reads.
+- _Check the token's permissions_ - A token with [limited permissions](/account/api-tokens#limited-permissions) can't reach an Actor or storage outside its scope. Use a token that covers what the app runs and reads.
 
 ### Rate-limited requests
 
@@ -119,4 +119,4 @@ Most problems come down to the token, the connection, or Apify's rate limits.
 
 - [Lovable documentation for the Apify connector](https://docs.lovable.dev/integrations/apify)
 - [Lovable app and chat connectors](https://docs.lovable.dev/integrations/app-connectors)
-- [Apify API token](/integrations/api#api-token)
+- [Apify API token](/account/api-tokens)

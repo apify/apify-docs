@@ -27,7 +27,7 @@ An [Actor task](/actors/running/tasks) is a saved, reusable input configuration 
 
 ## API token
 
-An [API token](/integrations/api) is a secret key tied to your Apify account that authenticates requests to the [Apify API](/api/v2), the [Apify CLI](/cli), the client libraries, and integrations. It carries your account's permissions, or a [limited subset](/integrations/api#limited-permissions) of them.
+An [API token](/account/api-tokens) is a secret key tied to your Apify account that authenticates requests to the [Apify API](/api/v2), the [Apify CLI](/cli), the client libraries, and integrations. It carries your account's permissions, or a [limited subset](/account/api-tokens#limited-permissions) of them.
 
 ## Apify AGI
 

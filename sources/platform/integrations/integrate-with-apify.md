@@ -64,7 +64,7 @@ Apify supports two main authentication methods for secure API access.
 _OAuth 2.0_ - Use OAuth 2.0 to allow users to authorize your integration without sharing their credentials.
 <!-- TODO expand section possibly? -->
 
-_API token_ - Apify user generates personal API token from Apify account settings page. For more information, see [API Token documentation](https://docs.apify.com/integrations/api#api-token).
+_API token_ - Apify user generates personal API token from Apify account settings page. For more information, see [API Token documentation](https://docs.apify.com/account/api-tokens).
 
 ### API implementation
 

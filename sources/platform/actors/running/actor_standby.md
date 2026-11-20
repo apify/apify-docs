@@ -62,11 +62,11 @@ Authenticate requests to Server Actors the same way as [requests to the Apify AP
 
 The platform removes the token from the request before forwarding it, so the token doesn't reach the Actor's code. If the Actor reads the `Authorization` header for its own authentication, send your Apify token in the `X-Apify-Authorization` header instead.
 
-Scoped tokens work for requests to Server Actors. To let a third-party service call your Actor without access to your entire account, give it a [scoped token](/integrations/api#limited-permissions) with only the permissions it needs.
+Scoped tokens work for requests to Server Actors. To let a third-party service call your Actor without access to your entire account, give it a [scoped token](/account/api-tokens#limited-permissions) with only the permissions it needs.
 
 :::caution Restricted access is not supported
 
-A scoped token also has a [restricted access](/integrations/api#restricted-access-restrict-what-actors-can-access-using-the-scope-of-this-actor) option that limits what the Actor's run can access. Server Actors don't support that option.
+A scoped token also has a [restricted access](/account/api-tokens#restricted-access-restrict-what-actors-can-access-using-the-scope-of-this-actor) option that limits what the Actor's run can access. Server Actors don't support that option.
 
 :::
 

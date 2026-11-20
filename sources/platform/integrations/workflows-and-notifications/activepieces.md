@@ -32,7 +32,7 @@ Before using the Apify piece in Activepieces, you need:
 
 - An [Apify account](https://console.apify.com/)
 - An [Activepieces account](https://www.activepieces.com/) or self-hosted instance
-- An Apify [API key](/integrations/api#api-token) with access to the Actors, tasks, and storages you want to use
+- An Apify [API key](/account/api-tokens) with access to the Actors, tasks, and storages you want to use
 
 ## Connect Apify with Activepieces
 

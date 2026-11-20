@@ -4,7 +4,7 @@ import Link from '@docusaurus/Link';
 // integration pages. They render inline, so they work inside list items and
 // bullets without breaking the surrounding list.
 
-const CREATE_TOKEN_URL = '/integrations/api#create-api-token';
+const CREATE_TOKEN_URL = '/account/api-tokens#create-api-token';
 
 // Prerequisite bullets: "- _Apify API token_ - <CreateApiTokenLink />"
 export const CreateApiTokenLink = () => (

@@ -113,7 +113,7 @@ You can also use your Apify token directly, instead of OAuth, by setting the `Au
 }
 ```
 
-Replace `<APIFY_TOKEN>` with your [Apify API token](/integrations/api#create-api-token).
+Replace `<APIFY_TOKEN>` with your [Apify API token](/account/api-tokens#create-api-token).
 
 </TabItem>
 </Tabs>
@@ -321,7 +321,7 @@ For Claude Desktop-specific troubleshooting (tools not loading, connection error
 
 ##### Authentication errors
 
-- _Check your API token_: Verify that your Apify API token is correct. Apify Console doesn't show the value of an existing token, so if you're unsure, [rotate it](/integrations/api#rotation) or [create a new one](/integrations/api#create-api-token). Without a valid token, the server cannot start Actor runs.
+- _Check your API token_: Verify that your Apify API token is correct. Apify Console doesn't show the value of an existing token, so if you're unsure, [rotate it](/account/api-tokens#rotation) or [create a new one](/account/api-tokens#create-api-token). Without a valid token, the server cannot start Actor runs.
 - _Set environment variable for local development_: When running the MCP server locally, ensure you have set the `APIFY_TOKEN` environment variable.
 
 ##### Local environment setup
