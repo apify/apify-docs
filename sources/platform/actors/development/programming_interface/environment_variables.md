@@ -105,15 +105,15 @@ Deploying code doesn't change the platform variables. Neither `apify push` nor a
 
 ### Set with the Apify CLI
 
-The `apify env` commands of the [Apify CLI](/cli) manage the variables of the Actor defined in `.actor/actor.json`, on the version from its `version` field. To target another Actor or version, use the `--actor` and `--version` flags.
+The `apify env` commands of the [Apify CLI](/cli) manage the variables of the Actor defined in `.actor/actor.json`, on the version from its `version` field. If `version` is missing, they use version `0.0`. To target another Actor or version, use the `--actor` and `--version` flags. In a monorepo, pick the Actor directory with `--dir`.
 
 | Command | Description |
 | --- | --- |
 | `apify env ls` | List the variables of the Actor version. Secret values stay hidden. |
 | `apify env set <name> [--secret]` | Create or update one variable. The value comes from a prompt or from standard input, never from an argument. |
 | `apify env rm <name>` | Delete one variable. |
-| `apify env push` | Upload the variables from `.env`. Shows the changes and asks before it applies them. New variables are secret unless you pass `--plain`, and `--prune` also deletes variables that aren't in `.env`. |
-| `apify env pull` | Write the platform variables into `.env`. Secret variables get an empty value. |
+| `apify env push` | Upload the variables from `.env`. Shows the changes and asks before it applies them. New variables are secret unless you pass `--plain`, keys with an empty value are skipped, and `--prune` also deletes variables that aren't in `.env`. |
+| `apify env pull` | Write the platform variables into `.env`. Secret variables get an empty value, or keep the value already in `.env`. |
 | `apify env diff` | Compare `.env` with the platform, and exit with code 1 when they differ. Use it in pre-commit hooks and CI. |
 
 To set a secret without putting its value in the command, let the CLI prompt for it, or pipe it to standard input:
@@ -127,7 +127,7 @@ For all options, read the [environment variables guide](/cli/docs/vars) of the A
 
 ### Set with the Apify MCP server
 
-The [Apify MCP server](/mcp#tool-selection) lets AI agents manage the variables with the tools of its `env-vars` category. The category is off by default, so add it to the `tools` parameter of the server URL, for example `https://mcp.apify.com?tools=actors,docs,env-vars`.
+The [Apify MCP server](/mcp#tool-selection) lets AI agents manage the variables with the tools of its `env-vars` category. The category is off by default. The `tools` parameter of the server URL replaces the default selection, so list `env-vars` with the other tools you use, for example `https://mcp.apify.com?tools=actors,docs,env-vars`.
 
 | Tool | Description |
 | --- | --- |
@@ -159,7 +159,7 @@ Earlier versions of the Apify CLI uploaded `environmentVariables` from `.actor/a
 To move an existing project, run:
 
 ```bash
-# Moves the values into .env and resolves @secret references
+# Moves the values into .env, resolves @secret references, and removes environmentVariables from actor.json
 apify env migrate
 # Uploads .env to the Actor version
 apify env push
@@ -167,7 +167,7 @@ apify env push
 
 ### Secure environment variables
 
-For sensitive data such as API keys or passwords, mark the variable as secret: enable **Secret** in Apify Console, or pass `--secret` to `apify env set`. Secret values are encrypted at rest and redacted from Actor run logs. They're write-only: once saved, Apify Console, the Apify API, the Apify CLI, and the Apify MCP server never return them.
+For sensitive data such as API keys or passwords, mark the variable as secret: enable **Secret** in Apify Console, pass `--secret` to `apify env set`, or set `isSecret` with the `set-actor-env-var` MCP tool. Secret values are encrypted at rest and redacted from Actor run logs. They're write-only: once saved, Apify Console, the Apify API, the Apify CLI, and the Apify MCP server never return them.
 
 :::caution Visibility of environment variables in public Actors
 
