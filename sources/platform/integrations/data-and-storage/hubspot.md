@@ -39,8 +39,8 @@ Install the Apify app from the HubSpot Marketplace:
 
 1. Find the **Apify** app in the HubSpot Marketplace (or use the install link provided by your Apify contact).
 1. Select **Install**. This starts a two-step OAuth authorization:
-   - **Step 1:** Authorize the app to read and write company records in your HubSpot portal.
-   - **Step 2:** You're redirected to Apify Console to authorize your Apify account.
+   - Step 1: Authorize the app to read and write company records in your HubSpot portal.
+   - Step 2: HubSpot redirects you to Apify Console to authorize your Apify account.
 1. On success, you see an installation confirmation page.
 
 The app is now connected to both your HubSpot portal and your Apify account.
@@ -101,24 +101,23 @@ Each mapping row has three settings:
 - **HubSpot company field (target)** - a HubSpot company property.
 - **When already set** - **Overwrite** (replace the existing value) or **Skip if set** (only write when the property is empty).
 
-![Field mappings step showing the four pre-filled mappings: LinkedIn company page, Facebook page, X (Twitter), and Main phone mapped to HubSpot company fields, all set to Overwrite](../images/HubSpot/HubSpot_config_wizard_step_2.webp)
-
-- Each HubSpot property can only be used once as a target.
-- Select **Add a mapping** to add more rows.
+Each HubSpot property can be used only once as a target. Select **Add a mapping** to add more rows.
 
 Select **Save** to save the configuration.
 
 ### Step 3: Choose which companies to enrich
 
-After you save a new enrichment, the **Run Configuration** dialog opens. Choose which companies to enrich:
+After you save a new enrichment, the **Run Enrichment** dialog opens. Choose which companies to enrich:
 
 - **Only this company** - enrich only the current company.
 - **Specific companies** - search for and pick several companies.
 - **All companies** - enrich every company in your portal.
 
-The same dialog opens whenever you run the enrichment again from its run history, so you can target different companies on each run.
+The same dialog opens whenever you select **Run** in the run history, so you can target different companies on each run. To rerun the same companies without opening this dialog, select the re-run icon on a row in the run history.
 
 ## Manage your enrichments
+
+The Apify card lists your enrichments and the status of their latest run.
 
 ### Active enrichments list
 
@@ -126,11 +125,11 @@ The **Active enrichments** section of the card shows all company enrichment conf
 
 | Column | Description |
 | ------ | ----------- |
-| **COMPANY ENRICHMENT** | Config name. |
+| **COMPANY ENRICHMENT** | Config name. Select it to open the run history. |
 | **TOTAL RUNS** | Number of runs of this config. |
 | **LAST RUN** | Date of the most recent run (newest first). |
 | **STATUS** | Status badge of the latest run. |
-| **ACTIONS** | Open run history, Edit, Delete. |
+| **ACTIONS** | Run, Edit, Delete. |
 
 ![Apify Data Enrich tab showing the Add Company Enrichment button and the Active enrichments list with two company enrichment configs](../images/HubSpot/HubSpot_active_enrichments_list.webp)
 
@@ -138,14 +137,14 @@ The list updates automatically while a run is in progress.
 
 ### Run history
 
-Select the arrow next to a config in the active enrichments list to open its run history.
+Select a config name in the active enrichments list to open its run history.
 
 The header shows:
 
 - Config name
 - Actor: Contact Details Scraper
-- Number of companies targeted and field mappings
-- **Run again** and **Edit & run** buttons
+- Number of field mappings
+- **Back**, **Edit**, and **Run** buttons
 
 Each run in the history table shows:
 
@@ -158,19 +157,17 @@ Each run in the history table shows:
 | **Updated** | Number of companies whose properties were written. |
 | **Skipped** | Number of companies with nothing to write. |
 | **Failed** | Number of companies HubSpot rejected the update for. |
-| **Results** | View the results, or open the dataset in Apify Console. |
+| **Results** | Open the dataset in Apify Console. |
 
 Expand a row to see:
 
-- **Per company** - the result for each company, with a **Company**, **Result**, and **Reason** column.
+- **Per company** - the result for each of the first 5 companies, with a **Company**, **Result**, and **Reason** column.
 - **Companies in run** - the website domains included.
 - **Field mappings** - the mappings applied in that run.
 
 A skipped company shows, for example, `Acme Corp | Skipped | Website could not be scraped (0 pages)`. For all possible results, see [Company results](#company-results).
 
-![Run history with an expanded run showing the per-company results, companies in run, and field mappings used](../images/HubSpot/HubSpot_per_company_result.webp)
-
-Select the info icon on a completed run to see the number of companies updated, skipped, and failed, the per-company results, and links to the scraper run and its dataset in Apify Console.
+Select the info icon on a completed run to see the number of companies updated, skipped, and failed, the per-company results, and the **View scraper run** and **View import results** links.
 
 ### Abort a run
 
@@ -189,8 +186,8 @@ The scraper often finds several candidates for a field. The integration keeps on
 
 - **General email** - only role mailboxes on the company's own domain or its subdomains, such as `info@`, `contact@`, `hello@`, `sales@`, or `support@`. Personal addresses like `jane@` and addresses on other domains are ignored.
 - **Main phone** - the first phone number found on the website, written as it appears there.
-- **Social profiles** - the first link that points to a profile or page, not to a post, video, or share button. LinkedIn only accepts company or school pages, not personal profiles. Links are normalized, so `twitter.com` links become `x.com`.
-- **X handle** - when the target property is `twitterhandle`, the bare handle is written (for example, `apify`) instead of the full URL.
+- Social profiles - the first link that points to a profile or page, not to a post, video, or share button. LinkedIn only accepts company or school pages, not personal profiles. Links are normalized, so `twitter.com` links become `x.com`.
+- **X (Twitter)** - when the target property is `twitterhandle`, the bare handle is written (for example, `apify`) instead of the full URL.
 
 ### Overwrite behavior
 
@@ -203,6 +200,8 @@ If every mapped property is already filled and set to **Skip if set**, the compa
 
 ## Run statuses
 
+A run shows one of these statuses:
+
 | Status | What it means |
 | ------ | ------------- |
 | **Running** | The Contact Details Scraper is visiting company websites. |
@@ -213,13 +212,9 @@ If every mapped property is already filled and set to **Skip if set**, the compa
 
 Only one run can be active per config. Starting a new run while one is in progress shows an error.
 
-:::note Skipped companies affect the run status
-
-A company skipped with a reason counts toward the run status the same way as a failure. A run where some companies were skipped shows **Partial Success**, and a run where every company was skipped shows **Error**. Check the per-company **Result** and **Reason** to see what happened.
-
-:::
-
 ### Company results
+
+To see why a run ended with **Partial Success** or **Error**, check each company's **Result** and **Reason**:
 
 | Result | Reason | What it means |
 | ------ | ------ | ------------- |
@@ -233,16 +228,19 @@ A company skipped with a reason counts toward the run status the same way as a f
 
 ## Limitations
 
-- **Company records only.** The integration doesn't create or update contacts.
-- **One value per field.** If a website lists several phone numbers or LinkedIn pages, only the first valid one is written.
-- **Role emails on the company domain only.** Companies whose only email is personal or on another domain, such as a parent brand, get no general email.
-- **No phone formatting.** Phone numbers are written as they appear on the website.
-- **Shallow crawl.** The scraper visits up to 10 pages per website, one link deep from the homepage. Data on deeper pages can be missed.
-- **Company website required.** Each company needs a website or domain in HubSpot, or a temporary URL.
-- **One run at a time per config.** You can't start a new run while one is in progress.
-- **No automated scheduling.** Runs must be triggered manually.
+- Company records only. The integration doesn't create or update contacts.
+- One value per field. If a website lists several phone numbers or LinkedIn pages, only the first valid one is written.
+- Role emails on the company domain only. Companies whose only email is personal or on another domain, such as a parent brand, get no general email.
+- No phone formatting. Phone numbers are written as they appear on the website.
+- Shallow crawl. The scraper visits up to 10 pages per website, one link deep from the homepage. Data on deeper pages can be missed.
+- Company website required. Each company needs a website or domain in HubSpot, or a temporary URL.
+- One run at a time per config. You can't start a new run while one is in progress.
+- No automated scheduling. Runs must be triggered manually.
+- First 5 companies per run in the card. The **Per company** results in the run history show only the first 5 companies. Open the dataset in Apify Console for the rest.
 
 ## FAQ
+
+Answers to common questions about company enrichment.
 
 ### Does the integration modify my existing HubSpot data?
 
@@ -268,11 +266,11 @@ Yes. The Contact Details Scraper runs on your Apify account and consumes credits
 
 ### Missing website URL
 
-**Symptom:** When creating a company enrichment, you see a warning that the website URL is required to enrich this company.
+Symptom: When creating a company enrichment, you see a warning that the website URL is required to enrich this company.
 
 ![Website URL field highlighted in a HubSpot company record](../images/HubSpot/HubSpot_website_url.webp)
 
-**Solution:**
+Solution:
 
 - Edit the company record in HubSpot and add the website URL, then select **Check again**.
 - Or enter a temporary URL in the card for this run only.
@@ -281,9 +279,9 @@ A company without a website can't be enriched - the scraper needs a URL to visit
 
 ### Company skipped
 
-**Symptom:** A company shows **Skipped** with a reason in the run results.
+Symptom: A company shows **Skipped** with a reason in the run results.
 
-**Solution:** Check the reason in [Company results](#company-results). The most common causes are:
+Solution: Check the reason in [Company results](#company-results). The most common causes are:
 
 - The company's website URL in HubSpot is wrong or points to a redirect. Fix the URL and run again.
 - The website blocks crawlers. The integration can't enrich these companies.
@@ -291,7 +289,7 @@ A company without a website can't be enriched - the scraper needs a URL to visit
 
 ### Run errors
 
-**Symptom:** A run shows **Error** status.
+Symptom: A run shows **Error** status.
 
 | Error stage | Cause |
 | ----------- | ----- |
@@ -303,8 +301,6 @@ Select the info icon on the run to see the error message, and select **View scra
 ## Uninstall the integration
 
 To remove the Apify integration from HubSpot, select the settings icon in the top-right of the Apify card, then select **Uninstall**.
-
-![Uninstall option in the Apify card settings menu](../images/HubSpot/HubSpot_uninstall_guide.webp)
 
 Company data already written to HubSpot remains - only the app connection is removed.
 
