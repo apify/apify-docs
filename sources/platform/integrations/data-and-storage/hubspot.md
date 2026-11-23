@@ -302,6 +302,8 @@ Select the info icon on the run to see the error message, and select **View scra
 
 To remove the Apify integration from HubSpot, select the settings icon in the top-right of the Apify card, then select **Uninstall**.
 
+![Uninstall option in the Apify card settings menu](../images/HubSpot/HubSpot_uninstall_guide.webp)
+
 Company data already written to HubSpot remains - only the app connection is removed.
 
 ## Next steps
