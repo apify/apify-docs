@@ -252,7 +252,7 @@ The output schema is available in two places, on both the hosted server and the 
 - `fetch-actor-details` returns the declared schema as JSON Schema, with field descriptions and examples, when you set `outputSchema` to `true` in the `output` parameter. The tool leaves it out by default.
 - Each Actor tool, such as `apify--instagram-scraper`, lists the declared field names and types in its `outputSchema`, under `storages.datasets.default.itemsSchema`. Descriptions and examples are left out to keep the tool list small.
 
-The result of an Actor tool call doesn't repeat the schema. It returns the dataset ID and `fields`, the list of fields the run produced, which you can pass to `get-dataset-items`.
+The result of an Actor tool call doesn't repeat the schema. It returns the dataset ID, which is all `get-dataset-items` needs to read the results. When the platform reports them, it also returns `fields`, the list of fields the run produced, which you can use to select columns.
 
 :::note Size limit
 
