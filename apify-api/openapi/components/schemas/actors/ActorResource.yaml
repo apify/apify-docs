@@ -118,7 +118,7 @@ properties:
   notice:
     $ref: ./ActorNotice.yaml
   categories:
-    type: array
+    type: [array, "null"]
     items:
       type: string
     examples: [["DEVELOPER_TOOLS", "OPEN_SOURCE"]]
