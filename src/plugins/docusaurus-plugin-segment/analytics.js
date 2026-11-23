@@ -10,7 +10,14 @@ if (ExecutionEnvironment.canUseDOM && process.env.NODE_ENV === 'production' && s
     // Wrap before calling load: the wrapper defers the load itself until OneTrust reports consent.
     withOneTrust(analytics).load(
         { writeKey: segmentWriteKey, cdnURL: 'https://analytics.apify.com' },
-        { integrations: { 'Segment.io': { apiHost: 'analytics.apify.com/v1' } } },
+        {
+            integrations: {
+                'Segment.io': {
+                    apiHost: 'analytics.apify.com/v1',
+                    deliveryStrategy: { config: { keepalive: true } },
+                },
+            },
+        },
     );
     window.analytics = analytics;
 }
