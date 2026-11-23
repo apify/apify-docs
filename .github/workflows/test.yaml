@@ -248,6 +248,10 @@ jobs:
                     assert_header "http://localhost:8080/platform/actors/running/standby.md" "Location" "^Location: http://[^/]*/actors/running/server-actors[.]md$"
                     assert_header "http://localhost:8080/actors/development/programming-interface/standby" "Location" "^Location: http://[^/]*/actors/development/programming-interface/server-actors$"
 
+                    echo "🧪 Checking Actor runtime redirects..."
+                    assert_header "http://localhost:8080/cli/docs/actor-runtime" "Location" "^Location: http://[^/]*/actors/development/test-and-debug/actor-runtime$"
+                    assert_header "http://localhost:8080/cli/docs/1.14/actor-runtime.md" "Location" "^Location: http://[^/]*/actors/development/test-and-debug/actor-runtime[.]md$"
+
                     echo "✅ All Nginx header checks passed."
 
             -   name: Verify per-page .md navigation headers
