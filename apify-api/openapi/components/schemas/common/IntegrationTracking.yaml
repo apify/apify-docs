@@ -7,7 +7,7 @@ properties:
     examples: [zapier]
     description: Name of the integration platform.
   appId:
-    type: string
+    type: [string, "null"]
     description: ID of the integration app.
   isAiTool:
     type: boolean
