@@ -20,7 +20,7 @@ module.exports = function (context) {
             }
 
             if (!segmentWriteKey) {
-                console.warn('You need to specify a Segment writeKey in customFields.segmentWriteKey');
+                console.warn('Set the SEGMENT_TOKEN env variable to enable Segment');
                 return {};
             }
 
