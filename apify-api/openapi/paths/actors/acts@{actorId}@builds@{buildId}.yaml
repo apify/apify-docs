@@ -26,6 +26,8 @@ get:
             $ref: ../../components/schemas/actor-builds/BuildResponse.yaml
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
     "404":
       $ref: ../../components/responses/NotFound.yaml
     "405":
