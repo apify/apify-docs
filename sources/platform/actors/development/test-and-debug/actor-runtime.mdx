@@ -18,7 +18,7 @@ Use the runtime to test an Actor the way the platform runs it, before you deploy
 
 :::info Actor runtime is experimental
 
-The `apify runtime` commands are experimental and might change in future CLI releases.
+The `apify runtime` commands are experimental and might change in future releases of the Apify CLI.
 
 :::
 
@@ -28,11 +28,11 @@ Both `apify run` and the runtime run your Actor locally.
 
 `apify run` starts the Actor as a local process and uses the `storage/` directory in place of platform storages. It validates input against the input schema and sets the Actor's environment variables, but it doesn't build a Docker image or enforce memory limits and timeouts.
 
-When you run `apify call` against the runtime, the runtime builds a Docker image and runs it in a container, as the platform does. The runtime also provides:
+The runtime builds a Docker image and runs it in a container, as the platform does. The runtime also provides:
 
 - Build and run logs. The runtime's messages are prefixed with `[actor-runtime]`.
 - Input validated against the input schema, with defaults filled in.
-- Runs, datasets, key-value stores, and request queues you can query with the CLI or the API.
+- Runs, datasets, key-value stores, and request queues you can query with the Apify CLI or the API.
 - A local version of Apify Console at `http://localhost:3000`, with an Actor page and a run page for every run.
 - Environment variables, secrets, memory limits, and timeouts applied as on the platform.
 
@@ -43,7 +43,6 @@ Use `apify run` for quick checks of your code. Use the runtime to test that the 
 The runtime provides the parts of the platform you need to build, run, and test Actors.
 The runtime differs from the platform in the following ways:
 
-- You can run only one runtime at a time. It can serve any number of Actors.
 - The runtime stores all its data in its data directory. If you delete the directory, you delete all Actors, runs, and storages.
 - The runtime accepts any token, so it has one user and no access rights, organizations, or usage limits.
 - Apify Store, publishing, integrations, notifications, most pages of Apify Console, and monetization other than pay-per-event aren't available.
@@ -51,16 +50,14 @@ The runtime differs from the platform in the following ways:
 
 ## Set up the runtime
 
-To use the runtime, install and start it, and then connect the CLI to it.
+To use the runtime, install and start it, and then connect the Apify CLI to it.
 
 ### Before you start
-
-{/* TODO: replace X.Y.Z below with the first Apify CLI release that ships the `apify runtime` commands. */}
 
 To set up the runtime, you need:
 
 - [Docker](https://docs.docker.com/get-docker/) or [Podman](https://podman.io/docs/installation), installed and running.
-- [Apify CLI](/cli/docs/installation) version X.Y.Z or later.
+- [Apify CLI](/cli/docs/installation) version 1.14.0 or later.
 - An Actor project.
 
 If you have both Docker and Podman, the CLI uses the first engine it finds on your PATH. To pick Podman, set `APIFY_CONTAINER_ENGINE=podman`.
@@ -84,7 +81,7 @@ By default, the runtime uses the following ports and data directory:
 | `--console-port` | `3000` | The port of the local Console |
 | `--data-dir` | `~/.apify/actor-runtime/data` | Where the runtime stores Actors, runs, and storages |
 
-To change defaults, pass the options to `apify runtime start`. The CLI remembers the ports you set and uses them the next time you start the runtime.
+To change defaults, pass the options to `apify runtime start`. The Apify CLI remembers the ports you set and uses them the next time you start the runtime.
 
 ### 2. Connect the CLI to the runtime
 
@@ -96,7 +93,7 @@ apify runtime connect
 
 The connection applies to all terminals and stays active until you run `apify runtime disconnect`. Your login doesn't change. `apify run` isn't affected and still starts the Actor as a local process.
 
-To check that the runtime is running and that the CLI is connected to it, run:
+To check that the runtime is running and that the Apify CLI is connected to it, run:
 
 ```bash
 apify runtime status
@@ -106,7 +103,7 @@ The command prints the image, data directory, ports, and the API base URL the CL
 
 ## Build and run the Actor
 
-With the CLI connected, you build and run the Actor with the same commands you use on the Apify platform.
+With the runtime running and the Apify CLI connected, you build and run the Actor with the same commands you use on the Apify platform.
 
 ### 1. Build the Actor
 
@@ -166,7 +163,7 @@ To stop the runtime, run:
 apify runtime stop
 ```
 
-The runtime keeps its data. When you start it again with the same data directory, your Actors, runs, and storages are still there. The CLI stays connected to the runtime.
+The runtime keeps its data. When you start it again with the same data directory, your Actors, runs, and storages are still there. The Apify CLI stays connected to the runtime.
 
 To send CLI commands to the Apify platform again, for example to deploy the Actor, run:
 
