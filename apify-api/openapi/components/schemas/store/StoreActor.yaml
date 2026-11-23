@@ -26,7 +26,7 @@ properties:
     type: [string, "null"]
     examples: [My public actor!]
   categories:
-    type: array
+    type: [array, "null"]
     items:
       type: string
     example:
