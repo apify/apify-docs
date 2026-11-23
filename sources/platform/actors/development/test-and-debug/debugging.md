@@ -2,7 +2,7 @@
 title: Debug Actors on the Apify platform
 sidebar_label: Debugging
 description: Learn how to attach a debugger to an Actor run on the Apify platform, so you can set breakpoints and inspect variables in a run as it executes.
-sidebar_position: 1
+sidebar_position: 2
 slug: /actors/development/debugging
 ---
 

@@ -18,6 +18,8 @@ apify run
 
 The run reads its input from `storage/key_value_stores/default/INPUT.json` and writes its output to the `storage` folder of your project. You can edit `INPUT.json` to try different inputs, and check the results without using platform resources.
 
+To build and run your Actor in a container the way the platform does, with a local version of Apify Console and storages, use the [local Actor runtime](/actors/development/test-and-debug/actor-runtime).
+
 ## Test on the Apify platform {#apify-test-tools}
 
 To catch problems that only appear in a real run, such as proxy errors or memory limits, use [apify-test-tools](https://github.com/apify/apify-test-tools). It's an open-source package that builds, tests, and releases Actors from a Git repository.
