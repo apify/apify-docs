@@ -81,6 +81,8 @@
         "@docusaurus/theme-mermaid": "~3.10.2",
         "@docusaurus/utils": "~3.10.2",
         "@redocly/cli": "^2.80.0",
+        "@segment/analytics-consent-wrapper-onetrust": "1.1.3",
+        "@segment/analytics-next": "1.84.4",
         "@signalwire/docusaurus-plugin-llms-txt": "^1.2.2",
         "clsx": "^2.1.1",
         "docusaurus-plugin-image-zoom": "^3.0.1",
