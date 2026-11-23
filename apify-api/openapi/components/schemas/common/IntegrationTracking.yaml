@@ -3,7 +3,7 @@ type: object
 description: Information about the third-party integration that created the resource.
 properties:
   platform:
-    type: string
+    type: [string, "null"]
     examples: [zapier]
     description: Name of the integration platform.
   appId:
