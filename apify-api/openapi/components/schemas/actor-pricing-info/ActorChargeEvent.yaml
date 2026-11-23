@@ -20,7 +20,7 @@ properties:
   eventTieredPricingUsd:
     $ref: ./TieredPricingPerEvent.yaml
   isPrimaryEvent:
-    type: boolean
+    type: [boolean, "null"]
     description: Whether this event is the Actor's primary chargeable event.
   isOneTimeEvent:
     type: [boolean, "null"]
