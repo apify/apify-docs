@@ -2,6 +2,7 @@
 title: Version public Actors
 description: Learn how to version a published Actor with build tags, set the default build, and release breaking changes without disrupting users' integrations.
 slug: /actors/development/version-public-actors
+sidebar_position: 3
 ---
 
 Once you [publish your Actor](/actors/publishing), users can build integrations on it. As a result, every build you release can affect them. Versioning lets you ship improvements without breaking the integrations that depend on your Actor.
@@ -43,7 +44,7 @@ Apify Console creates the version. The next step is to give the new version its 
 1. In the **Tag Actor version** dialog, enter the tag name.
     - Build tags must be 1-30 characters long and contain only letters, digits, and hyphens.
     - They must start and end with a letter or digit, for example `version-1-0`.
-1. Save your changes.
+1. Select **Save**.
 
 You can now make changes to the new version's source code and build the Actor. When the build succeeds, the new tag points to it.
 
@@ -54,7 +55,7 @@ You can now make changes to the new version's source code and build the Actor. W
 To create a version with Apify CLI, push your code with a version number that doesn't exist yet. The CLI creates the version, uploads your local code as its source, and starts a build:
 
 ```bash
-apify push --version=0.1 --build-tag=version-1-0
+apify push --version=1.0 --build-tag=version-1-0
 ```
 
 For the new version, the CLI sets only the environment variables defined in `environmentVariables` in `.actor/actor.json`.
@@ -83,6 +84,7 @@ To set the default build in Apify Console:
 1. From the table, select the Actor to update.
 1. Go to the **Settings** tab.
 1. In the **Options** section, set **Build** to the new tag.
+1. Select **Save**.
 
 ### With the Apify API
 
@@ -100,9 +102,9 @@ To set the default build with the Apify API, use the [Update Actor](/api/v2/acto
 
 A non-breaking change might be a bug fix, a performance improvement, or a library update that doesn't modify your Actor's behavior.
 
-To release a non-breaking change, build the Actor under the same version. The build number increments automatically, for example from `0.1.2` to `0.1.3`. Test your changes before you build, because when the build succeeds, the tag is applied immediately.
+To release a non-breaking change, build the Actor under the same version. The build number increments automatically, for example from `1.0.2` to `1.0.3`. Test your changes before you build, because when the build succeeds, the tag is applied immediately.
 
-Users who pin the tag or run the default build for the version get the changes on their next run.
+Users who pin the tag or run the default build get the changes on their next run.
 
 ## Release breaking changes
 
