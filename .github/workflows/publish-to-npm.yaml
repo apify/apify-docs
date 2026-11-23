@@ -43,6 +43,7 @@ jobs:
         needs: look_for_change
         if: ${{ needs.look_for_change.outputs.theme_changed == 'true' || github.event_name == 'workflow_dispatch' }}
         runs-on: ubuntu-latest
+        environment: automation
         steps:
             -   uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
                 with:
@@ -114,6 +115,7 @@ jobs:
                     - apify/apify-client-js
 
         runs-on: ubuntu-latest
+        environment: automation
         steps:
             -   env:
                     GITHUB_TOKEN: ${{ secrets.APIFY_SERVICE_ACCOUNT_GITHUB_TOKEN }}
@@ -129,6 +131,7 @@ jobs:
                     - apify/apify-client-python
 
         runs-on: ubuntu-latest
+        environment: automation
         steps:
             -   env:
                     GITHUB_TOKEN: ${{ secrets.APIFY_SERVICE_ACCOUNT_GITHUB_TOKEN }}
