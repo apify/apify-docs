@@ -147,6 +147,24 @@ async def main() -> None:
 
 Describe your Actor's endpoints, their parameters, and responses with a [web server schema](../../actor_definition/web_server_schema/index.md) defined in the [`.actor/actor.json`](../../actor_definition/actor_json.md) file. Based on that definition, Apify Console renders a **Server** tab on the Actor's detail page, where users can browse the endpoints. Describe the endpoints in your Actor's [README](../../../publishing/publish/actor-readme.mdx) as well, because users see the README in Apify Store before they open the Actor's detail page.
 
+### Endpoint discoverability
+
+Make your API discoverable to clients that know only the Actor's server interface URL. Use one of these patterns:
+
+- Handle the primary request at `/` so clients can call it directly.
+- Serve an OpenAPI specification at `/openapi.json`. Reference the same specification through [`webServerSchema`](../../actor_definition/web_server_schema/index.md) in `.actor/actor.json` to describe the endpoints in Apify Console.
+- Return a JSON endpoint list from `/`, including paths and HTTP methods. For example:
+
+    ```json
+    {
+        "endpoints": [
+            { "path": "/metadata", "method": "GET" }
+        ]
+    }
+    ```
+
+A root response such as `Actor is ready. Use GET /metadata?url=<url>` helps a person, but clients cannot reliably discover endpoints from prose. Return structured data instead.
+
 ## Run lifecycle
 
 The platform starts and stops Server Actor runs based on the incoming request load. It stops a run that receives no requests within the idle timeout and starts a new run when requests arrive again. Don't keep data only in the run's memory. Persist anything you need to a [dataset or key-value store](../../../../storage/index.md). For details, see [how scaling works](../../../running/actor_standby.md#automatic-scaling), [the server configuration](#configure-the-server), and [the timeouts and rate limits](../../../running/actor_standby.md#limits-and-scaling) that apply to incoming requests.
