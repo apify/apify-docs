@@ -12,7 +12,7 @@ import PromptBlock from "@site/src/components/PromptBlock";
 The Actor runtime is a local Apify platform that runs as a single container on your machine. When you connect the [Apify CLI](/cli/docs) to it:
 
 - CLI commands work as they do on the platform
-- builds and runs happen on your machine and don't use platform resources
+- Builds and runs happen on your machine and don't use platform resources
 
 Use the runtime to test an Actor the way the platform runs it, before you deploy. It's not meant for hosting Actors.
 
@@ -24,19 +24,26 @@ The `apify runtime` commands are experimental and might change in future release
 
 ## Runtime compared with `apify run`
 
-Both `apify run` and the runtime run your Actor locally.
+Both `apify run` and the runtime run an Actor on your machine:
 
-`apify run` starts the Actor as a local process and uses the `storage/` directory in place of platform storages. It validates input against the input schema and sets the Actor's environment variables, but it doesn't build a Docker image or enforce memory limits and timeouts.
+- `apify run` starts the code as a local process
+- The runtime builds a Docker image from the Actor's `Dockerfile` and runs it in a container, as the Apify platform does
 
-The runtime builds a Docker image and runs it in a container, as the platform does. The runtime also provides:
+Use `apify run` to check code changes. Use the runtime to verify that the Actor builds and runs as it will on the platform, before you deploy it.
 
-- Build and run logs. The runtime's messages are prefixed with `[actor-runtime]`.
-- Input validated against the input schema, with defaults filled in.
-- Runs, datasets, key-value stores, and request queues you can query with the Apify CLI or the API.
-- A local version of Apify Console at `http://localhost:3000`, with an Actor page and a run page for every run.
-- Environment variables, secrets, memory limits, and timeouts applied as on the platform.
+Because the runtime builds the Actor from its `Dockerfile`, it detects the following problems:
 
-Use `apify run` for quick checks of your code. Use the runtime to test that the Actor builds and runs within its limits before you deploy it.
+- If the code requires a later Node.js or Python version than the base image provides, the Actor fails in the runtime, as on the platform. `apify run` uses the version installed on your machine.
+- If the `CMD` instruction in the `Dockerfile` starts the Actor differently from `apify run`, the Actor can fail in the runtime, as on the platform. `apify run` ignores `CMD`.
+- If the `Dockerfile` refers to a missing file, the runtime build fails, as on the platform. `apify run` succeeds.
+
+`apify run` and the runtime also differ in where they store results, logs, and run history:
+
+| | `apify run` | Runtime |
+| --- | --- | --- |
+| Storages | JSON files in the `storage/` directory. | A dataset, key-value store, and request queue for each run, in the local Console, the Apify CLI, and the API. |
+| Logs | The terminal. | The terminal and the local Console. Runtime messages start with `[actor-runtime]`. |
+| Run history | The `storage/` directory holds the results of the most recent run. | A page for each run in the local Console at `http://localhost:3000`. |
 
 ## Runtime compared with the platform
 
