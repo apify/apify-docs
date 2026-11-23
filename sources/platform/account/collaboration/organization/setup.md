@@ -43,3 +43,19 @@ You can configure individual permissions for each resource type such as Actors, 
 ![Configure permissions](../images/organizations/configure-permissions.png)
 
 [See the full list of permissions](../list_of_permissions.md) that can be granted to Apify resources.
+
+## Transfer ownership
+
+Each organization has one owner, who has full access to it.
+
+To change the owner of an organization, you need the **Manage organization** permission. The new owner needs an Apify account with a verified email. They don't have to be a member of the organization yet.
+
+To transfer ownership:
+
+1. In [Apify Console](https://console.apify.com), switch into the organization.
+1. In the left-side panel, go to **Settings**.
+1. Select the **Members** tab.
+1. Next to the owner, select **Transfer ownership**.
+1. In **New owner**, enter the new owner's user ID, username, or email.
+1. In **New role for previous owner**, choose a role for the previous owner. To remove them from the organization, select **None, previous owner is leaving the organization**.
+1. Follow the instructions to confirm the transfer.
