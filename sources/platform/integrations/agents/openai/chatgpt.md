@@ -50,7 +50,7 @@ You’ll be redirected to the Apify website to authorize ChatGPT to access your 
 Once authorized, you'll return to ChatGPT and see a list of tools available from the Apify MCP server.
 
 :::tip Update tools after creation
-On the plugin's details page, you can turn individual tools on or off. If the tools on the Apify MCP server change, refresh the plugin to load the updated tools.
+If the tools on the Apify MCP server change, refresh the plugin in [Plugins](https://chatgpt.com/plugins) to load the updated tools.
 :::
 
 ## Try the Apify plugin in ChatGPT
