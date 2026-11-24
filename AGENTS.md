@@ -175,6 +175,10 @@ Rules CI won't catch, so check them yourself:
 - Screenshots use the light theme, with `#F86606` borders to highlight UI elements. No arrows or circles
 - Sentence case headings are only a Vale suggestion, so Title Case passes CI
 
+## GitHub Actions
+
+Workflows reference actions by version tag (`actions/checkout@v7.0.1`), never by commit SHA. [`.github/workflows/actions.lock`](.github/workflows/actions.lock) pins every tag, including those called by composite actions, to its commit. After adding or changing a `uses:` line, run `gh actions-lock` ([extension](https://github.com/github/gh-actions-lock)) and commit the lockfile. Prefer composite actions from `apify/actions` over reusable workflows from `apify/workflows`, which the lockfile can't pin.
+
 ## Skills
 
 Documentation skills live in `.agents/skills/` ([AgentSkills spec](https://agentskills.io)), each with its own `references/` and `scripts/`:
