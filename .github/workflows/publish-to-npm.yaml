@@ -21,19 +21,19 @@ jobs:
         outputs:
             theme_changed: ${{ steps.changed-theme-files.outputs.any_changed }}
         steps:
-            -   uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+            -   uses: actions/checkout@v7.0.1
                 with:
                     fetch-depth: 0
 
             -   name: Use Node.js
-                uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+                uses: actions/setup-node@v7.1.0
                 with:
                     node-version: 24
                     check-latest: true
 
             -   name: Check changes in theme
                 id: changed-theme-files
-                uses: tj-actions/changed-files@9426d40962ed5378910ee2e21d5f8c6fcbf2dd96 # v47.0.6
+                uses: tj-actions/changed-files@v47.0.6
                 with:
                     since_last_remote_commit: "true"
                     files: |
@@ -47,12 +47,12 @@ jobs:
             name: automation
             deployment: false
         steps:
-            -   uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+            -   uses: actions/checkout@v7.0.1
                 with:
                     token: ${{ secrets.APIFY_SERVICE_ACCOUNT_GITHUB_TOKEN }}
 
             -   name: Use Node.js
-                uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+                uses: actions/setup-node@v7.1.0
                 with:
                     node-version: 24
                     check-latest: true
