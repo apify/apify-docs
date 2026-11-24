@@ -74,7 +74,7 @@ If you don't have the Apify CLI installed, see the [installation guide](/cli/doc
 
 :::info Sandbox environment
 
-AI Sandbox runs on a Debian image with Node.js version 24 and Python 3.11 pre-installed. You can install additional dependencies through the Actor input configuration.
+AI Sandbox runs on a Debian Trixie image with Node.js 26 and Python 3 pre-installed. You can install additional dependencies through the Actor input configuration.
 
 :::
 
@@ -84,11 +84,11 @@ If your agent needs to act on a user's third-party accounts - posting to Slack, 
 
 ## Access LLMs with OpenRouter
 
-The [OpenRouter](https://apify.com/apify/openrouter) Actor provides access to 100+ LLMs through your Apify account. Supported providers include OpenAI, Anthropic, Google, Mistral, Meta, and more. No separate API keys or billing setup required - all costs are billed as platform usage.
+The [OpenRouter](https://apify.com/apify/openrouter) Actor provides access to 100+ LLMs through your Apify account. Supported providers include OpenAI, Anthropic, Google, Mistral, Meta, and more. No separate API keys or billing setup required - the Actor charges usage to your Apify account with pay-per-event pricing (the `openrouter-api-usage` event).
 
 :::caution Paid account recommended
 
-To use the OpenRouter Actor, subscribe to a paid Apify plan. Free-tier accounts may be blocked by anti-fraud protections.
+Accounts on a paid Apify plan pay the exact OpenRouter cost. Free-tier accounts pay 10x more.
 
 :::
 
@@ -99,18 +99,15 @@ OpenRouter exposes an OpenAI-compatible API, so you can use it with any SDK that
 Use the Apify OpenRouter proxy endpoint with your Apify token:
 
 ```js
-import { createOpenRouter } from '@openrouter/ai-sdk-provider';
+import { OpenRouter } from '@openrouter/sdk';
 
-const openrouter = createOpenRouter({
-    baseURL: 'https://openrouter.apify.actor/api/v1',
-    apiKey: 'api-key-not-required',
-    headers: {
-        Authorization: `Bearer ${process.env.APIFY_TOKEN}`,
-    },
+const openrouter = new OpenRouter({
+    serverURL: 'https://openrouter.apify.actor/api/v1',
+    apiKey: process.env.APIFY_TOKEN,
 });
 ```
 
-The proxy supports chat completions, streaming, text embeddings, and image generation through vision-capable models.
+The proxy supports chat completions, streaming, text embeddings, and image generation through chat completions with the `modalities` parameter on image-capable models.
 
 :::caution Token usage tracking
 

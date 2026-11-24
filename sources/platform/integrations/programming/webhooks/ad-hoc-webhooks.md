@@ -15,7 +15,7 @@ An ad-hoc webhook is a single-use webhook created for a specific Actor run when 
 https://api.apify.com/v2/actors/[ACTOR_ID]/runs?token=[YOUR_API_TOKEN]&webhooks=[AD_HOC_WEBHOOKS]
 ```
 
-replace `AD_HOC_WEBHOOKS` with a base64 encoded stringified JSON array of webhook definitions:
+Replace `AD_HOC_WEBHOOKS` with a base64 encoded stringified JSON array of webhook definitions:
 
 ```js
 [
@@ -55,13 +55,15 @@ await Actor.exit();
 <TabItem value="Python" label="Python">
 
 ```python
-from apify import Actor
+from apify import Actor, Webhook
 
 async def main():
     async with Actor:
         await Actor.add_webhook(
-            event_types=['ACTOR.RUN.FAILED'],
-            request_url='https://example.com/run-failed',
+            Webhook(
+                event_types=['ACTOR.RUN.FAILED'],
+                request_url='https://example.com/run-failed',
+            )
         )
         # ...
 ```
@@ -95,14 +97,16 @@ await Actor.exit();
 
 ```python
 import os
-from apify import Actor
+from apify import Actor, Webhook
 
 async def main():
     async with Actor:
         await Actor.add_webhook(
-            event_types=['ACTOR.RUN.FAILED'],
-            request_url='https://example.com/run-failed',
-            idempotency_key=os.environ['APIFY_ACTOR_RUN_ID'],
+            Webhook(
+                event_types=['ACTOR.RUN.FAILED'],
+                request_url='https://example.com/run-failed',
+                idempotency_key=os.environ['APIFY_ACTOR_RUN_ID'],
+            )
         )
         # ...
 ```

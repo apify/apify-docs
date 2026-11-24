@@ -36,7 +36,7 @@ With the cluster ready and its URL and API key in hand, you can proceed with int
 
 ### Integration Methods
 
-You can integrate Apify with Qdrant using either Apify Console or the Apify Python SDK.
+You can integrate Apify with Qdrant using either Apify Console or the API client for Python.
 
 :::note Website Content Crawler usage
 
@@ -52,7 +52,7 @@ The examples utilize the Website Content Crawler Actor, which deeply crawls webs
 
     ![Website Content Crawler with Qdrant integration](../images/qdrant-wcc-integration.png)
 
-1. Select when to trigger this integration (typically when a run succeeds) and fill in all the required fields for the Qdrant integration. If you haven't created a collection, it can be created automatically with the specified model. You can learn more about the input parameters at the [Qdrant integration input schema](https://apify.com/apify/qdrant-integration).
+1. Select when to trigger this integration (typically when a run succeeds) and fill in all the required fields for the Qdrant integration. If you haven't created a collection, it can be created automatically with the specified model. You can learn more about the input parameters at the [Qdrant integration input schema](https://apify.com/apify/qdrant-integration/input-schema).
 
    ![Qdrant integration configuration](../images/qdrant-integration-setup.png)
 
@@ -62,11 +62,11 @@ The examples utilize the Website Content Crawler Actor, which deeply crawls webs
 
 #### Python
 
-Another way to interact with Qdrant is through the [Apify Python SDK](https://docs.apify.com/sdk/python/).
+Another way to interact with Qdrant is through the [API client for Python](/api/client/python).
 
-1. Install the Apify Python SDK by running the following command:
+1. Install the API client for Python by running the following command:
 
-    ```py
+    ```bash
     pip install apify-client
     ```
 
@@ -101,10 +101,10 @@ Another way to interact with Qdrant is through the [Apify Python SDK](https://do
         "qdrantApiKey": QDRANT_API_KEY,
         "qdrantCollectionName": QDRANT_COLLECTION_NAME,
         "qdrantAutoCreateCollection": True,
-        "datasetId": actor_call["defaultDatasetId"],
+        "datasetId": actor_call.default_dataset_id,
         "datasetFields": ["text"],
-        "enableDeltaUpdates": True,
-        "deltaUpdatesPrimaryDatasetFields": ["url"],
+        "dataUpdatesStrategy": "deltaUpdates",
+        "dataUpdatesPrimaryDatasetFields": ["url"],
         "deleteExpiredObjects": True,
         "expiredObjectDeletionPeriodDays": 30,
         "embeddingsProvider": "OpenAI",

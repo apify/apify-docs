@@ -9,7 +9,7 @@ toc_min_heading_level: 2
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 import { CreateApiTokenLink } from '@site/src/components/ApiToken';
 
-[OpenClaw](https://openclaw.io) is an open-source AI agent orchestration platform that enables you to build, deploy, and manage autonomous AI agents. The Apify plugin for OpenClaw gives your agents access to thousands of pre-built Actors for web scraping, data extraction, and automation through a single `apify` tool.
+[OpenClaw](https://openclaw.ai) is an open-source, self-hosted gateway that runs AI agents on your own hardware and connects them to the chat apps you already use. The Apify plugin for OpenClaw gives your agents access to thousands of pre-built Actors for web scraping, data extraction, and automation through a single `apify` tool.
 
 For more details about OpenClaw, refer to the [official documentation](https://docs.openclaw.ai/).
 
@@ -35,8 +35,8 @@ Before integrating Apify with OpenClaw, you'll need:
 
 - _An Apify account_ - If you don't have one, [sign up here](https://console.apify.com/sign-up).
 - _Apify API token_ - <CreateApiTokenLink />
-- _OpenClaw_ - Version 2026.1.0 or later. Install from the [OpenClaw website](https://openclaw.io/).
-- _Node.js 22+_ - Required to run the plugin. Install from [nodejs.org](https://nodejs.org/en/download/).
+- _OpenClaw_ - Version 2026.5.18 or later. Install from the [OpenClaw website](https://openclaw.ai/).
+- _Node.js 24.22.1+ or 26_ - Required to run OpenClaw and the plugin. Install from [nodejs.org](https://nodejs.org/en/download/).
 
 ## Set up the Apify plugin
 
@@ -74,13 +74,13 @@ openclaw gateway restart
 
 ### Configure manually
 
-If you prefer to skip the wizard, add the plugin configuration directly to your `~/.openclaw/config.json`:
+If you prefer to skip the wizard, add the plugin configuration directly to your `~/.openclaw/openclaw.json`:
 
 ```json
 {
   "plugins": {
     "entries": {
-      "apify": {
+      "apify-openclaw-plugin": {
         "enabled": true,
         "config": {
           "apiKey": "apify_api_..."

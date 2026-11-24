@@ -33,13 +33,13 @@ Langflow can either be installed locally or used in the cloud. The cloud version
 
 :::
 
-First, install the Langflow platform using Python package and project manager [uv](https://docs.astral.sh/uv/):
+First, install the Langflow platform with its component bundles, which include the Apify components, using Python package and project manager [uv](https://docs.astral.sh/uv/):
 
 ```bash
-uv pip install langflow
+uv pip install "langflow[bundles]"
 ```
 
-After installing Langflow, you can start the platform:
+After installing Langflow, set the `LANGFLOW_SUPERUSER_PASSWORD` environment variable (you sign in to the UI as `langflow` with this password), then start the platform:
 
 ```bash
 uv run langflow run

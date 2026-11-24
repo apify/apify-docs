@@ -25,13 +25,13 @@ See the [Upsonic documentation](https://docs.upsonic.ai) for more details on bui
 
 ## How to use Apify with Upsonic
 
-This guide shows how to integrate Apify Actors with Upsonic using the built-in `ApifyTools` class. The example builds a restaurant discovery agent that uses the [Google Places Crawler](https://apify.com/compass/crawler-google-places) Actor to search Google Maps with a natural language query. It saves the results to a Markdown file.
+This guide shows how to integrate Apify Actors with Upsonic using the built-in `ApifyTools` class. The example builds a restaurant discovery agent that uses the [Google Maps Scraper](https://apify.com/compass/crawler-google-places) Actor to search Google Maps with a natural language query. It saves the results to a Markdown file.
 
 ### Prerequisites
 
 - Apify API token: <CreateApiTokenLink />
 - Anthropic API key (or another LLM provider): Get one from the [Anthropic Console](https://console.anthropic.com).
-- Python environment: Python 3.9 or later.
+- Python environment: Python 3.10 or later.
 - Required packages: Install the following dependencies:
 
 ```bash
@@ -40,7 +40,7 @@ pip install 'upsonic[custom-tools]' python-dotenv apify-client anthropic
 
 :::tip Alternative LLM providers
 
-Upsonic uses LiteLLM under the hood. Swap `anthropic/claude-sonnet-4-6` for any supported model string, e.g. `openai/gpt-4o` or `gemini-3-flash-preview`. Update the environment variable and model name accordingly.
+Swap `anthropic/claude-sonnet-4-6` for any supported model string in the `provider/model` format, e.g. `openai/gpt-4o` or `google-gla/gemini-3-flash-preview`. Update the environment variable and model name accordingly.
 
 :::
 
@@ -71,7 +71,7 @@ Running this code fetches and summarizes the content from the provided URL.
 
 ## Advanced scenario: Restaurant discovery agent
 
-Combine `ApifyTools` with the Google Places Crawler to build an agent that accepts a natural language query and returns a list of matching restaurants.
+Combine `ApifyTools` with the Google Maps Scraper to build an agent that accepts a natural language query and returns a list of matching restaurants.
 
 `actor_defaults` pre-sets configuration that never needs to change - such as result limits and output format - while leaving the search query under the LLM's control. The `timeout` override is necessary because the Actor takes 60-90 seconds to crawl Google Maps.
 

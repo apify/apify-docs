@@ -72,7 +72,7 @@ After you select Apify as an action, you need to select the action you want to u
 
 You need to select the connection you want to use. If you don't have any connections, you can create a new one by clicking on the "Sign in" button and follow the steps in Step 2.
 
-In the next step, you need to select the Actor you want to use. You can use the search box to find the Actor.
+In the next step, you need to select the Actor you want to use. In the **Search Actors from** field, choose whether to pick from **Apify Store Actors** (default) or **Recently used Actors**, then use the search box to find the Actor.
 
 We will use the Web Scraper Actor in this example.
 
@@ -80,8 +80,8 @@ We will use the Web Scraper Actor in this example.
 
 You need to fill the input for the Actor and use the **Continue** button to advance to the next step.
 
-> You can choose to run Actor synchronously or asynchronously. If you choose to run Actor synchronously, the Zap will wait until the Actor finishes and the Actor output and data will be available in next steps.
-> Beware that the hard timeout for the run is 30 seconds. If the Actor doesn't finish in 30 seconds, the run will be terminated and the Actor output will not be available in next steps.
+> You can choose to run Actor synchronously or asynchronously. **Run synchronously** is set to `yes` by default, so the Zap pauses until the Actor finishes and the Actor output and data are available in next steps.
+> A synchronous run can take up to 1 hour. If the Actor doesn't finish by then, the run stops. When you test the step on its own in the Zap editor, it waits about 25 seconds and returns the results produced so far.
 
 In the next step, you can test the action and check if everything is using the **Test step** button.
 
@@ -93,11 +93,11 @@ Once you are happy with the test, you can publish the Zap. When it is turned on,
 
 ## Triggers
 
-### Finished Actor run
+### Finished Actor Run
 
 > Triggers when a selected Actor run is finished.
 
-### Finished task run
+### Finished Task Run
 
 > Triggers when a selected Actor task run is finished.
 
@@ -107,14 +107,22 @@ Once you are happy with the test, you can publish the Zap. When it is turned on,
 
 > Runs a selected Actor.
 
+### Run Actor and Fetch Results
+
+> Runs a selected Actor, waits for it to finish, and returns the items from its default dataset.
+
 ### Run Task
 
 > Runs a selected Actor task.
 
-### Scrape Single URL
+### Abort Actor Run
 
-> Runs a scraper for the website and returns its content as text, markdown and HTML.
-> This action is for getting content of a single page to use, for example, in LLM flows.
+> Aborts a running Actor run by its ID, optionally gracefully.
+
+### Web Fetch
+
+> Fetches a single web page or file and returns its content as Markdown, HTML, plain text, links, or raw content.
+> This action is for getting content of a single page to use, for example, in LLM flows. It replaces the deprecated **Scrape Single URL** action, which is hidden from new Zaps.
 
 ### Set Key-Value Store Record
 
@@ -122,20 +130,32 @@ Once you are happy with the test, you can publish the Zap. When it is turned on,
 
 ## Searches
 
-### Fetch dataset items
+### Fetch Dataset Items
 
 > Retrieves items from a [dataset](/storage/dataset).
 
-### Find last Actor run
+### Find Last Actor Run
 
 > Finds the most recent Actor run.
 
-### Find last task run
+### Find Last Task Run
 
 > Finds the most recent Actor task run.
 
 ### Get Key-Value Store Record
 
 > Retrieves value from a [Key-value store](/storage/key-value-store).
+
+### Get Actor Run by ID
+
+> Retrieves the details and dataset items of an Actor run by its ID.
+
+### Get Actor Details
+
+> Retrieves the details of an Actor, such as its title, description, and stats.
+
+### Search Apify Store
+
+> Searches Apify Store for public Actors that match a keyword or use case.
 
 If you have any questions or need help, feel free to reach out to us on our [developer community on Discord](https://discord.com/invite/jyEM2PRvMU).

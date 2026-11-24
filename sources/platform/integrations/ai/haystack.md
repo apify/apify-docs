@@ -3,6 +3,7 @@ title: Haystack integration
 sidebar_label: Haystack
 description: Integrate Apify with Haystack to load web content into RAG pipelines, search the web, and give Haystack agents access to any Actor from Apify Store.
 slug: /integrations/haystack
+last_review: 2026-11-24
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';

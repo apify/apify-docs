@@ -78,7 +78,7 @@ When you provide keywords, the module runs Google Search, parses the results, an
     "title": "Building RAG Pipelines with Web Browsers",
     "description": "Integrate web browsing into your RAG pipeline for real-time retrieval.",
     "url": "https://example.com/article",
-    "resultType": "organic",
+    "resultType": "ORGANIC",
     "rank": 1
   },
   "metadata": {
@@ -108,7 +108,7 @@ Advanced Settings give you full control over search and extraction. Use it for c
 - _Advanced search options_: full Google operator support
 - _Flexible crawling tools_: browser-based (Playwright) or HTTP-based (Cheerio)
 - _Proxy configuration_: handle geo-restrictions and rate limits
-- _Granular content control_: include, remove, and click selectors
+- _Granular content control_: remove elements with CSS selectors
 - _Dynamic content handling_: wait strategies for JavaScript rendering
 - _Multiple output formats_: Markdown, HTML, or text
 - _Request management_: timeouts, retries, and concurrency
@@ -116,10 +116,10 @@ Advanced Settings give you full control over search and extraction. Use it for c
 #### Configuration options
 
 - _Search_: query, max results (1–100), SERP proxy group, SERP retries
-- _Scraping_: tool (browser-playwright, raw-http), HTML transformer, selectors (remove/keep/click), expand clickable elements
+- _Scraping_: tool (browser-playwright, raw-http), HTML transformer, remove elements (CSS selector)
 - _Requests_: timeouts, retries, dynamic content wait
-- _Proxy_: use Apify Proxy, proxy groups, countries
-- _Output_: formats, save HTML/Markdown, debug mode, save screenshots
+- _Proxy_: proxy configuration
+- _Output_: formats, debug mode
 
 #### Output data
 
@@ -129,32 +129,31 @@ Advanced Settings give you full control over search and extraction. Use it for c
   "crawl": {
     "httpStatusCode": 200,
     "httpStatusMessage": "OK",
-    "loadedUrl": "https://ai-research.com/rag-strategies",
-    "loadedTime": "2025-06-30T10:45:12.789Z",
-    "referrerUrl": "https://www.google.com/search?q=advanced+RAG+implementation+strategies",
+    "loadedAt": "2025-06-30T10:45:12.789Z",
     "uniqueKey": "https://ai-research.com/rag-strategies",
     "requestStatus": "handled",
-    "depth": 0
+    "debug": {
+      "timeMeasures": [
+        { "event": "request-received", "timeMs": 0, "timeDeltaPrevMs": 0 },
+        { "event": "playwright-before-response-send", "timeMs": 4212, "timeDeltaPrevMs": 18 }
+      ]
+    }
   },
   "searchResult": {
     "title": "Advanced RAG Implementation: A Complete Guide",
     "description": "Cutting-edge strategies for RAG systems.",
     "url": "https://ai-research.com/rag-strategies",
-    "resultType": "organic",
+    "resultType": "ORGANIC",
     "rank": 1
   },
   "metadata": {
-    "canonicalUrl": "https://ai-research.com/rag-strategies",
     "title": "Advanced RAG Implementation: A Complete Guide | AI Research",
     "description": "Vector DBs, chunking, and optimization techniques.",
-    "languageCode": "en"
+    "languageCode": "en",
+    "url": "https://ai-research.com/rag-strategies",
+    "canonicalUrl": "https://ai-research.com/rag-strategies"
   },
-  "markdown": "# Advanced RAG Implementation: A Complete Guide\n\n...",
-  "debug": {
-    "extractorUsed": "readableText",
-    "elementsRemoved": 47,
-    "elementsClicked": 3
-  }
+  "markdown": "# Advanced RAG Implementation: A Complete Guide\n\n..."
 }
 ```
 

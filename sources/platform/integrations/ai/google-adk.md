@@ -22,7 +22,7 @@ Apify is a marketplace of web scraping and automation tools, AI agents, and MCP 
 - _Python packages_: Install the following Python packages:
 
     ```bash
-    pip install google-adk
+    pip install "google-adk[mcp]"
     ```
 
 ### Build a pub search AI agent
@@ -44,7 +44,7 @@ Make sure to set the `APIFY_TOKEN` environment variable in the `.env` file with 
 ```python
 from google.adk.agents import Agent
 from google.adk.tools.mcp_tool import McpToolset
-from google.adk.tools.mcp_tool.mcp_session_manager import StreamableHTTPServerParams
+from google.adk.tools.mcp_tool.mcp_session_manager import StreamableHTTPConnectionParams
 import os
 
 root_agent = Agent(
@@ -53,7 +53,7 @@ root_agent = Agent(
     instruction="You are a pub search agent that helps users find a great pub to visit based on their preferences. Use Apify tools to accomplish this.",
     tools=[
         McpToolset(
-            connection_params=StreamableHTTPServerParams(
+            connection_params=StreamableHTTPConnectionParams(
                 # Configure Apify MCP Server URL with desired tools
                 url="https://mcp.apify.com?tools=compass/crawler-google-places",
                 headers={

@@ -22,7 +22,7 @@ Apify is a marketplace of ready-to-use web scraping and automation tools, AI age
 - _Node.js packages_: Install the following Node.js packages:
 
     ```bash
-    npm install @modelcontextprotocol/sdk @openrouter/ai-sdk-provider ai
+    npm install @ai-sdk/mcp @openrouter/ai-sdk-provider ai
     ```
 
 ### Build a simple pub search AI agent using Apify Google Maps scraper
@@ -30,8 +30,8 @@ Apify is a marketplace of ready-to-use web scraping and automation tools, AI age
 First, import all required packages:
 
 ```typescript
-import { experimental_createMCPClient as createMCPClient, generateText, stepCountIs } from 'ai';
-import { StreamableHTTPClientTransport } from '@modelcontextprotocol/sdk/client/streamableHttp.js';
+import { createMCPClient } from '@ai-sdk/mcp';
+import { generateText, stepCountIs } from 'ai';
 import { createOpenRouter } from '@openrouter/ai-sdk-provider';
 
 ```
@@ -40,15 +40,14 @@ Connect to the Apify MCP server and get all available tools for the AI agent. Yo
 
 ```typescript
 // Connect to the Apify MCP server and get the available tools
-const url = new URL('https://mcp.apify.com');
 const mcpClient = await createMCPClient({
-  transport: new StreamableHTTPClientTransport(url, {
-      requestInit: {
-        headers: {
-            "Authorization": `Bearer ${process.env.APIFY_TOKEN}`
-        }
-      }
-  }),
+  transport: {
+    type: 'http',
+    url: 'https://mcp.apify.com',
+    headers: {
+      "Authorization": `Bearer ${process.env.APIFY_TOKEN}`
+    }
+  },
 });
 const tools = await mcpClient.tools();
 console.log('Tools available:', Object.keys(tools).join(', '));
