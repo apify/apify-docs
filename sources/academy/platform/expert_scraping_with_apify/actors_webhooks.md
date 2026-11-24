@@ -26,7 +26,7 @@ npm install
 apify login
 ```
 
-Amazon blocks scrapers quickly, so the scraper uses [Apify Proxy](/proxy) with residential IP addresses. Connecting to Apify Proxy from your own computer requires a paid plan, so throughout the course, we'll run the scraper on the Apify platform, where the free plan is enough. Deploy it there:
+Amazon blocks scrapers quickly, so the scraper uses [Apify Proxy](/proxy) with residential IP addresses. Connecting to Apify Proxy from your own computer requires a paid plan, so throughout the course, we'll run the scraper on the Apify platform, where the free plan is enough. To deploy your Actor to the platform, run:
 
 ```bash
 apify push
@@ -36,7 +36,7 @@ Then open the **academy-amazon-scraper** Actor in [Apify Console](https://consol
 
 ## Advanced Actor overview {#advanced-actors}
 
-Take a look at the files within the project. You'll notice that there is a **Dockerfile** in the project's root folder. Every single Actor has a Dockerfile (the Actor's **Image**) which tells Docker how to spin up a container on the Apify platform which can successfully run the Actor's code. "Apify Actors" is a serverless platform that runs multiple Docker containers. For a deeper understanding of Actor Dockerfiles, refer to the [Apify Actor Dockerfile docs](/sdk/js/docs/guides/docker-images#example-dockerfile).
+Take a look at the files within the project. You'll notice that there is a **Dockerfile** in the project's root folder. Every single Actor has a Dockerfile (the Actor's **Image**) which tells Docker how to start a container on the Apify platform which can successfully run the Actor's code. "Apify Actors" is a serverless platform that runs multiple Docker containers. For a deeper understanding of Actor Dockerfiles, refer to the [Apify Actor Dockerfile docs](/sdk/js/docs/guides/docker-images#example-dockerfile).
 
 ## Webhooks {#webhooks}
 

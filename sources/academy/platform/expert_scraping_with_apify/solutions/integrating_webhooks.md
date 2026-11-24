@@ -11,7 +11,7 @@ pagination: true
 
 ---
 
-In this lesson we'll be writing a new Actor and integrating it with the Amazon scraper from [academy-amazon-scraper](https://github.com/apify-projects/academy-amazon-scraper). First, we'll navigate to the directory where we cloned the **academy-amazon-scraper** folder, and run `apify create filter-actor` _(you can name the Actor whatever you want, but for this lesson, we'll be calling the new Actor **filter-actor**)_. When asked what you want to build, select **Any use case**:
+In this lesson we'll be writing a new Actor and integrating it with the Amazon scraper from [academy-amazon-scraper](https://github.com/apify-projects/academy-amazon-scraper). First, we'll navigate to the directory where we cloned the **academy-amazon-scraper** folder, and run `apify create filter-actor`. Of course, you can name the Actor whatever you want, but for this lesson, we'll be calling the new Actor **filter-actor**. When asked what you want to build, select **Any use case**:
 
 ```text
 $ apify create filter-actor
@@ -143,7 +143,7 @@ await Actor.pushData(Object.values(filtered));
 await Actor.exit();
 ```
 
-Cool! But **wait**, don't forget to configure the **.actor/input_schema.json** file as well! New Actors run with [limited permissions](/actors/development/permissions) by default, so they can't read storages they didn't create, such as the dataset of our Amazon scraper. By declaring the `datasetId` input as a dataset with `resourceType` and `resourcePermissions`, we grant the filter Actor read access to the dataset it receives:
+Cool! But wait, don't forget to configure the **.actor/input_schema.json** file as well! New Actors run with [limited permissions](/actors/development/permissions) by default, so they can't read storages they didn't create, such as the dataset of our Amazon scraper. By declaring the `datasetId` input as a dataset with `resourceType` and `resourcePermissions`, we grant the filter Actor read access to the dataset it receives:
 
 ```json
 {
@@ -224,7 +224,7 @@ Next, within the **academy-amazon-scraper** Actor, we will click the **Integrati
 
 ![HTTP webhook form in Apify Console with the URL and payload template filled in](./images/adding-webhook.svg)
 
-We have chosen to run the webhook once the Actor has succeeded, which means that its default dataset will surely be populated. Since the filtering Actor is expecting the default dataset ID of the Amazon Actor, we use the `resource` variable to grab hold of the `defaultDatasetId`. Set the payload template to the following:
+We have chosen to run the webhook once the Actor has succeeded, which means that its default dataset will surely be populated. Since the filtering Actor is expecting the default dataset ID of the Amazon Actor, we use the `resource` variable to get the `defaultDatasetId`. Set the payload template to the following:
 
 ```text
 {"datasetId": {{resource.defaultDatasetId}}}
