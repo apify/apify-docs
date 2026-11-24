@@ -15,7 +15,7 @@ A request queue supports breadth-first and depth-first crawling and custom data 
 
 :::info Retention period
 
-Named request queues are retained indefinitely. Unnamed request queues expire after 7 days unless otherwise specified. [Learn more](/storage#data-retention)
+Named request queues are retained indefinitely. Unnamed request queues are deleted when your plan's retention period ends. [Learn more](/storage#data-retention)
 
 :::
 
