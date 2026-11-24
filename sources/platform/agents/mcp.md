@@ -254,11 +254,7 @@ The output schema is available in two places, on both the hosted server and the 
 
 The result of an Actor tool call doesn't repeat the schema. It returns the dataset ID, which is all `get-dataset-items` needs to read the results. When the platform reports them, it also returns `fields`, the list of fields the run produced, which you can use to select columns.
 
-:::note Size limit
-
-`fetch-actor-details` returns a declared schema of up to 64 KB in full. For a larger schema, it returns field names and types only and says so in the response. If the field names and types are larger than 64 KB as well, it returns no schema.
-
-:::
+`fetch-actor-details` returns a declared schema of up to 64 KB in full. For a larger schema, it returns field names and types only and says so in the response. If the field names and types are larger than 64 KB as well, it returns no schema, and the Actor tool lists no fields in its `outputSchema`.
 
 For an Actor with [multiple datasets](/storage/dataset-schema/multiple-datasets), the output schema describes the `default` dataset only.
 
