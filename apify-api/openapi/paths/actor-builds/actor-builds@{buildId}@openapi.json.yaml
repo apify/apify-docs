@@ -10,9 +10,9 @@ get:
 
     Get the OpenAPI definition for a specific Actor build.
 
-    For builds of public Actors, no authentication token is needed. For other Actors, you can call the endpoint
-    without a token only if the account that owns the build has [general resource access](https://docs.apify.com/account/collaboration/general-resource-access)
-    set to **Anyone with ID can read**. Otherwise, the token must have access to the build.
+    This endpoint does not require the authentication token if the Actor is public or if the build's owner has
+    [general resource access](https://docs.apify.com/account/collaboration/general-resource-access) set to
+    **Anyone with ID can read**. Otherwise, the token must have access to the build.
 
     :::note
 
