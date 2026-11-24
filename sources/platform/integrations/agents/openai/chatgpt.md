@@ -6,6 +6,7 @@ slug: /integrations/chatgpt
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+import { CreateApiTokenLink } from '@site/src/components/ApiToken';
 
 The _ChatGPT_ integration enables you to connect ChatGPT to Apify's extensive library of [Actors](https://apify.com/store) through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro).
 This allows ChatGPT to access real-time web data and automation capabilities by using Apify tools directly in conversations.
@@ -15,7 +16,7 @@ By default, the Apify MCP server exposes a set of tools that let you search and 
 Find and run an Actor that scrapes Instagram profiles and gets the profile of @natgeo.
 ```
 
-In this tutorial, you'll learn how to connect _ChatGPT_ to the _Apify MCP server_ by adding it as a custom MCP server plugin.
+In this tutorial, you'll learn how to connect _ChatGPT_ to the _Apify MCP server_ using a custom connector.
 
 <ThirdPartyDisclaimer />
 
@@ -24,41 +25,43 @@ In this tutorial, you'll learn how to connect _ChatGPT_ to the _Apify MCP server
 Before connecting ChatGPT to Apify, you'll need:
 
 - _An Apify account_ - If you don't have an Apify account already, you can [sign up](https://console.apify.com/sign-up)
+- _Apify API token_ - <CreateApiTokenLink /> This token authorizes the MCP server to run Actors on your behalf.
 - _An OpenAI account with access to ChatGPT_ - You need an OpenAI account to use ChatGPT.
+- _ChatGPT with Developer mode enabled_ - You must enable [Developer Mode](https://platform.openai.com/docs/guides/developer-mode) to add custom connectors (when the Developer mode is active, the message input box is outlined in orange).
 
-You don't need an Apify API token. ChatGPT connects to your Apify account through OAuth.
+## Create an MCP connector
 
-## Add the Apify MCP server
-
-1. In ChatGPT, go to [Plugins](https://chatgpt.com/plugins), select **+**, and then select **Add custom MCP server**.
+1. In ChatGPT, go to **Settings > Apps & Connectors > Create**. If you don't see the **Create** button, enable Developer mode or reload the page.
 
 1. Fill in the following fields:
 
     - **Name** - a user-facing title, e.g., `apify-mcp`
-    - **Description** - a short description of what the plugin does
+    - **Description** - a short description of what the connector does
     - **MCP Server URL** - choose one of the following:
         - `https://mcp.apify.com` - use the default set of Apify tools
         - `https://mcp.apify.com?tools=actors,docs,mtrunkat/url-list-download-html` - use specific tools
         - Refer to [mcp.apify.com](https://mcp.apify.com) for details
     - **Authentication** - OAuth, you don’t need to provide a client ID or secret.
 
-1. Review the risk warning and confirm that you understand it.
-
-1. Select **Create as a plugin** to proceed to the authentication page.
+1. Select **Create** to proceed to the authentication page.
 You’ll be redirected to the Apify website to authorize ChatGPT to access your Apify account.
 
-Once authorized, you'll return to ChatGPT and see a list of tools available from the Apify MCP server.
+![ChatGPT Create connection](../../images/chatgpt-connector.png)
 
-:::tip Update tools after creation
-If the tools on the Apify MCP server change, refresh the plugin in [Plugins](https://chatgpt.com/plugins) to load the updated tools.
+Once authorized, you'll return to ChatGPT and see a success message with a list of tools available from the Apify MCP server.
+
+:::caution Cannot modify tools after creation
+ChatGPT does not allow modifying the selected tools after the connector is created.
+If you need to add or remove tools later, you'll need to create a new connector.
 :::
 
-## Try the Apify plugin in ChatGPT
+## Try the MCP connector in ChatGPT
 
-Once your plugin is ready:
+Once your connector is ready:
 
 1. Open a **new chat** in ChatGPT.
-1. Type `@` in the message box and select your Apify plugin to add it to the conversation.
+1. Click the **+** button near the message composer and select **More**.
+1. Choose your **Apify MCP connector** to add it to the conversation.
 1. Ask ChatGPT to use Apify tools, for example:
 
    ```prompt title="Summarize AI agent trends"
@@ -66,7 +69,7 @@ Once your plugin is ready:
    ```
 
 You'll need to grant permission for each Apify tool when it's used for the first time.
-You should see ChatGPT calling Apify tools to gather information. By default, the Apify MCP server includes web search and fetching tools (`apify/web-search`, `apify/web-fetch`).
+You should see ChatGPT calling Apify tools - such as the [RAG Web Browser](https://apify.com/apify/rag-web-browser) - to gather information.
 
 ![ChatGPT Apify tools](../../images/chatgpt-with-rag-web-browser.png)
 
@@ -74,7 +77,8 @@ You should see ChatGPT calling Apify tools to gather information. By default, th
 
 - MCP integration in ChatGPT is still in _beta_ and may have some limitations or bugs.
 - Tool selection and execution can be _slow_, especially with the latest GPT models.
-- When creating plugins that include social media scrapers (Instagram, TikTok), OpenAI may display a _Safety Scan_ warning indicating that some tools might fetch sensitive data.
+- _Custom connectors_ are only available in ChatGPT _Developer mode_.
+- When creating connectors that include social media scrapers (Instagram, TikTok), OpenAI may display a _Safety Scan_ warning indicating that some tools might fetch sensitive data.
 
 ## Related integrations
 
@@ -83,6 +87,7 @@ You should see ChatGPT calling Apify tools to gather information. By default, th
 
 ## Resources
 
-- [Connecting custom MCP servers in ChatGPT](https://help.openai.com/en/articles/12584461) - Official OpenAI documentation on using MCP servers with ChatGPT
+- [ChatGPT Developer mode](https://platform.openai.com/docs/guides/developer-mode) - Learn how to enable Developer Mode in ChatGPT
+- [Connectors and MCP servers](https://platform.openai.com/docs/guides/tools-connectors-mcp) - Official OpenAI documentation on using MCP servers with ChatGPT
 - [Apify MCP server](https://mcp.apify.com) - Interactive configuration tool for the Apify MCP server
 - [Apify MCP documentation](/mcp) - Complete guide to using the Apify MCP server
