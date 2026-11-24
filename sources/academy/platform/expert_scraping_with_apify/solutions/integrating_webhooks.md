@@ -220,15 +220,19 @@ We don't need to add our API token to the URL, because when a webhook calls the 
 
 :::
 
-Next, within the **academy-amazon-scraper** Actor, we will click the **Integrations** tab and choose **HTTP webhook**, then fill out the details to look like this:
+Next, within the **academy-amazon-scraper** Actor, we will click the **Integrations** tab and choose **HTTP webhook**. In the form that opens, we fill in the following and leave the other fields as they are:
+
+1. In **Start when**, select **Run succeeded**.
+2. In **URL**, paste the API endpoint of the **filter-actor** from above.
+3. In **Payload template**, enter the following:
+
+   ```text
+   {"datasetId": {{resource.defaultDatasetId}}}
+   ```
 
 ![HTTP webhook form in Apify Console with the URL and payload template filled in](./images/adding-webhook.svg)
 
-We have chosen to run the webhook once the Actor has succeeded, which means that its default dataset will surely be populated. Since the filtering Actor is expecting the default dataset ID of the Amazon Actor, we use the `resource` variable to get the `defaultDatasetId`. Set the payload template to the following:
-
-```text
-{"datasetId": {{resource.defaultDatasetId}}}
-```
+We have chosen to run the webhook once the Actor has succeeded, which means that its default dataset will surely be populated. Since the filtering Actor is expecting the default dataset ID of the Amazon Actor, the payload uses the `resource` variable to get the `defaultDatasetId`.
 
 :::caution No quotes around the variable
 
@@ -240,11 +244,11 @@ Click **Save**, then run the **academy-amazon-scraper** Actor.
 
 ## Making sure it worked {#checking-the-webhook}
 
-If everything worked, then at the end of the **academy-amazon-scraper** run, we should see this within the **Integrations** tab:
+If everything worked, then at the end of the **academy-amazon-scraper** run, the **Integrations** tab of the Actor shows our **HTTP request** integration with **Succeeded** under **Last dispatch**:
 
 ![Integrations tab in Apify Console showing the HTTP request integration with its last dispatch succeeded](./images/webhook-succeeded.svg)
 
-Additionally, we should be able to see that our **filter-actor** was run, and have access to its dataset:
+Additionally, the **filter-actor** should have a new run. Its **Output** tab shows the filtered dataset, with only the cheapest offer for each ASIN:
 
 ![Output tab of a filter-actor run in Apify Console with the filtered dataset in a table](./images/dataset-preview.svg)
 
