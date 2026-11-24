@@ -73,9 +73,7 @@ Another way to interact with Pinecone is through the [API client for Python](/ap
 
 1. Install the API client for Python by running the following command:
 
-    ```bash
-    pip install apify-client
-    ```
+    `pip install apify-client`
 
 1. Create a Python script and import all the necessary modules:
 

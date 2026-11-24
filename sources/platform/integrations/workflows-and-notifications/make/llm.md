@@ -147,11 +147,10 @@ Advanced Settings give you full control over search and extraction. Use it for c
     "rank": 1
   },
   "metadata": {
+    "canonicalUrl": "https://ai-research.com/rag-strategies",
     "title": "Advanced RAG Implementation: A Complete Guide | AI Research",
     "description": "Vector DBs, chunking, and optimization techniques.",
-    "languageCode": "en",
-    "url": "https://ai-research.com/rag-strategies",
-    "canonicalUrl": "https://ai-research.com/rag-strategies"
+    "languageCode": "en"
   },
   "markdown": "# Advanced RAG Implementation: A Complete Guide\n\n..."
 }

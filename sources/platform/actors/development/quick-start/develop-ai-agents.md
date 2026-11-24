@@ -99,11 +99,14 @@ OpenRouter exposes an OpenAI-compatible API, so you can use it with any SDK that
 Use the Apify OpenRouter proxy endpoint with your Apify token:
 
 ```js
-import { OpenRouter } from '@openrouter/sdk';
+import { createOpenRouter } from '@openrouter/ai-sdk-provider';
 
-const openrouter = new OpenRouter({
-    serverURL: 'https://openrouter.apify.actor/api/v1',
-    apiKey: process.env.APIFY_TOKEN,
+const openrouter = createOpenRouter({
+    baseURL: 'https://openrouter.apify.actor/api/v1',
+    apiKey: 'api-key-not-required',
+    headers: {
+        Authorization: `Bearer ${process.env.APIFY_TOKEN}`,
+    },
 });
 ```
 

@@ -28,12 +28,6 @@ Before connecting ChatGPT to Apify, you'll need:
 
 You don't need an Apify API token. ChatGPT connects to your Apify account through OAuth.
 
-:::note Business, Enterprise, and Edu workspaces
-
-In ChatGPT Business, Enterprise, and Edu workspaces, admins control who can add custom MCP servers. If you don't see the option to add one, ask your workspace admin for access.
-
-:::
-
 ## Add the Apify MCP server
 
 1. In ChatGPT, go to [Plugins](https://chatgpt.com/plugins), select **+**, and then select **Add custom MCP server**.

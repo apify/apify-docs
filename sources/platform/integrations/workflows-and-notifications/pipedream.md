@@ -55,7 +55,7 @@ Before you begin, make sure you have:
 1. Configure the action parameters:
     - Select the Actor from Apify Store or your recently used Actors
     - Provide the Actor input as JSON
-    - Set optional parameters such as **Run Asynchronously**, **Build**, **Timeout (seconds)**, **Memory (MB)**, **Max Items**, **Max Total Charge USD**, and **Webhook URL**
+    - Set optional parameters such as timeout, memory, and build tag
 
     ![Configuring an Apify action in Pipedream](../images/pipedream-action.png)
 1. Add another Apify step with **Get Dataset Items** to retrieve the Actor's output.
@@ -63,19 +63,18 @@ Before you begin, make sure you have:
 
 ## Triggers
 
-- **New Finished Actor Run (Instant)** - Triggers when a selected Actor run finishes.
-- **New Finished Task Run (Instant)** - Triggers when a selected task run finishes.
+- **New finished Actor run (instant)** - Triggers when a selected Actor run finishes.
+- **New finished task run (instant)** - Triggers when a selected task run finishes.
 
 ## Actions
 
 - **Run Actor** - Runs a selected Actor with customizable input and configuration.
-- **Run Task** - Runs a selected Actor task and optionally waits for it to finish. Available only in the **Apify (OAuth)** app.
-- **Run Task Synchronously** - Runs a selected task and returns its dataset items when it finishes.
-- **Scrape Single URL** - Runs a scraper on a specified URL and returns its content as HTML. Use this for extracting content from a single page, e.g. in LLM workflows.
-- **Get Dataset Items** - Retrieves items from a [dataset](/storage/dataset).
-- **List Dataset ID Options** - Lists the datasets available for the **Dataset ID** field. Available only in the **Apify** app.
-- **Get Key-Value Store Record** - Retrieves a record from a [key-value store](/storage/key-value-store).
-- **Set Key-Value Store Record** - Creates or updates a record in a [key-value store](/storage/key-value-store).
+- **Run task** - Runs a selected Actor task and optionally waits for it to finish. Available only in the **Apify (OAuth)** app.
+- **Run task synchronously** - Runs a selected task and returns its dataset items when it finishes.
+- **Scrape single URL** - Runs a scraper on a specified URL and returns its content as HTML. Use this for extracting content from a single page, e.g. in LLM workflows.
+- **Get dataset items** - Retrieves items from a [dataset](/storage/dataset).
+- **Get key-value store record** - Retrieves a record from a [key-value store](/storage/key-value-store).
+- **Set key-value store record** - Creates or updates a record in a [key-value store](/storage/key-value-store).
 
 ## Resources
 

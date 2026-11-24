@@ -56,9 +56,9 @@ Please note that only Actors or Actor tasks that you previously run will be avai
 
 The next step is to connect your Apify account.
 
-Next to the **Connect to Apify** title, use the **Select** button. Or you can select an account if you already have one connected.
+Next to the **Connect to Apify** title, select **Sign in**. Or you can select an account if you already have one connected.
 
-The connection configuration options open in a new tab in your browser.
+The connection configuration options open in a new tab in your browser or in a modal window.
 
 ![Apify Zapier connection](../images/zapier-choose-account.webp)
 
@@ -68,7 +68,7 @@ Choose the account that you want to connect with Zapier. A new window will appea
 
 Continue by selecting the **Allow Access** button.
 
-The connection is now created and the configuration form closes.
+The connection is now created and the configuration form closed.
 
 ## Connect Telegram bot with Zapier
 
