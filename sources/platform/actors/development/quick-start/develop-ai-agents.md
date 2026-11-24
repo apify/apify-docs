@@ -110,7 +110,7 @@ const openrouter = createOpenRouter({
 });
 ```
 
-The proxy supports chat completions, streaming, text embeddings, and image generation through chat completions with the `modalities` parameter on image-capable models.
+The proxy supports chat completions, streaming, text embeddings, and image generation through vision-capable models.
 
 :::caution Token usage tracking
 
