@@ -14,7 +14,9 @@ jobs:
   trigger-deployment:
     name: Trigger Nginx deployment
     runs-on: ubuntu-latest
-    environment: automation
+    environment:
+      name: automation
+      deployment: false
     steps:
       - name: Trigger deployment workflow in apify-docs-private
         run: |
