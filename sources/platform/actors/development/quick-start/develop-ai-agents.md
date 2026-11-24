@@ -88,7 +88,7 @@ The [OpenRouter](https://apify.com/apify/openrouter) Actor provides access to 10
 
 :::caution Paid account recommended
 
-Accounts on a paid Apify plan pay the exact OpenRouter cost. Free-tier accounts pay 10x more.
+To use the OpenRouter Actor, subscribe to a paid Apify plan. Free-tier accounts may be blocked by anti-fraud protections.
 
 :::
 
