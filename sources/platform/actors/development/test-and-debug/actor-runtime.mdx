@@ -64,10 +64,10 @@ To use the runtime, install and start it, and then connect the Apify CLI to it.
 To set up the runtime, you need:
 
 - [Docker](https://docs.docker.com/get-docker/) or [Podman](https://podman.io/docs/installation), installed and running.
+    - On Linux, Podman must also serve its API socket, for example through the `podman.socket` systemd unit.
+    - If you have both Docker and Podman, the CLI uses the first engine it finds on your PATH. To specify one, set `APIFY_CONTAINER_ENGINE=podman` or `APIFY_CONTAINER_ENGINE=docker`.
 - [Apify CLI](/cli/docs/installation) version 1.14.0 or later.
 - An Actor project.
-
-If you have both Docker and Podman, the CLI uses the first engine it finds on your PATH. To pick Podman, set `APIFY_CONTAINER_ENGINE=podman`.
 
 You don't need an Apify account. The runtime accepts any token, so if you aren't logged in, run `apify login --token local-dev-token`.
 
