@@ -22,7 +22,7 @@ Before you begin, make sure you have:
 ## Connect Apify with Pipedream
 
 1. Log into your Pipedream account and [create a new workflow](https://pipedream.com/docs/workflows).
-1. Add an Apify step (trigger or action) to your workflow. Select one of two Apify apps:
+1. [Add an Apify step](https://pipedream.com/docs/workflows/building-workflows/steps) (trigger or action) to your workflow. Select one of two Apify apps:
 
     ![Selecting the Apify app in Pipedream](../images/pipedream-select-app.png)
 
@@ -69,7 +69,7 @@ Before you begin, make sure you have:
 ## Actions
 
 - **Run Actor** - Runs a selected Actor with customizable input and configuration.
-- **Run task** - Runs a selected Actor task and optionally waits for it to finish. Available only in the **Apify (OAuth)** app.
+- **Run task** - Runs a selected Actor task and optionally waits for it to finish.
 - **Run task synchronously** - Runs a selected task and returns its dataset items when it finishes.
 - **Scrape single URL** - Runs a scraper on a specified URL and returns its content as HTML. Use this for extracting content from a single page, e.g. in LLM workflows.
 - **Get dataset items** - Retrieves items from a [dataset](/storage/dataset).

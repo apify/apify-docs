@@ -6,6 +6,7 @@ slug: /integrations/telegram
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+import CreateApiToken from '@site/sources/_partials/_create-api-token.mdx';
 
 With [Apify integration for Zapier](https://zapier.com/apps/apify/integrations), you can connect your Apify Actors to Slack, Trello, Google Sheets, Dropbox, Salesforce, and loads more.
 
@@ -56,17 +57,17 @@ Please note that only Actors or Actor tasks that you previously run will be avai
 
 The next step is to connect your Apify account.
 
-Next to the **Connect to Apify** title, select **Sign in**. Or you can select an account if you already have one connected.
+Click on the "Sign in" button next to the Connect to Apify title. Or you can select an account if you already have one connected.
 
 The connection configuration options open in a new tab in your browser or in a modal window.
 
-![Apify Zapier connection](../images/zapier-choose-account.webp)
+![Apify Zapier connection](../images/zapier-new-connection.png)
 
-Choose the account that you want to connect with Zapier. A new window will appear displaying the information that will be shared between Zapier and Apify.
+In connection configuration, you need to provide your Apify API token.
 
-![Integrations OAuth](../images/zapier-allow-access.webp)
+<CreateApiToken />
 
-Continue by selecting the **Allow Access** button.
+Paste the token into the configuration form and continue with the **Yes, Continue to Apify** button.
 
 The connection is now created and the configuration form closed.
 

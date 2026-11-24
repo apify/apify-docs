@@ -36,17 +36,17 @@ You can import Apify integration scripts into your flows from the Windmill Hub, 
 - Run Task
 - Scrape Single URL
 - Get Dataset Items
-- Get Key-Value Store Record
+- Get Key-Value Store
 
 **Scripts (Triggers):**
 
 - Polling-based Actor Run Trigger
 - Polling-based Task Trigger
 
-**Webhook-based triggers:**
+**Flows (Triggers):**
 
-- Example Actor Webhook Flow (flow)
-- Create Task Webhook (script)
+- Webhook-based Actor Trigger
+- Webhook-based Task Trigger
 
 **Resources:**
 
@@ -203,15 +203,15 @@ The Apify integration provides several operations you can use in your Windmill w
 - **Run Actor**: Starts an Actor with optional input and configuration, with the option to wait for completion or run asynchronously. Returns run metadata including dataset ID.
 - **Run Task**: Executes a predefined Actor task. Similar to Run Actor but uses task configuration, making this ideal for recurring operations.
 - **Scrape Single URL**: Runs a lightweight scraper for a single webpage and returns content as text, markdown, and HTML, making this perfect for quick content extraction.
-- **Get Dataset Items**: Retrieves items from a dataset by its ID. Supports pagination and item limits.
-- **Get Key-Value Store Record**: Reads a single record from a key-value store by its key, making this useful for configuration and state management.
+- **Get Dataset Items**: Retrieves items from a dataset with options to filter by dataset ID or last run. Supports pagination and item limits.
+- **Get Key-Value Store**: Reads values from key-value stores with the ability to retrieve specific keys or list all keys, making this useful for configuration and state management.
 
 ### Triggers
 
 #### Webhook-based Triggers
 
-- **Example Actor Webhook Flow**: A flow that creates an Actor webhook and responds to Actor run events
-- **Create Task Webhook**: A script that creates a webhook so your flow responds to task run events
+- **Actor Webhook Trigger**: Responds to Actor run events
+- **Task Webhook Trigger**: Responds to task run events
 - Real-time event processing with full payload data
 
 #### Polling-based Triggers

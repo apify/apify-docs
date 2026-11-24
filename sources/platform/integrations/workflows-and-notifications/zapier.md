@@ -81,7 +81,7 @@ We will use the Web Scraper Actor in this example.
 You need to fill the input for the Actor and use the **Continue** button to advance to the next step.
 
 > You can choose to run Actor synchronously or asynchronously. If you choose to run Actor synchronously, the Zap will wait until the Actor finishes and the Actor output and data will be available in next steps.
-> A synchronous run can take up to 1 hour. If the Actor doesn't finish by then, the run stops. When you test the step on its own in the Zap editor, it waits about 25 seconds and returns the results produced so far.
+> Beware that the hard timeout for the run is 30 seconds. If the Actor doesn't finish in 30 seconds, the run will be terminated and the Actor output will not be available in next steps.
 
 In the next step, you can test the action and check if everything is using the **Test step** button.
 
@@ -111,10 +111,10 @@ Once you are happy with the test, you can publish the Zap. When it is turned on,
 
 > Runs a selected Actor task.
 
-### Web Fetch
+### Scrape Single URL
 
-> Fetches a single web page or file and returns its content as Markdown, HTML, plain text, links, or raw content.
-> This action is for getting content of a single page to use, for example, in LLM flows. It replaces the deprecated **Scrape Single URL** action, which is hidden from new Zaps.
+> Runs a scraper for the website and returns its content as text, markdown and HTML.
+> This action is for getting content of a single page to use, for example, in LLM flows.
 
 ### Set Key-Value Store Record
 

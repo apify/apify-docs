@@ -132,7 +132,7 @@ Both triggers create and manage Apify webhooks automatically when you enable or 
 
 - **Run Task** executes a specified Apify task with:
   - **Task**
-  - **Override Input JSON**
+  - **Input JSON** overrides
   - **Build**, **Memory**, **Timeout**
   - **Wait for finish** behavior similar to **Run Actor**.
 
@@ -143,8 +143,8 @@ Both triggers create and manage Apify webhooks automatically when you enable or 
 
 - **Scrape Single URL** runs a Website Content Crawler Actor for a specified website and returns its content:
   - Accepts a **URL** to scrape.
-  - Lets you choose a **Crawler Type**: **Raw HTTP** (default), **Adaptive**, or **Firefox**.
-  - Returns the page's `url`, `markdown`, and `html`.
+  - Lets you choose a **crawler type** (e.g., Cheerio, JSDOM, Playwright variants).
+  - Returns the Actor run details and the scraped items (HTML and markdown).
 
 - **Get Key-Value Store Record** retrieves a value from an Apify [key-value store](/storage/key-value-store):
   - Select a key-value store.

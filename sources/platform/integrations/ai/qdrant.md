@@ -52,7 +52,7 @@ The examples utilize the Website Content Crawler Actor, which deeply crawls webs
 
     ![Website Content Crawler with Qdrant integration](../images/qdrant-wcc-integration.png)
 
-1. Select when to trigger this integration (typically when a run succeeds) and fill in all the required fields for the Qdrant integration. If you haven't created a collection, it can be created automatically with the specified model. You can learn more about the input parameters at the [Qdrant integration input schema](https://apify.com/apify/qdrant-integration/input-schema).
+1. Select when to trigger this integration (typically when a run succeeds) and fill in all the required fields for the Qdrant integration. If you haven't created a collection, it can be created automatically with the specified model. You can learn more about the input parameters at the [Qdrant integration input schema](https://apify.com/apify/qdrant-integration).
 
    ![Qdrant integration configuration](../images/qdrant-integration-setup.png)
 
