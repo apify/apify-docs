@@ -33,7 +33,7 @@ You can use one of the two main ways to programmatically interact with the Apify
 In the previous lesson, we created the **academy-amazon-scraper-task** task for our Amazon Actor. Now, we'll be creating another new Actor, which will have two jobs:
 
 1. Programmatically call the task for the Amazon Actor.
-2. Export its results into CSV format under a new key called **OUTPUT** in the default key-value store.
+2. Export its results into CSV format under a new key called `OUTPUT` in the default key-value store.
 
 Though it's a bit unintuitive, this is a perfect activity for learning how to use both the Apify API and the Apify JavaScript client.
 

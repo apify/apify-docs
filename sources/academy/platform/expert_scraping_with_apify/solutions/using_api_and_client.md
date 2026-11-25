@@ -74,7 +74,7 @@ const withClient = async () => {
 };
 ```
 
-After the task has run, we'll get its dataset, then attempt to download the items, plugging in our `maxItems` and `fields` inputs. Then, once the data has been downloaded, we'll push it to the default key-value store under a key named **OUTPUT**.
+After the task has run, we'll get its dataset, then attempt to download the items, plugging in our `maxItems` and `fields` inputs. Then, once the data has been downloaded, we'll push it to the default key-value store under a key named `OUTPUT`.
 
 ```js
 const withClient = async () => {
