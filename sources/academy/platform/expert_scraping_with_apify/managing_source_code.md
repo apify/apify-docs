@@ -35,11 +35,17 @@ First, we must initialize a GitHub repository (you can use Gitlab if you like, b
 
 ## Integrating GitHub source code {#integrating-github}
 
-First, let's create a repository. This can be done [in a number of ways](https://kbroman.org/github_tutorial/pages/init.html), but in this lesson, we'll do it by creating the remote repository on GitHub's website:
+First, let's create a repository. This can be done [in a number of ways](https://kbroman.org/github_tutorial/pages/init.html), but in this lesson, we'll do it by creating the remote repository on GitHub's website. Select **+** in the top-right corner of GitHub, then **New repository**. Name it **academy-amazon-scraper** and create it empty, without a README, `.gitignore`, or license, because we'll push our existing code into it.
 
-![Create a new GitHub repo](./images/github-new-repo.png)
+![GitHub's + menu in the top-right corner, open with New repository highlighted](./images/github-new-repo.png)
 
-GitHub then suggests commands for pushing an existing repository, but we can't use them as they are. We cloned **academy-amazon-scraper** from the starter repository, so its `origin` remote already points to `apify-projects/academy-amazon-scraper`, and `git remote add origin …` would fail with `remote origin already exists`. Instead, we'll point `origin` to our new repository and push all of the files to it. Run the following in the **academy-amazon-scraper** directory, with your own repository URL:
+:::note Why not use GitHub's suggested commands
+
+GitHub then suggests commands for pushing an existing repository, but we can't use them as they are. We cloned **academy-amazon-scraper** from the starter repository, so its `origin` remote already points to `apify-projects/academy-amazon-scraper`, and `git remote add origin …` would fail with `remote origin already exists`.
+
+:::
+
+Instead, we'll point `origin` to our new repository and push all of the files to it. Run the following in the **academy-amazon-scraper** directory, with your own repository URL:
 
 ```bash
 git remote set-url origin https://github.com/YOUR_USERNAME/academy-amazon-scraper.git
