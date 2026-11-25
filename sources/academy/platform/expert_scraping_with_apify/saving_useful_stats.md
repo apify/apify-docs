@@ -13,7 +13,7 @@ pagination: true
 
 Our scraper uses Crawlee and the Apify SDK to collect data from websites and save it into a dataset. This is great, but sometimes, we want to store some extra data about the run itself, or about each request. We might want to store some extra general run information separately from our results or potentially include statistics about each request within its corresponding dataset item.
 
-The types of values that are saved are totally up to you, but the most common are error scores, number of total saved items, number of request retries, number of CAPTCHAs hit, etc. Storing these values is not always necessary, but can be valuable when debugging and maintaining an Actor. As your projects scale, this will become more and more useful and important.
+The types of values that are saved are up to you, but the most common are error scores, number of total saved items, number of request retries, number of CAPTCHAs hit, etc. Storing these values is not always necessary, but can be valuable when debugging and maintaining an Actor. As your projects scale, this will become more and more useful and important.
 
 ## Learning 🧠 {#learning}
 
