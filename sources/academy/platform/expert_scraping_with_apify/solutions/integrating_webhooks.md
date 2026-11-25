@@ -48,8 +48,7 @@ As a last step, when asked how to set up the source code, select **Local only**,
 
 First of all, we should clear out any of the boilerplate code within **main.js** to get a clean slate:
 
-```js
-// main.js
+```js title="main.js"
 import { Actor } from 'apify';
 
 await Actor.init();
@@ -145,7 +144,7 @@ await Actor.exit();
 
 Cool! But wait, don't forget to configure the **.actor/input_schema.json** file as well! New Actors run with [limited permissions](/actors/development/permissions) by default, so they can't read storages they didn't create, such as the dataset of our Amazon scraper. By declaring the `datasetId` input as a dataset with `resourceType` and `resourcePermissions`, we grant the filter Actor read access to the dataset it receives:
 
-```json
+```json title=".actor/input_schema.json"
 {
     "title": "Amazon Filter Actor",
     "type": "object",
