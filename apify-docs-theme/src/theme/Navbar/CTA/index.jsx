@@ -9,7 +9,7 @@ const CONSOLE_URL = 'https://console.apify.com';
 
 const CTA = {
     loggedIn: { text: 'Go to Console', href: CONSOLE_URL },
-    loggedOut: { text: 'Get started', href: `${CONSOLE_URL}/sign-up` },
+    loggedOut: { text: 'Start for free', href: `${CONSOLE_URL}/sign-up` },
 };
 
 function hasLoggedInCookie() {
@@ -20,7 +20,7 @@ function hasLoggedInCookie() {
 }
 
 export default function NavbarCTA() {
-    // Prerendered HTML always shows "Get started". Reading the cookie before hydration would cause a mismatch.
+    // Prerendered HTML always shows "Start for free". Reading the cookie before hydration would cause a mismatch.
     const isBrowser = useIsBrowser();
     const isUserLoggedIn = isBrowser && hasLoggedInCookie();
     const cta = isUserLoggedIn ? CTA.loggedIn : CTA.loggedOut;

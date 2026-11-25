@@ -7,13 +7,13 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
-            -   uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+            -   uses: actions/checkout@v7.0.1
                 with:
                     fetch-depth: 0
 
             -   name: Get changed files
                 id: changed-files
-                uses: tj-actions/changed-files@9426d40962ed5378910ee2e21d5f8c6fcbf2dd96 # v47.0.6
+                uses: tj-actions/changed-files@v47.0.6
                 with:
                     files: '**/*.{md,mdx}'
                     # Keep in sync with the ignore sections in .vale.ini.
@@ -30,7 +30,7 @@ jobs:
                         workflows/**/*.{md,mdx}
                     separator: ','
 
-            -   uses: errata-ai/vale-action@518a9136acc6e6668ce7c00d367051e0941e87ff # reviewdog
+            -   uses: vale-cli/vale-action@reviewdog
                 if: steps.changed-files.outputs.any_changed == 'true'
                 with:
                     files: ${{ steps.changed-files.outputs.all_changed_files }}
