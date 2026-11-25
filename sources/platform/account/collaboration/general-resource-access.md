@@ -42,7 +42,7 @@ Sharing by link is quick, convenient, and secure enough for most use cases -- th
 
 That said, link-based sharing doesn’t support access revocation, audit trails, or fine-grained permission controls. If you need tighter control over who can access your data or require elevated security because of the domain you're working in we recommend enabling **Restricted** access.
 
-The default setting strikes a good balance for casual or internal use, but **Restricted** access is a better fit for teams with stricter security policies, integrations using [scoped API tokens](/account/api-tokens#limited-permissions), or audit requirements.
+The default setting strikes a good balance for casual or internal use, but **Restricted** access is a better fit for teams with stricter security policies, integrations using [scoped API tokens](/account/api-tokens/limited-permissions), or audit requirements.
 
 You can switch to **Restricted** access at any time. If it causes issues in your workflow, you can revert to the default setting just as easily.
 

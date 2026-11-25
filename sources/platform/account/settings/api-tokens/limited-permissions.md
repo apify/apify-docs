@@ -1,85 +1,23 @@
 ---
-title: API tokens
-description: Create an Apify API token in Apify Console, set its expiration, rotate it if it leaks, and limit its permissions so it reaches only the data it needs.
-sidebar_position: 2
+title: API tokens with limited permissions
+description: Limit an Apify API token to specific Actors, tasks, schedules, and storages, and control what an Actor can access when you run it with a scoped token.
+sidebar_label: Limited permissions
+sidebar_position: 1
 category: platform
-slug: /account/api-tokens
+slug: /account/api-tokens/limited-permissions
 ---
 
-To access the Apify API in your integrations, you need to authenticate using your secret API token. You manage your tokens on the [API & Integrations](https://console.apify.com/settings/integrations) page in Apify Console. A new personal account has no API token, so [create one](#create-api-token) before your first API call.
-
-Apify Console shows the value of an API token only once, right after you create or [rotate](#rotation) it. The token list shows each token's name, a masked preview of its value, when it was last used, and when it expires. You can't view or copy the full value of an existing token. Use the preview to tell your tokens apart.
-
-The Apify CLI doesn't need a copied token. When you sign in with [`apify login`](/cli/docs/reference#apify-auth-login--apify-login) in the browser, the sign-in creates a token for your device, and the CLI stores it for you.
-
-When a token is created or rotated on your account, Apify sends you an email and a notification in Apify Console. This includes tokens that `apify login` creates. If you don't recognize the token, secure your account in **Settings > Login & Privacy** and delete the token.
-
-:::caution Protect your API token
-Unless you fully understand the consequences, don't share your API token with untrusted parties or use it directly in client-side code. You can also [limit the token's permissions](#limited-permissions) so that it can access only what it needs.
-:::
-
-## Create an API token {#create-api-token}
-
-1. Go to [**Settings > API & Integrations**](https://console.apify.com/settings/integrations) in Apify Console.
-1. In the **Personal API tokens** section, select **Create a new token**.
-1. Enter a name that says where you will use the token. Optionally, add a description.
-1. In **Expiration**, keep the default of **90 days** or [choose another option](#expiration).
-1. Optionally, [limit the token's permissions](#limited-permissions).
-1. Select **Create**.
-1. Copy the token and store it somewhere safe, such as a password manager.
-1. Select **Done**.
-
-If you lose a token, [rotate it](#rotation) to get a new value, or create a new token and delete the old one. You can delete any token, including your last one.
-
-## Expiration
-
-A token you create in Apify Console expires after 90 days unless you choose otherwise. An expired token stops working, which limits the damage if the token leaks. In the **Expiration** field of the token form, choose one of these options:
-
-- If you choose **7 days**, **30 days**, **90 days**, or **365 days**, the token lasts that many full days and then expires at the next 00:00 UTC. A 90-day token therefore lasts between 90 and 91 days.
-- If you choose **Custom date**, the token expires at 00:00 UTC at the start of the day you pick.
-- If you choose **No expiration**, the token works until you delete or rotate it.
-
-The token list shows the exact time each token expires, for example `Expires on February 15, 2027, 00:00 UTC`. To change the expiration of an existing token, edit the token and pick a new date, or clear the date to remove the expiration.
-
-The 90-day default applies only to the token form. A token that `apify login` creates has no expiration.
-
-## Rotation
-
-If you suspect that a token is compromised or exposed, you can rotate it in Apify Console. Apify Console creates the new token right away. When you rotate a token, you can keep the old token active for 24 hours. Update every application that uses the old token before then, because after the 24 hours it stops working.
-
-After you confirm the rotation, Apify Console shows the new token. This is the only time you can copy it, so store it somewhere safe. The new token has no [expiration](#expiration), even if the old one had. To set an expiration, edit the token and pick a date.
-
-Apify Console marks tokens identified as compromised with a **Leaked** label, so that you can find them and act on them.
-
-## Good practices
-
-Treat an API token like a password:
-
-- Use a separate token for each service, as you would use a separate password for each account.
-- Give each token a name that says where you use it.
-- [Limit the token's permissions](#limited-permissions) to what the service needs.
-- Keep an [expiration](#expiration) on tokens you share with third-party services or use for temporary access.
-- [Rotate](#rotation) a token as soon as you suspect it's exposed.
-
-## Organization accounts
-
-When you work under an organization account, the API & Integrations page shows two types of API tokens.
-
-Personal API tokens in an organization are separate from the tokens of your personal account. If you use a personal token in an integration, it has the same permissions that you have within the organization. Apify ascribes every operation you use it for to you. When you join or create an organization, Apify creates one personal token for you in that organization. This token has no expiration. A personal token stops working when you leave the organization.
-
-Organization API tokens have full permissions and are not tied to a specific member of the organization. You can access them only if you are the owner or have the **Manage access tokens** permission.
-
-## API tokens with limited permissions {#limited-permissions}
-
-By default, a token can access all data in your account. To restrict a token to the data that a particular use case needs, limit its permissions. A token with limited permissions is called a _scoped_ token. A scoped token can access only the resources that you explicitly allow.
+By default, an [API token](/account/api-tokens) can access all data in your account. To restrict a token to the data that a particular use case needs, limit its permissions. A token with limited permissions is called a _scoped_ token. A scoped token can access only the resources that you explicitly allow.
 
 Scoped tokens can't create or modify Actors. To create or modify Actors through the Apify API, use an unscoped token.
 
-### Create a scoped token
+To create a token, set its expiration, or rotate it, see [API tokens](/account/api-tokens).
 
-Scoped tokens behave like standard API tokens. You manage them on the [API & Integrations](https://console.apify.com/settings/integrations) page in Apify Console. When you create or edit a token, turn on **Limit token permissions** to make the token scoped. Then specify the token's permissions.
+## Create a scoped token
 
-### Account-level vs resource-specific permissions
+Scoped tokens behave like standard API tokens. You manage them on the [API & Integrations](https://console.apify.com/settings/integrations) page in Apify Console. When you [create](/account/api-tokens#create-api-token) or edit a token, turn on **Limit token permissions** to make the token scoped. Then specify the token's permissions.
+
+## Account-level vs resource-specific permissions
 
 A token's permissions come in two types:
 
@@ -88,9 +26,9 @@ A token's permissions come in two types:
 
 A single token can combine both types. For example, a token can read any storage but write to only one key-value store.
 
-![An example scoped token that combines account-level permissions and resource-specific permissions](../images/api-token-scoped-with-combining-permissions.webp)
+![An example scoped token that combines account-level permissions and resource-specific permissions](../../images/api-token-scoped-with-combining-permissions.webp)
 
-### Allow tokens to create resources
+## Allow tokens to create resources
 
 To create new resources with the token, such as a task or a storage, you need to allow that explicitly.
 
@@ -98,15 +36,15 @@ After the token creates a resource, the token has full access to that resource, 
 
 For example, a token can create and populate datasets without access to the other datasets in your account.
 
-### Permission dependencies
+## Permission dependencies
 
 Some permissions require other permissions alongside them. These are called _permission dependencies_.
 
-#### Automatic dependencies
+### Automatic dependencies
 
 The form enforces some dependencies automatically. For example, when you grant the **Write** permission for a dataset, the form also selects the **Read** permission. A token that can write to a dataset can therefore also read from it.
 
-#### Manual dependencies
+### Manual dependencies
 
 Other dependencies are more complex, so you need to configure them yourself:
 
@@ -115,7 +53,7 @@ Other dependencies are more complex, so you need to configure them yourself:
 
 For example, to create schedules for one Actor programmatically, give the token two permissions: the account-level **Create** permission on schedules, and the resource-specific **Run** permission on that Actor. Such a token has the permissions it needs and no more.
 
-### Actor execution
+## Actor execution
 
 When you run an Actor, Apify creates a short-lived run API token and injects it into the Actor's environment. This also applies to scoped tokens. An Actor that you run with a scoped token therefore runs with a different token, which has a different scope.
 
@@ -124,7 +62,7 @@ In the scoped token's configuration, you choose the scope of the run API token. 
 - With **Full access**, Actors can access all your account's data.
 - With **Restricted access**, Actors can access only what the scoped token's scope allows.
 
-#### Full access
+### Full access
 
 When you run an Actor with a scoped token in this mode, Apify injects an _unscoped_ token into the Actor's runtime.
 
@@ -132,7 +70,7 @@ After you allow a token to run an Actor, the run therefore works whatever permis
 
 Use this mode to let a third-party service run your Actors. Create a scoped token that can run only the Actor you need, and share it with the service. If the token leaks, it can't be used to access your other data.
 
-#### Restricted access
+### Restricted access
 
 When you run an Actor with a scoped token in this mode, Apify injects a token with the same scope as the original token.
 
@@ -144,7 +82,7 @@ The restriction is transitive: if the Actor runs another Actor, that Actor's acc
 [Server Actors](/actors/running/server-actors) don't support restricted access mode. You can send requests to a Server Actor with a scoped token configured for restricted access, but Apify doesn't guarantee that it works.
 :::
 
-#### Default run storages
+### Default run storages
 
 When Apify [runs an Actor](/actors/running/runs-and-builds#runs), it creates a set of default storages that the Actor can use: a dataset, a key-value store, and a request queue.
 
@@ -159,17 +97,17 @@ If the toggle is off, the token can still trigger and inspect runs, but its acce
 
 For example, your Actor might produce data that you want to delete right after the run finishes. Turn the toggle on so that the scoped token can delete that data.
 
-#### Full-permission Actors
+### Full-permission Actors
 
 The **Allow this token to run full-permission Actors** setting controls whether the scoped token can run [full-permission Actors](/actors/running/permissions#full-permission-actors). The setting is on by default. Before you can run a full-permission Actor through the API, you still need to approve it in Apify Console.
 
-### Schedules
+## Schedules
 
 You can use scoped tokens to schedule Actors and tasks. Each schedule invocation triggers a new Actor run, and Apify creates a run API token and injects it into the Actor.
 
 **This run token is always unscoped.** The scheduled Actor can therefore access all your account's data, whatever the scope of the token that created the schedule.
 
-### Webhooks configuration
+## Webhooks configuration
 
 A token that can run an Actor can also manage the Actor's webhooks. The same applies to tasks.
 
@@ -177,9 +115,9 @@ When a webhook points to the Apify API, the Apify platform injects a token when 
 
 The token therefore needs permissions to set up the webhook and to perform the webhook's operation. For example, take a webhook that pushes an item to a dataset each time an Actor run succeeds. The token needs to run the Actor, which lets it create the webhook, and to write to that dataset.
 
-### Troubleshooting
+## Troubleshooting
 
-#### Allow a token to run a task
+### Allow a token to run a task
 
 Tasks have no dedicated **Run** permission. Give the token these permissions instead:
 
@@ -188,7 +126,7 @@ Tasks have no dedicated **Run** permission. Give the token these permissions ins
 
 For details, see [permission dependencies](#permission-dependencies).
 
-#### A run fails with `insufficient permissions` in the log
+### A run fails with `insufficient permissions` in the log
 
 This error usually means that the Actor runs with a scoped token set to **Restricted access**.
 

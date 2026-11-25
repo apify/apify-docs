@@ -93,7 +93,7 @@ Actors in Apify Store built by third-party developers sit in the middle. The dev
 
 ### Identity and access management
 
-Apify provides the controls: two-factor authentication, SSO, [scoped tokens](/account/api-tokens#limited-permissions), organization roles, and per-resource access rights. You are responsible for turning them on and configuring them correctly, granting each member and integration the least access it needs.
+Apify provides the controls: two-factor authentication, SSO, [scoped tokens](/account/api-tokens/limited-permissions), organization roles, and per-resource access rights. You are responsible for turning them on and configuring them correctly, granting each member and integration the least access it needs.
 
 ### Incident response
 

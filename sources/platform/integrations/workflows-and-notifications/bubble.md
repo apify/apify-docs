@@ -275,7 +275,7 @@ To stay up to date with new features, make sure you're using the latest version 
 
 ### Authentication errors
 
-Ensure your API token is correctly set in the action (preferably as `Current User's apify_api_token`) and that it has the necessary [permissions](/account/api-tokens#limited-permissions).
+Ensure your API token is correctly set in the action (preferably as `Current User's apify_api_token`) and that it has the necessary [permissions](/account/api-tokens/limited-permissions).
 
 ### Missing Actors or Tasks
 
