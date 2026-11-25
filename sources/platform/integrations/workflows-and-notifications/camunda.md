@@ -8,6 +8,8 @@ slug: /integrations/camunda
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 
+<!-- vale Microsoft.Spacing = NO -->
+
 [Camunda](https://camunda.com/) is a process orchestration platform for designing, automating, and optimizing business workflows using BPMN (Business Process Model and Notation, the visual language Camunda uses to define workflows). With the Apify Connectors, run Apify Actors and tasks, fetch web pages and datasets, and trigger or resume BPMN processes from Apify webhook events.
 
 <ThirdPartyDisclaimer />
