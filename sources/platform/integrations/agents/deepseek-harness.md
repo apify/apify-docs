@@ -167,7 +167,7 @@ No `APIFY_TOKEN` was set when `dsh` started, so only the anonymous MCP tools loa
 
 ### The Apify MCP server fails to start with `invalid_token`
 
-The token is present but rejected. Check for stray quotes or trailing whitespace in the `.env` file, rotate the token in [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations?utm_source=deepseek-harness&utm_medium=integrations) if needed, and restart the profile.
+The token is present but rejected. Check for stray quotes or trailing whitespace in the `.env` file, [rotate the token](/account/api-tokens#rotation) in [Apify Console > Settings > API & Integrations](https://console.apify.com/settings/integrations?utm_source=deepseek-harness&utm_medium=integrations) if needed, and restart the profile.
 
 ### The `apify` command fails with `EPERM` or `EACCES`
 
