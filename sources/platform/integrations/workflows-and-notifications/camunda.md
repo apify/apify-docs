@@ -24,8 +24,8 @@ To use the Apify integration with Camunda, you need:
 All Apify Connector operations require an Apify API token.
 
 1. Log in to [Apify Console](https://console.apify.com/?utm_source=camunda&utm_medium=integrations).
-1. Navigate to [**Settings > API & Integrations**](https://console.apify.com/settings/integrations?utm_source=camunda&utm_medium=integrations).
-1. Copy your Apify API token.
+1. [Create an Apify API token for Camunda](https://console.apify.com/settings/integrations?createApiToken=true&for=Camunda&utm_source=camunda&utm_medium=integrations) in **Settings > API & Integrations**.
+1. Copy the token right after you create it. Apify Console shows it only once.
 
 :::tip Security best practice
 
@@ -114,7 +114,7 @@ Each connector release publishes two artifacts on the [GitHub Releases page](htt
 | `apify-camunda-connector-<version>-c8.8.jar` / `-c8.9.jar` / `-c8.10.jar` | The shaded connector runtime JAR (includes all dependencies), one per Camunda minor | Download the suffix matching your Camunda minor (`-c8.8`, `-c8.9`, or `-c8.10`) and drop it on the connectors runtime classpath - see [Run the connectors runtime](#run-the-connectors-runtime) |
 | `apify-camunda-connector-element-templates-<version>.zip` | All five element template JSONs | Upload to your Camunda **Web Modeler** project (**Camunda Hub** on 8.10), or place into the `resources/element-templates/` directory of **Desktop Modeler** |
 
-Pick the release whose version matches your Camunda 8 minor.
+Use the latest release. Every release includes a JAR for each supported Camunda minor.
 
 :::note Both artifacts are required
 
@@ -1089,7 +1089,7 @@ The event type uses an underscore (`TIMED_OUT`) while the run status uses a hyph
 | Webhook not triggering | Ensure you have deployed the process. For start events, deploying automatically creates the webhook in Apify. Check the **Integrations** tab of your Actor in Apify Console to verify the webhook exists. |
 | Process not visible in Camunda Operate | Operate hides completed processes by default. Switch to the **Finished** filter to see them. |
 | Process stuck at intermediate event | Check your **Correlation Keys**. The value in the process variable must exactly match the value in the webhook payload. Use Camunda Operate to inspect variable values and compare with the `connectorData.runId` in the connector runtime logs. |
-| `401 Unauthorized` | Check your Apify API token. Regenerate it in [Apify Console](https://console.apify.com/settings/integrations?utm_source=camunda&utm_medium=integrations) under **Settings > API & Integrations** if necessary. On Camunda 8.10, also check that the token field contains `{{secrets.APIFY_TOKEN}}` itself: a placeholder passed through a process variable does not resolve. |
+| `401 Unauthorized` | Check your Apify API token. If necessary, [create a new token in Apify Console](https://console.apify.com/settings/integrations?createApiToken=true&for=Camunda&utm_source=camunda&utm_medium=integrations). On Camunda 8.10, also check that the token field contains `{{secrets.APIFY_TOKEN}}` itself: a placeholder passed through a process variable does not resolve. |
 
 ## Next steps
 
