@@ -8,10 +8,6 @@ slug: /account/api-tokens
 
 To access the Apify API in your integrations, you need to authenticate using your secret API token. You manage your tokens on the [API & Integrations](https://console.apify.com/settings/integrations) page in Apify Console. A new personal account has no API token, so [create one](#create-api-token) before your first API call.
 
-:::caution Protect your API token
-Unless you fully understand the consequences, don't share your API token with untrusted parties or use it directly in client-side code. You can also [limit the token's permissions](/account/api-tokens/limited-permissions) so that it can access only what it needs.
-:::
-
 ## Create an API token {#create-api-token}
 
 1. Go to [**Settings > API & Integrations**](https://console.apify.com/settings/integrations) in Apify Console.
@@ -71,6 +67,7 @@ Organization API tokens have full permissions and are not tied to a specific mem
 
 Treat an API token like a password:
 
+- Don't share a token with untrusted parties or use it directly in client-side code, unless you fully understand the consequences.
 - Use a separate token for each service, as you would use a separate password for each account.
 - Give each token a name that says where you use it.
 - [Limit the token's permissions](/account/api-tokens/limited-permissions) to what the service needs.
