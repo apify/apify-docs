@@ -74,7 +74,7 @@ const withClient = async () => {
 };
 ```
 
-After the task has run, we'll grab hold of its dataset, then attempt to download the items, plugging in our `maxItems` and `fields` inputs. Then, once the data has been downloaded, we'll push it to the default key-value store under a key named **OUTPUT**.
+After the task has run, we'll get its dataset, then attempt to download the items, plugging in our `maxItems` and `fields` inputs. Then, once the data has been downloaded, we'll push it to the default key-value store under a key named **OUTPUT**.
 
 ```js
 const withClient = async () => {
@@ -106,7 +106,7 @@ const withAPI = async () => {
 };
 ```
 
-To add the query parameters to the URL, we could create a super long string literal, plugging in all of our input values; however, there is a much better way: [`URLSearchParams`](https://nodejs.org/api/url.html#new-urlsearchparams). By using `URLSearchParams`, we can add the query parameters in an object:
+To add the query parameters to the URL, we could create a long string literal, plugging in all of our input values; however, there is a much better way: [`URLSearchParams`](https://nodejs.org/api/url.html#new-urlsearchparams). By using `URLSearchParams`, we can add the query parameters in an object:
 
 ```js
 const withAPI = async () => {
@@ -257,7 +257,7 @@ New Actors run with [limited permissions](/actors/development/permissions) by de
 
 **Q: What is the relationship between the Apify API and Apify client? Are there any significant differences?**
 
-**A:** The Apify client mimics the Apify API, so there aren't any super significant differences. It's super handy as it helps with managing the API calls (parsing, error handling, retries, etc) and even adds convenience functions.
+**A:** The Apify client mimics the Apify API, so there aren't any significant differences. It's handy because it helps with managing the API calls (parsing, error handling, retries, etc) and even adds convenience functions.
 
 The one main difference is that the Apify client automatically uses [**exponential backoff**](/api/client/js/docs/concepts/error-handling#retries-with-exponential-backoff) to deal with errors.
 
