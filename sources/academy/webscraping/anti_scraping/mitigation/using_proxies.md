@@ -10,13 +10,11 @@ pagination: true
 
 ---
 
-In the [Using a framework](../../scraping_basics_javascript/12_framework.md) lesson of the **Web scraping basics for JavaScript devs** course, we learned about the power of Crawlee, and how it can streamline the development process of web crawlers. You've already seen how powerful the `crawlee` package is; however, what you've been exposed to thus far is only the tip of the iceberg.
-
-Because proxies are so widely used in the scraping world, Crawlee has built-in features for implementing them in an effective way. One of the main functionalities that comes baked into Crawlee is proxy rotation, which is when each request is sent through a different proxy from a proxy pool.
+[Crawlee](https://crawlee.dev) is an open-source web scraping and browser automation library for Node.js. Because proxies are so widely used in the scraping world, Crawlee has built-in features for implementing them in an effective way. One of the main functionalities that comes baked into Crawlee is proxy rotation, which is when each request is sent through a different proxy from a proxy pool.
 
 ## Implementing proxies in a scraper {#implementing-proxies}
 
-Let's borrow the scraper from the end of the [Using a framework](../../scraping_basics_javascript/12_framework.md) lesson and paste it into a new file called `proxies.js`. This code enqueues all of the product links on the [Sales](https://warehouse-theme-metal.myshopify.com/collections/sales) page of a demo store, then makes a request to each product page and scrapes data about each one:
+Let's start with a Crawlee scraper. If you'd like to learn how to build such a scraper step by step, see the [Using a framework](../../scraping_basics_javascript/12_framework.md) lesson. Paste the following code into a new file called `proxies.js`. It enqueues all of the product links on the [Sales](https://warehouse-theme-metal.myshopify.com/collections/sales) page of a demo store, then makes a request to each product page and scrapes data about each one:
 
 ```js title="proxies.js"
 import { CheerioCrawler } from 'crawlee';
@@ -154,7 +152,7 @@ These logs confirm that our proxies are being used and rotated successfully by C
 
 ## Higher level proxy scraping {#higher-level-proxy-scraping}
 
-Though we will discuss it more in-depth in future courses, it is still important to mention that Crawlee has integrated support for the Apify SDK, which supports [Apify Proxy](https://apify.com/proxy) - a service that provides access to pools of both residential and datacenter IP addresses. A `proxyConfiguration` using Apify Proxy might look something like this:
+Crawlee has integrated support for the Apify SDK, which supports [Apify Proxy](https://apify.com/proxy) - a service that provides access to pools of both residential and datacenter IP addresses. A `proxyConfiguration` using Apify Proxy might look something like this:
 
 ```js
 import { Actor } from 'apify';
