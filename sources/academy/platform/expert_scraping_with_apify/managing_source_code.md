@@ -52,9 +52,7 @@ git remote set-url origin https://github.com/YOUR_USERNAME/academy-amazon-scrape
 git push -u origin main
 ```
 
-After you've created your repo, in the Apify platform navigate to your **academy-amazon-scraper** Actor. In the **Source** tab, click the dropdown menu under **Source code** and select **Git repository**. By default, this is set to **Web IDE**, which is what we've been using so far.
-
-![Select source code location](./images/select-source-location.png)
+Once the code is on GitHub, open your **academy-amazon-scraper** Actor in Apify Console. On the **Source** tab, change **Source type** from **Web IDE**, which is what we've been using so far, to **Git repository**.
 
 Then, go ahead and paste the link to your repository into the **Git URL** text field and click **Save**.
 
