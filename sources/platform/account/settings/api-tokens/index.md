@@ -20,16 +20,16 @@ Unless you fully understand the consequences, don't share your API token with un
 1. In **Expiration**, keep the default of **90 days** or [choose another option](#expiration).
 1. Optionally, [limit the token's permissions](/account/api-tokens/limited-permissions).
 1. Select **Create**.
-1. Copy the token and store it somewhere safe, such as a password manager. Apify Console shows the token only this once.
+1. Copy the token and store it somewhere safe, such as a password manager.
 1. Select **Done**.
 
-If you lose a token, [rotate it](#rotation) to get a new value, or create a new token and delete the old one. You can delete any token, including your last one.
+:::info You can view a token only once
+Apify Console shows the value of an API token only once, right after you create or [rotate](#rotation) it. You can't view or copy the full value of an existing token. If you lose a token, rotate it to get a new value, or create a new token and delete the old one.
+:::
+
+The token list shows each token's name, a masked preview of its value, when it was last used, and when it expires. Use the preview to tell your tokens apart. You can delete any token, including your last one.
 
 The Apify CLI doesn't need a copied token. When you sign in with [`apify login`](/cli/docs/reference#apify-auth-login--apify-login) in the browser, the sign-in creates a token for your device, and the CLI stores it for you.
-
-## View your tokens
-
-Apify Console shows the value of an API token only once, right after you create or [rotate](#rotation) it. The token list shows each token's name, a masked preview of its value, when it was last used, and when it expires. You can't view or copy the full value of an existing token. Use the preview to tell your tokens apart.
 
 ## Expiration
 
