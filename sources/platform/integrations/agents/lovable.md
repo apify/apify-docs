@@ -24,7 +24,7 @@ Apify is available as an app and chat connector: one connection works both in th
 Before you connect the two platforms, you need:
 
 - _An Apify account_ - If you don't have one, [sign up here](https://console.apify.com/sign-up).
-- _Apify API token_ - <CreateApiTokenLink /> See [API token](/account/api-tokens) for scope and expiration options.
+- _Apify API token_ - <CreateApiTokenLink /> To restrict the token, see [expiration](/account/api-tokens#expiration) and [limited permissions](/account/api-tokens/limited-permissions).
 - _A Lovable account_ - App and chat connectors are available on the Free, Pro, and Business plans.
 - _Permission to create connections_ - Enterprise plans restrict connection creation to **No one** by default, until an admin changes it in **Connectors > Admin settings > App + chat connectors**.
 
@@ -97,7 +97,7 @@ Most problems come down to the token, the connection, or Apify's rate limits.
 
 ### Authentication errors
 
-- _Check the token is still valid_ - If the token [expired](/account/api-tokens#expiration), or you revoked or rotated it in Apify Console, the connection keeps sending the old one. Create a new token and update the connection in Lovable.
+- _Check the token is still valid_ - If the token [expired](/account/api-tokens#expiration), or you deleted or rotated it in Apify Console, the connection keeps sending the old one. Create a new token and update the connection in Lovable.
 - _Check the token's permissions_ - A token with [limited permissions](/account/api-tokens/limited-permissions) can't reach an Actor or storage outside its scope. Use a token that covers what the app runs and reads.
 
 ### Rate-limited requests

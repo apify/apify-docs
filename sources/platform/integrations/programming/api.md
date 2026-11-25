@@ -11,7 +11,7 @@ If you want to use the Apify API from JavaScript/Node.js or Python, we strongly 
 - [**apify-client**](/api/client/js/) `npm` package for JavaScript, supporting both browser and server
 - [**apify-client**](/api/client/python/) PyPI package for Python.
 
-You are not required to those packages - the REST API works with any HTTP client - but the official API clients implement best practices such as exponential backoff and rate limiting.
+You don't have to use those packages, because the REST API works with any HTTP client. The official API clients implement best practices such as exponential backoff and rate limiting.
 
 ## API token
 

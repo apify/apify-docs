@@ -16,7 +16,7 @@ To use Apify Console, create an account at the [sign-up page](https://console.ap
 
 This is the most common way of creating an account. You just need to provide your email address and a password. The password needs to be at least 8 characters, should not be your email address, and should either contain special characters or be long enough to be secure. The password field has a strength indicator below it that will tell you if your password is strong enough.
 
-After you select **Sign up**, we will send you a verification email. The email contains a link that you need to open or copy to your browser to proceed to automated email verification. After we verify your email, you will proceed to Apify Console. If you open the link in a browser where you aren't signed in, sign in first.
+After you select **Sign up**, we will send you a verification email. The email contains a link that you need to open or copy to your browser to proceed to automated email verification. After we verify your email, you will proceed to Apify Console. If you aren't signed in to Apify Console in that browser, Apify Console asks you to sign in before it verifies your email.
 
 :::info CAPTCHA
 We are using Google reCAPTCHA to prevent spam accounts. Usually, you will not see it, but if Google evaluates your browser as suspicious, they will ask you to solve a reCAPTCHA before we create your account and send you the verification email.
