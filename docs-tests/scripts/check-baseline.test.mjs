@@ -1,4 +1,4 @@
-// Tests for check-baseline.mjs. Run with `node --test scripts/` from docs-tests/.
+// Tests for check-baseline.mjs. Run with `node --test scripts/check-baseline.test.mjs` from docs-tests/.
 
 import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';

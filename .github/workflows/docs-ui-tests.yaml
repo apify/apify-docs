@@ -54,7 +54,7 @@ jobs:
                     node-version: 24
 
             -   name: Test the checker
-                run: node --test scripts/
+                run: node --test scripts/check-baseline.test.mjs
 
             -   name: Check the assertion baseline
                 run: node scripts/check-baseline.mjs

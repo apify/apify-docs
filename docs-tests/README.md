@@ -76,7 +76,7 @@ the model drafts; you decide what's a real, testable UI claim (see
 ```bash
 node scripts/check-baseline.mjs            # format errors fail, stale assertions warn
 node scripts/check-baseline.mjs --strict   # stale assertions fail too
-node --test scripts/                       # tests for the checker itself
+node --test scripts/check-baseline.test.mjs   # tests for the checker itself
 ```
 
 Each finding names the assertion, its file and, for doc drift, the

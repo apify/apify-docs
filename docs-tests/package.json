@@ -9,6 +9,6 @@
     "extract:all": "bash scripts/extract-all.sh",
     "check": "node scripts/check-baseline.mjs",
     "check:strict": "node scripts/check-baseline.mjs --strict",
-    "test": "node --test scripts/"
+    "test": "node --test scripts/check-baseline.test.mjs"
   }
 }
