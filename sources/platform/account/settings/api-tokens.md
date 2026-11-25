@@ -12,6 +12,8 @@ Apify Console shows the value of an API token only once, right after you create 
 
 The Apify CLI doesn't need a copied token. When you sign in with [`apify login`](/cli/docs/reference#apify-auth-login--apify-login) in the browser, it creates a token for your device and stores it for you.
 
+When a token is created or rotated on your account, Apify sends you an email and a notification in Apify Console. This includes tokens that `apify login` creates. If you don't recognize the token, secure your account in **Settings > Login & Privacy** and delete the token.
+
 :::caution Protect your API token
 Do not share the API token with untrusted parties, or use it directly from client-side code,
 unless you fully understand the consequences! You can also consider [limiting the permission scope](#limited-permissions) of the token, so that it can only access what it really needs.
