@@ -68,7 +68,7 @@ await stats.initialize();
 // ...
 ```
 
-:::note
+:::note Import order
 
 The starter's ESLint config sorts imports alphabetically, so the **Stats.js** import goes after **routes.js**.
 
@@ -78,7 +78,7 @@ The starter's ESLint config sorts imports alphabetically, so the **Stats.js** im
 
 In order to keep track of errors, we must write a new function within the crawler's configuration called **errorHandler**. Crawlee calls it with two arguments. The first one is the crawling context, which contains the **Request** object, as well as information about the session and proxy which were used for the request. The second one is the **Error** object for the error which occurred.
 
-:::note
+:::note Which handler runs when
 
 Crawlee calls **errorHandler** only when it's going to retry the request. When the request fails for the last time, Crawlee calls **failedRequestHandler** instead.
 
