@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Extract testable Console-UI assertions from ONE docs page using `claude -p`,
 # and write the result to assertions/<slug>.json — a committed, reviewed
-# baseline the runner later evaluates against staging.
+# baseline that check-baseline.mjs validates.
 #
 # Usage: bash scripts/extract.sh <repo-relative-doc-path>
 #   e.g. bash scripts/extract.sh sources/platform/console/settings.md

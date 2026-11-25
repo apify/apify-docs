@@ -20,3 +20,7 @@
 
 # OpenAPI spec
 /apify-api/ @janbuchar @fnesveda @szaganek
+
+# Console UI assertion baseline: input to a browser job that runs outside this repo
+/docs-tests/ @TC-MO @marcel-rbro @szaganek
+/.github/workflows/docs-ui-tests.yaml @TC-MO @marcel-rbro @szaganek
