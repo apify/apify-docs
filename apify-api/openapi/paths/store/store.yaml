@@ -145,8 +145,6 @@ get:
       $ref: ../../components/responses/BadRequest.yaml
     "401":
       $ref: ../../components/responses/Unauthorized.yaml
-    "403":
-      $ref: ../../components/responses/Forbidden.yaml
     "405":
       $ref: ../../components/responses/MethodNotAllowed.yaml
     "429":
