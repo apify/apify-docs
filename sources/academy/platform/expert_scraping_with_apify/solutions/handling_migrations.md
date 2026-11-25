@@ -174,7 +174,7 @@ The listener is registered in the `initialize()` method and not in the construct
 
 ## Handling resurrections {#handling-resurrections}
 
-Great! Once `initialize()` is called, our state will be persisted every 60 seconds in the key-value store. However, we're not done. Let's say that the Actor migrates and is resurrected. We never actually update the `state` variable of our `ASINTracker` class with the state stored in the key-value store, so as our code currently stands, we still don't support state-persistence on migrations.
+Once `initialize()` is called, our state will be persisted every 60 seconds in the key-value store. However, we're not done. Let's say that the Actor migrates and is resurrected. We never actually update the `state` variable of our `ASINTracker` class with the state stored in the key-value store, so as our code currently stands, we still don't support state-persistence on migrations.
 
 In order to fix this, let's extend the `initialize` method, so that before it starts persisting the state, it checks the key-value store for a previous state under the key **ASIN-TRACKER**. If a previous state does live there, then it will update the class' `state` variable with the value read from the key-value store:
 
