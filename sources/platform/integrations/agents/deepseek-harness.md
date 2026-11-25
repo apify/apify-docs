@@ -8,6 +8,7 @@ slug: /integrations/deepseek-harness
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
 import ApifyPluginSkillPrompts from '@site/sources/_partials/_apify-plugin-skill-prompts.mdx';
 import FindGoogleMapsActorPrompt from '@site/sources/_partials/_find-google-maps-actor-prompt.mdx';
+import { CreateApiTokenLink, CopyTokenStep } from '@site/src/components/ApiToken';
 
 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) (`dsh`) is DeepSeek's open-source agent harness. It boots a profile, an ordered stack of plugin layers. It then runs the agent in your terminal or in a local web GUI, backed by the model provider you configure.
 
@@ -69,7 +70,7 @@ The plugin enables the Apify MCP server on install. Searching Apify Store, inspe
 
 `dsh` sends static MCP headers and has no OAuth flow, so authenticate with an API token:
 
-1. Copy your token from [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations?utm_source=deepseek-harness&utm_medium=integrations).
+1. <CreateApiTokenLink /> <CopyTokenStep />
 
 1. Create a `.env` file in the directory you launch `dsh` from:
 
@@ -166,7 +167,7 @@ No `APIFY_TOKEN` was set when `dsh` started, so only the anonymous MCP tools loa
 
 ### The Apify MCP server fails to start with `invalid_token`
 
-The token is present but rejected. Check for stray quotes or trailing whitespace in the `.env` file, regenerate the token in [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations?utm_source=deepseek-harness&utm_medium=integrations) if needed, and restart the profile.
+The token is present but rejected. Check for stray quotes or trailing whitespace in the `.env` file, rotate the token in [Apify Console > Settings > Integrations](https://console.apify.com/settings/integrations?utm_source=deepseek-harness&utm_medium=integrations) if needed, and restart the profile.
 
 ### The `apify` command fails with `EPERM` or `EACCES`
 

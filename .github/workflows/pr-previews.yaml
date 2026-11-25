@@ -1,32 +1,33 @@
 name: Docs PR Previews
 
+# No secrets here, pull request branches cannot read them; `pr-previews-trigger.yaml` starts the build from master.
 on:
   pull_request:
     types: [opened, synchronize, reopened, closed]
+
+permissions: {}
 
 concurrency:
   cancel-in-progress: false
   group: 'docs-pr-previews-${{ github.event.pull_request.number }}'
 
 jobs:
-  trigger-preview:
-    if: github.event.action != 'closed'
-
+  record-preview:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Trigger preview
-        run: gh workflow run apify_docs_pr.yml --repo apify/apify-docs-private --field pr-number=${{ github.event.pull_request.number }} --field original-repository=${{ github.repository }}
+      - name: Record the pull request
+        run: |
+          mkdir preview
+          echo "$PR_NUMBER" > preview/pr-number
+          echo "$PREVIEW_ACTION" > preview/action
         env:
-          GH_TOKEN: ${{ secrets.APIFY_SERVICE_ACCOUNT_GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          PREVIEW_ACTION: ${{ github.event.action == 'closed' && 'delete' || 'create' }}
 
-  delete-preview:
-    if: github.event.action == 'closed'
-
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Delete preview
-        run: gh workflow run apify_docs_pr.yml --repo apify/apify-docs-private --field pr-number=${{ github.event.pull_request.number }} --field original-repository=${{ github.repository }} --field action=delete
-        env:
-          GH_TOKEN: ${{ secrets.APIFY_SERVICE_ACCOUNT_GITHUB_TOKEN }}
+      - name: Upload the record
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: preview
+          path: preview/
+          retention-days: 1

@@ -22,6 +22,33 @@ limit:
     format: double
     example: 1000
 
+storeLimit:
+  name: limit
+  in: query
+  description: |
+    Maximum number of items to return. The default value as well as the
+    maximum is `1000`. When `search` is used, the default and maximum are
+    `100`, and larger values are reduced to `100`.
+  style: form
+  explode: true
+  schema:
+    type: number
+    format: double
+    example: 100
+
+storeOffset:
+  name: offset
+  in: query
+  description: |
+    Number of items that should be skipped at the start. The default value
+    is `0`. Ignored when `search` is used.
+  style: form
+  explode: true
+  schema:
+    type: number
+    format: double
+    example: 0
+
 desc: &desc
   name: desc
   in: query
