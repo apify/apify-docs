@@ -60,6 +60,13 @@
     }
 }
 
+/* Narrower search between the mobile and desktop breakpoints, so the navbar buttons on the right still fit. */
+@media (min-width: 769px) and (max-width: 996px) {
+    .DocSearch-Button {
+        width: 14rem;
+    }
+}
+
 @media (max-width: 768px) {
     .SearchButton-Container {
         width: 100%;
