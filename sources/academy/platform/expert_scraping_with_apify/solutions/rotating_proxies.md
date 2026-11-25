@@ -16,8 +16,7 @@ If you take a look at our current code for the Amazon scraping Actor, you might 
 ```js
 const proxyConfiguration = await Actor.createProxyConfiguration({
     groups: ['RESIDENTIAL'],
-    // Without this, Amazon shows prices in the currency of the proxy's country
-    countryCode: 'US',
+    countryCode: 'US', // prices in USD, not in proxy's country currency
 });
 ```
 
