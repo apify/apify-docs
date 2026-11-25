@@ -130,20 +130,20 @@ $ node proxies.js
 {
   sessionId: 'session_bOhBbNllfJ',
   url: 'http://43.128.166.24:59394',
-  groups: undefined,
-  countryCode: undefined,
+  username: '',
   password: '',
   hostname: '43.128.166.24',
-  port: '59394'
+  port: '59394',
+  proxyTier: undefined
 }
 {
   sessionId: 'session_Uj7aBGaQlk',
   url: 'http://45.42.177.37:3128',
-  groups: undefined,
-  countryCode: undefined,
+  username: '',
   password: '',
   hostname: '45.42.177.37',
-  port: '3128'
+  port: '3128',
+  proxyTier: undefined
 }
 ...
 ```
