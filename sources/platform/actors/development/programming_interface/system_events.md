@@ -25,7 +25,8 @@ The following system events are available:
 
 | Event name | Payload | Description |
 | --- | --- | --- |
-| `cpuInfo` | `{ isCpuOverloaded: Boolean }` | Emitted approximately every second, indicating whether the Actor is using maximum available CPU resources. |
+| `systemInfo` | `{ isCpuOverloaded: Boolean, cpuCurrentUsage: Number, memCurrentBytes: Number, ... }` | Emitted approximately every second, describing the CPU and memory usage of the Actor. `isCpuOverloaded` indicates whether the Actor is using maximum available CPU resources. |
+| `cpuInfo` | `{ isCpuOverloaded: Boolean }` | Deprecated, use `systemInfo` instead. |
 | `migrating` | `{ timeRemainingSecs: Float }` | Signals that the Actor will soon migrate to another worker server on the Apify platform. |
 | `aborting` | N/A | Signals a graceful abort of the run, granting time for cleanup. Emitted in the following cases: <ul><li>User initiates a graceful abort.</li><li>Run reaches its maximum cost limit.</li><li>In a [Server Actor](/actors/development/programming-interface/server-actors), a run times out due to inactivity or its worker is shut down.</li></ul> |
 | `persistState` | `{ isMigrating: Boolean }` | Emitted at regular intervals  (default: _60 seconds_) to notify Apify SDK components to persist their state. |
@@ -66,7 +67,7 @@ import { Actor } from 'apify';
 await Actor.init();
 
 // Add event handler
-Actor.on('cpuInfo', (data) => {
+Actor.on('systemInfo', (data) => {
     if (data.isCpuOverloaded) console.log('Oh no, we need to slow down!');
 });
 
