@@ -36,7 +36,7 @@ Then open the **academy-amazon-scraper** Actor in [Apify Console](https://consol
 
 ## Advanced Actor overview {#advanced-actors}
 
-Take a look at the files within the project. You'll notice that there is a `Dockerfile` in the project's root folder. Every single Actor has a Dockerfile (the Actor's **Image**) which tells Docker how to start a container on the Apify platform which can successfully run the Actor's code. "Apify Actors" is a serverless platform that runs multiple Docker containers. For a deeper understanding of Actor Dockerfiles, refer to the [Apify Actor Dockerfile docs](/sdk/js/docs/guides/docker-images#example-dockerfile).
+Take a look at the files within the project. You'll notice that there is a `Dockerfile` in the project's root folder. Every single Actor has a Dockerfile (the Actor's **Image**) which tells Docker how to start a container on the Apify platform which can successfully run the Actor's code. "Apify Actors" is a serverless platform that runs multiple Docker containers. For a deeper understanding of Actor Dockerfiles, see [Running in Docker](/sdk/js/docs/guides/docker-images).
 
 ## Webhooks {#webhooks}
 
