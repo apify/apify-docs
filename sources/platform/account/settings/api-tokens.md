@@ -8,7 +8,7 @@ slug: /account/api-tokens
 
 To access the Apify API in your integrations, you need to authenticate using your secret API token. You manage your tokens on the [API & Integrations](https://console.apify.com/settings/integrations) page in Apify Console. A new account has no API token, so [create one](#create-api-token) before your first API call.
 
-Apify Console shows the value of an API token only once, right after you create or [rotate](#rotation) it. The token list shows each token's description, a masked preview of its value, when it was last used, and when it expires. You can't view or copy the full value of an existing token. Use the preview to tell your tokens apart.
+Apify Console shows the value of an API token only once, right after you create or [rotate](#rotation) it. The token list shows each token's name, a masked preview of its value, when it was last used, and when it expires. You can't view or copy the full value of an existing token. Use the preview to tell your tokens apart.
 
 The Apify CLI doesn't need a copied token. When you sign in with [`apify login`](/cli/docs/reference#apify-auth-login--apify-login) in the browser, it creates a token for your device and stores it for you.
 
@@ -21,7 +21,7 @@ unless you fully understand the consequences! You can also consider [limiting th
 
 1. Go to [**Settings > API & Integrations**](https://console.apify.com/settings/integrations) in Apify Console.
 1. In the **Personal API tokens** section, select **Create a new token**.
-1. Enter a description that says where you will use the token.
+1. Enter a name that says where you will use the token. Optionally, add a description.
 1. In **Expiration**, keep the default of **90 days** or [choose another option](#expiration).
 1. Optionally, [limit the token's permissions](#limited-permissions).
 1. Select **Create**.
@@ -55,7 +55,7 @@ For better security awareness, the UI marks tokens identified as compromised wit
 Treat an API token like a password:
 
 - Use a separate token for each service, much like you shouldn't use the same password for different accounts.
-- Give each token a description that says where you use it.
+- Give each token a name that says where you use it.
 - [Limit the token's permissions](#limited-permissions) to what the service needs.
 - Keep an [expiration](#expiration) on tokens you share with third-party services or use for temporary access.
 - [Rotate](#rotation) a token as soon as you suspect it's exposed.
