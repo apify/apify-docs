@@ -39,13 +39,7 @@ First, let's create a repository. This can be done [in a number of ways](https:/
 
 ![GitHub's + menu open, with New repository highlighted](./images/github-new-repo.png)
 
-:::note Why not use GitHub's suggested commands
-
-GitHub then suggests commands for pushing an existing repository, but we can't use them as they are. We cloned **academy-amazon-scraper** from the starter repository, so its `origin` remote already points to `apify-projects/academy-amazon-scraper`, and `git remote add origin …` would fail with `remote origin already exists`.
-
-:::
-
-Instead, we'll point `origin` to our new repository and push all of the files to it. Run the following in the **academy-amazon-scraper** directory, with your own repository URL:
+GitHub then suggests commands for pushing an existing repository, but we can't use them as they are. We cloned **academy-amazon-scraper** from the starter repository, so its `origin` remote already points to `apify-projects/academy-amazon-scraper`, and `git remote add origin …` would fail with `remote origin already exists`. Instead, we'll point `origin` to our new repository and push all of the files to it. Run the following in the **academy-amazon-scraper** directory, with your own repository URL:
 
 ```bash
 git remote set-url origin https://github.com/YOUR_USERNAME/academy-amazon-scraper.git
