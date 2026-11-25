@@ -15,8 +15,7 @@ Let's first head into our **academy-amazon-scraper** and create a new file named
 
 Here's the skeleton of our class:
 
-```js
-// asinTracker.js
+```js title="asinTracker.js"
 import { log } from 'apify';
 
 class ASINTracker {
@@ -50,8 +49,7 @@ Multiple techniques exist for storing data in memory; however, this is the most 
 
 Here is our updated **routes.js** file which is now utilizing this utility class to track the number of offers for each product ASIN:
 
-```js
-// routes.js
+```js title="routes.js"
 import { createCheerioRouter } from '@crawlee/cheerio';
 
 import { tracker } from './asinTracker.js';
@@ -130,17 +128,14 @@ The **persistState** event is automatically fired (by default) every 60 seconds 
 
 In order to persist our ASIN tracker object, let's use the `Actor.on` function to listen for the **persistState** event and store it in the key-value store each time it is emitted. First, we'll add the name of the key-value store key to **constants.js**:
 
-```js
-// constants.js
-
+```js title="constants.js"
 // ...
 export const ASIN_TRACKER = 'ASIN-TRACKER';
 ```
 
 Then we can use it in the tracker:
 
-```js
-// asinTracker.js
+```js title="asinTracker.js"
 import { Actor, log } from 'apify';
 
 import { ASIN_TRACKER } from './constants.js';
@@ -183,8 +178,7 @@ Great! Once `initialize()` is called, our state will be persisted every 60 secon
 
 In order to fix this, let's extend the `initialize` method, so that before it starts persisting the state, it checks the key-value store for a previous state under the key **ASIN-TRACKER**. If a previous state does live there, then it will update the class' `state` variable with the value read from the key-value store:
 
-```js
-// asinTracker.js
+```js title="asinTracker.js"
 import { Actor, log } from 'apify';
 
 import { ASIN_TRACKER } from './constants.js';
@@ -225,9 +219,7 @@ export const tracker = new ASINTracker();
 
 We'll now call this method at the top level of the **main.js** file to ensure it is the first thing that gets called when the Actor starts up:
 
-```js
-// main.js
-
+```js title="main.js"
 // ...
 import { tracker } from './asinTracker.js';
 

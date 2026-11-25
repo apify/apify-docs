@@ -13,8 +13,7 @@ pagination: true
 
 The code in this solution will be similar to what we already did in the **Handling migrations** solution; however, we'll be storing and logging different data. First, let's create a new file called **Stats.js** and write a utility class for storing our run stats:
 
-```js
-// Stats.js
+```js title="Stats.js"
 import { Actor, log } from 'apify';
 
 class Stats {
@@ -52,8 +51,7 @@ export const stats = new Stats();
 
 Cool, very similar to the **ASINTracker** class we wrote earlier. We'll now import `stats` into our **main.js** file and initialize it along with the ASIN tracker:
 
-```js
-// main.js
+```js title="main.js"
 import { CheerioCrawler } from '@crawlee/cheerio';
 import { Actor, log } from 'apify';
 
@@ -107,9 +105,7 @@ const crawler = new CheerioCrawler({
 
 Now, we'll increment our **totalSaved** count for every offer added to the dataset. The **OFFERS** handler lives in **routes.js**, so we need to import `stats` there as well:
 
-```js
-// routes.js
-
+```js title="routes.js"
 // ...
 import { stats } from './Stats.js';
 
