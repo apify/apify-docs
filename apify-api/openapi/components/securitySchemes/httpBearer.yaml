@@ -3,7 +3,7 @@ scheme: bearer
 description: |-
   Bearer token provided in the `Authorization` header (e.g., `Authorization: Bearer your_token`—recommended). For details, see the [`Authorization` header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization) on MDN.
 
-  Use your API token to authenticate requests. You can find it on the [Integrations page](https://console.apify.com/account#/integrations) in Apify Console. This method is more secure than query parameters, as headers are not logged in browser history or server logs.
+  Use your API token to authenticate requests. You can create one on the [Integrations page](https://console.apify.com/settings/integrations) in Apify Console. The Console shows the token only once, right after you create or rotate it, so copy it and store it somewhere safe. This method is more secure than query parameters, as headers are not logged in browser history or server logs.
 
   :::danger Security
 

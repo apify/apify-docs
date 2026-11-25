@@ -1,0 +1,53 @@
+name: Docs PR Previews (trigger)
+
+# Runs from master so it can use the token's environment; never check out or run pull request content here.
+on:
+  workflow_run:
+    workflows: [Docs PR Previews]
+    types: [completed]
+
+permissions:
+  # Downloads the record uploaded by the triggering run.
+  actions: read
+
+concurrency:
+  cancel-in-progress: false
+  group: 'docs-pr-previews-trigger-${{ github.event.workflow_run.head_branch }}'
+
+jobs:
+  trigger-preview:
+    # Forks keep getting no previews, as before.
+    if: >-
+      github.event.workflow_run.conclusion == 'success'
+      && github.event.workflow_run.head_repository.full_name == github.repository
+    runs-on: ubuntu-latest
+    # Only for the service account token, this job deploys nothing itself.
+    environment:
+      name: automation
+      deployment: false
+
+    steps:
+      - name: Download the record
+        run: gh run download "$RUN_ID" --repo "$GITHUB_REPOSITORY" --name preview --dir preview
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_ID: ${{ github.event.workflow_run.id }}
+
+      - name: Trigger preview
+        run: |
+          pr_number=$(cat preview/pr-number)
+          preview_action=$(cat preview/action)
+          # The record comes from a pull request run, so treat it as untrusted input.
+          if [[ ! "$pr_number" =~ ^[0-9]+$ ]]; then
+            echo "::error::Unexpected pull request number"
+            exit 1
+          fi
+          case "$preview_action" in
+            create) extra=() ;;
+            delete) extra=(--field action=delete) ;;
+            *) echo "::error::Unexpected preview action"; exit 1 ;;
+          esac
+          gh workflow run apify_docs_pr.yml --repo apify/apify-docs-private \
+            --field pr-number="$pr_number" --field original-repository="$GITHUB_REPOSITORY" "${extra[@]}"
+        env:
+          GH_TOKEN: ${{ secrets.APIFY_SERVICE_ACCOUNT_GITHUB_TOKEN }}

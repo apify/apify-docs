@@ -1,6 +1,7 @@
 get:
   tags:
     - Actor runs
+    - Actor Runtime API/Actor runs
   summary: Get Actor run
   description: |
     This is not a single endpoint, but an entire group of endpoints that lets
@@ -59,6 +60,7 @@ get:
 put:
   tags:
     - Actor runs
+    - Actor Runtime API/Actor runs
   summary: Update Actor run
   description: |
     This endpoint can be used to update both the run's status message and to configure its general resource access level.
@@ -136,6 +138,7 @@ put:
 delete:
   tags:
     - Actor runs
+    - Actor Runtime API/Actor runs
   summary: Delete Actor run
   description: |
     Delete the run. Only finished runs can be deleted. Only the person or

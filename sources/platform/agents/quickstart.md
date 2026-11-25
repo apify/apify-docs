@@ -8,6 +8,7 @@ toc_max_heading_level: 3
 ---
 
 import ClaudeCodeWebEgress from '@site/sources/_partials/_claude-code-web-egress.mdx';
+import CreateApiToken from '@site/sources/_partials/_create-api-token.mdx';
 
 Connect your AI agent to the Apify MCP server and run your first Actor. For how the MCP server, plugins, and Agent Skills compare, and for the setup guide for your agent, see [For AI agents](/agents).
 
@@ -15,7 +16,9 @@ Apify also serves a quickstart for agents to read directly at [`apify.com/agents
 
 ## Prerequisites
 
-Sign up for an [Apify account](https://console.apify.com/sign-up). The free plan includes monthly platform usage credits with no credit card required. Get your API token from **[Console > Settings > Integrations](https://console.apify.com/settings/integrations)**.
+Sign up for an [Apify account](https://console.apify.com/sign-up). The free plan includes monthly platform usage credits with no credit card required.
+
+<CreateApiToken />
 
 <ClaudeCodeWebEgress />
 
@@ -60,7 +63,7 @@ Your agent calls [`search-actors`](/mcp#available-tools), [`call-actor`](/mcp#av
 
 When an agent calls Actors automatically, set run limits to prevent surprise bills. Pass them in the `callOptions` argument of [`call-actor`](/mcp#available-tools). Fields with these names in the Actor `input` don't cap the run, because the Actor's input schema decides how it handles them.
 
-- `maxTotalChargeUsd` - cap the total amount charged for the run. Works for all pricing models.
+- `maxTotalChargeUsd` - cap the total amount charged for the run. Doesn't apply to Actors priced per result. Use `maxItems` for those.
 - `maxItems` - cap how many results you pay for on an Actor priced per result.
 - `timeout` (seconds) - cap how long a single run can last.
 - `memory` (MB) - set memory as a power of 2, minimum 128. Lower memory means lower cost per second.

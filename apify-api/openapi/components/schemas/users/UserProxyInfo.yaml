@@ -1,0 +1,21 @@
+title: UserProxyInfo
+description: Reduced user data with only the fields Apify Proxy reads.
+required:
+  - plan
+  - effectivePlatformFeatures
+  - isPaying
+type: object
+properties:
+  plan:
+    title: UserProxyPlan
+    required:
+      - availableProxyGroups
+    type: object
+    properties:
+      availableProxyGroups:
+        $ref: ./AvailableProxyGroups.yaml
+  effectivePlatformFeatures:
+    $ref: ./EffectivePlatformFeatures.yaml
+  isPaying:
+    type: boolean
+    examples: [true]

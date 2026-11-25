@@ -7,6 +7,7 @@ slug: /integrations/albato
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+import { CreateTokenStep, CopyTokenStep } from '@site/src/components/ApiToken';
 
 [Albato](https://albato.com/automate) is a no-code integration platform that connects over 1,000 apps through a visual automation builder. With [Apify integration for Albato](https://albato.com/apps/apify), you can use Apify Actors as triggers or actions inside your Albato workflows to scrape data, run automation jobs, and pass results to any connected app.
 
@@ -25,17 +26,7 @@ You can use the Albato integration to trigger a workflow whenever an Actor or a 
 
 ### Step 1: Get your Apify API token
 
-Log in to [Apify Console](https://console.apify.com/).
-
-![Apify Console dashboard for signing in](../images/albato-apify-console.webp)
-
-Go to **Settings > API & Integrations**.
-
-![Apify Console Settings page open](../images/albato-api-settings.webp)
-
-Copy your **Personal API token**.
-
-![Apify Console API & Integrations page showing the Personal API token field](../images/albato-api-token.webp)
+Log in to [Apify Console](https://console.apify.com/) and go to **Settings > API & Integrations**. <CreateTokenStep /> <CopyTokenStep />
 
 ### Step 2: Create the Apify connection in Albato
 
@@ -124,7 +115,7 @@ Apify Actors often run for several minutes, which doesn't fit well into a single
 
 ### Connection fails with "invalid token"
 
-Confirm that you copied the **Personal API token** from **Settings > API & Integrations** in Apify Console, not a different scoped token. Make sure no spaces or line breaks were added when pasting the token into Albato. If the connection still fails, generate a new token in Apify Console and recreate the connection.
+Confirm that you pasted the complete token you copied when you created it in Apify Console. Make sure no spaces or line breaks were added when pasting the token into Albato. If the connection still fails, create a new token in Apify Console and recreate the connection.
 
 ### Actor or task doesn't appear in the dropdown
 

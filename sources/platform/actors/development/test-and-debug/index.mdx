@@ -1,0 +1,61 @@
+---
+title: Test and debug Actors
+sidebar_label: Test and debug
+description: Test Actors locally with the Apify CLI, on the Apify platform and in CI with apify-test-tools, and attach a debugger to runs that fail on the platform.
+slug: /actors/development/test-and-debug
+sidebar_position: 8
+---
+
+An Actor that works on your machine can still fail on the Apify platform. Run your Actor locally while you develop, test it on the platform before you release it, and debug the runs that fail.
+
+## Test locally
+
+Before you deploy your Actor, run it locally with the [Apify CLI](/cli/docs):
+
+```bash
+apify run
+```
+
+The run reads its input from `storage/key_value_stores/default/INPUT.json` and writes its output to the `storage` folder of your project. You can edit `INPUT.json` to try different inputs, and check the results without using platform resources.
+
+To build and run your Actor in a container the way the platform does, with a local version of Apify Console and storages, use the [local Actor runtime](/actors/development/test-and-debug/actor-runtime).
+
+## Test on the Apify platform {#apify-test-tools}
+
+To catch problems that only appear in a real run, such as proxy errors or memory limits, use [apify-test-tools](https://github.com/apify/apify-test-tools). It's an open-source package that builds, tests, and releases Actors from a Git repository.
+
+apify-test-tools has three parts:
+
+- A Vitest library for writing tests that run your Actor on the Apify platform and check its status, log, dataset, and key-value store. It also supports [Server Actors](/actors/development/programming-interface/server-actors).
+- GitHub Actions workflows that build and test the Actors changed in each pull request, release them on every merge, and run tests on a schedule to catch problems caused by changes on target websites.
+- A CLI for building your own pipeline on a CI platform other than GitHub, or for building and testing locally.
+
+The tool builds and tests only the Actors that a change affects, which saves time and platform costs in repositories with many Actors.
+
+For example, the following workflow builds and tests the changed Actors on every pull request:
+
+```yaml title=".github/workflows/pr-build-devel-test.yaml"
+name: PR test
+
+on:
+    pull_request:
+        branches: [master]
+
+jobs:
+    buildDevelAndTest:
+        uses: apify/apify-test-tools/.github/workflows/public_pr-build-test.yaml@workflows-v0
+        secrets:
+            CONFIG_SECRETS: |
+                {
+                    "APIFY_TOKEN_MYTEAM": "${{ secrets.APIFY_TOKEN_MYTEAM }}",
+                    "APIFY_TOKEN_PARTNER": "${{ secrets.APIFY_TOKEN_PARTNER }}"
+                }
+```
+
+For the full setup, including the workflows for releases and scheduled tests, see the [README](https://github.com/apify/apify-test-tools/blob/master/README.md).
+
+## Debug Actor runs
+
+You can reproduce most bugs locally with your IDE's debugger. When a bug only happens on the platform, attach a debugger to the run itself. You can set breakpoints and inspect variables from your browser or from your local IDE.
+
+For details, see [Debug Actors on the Apify platform](./debugging.md).

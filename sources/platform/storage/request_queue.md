@@ -38,13 +38,13 @@ In the [Apify Console](https://console.apify.com), you can view your request que
 
 To view a request queue, click on its **Queue ID**.
 Under the **Actions** menu, you can rename your queue (which affects its [retention period](/storage#named-and-unnamed-storages)) and grant [access rights](/account/collaboration) using the **Share** button.
-To view and test a queue's [API endpoints](/api/v2/storage-request-queues), select **API**.
+To view a queue's [API endpoints](/api/v2/storage-request-queues), select **API**.
 
 ### Apify API
 
 The [Apify API](/api/v2/storage-request-queues) gives you programmatic access to your request queues using [HTTP requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
 
-If you are accessing your request queues using the `username~store-name` [store ID format](./index.md), you will need to use your secret API token. You can find the token (and your user ID) on the [API & Integrations](https://console.apify.com/settings/integrations) page of your Apify account.
+If you are accessing your request queues using the `username~store-name` [store ID format](./index.md), you will need to use your secret API token. You can find your user ID and [create an API token](/integrations/api#create-api-token) on the [API & Integrations](https://console.apify.com/settings/integrations) page of your Apify account.
 
 :::tip Pass tokens in the Authorization header
 

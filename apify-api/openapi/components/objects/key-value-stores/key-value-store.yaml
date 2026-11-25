@@ -24,6 +24,7 @@ common200: &common200
 sharedById: &sharedById
   tags:
     - Storage/Key-value stores
+    - Actor Runtime API/Key-value stores
   parameters:
     - $ref: "../../parameters/keyValueStoreParameters.yaml#/storeId"
 
@@ -76,6 +77,9 @@ getById:
 
 getDefault:
   <<: [*sharedGet, *sharedDefault]
+  tags:
+    - Default key-value store
+    - Actor Runtime API/Key-value stores
   summary: Get the default key-value store of an Actor run
   description: |
     Gets an object that contains all the details about the default key-value
@@ -88,6 +92,9 @@ getDefault:
 
 getLastRun:
   <<: [*sharedGet, *sharedLastRun]
+  tags:
+    - Last Actor run's default key-value store
+    - Actor Runtime API/Key-value stores
   summary: Get the default key-value store of an Actor's last run
   description: |
     Gets an object that contains all the details about the default key-value store associated with the last Actor run.
@@ -99,6 +106,9 @@ getLastRun:
 
 getTaskLastRun:
   <<: [*sharedGet, *sharedTaskLastRun]
+  tags:
+    - Last Actor task run's default key-value store
+    - Actor Runtime API/Key-value stores
   summary: Get the default key-value store of an Actor task's last run
   description: |
     Gets an object that contains all the details about the default key-value store of the last Actor task run.

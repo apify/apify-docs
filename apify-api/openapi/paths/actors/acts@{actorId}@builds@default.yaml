@@ -1,6 +1,7 @@
 get:
   tags:
     - Actors/Actor builds
+    - Actor Runtime API/Actor builds
   summary: Get default Actor build
   description: |
     Get the default build for an Actor.

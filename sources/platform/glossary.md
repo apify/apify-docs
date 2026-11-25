@@ -23,7 +23,7 @@ An [Actor task](/actors/running/tasks) is a saved, reusable input configuration 
 
 ## Agentic payments
 
-[Agentic payments](/agents/payments) let AI agents pay for and run Actors without an Apify account or ongoing billing. With [x402](/integrations/x402) (stablecoins on Base or Solana) or the [Machine Payments Protocol (MPP)](/integrations/mpp) (stablecoins on Tempo or Solana), the agent pays once for a prepaid [API token](#api-token) through [Apify AGI](#apify-agi), Apify's entry point for agents, and runs Actors until its balance runs out. AGI also sells the same token for a [Skyfire](/integrations/skyfire) payment. A prepaid token runs only Actors that use [limited permissions](/actors/development/permissions).
+[Agentic payments](/agents/payments) let AI agents pay for and run Actors without an Apify account or ongoing billing. With [x402](/integrations/x402) (stablecoins on Base or Solana), the [Machine Payments Protocol (MPP)](/integrations/mpp) (stablecoins on Tempo or Solana), or a card, the agent pays once for a prepaid [API token](#api-token) through [Apify AGI](#apify-agi), Apify's entry point for agents, and runs Actors until its balance runs out. AGI also sells the same token for a [Skyfire](/integrations/skyfire) payment. A prepaid token runs only Actors that use [limited permissions](/actors/development/permissions).
 
 ## API token
 
@@ -79,7 +79,7 @@ A [build](/actors/development/builds-and-runs/builds) is a versioned Docker imag
 
 ## Compute unit
 
-A [compute unit](/actors/running/usage-and-resources) (CU) is the Apify platform's usage and billing unit, equal to 1 GB of memory running for one hour. Allocating more memory to an [Actor run](#actor-run) consumes CUs faster.
+A [compute unit](/actors/running/usage-and-resources/compute-units) (CU) is the Apify platform's usage and billing unit, equal to 1 GB of memory running for one hour. Allocating more memory to an [Actor run](#actor-run) consumes CUs faster.
 
 ## Crawlee
 
