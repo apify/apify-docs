@@ -46,9 +46,10 @@ As a last step, when asked how to set up the source code, select **Local only**,
 
 ## Building the new Actor {#building-the-new-actor}
 
-First of all, we should clear out any of the boilerplate code within `main.js` to get a clean slate:
+First of all, we should clear out any of the boilerplate code within **main.js** to get a clean slate:
 
-```js title="main.js"
+```js
+// main.js
 import { Actor } from 'apify';
 
 await Actor.init();
@@ -142,7 +143,7 @@ await Actor.pushData(Object.values(filtered));
 await Actor.exit();
 ```
 
-Cool! But wait, don't forget to configure the `.actor/input_schema.json` file as well! New Actors run with [limited permissions](/actors/development/permissions) by default, so they can't read storages they didn't create, such as the dataset of our Amazon scraper. By declaring the `datasetId` input as a dataset with `resourceType` and `resourcePermissions`, we grant the filter Actor read access to the dataset it receives:
+Cool! But wait, don't forget to configure the **.actor/input_schema.json** file as well! New Actors run with [limited permissions](/actors/development/permissions) by default, so they can't read storages they didn't create, such as the dataset of our Amazon scraper. By declaring the `datasetId` input as a dataset with `resourceType` and `resourcePermissions`, we grant the filter Actor read access to the dataset it receives:
 
 ```json
 {
@@ -255,7 +256,7 @@ Additionally, the **filter-actor** should have a new run. Its **Output** tab sho
 
 **Q: How do you allocate more CPU for an Actor's run?**
 
-**A:** On the Apify platform, CPU is allocated in proportion to memory, and every 4 GB of memory gives the Actor one CPU core. To get more CPU, allocate more memory, either in the run options of a single run, or as the default memory in the Actor's **Settings** tab. When running locally, the Actor uses the CPU of your computer. The `ACTOR_MEMORY_MBYTES` environment variable only tells the SDK how much memory it can use.
+**A:** On the Apify platform, CPU is allocated in proportion to memory, and every 4 GB of memory gives the Actor one CPU core. To get more CPU, allocate more memory, either in the run options of a single run, or as the default memory in the Actor's **Settings** tab. When running locally, the Actor uses the CPU of your computer. The **ACTOR_MEMORY_MBYTES** environment variable only tells the SDK how much memory it can use.
 
 **Q: Within itself, can you get the exact time that an Actor was started?**
 
