@@ -8,62 +8,84 @@ pagination: true
 
 **Learn how to use and automagically rotate proxies in your scrapers by using Crawlee, and a bit about how to obtain pools of proxies.**
 
-:::caution Updates coming
-
-This lesson is subject to change because it currently relies on code from our archived **Web scraping basics for JavaScript devs** course. For now you can still access the archived course, but we plan to completely retire it in a few months. This lesson will be updated to remove the dependency.
-
-:::
-
 ---
 
-In the [**Web scraping basics for JavaScript devs**](../../scraping_basics_legacy/crawling/pro_scraping.md) course, we learned about the power of Crawlee, and how it can streamline the development process of web crawlers. You've already seen how powerful the `crawlee` package is; however, what you've been exposed to thus far is only the tip of the iceberg.
+In the [Using a framework](../../scraping_basics_javascript/12_framework.md) lesson of the **Web scraping basics for JavaScript devs** course, we learned about the power of Crawlee, and how it can streamline the development process of web crawlers. You've already seen how powerful the `crawlee` package is; however, what you've been exposed to thus far is only the tip of the iceberg.
 
 Because proxies are so widely used in the scraping world, Crawlee has built-in features for implementing them in an effective way. One of the main functionalities that comes baked into Crawlee is proxy rotation, which is when each request is sent through a different proxy from a proxy pool.
 
 ## Implementing proxies in a scraper {#implementing-proxies}
 
-Let's borrow some scraper code from the end of the [pro-scraping](../../scraping_basics_legacy/crawling/pro_scraping.md) lesson in our **Web scraping basics for JavaScript devs** course and paste it into a new file called **proxies.js**. This code enqueues all of the product links on [demo-webstore.apify.org](https://demo-webstore.apify.org)'s on-sale page, then makes a request to each product page and scrapes data about each one:
+Let's borrow the scraper from the end of the [Using a framework](../../scraping_basics_javascript/12_framework.md) lesson and paste it into a new file called `proxies.js`. This code enqueues all of the product links on the [Sales](https://warehouse-theme-metal.myshopify.com/collections/sales) page of a demo store, then makes a request to each product page and scrapes data about each one:
 
-```js
-// crawlee.js
-import { CheerioCrawler, Dataset } from 'crawlee';
+```js title="proxies.js"
+import { CheerioCrawler } from 'crawlee';
 
-const crawler = new CheerioCrawler({
-    requestHandler: async ({ $, request, enqueueLinks }) => {
-        if (request.label === 'START') {
-            await enqueueLinks({
-                selector: 'a[href*="/product/"]',
-            });
+function parseVariant($option) {
+    const [variantName, priceText] = $option
+        .text()
+        .trim()
+        .split(' - ');
+    const price = parseInt(
+        priceText
+            .replace('$', '')
+            .replace('.', '')
+            .replace(',', ''),
+    );
+    return { variantName, price };
+}
 
-            // When on the START page, we don't want to
-            // extract any data after we extract the links.
-            return;
-        }
+const crawler = new CheerioCrawler();
 
-        // We copied and pasted the extraction code
-        // from the previous lesson
-        const title = $('h3').text().trim();
-        const price = $('h3 + div').text().trim();
-        const description = $('div[class*="Text_body"]').text().trim();
-
-        // Instead of saving the data to a variable,
-        // we immediately save everything to a file.
-        await Dataset.pushData({
-            title,
-            description,
-            price,
-        });
-    },
+crawler.router.addDefaultHandler(async ({ enqueueLinks, log }) => {
+    log.info('Looking for product detail pages');
+    await enqueueLinks({ selector: '.product-list a.product-item__title', label: 'DETAIL' });
 });
 
-await crawler.addRequests([{
-    url: 'https://demo-webstore.apify.org/search/on-sale',
-    // By labeling the Request, we can identify it
-    // later in the requestHandler.
-    label: 'START',
-}]);
+crawler.router.addHandler('DETAIL', async ({ $, request, pushData, log }) => {
+    log.info(`Product detail page: ${request.url}`);
 
-await crawler.run();
+    const $price = $('.product-form__info-content .price').contents().last();
+    const priceRange = { minPrice: null, price: null };
+    const priceText = $price
+        .text()
+        .trim()
+        .replace('$', '')
+        .replace('.', '')
+        .replace(',', '');
+
+    if (priceText.startsWith('From ')) {
+        priceRange.minPrice = parseInt(priceText.replace('From ', ''));
+    } else {
+        priceRange.minPrice = parseInt(priceText);
+        priceRange.price = priceRange.minPrice;
+    }
+
+    const item = {
+        url: request.url,
+        title: $('.product-meta__title').text().trim(),
+        vendor: $('.product-meta__vendor').text().trim(),
+        ...priceRange,
+        variantName: null,
+    };
+
+    const $variants = $('.product-form__option.no-js option');
+    if ($variants.length === 0) {
+        log.info('Saving a product');
+        await pushData(item);
+    } else {
+        for (const element of $variants.toArray()) {
+            const variant = parseVariant($(element));
+            log.info('Saving a product variant');
+            await pushData({ ...item, ...variant });
+        }
+    }
+});
+
+await crawler.run(['https://warehouse-theme-metal.myshopify.com/collections/sales']);
+crawler.log.info('Exporting data');
+await crawler.exportData('dataset.json');
+await crawler.exportData('dataset.csv');
 ```
 
 In order to implement a proxy pool, we will first need some proxies. We'll quickly use the free [proxy scraper](https://apify.com/mstephen190/proxy-scraper) on the Apify platform to get our hands on some quality proxies. Next, we'll need to set up a [`ProxyConfiguration`](https://crawlee.dev/api/core/class/ProxyConfiguration) and configure it with our custom proxies, like so:
@@ -79,28 +101,11 @@ const proxyConfiguration = new ProxyConfiguration({
 Awesome, so there's our proxy pool! Usually, a proxy pool is much larger than this; however, a three proxies pool is totally fine for tutorial purposes. Finally, we can pass the `proxyConfiguration` into our crawler's options:
 
 ```js
-const crawler = new CheerioCrawler({
-    proxyConfiguration,
-    requestHandler: async ({ $, request, enqueueLinks }) => {
-        if (request.label === 'START') {
-            await enqueueLinks({
-                selector: 'a[href*="/product/"]',
-            });
-            return;
-        }
-
-        const title = $('h3').text().trim();
-        const price = $('h3 + div').text().trim();
-        const description = $('div[class*="Text_body"]').text().trim();
-
-        await Dataset.pushData({
-            title,
-            description,
-            price,
-        });
-    },
-});
+// highlight-next-line
+const crawler = new CheerioCrawler({ proxyConfiguration });
 ```
+
+The rest of the code stays the same.
 
 > Note that if you run this code, it may not work, as the proxies could potentially be down/non-operating at the time you are going through this course.
 
