@@ -182,7 +182,7 @@ router.addHandler(labels.OFFERS, async ({ $, crawler, request, pushData }) => {
 
 The starter describes every field of the dataset items in **.actor/dataset_schema.json**. Let's add the three new fields to its `properties`:
 
-```json
+```json title=".actor/dataset_schema.json"
 "dateHandled": { "type": "string", "description": "When the offer was scraped" },
 "numberOfRetries": { "type": "integer", "description": "How many times the request was retried" },
 "currentPendingRequests": { "type": "integer", "description": "Requests pending in the queue" }
