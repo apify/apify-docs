@@ -171,7 +171,13 @@ class ASINTracker {
 export const tracker = new ASINTracker();
 ```
 
-The listener is registered in the `initialize()` method and not in the constructor, because the `tracker` object is created as soon as **asinTracker.js** is imported, which is before `Actor.init()` runs. On the Apify platform, `Actor.init()` replaces the event manager, so a listener registered before it never receives the **persistState** event. Locally the event manager isn't replaced, so the mistake would go unnoticed with `apify run`. We'll call `initialize()` from **main.js** right after `Actor.init()`.
+:::caution Register the listener after Actor.init()
+
+The listener is registered in the `initialize()` method and not in the constructor, because the `tracker` object is created as soon as **asinTracker.js** is imported, which is before `Actor.init()` runs. On the Apify platform, `Actor.init()` replaces the event manager, so a listener registered before it never receives the **persistState** event. Locally the event manager isn't replaced, so the mistake goes unnoticed with `apify run`.
+
+:::
+
+We'll call `initialize()` from **main.js** right after `Actor.init()`.
 
 ## Handling resurrections {#handling-resurrections}
 
