@@ -23,8 +23,8 @@ export const GetApiTokenHint = () => (
 // Step after navigating to Settings > API & Integrations: "1. <CreateTokenStep />"
 export const CreateTokenStep = () => (
     <>
-        In the <strong>Personal API tokens</strong> section, select <strong>Create a new token</strong>. Enter a
-        name, keep the 90-day <strong>Expiration</strong> or change it, and select <strong>Create</strong>.
+        In the <strong>Personal API tokens</strong> section, select <strong>Create a new token</strong>. Enter a name,
+        keep the 90-day <strong>Expiration</strong> or change it, and select <strong>Create</strong>.
     </>
 );
 
