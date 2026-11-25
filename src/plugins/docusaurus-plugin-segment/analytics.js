@@ -11,6 +11,8 @@ if (ExecutionEnvironment.canUseDOM && process.env.NODE_ENV === 'production' && s
     withOneTrust(analytics).load(
         { writeKey: segmentWriteKey, cdnURL: 'https://analytics.apify.com' },
         {
+            // Segment maps only the ad destinations to consent categories, so the rest needs Performance (C0002).
+            disable: () => !(window.OnetrustActiveGroups ?? '').split(',').includes('C0002'),
             integrations: {
                 'Segment.io': {
                     apiHost: 'analytics.apify.com/v1',
