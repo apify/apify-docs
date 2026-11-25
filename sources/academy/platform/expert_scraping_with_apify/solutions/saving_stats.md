@@ -49,7 +49,7 @@ class Stats {
 export const stats = new Stats();
 ```
 
-Cool, very similar to the **ASINTracker** class we wrote earlier. We'll now import `stats` into our **main.js** file and initialize it along with the ASIN tracker:
+Cool, very similar to the `ASINTracker` class we wrote earlier. We'll now import `stats` into our **main.js** file and initialize it along with the ASIN tracker:
 
 ```js title="main.js"
 import { CheerioCrawler } from '@crawlee/cheerio';
@@ -74,9 +74,9 @@ The starter's ESLint config sorts imports alphabetically, so the **Stats.js** im
 
 ## Tracking errors {#tracking-errors}
 
-In order to keep track of errors, we must write a new function within the crawler's configuration called **errorHandler**. Crawlee calls it with two arguments. The first one is the crawling context, which contains the **Request** object, as well as information about the session and proxy which were used for the request. The second one is the **Error** object for the error which occurred.
+In order to keep track of errors, we must write a new function within the crawler's configuration called `errorHandler`. Crawlee calls it with two arguments. The first one is the crawling context, which contains the `Request` object, as well as information about the session and proxy which were used for the request. The second one is the `Error` object for the error which occurred.
 
-Crawlee calls **errorHandler** only when it's going to retry the request. When the request fails for the last time, Crawlee calls **failedRequestHandler** instead, so to record every error, we need both:
+Crawlee calls `errorHandler` only when it's going to retry the request. When the request fails for the last time, Crawlee calls `failedRequestHandler` instead, so to record every error, we need both:
 
 ```js
 const crawler = new CheerioCrawler({
@@ -103,7 +103,7 @@ const crawler = new CheerioCrawler({
 
 ## Tracking total saved {#tracking-total-saved}
 
-Now, we'll increment our **totalSaved** count for every offer added to the dataset. The **OFFERS** handler lives in **routes.js**, so we need to import `stats` there as well:
+Now, we'll increment our `totalSaved` count for every offer added to the dataset. The `OFFERS` handler lives in **routes.js**, so we need to import `stats` there as well:
 
 ```js title="routes.js"
 // ...
@@ -139,7 +139,7 @@ router.addHandler(labels.OFFERS, async ({ $, request, pushData }) => {
 
 ## Saving stats with dataset items {#saving-stats-with-dataset-items}
 
-Still, in the **OFFERS** handler, we need to add a few extra keys to the items which are pushed to the dataset. Luckily, all of the data required by the task is accessible in the context object.
+Still, in the `OFFERS` handler, we need to add a few extra keys to the items which are pushed to the dataset. Luckily, all of the data required by the task is accessible in the context object.
 
 ```js
 router.addHandler(labels.OFFERS, async ({ $, crawler, request, pushData }) => {
@@ -194,11 +194,11 @@ Then run `apify validate-schema` to check that the schema is still valid. The **
 
 **Q: Why might you want to store statistics about an Actor's run (or a specific request)?**
 
-**A:** If certain types of requests are error-prone, you might want to save stats about the run to look at them later to either eliminate or better handle the errors. Things like **dateHandled** can be generally useful information.
+**A:** If certain types of requests are error-prone, you might want to save stats about the run to look at them later to either eliminate or better handle the errors. Things like `dateHandled` can be generally useful information.
 
 **Q: In our Amazon scraper, we are trying to store the number of retries of a request once its data is pushed to the dataset. Where would you get this information? Where would you store it?**
 
-**A:** This information is available directly on the request object under the property **retryCount**.
+**A:** This information is available directly on the request object under the property `retryCount`.
 
 **Q: What is the difference between the `failedRequestHandler` and `errorHandler`?**
 

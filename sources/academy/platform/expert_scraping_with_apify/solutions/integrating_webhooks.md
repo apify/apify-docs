@@ -255,7 +255,7 @@ Additionally, the **filter-actor** should have a new run. Its **Output** tab sho
 
 **Q: How do you allocate more CPU for an Actor's run?**
 
-**A:** On the Apify platform, CPU is allocated in proportion to memory, and every 4 GB of memory gives the Actor one CPU core. To get more CPU, allocate more memory, either in the run options of a single run, or as the default memory in the Actor's **Settings** tab. When running locally, the Actor uses the CPU of your computer. The **ACTOR_MEMORY_MBYTES** environment variable only tells the SDK how much memory it can use.
+**A:** On the Apify platform, CPU is allocated in proportion to memory, and every 4 GB of memory gives the Actor one CPU core. To get more CPU, allocate more memory, either in the run options of a single run, or as the default memory in the Actor's **Settings** tab. When running locally, the Actor uses the CPU of your computer. The `ACTOR_MEMORY_MBYTES` environment variable only tells the SDK how much memory it can use.
 
 **Q: Within itself, can you get the exact time that an Actor was started?**
 
