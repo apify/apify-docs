@@ -58,7 +58,10 @@ get:
         example: AI_AND_ML
     - name: username
       in: query
-      description: Filters the results by the specified username.
+      description: |
+        Filters the results by the specified username. Pass `me` to list only
+        your own Actors, the same way as in the [Get user](/api/v2/users-me-get)
+        endpoint. When you use `me`, you must provide an API token.
       style: form
       explode: true
       schema:
@@ -142,6 +145,8 @@ get:
       $ref: ../../components/responses/BadRequest.yaml
     "401":
       $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
     "405":
       $ref: ../../components/responses/MethodNotAllowed.yaml
     "429":
