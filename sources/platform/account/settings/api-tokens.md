@@ -15,8 +15,7 @@ The Apify CLI doesn't need a copied token. When you sign in with [`apify login`]
 When a token is created or rotated on your account, Apify sends you an email and a notification in Apify Console. This includes tokens that `apify login` creates. If you don't recognize the token, secure your account in **Settings > Login & Privacy** and delete the token.
 
 :::caution Protect your API token
-Do not share the API token with untrusted parties, or use it directly from client-side code,
-unless you fully understand the consequences! You can also consider [limiting the permission scope](#limited-permissions) of the token, so that it can only access what it really needs.
+Unless you fully understand the consequences, don't share your API token with untrusted parties or use it directly in client-side code. You can also [limit the token's permissions](#limited-permissions) so that it can access only what it needs.
 :::
 
 ## Create an API token {#create-api-token}
@@ -46,13 +45,13 @@ The 90-day default applies only to the token form. A token that `apify login` cr
 
 ## Rotation
 
-If you suspect that a token has been compromised or accidentally exposed, you can rotate it through Apify Console. When rotating a token, you have the option to keep the old token active for 24 hours, allowing you to update your applications with the new token before the old one becomes invalid. Apify Console creates the new token right away. If you keep the old token active, it stops working after 24 hours, so update every application that uses it before then.
+If you suspect that a token is compromised or exposed, you can rotate it in Apify Console. Apify Console creates the new token right away. When you rotate a token, you can keep the old token active for 24 hours. Update every application that uses the old token before then, because after the 24 hours it stops working.
 
 ![Rotate token in Apify Console](../images/api-token-rotate.webp)
 
 After you confirm the rotation, Apify Console shows the new token. This is the only time you can copy it, so store it somewhere safe. The new token has no [expiration](#expiration), even if the old one had. To set an expiration, edit the token and pick a date.
 
-For better security awareness, the UI marks tokens identified as compromised with a **Leaked** label, making it easy to identify and take action on them.
+Apify Console marks tokens identified as compromised with a **Leaked** label, so that you can find them and act on them.
 
 ## Good practices
 
@@ -66,174 +65,145 @@ Treat an API token like a password:
 
 ## Organization accounts
 
-When working under an organization account, you will see two types of API tokens on the API & Integrations page.
+When you work under an organization account, the API & Integrations page shows two types of API tokens.
 
-The Personal API tokens are different from your own Personal API tokens mentioned above. If you use this token in an integration, it will have the same permissions that you have within the organization, and all the operations you use it for will be ascribed to you. When you join or create an organization, Apify creates one personal token for you in that organization. This token has no expiration. A personal token stops working when you leave the organization.
+Personal API tokens in an organization are separate from the tokens of your personal account. If you use a personal token in an integration, it has the same permissions that you have within the organization. Apify ascribes every operation you use it for to you. When you join or create an organization, Apify creates one personal token for you in that organization. This token has no expiration. A personal token stops working when you leave the organization.
 
-The Organization API tokens have full permissions and are not tied to a specific member of the organization. You can access them only if you are the owner or have the **Manage access tokens** permission.
+Organization API tokens have full permissions and are not tied to a specific member of the organization. You can access them only if you are the owner or have the **Manage access tokens** permission.
 
 ## API tokens with limited permissions {#limited-permissions}
 
-By default, tokens can access all data in your account. If that is not desirable, you can choose to limit the permissions of your token, so that it can only access data needed for the particular use case. We call these tokens **scoped**.
+By default, a token can access all data in your account. To restrict a token to the data that a particular use case needs, limit its permissions. A token with limited permissions is called a _scoped_ token. A scoped token can access only the resources that you explicitly allow.
 
-**A scoped token can access only those resources that you'll explicitly allow it to.**
+Scoped tokens can't create or modify Actors. To create or modify Actors through the Apify API, use an unscoped token.
 
-:::info Actor modification restrictions
-We do not allow scoped tokens to create or modify Actors. If you do need to create or modify Actors through the Apify API, use an unscoped token.
-:::
+### Create a scoped token
 
-### How to create a scoped token
-
-Scoped tokens behave like standard API tokens and are managed through the [API & Integrations](https://console.apify.com/settings/integrations) page in Apify Console. When creating a token (or updating an existing one), simply toggle "Limit token permissions" to make the token scoped.
-
-Once the token is scoped, you can specify the token's permissions.
+Scoped tokens behave like standard API tokens. You manage them on the [API & Integrations](https://console.apify.com/settings/integrations) page in Apify Console. When you create or edit a token, turn on **Limit token permissions** to make the token scoped. Then specify the token's permissions.
 
 ![Toggle "Limit token permissions" to make a token scoped](../images/api-token-scoped.webp)
 
 ### Account-level vs resource-specific permissions
 
-We support two different types of permissions for tokens:
+A token's permissions come in two types:
 
-- **Account-level permissions**: These will apply to all resources in the entire account. For example, you can use these to allow the token to run _all_ your Actors.
+- Account-level permissions apply to all resources in the account. For example, they can allow the token to run all your Actors.
+- Resource-specific permissions apply only to specific, existing resources. For example, they can allow the token to read from one dataset.
 
-- **Resource-specific permissions**: These will apply only to specific, existing resources. For example, you can use these to allow the token to read from a particular dataset.
-
-:::tip Combine permission types
-A single token can combine both types. You can create a token that can _read_ any data storage, but _write_ only to one specific key-value store.
-:::
+A single token can combine both types. For example, a token can read any storage but write to only one key-value store.
 
 ![An example scoped token that combines account-level permissions and resource-specific permissions](../images/api-token-scoped-with-combining-permissions.webp)
 
 ### Allow tokens to create resources
 
-If you need to create new resources with the token (for example, create a new task, or storage), you need to explicitly allow that as well.
+To create new resources with the token, such as a task or a storage, you need to allow that explicitly.
 
-Once you create a new resource with the token, _the token will gain full access to that resource_, regardless of other permissions. It is not possible to create a token that can create a dataset, but not write to it.
+After the token creates a resource, the token has full access to that resource, regardless of its other permissions. You can't create a token that can create a dataset but can't write to it.
 
-:::tip Dynamic resource creation
-This is useful if you want to for example create a token that can dynamically create & populate datasets, but without the need to access other datasets in your account.
-:::
+For example, a token can create and populate datasets without access to the other datasets in your account.
 
 ### Permission dependencies
 
-Some permissions require other permissions to be granted alongside them. These are called _permission dependencies_.
+Some permissions require other permissions alongside them. These are called _permission dependencies_.
 
 #### Automatic dependencies
 
-The form enforces certain dependencies automatically. For example, when you grant the **Write** permission for a dataset, the **Read** permission is automatically selected. This ensures that when you can write to a dataset you can also read from it.
+The form enforces some dependencies automatically. For example, when you grant the **Write** permission for a dataset, the form also selects the **Read** permission. A token that can write to a dataset can therefore also read from it.
 
 ![The Write permission depends on Read for a dataset](../images/api-token-scoped-dependencies.webp)
 
 #### Manual dependencies
 
-Other dependencies are more complicated, so it is up to you to ensure that the token is configured correctly.
+Other dependencies are more complex, so you need to configure them yourself:
 
-Specifically:
+- To create or update a schedule, the token needs access to the schedule and to the Actor or task that the schedule runs: the **Run** permission on the Actor, or the **Read** permission on the task.
+- To create, update, or run a task, the token needs the **Run** permission on the task's Actor.
 
-- To create or update a Schedule, the token needs access not only to the Schedule itself, but also to the Actor (the **Run** permission) or task (the **Read** permission) that is being scheduled.
-- Similarly, to create, update or run a task, the token needs the **Run** permission on the task's Actor itself.
-
-:::tip Schedule creation example
-Let's say that you have an Actor and you want to programmatically create schedules for that Actor. Then you can create a token that has the account level **Create** permission on schedules, but only the resource-specific **Run** permission on the Actor. Such a token has exactly the permissions it needs, and nothing more.
-:::
+For example, to create schedules for one Actor programmatically, give the token two permissions: the account-level **Create** permission on schedules, and the resource-specific **Run** permission on that Actor. Such a token has the permissions it needs and no more.
 
 ### Actor execution
 
-When you run an Actor, Apify creates a new, short-lived run API token, and injects it into the Actor environment. This applies to scoped tokens as well, so when you run an Actor with a scoped token, **the Actor is executed with a different token with a different scope.**
+When you run an Actor, Apify creates a short-lived run API token and injects it into the Actor's environment. This also applies to scoped tokens. An Actor that you run with a scoped token therefore runs with a different token, which has a different scope.
 
-In the scoped token configuration you can choose what scope the run API token gets, effectively determining what the Actor can access during its run.
+In the scoped token's configuration, you choose the scope of the run API token. That scope determines what the Actor can access during its run. Apify supports two modes:
 
-Apify currently supports two modes:
-
-- **Full access**: Allow Actors to access all your account's data.
-- **Restricted access**: Restrict what Actors can access using the scope of this Actor.
+- With **Full access**, Actors can access all your account's data.
+- With **Restricted access**, Actors can access only what the scoped token's scope allows.
 
 ![Choose permission mode for running Actors with a scoped token](../images/api-token-scoped-run-modes.webp)
 
-#### Full access: Allow Actors to access all your account's data
+#### Full access
 
-When you run an Actor with a scoped token in this mode, Apify will inject an _unscoped_ token to the Actor runtime.
+When you run an Actor with a scoped token in this mode, Apify injects an _unscoped_ token into the Actor's runtime.
 
-This way you can be sure that once you give a token the permission to run an Actor, it will just work, and you don't have to worry about the exact permissions the Actor might need. However, this also means that you need to trust the Actor.
+After you allow a token to run an Actor, the run therefore works whatever permissions the Actor needs. However, you need to trust the Actor.
 
-:::tip Third-party integration
-Use this mode if you want to integrate with a 3rd-party service to run your Actors. Create a scoped token that can only run the Actor you need, and share it with the service. Even if the token is leaked, it can't be used to access your other data.
-:::
+Use this mode to let a third-party service run your Actors. Create a scoped token that can run only the Actor you need, and share it with the service. If the token leaks, it can't be used to access your other data.
 
-#### Restricted access: Restrict what Actors can access using the scope of this Actor
+#### Restricted access
 
-When you run an Actor with a scoped token in this mode, Apify will inject a token with the same scope as the scope of the original token.
+When you run an Actor with a scoped token in this mode, Apify injects a token with the same scope as the original token.
 
-This way you can be sure that Actors won't accidentally - or intentionally - access any data they shouldn't. However, Actors might not function properly if the scope is not sufficient.
+Actors therefore can't access data they shouldn't, by accident or on purpose. However, an Actor might not work properly if the scope is insufficient.
+
+The restriction is transitive: if the Actor runs another Actor, that Actor's access is restricted as well.
 
 :::caution Server Actors limitation
-Restricted access mode is not supported for [Server Actors](/actors/running/server-actors). While you can send requests to Server Actors using a scoped token configured with restricted access, functionality is not guaranteed.
-:::
-
-:::tip Transitive restrictions
-This restriction is _transitive_, which means that if the Actor runs another Actor, its access will be restricted as well.
+[Server Actors](/actors/running/server-actors) don't support restricted access mode. You can send requests to a Server Actor with a scoped token configured for restricted access, but Apify doesn't guarantee that it works.
 :::
 
 #### Default run storages
 
-When Apify [runs an Actor](/actors/running/runs-and-builds#runs), it automatically creates a set of default storages (a dataset, a key-value store and request queue) that the Actor can use in runtime.
+When Apify [runs an Actor](/actors/running/runs-and-builds#runs), it creates a set of default storages that the Actor can use: a dataset, a key-value store, and a request queue.
 
-You can configure whether the scoped token you are going use to run the Actor should get access to these default storages.
+You can configure whether the scoped token you use to run the Actor gets access to these default storages.
 
 ![Configure whether the trigger token gets write access to the run default storages.](../images/api-token-scoped-default-storage-access.webp)
 
-If it’s **on**, the token can implicitly access the default storage of the Actor runs it triggers, or in general, of any Actor run in your account that falls within its scope. This is useful if you want to allow a third-party service to run an Actor and then read the Actor’s output (think AI agents).
+If the toggle is on, the token can access the default storages of the Actor runs it triggers, without an explicit permission. More generally, it can access the default storages of any Actor run in your account that falls within its scope. Use this to let a third-party service, such as an AI agent, run an Actor and then read its output.
 
-If the toggle is **off**, the token can still trigger and inspect runs, but access to the default storages is restricted:
+If the toggle is off, the token can still trigger and inspect runs, but its access to the default storages is restricted:
 
-- For accounts with **Restricted general resource access**, the token cannot read or write to default storages. [Learn more about restricted general resource access](/account/collaboration/general-resource-access).
-- For accounts with **Unrestricted general resource access**, the default storages can still be read anonymously using their IDs, but writing is prevented.
+- In an account with **Restricted** [general resource access](/account/collaboration/general-resource-access), the token can't read or write to default storages.
+- In an account with **Unrestricted** general resource access, the default storages can still be read anonymously using their IDs, but the token can't write to them.
 
-:::tip Clean up run data
-Let's say your Actor produces a lot of data that you want to delete just after the Actor finishes. If you enable this toggle, your scoped token will be allowed to do that.
-:::
+For example, your Actor might produce data that you want to delete right after the run finishes. Turn the toggle on so that the scoped token can delete that data.
 
 ### Schedules
 
-You can use scoped tokens to schedule Actor and Tasks. Each schedule invocation triggers a new Actor run, creating and injecting a new run API token into the Actor.
+You can use scoped tokens to schedule Actors and tasks. Each schedule invocation triggers a new Actor run, and Apify creates a run API token and injects it into the Actor.
 
-However, **this token is always unscoped, which means that the scheduled Actor has access to all your account data**, regardless of the scope of the token that scheduled it.
+**This run token is always unscoped.** The scheduled Actor can therefore access all your account's data, whatever the scope of the token that created the schedule.
 
 ### Webhooks configuration
 
-If you allow a token to run an Actor, it'll also be able to manage the Actor's webhooks (similarly for tasks).
+A token that can run an Actor can also manage the Actor's webhooks. The same applies to tasks.
 
-If you set up a webhook pointing to the Apify API, the Apify platform will automatically inject a token when dispatching that webhook. However, if you set up such a webhook with a scoped token, **that webhook will be dispatched with a token with the same limited permissions**.
+When a webhook points to the Apify API, the Apify platform injects a token when it dispatches the webhook. If you set up such a webhook with a scoped token, the platform dispatches it with a token that has the same limited permissions.
 
-Therefore, you need to make sure the token has sufficient permissions not only to set up the webhook, but also to perform the actual operation.
-
-:::tip Webhook permissions
-Let's say you want to create a webhook that pushes an item to a dataset every time an Actor successfully finishes. Then such a scoped token needs to be allowed to both run the Actor (to create the webhook), and write to that dataset.
-:::
+The token therefore needs permissions to set up the webhook and to perform the webhook's operation. For example, take a webhook that pushes an item to a dataset each time an Actor run succeeds. The token needs to run the Actor, which lets it create the webhook, and to write to that dataset.
 
 ### Troubleshooting
 
-#### How do I allow a token to run a task?
+#### Allow a token to run a task
 
-Tasks don't have a dedicated **Run** permission. Instead, you should configure the token with the following permissions:
+Tasks have no dedicated **Run** permission. Give the token these permissions instead:
 
-- **Run** on the Actor that the task is executing
+- **Run** on the Actor that the task runs
 - **Read** on the task
-
-See the following example:
 
 ![Scoped token configured to run a task](../images/api-token-scoped-run-tasks.webp)
 
-Refer to [this section](#permission-dependencies) to understand how permission dependencies work.
+For details, see [permission dependencies](#permission-dependencies).
 
-#### My run failed and I can see `insufficient permissions` in the logs
+#### A run fails with `insufficient permissions` in the log
 
-When a run fails with insufficient permissions in the logs, it typically means the Actor is using a scoped token with **Restricted access** configured.
+This error usually means that the Actor runs with a scoped token set to **Restricted access**.
 
 ![Scoped token with Restricted access](../images/api-token-scoped-restricted-access-active.webp)
 
-What is happening is that the Actor is trying to access a resource (such as a dataset, or a key-value store) or perform an operation that it does not have sufficient permissions for.
+The Actor is trying to access a resource, such as a dataset or a key-value store, or to perform an operation that the token's scope doesn't allow.
 
-If you know what it is, you can add the permission to the scope of your token. If you don't, you can switch the permission mode on the token to **Full access**. This means that the Actor will be able to access all your account data.
+If you know which permission is missing, add it to the token's scope. If you don't, switch the token's permission mode to **Full access**, which lets the Actor access all your account's data.
 
-Refer to [Actor execution](#actor-execution) section to understand how executing Actors with scoped tokens works.
+For details, see [Actor execution](#actor-execution).

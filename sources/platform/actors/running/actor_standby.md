@@ -66,7 +66,7 @@ Scoped tokens work for requests to Server Actors. To let a third-party service c
 
 :::caution Restricted access is not supported
 
-A scoped token also has a [restricted access](/account/api-tokens#restricted-access-restrict-what-actors-can-access-using-the-scope-of-this-actor) option that limits what the Actor's run can access. Server Actors don't support that option.
+A scoped token also has a [restricted access](/account/api-tokens#restricted-access) option that limits what the Actor's run can access. Server Actors don't support that option.
 
 :::
 
