@@ -52,7 +52,7 @@ Follow the instructions shown in the setup screen to create the External Access 
 
 The app uses one Apify API token for every Snowflake user in the account. Every run, import, and schedule the app creates belongs to the Apify account that owns that token and is billed to it.
 
-- _Organization token_ (recommended for teams) - billed to your [Apify organization](/account/collaboration/organization) and not tied to any one member. In [Apify Console](https://console.apify.com/settings/integrations), switch to your organization, then go to **Settings** > **API & Integrations**. Only the organization owner and members with the _Manage organization access keys_ permission can see organization tokens.
+- _Organization token_ (recommended for teams) - billed to your [Apify organization](/account/collaboration/organization) and not tied to any one member. In [Apify Console](https://console.apify.com/settings/integrations), switch to your organization, then go to **Settings** > **API & Integrations**. Only the organization owner and members with the _Manage access tokens_ permission can see organization tokens.
 - _Personal token_ - every Snowflake user of the app acts as you. Use it only for single-user setups.
 
 To switch tokens later, go to **Admin** > **Security** > **Secrets** in Snowsight, find the secret bound to the app, and update its value.
