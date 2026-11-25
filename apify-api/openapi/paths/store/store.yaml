@@ -59,9 +59,10 @@ get:
     - name: username
       in: query
       description: |
-        Filters the results by the specified username. Pass `me` to list only
-        your own Actors, the same way as in the [Get user](/api/v2/users-me-get)
-        endpoint. When you use `me`, you must provide an API token.
+        Filters the results by the specified username or user ID. Pass `me` to
+        list only your own Actors, the same way as in the
+        [Get user](/api/v2/users-me-get) endpoint. When you use `me`, you must
+        provide an API token.
       style: form
       explode: true
       schema:
