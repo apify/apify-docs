@@ -155,7 +155,7 @@ else await withAPI();
 
 And before we push to the platform, let's not forget to write an input schema in the **.actor/input_schema.json** file:
 
-```json
+```json title=".actor/input_schema.json"
 {
     "title": "Actor Caller",
     "type": "object",

@@ -145,7 +145,7 @@ await Actor.exit();
 
 Cool! But wait, don't forget to configure the **.actor/input_schema.json** file as well! New Actors run with [limited permissions](/actors/development/permissions) by default, so they can't read storages they didn't create, such as the dataset of our Amazon scraper. By declaring the `datasetId` input as a dataset with `resourceType` and `resourcePermissions`, we grant the filter Actor read access to the dataset it receives:
 
-```json
+```json title=".actor/input_schema.json"
 {
     "title": "Amazon Filter Actor",
     "type": "object",
