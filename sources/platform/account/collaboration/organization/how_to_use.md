@@ -44,6 +44,6 @@ As a member of an organization, you are assigned an [API token](/account/api-tok
 
 The API tokens' functionality reflects your account's permissions in the organization, so if you only have the **read** and **run** permissions for Actors, you will only be able to view and run Actors via API. Only you can view your proxy password. Do not share your API token or proxy password with untrusted parties.
 
-If you have the **Manage access tokens** permission, you are able to view and use [organization-wide API tokens](/account/api-tokens#organization-accounts). These are shared across the organization, so everyone with the **Manage access tokens** permission can use them for organization-wide integrations.
+If you have the **Manage access tokens** permission, you are able to create and manage [organization-wide API tokens](/account/api-tokens#organization-accounts). These are shared across the organization, so everyone with the **Manage access tokens** permission can use them for organization-wide integrations.
 
 For a [detailed breakdown of all Apify API endpoints](/api/v2) and help on using them, visit the API.

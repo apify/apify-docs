@@ -6,7 +6,7 @@ category: platform
 slug: /account/api-tokens
 ---
 
-To access the Apify API in your integrations, you need to authenticate using your secret API token. You manage your tokens on the [API & Integrations](https://console.apify.com/settings/integrations) page in Apify Console. A new account has no API token, so [create one](#create-api-token) before your first API call.
+To access the Apify API in your integrations, you need to authenticate using your secret API token. You manage your tokens on the [API & Integrations](https://console.apify.com/settings/integrations) page in Apify Console. A new personal account has no API token, so [create one](#create-api-token) before your first API call.
 
 Apify Console shows the value of an API token only once, right after you create or [rotate](#rotation) it. The token list shows each token's name, a masked preview of its value, when it was last used, and when it expires. You can't view or copy the full value of an existing token. Use the preview to tell your tokens apart.
 
@@ -42,13 +42,15 @@ A token you create in Apify Console expires after 90 days unless you choose othe
 
 The token list shows the exact time each token expires, for example `Expires on February 15, 2027, 00:00 UTC`. To change the expiration of an existing token, edit the token and pick a new date, or clear the date to remove the expiration.
 
+The 90-day default applies only to the token form. A token that `apify login` creates has no expiration.
+
 ## Rotation
 
-If you suspect that a token has been compromised or accidentally exposed, you can rotate it through Apify Console. When rotating a token, you have the option to keep the old token active for 24 hours, allowing you to update your applications with the new token before the old one becomes invalid. After the rotation period, the token will be regenerated, and any applications connected to the old token will need to be updated with the new token to continue functioning.
+If you suspect that a token has been compromised or accidentally exposed, you can rotate it through Apify Console. When rotating a token, you have the option to keep the old token active for 24 hours, allowing you to update your applications with the new token before the old one becomes invalid. Apify Console creates the new token right away. After the 24 hours, the old token stops working, and any applications connected to it will need to be updated with the new token to continue functioning.
 
 ![Rotate token in Apify Console](../images/api-token-rotate.webp)
 
-After you confirm the rotation, Apify Console shows the new token. This is the only time you can copy it, so store it somewhere safe.
+After you confirm the rotation, Apify Console shows the new token. This is the only time you can copy it, so store it somewhere safe. The new token has no [expiration](#expiration), even if the old one had. To set one, edit the token and pick a date.
 
 For better security awareness, the UI marks tokens identified as compromised with a **Leaked** label, making it easy to identify and take action on them.
 
@@ -66,9 +68,9 @@ Treat an API token like a password:
 
 When working under an organization account, you will see two types of API tokens on the API & Integrations page.
 
-The Personal API tokens are different from your own Personal API tokens mentioned above. If you use this token in an integration, it will have the same permissions that you have within the organization, and all the operations you use it for will be ascribed to you.
+The Personal API tokens are different from your own Personal API tokens mentioned above. If you use this token in an integration, it will have the same permissions that you have within the organization, and all the operations you use it for will be ascribed to you. When you join or create an organization, Apify creates one such token for you. It has no expiration. A personal token stops working when you leave the organization.
 
-On the other hand the Organization API tokens (only visible if you are the owner or have Manage access tokens permission) have full permissions and are not tied to a specific member of the organization.
+On the other hand the Organization API tokens (which you can access only if you are the owner or have the **Manage access tokens** permission) have full permissions and are not tied to a specific member of the organization.
 
 ## API tokens with limited permissions {#limited-permissions}
 
