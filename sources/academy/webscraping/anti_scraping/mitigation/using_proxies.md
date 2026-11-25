@@ -126,7 +126,29 @@ crawler.router.addHandler('DETAIL', async ({ $, request, pushData, log, proxyInf
 
 After modifying your code to log `proxyInfo` to the console and running the scraper, you're going to see some logs which look like this:
 
-![proxyInfo being logged by the scraper](./images/proxy-info-logs.png)
+```text
+$ node proxies.js
+...
+{
+  sessionId: 'session_bOhBbNllfJ',
+  url: 'http://43.128.166.24:59394',
+  groups: undefined,
+  countryCode: undefined,
+  password: '',
+  hostname: '43.128.166.24',
+  port: '59394'
+}
+{
+  sessionId: 'session_Uj7aBGaQlk',
+  url: 'http://45.42.177.37:3128',
+  groups: undefined,
+  countryCode: undefined,
+  password: '',
+  hostname: '45.42.177.37',
+  port: '3128'
+}
+...
+```
 
 These logs confirm that our proxies are being used and rotated successfully by Crawlee, and can also be used to debug slow or broken proxies.
 
