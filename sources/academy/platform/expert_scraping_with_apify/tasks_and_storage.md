@@ -36,7 +36,7 @@ Storage allows us to save persistent data for further processing. As you'll lear
 
 ## Our task
 
-In the next lesson, we'll run our Amazon scraper programmatically through a task, so let's create one now. In Apify Console, open the **academy-amazon-scraper** Actor and select **Save as a new task** in the top-right section of the page. Set the keyword to `headphones` and save the task.
+In the next lesson, we'll run our Amazon scraper programmatically through a task, so let's create one now. In Apify Console, open the **academy-amazon-scraper** Actor and select **Save as a new task**. Set the keyword to `headphones` and save the task.
 
 Then select the task's caption on its detail page and rename it to **academy-amazon-scraper-task**. The next lesson refers to the task by this name, so make sure it matches. Finally, run the task to check that it works.
 

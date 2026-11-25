@@ -35,9 +35,9 @@ First, we must initialize a GitHub repository (you can use Gitlab if you like, b
 
 ## Integrating GitHub source code {#integrating-github}
 
-First, let's create a repository. This can be done [in a number of ways](https://kbroman.org/github_tutorial/pages/init.html), but in this lesson, we'll do it by creating the remote repository on GitHub's website. Select **+** in the top-right corner of GitHub, then **New repository**. Name it **academy-amazon-scraper** and create it empty, without a README, `.gitignore`, or license, because we'll push our existing code into it.
+First, let's create a repository. This can be done [in a number of ways](https://kbroman.org/github_tutorial/pages/init.html), but in this lesson, we'll do it by creating the remote repository on GitHub's website. Open GitHub's **+** menu and select **New repository**. Name it **academy-amazon-scraper** and create it empty, without a README, `.gitignore`, or license, because we'll push our existing code into it.
 
-![GitHub's + menu in the top-right corner, open with New repository highlighted](./images/github-new-repo.png)
+![GitHub's + menu open, with New repository highlighted](./images/github-new-repo.png)
 
 :::note Why not use GitHub's suggested commands
 
