@@ -10,7 +10,7 @@ To access the Apify API in your integrations, you need to authenticate using you
 
 Apify Console shows the value of an API token only once, right after you create or [rotate](#rotation) it. The token list shows each token's name, a masked preview of its value, when it was last used, and when it expires. You can't view or copy the full value of an existing token. Use the preview to tell your tokens apart.
 
-The Apify CLI doesn't need a copied token. When you sign in with [`apify login`](/cli/docs/reference#apify-auth-login--apify-login) in the browser, it creates a token for your device and stores it for you.
+The Apify CLI doesn't need a copied token. When you sign in with [`apify login`](/cli/docs/reference#apify-auth-login--apify-login) in the browser, the sign-in creates a token for your device, and the CLI stores it for you.
 
 When a token is created or rotated on your account, Apify sends you an email and a notification in Apify Console. This includes tokens that `apify login` creates. If you don't recognize the token, secure your account in **Settings > Login & Privacy** and delete the token.
 
@@ -36,7 +36,7 @@ If you lose a token, [rotate it](#rotation) to get a new value, or create a new 
 
 A token you create in Apify Console expires after 90 days unless you choose otherwise. An expired token stops working, which limits the damage if the token leaks. In the **Expiration** field of the token form, choose one of these options:
 
-- If you choose **7 days**, **30 days**, **90 days**, or **365 days**, the token expires at the first midnight UTC after that many full days. A 90-day token therefore lasts between 90 and 91 days.
+- If you choose **7 days**, **30 days**, **90 days**, or **365 days**, the token lasts that many full days and then expires at the next 00:00 UTC. A 90-day token therefore lasts between 90 and 91 days.
 - If you choose **Custom date**, the token expires at 00:00 UTC at the start of the day you pick.
 - If you choose **No expiration**, the token works until you delete or rotate it.
 
@@ -46,11 +46,11 @@ The 90-day default applies only to the token form. A token that `apify login` cr
 
 ## Rotation
 
-If you suspect that a token has been compromised or accidentally exposed, you can rotate it through Apify Console. When rotating a token, you have the option to keep the old token active for 24 hours, allowing you to update your applications with the new token before the old one becomes invalid. Apify Console creates the new token right away. After the 24 hours, the old token stops working, and any applications connected to it will need to be updated with the new token to continue functioning.
+If you suspect that a token has been compromised or accidentally exposed, you can rotate it through Apify Console. When rotating a token, you have the option to keep the old token active for 24 hours, allowing you to update your applications with the new token before the old one becomes invalid. Apify Console creates the new token right away. If you keep the old token active, it stops working after 24 hours, so update every application that uses it before then.
 
 ![Rotate token in Apify Console](../images/api-token-rotate.webp)
 
-After you confirm the rotation, Apify Console shows the new token. This is the only time you can copy it, so store it somewhere safe. The new token has no [expiration](#expiration), even if the old one had. To set one, edit the token and pick a date.
+After you confirm the rotation, Apify Console shows the new token. This is the only time you can copy it, so store it somewhere safe. The new token has no [expiration](#expiration), even if the old one had. To set an expiration, edit the token and pick a date.
 
 For better security awareness, the UI marks tokens identified as compromised with a **Leaked** label, making it easy to identify and take action on them.
 
@@ -58,7 +58,7 @@ For better security awareness, the UI marks tokens identified as compromised wit
 
 Treat an API token like a password:
 
-- Use a separate token for each service, much like you shouldn't use the same password for different accounts.
+- Use a separate token for each service, as you would use a separate password for each account.
 - Give each token a name that says where you use it.
 - [Limit the token's permissions](#limited-permissions) to what the service needs.
 - Keep an [expiration](#expiration) on tokens you share with third-party services or use for temporary access.
@@ -68,9 +68,9 @@ Treat an API token like a password:
 
 When working under an organization account, you will see two types of API tokens on the API & Integrations page.
 
-The Personal API tokens are different from your own Personal API tokens mentioned above. If you use this token in an integration, it will have the same permissions that you have within the organization, and all the operations you use it for will be ascribed to you. When you join or create an organization, Apify creates one such token for you. It has no expiration. A personal token stops working when you leave the organization.
+The Personal API tokens are different from your own Personal API tokens mentioned above. If you use this token in an integration, it will have the same permissions that you have within the organization, and all the operations you use it for will be ascribed to you. When you join or create an organization, Apify creates one personal token for you in that organization. This token has no expiration. A personal token stops working when you leave the organization.
 
-On the other hand the Organization API tokens (which you can access only if you are the owner or have the **Manage access tokens** permission) have full permissions and are not tied to a specific member of the organization.
+The Organization API tokens have full permissions and are not tied to a specific member of the organization. You can access them only if you are the owner or have the **Manage access tokens** permission.
 
 ## API tokens with limited permissions {#limited-permissions}
 
