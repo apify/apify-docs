@@ -52,7 +52,7 @@
         "postbuild": "node ./scripts/indentLlmsFile.mjs && node ./scripts/joinLlmsFiles.mjs && node ./scripts/addNavHeaders.mjs"
     },
     "devDependencies": {
-        "@apify/oxlint-config": "^0.3.0",
+        "@apify/oxlint-config": "^0.4.0",
         "@apify/tsconfig": "^0.2.0",
         "@stoplight/spectral-cli": "^6.17.1",
         "@types/react": "^19.3.0",
