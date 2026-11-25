@@ -142,7 +142,7 @@ const proxyConfiguration = await Actor.createProxyConfiguration({
 });
 ```
 
-Notice that we didn't provide it a list of proxy URLs. This is because the `SHADER` group already serves as our proxy pool (courtesy of Apify Proxy).
+Notice that we didn't provide it a list of proxy URLs. Apify Proxy serves as our proxy pool, and because we didn't specify any `groups`, it uses all proxy groups available to our account, limited to IP addresses from the US.
 
 ## Next up {#next}
 
