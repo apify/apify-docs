@@ -193,6 +193,12 @@ And before we push to the platform, let's not forget to write an input schema in
 }
 ```
 
+:::caution Grant full permissions
+
+New Actors run with [limited permissions](/actors/development/permissions) by default, which don't allow them to start a task you own. After you push **actor-caller** to the platform, open its **Settings** tab and in the **Actor permissions** section, select **Full permissions**. Otherwise, the run fails with a `403 insufficient-permissions` error when it tries to start the task.
+
+:::
+
 ## Final code {#final-code}
 
 To ensure we're on the same page, here is what the final code looks like:
@@ -248,10 +254,6 @@ if (useClient) {
 
 await Actor.exit();
 ```
-
-## Granting permissions
-
-New Actors run with [limited permissions](/actors/development/permissions) by default, which don't allow them to start a task you own. After you push **actor-caller** to the platform, open its **Settings** tab and in the **Actor permissions** section, select **Full permissions**. Otherwise, the run fails with a `403 insufficient-permissions` error when it tries to start the task.
 
 ## Quiz answers 📝 {#quiz-answers}
 
