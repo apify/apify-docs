@@ -362,7 +362,7 @@ jobs:
                     while IFS= read -r file_path; do
                       size=$(stat -c %s "$file_path")
                       if [ "$size" -gt "$MAX_SVG_SIZE_BYTES" ]; then
-                        echo "::error file=$file_path::SVG is $size bytes, the limit is $MAX_SVG_SIZE_BYTES bytes. It probably embeds a raster image, see https://github.com/apify/apify-docs/issues/3202"
+                        echo "::error file=$file_path::SVG is $size bytes, the limit is $MAX_SVG_SIZE_BYTES bytes. It probably embeds a raster image. See Managing SVG size in https://www.notion.so/36ef39950a2280718e35d4c42b1b04f3 (Apify internal)"
                         failed=1
                       fi
                     done <<< "$CHANGED_SVG_FILES"
