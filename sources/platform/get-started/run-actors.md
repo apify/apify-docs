@@ -13,7 +13,7 @@ You don't need to write any code to get data or automation out of Apify. [Apify 
 Apify Store is a marketplace of Actors built by Apify and the community, covering most popular websites and automation tasks. Each Actor has its own page that describes what it does, what input it expects, and how it charges. Some Actors charge for the events they perform, such as producing a result (pay per event), while others bill only for the platform resources their runs consume (pay per usage).
 
 - Browse [Apify Store](https://apify.com/store) and pick an Actor that matches your use case.
-- Read [Actors in Store](/actors/running/actors-in-store) to understand the pricing models before you start a large run.
+- Read [Actors in Store](/actors/store) to understand the pricing models before you start a large run.
 
 ## Give it input and run it
 

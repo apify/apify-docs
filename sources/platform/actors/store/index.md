@@ -2,7 +2,7 @@
 title: Apify Store
 description: Browse Apify Store to discover thousands of public Actors, understand their pricing models, and choose the right one for your automation needs.
 sidebar_position: 1
-slug: /actors/running/actors-in-store
+slug: /actors/store
 ---
 
 [Apify Store](https://apify.com/store) is a marketplace of thousands of ready-made Actors for web scraping, data extraction, and automation. You can choose from the available Actors and run them on the Apify platform without writing code. You can also publish your own Actors and monetize them.

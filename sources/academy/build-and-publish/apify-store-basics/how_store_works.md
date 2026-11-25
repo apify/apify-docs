@@ -46,7 +46,7 @@ There are two types of Actors on Apify Store:
 - Maintained by Apify. These Actors are created and supported by the Apify team.
 - Maintained by the community. These Actors are created and managed by independent developers from the community.
 
-For details, see [Actor developers](/actors/running/store/actor-developers).
+For details, see [Actor developers](/actors/store/actor-developers).
 
 ## Importance of Actor testing and reliability
 
@@ -88,4 +88,4 @@ In [Apify Console](https://console.apify.com), search results are personalized f
 - What are Apify-maintained and [Community-maintained Actors](https://help.apify.com/en/articles/6999799-what-are-apify-maintained-and-community-maintained-actors)? On ownership, maintenance, features, and support
 - Step-by-step guide on how to [publish your Actor](https://docs.apify.com/actors/publishing)
 - Watch our webinar on how to [build, publish and monetize Actors](https://www.youtube.com/watch?v=4nxStxC1BJM)
-- Detailed [guide on pricing models](https://docs.apify.com/actors/running/actors-in-store) for Actors in Store
+- Detailed [guide on pricing models](https://docs.apify.com/actors/store) for Actors in Store
