@@ -11,7 +11,7 @@ pagination: true
 
 ---
 
-Let's first head into our **academy-amazon-scraper** and create a new file named **asinTracker.js** in the **src** folder. Within this file, we are going to build a utility class which will allow us to store, modify, persist, and log our tracked ASIN data.
+Let's first head into our **academy-amazon-scraper** and create a new file named `asinTracker.js` in the `src` folder. Within this file, we are going to build a utility class which will allow us to store, modify, persist, and log our tracked ASIN data.
 
 Here's the skeleton of our class:
 
@@ -47,7 +47,7 @@ export const tracker = new ASINTracker();
 
 Multiple techniques exist for storing data in memory; however, this is the most modular way, as all state-persistence and modification logic will be held in this file.
 
-Here is our updated **routes.js** file which is now utilizing this utility class to track the number of offers for each product ASIN:
+Here is our updated `routes.js` file which is now utilizing this utility class to track the number of offers for each product ASIN:
 
 ```js title="routes.js"
 import { createCheerioRouter } from '@crawlee/cheerio';
@@ -126,7 +126,7 @@ router.addHandler(labels.OFFERS, async ({ $, request, pushData }) => {
 
 The `persistState` event is automatically fired (by default) every 60 seconds by the Apify SDK while the Actor is running and is also fired when the `migrating` event occurs.
 
-In order to persist our ASIN tracker object, let's use the `Actor.on` function to listen for the `persistState` event and store it in the key-value store each time it is emitted. First, we'll add the name of the key-value store key to **constants.js**:
+In order to persist our ASIN tracker object, let's use the `Actor.on` function to listen for the `persistState` event and store it in the key-value store each time it is emitted. First, we'll add the name of the key-value store key to `constants.js`:
 
 ```js title="constants.js"
 // ...
@@ -168,7 +168,7 @@ export const tracker = new ASINTracker();
 
 :::caution Register the listener after Actor.init()
 
-The listener is registered in the `initialize()` method and not in the constructor, because the `tracker` object is created as soon as **asinTracker.js** is imported, which is before `Actor.init()` runs. On the Apify platform, `Actor.init()` replaces the event manager, so a listener registered before it never receives the `persistState` event. Locally the event manager isn't replaced, so the mistake goes unnoticed with `apify run`. That's why we'll call `initialize()` from **main.js** right after `Actor.init()`.
+The listener is registered in the `initialize()` method and not in the constructor, because the `tracker` object is created as soon as `asinTracker.js` is imported, which is before `Actor.init()` runs. On the Apify platform, `Actor.init()` replaces the event manager, so a listener registered before it never receives the `persistState` event. Locally the event manager isn't replaced, so the mistake goes unnoticed with `apify run`. That's why we'll call `initialize()` from `main.js` right after `Actor.init()`.
 
 :::
 
@@ -217,7 +217,7 @@ class ASINTracker {
 export const tracker = new ASINTracker();
 ```
 
-We'll now call this method at the top level of the **main.js** file to ensure it is the first thing that gets called when the Actor starts up:
+We'll now call this method at the top level of the `main.js` file to ensure it is the first thing that gets called when the Actor starts up:
 
 ```js title="main.js"
 // ...

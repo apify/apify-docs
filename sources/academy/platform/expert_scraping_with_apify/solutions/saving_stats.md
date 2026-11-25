@@ -11,7 +11,7 @@ pagination: true
 
 ---
 
-The code in this solution will be similar to what we already did in the **Handling migrations** solution; however, we'll be storing and logging different data. First, let's create a new file called **Stats.js** and write a utility class for storing our run stats:
+The code in this solution will be similar to what we already did in the **Handling migrations** solution; however, we'll be storing and logging different data. First, let's create a new file called `Stats.js` and write a utility class for storing our run stats:
 
 ```js title="Stats.js"
 import { Actor, log } from 'apify';
@@ -49,7 +49,7 @@ class Stats {
 export const stats = new Stats();
 ```
 
-Cool, very similar to the `ASINTracker` class we wrote earlier. We'll now import `stats` into our **main.js** file and initialize it along with the ASIN tracker:
+Cool, very similar to the `ASINTracker` class we wrote earlier. We'll now import `stats` into our `main.js` file and initialize it along with the ASIN tracker:
 
 ```js title="main.js"
 import { CheerioCrawler } from '@crawlee/cheerio';
@@ -68,7 +68,7 @@ await stats.initialize();
 
 :::note Import order
 
-The starter's ESLint config sorts imports alphabetically, so the **Stats.js** import goes after **routes.js**.
+The starter's ESLint config sorts imports alphabetically, so the `Stats.js` import goes after `routes.js`.
 
 :::
 
@@ -103,7 +103,7 @@ const crawler = new CheerioCrawler({
 
 ## Tracking total saved {#tracking-total-saved}
 
-Now, we'll increment our `totalSaved` count for every offer added to the dataset. The `OFFERS` handler lives in **routes.js**, so we need to import `stats` there as well:
+Now, we'll increment our `totalSaved` count for every offer added to the dataset. The `OFFERS` handler lives in `routes.js`, so we need to import `stats` there as well:
 
 ```js title="routes.js"
 // ...
@@ -180,7 +180,7 @@ router.addHandler(labels.OFFERS, async ({ $, crawler, request, pushData }) => {
 
 ## Updating the dataset schema
 
-The starter describes every field of the dataset items in **.actor/dataset_schema.json**. Let's add the three new fields to its `properties`:
+The starter describes every field of the dataset items in `.actor/dataset_schema.json`. Let's add the three new fields to its `properties`:
 
 ```json title=".actor/dataset_schema.json"
 "dateHandled": { "type": "string", "description": "When the offer was scraped" },
