@@ -47,8 +47,6 @@ The 90-day default applies only to the token form. A token that `apify login` cr
 
 If you suspect that a token is compromised or exposed, you can rotate it in Apify Console. Apify Console creates the new token right away. When you rotate a token, you can keep the old token active for 24 hours. Update every application that uses the old token before then, because after the 24 hours it stops working.
 
-![Rotate token in Apify Console](../images/api-token-rotate.webp)
-
 After you confirm the rotation, Apify Console shows the new token. This is the only time you can copy it, so store it somewhere safe. The new token has no [expiration](#expiration), even if the old one had. To set an expiration, edit the token and pick a date.
 
 Apify Console marks tokens identified as compromised with a **Leaked** label, so that you can find them and act on them.
@@ -81,8 +79,6 @@ Scoped tokens can't create or modify Actors. To create or modify Actors through 
 
 Scoped tokens behave like standard API tokens. You manage them on the [API & Integrations](https://console.apify.com/settings/integrations) page in Apify Console. When you create or edit a token, turn on **Limit token permissions** to make the token scoped. Then specify the token's permissions.
 
-![Toggle "Limit token permissions" to make a token scoped](../images/api-token-scoped.webp)
-
 ### Account-level vs resource-specific permissions
 
 A token's permissions come in two types:
@@ -110,8 +106,6 @@ Some permissions require other permissions alongside them. These are called _per
 
 The form enforces some dependencies automatically. For example, when you grant the **Write** permission for a dataset, the form also selects the **Read** permission. A token that can write to a dataset can therefore also read from it.
 
-![The Write permission depends on Read for a dataset](../images/api-token-scoped-dependencies.webp)
-
 #### Manual dependencies
 
 Other dependencies are more complex, so you need to configure them yourself:
@@ -129,8 +123,6 @@ In the scoped token's configuration, you choose the scope of the run API token. 
 
 - With **Full access**, Actors can access all your account's data.
 - With **Restricted access**, Actors can access only what the scoped token's scope allows.
-
-![Choose permission mode for running Actors with a scoped token](../images/api-token-scoped-run-modes.webp)
 
 #### Full access
 
@@ -157,8 +149,6 @@ The restriction is transitive: if the Actor runs another Actor, that Actor's acc
 When Apify [runs an Actor](/actors/running/runs-and-builds#runs), it creates a set of default storages that the Actor can use: a dataset, a key-value store, and a request queue.
 
 You can configure whether the scoped token you use to run the Actor gets access to these default storages.
-
-![Configure whether the trigger token gets write access to the run default storages.](../images/api-token-scoped-default-storage-access.webp)
 
 If the toggle is on, the token can access the default storages of the Actor runs it triggers, without an explicit permission. More generally, it can access the default storages of any Actor run in your account that falls within its scope. Use this to let a third-party service, such as an AI agent, run an Actor and then read its output.
 
@@ -192,15 +182,11 @@ Tasks have no dedicated **Run** permission. Give the token these permissions ins
 - **Run** on the Actor that the task runs
 - **Read** on the task
 
-![Scoped token configured to run a task](../images/api-token-scoped-run-tasks.webp)
-
 For details, see [permission dependencies](#permission-dependencies).
 
 #### A run fails with `insufficient permissions` in the log
 
 This error usually means that the Actor runs with a scoped token set to **Restricted access**.
-
-![Scoped token with Restricted access](../images/api-token-scoped-restricted-access-active.webp)
 
 The Actor is trying to access a resource, such as a dataset or a key-value store, or to perform an operation that the token's scope doesn't allow.
 
