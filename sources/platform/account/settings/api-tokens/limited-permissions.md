@@ -11,11 +11,15 @@ By default, an [API token](/account/api-tokens) can access all data in your acco
 
 Scoped tokens can't create or modify Actors. To create or modify Actors through the Apify API, use an unscoped token.
 
-To create a token, set its expiration, or rotate it, see [API tokens](/account/api-tokens).
-
 ## Create a scoped token
 
-Scoped tokens behave like standard API tokens. You manage them on the [API & Integrations](https://console.apify.com/settings/integrations) page in Apify Console. When you [create](/account/api-tokens#create-api-token) or edit a token, turn on **Limit token permissions** to make the token scoped. Then specify the token's permissions.
+Scoped tokens behave like standard API tokens, and you manage them in the same place.
+
+1. Go to [**Settings > API & Integrations**](https://console.apify.com/settings/integrations) in Apify Console.
+1. [Create a token](/account/api-tokens#create-api-token), or edit an existing one.
+1. Turn on **Limit token permissions** to make the token scoped.
+1. Specify the token's permissions.
+1. Select **Create** for a new token, or **Save** for an existing one.
 
 ## Account-level vs resource-specific permissions
 
@@ -86,16 +90,16 @@ The restriction is transitive: if the Actor runs another Actor, that Actor's acc
 
 When Apify [runs an Actor](/actors/running/runs-and-builds#runs), it creates a set of default storages that the Actor can use: a dataset, a key-value store, and a request queue.
 
-You can configure whether the scoped token you use to run the Actor gets access to these default storages.
+The **Allow this token to access default run storages** setting controls whether the scoped token you use to run the Actor gets access to these default storages. The setting is off by default.
 
-If the toggle is on, the token can read and write to the default storages of the Actor runs it starts, without an explicit permission. It can also read the default storages of other runs that it can access through the **List runs** permission on an Actor. Use this to let a third-party service, such as an AI agent, run an Actor and then read its output.
+If the setting is on, the token can read and write to the default storages of the Actor runs it starts, without an explicit permission. It can also read the default storages of other runs that it can access through the **List runs** permission on an Actor. Use this to let a third-party service, such as an AI agent, run an Actor and then read its output.
 
-If the toggle is off, the token can still trigger and inspect runs, but its access to the default storages is restricted:
+If the setting is off, the token can still trigger and inspect runs, but its access to the default storages is restricted:
 
 - In an account with **Restricted** [general resource access](/account/collaboration/general-resource-access), the token can't read or write to default storages.
 - In an account with **Unrestricted** general resource access, the default storages can still be read anonymously using their IDs, but the token can't write to them.
 
-For example, your Actor might produce data that you want to delete right after the run finishes. Turn the toggle on so that the scoped token can delete that data.
+For example, your Actor might produce data that you want to delete right after the run finishes. Turn the setting on so that the scoped token can delete that data.
 
 ### Full-permission Actors
 
