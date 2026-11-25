@@ -50,7 +50,7 @@ class Stats {
 export const stats = new Stats();
 ```
 
-Cool, very similar to the **ASINTracker** class we wrote earlier. We'll now import `stats` into our **main.js** file and initialize it along with the ASIN tracker. The starter's ESLint config sorts imports alphabetically, so the **Stats.js** import goes after **routes.js**:
+Cool, very similar to the **ASINTracker** class we wrote earlier. We'll now import `stats` into our **main.js** file and initialize it along with the ASIN tracker:
 
 ```js
 // main.js
@@ -68,11 +68,23 @@ await stats.initialize();
 // ...
 ```
 
+:::note
+
+The starter's ESLint config sorts imports alphabetically, so the **Stats.js** import goes after **routes.js**.
+
+:::
+
 ## Tracking errors {#tracking-errors}
 
 In order to keep track of errors, we must write a new function within the crawler's configuration called **errorHandler**. Crawlee calls it with two arguments. The first one is the crawling context, which contains the **Request** object, as well as information about the session and proxy which were used for the request. The second one is the **Error** object for the error which occurred.
 
-Crawlee calls **errorHandler** only when it's going to retry the request. When the request fails for the last time, Crawlee calls **failedRequestHandler** instead, so to record every error, we need both:
+:::note
+
+Crawlee calls **errorHandler** only when it's going to retry the request. When the request fails for the last time, Crawlee calls **failedRequestHandler** instead.
+
+:::
+
+To record every error, we need both:
 
 ```js
 const crawler = new CheerioCrawler({
