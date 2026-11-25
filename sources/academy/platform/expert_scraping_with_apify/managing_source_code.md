@@ -11,7 +11,7 @@ pagination: true
 
 ---
 
-In this brief lesson, we'll discuss how to better manage an Actor's source code. So far, you've worked on your Actors' code locally and pushed it directly to the Apify platform. However, there's a better and more standard way.
+In this brief lesson, we'll discuss how to better manage an Actor's source code. Until now, you've worked on your Actors' code locally and pushed it directly to the Apify platform. However, there's a better and more standard way.
 
 ## Learning 🧠 {#learning}
 
