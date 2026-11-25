@@ -48,8 +48,7 @@ As a last step, when asked how to set up the source code, select **Local only**,
 
 First of all, we should clear out any of the boilerplate code within **main.js** to get a clean slate:
 
-```js
-// main.js
+```js title="main.js"
 import { Actor } from 'apify';
 
 await Actor.init();
