@@ -122,7 +122,7 @@ const withAPI = async () => {
 };
 ```
 
-Finally, let's make a `POST` request to our endpoint. Node.js has [`fetch`](https://nodejs.org/api/globals.html#fetch) built in, so we don't need to install any extra package. Unlike some HTTP libraries, `fetch` doesn't throw when the API responds with an error status, so we check `response.ok` ourselves. Because we requested CSV, we read the body as text:
+Finally, let's make a `POST` request to our endpoint. Because we requested CSV, we read the body as text:
 
 ```js
 const withAPI = async () => {
