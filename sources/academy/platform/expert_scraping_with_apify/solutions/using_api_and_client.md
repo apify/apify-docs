@@ -11,42 +11,47 @@ pagination: true
 
 ---
 
-Since we need to create another Actor, we'll once again use the `apify create` command and start from an empty template. This time, let's call our project **actor-caller**:
+Since we need to create another Actor, we'll once again use the `apify create` command and start from an empty template. This time, let's call our project **actor-caller**. When asked what you want to build, select **Any use case** again:
 
 ```text
-$ apify create filter-caller
-? Choose the programming language of your new Actor:
-❯ JavaScript
-  TypeScript
-  Python
+$ apify create actor-caller
+? What do you want to build?
+  Web scraper
+  AI agent
+  API & data pipeline
+  Browser automation
+ ──────────────
+❯ Any use case
 ```
 
-Again, use the arrow down key to select **Empty JavaScript Project**:
+Again, select **JavaScript** as the programming language and use the arrow down key to select **Empty JavaScript Actor**:
 
 ```text
-$ apify create filter-actor
+$ apify create actor-caller
+✔ What do you want to build? Any use case
 ✔ Choose the programming language of your new Actor: JavaScript
-? Choose a template for your new Actor. Detailed information about the template will be shown in the next step.
-  Crawlee + Playwright + Chrome
-  Crawlee + Playwright + Camoufox
-  Bootstrap CheerioCrawler
-  Cypress
-❯ Empty JavaScript Project
-  Standby JavaScript Project
+? Choose a template for your new Actor. More info at https://apify.com/templates
+  JavaScript site crawler (Crawlee + Cheerio)
+  JavaScript one-page scraper (Cheerio)
+  JavaScript browser crawler (Crawlee + Puppeteer + Chrome)
+  JavaScript browser crawler (Crawlee + Playwright + Chrome)
+  JavaScript stealth crawler (Crawlee + Playwright + Camoufox)
+  JavaScript minimal site crawler (Crawlee + Cheerio)
+  JavaScript test runner (Cypress)
+❯ Empty JavaScript Actor
   ...
 ```
 
-Confirm the choices by **Install template** and wait until our new Actor is ready. Now let's also set up some boilerplate, grabbing our inputs and creating a constant variable for the task:
+When asked how to set up the source code, select **Local only**, and wait until our new Actor is ready. Now let's also set up some boilerplate, grabbing our inputs and creating a constant variable for the task:
 
 ```js
 import { Actor } from 'apify';
-import axios from 'axios';
 
 await Actor.init();
 
 const { useClient, memory, fields, maxItems } = await Actor.getInput();
 
-const TASK = 'YOUR_USERNAME~demo-actor-task';
+const TASK = 'YOUR_USERNAME~academy-amazon-scraper-task';
 
 // our future code will go here
 
@@ -57,25 +62,25 @@ await Actor.exit();
 
 When using the `apify-client` package, you can create a new client instance by using `new ApifyClient()`. Within the Apify SDK however, it is not necessary to even install the `apify-client` package, as the `Actor.newClient()` function is available for use.
 
-We'll start by creating a function called `withClient()` and creating a new client, then calling the task:
+We'll start by creating a function called `withClient()` and creating a new client, then calling the task. The first argument of `call()` overrides the task's input, so we pass `undefined` to keep the input saved in the task, and set the memory in the second argument, which holds the run options:
 
 ```js
 const withClient = async () => {
     const client = Actor.newClient();
     const task = client.task(TASK);
 
-    const { id } = await task.call({ memory });
+    const { id } = await task.call(undefined, { memory });
 };
 ```
 
-After the task has run, we'll grab hold of its dataset, then attempt to download the items, plugging in our `maxItems` and `fields` inputs. Then, once the data has been downloaded, we'll push it to the default key-value store under a key named **OUTPUT.csv**.
+After the task has run, we'll get its dataset, then attempt to download the items, plugging in our `maxItems` and `fields` inputs. Then, once the data has been downloaded, we'll push it to the default key-value store under a key named `OUTPUT`.
 
 ```js
 const withClient = async () => {
     const client = Actor.newClient();
     const task = client.task(TASK);
 
-    const { id } = await task.call({ memory });
+    const { id } = await task.call(undefined, { memory });
 
     const dataset = client.run(id).dataset();
 
@@ -92,19 +97,19 @@ const withClient = async () => {
 
 ## Calling a task via API {#calling-a-task-via-api}
 
-First, we'll create a function (right under the `withClient()`) function named `withAPI` and instantiate a new variable which represents the API endpoint to run our task:
+First, right under `withClient()`, we'll create a function named `withAPI()` and define the API endpoint for running our task:
 
 ```js
 const withAPI = async () => {
-    const uri = `https://api.apify.com/v2/actor-tasks/${TASK}/run-sync-get-dataset-items?`;
+    const uri = `https://api.apify.com/v2/actor-tasks/${TASK}/run-sync-get-dataset-items`;
 };
 ```
 
-To add the query parameters to the URL, we could create a super long string literal, plugging in all of our input values; however, there is a much better way: [`URLSearchParams`](https://nodejs.org/api/url.html#new-urlsearchparams). By using `URLSearchParams`, we can add the query parameters in an object:
+To add the query parameters to the URL, we could create a long string literal, plugging in all of our input values. However, there is a much better way: [`URLSearchParams`](https://nodejs.org/api/url.html#new-urlsearchparams). By using `URLSearchParams`, we can add the query parameters in an object:
 
 ```js
 const withAPI = async () => {
-    const uri = `https://api.apify.com/v2/actor-tasks/${TASK}/run-sync-get-dataset-items?`;
+    const uri = `https://api.apify.com/v2/actor-tasks/${TASK}/run-sync-get-dataset-items`;
     const url = new URL(uri);
 
     url.search = new URLSearchParams({
@@ -112,16 +117,17 @@ const withAPI = async () => {
         format: 'csv',
         limit: maxItems,
         fields: fields.join(','),
-        token: process.env.APIFY_TOKEN,
     });
 };
 ```
 
-Finally, let's make a `POST` request to our endpoint. You can use any library you want, but in this example, we'll use [`axios`](https://www.npmjs.com/package/axios). Don't forget to run `npm install axios` if you're going to use this package too!
+Finally, let's make a `POST` request to our endpoint. We'll use [`fetch`](https://nodejs.org/api/globals.html#fetch), which is provided by Node.js out of the box.
+
+The request needs to be authenticated with an API token, which is available in the `APIFY_TOKEN` environment variable. We'll send it in the `Authorization` header:
 
 ```js
 const withAPI = async () => {
-    const uri = `https://api.apify.com/v2/actor-tasks/${TASK}/run-sync-get-dataset-items?`;
+    const uri = `https://api.apify.com/v2/actor-tasks/${TASK}/run-sync-get-dataset-items`;
     const url = new URL(uri);
 
     url.search = new URLSearchParams({
@@ -129,10 +135,16 @@ const withAPI = async () => {
         format: 'csv',
         limit: maxItems,
         fields: fields.join(','),
-        token: process.env.APIFY_TOKEN,
     });
 
-    const { data } = await axios.post(url.toString());
+    const response = await fetch(url, {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${process.env.APIFY_TOKEN}` },
+    });
+    if (!response.ok) {
+        throw new Error(`Request failed with status ${response.status}: ${await response.text()}`);
+    }
+    const data = await response.text();
 
     return Actor.setValue('OUTPUT', data, { contentType: 'text/csv' });
 };
@@ -143,49 +155,58 @@ const withAPI = async () => {
 Now, since we've written both of these functions, all we have to do is write a conditional statement based on the boolean value from `useClient`:
 
 ```js
-if (useClient) await withClient();
-else await withAPI();
-```
-
-And before we push to the platform, let's not forget to write an input schema in the **INPUT_SCHEMA.JSON** file:
-
-```json
-{
-  "title": "Actor Caller",
-  "type": "object",
-  "schemaVersion": 1,
-  "properties": {
-    "memory": {
-      "title": "Memory",
-      "type": "integer",
-      "description": "Select memory in megabytes.",
-      "default": 4096,
-      "maximum": 32768,
-      "unit": "MB"
-    },
-    "useClient": {
-      "title": "Use client?",
-      "type": "boolean",
-      "description": "Specifies whether the Apify JS client, or the pure Apify API should be used.",
-      "default": true
-    },
-    "fields": {
-      "title": "Fields",
-      "type": "array",
-      "description": "Enter the dataset fields to export to CSV",
-      "prefill": ["title", "url", "price"],
-      "editor": "stringList"
-    },
-    "maxItems": {
-      "title": "Max items",
-      "type": "integer",
-      "description": "Fill the maximum number of items to export.",
-      "default": 10
-    }
-  },
-  "required": ["useClient", "memory", "fields", "maxItems"]
+if (useClient) {
+    await withClient();
+} else {
+    await withAPI();
 }
 ```
+
+And before we push to the platform, let's not forget to write an input schema in the `.actor/input_schema.json` file:
+
+```json title=".actor/input_schema.json"
+{
+    "title": "Actor Caller",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "memory": {
+            "title": "Memory",
+            "type": "integer",
+            "description": "Select memory in megabytes.",
+            "default": 4096,
+            "maximum": 32768,
+            "unit": "MB"
+        },
+        "useClient": {
+            "title": "Use client?",
+            "type": "boolean",
+            "description": "Specifies whether the Apify JS client, or the pure Apify API should be used.",
+            "default": true
+        },
+        "fields": {
+            "title": "Fields",
+            "type": "array",
+            "description": "Enter the dataset fields to export to CSV",
+            "prefill": ["title", "itemUrl", "offer"],
+            "editor": "stringList"
+        },
+        "maxItems": {
+            "title": "Max items",
+            "type": "integer",
+            "description": "Fill the maximum number of items to export.",
+            "default": 10
+        }
+    },
+    "required": ["useClient", "memory", "fields", "maxItems"]
+}
+```
+
+:::caution Grant full permissions
+
+New Actors run with [limited permissions](/actors/development/permissions) by default, which don't allow them to start a task you own. After you push **actor-caller** to the platform, open its **Settings** tab and in the **Actor permissions** section, select **Full permissions**. Otherwise, the run fails with a `403 insufficient-permissions` error when it tries to start the task.
+
+:::
 
 ## Final code {#final-code}
 
@@ -193,19 +214,18 @@ To ensure we're on the same page, here is what the final code looks like:
 
 ```js
 import { Actor } from 'apify';
-import axios from 'axios';
 
 await Actor.init();
 
 const { useClient, memory, fields, maxItems } = await Actor.getInput();
 
-const TASK = 'YOUR_USERNAME~demo-actor-task';
+const TASK = 'YOUR_USERNAME~academy-amazon-scraper-task';
 
 const withClient = async () => {
     const client = Actor.newClient();
     const task = client.task(TASK);
 
-    const { id } = await task.call({ memory });
+    const { id } = await task.call(undefined, { memory });
 
     const dataset = client.run(id).dataset();
 
@@ -218,7 +238,7 @@ const withClient = async () => {
 };
 
 const withAPI = async () => {
-    const uri = `https://api.apify.com/v2/actor-tasks/${TASK}/run-sync-get-dataset-items?`;
+    const uri = `https://api.apify.com/v2/actor-tasks/${TASK}/run-sync-get-dataset-items`;
     const url = new URL(uri);
 
     url.search = new URLSearchParams({
@@ -226,10 +246,16 @@ const withAPI = async () => {
         format: 'csv',
         limit: maxItems,
         fields: fields.join(','),
-        token: process.env.APIFY_TOKEN,
     });
 
-    const { data } = await axios.post(url.toString());
+    const response = await fetch(url, {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${process.env.APIFY_TOKEN}` },
+    });
+    if (!response.ok) {
+        throw new Error(`Request failed with status ${response.status}: ${await response.text()}`);
+    }
+    const data = await response.text();
 
     return Actor.setValue('OUTPUT', data, { contentType: 'text/csv' });
 };
@@ -247,9 +273,9 @@ await Actor.exit();
 
 **Q: What is the relationship between the Apify API and Apify client? Are there any significant differences?**
 
-**A:** The Apify client mimics the Apify API, so there aren't any super significant differences. It's super handy as it helps with managing the API calls (parsing, error handling, retries, etc) and even adds convenience functions.
+**A:** The Apify client mimics the Apify API, so there aren't any significant differences. It's handy because it helps with managing the API calls (such as parsing, error handling, retries) and even adds convenience functions.
 
-The one main difference is that the Apify client automatically uses [**exponential backoff**](/api/client/js/docs#retries-with-exponential-backoff) to deal with errors.
+The one main difference is that the Apify client automatically uses [**exponential backoff**](/api/client/js/docs/concepts/error-handling#retries-with-exponential-backoff) to deal with errors.
 
 **Q: How do you pass input when running an Actor or task via API?**
 

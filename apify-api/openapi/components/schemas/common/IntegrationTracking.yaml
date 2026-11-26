@@ -3,11 +3,11 @@ type: object
 description: Information about the third-party integration that created the resource.
 properties:
   platform:
-    type: string
+    type: [string, "null"]
     examples: [zapier]
     description: Name of the integration platform.
   appId:
-    type: string
+    type: [string, "null"]
     description: ID of the integration app.
   isAiTool:
     type: boolean

@@ -12,3 +12,4 @@ enum:
   - CI
   - STANDBY
   - MCP
+  - APIFY_AI

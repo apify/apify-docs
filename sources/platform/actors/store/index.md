@@ -1,15 +1,19 @@
 ---
-title: Actors in Store
+title: Apify Store
 description: Browse Apify Store to discover thousands of public Actors, understand their pricing models, and choose the right one for your automation needs.
 sidebar_position: 1
-slug: /actors/running/actors-in-store
+slug: /actors/store
 ---
 
-:::info Publishing and monetizing Actors
+[Apify Store](https://apify.com/store) is a marketplace of thousands of ready-made Actors for web scraping, data extraction, and automation. You can choose from the available Actors and run them on the Apify platform without writing code. You can also [publish your own Actors](/actors/publishing) and [monetize them](/actors/monetize).
 
-Anyone is welcome to [publish Actors](/actors/publishing) in the store, and you can even [monetize your Actors](/actors/monetize). For more information about how to monetize your Actor, best practices, SEO, and promotion tips and tricks, head over to the [Marketing checklist](/academy/build-and-publish/promote-your-actor/checklist) section of the Apify Developers Academy.
+Each Actor's page shows what it does, how much it costs, and how other users rate it.
 
-:::
+## Search for Actors
+
+You can browse Apify Store on the web at [apify.com/store](https://apify.com/store) or in [Apify Console](https://console.apify.com/store).
+
+Search results in Apify Console are personalized, so the same query can return different Actors than the public Store. Both Console and the public Store rank Actors by the same parameters, similar to the [Actor quality score](/actors/publishing/quality-score).
 
 ## Pricing models
 
@@ -30,7 +34,7 @@ To view the Actor's events and their prices, go to the Actor's page in Apify Sto
 
 :::caution Some Actors charge platform usage separately
 
-Most pay-per-event Actors include [platform usage](../usage-and-resources/index.md) in the event price. However, some Actors might charge for platform usage separately. Always check the pricing before you run the Actor.
+Most pay-per-event Actors include [platform usage](../running/usage-and-resources/index.md) in the event price. However, some Actors might charge for platform usage separately. Always check the pricing before you run the Actor.
 
 :::
 
@@ -42,15 +46,15 @@ If charges seem incorrect, [open an issue](#report-issues-with-actors) on the Ac
 
 ### Pay per usage
 
-When you use a pay-per-usage Actor, you are only charged for the platform usage that the runs of this Actor generate. [Platform usage](../usage-and-resources/index.md) includes components such as compute units, operations on [storages](/storage), and usage of [residential proxies](/proxy/residential-proxy) or [SERPs](/proxy/google-serp-proxy).
+When you use a pay-per-usage Actor, you are only charged for the platform usage that the runs of this Actor generate. [Platform usage](../running/usage-and-resources/index.md) includes components such as compute units, operations on [storages](/storage), and usage of [residential proxies](/proxy/residential-proxy) or [SERPs](/proxy/google-serp-proxy).
 
-![Pay for usage Actor example](../images/store/pay_per_usage_actor_example.png)
+![Pay for usage Actor example](./images/pay_per_usage_actor_example.webp)
 
 :::info Estimating Actor usage cost
 
 With this model, it's very easy to see how many platform resources each Actor run consumed, but it is quite difficult to estimate their usage beforehand. The best way to find the costs of free Actors upfront is to try out the Actor on a limited scope (for example, on a small number of pages) and evaluate the consumption. You can easily do that using our [free plan](https://apify.com/pricing).
 
-_For more information on platform usage cost see the [usage and resources](../usage-and-resources/index.md) page._
+_For more information on platform usage cost see the [usage and resources](../running/usage-and-resources/index.md) page._
 
 :::
 
@@ -72,7 +76,7 @@ Each Actor has an **Issues** tab in Apify Console. There, you can open an issue 
 and other users of this Actor. Please feel free to use the tab to ask any questions, request new features, or give feedback. Alternatively, you can
 always write to [community@apify.com](mailto:community@apify.com).
 
-![Paid Actors' issues tab](../images/store/paid-actors-issues-tab.png)
+![Paid Actors' issues tab](./images/paid-actors-issues-tab.webp)
 
 ## Apify Store discounts
 
@@ -88,10 +92,10 @@ Additional discounts are available for Enterprise customers.
 
 To check an Actor's pricing and available discounts, visit the Pricing section on the Actor's detail page in Apify Store.
 
-![Apify Store discounts](../images/store/apify_store_discounts_web.png)
+![Apify Store discounts](./images/apify_store_discounts_web.webp)
 
 In Apify Console, you can find information about pricing and available discounts in the Actor's header section.
 
-![Apify Store discounts](../images/store/apify_store_discounts_console.png)
+![Apify Store discounts](./images/apify_store_discounts_console.webp)
 
-![Apify Store discounts full table](../images/store/apify_store_discounts_full_table.png)
+![Apify Store discounts full table](./images/apify_store_discounts_full_table.webp)

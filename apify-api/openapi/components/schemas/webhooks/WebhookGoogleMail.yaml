@@ -17,7 +17,7 @@ properties:
     type: string
     examples: ["Actor run {{resource.id}} finished."]
   attachmentFormat:
-    type: string
+    type: [string, "null"]
     examples: [csv]
   attachmentTransformation:
     $ref: ./WebhookDatasetTransformation.yaml

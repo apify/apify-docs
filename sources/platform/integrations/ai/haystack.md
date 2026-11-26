@@ -166,7 +166,7 @@ print(result["last_message"].text)
 Note that:
 
 - `dataset_items_limit` caps the number of dataset items the tool returns, which keeps its output within the model's context window.
-- `max_total_charge_usd` caps the cost of each run the agent starts with a [pay-per-event](/actors/running/actors-in-store#pay-per-event) Actor.
+- `max_total_charge_usd` caps the cost of each run the agent starts with a [pay-per-event](/actors/store#pay-per-event) Actor.
 - The tool wraps the items it returns in markers that tell the LLM to treat them as untrusted external content, which helps guard against prompt injection in scraped pages.
 
 ## Load data from tasks and datasets
