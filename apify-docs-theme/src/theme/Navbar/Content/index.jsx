@@ -11,7 +11,6 @@ import React from 'react';
 
 // import SearchBar from '../../SearchBar';
 import NavbarCTA from '../CTA';
-import { DiscordIcon } from './DiscordIcon';
 
 function NavbarItems({ items }) {
     return (
@@ -101,14 +100,6 @@ export default function NavbarContent() {
                 }
                 right={
                     <>
-                        <a
-                            href="https://discord.com/invite/jyEM2PRvMU"
-                            className="icon"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <DiscordIcon size={20} />
-                        </a>
                         <NavbarCTA />
                         <NavbarMobileSidebarToggle />
                     </>

@@ -499,18 +499,6 @@ aside > div > a > b {
     top: 10px;
 }
 
-.navbar .icon[href*='discord'] {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 4rem;
-    height: 4rem;
-    background-color: var(--color-Neutral_BackgroundMuted);
-    border: 1px solid var(--color-neutral-border);
-    border-radius: 4px;
-    color: var(--ifm-navbar-link-color);
-}
-
 .navbar .icon svg[class*='iconExternalLink'],
 aside .icon svg[class*='iconExternalLink'] {
     display: none;
