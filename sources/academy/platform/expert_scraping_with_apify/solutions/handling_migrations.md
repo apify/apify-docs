@@ -231,7 +231,9 @@ await tracker.initialize();
 // ...
 ```
 
-That's everything! Now, even if the Actor migrates (or is gracefully aborted and then resurrected), this `state` object will always be persisted.
+The tracker saves its state each time the `persistState` event fires, so after a migration, or a graceful abort and resurrection, it picks up from the last save. Offers counted after that save are lost, so the counts can end up slightly lower than the number of items in the dataset.
+
+That's everything! Our tracker now survives migrations, and the Actor doesn't have to start counting from scratch.
 
 ## Quiz answers 📝 {#quiz-answers}
 
