@@ -42,7 +42,7 @@ If charges seem incorrect, [open an issue](#report-issues-with-actors) on the Ac
 
 When you use a pay-per-usage Actor, you are only charged for the platform usage that the runs of this Actor generate. [Platform usage](../running/usage-and-resources/index.md) includes components such as compute units, operations on [storages](/storage), and usage of [residential proxies](/proxy/residential-proxy) or [SERPs](/proxy/google-serp-proxy).
 
-![Pay for usage Actor example](./images/pay_per_usage_actor_example.png)
+![Pay for usage Actor example](./images/pay_per_usage_actor_example.webp)
 
 :::info Estimating Actor usage cost
 
@@ -70,7 +70,7 @@ Each Actor has an **Issues** tab in Apify Console. There, you can open an issue 
 and other users of this Actor. Please feel free to use the tab to ask any questions, request new features, or give feedback. Alternatively, you can
 always write to [community@apify.com](mailto:community@apify.com).
 
-![Paid Actors' issues tab](./images/paid-actors-issues-tab.png)
+![Paid Actors' issues tab](./images/paid-actors-issues-tab.webp)
 
 ## Apify Store discounts
 
@@ -86,10 +86,10 @@ Additional discounts are available for Enterprise customers.
 
 To check an Actor's pricing and available discounts, visit the Pricing section on the Actor's detail page in Apify Store.
 
-![Apify Store discounts](./images/apify_store_discounts_web.png)
+![Apify Store discounts](./images/apify_store_discounts_web.webp)
 
 In Apify Console, you can find information about pricing and available discounts in the Actor's header section.
 
-![Apify Store discounts](./images/apify_store_discounts_console.png)
+![Apify Store discounts](./images/apify_store_discounts_console.webp)
 
-![Apify Store discounts full table](./images/apify_store_discounts_full_table.png)
+![Apify Store discounts full table](./images/apify_store_discounts_full_table.webp)
