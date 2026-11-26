@@ -97,7 +97,7 @@ const withClient = async () => {
 
 ## Calling a task via API {#calling-a-task-via-api}
 
-First, right under the `withClient()` function, we'll create a function named `withAPI()` and instantiate a new variable which represents the API endpoint to run our task:
+First, right under `withClient()`, we'll create a function named `withAPI()` and instantiate a new variable which represents the API endpoint to run our task:
 
 ```js
 const withAPI = async () => {
