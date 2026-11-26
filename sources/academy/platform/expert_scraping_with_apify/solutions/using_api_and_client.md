@@ -122,7 +122,7 @@ const withAPI = async () => {
 };
 ```
 
-Finally, let's make a `POST` request to our endpoint. Because we requested CSV, we read the body as text:
+Finally, let's make a `POST` request to our endpoint. We'll use [`fetch`](https://nodejs.org/api/globals.html#fetch), which is provided by Node.js out of the box.
 
 ```js
 const withAPI = async () => {
