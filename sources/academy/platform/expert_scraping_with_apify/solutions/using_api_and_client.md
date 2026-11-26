@@ -123,8 +123,6 @@ const withAPI = async () => {
 
 Finally, let's make a `POST` request to our endpoint. We'll use [`fetch`](https://nodejs.org/api/globals.html#fetch), which is provided by Node.js out of the box.
 
-The request also needs to be authenticated with our API token, which is available in the `APIFY_TOKEN` environment variable. We could add it to the query parameters as `token`, but URLs tend to end up in logs, so it's safer to send the token in the `Authorization` header instead:
-
 ```js
 const withAPI = async () => {
     const uri = `https://api.apify.com/v2/actor-tasks/${TASK}/run-sync-get-dataset-items?`;
