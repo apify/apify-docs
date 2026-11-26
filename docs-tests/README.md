@@ -183,8 +183,7 @@ throwaway branch).
 
 - **Coverage is a starting slice.** `pages.json` covers the account section
   (`account/console` dashboard, `account/settings`, `account/billing`) — routes
-  and landing-page elements. (`console/store.md` was dropped: it has no bold UI
-  element labels to test.) Widening to more pages is a follow-up: add to
+  and landing-page elements. Widening to more pages is a follow-up: add to
   `pages.json`, re-extract, review, commit.
 - **Detail-page fixtures.** Assertions about Actor-detail, Schedule-detail, etc.
   need a known fixture to navigate to. The runner currently *skips* element
