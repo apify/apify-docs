@@ -30,8 +30,8 @@ properties:
     items:
       type: string
     example:
-      - MARKETING
-      - LEAD_GENERATION
+      - AI_AND_ML
+      - GENERATE_LEADS
   notice:
     $ref: ../actors/ActorNotice.yaml
   pictureUrl:
@@ -46,21 +46,51 @@ properties:
     format: uri
     examples: ["https://..."]
   stats:
-    $ref: ../actors/ActorStats.yaml
+    type: object
+    title: StoreActorStats
+    description: Actor usage statistics and Apify Store metrics returned by the Store endpoint.
+    required:
+      - totalUsers
+      - actorReviewRating
+      - actorReviewCount
+    properties:
+      totalUsers:
+        type: integer
+        examples: [6]
+        description: The total number of Actor users, including its owner.
+      totalRuns:
+        type: integer
+        examples: [16]
+        description: The total number of runs of the Actor.
+      totalUsers7Days:
+        type: integer
+        examples: [2]
+        description: The number of active users of the Actor in the last 7 days.
+      totalUsers30Days:
+        type: integer
+        examples: [6]
+        description: The number of active users of the Actor in the last 30 days.
+      totalUsers90Days:
+        type: integer
+        examples: [6]
+        description: The number of active users of the Actor in the last 90 days.
+      actorReviewRating:
+        type: number
+        examples: [4.7]
+        description: The average rating of the Actor in Apify Store.
+      actorReviewCount:
+        type: integer
+        examples: [69]
+        description: The number of reviews the Actor has received in Apify Store.
   currentPricingInfo:
     $ref: ./CurrentPricingInfo.yaml
   isWhiteListedForAgenticPayments:
     type: [boolean, "null"]
     description: Whether the Actor is whitelisted for agentic payment processing.
-  actorReviewCount:
-    type: integer
-    examples: [69]
-  actorReviewRating:
-    type: number
-    examples: [4.7]
-  bookmarkCount:
-    type: integer
-    examples: [1269]
+  isVerified:
+    type: boolean
+    description: Whether the Actor's developer has a verified identity.
+    examples: [false]
   badge:
     type: [string, "null"]
     examples: [null]

@@ -249,13 +249,7 @@ module.exports = {
                 },
             },
         ],
-        [
-            resolve(__dirname, 'src/plugins/docusaurus-plugin-segment'),
-            {
-                writeKey: process.env.SEGMENT_TOKEN,
-                allowedInDev: false,
-            },
-        ],
+        resolve(__dirname, 'src/plugins/docusaurus-plugin-segment'),
         resolve(__dirname, 'src/plugins/docusaurus-plugin-preview-meta'),
         () => ({
             name: 'webpack-loader-fix',
@@ -564,6 +558,7 @@ module.exports = {
     staticDirectories: ['apify-docs-theme/static', 'static'],
     customFields: {
         ...(config.customFields ?? []),
+        segmentWriteKey: process.env.SEGMENT_TOKEN,
     },
     clientModules: ['./clientModule.js'],
 };

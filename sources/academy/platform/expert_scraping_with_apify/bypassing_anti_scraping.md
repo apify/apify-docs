@@ -15,7 +15,7 @@ Effectively bypassing anti-scraping software is one of the most crucial, but als
 
 It is generally quite difficult to recognize the anti-scraping protections a page may have when first inspecting it, so it is important to thoroughly investigate a site prior to writing any lines of code, as anti-scraping measures can significantly change your approach as well as complicate the development process of an Actor. As your skills expand, you will be able to spot anti-scraping measures quicker, and better evaluate the complexity of a new project.
 
-You might have already noticed that we've been using the **RESIDENTIAL** proxy group in the `proxyConfiguration` within our Amazon scraping Actor. But what does that mean? This is a proxy group from [Apify Proxy](https://apify.com/proxy) which has been preventing us from being blocked by Amazon this entire time. We'll be learning more about proxies and Apify Proxy in this lesson.
+You might have already noticed that we've been using the `RESIDENTIAL` proxy group in the `proxyConfiguration` within our Amazon scraping Actor. But what does that mean? This is a proxy group from [Apify Proxy](https://apify.com/proxy) which has been preventing us from being blocked by Amazon this entire time. We'll be learning more about proxies and Apify Proxy in this lesson.
 
 ## Learning 🧠 {#learning}
 
@@ -39,7 +39,7 @@ You might have already noticed that we've been using the **RESIDENTIAL** proxy g
 
 This time, we're going to build a trivial proxy-session manager for our Amazon scraping Actor. A session should be used a maximum of 5 times before being rotated; however, if a request fails, the IP should be rotated immediately.
 
-Additionally, the proxies used by our scraper should now only be from the US.
+Our scraper already uses proxies only from the US. Find the code which does that and figure out why it's there.
 
 [**Solution**](./solutions/rotating_proxies.md)
 

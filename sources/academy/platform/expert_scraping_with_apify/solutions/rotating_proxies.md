@@ -16,25 +16,24 @@ If you take a look at our current code for the Amazon scraping Actor, you might 
 ```js
 const proxyConfiguration = await Actor.createProxyConfiguration({
     groups: ['RESIDENTIAL'],
+    countryCode: 'US', // prices in USD, not in proxy's country currency
 });
 ```
 
-We didn't provide much explanation for this initially, as it was not directly relevant to the lesson at hand. When you [create a **ProxyConfiguration**](../../../webscraping/anti_scraping/mitigation/using_proxies.md) and pass it to a crawler, Crawlee will make the crawler automatically rotate through the proxies. This entire time, we've been using the **RESIDENTIAL** proxy group to avoid being blocked by Amazon.
+The starter comes with this configuration ready, so we haven't had to think about it so far. When you [create a `ProxyConfiguration`](../../../webscraping/anti_scraping/mitigation/using_proxies.md) and pass it to a crawler, Crawlee will make the crawler automatically rotate through the proxies. This entire time, we've been using the `RESIDENTIAL` proxy group to avoid being blocked by Amazon.
 
 > Go ahead and try commenting out the proxy configuration code then running the scraper. What happens?
 
-In order to rotate sessions, we must utilize the [**SessionPool**](https://crawlee.dev/api/core/class/AutoscaledPool), which we've actually also already been using by setting the **useSessionPool** option in our crawler's configuration to **true**. The SessionPool advances the concept of proxy rotation by tying proxies to user-like sessions and rotating those instead. In addition to a proxy, each user-like session has cookies attached to it (and potentially a browser fingerprint as well).
+In order to rotate sessions, we must utilize the [`SessionPool`](https://crawlee.dev/api/core/class/SessionPool), which our crawler has actually been using all along, because the `useSessionPool` option is `true` by default. The SessionPool advances the concept of proxy rotation by tying proxies to user-like sessions and rotating those instead. In addition to a proxy, each user-like session has cookies attached to it and, potentially, a browser fingerprint as well.
 
 ## Configuring SessionPool {#configuring-session-pool}
 
-Let's go ahead and add a **sessionPoolOptions** key to our crawler's configuration so that we can modify the default settings:
+Let's go ahead and add a `sessionPoolOptions` key to our crawler's configuration so that we can modify the default settings:
 
 ```js
 const crawler = new CheerioCrawler({
-    requestList,
-    requestQueue,
     proxyConfiguration,
-    useSessionPool: true,
+    maxRequestRetries: 10,
     // This is where our session pool
     // configuration lives
     sessionPoolOptions: {
@@ -45,27 +44,23 @@ const crawler = new CheerioCrawler({
 
         },
     },
-    maxConcurrency: 50,
-    // ...
+    requestHandler: router,
 });
 ```
 
-Now, we'll use the **maxUsageCount** key to force each session to be thrown away after 5 uses and **maxErrorScore** to trash a session once it receives an error.
+Now, we'll use the `maxUsageCount` key to force each session to be thrown away after 5 uses and `maxErrorScore` to trash a session once it receives an error.
 
 ```js
 const crawler = new CheerioCrawler({
-    requestList,
-    requestQueue,
     proxyConfiguration,
-    useSessionPool: true,
+    maxRequestRetries: 10,
     sessionPoolOptions: {
         sessionOptions: {
             maxUsageCount: 5,
             maxErrorScore: 1,
         },
     },
-    maxConcurrency: 50,
-    // ...
+    requestHandler: router,
 });
 ```
 
@@ -73,7 +68,7 @@ And that's it! We've successfully configured the session pool to match the task'
 
 ## Limiting proxy location {#limiting-proxy-location}
 
-The final requirement was to use proxies only from the US. Back in our **ProxyConfiguration**, we need to add the **countryCode** key and set it to **US**:
+The scraper already uses proxies only from the US, thanks to the `countryCode` key in our `ProxyConfiguration`:
 
 ```js
 const proxyConfiguration = await Actor.createProxyConfiguration({
@@ -81,6 +76,8 @@ const proxyConfiguration = await Actor.createProxyConfiguration({
     countryCode: 'US',
 });
 ```
+
+Amazon adjusts the page to the location of the visitor. If our scraper used proxies from all over the world, Amazon would show prices in many different currencies, and we wouldn't be able to compare them. With proxies from the US, all prices are in US dollars.
 
 ## Quiz answers {#quiz-answers}
 
@@ -90,11 +87,11 @@ const proxyConfiguration = await Actor.createProxyConfiguration({
 
 **Q: Which proxy groups do users get on the free plan? Can they access the proxy from their computer?**
 
-**A:** All users have access to the **BUYPROXIES94952**, **GOOGLE_SERP** and **RESIDENTIAL** groups. Free users cannot access the proxy from outside the Apify platform (paying users can).
+**A:** The free plan includes 5 datacenter proxy IPs. Free users can also use residential proxies, Google SERP proxies, and Unblocker, which are paid from the plan's monthly prepaid usage. The [Proxy](https://console.apify.com/proxy/groups) page in Apify Console shows which proxy groups your account can use. Free users can use Apify Proxy only from Actors running on the Apify platform, not from their own computer. Paid plans remove this restriction.
 
 **Q: How can you prevent an error from occurring if one of the proxy groups that a user has is removed? What are the best practices for these scenarios?**
 
-**A:** By making the proxy for the scraper to use be configurable by the user through the Actor's input. That way, they can switch proxies if the Actor stops working due to proxy-related issues. It can also be done by using the **AUTO** proxy instead of specific groups.
+**A:** By making the proxy for the scraper to use be configurable by the user through the Actor's input. That way, they can switch proxies if the Actor stops working due to proxy-related issues. It can also be done by using the `AUTO` proxy instead of specific groups.
 
 **Q: Does it make sense to rotate proxies when you are logged into a website?**
 
