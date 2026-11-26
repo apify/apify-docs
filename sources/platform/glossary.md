@@ -131,7 +131,7 @@ A [proxy](/proxy) is a server that forwards your requests, so target websites se
 
 ## Quality score
 
-A [quality score](/actors/publishing/quality-score) is a 0 to 100 rating of an Apify Store Actor, built from categories such as reliability, popularity, ease of use, and pricing transparency. It influences how the Actor ranks in [Apify Store](/actors/running/actors-in-store).
+A [quality score](/actors/publishing/quality-score) is a 0 to 100 rating of an Apify Store Actor, built from categories such as reliability, popularity, ease of use, and pricing transparency. It influences how the Actor ranks in [Apify Store](/actors/store).
 
 ## Request queue
 
