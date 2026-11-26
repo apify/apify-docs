@@ -68,7 +68,7 @@ It's also important to know that GitHub/GitLab repository integration is standar
 
 Unlike the helper Actors we'll create later in the course, **academy-amazon-scraper** now builds from your Git repository. To deploy a change to it in the following lessons, commit the change and run `git push`, then wait for the build to finish before you start the Actor.
 
-Running `apify push` in its folder fails with an error, and `apify push --force` would switch the Actor's source back to local files, so don't use either.
+Don't use `apify push` for it. The CLI would ask whether to switch the Actor's source to your local files, and agreeing, or passing `--force`, disconnects the Actor from your repository.
 
 ## Next up {#next}
 
