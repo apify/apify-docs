@@ -29,11 +29,9 @@ Before anything can be integrated, we've gotta create a new Actor. Let's head ov
 
 ### Changing source code location {#change-source-code}
 
-In the **Source** tab on the new Actor's page, we'll click the dropdown menu under **Source code** and select **Git repository**. By default, this is set to **Web IDE**.
+In the **Source** tab on the new Actor's page, we'll change **Source type** from the default **Web IDE** to **Git repository**. Then we'll paste the link to our GitHub repository into the **Git URL** field and select **Save**.
 
-![Select source code location](../expert_scraping_with_apify/images/select-source-location.png)
-
-Now we'll paste the link to our GitHub repository into the **Git URL** text field and click **Save**.
+![Source tab of an Actor with Source type set to Git repository and a repository URL in the Git URL field](./images/set-source-type-to-git-repository.svg)
 
 ### Adding the webhook to the repository {#adding-repository-webhook}
 
