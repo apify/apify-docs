@@ -1,0 +1,80 @@
+post:
+  tags:
+    - Actor issues
+  summary: Create GitHub issue from Actor issue
+  description: |
+    Creates a GitHub issue in the Actor's GitHub repository from the Actor issue and
+    links the two.
+
+    You need write access to the Actor, its source code must be hosted on GitHub,
+    and you need to connect your GitHub account through the Apify GitHub App.
+  operationId: actorIssue_githubIssue_post
+  parameters:
+    - $ref: "../../components/parameters/actorIssueParameters.yaml#/issueId"
+  responses:
+    "201":
+      description: ""
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/actor-issues/GitHubIssueLinkResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      $ref: ../../components/responses/NotFound.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
+  deprecated: false
+put:
+  tags:
+    - Actor issues
+  summary: Link GitHub issue to Actor issue
+  description: |
+    Links an existing GitHub issue to the Actor issue. An Actor issue can be linked to
+    only one GitHub issue.
+
+    You need write access to the Actor.
+  operationId: actorIssue_githubIssue_put
+  parameters:
+    - $ref: "../../components/parameters/actorIssueParameters.yaml#/issueId"
+  requestBody:
+    description: ""
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/actor-issues/LinkGitHubIssueRequest.yaml
+    required: true
+  responses:
+    "200":
+      description: ""
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/actor-issues/GitHubIssueLinkResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      $ref: ../../components/responses/NotFound.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "409":
+      $ref: ../../components/responses/Conflict.yaml
+    "413":
+      $ref: ../../components/responses/PayloadTooLarge.yaml
+    "415":
+      $ref: ../../components/responses/UnsupportedMediaType.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
+  deprecated: false

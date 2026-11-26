@@ -1,0 +1,10 @@
+title: LinkGitHubIssueRequest
+required:
+  - gitHubUrl
+type: object
+additionalProperties: false
+properties:
+  gitHubUrl:
+    type: string
+    description: URL of an existing GitHub issue.
+    examples: ["https://github.com/janedoe/my-actor/issues/12"]

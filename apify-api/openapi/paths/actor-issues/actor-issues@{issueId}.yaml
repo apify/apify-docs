@@ -1,0 +1,76 @@
+get:
+  tags:
+    - Actor issues
+  summary: Get Actor issue
+  description: |
+    Gets an Actor issue, including its description and the files attached to it.
+
+    Issues of public Actors can be read without an API token.
+  operationId: actorIssue_get
+  parameters:
+    - $ref: "../../components/parameters/actorIssueParameters.yaml#/issueId"
+  responses:
+    "200":
+      description: ""
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/actor-issues/ActorIssueResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      $ref: ../../components/responses/NotFound.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
+  deprecated: false
+put:
+  tags:
+    - Actor issues
+  summary: Update Actor issue
+  description: |
+    Updates the title or the description of an Actor issue. Fields that are not
+    provided are left unchanged. The response is the updated issue.
+
+    You need write access to the issue, for example as its author.
+  operationId: actorIssue_put
+  parameters:
+    - $ref: "../../components/parameters/actorIssueParameters.yaml#/issueId"
+  requestBody:
+    description: ""
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/actor-issues/UpdateActorIssueRequest.yaml
+    required: true
+  responses:
+    "200":
+      description: ""
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/actor-issues/ActorIssueResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      $ref: ../../components/responses/NotFound.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "413":
+      $ref: ../../components/responses/PayloadTooLarge.yaml
+    "415":
+      $ref: ../../components/responses/UnsupportedMediaType.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
+  deprecated: false

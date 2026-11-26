@@ -1,0 +1,84 @@
+get:
+  tags:
+    - Actor issues
+  summary: Get list of Actor issue comments
+  description: |
+    Gets the comments of an Actor issue, oldest first. The comment that holds the
+    issue description is left out unless `includeDescriptionComment` is set.
+
+    The endpoint supports pagination using the `limit` and `offset` parameters.
+    It will not return more than 200 records.
+
+    Comments of issues of public Actors can be read without an API token.
+  operationId: actorIssue_comments_get
+  parameters:
+    - $ref: "../../components/parameters/actorIssueParameters.yaml#/issueId"
+    - $ref: "../../components/parameters/paginationParameters.yaml#/offset"
+    - $ref: "../../components/parameters/actorIssueParameters.yaml#/limit"
+    - $ref: "../../components/parameters/actorIssueParameters.yaml#/includeDescriptionComment"
+  responses:
+    "200":
+      description: ""
+      headers:
+        $ref: ../../components/headers/ApifyPaginationHeaders.yaml
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/actor-issues/ListOfActorIssueCommentsResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      $ref: ../../components/responses/NotFound.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
+  deprecated: false
+post:
+  tags:
+    - Actor issues
+  summary: Add Actor issue comment
+  description: |
+    Adds a comment to an Actor issue. The response is the created comment, without
+    the `author` field.
+
+    Anyone who can read the issue can comment on it.
+  operationId: actorIssue_comments_post
+  parameters:
+    - $ref: "../../components/parameters/actorIssueParameters.yaml#/issueId"
+  requestBody:
+    description: ""
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/actor-issues/ActorIssueCommentRequest.yaml
+    required: true
+  responses:
+    "201":
+      description: ""
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/actor-issues/ActorIssueCommentResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      $ref: ../../components/responses/NotFound.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "413":
+      $ref: ../../components/responses/PayloadTooLarge.yaml
+    "415":
+      $ref: ../../components/responses/UnsupportedMediaType.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
+  deprecated: false

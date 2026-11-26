@@ -1,0 +1,41 @@
+title: ActorPublicationRequirementsResponse
+required:
+  - data
+type: object
+properties:
+  data:
+    title: ActorPublicationRequirements
+    required:
+      - actorId
+      - requirements
+    type: object
+    properties:
+      actorId:
+        type: string
+        examples: [nFJndFXA5zjCTuudP]
+      requirements:
+        type: array
+        items:
+          title: ActorPublicationRequirement
+          required:
+            - requirementId
+            - isSatisfied
+          type: object
+          properties:
+            requirementId:
+              type: string
+              description: |
+                The requirement. `IDENTITY_VERIFICATION` is listed only when the Actor needs
+                an owner with a verified identity.
+              enum:
+                - DEFAULT_BUILD
+                - ACCEPTED_STORE_TERMS
+                - PUBLIC_PROFILE
+                - README
+                - INPUT_SCHEMA
+                - OUTPUT_SCHEMA
+                - IDENTITY_VERIFICATION
+              examples: [README]
+            isSatisfied:
+              type: boolean
+              examples: [true]

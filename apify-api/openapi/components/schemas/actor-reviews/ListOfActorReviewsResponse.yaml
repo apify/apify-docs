@@ -1,0 +1,7 @@
+title: ListOfActorReviewsResponse
+required:
+  - data
+type: object
+properties:
+  data:
+    $ref: ./ListOfActorReviews.yaml

@@ -1,0 +1,33 @@
+title: ActorReview
+required:
+  - id
+  - rating
+  - createdAt
+  - author
+type: object
+properties:
+  id:
+    type: string
+    examples: [kLmn3zXYb7Qp2RtVw]
+  rating:
+    type: integer
+    minimum: 1
+    maximum: 5
+    examples: [5]
+  textReview:
+    type: [string, "null"]
+    examples: [Works great and the output is well structured.]
+  createdAt:
+    type: string
+    format: date-time
+    examples: ["2026-09-12T10:00:00.000Z"]
+  reply:
+    type: string
+    description: Reply of the Actor developer to the review.
+    examples: [Thank you for the feedback!]
+  repliedAt:
+    type: string
+    format: date-time
+    examples: ["2026-09-13T08:00:00.000Z"]
+  author:
+    $ref: ../common/PublicAuthor.yaml

@@ -1,0 +1,34 @@
+get:
+  tags:
+    - Actors
+  summary: Get Actor publication requirements
+  description: |
+    Gets the requirements an Actor has to meet before it can be published in Apify
+    Store, and whether each of them is met. The endpoint only checks the
+    requirements, it doesn't publish the Actor.
+
+    You need write access to the Actor.
+  operationId: actor_publicationRequirements_get
+  parameters:
+    - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
+  responses:
+    "200":
+      description: ""
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/actors/ActorPublicationRequirementsResponse.yaml
+    "400":
+      $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
+    "404":
+      $ref: ../../components/responses/NotFound.yaml
+    "405":
+      $ref: ../../components/responses/MethodNotAllowed.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
+  deprecated: false

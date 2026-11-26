@@ -1,0 +1,48 @@
+title: ActorIssueShortInfo
+description: An Actor issue as returned in issue lists.
+required:
+  - id
+  - title
+  - status
+  - createdAt
+  - actorId
+type: object
+properties:
+  id:
+    type: string
+    examples: [3e5biaKGS8wWzJvLY]
+  title:
+    type: string
+    examples: [The scraper returns empty results for search URLs]
+  status:
+    $ref: ./ActorIssueStatus.yaml
+  createdAt:
+    type: string
+    format: date-time
+    examples: ["2026-10-20T09:14:51.000Z"]
+  closedAt:
+    type: string
+    format: date-time
+    description: |
+      When the issue was last closed. It is kept when the issue is reopened.
+    examples: ["2026-10-22T12:00:00.000Z"]
+  userId:
+    type: string
+    description: ID of the user who created the issue. Missing for issues created by the system.
+    examples: [wRsJZtadYvn4mBZmm]
+  actorId:
+    type: string
+    examples: [nFJndFXA5zjCTuudP]
+  runId:
+    type: [string, "null"]
+    description: ID of the Actor run attached to the issue. `null` or missing when no run is attached.
+    examples: [HG7ML7M8z78YcAPEB]
+  gitHubIssueUrl:
+    type: string
+    description: URL of the GitHub issue linked to this issue.
+    examples: ["https://github.com/janedoe/my-actor/issues/12"]
+  lastCommentedAt:
+    type: string
+    format: date-time
+    description: When the last comment was added. Missing when the issue has no comments.
+    examples: ["2026-10-21T08:30:00.000Z"]
