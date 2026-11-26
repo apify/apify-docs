@@ -5,9 +5,15 @@ sidebar_position: 1
 slug: /actors/store
 ---
 
-[Apify Store](https://apify.com/store) is a marketplace of thousands of ready-made Actors for web scraping, data extraction, and automation. You can choose from the available Actors and run them on the Apify platform without writing code. You can also publish your own Actors and monetize them.
+[Apify Store](https://apify.com/store) is a marketplace of thousands of ready-made Actors for web scraping, data extraction, and automation. You can choose from the available Actors and run them on the Apify platform without writing code. You can also [publish your own Actors](/actors/publishing) and [monetize them](/actors/monetize).
 
 Each Actor's page shows what it does, how much it costs, and how other users rate it.
+
+## Search for Actors
+
+You can browse Apify Store on the web at [apify.com/store](https://apify.com/store) or in [Apify Console](https://console.apify.com/store).
+
+Search results in Apify Console are personalized, so the same query can return different Actors than the public Store. Both Console and the public Store rank Actors by the same parameters, similar to the [Actor quality score](/actors/publishing/quality-score).
 
 ## Pricing models
 
