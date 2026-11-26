@@ -44,7 +44,7 @@ Once again returning to our **academy-amazon-scraper**, let's say that we need t
 
 Every 10 seconds, we should log the most up-to-date version of this object to the console. Additionally, the object should be able to solve Actor migrations, which means that even if the Actor were to migrate, its data would not be lost upon resurrection.
 
-When you're done, commit your changes and run `git push`, and once the new build finishes, run the Actor in Apify Console to check that it works.
+When you're done, commit your changes, including any new files, and run `git push`. Once the new build finishes, run the Actor in Apify Console to check that it works.
 
 [**Solution**](./solutions/handling_migrations.md)
 

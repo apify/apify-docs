@@ -56,7 +56,7 @@ Also, an object including these values should be persisted during the run in the
 }
 ```
 
-When you're done, commit your changes and run `git push`, and once the new build finishes, run the Actor in Apify Console to check that it works.
+When you're done, commit your changes, including any new files, and run `git push`. Once the new build finishes, run the Actor in Apify Console to check that it works.
 
 [**Solution**](./solutions/saving_stats.md)
 
