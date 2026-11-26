@@ -97,7 +97,7 @@ const withClient = async () => {
 
 ## Calling a task via API {#calling-a-task-via-api}
 
-First, we'll create a function (right under the `withClient()`) function named `withAPI` and instantiate a new variable which represents the API endpoint to run our task:
+First, right under the `withClient()` function, we'll create a function named `withAPI()` and instantiate a new variable which represents the API endpoint to run our task:
 
 ```js
 const withAPI = async () => {
@@ -123,7 +123,7 @@ const withAPI = async () => {
 
 Finally, let's make a `POST` request to our endpoint. We'll use [`fetch`](https://nodejs.org/api/globals.html#fetch), which is provided by Node.js out of the box.
 
-The request needs to be authenticated with API token, which is available in the `APIFY_TOKEN` environment variable. We'll send it in the `Authorization` header:
+The request needs to be authenticated with an API token, which is available in the `APIFY_TOKEN` environment variable. We'll send it in the `Authorization` header:
 
 ```js
 const withAPI = async () => {
@@ -155,8 +155,11 @@ const withAPI = async () => {
 Now, since we've written both of these functions, all we have to do is write a conditional statement based on the boolean value from `useClient`:
 
 ```js
-if (useClient) await withClient();
-else await withAPI();
+if (useClient) {
+    await withClient();
+} else {
+    await withAPI();
+}
 ```
 
 And before we push to the platform, let's not forget to write an input schema in the `.actor/input_schema.json` file:
