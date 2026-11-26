@@ -24,7 +24,7 @@ The starter comes with this configuration ready, so we haven't had to think abou
 
 > Go ahead and try commenting out the proxy configuration code then running the scraper. What happens?
 
-In order to rotate sessions, we must utilize the [`SessionPool`](https://crawlee.dev/api/core/class/SessionPool), which our crawler has actually been using all along, because the `useSessionPool` option is `true` by default. The SessionPool advances the concept of proxy rotation by tying proxies to user-like sessions and rotating those instead. In addition to a proxy, each user-like session has cookies attached to it (and potentially a browser fingerprint as well).
+In order to rotate sessions, we must utilize the [`SessionPool`](https://crawlee.dev/api/core/class/SessionPool), which our crawler has actually been using all along, because the `useSessionPool` option is `true` by default. The SessionPool advances the concept of proxy rotation by tying proxies to user-like sessions and rotating those instead. In addition to a proxy, each user-like session has cookies attached to it and, potentially, a browser fingerprint as well.
 
 ## Configuring SessionPool {#configuring-session-pool}
 
@@ -87,7 +87,7 @@ Amazon adjusts the page to the location of the visitor. If our scraper used prox
 
 **Q: Which proxy groups do users get on the free plan? Can they access the proxy from their computer?**
 
-**A:** The free plan includes 5 datacenter proxy IPs. Free users can also use residential proxies, Google SERP proxies, and Unblocker, which are paid from the plan's monthly prepaid usage. The [Proxy](https://console.apify.com/proxy/groups) page in Apify Console shows which proxy groups your account can use. Free users can use Apify Proxy only from Actors running on the Apify platform, not from their own computer (paying users can).
+**A:** The free plan includes 5 datacenter proxy IPs. Free users can also use residential proxies, Google SERP proxies, and Unblocker, which are paid from the plan's monthly prepaid usage. The [Proxy](https://console.apify.com/proxy/groups) page in Apify Console shows which proxy groups your account can use. Free users can use Apify Proxy only from Actors running on the Apify platform, not from their own computer. Paid plans remove this restriction.
 
 **Q: How can you prevent an error from occurring if one of the proxy groups that a user has is removed? What are the best practices for these scenarios?**
 
