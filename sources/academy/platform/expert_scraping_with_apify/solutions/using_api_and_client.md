@@ -118,12 +118,13 @@ const withAPI = async () => {
         format: 'csv',
         limit: maxItems,
         fields: fields.join(','),
-        token: process.env.APIFY_TOKEN,
     });
 };
 ```
 
 Finally, let's make a `POST` request to our endpoint. You can use any library you want, but in this example, we'll use [`axios`](https://www.npmjs.com/package/axios). Don't forget to run `npm install axios` if you're going to use this package too!
+
+The request also needs to be authenticated with our API token, which is available in the `APIFY_TOKEN` environment variable. We could add it to the query parameters as `token`, but URLs tend to end up in logs, so it's safer to send the token in the `Authorization` header instead:
 
 ```js
 const withAPI = async () => {
@@ -135,10 +136,11 @@ const withAPI = async () => {
         format: 'csv',
         limit: maxItems,
         fields: fields.join(','),
-        token: process.env.APIFY_TOKEN,
     });
 
-    const { data } = await axios.post(url.toString());
+    const { data } = await axios.post(url.toString(), undefined, {
+        headers: { Authorization: `Bearer ${process.env.APIFY_TOKEN}` },
+    });
 
     return Actor.setValue('OUTPUT', data, { contentType: 'text/csv' });
 };
@@ -238,10 +240,11 @@ const withAPI = async () => {
         format: 'csv',
         limit: maxItems,
         fields: fields.join(','),
-        token: process.env.APIFY_TOKEN,
     });
 
-    const { data } = await axios.post(url.toString());
+    const { data } = await axios.post(url.toString(), undefined, {
+        headers: { Authorization: `Bearer ${process.env.APIFY_TOKEN}` },
+    });
 
     return Actor.setValue('OUTPUT', data, { contentType: 'text/csv' });
 };
