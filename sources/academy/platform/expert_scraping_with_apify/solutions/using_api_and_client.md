@@ -46,7 +46,6 @@ When asked how to set up the source code, select **Local only**, and wait until 
 
 ```js
 import { Actor } from 'apify';
-import axios from 'axios';
 
 await Actor.init();
 
@@ -98,11 +97,11 @@ const withClient = async () => {
 
 ## Calling a task via API {#calling-a-task-via-api}
 
-First, we'll create a function (right under the `withClient()`) function named `withAPI` and instantiate a new variable which represents the API endpoint to run our task:
+First, right under `withClient()`, we'll create a function named `withAPI()` and define the API endpoint for running our task:
 
 ```js
 const withAPI = async () => {
-    const uri = `https://api.apify.com/v2/actor-tasks/${TASK}/run-sync-get-dataset-items?`;
+    const uri = `https://api.apify.com/v2/actor-tasks/${TASK}/run-sync-get-dataset-items`;
 };
 ```
 
@@ -110,7 +109,7 @@ To add the query parameters to the URL, we could create a long string literal, p
 
 ```js
 const withAPI = async () => {
-    const uri = `https://api.apify.com/v2/actor-tasks/${TASK}/run-sync-get-dataset-items?`;
+    const uri = `https://api.apify.com/v2/actor-tasks/${TASK}/run-sync-get-dataset-items`;
     const url = new URL(uri);
 
     url.search = new URLSearchParams({
@@ -118,16 +117,17 @@ const withAPI = async () => {
         format: 'csv',
         limit: maxItems,
         fields: fields.join(','),
-        token: process.env.APIFY_TOKEN,
     });
 };
 ```
 
-Finally, let's make a `POST` request to our endpoint. You can use any library you want, but in this example, we'll use [`axios`](https://www.npmjs.com/package/axios). Don't forget to run `npm install axios` if you're going to use this package too!
+Finally, let's make a `POST` request to our endpoint. We'll use [`fetch`](https://nodejs.org/api/globals.html#fetch), which is provided by Node.js out of the box.
+
+The request needs to be authenticated with an API token, which is available in the `APIFY_TOKEN` environment variable. We'll send it in the `Authorization` header:
 
 ```js
 const withAPI = async () => {
-    const uri = `https://api.apify.com/v2/actor-tasks/${TASK}/run-sync-get-dataset-items?`;
+    const uri = `https://api.apify.com/v2/actor-tasks/${TASK}/run-sync-get-dataset-items`;
     const url = new URL(uri);
 
     url.search = new URLSearchParams({
@@ -135,10 +135,16 @@ const withAPI = async () => {
         format: 'csv',
         limit: maxItems,
         fields: fields.join(','),
-        token: process.env.APIFY_TOKEN,
     });
 
-    const { data } = await axios.post(url.toString());
+    const response = await fetch(url, {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${process.env.APIFY_TOKEN}` },
+    });
+    if (!response.ok) {
+        throw new Error(`Request failed with status ${response.status}: ${await response.text()}`);
+    }
+    const data = await response.text();
 
     return Actor.setValue('OUTPUT', data, { contentType: 'text/csv' });
 };
@@ -149,8 +155,11 @@ const withAPI = async () => {
 Now, since we've written both of these functions, all we have to do is write a conditional statement based on the boolean value from `useClient`:
 
 ```js
-if (useClient) await withClient();
-else await withAPI();
+if (useClient) {
+    await withClient();
+} else {
+    await withAPI();
+}
 ```
 
 And before we push to the platform, let's not forget to write an input schema in the `.actor/input_schema.json` file:
@@ -205,7 +214,6 @@ To ensure we're on the same page, here is what the final code looks like:
 
 ```js
 import { Actor } from 'apify';
-import axios from 'axios';
 
 await Actor.init();
 
@@ -230,7 +238,7 @@ const withClient = async () => {
 };
 
 const withAPI = async () => {
-    const uri = `https://api.apify.com/v2/actor-tasks/${TASK}/run-sync-get-dataset-items?`;
+    const uri = `https://api.apify.com/v2/actor-tasks/${TASK}/run-sync-get-dataset-items`;
     const url = new URL(uri);
 
     url.search = new URLSearchParams({
@@ -238,10 +246,16 @@ const withAPI = async () => {
         format: 'csv',
         limit: maxItems,
         fields: fields.join(','),
-        token: process.env.APIFY_TOKEN,
     });
 
-    const { data } = await axios.post(url.toString());
+    const response = await fetch(url, {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${process.env.APIFY_TOKEN}` },
+    });
+    if (!response.ok) {
+        throw new Error(`Request failed with status ${response.status}: ${await response.text()}`);
+    }
+    const data = await response.text();
 
     return Actor.setValue('OUTPUT', data, { contentType: 'text/csv' });
 };
