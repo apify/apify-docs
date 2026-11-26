@@ -97,11 +97,11 @@ const withClient = async () => {
 
 ## Calling a task via API {#calling-a-task-via-api}
 
-First, right under `withClient()`, we'll create a function named `withAPI()` and instantiate a new variable which represents the API endpoint to run our task:
+First, right under `withClient()`, we'll create a function named `withAPI()` and define the API endpoint for running our task:
 
 ```js
 const withAPI = async () => {
-    const uri = `https://api.apify.com/v2/actor-tasks/${TASK}/run-sync-get-dataset-items?`;
+    const uri = `https://api.apify.com/v2/actor-tasks/${TASK}/run-sync-get-dataset-items`;
 };
 ```
 
@@ -109,7 +109,7 @@ To add the query parameters to the URL, we could create a long string literal, p
 
 ```js
 const withAPI = async () => {
-    const uri = `https://api.apify.com/v2/actor-tasks/${TASK}/run-sync-get-dataset-items?`;
+    const uri = `https://api.apify.com/v2/actor-tasks/${TASK}/run-sync-get-dataset-items`;
     const url = new URL(uri);
 
     url.search = new URLSearchParams({
@@ -127,7 +127,7 @@ The request needs to be authenticated with an API token, which is available in t
 
 ```js
 const withAPI = async () => {
-    const uri = `https://api.apify.com/v2/actor-tasks/${TASK}/run-sync-get-dataset-items?`;
+    const uri = `https://api.apify.com/v2/actor-tasks/${TASK}/run-sync-get-dataset-items`;
     const url = new URL(uri);
 
     url.search = new URLSearchParams({
@@ -238,7 +238,7 @@ const withClient = async () => {
 };
 
 const withAPI = async () => {
-    const uri = `https://api.apify.com/v2/actor-tasks/${TASK}/run-sync-get-dataset-items?`;
+    const uri = `https://api.apify.com/v2/actor-tasks/${TASK}/run-sync-get-dataset-items`;
     const url = new URL(uri);
 
     url.search = new URLSearchParams({
