@@ -46,7 +46,6 @@ When asked how to set up the source code, select **Local only**, and wait until 
 
 ```js
 import { Actor } from 'apify';
-import axios from 'axios';
 
 await Actor.init();
 
@@ -123,7 +122,7 @@ const withAPI = async () => {
 };
 ```
 
-Finally, let's make a `POST` request to our endpoint. You can use any library you want, but in this example, we'll use [`axios`](https://www.npmjs.com/package/axios). Don't forget to run `npm install axios` if you're going to use this package too!
+Finally, let's make a `POST` request to our endpoint. Node.js has [`fetch`](https://nodejs.org/api/globals.html#fetch) built in, so we don't need to install any extra package. Unlike some HTTP libraries, `fetch` doesn't throw when the API responds with an error status, so we check `response.ok` ourselves. Because we requested CSV, we read the body as text:
 
 ```js
 const withAPI = async () => {
@@ -138,7 +137,11 @@ const withAPI = async () => {
         token: process.env.APIFY_TOKEN,
     });
 
-    const { data } = await axios.post(url.toString());
+    const response = await fetch(url, { method: 'POST' });
+    if (!response.ok) {
+        throw new Error(`Request failed with status ${response.status}: ${await response.text()}`);
+    }
+    const data = await response.text();
 
     return Actor.setValue('OUTPUT', data, { contentType: 'text/csv' });
 };
@@ -205,7 +208,6 @@ To ensure we're on the same page, here is what the final code looks like:
 
 ```js
 import { Actor } from 'apify';
-import axios from 'axios';
 
 await Actor.init();
 
@@ -241,7 +243,11 @@ const withAPI = async () => {
         token: process.env.APIFY_TOKEN,
     });
 
-    const { data } = await axios.post(url.toString());
+    const response = await fetch(url, { method: 'POST' });
+    if (!response.ok) {
+        throw new Error(`Request failed with status ${response.status}: ${await response.text()}`);
+    }
+    const data = await response.text();
 
     return Actor.setValue('OUTPUT', data, { contentType: 'text/csv' });
 };
