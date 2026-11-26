@@ -327,6 +327,7 @@ jobs:
                     files: |
                         sources/**/*.{png,jpg,jpeg,gif,bmp,tif,tiff,avif}
                     separator: "\n"
+                    safe_output: false  # prevent escaping newlines (safe not needed, outputs go through env)
 
             -   name: Fail on unoptimized images
                 if: steps.changed-files.outputs.any_changed == 'true'
@@ -351,6 +352,7 @@ jobs:
                 with:
                     files: sources/**/*.svg
                     separator: "\n"
+                    safe_output: false  # prevent escaping newlines (safe not needed, outputs go through env)
 
             -   name: Fail on oversized SVGs
                 if: "!cancelled() && steps.changed-svgs.outputs.any_changed == 'true'"
