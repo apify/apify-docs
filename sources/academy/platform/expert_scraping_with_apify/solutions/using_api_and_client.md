@@ -117,12 +117,13 @@ const withAPI = async () => {
         format: 'csv',
         limit: maxItems,
         fields: fields.join(','),
-        token: process.env.APIFY_TOKEN,
     });
 };
 ```
 
 Finally, let's make a `POST` request to our endpoint. We'll use [`fetch`](https://nodejs.org/api/globals.html#fetch), which is provided by Node.js out of the box.
+
+The request also needs to be authenticated with our API token, which is available in the `APIFY_TOKEN` environment variable. We could add it to the query parameters as `token`, but URLs tend to end up in logs, so it's safer to send the token in the `Authorization` header instead:
 
 ```js
 const withAPI = async () => {
@@ -134,10 +135,12 @@ const withAPI = async () => {
         format: 'csv',
         limit: maxItems,
         fields: fields.join(','),
-        token: process.env.APIFY_TOKEN,
     });
 
-    const response = await fetch(url, { method: 'POST' });
+    const response = await fetch(url, {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${process.env.APIFY_TOKEN}` },
+    });
     if (!response.ok) {
         throw new Error(`Request failed with status ${response.status}: ${await response.text()}`);
     }
@@ -240,10 +243,12 @@ const withAPI = async () => {
         format: 'csv',
         limit: maxItems,
         fields: fields.join(','),
-        token: process.env.APIFY_TOKEN,
     });
 
-    const response = await fetch(url, { method: 'POST' });
+    const response = await fetch(url, {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${process.env.APIFY_TOKEN}` },
+    });
     if (!response.ok) {
         throw new Error(`Request failed with status ${response.status}: ${await response.text()}`);
     }
