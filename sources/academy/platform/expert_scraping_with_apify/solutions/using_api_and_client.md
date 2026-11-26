@@ -123,7 +123,7 @@ const withAPI = async () => {
 
 Finally, let's make a `POST` request to our endpoint. We'll use [`fetch`](https://nodejs.org/api/globals.html#fetch), which is provided by Node.js out of the box.
 
-The request needs to be authenticated with our API token, which is available in the `APIFY_TOKEN` environment variable. We could add it to the query parameters as `token`, but URLs tend to end up in logs, so it's safer to send the token in the `Authorization` header instead:
+The request needs to be authenticated with API token, which is available in the `APIFY_TOKEN` environment variable. We'll send it in the `Authorization` header:
 
 ```js
 const withAPI = async () => {
