@@ -8,7 +8,7 @@ properties:
     $ref: ../common/SourceCodeFileFormat.yaml
     description: Format of the file's content, `TEXT` for plain text and `BASE64` for encoded content.
   content:
-    type: string
+    type: [string, "null"]
     examples: ["console.log('This is the main.js file');"]
     description: The contents of the file. Interpreted based on the value of `format`.
   name:
