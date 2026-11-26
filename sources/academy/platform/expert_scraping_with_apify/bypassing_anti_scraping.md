@@ -41,7 +41,7 @@ This time, we're going to build a trivial proxy-session manager for our Amazon s
 
 Our scraper already uses proxies only from the US. Find the code which does that and figure out why it's there.
 
-When you're done, commit your changes, including any new files, and run `git push`. Once the new build finishes, run the Actor in Apify Console to check that it works.
+When you're done, [deploy your changes](./managing_source_code.md#deploying-changes-to-the-amazon-scraper): commit them, including any new files, and run `git push`. Once the new build finishes, run the Actor in Apify Console to check that it works.
 
 [**Solution**](./solutions/rotating_proxies.md)
 
