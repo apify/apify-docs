@@ -26,14 +26,14 @@ Before moving forward, read about Actor [events](/sdk/js/docs/upgrading/upgradin
 ## Knowledge check 📝 {#quiz}
 
 1. Actors have an option in the **Settings** tab to **Restart on error**. Would you use this feature for regular Actors? When would you use this feature?
-2. Migrations happen randomly, but by [aborting **gracefully**](/actors/running/runs-and-builds#aborting-runs), you can simulate a similar situation. Try this out on the platform and observe what happens. What changes occur, and what remains the same for the restarted Actor's run?
+2. Migrations happen randomly, but by [aborting **gracefully**](/actors/running/runs-and-builds#abort-a-run), you can simulate a similar situation. Try this out on the platform and observe what happens. What changes occur, and what remains the same for the restarted Actor's run?
 3. Why don't you (usually) need to add any special migration handling code for a standard crawling/scraping Actor? Are there any features in the Crawlee/Apify SDK that handle this under the hood?
 4. How can you intercept the migration event? How much time do you have after this event happens and before the Actor migrates?
 5. When would you persist data to the default key-value store instead of to a named key-value store?
 
 ## Our task
 
-Once again returning to our Amazon **demo-actor**, let's say that we need to store an object in memory (as a variable) containing all of the scraped ASINs as keys and the number of offers scraped from each ASIN as values. The object should follow this format:
+Once again returning to our **academy-amazon-scraper**, let's say that we need to store an object in memory (as a variable) containing all of the scraped ASINs as keys and the number of offers scraped from each ASIN as values. The object should follow this format:
 
 ```json
 {
@@ -48,4 +48,4 @@ Every 10 seconds, we should log the most up-to-date version of this object to th
 
 ## Next up {#next}
 
-You might have already noticed that we've been using the **RESIDENTIAL** proxy group in the `proxyConfiguration` within our Amazon scraping Actor. But what does that mean? Learn why we've used this group, about proxies, and about avoiding anti-scraping measures in the [next lesson](./bypassing_anti_scraping.md).
+You might have already noticed that we've been using the `RESIDENTIAL` proxy group in the `proxyConfiguration` within our Amazon scraping Actor. But what does that mean? Learn why we've used this group, about proxies, and about avoiding anti-scraping measures in the [next lesson](./bypassing_anti_scraping.md).
