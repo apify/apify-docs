@@ -231,7 +231,13 @@ await tracker.initialize();
 // ...
 ```
 
-That's everything! Now, even if the Actor migrates (or is gracefully aborted and then resurrected), this `state` object will always be persisted.
+That's everything! Now, if the Actor migrates (or is gracefully aborted and then resurrected), it continues from the last saved `state` object instead of starting from scratch.
+
+:::caution The counts aren't exact
+
+The state is only as fresh as its last save. Requests that finish after the last `persistState` event, for example while the Actor is shutting down, still push their offers to the dataset, but their counts are lost. Crawlee marks those requests as handled, so it doesn't scrape them again after the resurrection, and the tracker ends up with lower counts than the dataset. Use this technique for statistics where a small drift doesn't matter, not for data you can't afford to lose.
+
+:::
 
 ## Quiz answers 📝 {#quiz-answers}
 
