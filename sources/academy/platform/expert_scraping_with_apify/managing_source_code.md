@@ -62,6 +62,12 @@ This was a bit of overhead, but the good news is that you don't ever have to con
 
 Think of it as combining two steps into one. Normally, you'd have to do a `git push` from your terminal to get the newest code onto GitHub, then run `apify push` to push it to the platform.
 
+:::note Deploying the Amazon scraper from now on
+
+To deploy a change to **academy-amazon-scraper** in the following lessons, commit it and run `git push`, then wait for the build to finish before you start the Actor. Running `apify push` in the project's folder now fails with an error, because the Actor builds from the Git repository. Don't use `apify push --force` to get around it, as it would switch the Actor's source back to local files.
+
+:::
+
 It's also important to know that GitHub/GitLab repository integration is standard practice. As projects grow and the number of contributors and maintainers increases, it only makes sense to have a GitHub repository integrated with the project's Actor. For small helper Actors, `apify push` is still handy, so later in this course we'll use it to deploy the new Actors we create. Feel free to integrate them with a GitHub repository instead.
 
 ## Next up {#next}

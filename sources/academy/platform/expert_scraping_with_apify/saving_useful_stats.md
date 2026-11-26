@@ -56,6 +56,8 @@ Also, an object including these values should be persisted during the run in the
 }
 ```
 
+When you're done, commit your changes and run `git push` to rebuild the Actor, then run it in Apify Console to check that it works.
+
 [**Solution**](./solutions/saving_stats.md)
 
 ## Wrap up
