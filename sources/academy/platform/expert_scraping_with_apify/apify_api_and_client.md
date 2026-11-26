@@ -62,4 +62,4 @@ The new Actor should take the following input values, which will be mapped to pa
 
 ## Next up {#next}
 
-[Lesson V](./migrations_maintaining_state.md) will teach us everything we need to know about migrations and how to handle them properly to avoid losing any state; therefore, increasing the reliability of our **academy-amazon-scraper**.
+[Lesson V](./migrations_maintaining_state.md) will teach us everything we need to know about migrations and how to handle them properly to avoid losing any state, which makes our **academy-amazon-scraper** more reliable.
