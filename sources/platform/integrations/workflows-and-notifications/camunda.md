@@ -1095,7 +1095,7 @@ The event type uses an underscore (`TIMED_OUT`) while the run status uses a hyph
 
 ## Next steps
 
-- Schedule Actor runs that feed your Camunda processes - see [Schedules](/schedules)
+- Schedule Actor runs that feed your Camunda processes - see [Schedules](/actors/running/schedules)
 - Trigger Camunda processes from other Apify events - see [Webhooks](/integrations/webhooks)
 - Explore other workflow integrations - see [Integrations](/integrations)
 
