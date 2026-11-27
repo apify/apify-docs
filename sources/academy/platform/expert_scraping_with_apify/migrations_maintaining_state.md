@@ -44,8 +44,10 @@ Once again returning to our **academy-amazon-scraper**, let's say that we need t
 
 Every 10 seconds, we should log the most up-to-date version of this object to the console. Additionally, the object should be able to solve Actor migrations, which means that even if the Actor were to migrate, its data would not be lost upon resurrection.
 
+When you're done, [deploy your changes](./managing_source_code.md#deploying-changes-to-the-amazon-scraper): commit them, including new files, and run `git push`. Once the new build finishes, run the Actor in Apify Console to check that it works.
+
 [**Solution**](./solutions/handling_migrations.md)
 
 ## Next up {#next}
 
-You might have already noticed that we've been using the `RESIDENTIAL` proxy group in the `proxyConfiguration` within our Amazon scraping Actor. But what does that mean? Learn why we've used this group, about proxies, and about avoiding anti-scraping measures in the [next lesson](./bypassing_anti_scraping.md).
+In the [next lesson](./bypassing_anti_scraping.md), we'll look at why our Amazon scraper uses the `RESIDENTIAL` proxy group, and learn how proxies and sessions help us avoid anti-scraping measures.

@@ -20,8 +20,8 @@ The types of values that are saved are up to you, but the most common are error 
 Before moving on, give these valuable resources a quick lookover:
 
 - Refamiliarize with the various available data on the [Request object](https://crawlee.dev/api/core/class/Request).
-- Learn about the [`failedRequestHandler` function](https://crawlee.dev/api/browser-crawler/interface/BrowserCrawlerOptions#failedRequestHandler).
-- Understand how to use the [`errorHandler`](https://crawlee.dev/api/browser-crawler/interface/BrowserCrawlerOptions#errorHandler) function to handle request failures.
+- Learn about the [`failedRequestHandler` function](https://crawlee.dev/api/basic-crawler/interface/BasicCrawlerOptions#failedRequestHandler).
+- Understand how to use the [`errorHandler`](https://crawlee.dev/api/basic-crawler/interface/BasicCrawlerOptions#errorHandler) function to handle request failures.
 - Ensure you are comfortable using [key-value stores](/sdk/js/docs/guides/result-storage#key-value-store) and [datasets](/sdk/js/docs/guides/result-storage#dataset), and understand the differences between the two storage types.
 
 ## Knowledge check 📝 {#quiz}
@@ -55,6 +55,8 @@ Also, an object including these values should be persisted during the run in the
     "totalSaved": 43 // total number of saved items throughout the entire run
 }
 ```
+
+When you're done, [deploy your changes](./managing_source_code.md#deploying-changes-to-the-amazon-scraper): commit them, including new files, and run `git push`. Once the new build finishes, run the Actor in Apify Console to check that it works.
 
 [**Solution**](./solutions/saving_stats.md)
 
