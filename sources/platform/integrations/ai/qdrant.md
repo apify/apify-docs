@@ -36,7 +36,7 @@ With the cluster ready and its URL and API key in hand, you can proceed with int
 
 ### Integration Methods
 
-You can integrate Apify with Qdrant using either Apify Console or the Apify Python SDK.
+You can integrate Apify with Qdrant using either Apify Console or the API client for Python.
 
 :::note Website Content Crawler usage
 
@@ -62,11 +62,11 @@ The examples utilize the Website Content Crawler Actor, which deeply crawls webs
 
 #### Python
 
-Another way to interact with Qdrant is through the [Apify Python SDK](https://docs.apify.com/sdk/python/).
+Another way to interact with Qdrant is through the [API client for Python](/api/client/python).
 
-1. Install the Apify Python SDK by running the following command:
+1. Install the API client for Python by running the following command:
 
-    ```py
+    ```bash
     pip install apify-client
     ```
 
@@ -101,10 +101,10 @@ Another way to interact with Qdrant is through the [Apify Python SDK](https://do
         "qdrantApiKey": QDRANT_API_KEY,
         "qdrantCollectionName": QDRANT_COLLECTION_NAME,
         "qdrantAutoCreateCollection": True,
-        "datasetId": actor_call["defaultDatasetId"],
+        "datasetId": actor_call.default_dataset_id,
         "datasetFields": ["text"],
-        "enableDeltaUpdates": True,
-        "deltaUpdatesPrimaryDatasetFields": ["url"],
+        "dataUpdatesStrategy": "deltaUpdates",
+        "dataUpdatesPrimaryDatasetFields": ["url"],
         "deleteExpiredObjects": True,
         "expiredObjectDeletionPeriodDays": 30,
         "embeddingsProvider": "OpenAI",

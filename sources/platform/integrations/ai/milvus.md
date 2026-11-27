@@ -38,7 +38,7 @@ Once the cluster is ready, and you have the `URI` and `Token`, you can set up th
 
 ### Integration Methods
 
-You can integrate Apify with Milvus using either Apify Console or the Apify Python SDK.
+You can integrate Apify with Milvus using either Apify Console or the API client for Python.
 
 :::note Website Content Crawler usage
 
@@ -60,11 +60,11 @@ These examples use the Website Content Crawler Actor, which performs deep websit
 
 #### Python
 
-Another way to interact with Milvus is through the [Apify Python SDK](https://docs.apify.com/sdk/python/).
+Another way to interact with Milvus is through the [API client for Python](/api/client/python).
 
-1. Install the Apify Python SDK by running the following command:
+1. Install the API client for Python by running the following command:
 
-    ```py
+    ```bash
     pip install apify-client
     ```
 
@@ -98,8 +98,8 @@ Another way to interact with Milvus is through the [Apify Python SDK](https://do
         "milvusToken": MILVUS_TOKEN,
         "milvusCollectionName": MILVUS_COLLECTION_NAME,
         "datasetFields": ["text"],
-        "datasetId": actor_call["defaultDatasetId"],
-        "deltaUpdatesPrimaryDatasetFields": ["url"],
+        "datasetId": actor_call.default_dataset_id,
+        "dataUpdatesPrimaryDatasetFields": ["url"],
         "expiredObjectDeletionPeriodDays": 30,
         "embeddingsApiKey": OPENAI_API_KEY,
         "embeddingsProvider": "OpenAI",

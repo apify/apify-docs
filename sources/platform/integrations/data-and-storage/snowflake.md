@@ -3,6 +3,7 @@ title: Snowflake integration
 description: Run Apify Actors and tasks from Snowflake, import their datasets into Snowflake tables, and schedule recurring imports with the Apify Snowflake Native App.
 sidebar_label: Snowflake
 slug: /integrations/snowflake
+last_review: 2026-11-24
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/\_partials/\_third-party-integration.mdx';

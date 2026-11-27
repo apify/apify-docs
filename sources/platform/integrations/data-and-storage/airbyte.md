@@ -3,6 +3,7 @@ title: Airbyte integration
 description: Use the Airbyte Apify Dataset connector to move data from Apify datasets to any Airbyte-supported destination using pre-built open-source connectors.
 sidebar_label: Airbyte
 slug: /integrations/airbyte
+last_review: 2026-11-24
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';

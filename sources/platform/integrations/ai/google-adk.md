@@ -22,7 +22,7 @@ Apify is a marketplace of web scraping and automation tools, AI agents, and MCP 
 - _Python packages_: Install the following Python packages:
 
     ```bash
-    pip install google-adk
+    pip install "google-adk[mcp]"
     ```
 
 ### Build a pub search AI agent

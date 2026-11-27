@@ -74,7 +74,7 @@ If you don't have the Apify CLI installed, see the [installation guide](/cli/doc
 
 :::info Sandbox environment
 
-AI Sandbox runs on a Debian image with Node.js version 24 and Python 3.11 pre-installed. You can install additional dependencies through the Actor input configuration.
+AI Sandbox runs on a Debian Trixie image with Node.js 26 and Python 3 pre-installed. You can install additional dependencies through the Actor input configuration.
 
 :::
 
@@ -84,7 +84,7 @@ If your agent needs to act on a user's third-party accounts - posting to Slack, 
 
 ## Access LLMs with OpenRouter
 
-The [OpenRouter](https://apify.com/apify/openrouter) Actor provides access to 100+ LLMs through your Apify account. Supported providers include OpenAI, Anthropic, Google, Mistral, Meta, and more. No separate API keys or billing setup required - all costs are billed as platform usage.
+The [OpenRouter](https://apify.com/apify/openrouter) Actor provides access to 100+ LLMs through your Apify account. Supported providers include OpenAI, Anthropic, Google, Mistral, Meta, and more. No separate API keys or billing setup required - the Actor charges usage to your Apify account with pay-per-event pricing (the `openrouter-api-usage` event).
 
 :::caution Paid account recommended
 

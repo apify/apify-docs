@@ -14,7 +14,7 @@ import { CreateApiTokenLink } from '@site/src/components/ApiToken';
 
 ## How to use Apify with Agno
 
-This guide shows how to integrate Apify Actors with Agno to empower your AI agents with real-time web data. We'll use the [RAG Web Browser](https://apify.com/apify/rag-web-browser) Actor to fetch web content and the [Google Places Crawler](https://apify.com/compass/crawler-google-places) Actor to extract location-based data. It is very easy to use with any other Actor by just passing the name of the Actor. See and choose from thousands of Actors in the [Apify Store](https://apify.com/store).
+This guide shows how to integrate Apify Actors with Agno to empower your AI agents with real-time web data. We'll use the [RAG Web Browser](https://apify.com/apify/rag-web-browser) Actor to fetch web content and the [Google Maps Scraper](https://apify.com/compass/crawler-google-places) Actor to extract location-based data. It is very easy to use with any other Actor by just passing the name of the Actor. See and choose from thousands of Actors in the [Apify Store](https://apify.com/store).
 
 ### Prerequisites
 
@@ -27,11 +27,11 @@ While our examples use OpenAI, Agno supports other LLM providers as well. You'll
 
 :::
 
-- _Python environment_: Ensure Python is installed (version 3.8+ recommended).
+- _Python environment_: Ensure Python is installed (version 3.9+ recommended).
 - _Required packages_: Install the following dependencies in your terminal:
 
 ```bash
-pip install agno apify-client
+pip install agno apify-client openai
 ```
 
 ## Basic integration example
@@ -50,7 +50,6 @@ os.environ["OPENAI_API_KEY"] = "YOUR_OPENAI_API_KEY"  # Replace with your OpenAI
 # Initialize the agent with Apify tools
 agent = Agent(
     tools=[ApifyTools( actors=["apify/rag-web-browser"])],
-    show_tool_calls=True,
     markdown=True
 )
 
@@ -62,7 +61,7 @@ Running this code will scrape the specified URL and return formatted content you
 
 ### Advanced scenario: Travel planning agent
 
-Combine multiple Apify Actors to create a powerful travel planning agent. This example uses the RAG Web Browser and Google Places Crawler to gather travel insights and local business data.
+Combine multiple Apify Actors to create a powerful travel planning agent. This example uses the RAG Web Browser and Google Maps Scraper to gather travel insights and local business data.
 
 ```python
 import os
@@ -87,7 +86,6 @@ agent = Agent(
             ]
         )
     ],
-    show_tool_calls=True,
     markdown=True
 )
 
@@ -106,7 +104,7 @@ agent.print_response(
 This agent will fetch travel-related data and restaurant recommendations, providing a comprehensive travel guide:
 
 1. Use the RAG Web Browser to research Tokyo travel details.
-2. Use the Google Places Crawler to find a top sushi restaurant.
+2. Use the Google Maps Scraper to find a top sushi restaurant.
 3. Combine the results into a comprehensive guide.
 
 :::tip Apify Store

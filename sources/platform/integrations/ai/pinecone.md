@@ -36,7 +36,7 @@ Once the index is created and ready, you can proceed with integrating Apify.
 
 ### Integration Methods
 
-You can integrate Apify with Pinecone using either Apify Console or the Apify Python SDK.
+You can integrate Apify with Pinecone using either Apify Console or the API client for Python.
 
 :::note Website Content Crawler usage
 
@@ -69,9 +69,9 @@ For example, the `text-embedding-3-small` model from OpenAI generates vectors of
 
 #### Python
 
-Another way to interact with Pinecone is through the [Apify Python SDK](https://docs.apify.com/sdk/python/).
+Another way to interact with Pinecone is through the [API client for Python](/api/client/python).
 
-1. Install the Apify Python SDK by running the following command:
+1. Install the API client for Python by running the following command:
 
     `pip install apify-client`
 
@@ -106,9 +106,9 @@ Another way to interact with Pinecone is through the [Apify Python SDK](https://
         "pineconeApiKey": PINECONE_API_KEY,
         "pineconeIndexName": PINECONE_INDEX_NAME,
         "datasetFields": ["text"],
-        "datasetId": actor_call["defaultDatasetId"],
-        "enableDeltaUpdates": True,
-        "deltaUpdatesPrimaryDatasetFields": ["url"],
+        "datasetId": actor_call.default_dataset_id,
+        "dataUpdatesStrategy": "deltaUpdates",
+        "dataUpdatesPrimaryDatasetFields": ["url"],
         "deleteExpiredObjects": True,
         "expiredObjectDeletionPeriodDays": 30,
         "embeddingsApiKey": OPENAI_API_KEY,

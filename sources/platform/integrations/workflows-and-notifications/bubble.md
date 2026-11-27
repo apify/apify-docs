@@ -228,7 +228,7 @@ This approach avoids Bubble timeouts, keeps the UI responsive, and scales to lar
 
 ## Available Apify actions and data sources
 
-::: tip Check out the documentation
+:::tip Check out the documentation
 
 Each API call links to the Apify documentation. To learn more about any plugin action or data call, go to the **Plugins** page in your app, select the Apify plugin, and use the documentation links in the field descriptions.
 

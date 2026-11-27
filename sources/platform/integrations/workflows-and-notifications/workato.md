@@ -3,6 +3,7 @@ title: Workato integration
 description: Learn how to connect Apify Actors to Workato recipes to run web scrapes, watch run events, and process the results in your automated workflows.
 sidebar_label: Workato
 slug: /integrations/workato
+last_review: 2026-11-24
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
