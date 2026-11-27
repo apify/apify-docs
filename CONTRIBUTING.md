@@ -110,7 +110,7 @@ This project uses an agent-agnostic approach: standards and workflows live at th
 
 - Any AI assistant can follow `AGENTS.md` and read `standards/` directly
 - Skills-compatible agents (Claude Code, Codex, Gemini CLI, OpenCode, Cursor): discover skills from `.agents/skills/`
-- Claude Code users: use `/doc-write`, `/api-doc`, `/tutorial`, `/review-docs` skills
+- Claude Code users: use `/doc-write`, `/api-doc`, `/tutorial`, `/review-docs`, `/adaptive-svg` skills
 - Cursor users: rules auto-load via glob patterns on `sources/**/*.md` files
 
 ## Repository structure
