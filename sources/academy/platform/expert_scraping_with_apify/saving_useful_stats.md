@@ -56,6 +56,8 @@ Also, an object including these values should be persisted during the run in the
 }
 ```
 
+When you're done, [deploy your changes](./managing_source_code.md#deploying-changes-to-the-amazon-scraper): commit them, including new files, and run `git push`. Once the new build finishes, run the Actor in Apify Console to check that it works.
+
 [**Solution**](./solutions/saving_stats.md)
 
 ## Wrap up
