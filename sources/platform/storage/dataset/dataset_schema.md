@@ -292,6 +292,15 @@ When AI agents interact with Actors through the MCP server or API, they rely on 
 
 Without this metadata, agents must infer field meanings from names alone, which leads to errors.
 
+The [Apify MCP server](/mcp#actor-output-schemas) takes an Actor's output schema from `fields` and from nowhere else:
+
+- The `fetch-actor-details` tool returns your `fields` definition, including every `description` and example, when the agent asks for the output schema by setting `outputSchema` to `true` in the `output` parameter. The tool leaves it out by default.
+- When a user adds your Actor as a tool, the tool lists your field names and types.
+
+An Actor without `fields` has no output schema in the MCP server, so an agent learns what the Actor returns only after it runs. For an Actor with [multiple datasets](/storage/dataset-schema/multiple-datasets), the MCP server reads the `fields` of the `default` dataset.
+
+`fetch-actor-details` returns a `fields` definition of up to 64 KB in full. Above that, agents receive only field names and types, without your descriptions and examples. If the field names and types are larger than 64 KB as well, agents receive no output schema.
+
 ### Field properties
 
 Each field in your schema can include standard JSON Schema properties:
