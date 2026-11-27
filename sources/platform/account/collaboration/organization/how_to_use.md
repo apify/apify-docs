@@ -1,49 +1,80 @@
 ---
-title: Using the organization account
-description: Learn to use and manage your organization account using Apify Console or the Apify API. View the organizations you are in and manage your memberships.
+title: Use the organization account
+description: Learn how to use your organization account with Apify Console. Use organization API tokens and proxy passwords to connect from code and integrations.
 sidebar_position: 2
 slug: /account/collaboration/organization/how-to-use
-sidebar_label: How to use
+sidebar_label: Usage
 ---
 
-Once an account becomes an organization, you can no longer log into it. Instead, you can switch into the organization from one of its member accounts to manage account information, memberships, and Actor runs.
+After you turn an account into an organization, you can no longer log into it. Instead, you can switch into the organization from one of its member accounts to manage account information, memberships, and Actor runs.
 
-While you can't manage an organization account via [API](/api/v2), you can still manage its runs and resources via API like you would with any other account.
+The resources you can access and account details you can edit depend on your [permissions in the organization](/account/collaboration/list-of-permissions#organization).
 
-**[See the video tutorial](https://www.youtube.com/watch?v=BIL6HqtnvKk) on organization accounts.**
+## View organizations
 
-## In Apify Console
+To view the organizations you belong to:
 
-You can switch into **Organization account** view using the account button in the top-left corner.
+1. Log in to [Apify Console](https://console.apify.com).
+1. In the left-side panel, go to **Settings**.
+1. Select the **Organizations** tab.
 
-![Switch to organization account](../images/organizations/switch-to-organization.png)
+### Switch between accounts
 
-In the menu, the account you are currently using is displayed at the top, with all the accounts you can switch to displayed below. When you need to get back to your personal account, you can just switch right back to it - no need to log in and out.
+You can switch between your personal account and organizations you belong to without logging out of Apify Console.
 
-The resources you can access and account details you can edit will depend on your [permissions](../list_of_permissions.md) in the organization.
+To switch between accounts, select your account name and use the dropdown menu.
 
-> When switching between accounts, beware which account you start an Actor run in. If you accidentally start an organization's Actor run in your personal account, the run will be billed to your account (and vice versa).
+:::caution Check the active account before you start a run
 
-### Manage your organizations
+Actor and task runs are billed to the account that's active when you start them.
 
-You can view and manage the organizations you are a member of from the **Organizations** tab on your [account page](https://console.apify.com/settings/organizations).
+:::
 
-If you want to leave an organization you own, you must first transfer ownership to someone else.
+## Connect from code and integrations
 
-![My organizations](../images/organizations/my-organizations.png)
+Use the API to access organization's Actor and task runs, webhooks, schedules, and storages. You can't manage an organization's settings or members through the API.
 
-### Transfer ownership
+Never share your API tokens or passwords.
 
-The organization, its Actors, and its integrations will keep running as they are. The original owner will either leave the organization or become a member with permissions defined by the new owner. Only the new owner will have complete access to the organization.
+### API tokens
 
-## Via API
+To view the organization's API tokens:
 
-While you cannot manage an organization account's settings and members via API, you can access its Actor and task runs, webhooks, schedules, and storages just as you would with any other account.
+1. In [Apify Console](https://console.apify.com), switch into the organization.
+1. In the left-side panel, go to **Settings**.
+1. Select the **API & Integrations** tab.
 
-As a member of an organization, you are assigned an [API token](/integrations/api) (under the **API & Integrations** tab) and proxy password (select the **Proxy** button in the left menu) for accessing the Apify platform via REST API. Apify Console doesn't show the value of an existing token, so to use the API, [create a new token](/integrations/api#create-api-token) or [rotate](/integrations/api#rotation) the assigned one and copy it.
+There are two kinds of API tokens:
 
-The API tokens' functionality reflects your account's permissions in the organization, so if you only have the **read** and **run** permissions for Actors, you will only be able to view and run Actors via API. Only you can view your proxy password. Do not share your API token or proxy password with untrusted parties.
+| Token | Access | Usage |
+| --- | --- | --- |
+| Personal API tokens | Only you can see your token. Limited to your permissions in the organization. Stops working when you leave the organization. | Development and testing |
+| Organization API tokens | All members with the **Manage access tokens** permission can see it. Grants full API access to the organization. | Shared integrations. |
 
-If you have the **manage organization access keys** permission, you are able to view and use organization-wide API tokens. These are shared across the organization, so everyone with the **manage organization access keys** permission can use them for organization-wide integrations.
+### Proxy passwords
 
-For a [detailed breakdown of all Apify API endpoints](/api/v2) and help on using them, visit the API.
+To view the organization's proxy passwords:
+
+1. In [Apify Console](https://console.apify.com), switch into the organization.
+1. In the left-side panel, go to **Proxy**.
+1. Select the **HTTP settings** tab.
+
+There are two types of passwords:
+
+- Member password that only you can see.
+- Organization password that all members with the **Manage access tokens** permission can see. Use it for shared integrations.
+
+The organization pays for all Apify Proxy usage with these passwords.
+
+To reset a password, select **Reset** next to it. The old password stops working immediately, so update every code, integration, or Actor input that uses it.
+
+## Leave an organization
+
+To leave an organization:
+
+1. Log in to [Apify Console](https://console.apify.com).
+1. In the left-side panel, go to **Settings**.
+1. Select the **Organizations** tab.
+1. In **My organizations**, select **Leave organization** next to the organization you want to leave.
+
+To leave an organization that you own, first [transfer ownership](/account/collaboration/organization/setup#transfer-ownership) to another member.
