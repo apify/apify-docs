@@ -267,7 +267,7 @@ Additionally, the **filter-actor** should have a new run. Its **Output** tab sho
 
 **Q: Can you change the allocated memory of an Actor while it's running?**
 
-**A:** Not while it's running. You'd need to stop it and run a new one. However, there is an option to soft abort an Actor, then resurrect the run with a different memory configuration.
+**A:** Not while it's running. You'd need to stop it and run a new one. However, there's an option to soft abort an Actor, then resurrect the run with a different memory configuration.
 
 **Q: How can you run an Actor with Puppeteer on the Apify platform with headless mode set to `false`?**
 
