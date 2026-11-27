@@ -118,7 +118,6 @@ module.exports = {
                     // so let's just disable showing author and last modification
                     showLastUpdateAuthor: false,
                     showLastUpdateTime: false,
-                    editUrl: 'https://github.com/apify/apify-docs/edit/master/',
                     path: './sources/platform',
                     routeBasePath: '/',
                     sidebarPath: require.resolve('./sources/platform/sidebars.js'),
@@ -144,7 +143,6 @@ module.exports = {
                 // so let's just disable showing author and last modification
                 showLastUpdateAuthor: false,
                 showLastUpdateTime: false,
-                editUrl: 'https://github.com/apify/apify-docs/edit/master/',
                 sidebarPath: require.resolve('./sources/academy/sidebars.js'),
             },
         ],
