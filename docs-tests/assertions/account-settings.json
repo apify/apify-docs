@@ -103,10 +103,10 @@
     {
       "id": "own-oauth-client-option",
       "kind": "element_button",
-      "target": "Own OAuth client",
+      "target": "Your own OAuth client",
       "page_context": "MCP connector creation modal, authentication method selection, API & Integrations tab",
-      "source_quote": "In the connector creation modal, select **Own OAuth client** and provide:",
-      "source_line": 85,
+      "source_quote": "In the connector creation modal, select **Your own OAuth client** and provide:",
+      "source_line": 89,
       "needs_auth": true
     },
     {
