@@ -51,7 +51,7 @@ info:
     [Integrations](https://console.apify.com/settings/integrations) page in the
     Apify Console.** The Console shows the token only once, right after you create
     or rotate it, so copy it and store it somewhere safe. For details, see
-    [API token](https://docs.apify.com/integrations/api#api-token).
+    [API token](https://docs.apify.com/account/api-tokens).
 
     To use your token in a request, either:
 

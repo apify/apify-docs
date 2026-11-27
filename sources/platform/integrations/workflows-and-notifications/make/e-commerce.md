@@ -28,7 +28,7 @@ A single module, **Extract using E-commerce Scraping Tool**, powers six operatio
 | **Food Delivery** | Products and reviews from food-delivery marketplaces (Instacart, DoorDash), localized by delivery address. |
 | **Influencer Storefronts** | Posts and (optionally) the products featured by influencers, from influencer storefront URLs. |
 
-To use this module, you need an [Apify account](https://console.apify.com/sign-up) and either an OAuth connection (recommended) or an [API token](/integrations/api#api-token). Running the Actor consumes usage on the Apify platform. Once connected, you can pipe results straight into pricing dashboards, repricing tools, CRMs, sheets, or any other system in your Make scenario.
+To use this module, you need an [Apify account](https://console.apify.com/sign-up) and either an OAuth connection (recommended) or an [API token](/account/api-tokens). Running the Actor consumes usage on the Apify platform. Once connected, you can pipe results straight into pricing dashboards, repricing tools, CRMs, sheets, or any other system in your Make scenario.
 
 ## Connect Apify E-commerce Scraping Tool
 

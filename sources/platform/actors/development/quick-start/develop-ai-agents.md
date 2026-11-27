@@ -26,7 +26,7 @@ Looking to use AI coding assistants (Claude Code, Cursor, GitHub Copilot) to hel
 
 - An [Apify account](https://console.apify.com/sign-up).
 - The [Apify CLI](/cli/docs/installation) installed.
-- Your `APIFY_TOKEN` environment variable set. See [API token](/integrations/api#api-token) for details.
+- Your `APIFY_TOKEN` environment variable set. See [API token](/account/api-tokens) for details.
 
 ## Start from a template
 

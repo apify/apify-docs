@@ -73,7 +73,7 @@ Variables prefixed with `APIFY_` are Apify-platform-specific extensions that go 
 
 | Environment variable | Description |
 | -------------------- | ----------- |
-| `APIFY_TOKEN` | [Run-specific API token](/integrations/api#actor-execution) for the user who started the Actor, with access limited by the Actor's [permission level](/actors/development/permissions#permission-levels). It differs from the API token in Apify Console and expires shortly after the run finishes. |
+| `APIFY_TOKEN` | [Run-specific API token](/account/api-tokens/limited-permissions#actor-execution) for the user who started the Actor, with access limited by the Actor's [permission level](/actors/development/permissions#permission-levels). It differs from the API token in Apify Console and expires shortly after the run finishes. |
 | `APIFY_USER_ID` | ID of the user who started the Actor. May differ from the Actor owner. |
 | `APIFY_USER_IS_PAYING` | If it is `1`, it means that the user who started the Actor is a paying user. |
 | `APIFY_IS_AT_HOME` | Contains **1** if the Actor is running on Apify servers. |

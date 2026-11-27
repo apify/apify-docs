@@ -34,7 +34,7 @@ tool = ApifyScrapeUrlTool()
 print(tool.invoke({"url": "https://docs.apify.com"}))
 ```
 
-Set `APIFY_TOKEN` to your Apify API token, which you can [create in Apify Console](/integrations/api#create-api-token). The tool returns a JSON string holding the run's metadata and the scraped markdown, in the single item's `content` field.
+Set `APIFY_TOKEN` to your Apify API token, which you can [create in Apify Console](/account/api-tokens#create-api-token). The tool returns a JSON string holding the run's metadata and the scraped markdown, in the single item's `content` field.
 
 ## Load web data into a vector index
 
@@ -66,7 +66,7 @@ from langchain_openai.embeddings import OpenAIEmbeddings
 
 ### Set the environment variables
 
-Get your [Apify API token](/integrations/api#create-api-token) and [OpenAI API key](https://platform.openai.com/account/api-keys) and initialize them as environment variables:
+Get your [Apify API token](/account/api-tokens#create-api-token) and [OpenAI API key](https://platform.openai.com/account/api-keys) and initialize them as environment variables:
 
 ```python
 os.environ["OPENAI_API_KEY"] = "Your OpenAI API key"

@@ -4,7 +4,7 @@ import Link from '@docusaurus/Link';
 // integration pages. They render inline, so they work inside list items and
 // bullets without breaking the surrounding list.
 
-const CREATE_TOKEN_URL = '/integrations/api#create-api-token';
+const CREATE_TOKEN_URL = '/account/api-tokens#create-api-token';
 
 // Prerequisite bullets: "- _Apify API token_ - <CreateApiTokenLink />"
 export const CreateApiTokenLink = () => (
@@ -23,8 +23,8 @@ export const GetApiTokenHint = () => (
 // Step after navigating to Settings > API & Integrations: "1. <CreateTokenStep />"
 export const CreateTokenStep = () => (
     <>
-        In the <strong>Personal API tokens</strong> section, select <strong>Create a new token</strong>. Enter a
-        description, optionally limit the token's permissions, and select <strong>Create</strong>.
+        In the <strong>Personal API tokens</strong> section, select <strong>Create a new token</strong>. Enter a name,
+        keep the 90-day <strong>Expiration</strong> or change it, and select <strong>Create</strong>.
     </>
 );
 

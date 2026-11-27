@@ -62,7 +62,7 @@ To call Apify Actors in Langflow, you need to add the **Apify Actors** component
 From the bundle menu, add **Apify Actors** component:
 ![Flow - Add Apify Actors](../images/langflow/bundles_apify.png)
 
-Next,  configure the Apify Actors components. First, input your API token (learn how to get it at [Integrations](https://docs.apify.com/integrations/api)).
+Next, configure the Apify Actors components. First, input your [API token](/account/api-tokens#create-api-token).
 Then, set the Actor ID of the component to `apify/rag-web-browser` to use the [RAG Web Browser](https://apify.com/apify/rag-web-browser).
 Set the **Run input** field to pass arguments to the Actor run, allowing it to search Google with the query `"what is monero?"` (full Actor input schema can be found in the [RAG Web Browser input schema](https://apify.com/apify/rag-web-browser/input-schema)):
 
@@ -94,7 +94,7 @@ Now that you understand how to call Apify Actors, let's build a practical exampl
 
 Create a new flow and add two **Apify Actors** components from the menu.
 
-Input your API token (learn how to get it in the [Integrations documentation](https://docs.apify.com/integrations/api)) and set the Actor ID of the first component to `apify/google-search-scraper` and the second one to `clockworks/free-tiktok-scraper`:
+Input your [API token](/account/api-tokens#create-api-token) and set the Actor ID of the first component to `apify/google-search-scraper` and the second one to `clockworks/free-tiktok-scraper`:
 ![Flow - Actors configuration](../images/langflow/apify_actors_configuration.png)
 
 Add the **Agent** component from the menu and set your OpenAI API key (get it from the [OpenAI API keys page](https://platform.openai.com/account/api-keys)):

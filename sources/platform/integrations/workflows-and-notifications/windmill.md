@@ -6,6 +6,7 @@ slug: /integrations/windmill
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+import { GetApiTokenHint } from '@site/src/components/ApiToken';
 
 [Windmill](https://www.windmill.dev/) is an open-source automation platform for building scripts and flows that connect your tools and data. With the Apify integration for Windmill, you can run Actors and tasks, scrape websites, extract data from storage, and trigger workflows based on Apify events.
 
@@ -62,7 +63,7 @@ You can provide the token to scripts via a **Windmill Resource**. Create it eith
 
 1. Open **Resources** → **New Resource**.
 1. Select `apify_api_key` resource type.
-1. Name it (e.g., `apify_token`) and paste your Apify API token.
+1. Name it (e.g., `apify_token`) and paste your Apify API token. <GetApiTokenHint />
 1. Save, then reference this resource in your scripts/flows.
 
   ![Apify Auth](../images/windmill-install-auth-resource-tab.png)

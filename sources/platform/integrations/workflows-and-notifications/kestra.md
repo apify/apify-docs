@@ -6,6 +6,7 @@ slug: /integrations/kestra
 ---
 
 import ThirdPartyDisclaimer from '@site/sources/_partials/_third-party-integration.mdx';
+import { GetApiTokenHint } from '@site/src/components/ApiToken';
 
 [Kestra](https://kestra.io/) is an open-source, event-driven orchestration platform. The [Apify plugin for Kestra](https://github.com/kestra-io/plugin-kestra) connects Apify Actors and storage to your workflows. Run scrapers, extract structured data - all defined declaratively in YAML and orchestrated directly from the UI.
 
@@ -24,7 +25,7 @@ Before you begin, make sure you have:
 
 The Apify plugin uses API key authentication. Store your API key in [Kestra Secrets](https://kestra.io/docs/concepts/secret) through the UI or environment variables. In the open-source version, manage Secrets using base64-encoded environment variables. You can also use [Kestra's KV Store](https://kestra.io/docs/concepts/kv-store) to persist API keys across executions and workflows.
 
-To add your Apify API token, go to the Secrets section in the Kestra UI and create a new secret with the key `APIFY_API_KEY` and your token as the value.
+To add your Apify API token, go to the Secrets section in the Kestra UI and create a new secret with the key `APIFY_API_KEY` and your token as the value. <GetApiTokenHint />
 
 ## Use Apify tasks as an action
 

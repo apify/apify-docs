@@ -42,7 +42,7 @@ After installing the plugin, you'll need to provide your API token when setting 
 
 ### Get your Apify API token
 
-[Create an API token](/integrations/api#create-api-token) in Apify Console and copy it. It's shown only once, so keep it at hand for the next step.
+[Create an API token](/account/api-tokens#create-api-token) in Apify Console and copy it. It's shown only once, so keep it at hand for the next step.
 
 ### Store the token securely in Bubble
 
@@ -275,7 +275,7 @@ To stay up to date with new features, make sure you're using the latest version 
 
 ### Authentication errors
 
-Ensure your API token is correctly set in the action (preferably as `Current User's apify_api_token`) and that it has the necessary permissions.
+Ensure your API token is correctly set in the action (preferably as `Current User's apify_api_token`) and that it has the necessary [permissions](/account/api-tokens/limited-permissions).
 
 ### Missing Actors or Tasks
 

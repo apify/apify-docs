@@ -58,7 +58,7 @@ The following areas are yours to secure.
 
 ### Accounts, credentials, and API tokens
 
-Use a strong password, enable two-factor authentication, and assign organization members the lowest role they need. Treat API tokens like passwords: prefer scoped tokens, never commit them to code or repositories, and rotate or revoke them when in doubt.
+Use a strong password, enable two-factor authentication, and assign organization members the lowest role they need. Treat [API tokens](/account/api-tokens#good-practices) like passwords: prefer scoped tokens, never commit them to code or repositories, and rotate or revoke them when in doubt.
 
 ### Customer-built Actors
 
@@ -93,7 +93,7 @@ Actors in Apify Store built by third-party developers sit in the middle. The dev
 
 ### Identity and access management
 
-Apify provides the controls: two-factor authentication, SSO, scoped tokens, organization roles, and per-resource access rights. You are responsible for turning them on and configuring them correctly, granting each member and integration the least access it needs.
+Apify provides the controls: two-factor authentication, SSO, [scoped tokens](/account/api-tokens/limited-permissions), organization roles, and per-resource access rights. You are responsible for turning them on and configuring them correctly, granting each member and integration the least access it needs.
 
 ### Incident response
 

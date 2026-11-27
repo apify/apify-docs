@@ -12,7 +12,8 @@ You already have a stack, and you want the data your Actors produce in it. That 
 
 Everything in Apify Console is also available through the REST API, with official clients for JavaScript and Python:
 
-- [API integration](/integrations/api) - get a token, authenticate, and scope what the token can access.
+- [API integration](/integrations/api) - authenticate your requests and pick an API client.
+- [API tokens](/account/api-tokens) - get a token and scope what it can access.
 - [API reference](/api/v2) - every endpoint, with the run and dataset calls you'll use most.
 - [API client for JavaScript](/api/client/js) and [API client for Python](/api/client/python) - libraries that call the same API from your code.
 - [Server Actors](/actors/running/server-actors) - call an Actor as a live HTTP endpoint instead of starting a run per request.

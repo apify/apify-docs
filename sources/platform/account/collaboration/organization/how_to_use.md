@@ -40,10 +40,10 @@ The organization, its Actors, and its integrations will keep running as they are
 
 While you cannot manage an organization account's settings and members via API, you can access its Actor and task runs, webhooks, schedules, and storages just as you would with any other account.
 
-As a member of an organization, you are assigned an [API token](/integrations/api) (under the **API & Integrations** tab) and proxy password (select the **Proxy** button in the left menu) for accessing the Apify platform via REST API. Apify Console doesn't show the value of an existing token, so to use the API, [create a new token](/integrations/api#create-api-token) or [rotate](/integrations/api#rotation) the assigned one and copy it.
+As a member of an organization, you are assigned an [API token](/account/api-tokens) (under the **API & Integrations** tab) and proxy password (select the **Proxy** button in the left menu) for accessing the Apify platform via REST API. Apify Console doesn't show the value of an existing token, so to use the API, [create a new token](/account/api-tokens#create-api-token) or [rotate](/account/api-tokens#rotation) the assigned one and copy it.
 
 The API tokens' functionality reflects your account's permissions in the organization, so if you only have the **read** and **run** permissions for Actors, you will only be able to view and run Actors via API. Only you can view your proxy password. Do not share your API token or proxy password with untrusted parties.
 
-If you have the **manage organization access keys** permission, you are able to view and use organization-wide API tokens. These are shared across the organization, so everyone with the **manage organization access keys** permission can use them for organization-wide integrations.
+If you have the **Manage access tokens** permission, you are able to create and manage [organization API tokens](/account/api-tokens#organization-accounts). These are shared across the organization, so everyone with the **Manage access tokens** permission can use them for organization-wide integrations.
 
 For a [detailed breakdown of all Apify API endpoints](/api/v2) and help on using them, visit the API.

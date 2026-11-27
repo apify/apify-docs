@@ -44,7 +44,7 @@ In Snowsight, open the **Data Products** menu and navigate to the **Marketplace*
 
 During installation, the app prompts you to create a `Network Rule` and an `External Access Integration` so the app can reach the Apify API. The suggested network rule allows `api.apify.com` for the Apify API. It also allows `images.apifyusercontent.com`, `apify-image-uploads-prod.s3.amazonaws.com`, and `apify-image-uploads-prod.s3.us-east-1.amazonaws.com` for Actor pictures.
 
-Follow the instructions shown in the setup screen to create the External Access Integration. On the same screen, select **Configure** next to **Apify API Token** and bind a Snowflake secret of type Generic String containing your Apify API token. If you don't have a token yet, [create one in Apify Console](/integrations/api#create-api-token) first. To choose between a personal and an organization token, see [Choose an API token](#choose-an-api-token).
+Follow the instructions shown in the setup screen to create the External Access Integration. On the same screen, select **Configure** next to **Apify API Token** and bind a Snowflake secret of type Generic String containing your Apify API token. If you don't have a token yet, [create one in Apify Console](/account/api-tokens#create-api-token) first. To choose between a personal and an organization token, see [Choose an API token](#choose-an-api-token).
 
 ![External connections setup during app installation](../images/snowflake/snowflake-setup-eai.png)
 
@@ -52,7 +52,7 @@ Follow the instructions shown in the setup screen to create the External Access 
 
 The app uses one Apify API token for every Snowflake user in the account. Every run, import, and schedule the app creates belongs to the Apify account that owns that token and is billed to it.
 
-- _Organization token_ (recommended for teams) - billed to your [Apify organization](/account/collaboration/organization) and not tied to any one member. In [Apify Console](https://console.apify.com/settings/integrations), switch to your organization, then go to **Settings** > **API & Integrations**. Only the organization owner and members with the _Manage organization access keys_ permission can see organization tokens.
+- _Organization token_ (recommended for teams) - billed to your [Apify organization](/account/collaboration/organization) and not tied to any one member. In [Apify Console](https://console.apify.com/settings/integrations), switch to your organization, then go to **Settings** > **API & Integrations**. Only the organization owner and members with the _Manage access tokens_ permission can see organization tokens.
 - _Personal token_ - every Snowflake user of the app acts as you. Use it only for single-user setups.
 
 To switch tokens later, go to **Admin** > **Security** > **Secrets** in Snowsight, find the secret bound to the app, and update its value.

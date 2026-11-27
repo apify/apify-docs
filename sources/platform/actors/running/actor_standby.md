@@ -45,7 +45,7 @@ Server Actors behave as standard HTTP servers. Use any [HTTP request method](htt
 
 ## Authenticate requests
 
-Authenticate requests to Server Actors the same way as [requests to the Apify API](../../integrations/programming/api.md). Provide your [API token](../../integrations/programming/api.md#api-token) in one of two ways:
+Authenticate requests to Server Actors the same way as [requests to the Apify API](../../integrations/programming/api.md). Provide your [API token](../../account/settings/api-tokens/index.md) in one of two ways:
 
 - _(Recommended)_ Include the token in the `Authorization` header as `Bearer <token>`. This keeps the token out of server logs.
 
@@ -62,11 +62,11 @@ Authenticate requests to Server Actors the same way as [requests to the Apify AP
 
 The platform removes the token from the request before forwarding it, so the token doesn't reach the Actor's code. If the Actor reads the `Authorization` header for its own authentication, send your Apify token in the `X-Apify-Authorization` header instead.
 
-Scoped tokens work for requests to Server Actors. To let a third-party service call your Actor without access to your entire account, give it a [scoped token](/integrations/api#limited-permissions) with only the permissions it needs.
+Scoped tokens work for requests to Server Actors. To let a third-party service call your Actor without access to your entire account, give it a [scoped token](/account/api-tokens/limited-permissions) with only the permissions it needs.
 
 :::caution Restricted access is not supported
 
-A scoped token also has a [restricted access](/integrations/api#restricted-access-restrict-what-actors-can-access-using-the-scope-of-this-actor) option that limits what the Actor's run can access. Server Actors don't support that option.
+A scoped token also has a [restricted access](/account/api-tokens/limited-permissions#restricted-access) option that limits what the Actor's run can access. Server Actors don't support that option.
 
 :::
 

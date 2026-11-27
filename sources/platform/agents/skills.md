@@ -31,7 +31,7 @@ In Claude Code, you can also add the skills marketplace and install skills one a
 /plugin install apify-ultimate-scraper@apify-agent-skills
 ```
 
-Standalone skills call Apify through the [Apify CLI](/cli), so install it with `npm install -g apify-cli` and run `apify login`. In headless environments such as CI, set the `APIFY_TOKEN` environment variable instead. The supported Node.js version is listed in the `engines` field of the [Apify CLI `package.json`](https://github.com/apify/apify-cli/blob/master/package.json).
+Standalone skills call Apify through the [Apify CLI](/cli), so install it with `npm install -g apify-cli` and run `apify login`. In headless environments such as CI, set the `APIFY_TOKEN` environment variable to an [API token](/account/api-tokens#create-api-token) instead. The supported Node.js version is listed in the `engines` field of the [Apify CLI `package.json`](https://github.com/apify/apify-cli/blob/master/package.json).
 
 Agents that discover skills on their own can read the index at [`apify.com/.well-known/agent-skills/index.json`](https://apify.com/.well-known/agent-skills/index.json). It lists the standalone skills in the [Agent Skills specification](https://agentskills.io) format, with a link and a content digest for each `SKILL.md`.
 

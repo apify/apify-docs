@@ -85,7 +85,7 @@ Since tasks are configurations for Actors, this tab shows you all the informatio
 
 ### API
 
-The API tab gives you a quick overview of all the available API calls in case you would like to use your task programmatically. It also includes links to detailed API documentation. The URLs contain a `YOUR_API_TOKEN` placeholder, which you replace with your own [API token](/integrations/api#create-api-token) when you call the endpoint.
+The API tab gives you a quick overview of all the available API calls in case you would like to use your task programmatically. It also includes links to detailed API documentation. The URLs contain a `YOUR_API_TOKEN` placeholder, which you replace with your own [API token](/account/api-tokens#create-api-token) when you call the endpoint.
 
 :::caution Keep your API token private
 
