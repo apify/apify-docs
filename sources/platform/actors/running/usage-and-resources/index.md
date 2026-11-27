@@ -38,17 +38,7 @@ For details, see [Limits](/account/limits).
 
 ### Per-run limits
 
-Run memory must be a power of 2, from 128 MB to 32,768 MB:
-
-- 128 MB
-- 256 MB
-- 512 MB
-- 1,024 MB
-- 2,048 MB
-- 4,096 MB
-- 8,192 MB
-- 16,384 MB
-- 32,768 MB
+Run memory must be a power of 2, from 128 MB to 32,768 MB. [See the allowed values](#resource-allocation).
 
 Depending on the Actor, you might not be able to pick every value. Its developer can set a minimum and maximum memory.
 
@@ -94,7 +84,7 @@ For example, giving a [Cheerio-based crawler](https://apify.com/apify/cheerio-sc
 
 :::note Multi-threaded Node.js configuration
 
-As a developer, you can configure Node.js-based Actor to [use multiple threads](https://dev.to/reevranj/multiple-threads-in-nodejs-how-and-what-s-new-b23). It can be useful if you need to offload a part of your workload.
+As a developer, you can configure a Node.js-based Actor to [use multiple threads](https://dev.to/reevranj/multiple-threads-in-nodejs-how-and-what-s-new-b23). It can be useful if you need to offload a part of your workload.
 
 :::
 
