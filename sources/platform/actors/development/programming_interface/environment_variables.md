@@ -1,6 +1,6 @@
 ---
 title: Actor environment variables
-description: Learn how Actors receive runtime context from system environment variables set by the Apify platform and custom variables you define.
+description: Access the system environment variables that the Apify platform sets for Actor runs, and manage custom variables on the platform and in .env files.
 slug: /actors/development/programming-interface/environment-variables
 sidebar_position: 3
 sidebar_label: Environment variables
@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 Actor runs get their environment variables from two sources:
 
 - [System environment variables](#system-environment-variables) - set automatically by the Apify platform for each Actor run.
-- [Custom environment variables](#custom-environment-variables) - defined by the Actor owner, either in `.actor/actor.json` or in Apify Console.
+- [Custom environment variables](#custom-environment-variables) - defined by the Actor owner on the Actor version, and in a `.env` file for local runs.
 
 By default, both kinds of variables are passed only to the Actor **run**, not to the **build**. For variables passed to the build process (Docker build arguments), see [Build-time environment variables](#build-time-environment-variables).
 
@@ -24,7 +24,7 @@ Apify sets several system environment variables for each Actor run. They come in
 
 :::info Runtime only
 
-System variables apply only to Actor runs and are never passed to builds - not even when **Apply environment variables also to the build process** is enabled in **Code** > **Environment variables**. That option forwards only your custom variables.
+System variables apply only to Actor runs and are never passed to builds - not even when **Apply environment variables also to the build process** is enabled in **Source** > **Code** > **Environment variables**. That option forwards only your custom variables.
 
 :::
 
@@ -90,49 +90,84 @@ Variables prefixed with `APIFY_` are Apify-platform-specific extensions that go 
 
 ## Custom environment variables
 
-Actor owners can define custom environment variables to pass additional configuration to their Actors.
+Actor owners define custom environment variables to pass configuration and secrets to their Actors. Each environment has one source of truth:
 
-- [Define in `actor.json`](#define-in-actorjson)
-- [Define in Apify Console](#define-in-apify-console)
+- Apify platform - the variables stored on the Actor version, which you set in [Apify Console](#set-in-apify-console), with the [Apify CLI](#set-with-the-apify-cli), or with the [Apify MCP server](#set-with-the-apify-mcp-server)
+- Local runs - the [`.env` file](#local-variables-in-env) in the Actor directory
 
-Your local `.actor/actor.json` file overrides variables set in Apify Console.
-To use Console variables, remove the `environmentVariables` key from the local file.
+Deploying code doesn't change the platform variables. Neither `apify push` nor a [Git repository source](/actors/development/deployment/source-types) sends them. Each build copies the variables of its Actor version, so after you change a variable, [build the Actor](/actors/development/builds-and-runs/builds) again for new runs to get the new value.
 
-### Define in `actor.json`
+### Set in Apify Console
 
-Actor owners can define custom environment variables in [`.actor/actor.json`](/actors/development/actor-definition/actor-json). All keys from `environmentVariables` will be set as environment variables into the Apify platform after you push Actor to Apify.
+1. Open your Actor in [Apify Console](https://console.apify.com/actors) and go to **Source** > **Code** > **Environment variables**.
+1. Add your variables. Enable **Secret** for sensitive values.
+1. Save the changes and build the Actor.
 
-```json
-{
-  "actorSpecification": 1,
-  "name": "dataset-to-mysql",
-  "version": "0.1",
-  "buildTag": "latest",
-  "environmentVariables": {
-    "MYSQL_USER": "my_username"
-  }
-}
+### Set with the Apify CLI
+
+The `apify env` commands of the [Apify CLI](/cli) manage the variables of the Actor defined in `.actor/actor.json`, on the version from its `version` field. If `version` is missing, they use version `0.0`. To target another Actor or version, use the `--actor` and `--version` flags. In a monorepo, pick the Actor directory with `--dir`.
+
+| Command | Description |
+| --- | --- |
+| `apify env ls` | List the variables of the Actor version. Secret values stay hidden. |
+| `apify env set <name> [--secret]` | Create or update one variable. The value comes from a prompt or from standard input, never from an argument. |
+| `apify env rm <name>` | Delete one variable. |
+| `apify env push` | Upload the variables from `.env`. Shows the changes and asks before it applies them. New variables are secret unless you pass `--plain`, keys with an empty value are skipped, and `--prune` also deletes variables that aren't in `.env`. |
+| `apify env pull` | Write the platform variables into `.env`. Secret variables get an empty value, or keep the value already in `.env`. |
+| `apify env diff` | Compare `.env` with the platform, and exit with code 1 when they differ. Use it in pre-commit hooks and CI. |
+
+To set a secret without putting its value in the command, let the CLI prompt for it, or pipe it to standard input:
+
+```bash
+apify env set MYSQL_PASSWORD --secret
+printf '%s' "$MYSQL_PASSWORD" | apify env set MYSQL_PASSWORD --secret
 ```
 
-:::info Git-workflow with actor.json
+For all options, read the [environment variables guide](/cli/docs/vars) of the Apify CLI.
 
-If you define `environmentVariables` in `.actor/actor.json`, it only works with [Apify CLI](/cli). If you use a Git workflow for Actor development, the environment variables will not be set from `.actor/actor.json` and you need to define them in Apify Console.
+### Set with the Apify MCP server
 
-:::
+The [Apify MCP server](/mcp#tool-selection) lets AI agents manage the variables with the tools of its `env-vars` category. The category is off by default. The `tools` parameter of the server URL replaces the default selection, so list `env-vars` with the other tools you use, for example `https://mcp.apify.com?tools=actors,docs,env-vars`.
 
-### Define in Apify Console
+| Tool | Description |
+| --- | --- |
+| `get-actor-env-var-list` | List the variables of an Actor version, with the values of plain variables |
+| `set-actor-env-var` | Create or update one variable, plain or secret |
+| `delete-actor-env-var` | Delete one variable |
 
-To set custom variables in Apify Console:
+The server never returns secret values and keeps the values you set out of its logs.
 
-1. Go to your Actor's **Source** page in Apify Console.
+### Local variables in `.env`
 
-1. Navigate to the **Environment variables** section.
+For local runs, keep the values in a `.env` file in the Actor directory, next to `.actor/`:
 
-1. Add your custom variables.
+```text
+MYSQL_USER=my_username
+MYSQL_PASSWORD=my_password
+```
+
+- `apify run` loads `.env`. Its values are literal and override variables from your shell and the ones the CLI sets for the run.
+- `apify push` never uploads `.env` or `.env.*` files, except `.env.example`.
+- `apify init` and `apify create` add `.env` to `.gitignore`.
+
+To fill `.env` from the platform, run `apify env pull`. To upload it, run `apify env push`.
+
+### Move from `environmentVariables` in `actor.json`
+
+Earlier versions of the Apify CLI uploaded `environmentVariables` from `.actor/actor.json` on every `apify push`, which replaced the variables set in Apify Console. `environmentVariables`, `@secret` references, and the `apify secrets` command are deprecated. The values apply to local runs only, and `apify push` warns when `actor.json` contains them.
+
+To move an existing project, run:
+
+```bash
+# Moves the values into .env, resolves @secret references, and removes environmentVariables from actor.json
+apify env migrate
+# Uploads .env to the Actor version
+apify env push
+```
 
 ### Secure environment variables
 
-For sensitive data such as API keys or passwords, enable the **Secret** option when defining a variable in Apify Console. Secret values are encrypted at rest and redacted from Actor run logs to prevent accidental exposure.
+For sensitive data such as API keys or passwords, mark the variable as secret: enable **Secret** in Apify Console, pass `--secret` to `apify env set`, or set `isSecret` with the `set-actor-env-var` MCP tool. Secret values are encrypted at rest and redacted from Actor run logs. They're write-only: once saved, Apify Console, the Apify API, the Apify CLI, and the Apify MCP server never return them.
 
 :::caution Visibility of environment variables in public Actors
 
@@ -240,11 +275,11 @@ ARG MY_BUILD_VARIABLE
 RUN echo $MY_BUILD_VARIABLE
 ```
 
-To pass your user-defined environment variables to the build, enable **Apply environment variables also to the build process** in your Actor's **Code** > **Environment variables** section in Apify Console.
+To pass your custom environment variables to the build, enable **Apply environment variables also to the build process** in **Source** > **Code** > **Environment variables** in Apify Console. With the Apify CLI, set `"applyEnvVarsToBuild": true` in `.actor/actor.json`, or pass `--apply-env-vars-to-build` to `apify push`. If you use neither, `apify push` keeps the setting stored on the platform.
 
 :::caution Only user-defined variables are passed to the build
 
-Even with **Apply environment variables also to the build process** enabled, only the variables you define in the Actor's **Environment variables** section are forwarded to the build. The Apify [system environment variables](#system-environment-variables) (such as `ACTOR_RUN_ID`, `APIFY_TOKEN`, or `ACTOR_DEFAULT_DATASET_ID`) are never available at build time, since the build is not associated with a specific run.
+Even with **Apply environment variables also to the build process** enabled, only the custom variables stored on the Actor version are forwarded to the build. The Apify [system environment variables](#system-environment-variables) (such as `ACTOR_RUN_ID`, `APIFY_TOKEN`, or `ACTOR_DEFAULT_DATASET_ID`) are never available at build time, since the build is not associated with a specific run.
 
 :::
 

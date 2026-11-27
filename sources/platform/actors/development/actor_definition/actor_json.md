@@ -6,7 +6,7 @@ slug: /actors/development/actor-definition/actor-json
 sidebar_position: 1
 ---
 
-Your main Actor configuration is in the `.actor/actor.json` file at the root of your Actor's directory. This file links your local development project to an Actor on the Apify platform. It should include details like the Actor's name, version, build tag, and environment variables. Make sure to commit this file to your Git repository.
+Your main Actor configuration is in the `.actor/actor.json` file at the root of your Actor's directory. This file links your local development project to an Actor on the Apify platform. It should include details like the Actor's name, version, and build tag. Make sure to commit this file to your Git repository.
 
 For example, the `.actor/actor.json` file can look like this:
 
@@ -30,10 +30,6 @@ import TabItem from '@theme/TabItem';
     "defaultMemoryMbytes": "get(input, 'startUrls.length', 1) * 1024",
     "minMemoryMbytes": 256,
     "maxMemoryMbytes": 4096,
-    "environmentVariables": {
-        "MYSQL_USER": "my_username",
-        "MYSQL_PASSWORD": "@mySecretPassword"
-    },
     "usesStandbyMode": false,
     "dockerfile": "./Dockerfile",
     "readme": "./ACTOR.md",
@@ -66,7 +62,7 @@ import TabItem from '@theme/TabItem';
 
 :::note Deployment metadata
 
-Actor `name`, `version`, `buildTag`, and `environmentVariables` are currently only used when you deploy your Actor using the [Apify CLI](/cli) and not when deployed, for example, via GitHub integration. There, it serves for informative purposes only.
+Actor `name`, `version`, `buildTag`, and `applyEnvVarsToBuild` are currently only used when you deploy your Actor using the [Apify CLI](/cli) and not when deployed, for example, via GitHub integration. There, it serves for informative purposes only.
 
 :::
 
@@ -81,7 +77,8 @@ Path values are relative to the `.actor/` directory, so `../` points to the Acto
 | `version` | Required | The version of the Actor, specified in the format `[Number].[Number]`, e.g., `0.1`, `0.3`, `1.0`, `1.3`, etc. |
 | `buildTag` | Optional | The tag name to apply to a successful build of the Actor. If not specified, builds of version `0.0` get the `latest` tag, and builds of other versions get no tag. For details, see [Actor builds](../builds_and_runs/builds.md). |
 | `meta` | Optional | Metadata object containing additional information about the Actor. Currently supports `templateId` field to identify the template from which the Actor was created. |
-| `environmentVariables` | Optional | A map of environment variables to be used during local development. These variables will also be applied to the Actor when deployed on the Apify platform. For more details, see the [environment variables](/cli/docs/vars) section of the Apify CLI documentation. |
+| `environmentVariables` | Optional | _Deprecated_ - A map of environment variables for local runs with `apify run`. `apify push` doesn't upload them to the Apify platform. Keep local values in a `.env` file instead, and run `apify env migrate` to move them there. Read more about [custom environment variables](/actors/development/programming-interface/environment-variables#custom-environment-variables). |
+| `applyEnvVarsToBuild` | Optional | If `true`, `apify push` makes the custom environment variables of the Actor version also available to the build process. If omitted, the setting stored on the platform is kept. Read more about [build-time environment variables](/actors/development/programming-interface/environment-variables#build-time-environment-variables). |
 | `dockerfile` | Optional | The path to the Dockerfile to be used for building the Actor on the platform. If not specified, the system will search for Dockerfiles in the `.actor/Dockerfile` and `Dockerfile` paths, in that order. Refer to the [Dockerfile](./docker.md) section for more information. |
 | `dockerContextDir` | Optional | The path to the directory to be used as the Docker context when building the Actor. The path is relative to the location of the `actor.json` file. This property is useful for monorepos containing multiple Actors. Refer to the [Actor monorepos](../deployment/source_types.md#actor-monorepos) section for more details. |
 | `readme` | Optional | The path to the README file to be used on the platform. If not specified, the system will look for README files in the `.actor/README.md` and `README.md` paths, in that order of preference. For details, see [Create an Actor README](/actors/publishing/actor-readme). |
