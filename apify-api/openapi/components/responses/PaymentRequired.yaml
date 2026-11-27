@@ -1,9 +1,9 @@
-description: Payment required - the user has exceeded their usage limit, does not have enough credits, or the request lacks authentication and payment credentials.
+description: Payment required - the request exceeds a plan limit (Actor memory or concurrent runs), the user does not have enough remaining usage to run a paid Actor, or the dataset is locked because its owner has overdue invoices or has reached their monthly usage limit.
 content:
   application/json:
     schema:
       $ref: ../schemas/common/ErrorResponse.yaml
     example:
       error:
-        type: x402-payment-required
-        message: Please provide X402-PAYMENT-SIGNATURE header with the payment. See https://x402.org.
+        type: actor-memory-limit-exceeded
+        message: "By launching this job you will exceed the memory limit of 8192MB for all your Actor runs and builds (currently used: 8192MB, requested: 1024MB). Please consider an upgrade to a paid plan at https://console.apify.com/billing/subscription to increase your Actor memory limit."

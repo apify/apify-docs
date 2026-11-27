@@ -36,7 +36,6 @@ example:
         currentPricingInfo:
           pricingModel: FREE
         isVerified: true
-        isWhiteListedForAgenticPayments: true
       - id: zdc3Pyhyz3m8vjDeM
         title: My Public Actor
         name: my-public-actor
@@ -59,4 +58,3 @@ example:
         currentPricingInfo:
           pricingModel: FREE
         isVerified: false
-        isWhiteListedForAgenticPayments: false

@@ -84,9 +84,6 @@ properties:
         description: The number of reviews the Actor has received in Apify Store.
   currentPricingInfo:
     $ref: ./CurrentPricingInfo.yaml
-  isWhiteListedForAgenticPayments:
-    type: [boolean, "null"]
-    description: Whether the Actor is whitelisted for agentic payment processing.
   isVerified:
     type: boolean
     description: Whether the Actor's developer has a verified identity.
