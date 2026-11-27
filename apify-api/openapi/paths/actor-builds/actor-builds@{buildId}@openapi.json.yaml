@@ -9,7 +9,10 @@ get:
     - [Get OpenAPI definition of Actor build](/api/v2/actor-build-openapi-json-get) (`/v2/actor-builds/{buildId}/openapi.json`): Requires only `buildId`.
 
     Get the OpenAPI definition for a specific Actor build.
-    Authentication is based on the build's unique ID. No authentication token is required.
+
+    This endpoint does not require the authentication token if the Actor is public or if the build's owner has
+    [general resource access](https://docs.apify.com/account/collaboration/general-resource-access) set to
+    **Anyone with ID can read**. Otherwise, the token must have access to the build.
 
     :::note
 
@@ -17,7 +20,6 @@ get:
 
     :::
   operationId: actorBuild_openapi_json_get
-  security: []
   parameters:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/buildIdWithDefault"
   responses:
@@ -31,6 +33,10 @@ get:
             description: A standard OpenAPI 3.x JSON document.
     "400":
       $ref: ../../components/responses/BadRequest.yaml
+    "401":
+      $ref: ../../components/responses/Unauthorized.yaml
+    "403":
+      $ref: ../../components/responses/Forbidden.yaml
     "404":
       $ref: ../../components/responses/NotFound.yaml
     "405":

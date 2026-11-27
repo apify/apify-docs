@@ -12,7 +12,11 @@ get:
     Get the OpenAPI definition for a specific Actor build.
 
     To fetch the default Actor build, simply pass `default` as the `buildId`.
-    Authentication is based on the build's unique ID. No authentication token is required.
+
+    This endpoint does not require the authentication token if the Actor is public or, when you pass a build ID,
+    if the build's owner has [general resource access](https://docs.apify.com/account/collaboration/general-resource-access)
+    set to **Anyone with ID can read**. Otherwise, the token must have access to the build, or to the Actor when you
+    pass `default`.
 
     :::note
 
@@ -20,7 +24,6 @@ get:
 
     :::
   operationId: actor_openapi_json_get
-  security: []
   parameters:
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/actorId"
     - $ref: "../../components/parameters/runAndBuildParameters.yaml#/buildIdWithDefault"
